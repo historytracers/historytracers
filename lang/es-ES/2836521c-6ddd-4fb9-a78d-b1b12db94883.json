@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782947069"
+      "1783052822"
    ],
    "authors": [
       ""
@@ -323,194 +323,194 @@
                "format": "html",
                "PostMention": ""
             }
-            ]
-         },
-         {
-            "id": "SECTION_mult",
-            "text": [
-               {
-                  "text": "### Analizando la Multiplicación\n\nCuando realizamos multiplicación mediante los ábacos, destacamos el hecho de que al realizar la multiplicación, deberíamos siempre mover de la columna de las unidades el valor del complemento cuando la multiplicación se realizara (<htcite0>), pero este no es el único movimiento al que debemos prestar atención cuando realizamos la multiplicación, principalmente cuando multiplicamos números con más de un dígito.\n\nA partir de este momento, utilizaremos la tabla del 2 (<htcite3>) como ejemplo.",
-                  "source": [
-                     {
-                        "type": 1,
-                        "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
-                        "text": "History Tracers Team",
-                        "page": "Multiplicando con Soroban y Suanpan (算盤)",
-                        "date_time": {
-                           "type": "gregory",
-                           "year": "2026",
-                           "month": "",
-                           "day": ""
-                        }
-                     },
-                     {
-                        "type": 1,
-                        "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
-                        "text": "History Tracers Team",
-                        "page": "Entendiendo la Tabla de Multiplicar (2 y 3)",
-                        "date_time": {
-                           "type": "gregory",
-                           "year": "2025",
-                           "month": "",
-                           "day": ""
-                        }
+         ]
+      },
+      {
+         "id": "SECTION_mult",
+         "text": [
+            {
+               "text": "### Analizando la Multiplicación\n\nCuando realizamos multiplicación mediante los ábacos, destacamos el hecho de que al realizar la multiplicación, deberíamos siempre mover de la columna de las unidades el valor del complemento cuando la multiplicación se realizara (<htcite0>), pero este no es el único movimiento al que debemos prestar atención cuando realizamos la multiplicación, principalmente cuando multiplicamos números con más de un dígito.\n\nA partir de este momento, utilizaremos la tabla del 2 (<htcite3>) como ejemplo.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando con Soroban y Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
                      }
-                  ],
-                  "date_time": null,
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "markdown",
-                  "PostMention": ""
-               },
-               {
-                  "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
-                  "source": null,
-                  "date_time": null,
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "html",
-                  "PostMention": ""
-               },
-               {
-                  "text": "#### El complemento en la multiplicación\n\nComo la multiplicación son sumas consecutivas de un mismo número (<htcite0>), lo que ya vimos para la suma también se aplicará en la multiplicación. Esto quiere decir que solamente será necesario utilizar la siguiente orden cuando los valores de la orden actual sean mayores que el complemento.\n\nPara el caso de la tabla del 2, que tiene como complemento 8 (2 + 8 = 10), esto significa que solo avanzamos algún número a la siguiente orden si la multiplicación por 2 es mayor o igual a 5. Puedes visualizar esta transformación a través de la **Tabla del 2** y del **Cálculo 1** a continuación.",
-                  "source": [
-                     {
-                        "type": 1,
-                        "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
-                        "text": "History Tracers Team",
-                        "page": "Sumando el mismo número",
-                        "date_time": {
-                           "type": "gregory",
-                           "year": "2025",
-                           "month": "5",
-                           "day": "9"
-                        }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la Tabla de Multiplicar (2 y 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
                      }
-                  ],
-                  "date_time": [],
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "markdown",
-                  "PostMention": ""
-               },
-               {
-                  "text": "<p style=\"text-align=center\"><center><span class=\"multexample\" id=\"cmoc2\">1 </span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"multexample\" id=\"mmtc1\">6 </span> <br />× &nbsp;&nbsp;<span class=\"multexample\" id=\"mmbc1\">2 </span><br />_____<br /></span>&nbsp; <span class=\"multexample\" id=\"mmrc2\">1 </span><span class=\"multexample\" id=\"mmrc1\">2 </span></center></p><p class=\"desc\"><b>Cálculo 1</b>: Multiplicación de 6 por 2.</p>",
-                  "source": null,
-                  "date_time": null,
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "html",
-                  "PostMention": ""
-               },
-               {
-                  "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Multiplicando en el Soroban y Suanpan (算盤) (6 × 2)</b><br />Este ejercicio está basado en otro texto de History Tracers, si no lo has estudiado, sería mejor revisarlo primero: <htcite0>.<br /><br />1. Elige un modelo de ábaco (\"Soroban (1×4)\" o \"Suanpan (2×5)\").<br /><br />2. Suma de 2 en 2 hasta visualizar el número 12. Es decir, suma 2 seis veces.</div></div></p>",
-                  "source": [
-                     {
-                        "type": 1,
-                        "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
-                        "text": "History Tracers Team",
-                        "page": "Multiplicando con Soroban y Suanpan (算盤)",
-                        "date_time": {
-                           "type": "gregory",
-                           "year": "2026",
-                           "month": "",
-                           "day": ""
-                        }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El complemento en la multiplicación\n\nComo la multiplicación son sumas consecutivas de un mismo número (<htcite0>), lo que ya vimos para la suma también se aplicará en la multiplicación. Esto quiere decir que solamente será necesario utilizar la siguiente orden cuando los valores de la orden actual sean mayores que el complemento.\n\nPara el caso de la tabla del 2, que tiene como complemento 8 (2 + 8 = 10), esto significa que solo avanzamos algún número a la siguiente orden si la multiplicación por 2 es mayor o igual a 5. Puedes visualizar esta transformación a través de la **Tabla del 2** y del **Cálculo 1** a continuación.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando el mismo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
                      }
-                  ],
-                  "date_time": null,
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "html",
-                  "PostMention": ""
-               },
-               {
-                  "text": "#### El tamaño del resultado de la multiplicación\n\nEntender los números que estamos multiplicando también nos ayuda a ver si durante nuestros cálculos, el resultado tiene el tamaño esperado, o si nuestras cuentas tienen menos dígitos de los deseados.\n\nPor ejemplo, cualquier multiplicación de 2 por un número menor que 5, tendrá solo un resultado con unidades (<htcite0>). Por otro lado, a partir del momento en que multiplicamos por 5 o un valor mayor, obligatoriamente nuestro resultado tendrá, además de las unidades, decenas, como en el **Cálculo 1**.\n\n#### El tamaño en la práctica\n\nObserva el **Cálculo 2** y reflexiona:",
-                  "source": [
-                     {
-                        "type": 1,
-                        "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
-                        "text": "History Tracers Team",
-                        "page": "Familias numéricas (Parte II)",
-                        "date_time": {
-                           "type": "gregory",
-                           "year": "2024",
-                           "month": "-1",
-                           "day": "-1"
-                        }
+                  }
+               ],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center><span class=\"multexample\" id=\"cmoc2\">1 </span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"multexample\" id=\"mmtc1\">6 </span> <br />× &nbsp;&nbsp;<span class=\"multexample\" id=\"mmbc1\">2 </span><br />_____<br /></span>&nbsp; <span class=\"multexample\" id=\"mmrc2\">1 </span><span class=\"multexample\" id=\"mmrc1\">2 </span></center></p><p class=\"desc\"><b>Cálculo 1</b>: Multiplicación de 6 por 2.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Multiplicando en el Soroban y Suanpan (算盤) (6 × 2)</b><br />Este ejercicio está basado en otro texto de History Tracers, si no lo has estudiado, sería mejor revisarlo primero: <htcite0>.<br /><br />1. Elige un modelo de ábaco (\"Soroban (1×4)\" o \"Suanpan (2×5)\").<br /><br />2. Suma de 2 en 2 hasta visualizar el número 12. Es decir, suma 2 seis veces.</div></div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando con Soroban y Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
                      }
-                  ],
-                  "date_time": [],
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "markdown",
-                  "PostMention": ""
-               },
-               {
-                  "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;<span id=\"mmtc1\">52</span> <br />× <span class=\"multexample\" id=\"mmbc1\">2 </span><br />_____<br /></center></p><p class=\"desc\"><b>Cálculo 2</b>: Multiplicación de 52 por 2.</p>",
-                  "source": null,
-                  "date_time": null,
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "html",
-                  "PostMention": ""
-               },
-               {
-                  "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 5: Paso a paso</b><br /><br />Al ver un cálculo como el propuesto, ¿empiezas a hacerlo directamente? ¿O analizas lo que esperas de él?<br /><br />Si analizas lo que el cálculo está proponiendo, ¿no sería más fácil estimar y verificar posibles errores?<br /><br />¿Alguna vez habías pensado que los cálculos te dicen qué esperar de ellos antes de calcular?</div></div></center></p>",
-                  "source": null,
-                  "date_time": null,
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "html",
-                  "PostMention": ""
-               },
-               {
-                  "text": "Para dejar más claro lo que la reflexión nos dice, lo haremos mediante una práctica.",
-                  "source": [],
-                  "date_time": [],
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "markdown",
-                  "PostMention": ""
-               },
-               {
-                  "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Multiplicando en el Soroban y Suanpan (算盤) (52 × 2)</b><br />En primer lugar, debemos recordar que el número 52, que deseamos repetir dos veces, puede reescribirse como: 50 + 2 (<htcite0>). Con esto, podemos analizar el número por separado:<br /><br />- Cuando multiplicamos 0 por 2, sabemos que esto resultará en 0, ya que estamos repitiendo nada varias veces (<htcite1>). Al multiplicar el 5, como el resultado es igual a 10, esto nos indica que el resultado final de la multiplicación irá más allá de las decenas que inicialmente propusimos, es decir, el resultado final tendrá tres dígitos.<br /><br />Sabiendo que nuestro resultado tendrá tres dígitos debido a un componente (las decenas), necesitamos ver cómo las unidades afectarán el otro resultado.<br /><br />- Como 2 es menor que 5, podemos concluir que no será necesaria otra orden — la decena — para escribir el resultado.<br /><br />Después de analizar los números mediante la lectura de los componentes iniciales (decenas y unidades) por separado, podemos realizar el cálculo final usando el ábaco de la siguiente manera:<br /><br />- Haz clic en el botón <b>Reiniciar</b> del ábaco.<br />- Como el orden de la suma no altera el resultado, comenzaremos multiplicando la decena, es decir, 50 × 2;<br />- No alteraremos las unidades, ya que 0 × 2 = 0;<br />- Ahora, muévete a las decenas y suma 5 dos veces, es decir, haremos 5 × 2 = 10. No olvides que solo podemos representar números entre 0 y 9 en cada columna, por lo que el resultado final tendrá 1 en la centena, 0 en la decena y 0 en la unidad.<br />- Ahora, pasamos a multiplicar las unidades. Para ello, coloca el número 4 en el ábaco, ya que 2 × 2 = 4.<br /><br />Al finalizar estos pasos, tu ábaco debería mostrar el resultado 104.</div></div></p>",
-                  "source": [
-                     {
-                        "type": 1,
-                        "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
-                        "text": "History Tracers Team",
-                        "page": "Relectura",
-                        "date_time": {
-                           "type": "gregory",
-                           "year": "2025",
-                           "month": "",
-                           "day": ""
-                        }
-                     },
-                     {
-                        "type": 1,
-                        "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
-                        "text": "History Tracers Team",
-                        "page": "Entendiendo la tabla de multiplicar (0 y 1)",
-                        "date_time": {
-                           "type": "gregory",
-                           "year": "2025",
-                           "month": "-1",
-                           "day": "-1"
-                        }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El tamaño del resultado de la multiplicación\n\nEntender los números que estamos multiplicando también nos ayuda a ver si durante nuestros cálculos, el resultado tiene el tamaño esperado, o si nuestras cuentas tienen menos dígitos de los deseados.\n\nPor ejemplo, cualquier multiplicación de 2 por un número menor que 5, tendrá solo un resultado con unidades (<htcite0>). Por otro lado, a partir del momento en que multiplicamos por 5 o un valor mayor, obligatoriamente nuestro resultado tendrá, además de las unidades, decenas, como en el **Cálculo 1**.\n\n#### El tamaño en la práctica\n\nObserva el **Cálculo 2** y reflexiona:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Familias numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
                      }
-                  ],
-                  "date_time": null,
-                  "isTable": false,
-                  "imgdesc": "",
-                  "format": "html",
-                  "PostMention": ""
-               }
-            ]
-         }
-      ],
-    "exercise_v2": null,
+                  }
+               ],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;<span id=\"mmtc1\">52</span> <br />× <span class=\"multexample\" id=\"mmbc1\">2 </span><br />_____<br /></center></p><p class=\"desc\"><b>Cálculo 2</b>: Multiplicación de 52 por 2.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 5: Paso a paso</b><br /><br />Al ver un cálculo como el propuesto, ¿empiezas a hacerlo directamente? ¿O analizas lo que esperas de él?<br /><br />Si analizas lo que el cálculo está proponiendo, ¿no sería más fácil estimar y verificar posibles errores?<br /><br />¿Alguna vez habías pensado que los cálculos te dicen qué esperar de ellos antes de calcular?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para dejar más claro lo que la reflexión nos dice, lo haremos mediante una práctica.",
+               "source": [],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Multiplicando en el Soroban y Suanpan (算盤) (52 × 2)</b><br />En primer lugar, debemos recordar que el número 52, que deseamos repetir dos veces, puede reescribirse como: 50 + 2 (<htcite0>). Con esto, podemos analizar el número por separado:<br /><br />- Cuando multiplicamos 0 por 2, sabemos que esto resultará en 0, ya que estamos repitiendo nada varias veces (<htcite1>). Al multiplicar el 5, como el resultado es igual a 10, esto nos indica que el resultado final de la multiplicación irá más allá de las decenas que inicialmente propusimos, es decir, el resultado final tendrá tres dígitos.<br /><br />Sabiendo que nuestro resultado tendrá tres dígitos debido a un componente (las decenas), necesitamos ver cómo las unidades afectarán el otro resultado.<br /><br />- Como 2 es menor que 5, podemos concluir que no será necesaria otra orden — la decena — para escribir el resultado.<br /><br />Después de analizar los números mediante la lectura de los componentes iniciales (decenas y unidades) por separado, podemos realizar el cálculo final usando el ábaco de la siguiente manera:<br /><br />- Haz clic en el botón <b>Reiniciar</b> del ábaco.<br />- Como el orden de la suma no altera el resultado, comenzaremos multiplicando la decena, es decir, 50 × 2;<br />- No alteraremos las unidades, ya que 0 × 2 = 0;<br />- Ahora, muévete a las decenas y suma 5 dos veces, es decir, haremos 5 × 2 = 10. No olvides que solo podemos representar números entre 0 y 9 en cada columna, por lo que el resultado final tendrá 1 en la centena, 0 en la decena y 0 en la unidad.<br />- Ahora, pasamos a multiplicar las unidades. Para ello, coloca el número 4 en el ábaco, ya que 2 × 2 = 4.<br /><br />Al finalizar estos pasos, tu ábaco debería mostrar el resultado 104.</div></div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "text": "History Tracers Team",
+                     "page": "Relectura",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la tabla de multiplicar (0 y 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
    "game_v2": null,
    "date_time": null
 }
