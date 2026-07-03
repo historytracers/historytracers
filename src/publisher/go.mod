@@ -10,7 +10,7 @@ require (
 	golang.org/x/net v0.46.0
 )
 
-replace github.com/historytracers/common => ../common
+replace github.com/historytracers/common => ../common/src/go
 
 require github.com/historytracers/common v0.0.0-20260702181604-c40f654376d7
 

@@ -36,6 +36,6 @@ require (
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 )
 
-replace github.com/historytracers/common => ../common
+replace github.com/historytracers/common => ../common/src/go
 
 replace github.com/webview/webview_go => ../viewer/webview_patch

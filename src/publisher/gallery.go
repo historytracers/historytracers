@@ -107,7 +107,6 @@ func HTGenerateGalleryIndex() {
 				ValueType: "",
 				HTMLValue: intro,
 				Value:     nil,
-				Source:    nil,
 				DateTime:  nil,
 			},
 			{
@@ -117,7 +116,6 @@ func HTGenerateGalleryIndex() {
 				ValueType: "",
 				HTMLValue: "<h3>" + langHeaders[lang] + "</h3>",
 				Value:     nil,
-				Source:    nil,
 				DateTime:  nil,
 			},
 			{
@@ -127,7 +125,6 @@ func HTGenerateGalleryIndex() {
 				ValueType: "group-list",
 				HTMLValue: "",
 				Value:     values,
-				Source:    nil,
 				DateTime:  nil,
 			},
 		}
