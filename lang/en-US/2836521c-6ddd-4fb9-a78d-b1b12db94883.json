@@ -1,0 +1,530 @@
+{
+   "title": "Soroban and Suanpan (算盤) in rereading",
+   "header": "Soroban and Suanpan (算盤) in rereading",
+   "sources": [
+      "2836521c-6ddd-4fb9-a78d-b1b12db94883"
+   ],
+   "scripts": [
+      "2836521c-6ddd-4fb9-a78d-b1b12db94883",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/2836521c-6ddd-4fb9-a78d-b1b12db94883_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/3dQRYz6Y5xYzUj2iQ9KRF1?si=PRfo0ECuR0uj4-mQmC7xUw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1783083646"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nWhen we consecutively add the same value—that is, when we multiply numbers (<htcite0>)—we may end up changing the order of the factors, depending on the numbers we are working with. To better understand these changes, we recommend studying the entire chapter on multiplication tables in the *First Steps* section, as well as the text on rereading numbers (<htcite1>; <htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same number",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First Steps (Volume 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "text": "History Tracers Team",
+                     "page": "Rereading",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nAs Dhavit Prem rightly points out in one of his presentations on the Inca Yupana, one of the problems people face during the learning process is the fear of making mistakes (<htcite0>), even though mistakes are part of that process.\n\nOne possible explanation for this fear of error may lie in the fact that, from an early age, we do not fully understand what we are studying. Thus, we fail to realize that the very process of studying can indicate whether we are on the right track or whether we have gone wrong at some point, which can naturally lead us to make mistakes.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5dbd2e9f-5631-407e-9b80-e3a5d4f8838f",
+                     "text": "Prem, Dhavit",
+                     "page": "00:16:21, 02:09:08",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: On Mistakes</b><br /><br />Would you like mathematical calculations, at the very least, to tell you whether the path you are following is right or wrong?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_limits",
+         "text": [
+            {
+               "text": "### Limits and complements in sums\n\nSo far, in the *First Steps* section (<htcite0>), we have studied numbers and how we move between them, whether by adding or multiplying.\n\nWe have also observed that these two operations are connected, with multiplication being interpreted as the repeated addition of the same number (<htcite1>).\n\nHowever, these are not the only concepts studied so far. We have also studied the initial concept of limits in nature (<htcite2>), which has always been present in these operations, even though we have not yet spoken about it directly.\n\nTherefore, before continuing, reflect:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First Steps (Volume 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same number",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limits in Nature",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: The limit of a sum</b><br /><br />How could the concept of limit we have seen help us verify the result of a calculation?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Limits in addition (maximums and minimums)\n\nTo better visualize the concept of limits in the operations studied, we will initially use tools developed in China (Zhongguo 中國) and Japan (Nippon koku or Nihon koku, 日本国), generally known as abacuses.\n\nWe will start with the Japanese version, the **Soroban (1×4)**. So click on it to proceed.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: clamp(1.5rem, 5vw, 3.5rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: clamp(0.8rem, 3vw, 1.8rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 1100px; transition: all 0.2s ease; } .soroban-frame { background: #e9ddb0; border-radius: clamp(1rem, 3vw, 1.8rem); padding: clamp(8px, 2vw, 16px); box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; width: 100%; height: auto; aspect-ratio: 860 / 400; } .value-panel { margin-top: clamp(0.8rem, 4vw, 1.8rem); background: #2e241f; border-radius: 60px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);  display: flex; justify-content: space-between;  align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center;  gap: clamp(8px, 2vw, 18px); flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 0.4rem 1rem; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.9rem); letter-spacing: 1px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: clamp(0.7rem, 3.5vw, 1.2rem); font-weight: normal; background: #4a3929; color: #ffecb3; padding: 0.2rem 0.7rem; border-radius: 30px; margin-left: 8px;  white-space: nowrap; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.2rem); font-family: inherit; padding: 0.5rem 1.2rem; border-radius: 60px; cursor: pointer;  transition: 0.08s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; min-width: 100px; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822;  } .legend {  font-size: clamp(0.6rem, 2.8vw, 0.75rem); margin-top: 0; text-align: center;  color: #302419;  background: #ebdfbe; display: inline-block; width: auto;  padding: 0.3rem 0.9rem; border-radius: 60px; backdrop-filter: blur(2px); white-space: nowrap; } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 12px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 0.3rem 1rem; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; color: #302419; white-space: nowrap; } .mode-selector { background: #ebdfbe; border-radius: 60px;  padding: 0.3rem 1rem; display: flex;  gap: 12px; align-items: center; flex-wrap: wrap; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 3vw, 0.85rem); font-family: inherit; padding: 0.4rem 1rem; border-radius: 40px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; white-space: nowrap; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: clamp(0.65rem, 2.8vw, 0.75rem); } .warning-message { background: #ff9800; color: #2e241f; padding: 0.3rem 1rem; border-radius: 40px; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: normal; word-break: keep-all; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; } @media (max-width: 720px) { .value-panel { flex-direction: column; align-items: stretch; border-radius: 32px; } .value-panel-left { justify-content: center; } .readout { text-align: center; white-space: normal; word-break: break-word; } .footer { flex-direction: column; align-items: stretch; } .mode-selector, .info-area, .decimal-control { justify-content: center; } .legend { white-space: normal; text-align: center; } .reset-btn { text-align: center; width: 100%; } } @media (max-width: 480px) { .readout span { margin-left: 4px; } .mode-selector { justify-content: center; gap: 8px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In the **Soroban (1x4)**, each column can only represent values between 0 and 9, which correspond to the smallest and largest possible value in a single order of the decimal system currently in use (<htcite0>).\n\nThese marker groups also reveal another important piece of information. The upper marker — also known as (<htcite1>) — has a value of 5, a value that cannot be obtained solely by adding the lower markers, which, when all are resting on the counting bar, total 4. Thus, the combination of markers allows us to represent all values from 0 to 9 without needing to advance to the next order.\n\n#### Advancing one order\n\nIn addition to interpreting the upper and lower positions of the abacus as our hands, we can also understand them as two numbers we are adding. As long as the sum can be represented in the same column (up to the value 9), there will be no change of order, meaning we will not need to use more than one column of the abacus.\n\nOn the other hand, if we are adding two numbers whose sum is greater than or equal to 10, we must necessarily use the next column. This procedure is popularly known as \"carrying over.\" Observe some examples in **Calculation 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Our current numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Building to count (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <p class=\"desc\"><b>Calculation 1</b>: Addition of two numbers whose results are greater than or equal to 10.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: What about the complement?</b><br /><br />From the moment we have all fingers of our hands raised (ten fingers), or, if you prefer, from the moment we need to use more markers than exist in one column of the Soroban (算盤), we know that our calculations will necessarily exceed the units order and, therefore, will need a new order (or more hands, or even more columns).<br /><br />Does this mean that the limit to stay without \"carrying over\" is to add a number smaller than the complement of the other number?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The complement as a limit\n\nWhen studying numerical complements and their use to perform sums (<htcite0>), we saw that we can reach a given result by adding the complement to a number. For example, if we want to reach 10 and we have 6, we just add its complement, 4, since 6 + 4 = 10.\n\nNow, using complements again, we can go further. We can understand the complement as the maximum limit before the change to a new order. In other words, whenever we add a number smaller than the complement, we remain in the same order. When we add the complement or a larger value, it becomes necessary to advance to the next order (or to the next column).\n\nLet us use the example of the complements of 6 to make this idea clearer:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team",
+                     "page": "Adding with Soroban and Suanpan (算盤) (Part 2)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>6</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi></math><br /><p class=\"desc\"><b>Calculation 6</b>: Sum of numbers from 0 to 9 to the number 6.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "If you wish, you can switch the abacus above to **Suanpan (2x5)** mode and execute **Calculation 2** on it.\n\nIn **Calculation 2**, we can observe that:\n- until we reach the complement of 6, which is 4, all sums remain in the units order;\n- from the moment we reach the complement, all sums also start involving the tens order.\n\nGiven this scenario, we can reach important conclusions about how complements and limits help us verify whether our calculations might contain errors:\n- when adding a number smaller than the complement, it is not possible to obtain a result that reaches the tens order;\n- from the moment we add the complement or a larger number, the result necessarily starts involving a new order.\n\nWith these conclusions about addition, we can reflect on our next steps.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: What about multiplication?</b><br /><br />With what we have seen so far on this page, how could we verify whether the results of a multiplication are on the right track?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mult",
+         "text": [
+            {
+               "text": "### Analyzing Multiplication\n\nWhen performing multiplication using abacuses, we highlighted the fact that when carrying out multiplication, we should always move the complement value from the units column when the multiplication was performed (<htcite0>), but this is not the only movement we need to pay attention to when performing multiplication, especially when multiplying numbers with more than one digit.\n\nFrom this point on, we will use the 2 times table (<htcite3>) as an example.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Times Table (2 and 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The complement in multiplication\n\nSince multiplication is the consecutive addition of the same number (<htcite0>), what we have already seen for addition will also apply to multiplication. This means that we will only need to use the next order when the values of the current order are greater than the complement.\n\nIn the case of the 2 times table, whose complement is 8 (2 + 8 = 10), this means that we only advance a number to the next order if the multiplication by 2 is greater than or equal to 5. You can visualize this transformation through the **2 Times Table** and **Calculation 1** below.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same number",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center><span class=\"multexample\" id=\"cmoc2\">1 </span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"multexample\" id=\"mmtc1\">6 </span> <br />× &nbsp;&nbsp;<span class=\"multexample\" id=\"mmbc1\">2 </span><br />_____<br /></span>&nbsp; <span class=\"multexample\" id=\"mmrc2\">1 </span><span class=\"multexample\" id=\"mmrc1\">2 </span></center></p><p class=\"desc\"><b>Calculation 1</b>: Multiplication of 6 by 2.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Multiplying on the Soroban and Suanpan (算盤) (6 × 2)</b><br />This exercise is based on another History Tracers text. If you haven't studied it yet, it would be better to check it out first: <htcite0>.<br /><br />1. Choose an abacus model (\"Soroban (1×4)\" or \"Suanpan (2×5)\").<br /><br />2. Add 2 repeatedly until you reach the number 12. That is, add 2 six times.</div></div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The size of the multiplication result\n\nUnderstanding the numbers we are multiplying also helps us see whether, during our calculations, the result has the expected size, or whether our figures have fewer digits than desired.\n\nFor example, any multiplication of 2 by a number less than 5 will only have a result with units (<htcite0>). On the other hand, from the moment we multiply by 5 or a larger value, our result will necessarily have, in addition to units, tens, as in **Calculation 1**.\n\n#### Size in practice\n\nObserve **Calculation 2**, and reflect:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Number Families (Part II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;<span id=\"mmtc1\">52</span> <br />× <span class=\"multexample\" id=\"mmbc1\">2 </span><br />_____<br /></center></p><p class=\"desc\"><b>Calculation 2</b>: Multiplication of 52 by 2.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 5: Step by step</b><br /><br />When you see a calculation like the one proposed, do you just start doing it? Or do you analyze what you expect from it?<br /><br />If you analyze what the calculation is proposing, wouldn't it be easier to estimate and verify possible errors?<br /><br />Have you ever thought that calculations tell you what to expect from them before you calculate?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To make what the reflection tells us clearer, we will do it through a practice exercise.",
+               "source": [],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Multiplying on the Soroban and Suanpan (算盤) (52 × 2)</b><br />First of all, we must remember that the number 52, which we want to repeat twice, can be rewritten as: 50 + 2 (<htcite0>). With this, we can analyze the number separately:<br /><br />- When we multiply 0 by 2, we know this will result in 0, since we are repeating nothing several times (<htcite1>). On the other hand, when we multiply the 5, since the result equals 10, this indicates that the final multiplication result will go beyond the tens we initially proposed, that is, the final result will have three digits.<br /><br />Knowing that our result will have three digits due to one component (the tens), we need to see how the units will affect the other result.<br /><br />- Since 2 is less than 5, we can conclude that there will be no need for another order — the tens — to write the result.<br /><br />After analyzing the numbers by reading the initial components (tens and units) separately, we can perform the final calculation using the abacus as follows:<br /><br />- Click the <b>Reset</b> button on the abacus.<br />- Since the order of addition does not change the result, we will start by multiplying the tens, that is, 50 × 2;<br />- We will not change the units, since 0 × 2 = 0;<br />- Now, go to the tens column and add 5 twice, that is, we will do 5 × 2 = 10. Do not forget that we can only represent numbers between 0 and 9 in each column, so the final result will have 1 in the hundreds, 0 in the tens, and 0 in the units.<br />- Now, we move on to multiplying the units. To do this, place the number 4 on the abacus, since 2 × 2 = 4.<br /><br />At the end of these steps, your abacus should show the result 104.</div></div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "text": "History Tracers Team",
+                     "page": "Rereading",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Times Table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we learned that the complement of a number to 10, besides telling us the value we move on the abacus in a multiplication or addition, also helps us verify whether we are on the right track during a calculation.\n\nFurthermore, we learned that starting a calculation by seeking to understand what the numbers show us, rather than simply going ahead and solving the operations, can help us, among other things, to visualize the order of magnitude of the result even before performing it.\n\nFinally, we should emphasize that using the information presented does not necessarily mean we will always get a calculation right. On the other hand, these analyses, which can also be done after performing the calculations, help us verify whether we followed the correct path.",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
