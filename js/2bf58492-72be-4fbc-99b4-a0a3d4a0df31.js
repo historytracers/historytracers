@@ -25,7 +25,7 @@ var localSorobanController = {
     "barY": 0,
     "isDraggingDecimal": false,
     "verticalStep": 14,
-    "currentLevel": "units",
+    "currentMultiplier": 1,
     "currentExercise": { a:0, b:0, expected:0 },
     "steps": [],
     "currentStepIdx": 0,
@@ -327,7 +327,7 @@ function setAbacusToNumber(val) { htSorobanSetToNumber(val); }
 
 function generateRandomNumbersByLevel() {
     const a = Math.floor(Math.random() * 90) + 10;
-    const b = Math.floor(Math.random() * 9) + 1;
+    const b = localSorobanController.currentMultiplier;
     return { a, b };
 }
 
@@ -388,6 +388,8 @@ function startNewExercise() {
     const nums = generateRandomNumbersByLevel();
     localSorobanController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a * nums.b };
     document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString()} × ${localSorobanController.currentExercise.b.toLocaleString()}`;
+    document.getElementById('levelBadge').innerHTML = '× ' + localSorobanController.currentMultiplier;
+    document.getElementById('levelBadge').style.background = "#ffb347";
     setAbacusToNumber(0);
     localSorobanController.steps = buildStepsForNumbers(localSorobanController.currentExercise.a, localSorobanController.currentExercise.b);
     localSorobanController.currentStepIdx = 0;
@@ -414,6 +416,8 @@ function resetTutorToStepOne() {
 }
 
 function toggleLevel() {
+    localSorobanController.currentMultiplier++;
+    if (localSorobanController.currentMultiplier > 9) localSorobanController.currentMultiplier = 1;
     startNewExercise();
 }
 
