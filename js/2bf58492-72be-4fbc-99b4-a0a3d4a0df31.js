@@ -326,114 +326,36 @@ function getAbacusValue() { return htSorobanGetCurrentNumericValue(); }
 function setAbacusToNumber(val) { htSorobanSetToNumber(val); }
 
 function generateRandomNumbersByLevel() {
-    if (localSorobanController.currentLevel === "units") {
-        return { a: Math.floor(Math.random() * 10), b: Math.floor(Math.random() * 10) };
-    } else if (localSorobanController.currentLevel === "tens") {
-        return { a: Math.floor(Math.random() * 99) + 1, b: Math.floor(Math.random() * 99) + 1 };
-    } else if (localSorobanController.currentLevel === "hundreds") {
-        return { a: Math.floor(Math.random() * 900) + 100, b: Math.floor(Math.random() * 900) + 100 };
-    } else if (localSorobanController.currentLevel === "thousands") {
-        return { a: Math.floor(Math.random() * 9000) + 1000, b: Math.floor(Math.random() * 9000) + 1000 };
-    } else if (localSorobanController.currentLevel === "tenThousands") {
-        return { a: Math.floor(Math.random() * 10000) + 10000, b: Math.floor(Math.random() * 10000) + 10000 };
-    } else if (localSorobanController.currentLevel === "hundredThousands") {
-        return { a: Math.floor(Math.random() * 100000) + 100000, b: Math.floor(Math.random() * 100000) + 100000 };
-    } else if (localSorobanController.currentLevel === "millions") {
-        return { a: Math.floor(Math.random() * 1000000) + 1000000, b: Math.floor(Math.random() * 1000000) + 1000000 };
-    } else if (localSorobanController.currentLevel === "tenMillions") {
-        return { a: Math.floor(Math.random() * 10000000) + 10000000, b: Math.floor(Math.random() * 10000000) + 10000000 };
-    } else {
-        return { a: Math.floor(Math.random() * 100000000) + 100000000, b: Math.floor(Math.random() * 100000000) + 100000000 };
-    }
+    const a = Math.floor(Math.random() * 90) + 10;
+    const b = Math.floor(Math.random() * 9) + 1;
+    return { a, b };
 }
 
 function buildStepsForNumbers(a, b) {
     const stepsList = [];
     
-    let maxDigits, placeNames, multipliers;
+    const tensDigit = Math.floor(a / 10);
+    const unitsDigit = a % 10;
+    const tensMult = tensDigit * 10;
+    const tensProduct = tensMult * b;
+    const unitsProduct = unitsDigit * b;
+    const total = a * b;
     
-    if (localSorobanController.currentLevel === "units") {
-        maxDigits = 1;
-        placeNames = [localSorobanController.TextManager.getUnitUnits()];
-        multipliers = [1];
-    } else if (localSorobanController.currentLevel === "tens") {
-        maxDigits = 2;
-        placeNames = [localSorobanController.TextManager.getUnitUnits(), localSorobanController.TextManager.getUnitTens()];
-        multipliers = [1, 10];
-    } else if (localSorobanController.currentLevel === "hundreds") {
-        maxDigits = 3;
-        placeNames = [localSorobanController.TextManager.getUnitUnits(), localSorobanController.TextManager.getUnitTens(), localSorobanController.TextManager.getUnitHundreds()];
-        multipliers = [1, 10, 100];
-    } else if (localSorobanController.currentLevel === "thousands") {
-        maxDigits = 4;
-        placeNames = [localSorobanController.TextManager.getUnitUnits(), localSorobanController.TextManager.getUnitTens(), localSorobanController.TextManager.getUnitHundreds(), localSorobanController.TextManager.getUnitThousands()];
-        multipliers = [1, 10, 100, 1000];
-    } else if (localSorobanController.currentLevel === "tenThousands") {
-        maxDigits = 5;
-        placeNames = [localSorobanController.TextManager.getUnitUnits(), localSorobanController.TextManager.getUnitTens(), localSorobanController.TextManager.getUnitHundreds(), localSorobanController.TextManager.getUnitThousands(), localSorobanController.TextManager.getUnitTenThousands()];
-        multipliers = [1, 10, 100, 1000, 10000];
-    } else if (localSorobanController.currentLevel === "hundredThousands") {
-        maxDigits = 6;
-        placeNames = [localSorobanController.TextManager.getUnitUnits(), localSorobanController.TextManager.getUnitTens(), localSorobanController.TextManager.getUnitHundreds(), localSorobanController.TextManager.getUnitThousands(), localSorobanController.TextManager.getUnitTenThousands(), localSorobanController.TextManager.getUnitHundredThousands()];
-        multipliers = [1, 10, 100, 1000, 10000, 100000];
-    } else if (localSorobanController.currentLevel === "millions") {
-        maxDigits = 7;
-        placeNames = [localSorobanController.TextManager.getUnitUnits(), localSorobanController.TextManager.getUnitTens(), localSorobanController.TextManager.getUnitHundreds(), localSorobanController.TextManager.getUnitThousands(), localSorobanController.TextManager.getUnitTenThousands(), localSorobanController.TextManager.getUnitHundredThousands(), localSorobanController.TextManager.getUnitMillions()];
-        multipliers = [1, 10, 100, 1000, 10000, 100000, 1000000];
-    } else if (localSorobanController.currentLevel === "tenMillions") {
-        maxDigits = 8;
-        placeNames = [localSorobanController.TextManager.getUnitUnits(), localSorobanController.TextManager.getUnitTens(), localSorobanController.TextManager.getUnitHundreds(), localSorobanController.TextManager.getUnitThousands(), localSorobanController.TextManager.getUnitTenThousands(), localSorobanController.TextManager.getUnitHundredThousands(), localSorobanController.TextManager.getUnitMillions(), localSorobanController.TextManager.getTenMillions()];
-        multipliers = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000];
-    } else {
-        maxDigits = 9;
-        placeNames = [localSorobanController.TextManager.getUnitUnits(), localSorobanController.TextManager.getUnitTens(), localSorobanController.TextManager.getUnitHundreds(), localSorobanController.TextManager.getUnitThousands(), localSorobanController.TextManager.getUnitTenThousands(), localSorobanController.TextManager.getUnitHundredThousands(), localSorobanController.TextManager.getUnitMillions(), localSorobanController.TextManager.getTenMillions(), localSorobanController.TextManager.getHundredMillions()];
-        multipliers = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000];
-    }
+    const tensMultStr = `${tensMult.toLocaleString()} × ${b.toLocaleString()} = ${tensProduct.toLocaleString()}`;
     
-    let placeDescription = placeNames.slice().reverse().join(', ');
     stepsList.push({
-        instruction: localSorobanController.TextManager.getStep1Instruction(a.toLocaleString(), placeDescription),
-        targetValue: a
+        instruction: localSorobanController.TextManager.getStep1Instruction(a.toLocaleString(), b.toLocaleString(), tensMultStr),
+        targetValue: tensProduct
     });
     
-    let currentValue = a;
-    
-    // Process ONLY digits where b has a non-zero digit
-    // The carry is handled within the same step and does NOT generate additional steps
-    for (let p = 0; p < maxDigits; p++) {
-        const digitB = Math.floor(b / multipliers[p]) % 10;
-        
-        // Skip if this digit of b is 0 (no addition needed in this column)
-        if (digitB === 0) continue;
-        
-        const digitA = Math.floor(currentValue / multipliers[p]) % 10;
-        const total = digitA + digitB;
-        
-        if (total < 10) {
-            // Simple addition
-            currentValue += digitB * multipliers[p];
-            stepsList.push({
-                instruction: localSorobanController.TextManager.getSimpleAddInstruction(placeNames[p], digitB, currentValue.toLocaleString()),
-                targetValue: currentValue
-            });
-        } else {
-            // Carry needed - user performs carry operation in ONE step
-            const complement = 10 - digitB;
-            const newValue = currentValue + (multipliers[p] * 10) - (complement * multipliers[p]);
-            const nextPlace = placeNames[p+1] || (p+1 < placeNames.length ? placeNames[p+1] : localSorobanController.TextManager.getNextText());
-            
-            stepsList.push({
-                instruction: localSorobanController.TextManager.getCarryInstruction(placeNames[p], digitB, digitA, total, nextPlace, complement, newValue.toLocaleString()),
-                targetValue: newValue
-            });
-            currentValue = newValue;
-        }
-    }
-    
-    // Final verification step
     stepsList.push({
-        instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString(), b.toLocaleString(), (a+b).toLocaleString()),
-        targetValue: a + b
+        instruction: localSorobanController.TextManager.getSimpleAddInstruction(unitsDigit, b, unitsProduct.toLocaleString(), total.toLocaleString()),
+        targetValue: total
+    });
+    
+    stepsList.push({
+        instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString(), b.toLocaleString(), total.toLocaleString()),
+        targetValue: total
     });
     
     return stepsList;
@@ -464,8 +386,8 @@ function startNewExercise() {
     localSorobanController.finalCongratsShown = false;
     localSorobanController.exerciseStarted = false;
     const nums = generateRandomNumbersByLevel();
-    localSorobanController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a + nums.b };
-    document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString()} + ${localSorobanController.currentExercise.b.toLocaleString()}`;
+    localSorobanController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a * nums.b };
+    document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString()} × ${localSorobanController.currentExercise.b.toLocaleString()}`;
     setAbacusToNumber(0);
     localSorobanController.steps = buildStepsForNumbers(localSorobanController.currentExercise.a, localSorobanController.currentExercise.b);
     localSorobanController.currentStepIdx = 0;
@@ -492,43 +414,6 @@ function resetTutorToStepOne() {
 }
 
 function toggleLevel() {
-    if (localSorobanController.currentLevel === "units") {
-        localSorobanController.currentLevel = "tens";
-        document.getElementById('levelBadge').innerHTML = '🔟 '+localSorobanController.TextManager.getUnitTens();
-        document.getElementById('levelBadge').style.background = "#4caf50";
-    } else if (localSorobanController.currentLevel === "tens") {
-        localSorobanController.currentLevel = "hundreds";
-        document.getElementById('levelBadge').innerHTML = '🏆 '+localSorobanController.TextManager.getUnitHundreds();
-        document.getElementById('levelBadge').style.background = "#ff7043";
-    } else if (localSorobanController.currentLevel === "hundreds") {
-        localSorobanController.currentLevel = "thousands";
-        document.getElementById('levelBadge').innerHTML = '🔥 '+localSorobanController.TextManager.getUnitThousands();
-        document.getElementById('levelBadge').style.background = "#9c27b0";
-    } else if (localSorobanController.currentLevel === "thousands") {
-        localSorobanController.currentLevel = "tenThousands";
-        document.getElementById('levelBadge').innerHTML = '💎 '+localSorobanController.TextManager.getUnitTenThousands();
-        document.getElementById('levelBadge').style.background = "#e91e63";
-    } else if (localSorobanController.currentLevel === "tenThousands") {
-        localSorobanController.currentLevel = "hundredThousands";
-        document.getElementById('levelBadge').innerHTML = '🌟 '+localSorobanController.TextManager.getUnitHundredThousands();
-        document.getElementById('levelBadge').style.background = "#00bcd4";
-    } else if (localSorobanController.currentLevel === "hundredThousands") {
-        localSorobanController.currentLevel = "millions";
-        document.getElementById('levelBadge').innerHTML = '💰 '+localSorobanController.TextManager.getUnitMillions();
-        document.getElementById('levelBadge').style.background = "#ff9800";
-    } else if (localSorobanController.currentLevel === "millions") {
-        localSorobanController.currentLevel = "tenMillions";
-        document.getElementById('levelBadge').innerHTML = '💎 '+localSorobanController.TextManager.getTenMillions();
-        document.getElementById('levelBadge').style.background = "#9c27b0";
-    } else if (localSorobanController.currentLevel === "tenMillions") {
-        localSorobanController.currentLevel = "hundredMillions";
-        document.getElementById('levelBadge').innerHTML = '👑 '+localSorobanController.TextManager.getHundredMillions();
-        document.getElementById('levelBadge').style.background = "#f44336";
-    } else {
-        localSorobanController.currentLevel = "units";
-        document.getElementById('levelBadge').innerHTML = '🔢 '+localSorobanController.TextManager.getUnitUnits();
-        document.getElementById('levelBadge').style.background = "#ffb347";
-    }
     startNewExercise();
 }
 
@@ -625,20 +510,20 @@ function htLoadContent() {
             return this.format(this.get('txt_congratsMessage'), { a, b, result });
         },
     
-        getStep1Instruction: function(a, columns) {
-            return this.format(this.get('txt_step1Instruction'), { a, columns });
+        getStep1Instruction: function(a, b, tensMult) {
+            return this.format(this.get('txt_step1Instruction'), { a, b, tensMult });
         },
-    
-        getSimpleAddInstruction: function(placeName, digit, result) {
-            return this.format(this.get('txt_simpleAddInstruction'), { placeName, digit, result });
+
+        getSimpleAddInstruction: function(unitsDigit, b, unitsProduct, result) {
+            return this.format(this.get('txt_simpleAddInstruction'), { unitsDigit, b, unitsProduct, result });
         },
-    
+
         getCarryInstruction: function(placeName, digit, digitA, total, nextPlace, complement, result) {
             return this.format(this.get('txt_carryInstruction'), { 
                 placeName, digit, digitA, digit, total, nextPlace, complement, result 
             });
         },
-    
+
         getFinalInstruction: function(a, b, result) {
             return this.format(this.get('txt_finalInstruction'), { a, b, result });
         },
