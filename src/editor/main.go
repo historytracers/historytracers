@@ -589,7 +589,7 @@ func generateGalleryHandler(w http.ResponseWriter, r *http.Request) {
 	content := []common.ClassContent{
 		{
 			ID: "introduction", Target: "", Page: "", ValueType: "",
-			HTMLValue: "<p><hr /></p><p><h3>Gallery</h3>Images used throughout the project.</p>",
+			HTMLValue: []common.HTText{{Text: "<p><hr /></p><p><h3>Gallery</h3>Images used throughout the project.</p>", Format: "html"}},
 			Value:     nil, DateTime: nil,
 		},
 	}

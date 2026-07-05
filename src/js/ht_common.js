@@ -2634,7 +2634,7 @@ function htFillStringOnPage(data, idx, page)
     const isHtmlValueArray = Array.isArray(item.html_value);
     const hasHtmlValue = item.html_value && (isHtmlValueArray ? item.html_value.length > 0 : item.html_value.length > 0);
 
-    const modifiedText = hasHtmlValue
+    let modifiedText = hasHtmlValue
         ? (isHtmlValueArray
             ? item.html_value.map(obj => htParagraphFromObject(obj, localLang, localCalendar)).join("")
             : item.html_value)
