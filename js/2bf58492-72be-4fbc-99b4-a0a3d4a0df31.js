@@ -368,11 +368,18 @@ function buildStepsForNumbers(a, b) {
     });
     
     let currentValue = tensProduct;
+    let firstAddStep = true;
     
     for (let p = 0; p < maxDigits; p++) {
         const digitB = Math.floor(unitsProduct / multipliers[p]) % 10;
         
         if (digitB === 0) continue;
+        
+        let prefix = '';
+        if (firstAddStep) {
+            prefix = localSorobanController.TextManager.getUnitsProductHeader(unitsDigit, b, unitsProduct.toLocaleString());
+            firstAddStep = false;
+        }
         
         const digitA = Math.floor(currentValue / multipliers[p]) % 10;
         const total_digit = digitA + digitB;
@@ -380,7 +387,7 @@ function buildStepsForNumbers(a, b) {
         if (total_digit < 10) {
             currentValue += digitB * multipliers[p];
             stepsList.push({
-                instruction: localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p], currentValue.toLocaleString()),
+                instruction: prefix + localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p], currentValue.toLocaleString()),
                 targetValue: currentValue
             });
         } else {
@@ -389,7 +396,7 @@ function buildStepsForNumbers(a, b) {
             const nextPlace = placeNames[p+1] || localSorobanController.TextManager.getNextText();
             
             stepsList.push({
-                instruction: localSorobanController.TextManager.getCarryInstruction(placeNames[p], digitB, digitA, total_digit, nextPlace, complement, newValue.toLocaleString()),
+                instruction: prefix + localSorobanController.TextManager.getCarryInstruction(placeNames[p], digitB, digitA, total_digit, nextPlace, complement, newValue.toLocaleString()),
                 targetValue: newValue
             });
             currentValue = newValue;
@@ -559,6 +566,10 @@ function htLoadContent() {
     
         getStep1Instruction: function(a, b, tensMult) {
             return this.format(this.get('txt_step1Instruction'), { a, b, tensMult });
+        },
+
+        getUnitsProductHeader: function(unitsDigit, b, unitsProduct) {
+            return this.format(this.get('txt_unitsProductHeader'), { unitsDigit, b, unitsProduct });
         },
 
         getSimpleAddInstruction: function(digit, placeName, result) {
