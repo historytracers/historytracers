@@ -1286,9 +1286,9 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	var err error
 
 	if len(idx.HTMLValue) > 0 {
-		htmlText = idx.HTMLValue
-
-		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, ".", lang, false)
+		for i := range idx.HTMLValue {
+			htmlText += htTextToHumanText(&idx.HTMLValue[i], lang, false)
+		}
 	} else if len(idx.Value) > 0 {
 		for i := 0; i < len(idx.Value); i++ {
 			fv := &idx.Value[i]

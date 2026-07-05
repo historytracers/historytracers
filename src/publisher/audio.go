@@ -44,9 +44,9 @@ func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 	var err error
 
 	if len(idx.HTMLValue) > 0 {
-		htmlText = idx.HTMLValue
-
-		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, "", lang, false)
+		for i := range idx.HTMLValue {
+			htmlText += htTextToHumanText(&idx.HTMLValue[i], lang, false)
+		}
 	} else if len(idx.Value) > 0 {
 		for i := 0; i < len(idx.Value); i++ {
 			fv := &idx.Value[i]
@@ -486,7 +486,9 @@ func htParseIndexText(index *ClassIdx, lang string) string {
 		}
 
 		if len(content.HTMLValue) > 0 {
-			htmlText = htChangeTag2Keywords(content.HTMLValue)
+			for j := range content.HTMLValue {
+				htmlText += htTextToHumanText(&content.HTMLValue[j], lang, false)
+			}
 		} else {
 			if len(content.Value) > 0 {
 				for j := 0; j < len(content.Value); j++ {
