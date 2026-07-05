@@ -467,7 +467,10 @@ function resetTutorToStepOne() {
 
 function toggleLevel() {
     localSorobanController.currentMultiplier++;
-    if (localSorobanController.currentMultiplier > 9) localSorobanController.currentMultiplier = 1;
+    if (localSorobanController.currentMultiplier > 9) {
+        localSorobanController.currentMultiplier = 1;
+        document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getFinalLevelMessage(localSorobanController.currentMultiplier)}</div>`;
+    }
     startNewExercise();
 }
 
@@ -563,7 +566,11 @@ function htLoadContent() {
         getCongratsMessage: function(a, b, result) {
             return this.format(this.get('txt_congratsMessage'), { a, b, result });
         },
-    
+
+        getFinalLevelMessage: function(b) {
+            return this.format(this.get('txt_finalLevelMessage'), { b });
+        },
+
         getStep1Instruction: function(a, b, tensMult) {
             return this.format(this.get('txt_step1Instruction'), { a, b, tensMult });
         },

@@ -528,6 +528,7 @@ function toggleLevel() {
         localSorobanController.currentLevel = "units";
         document.getElementById('levelBadge').innerHTML = '🔢 '+localSorobanController.TextManager.getUnitUnits();
         document.getElementById('levelBadge').style.background = "#ffb347";
+        document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getFinalLevelMessage()}</div>`;
     }
     startNewExercise();
 }
@@ -624,7 +625,11 @@ function htLoadContent() {
         getCongratsMessage: function(a, b, result) {
             return this.format(this.get('txt_congratsMessage'), { a, b, result });
         },
-    
+
+        getFinalLevelMessage: function() {
+            return this.get('txt_finalLevelMessage');
+        },
+
         getStep1Instruction: function(a, columns) {
             return this.format(this.get('txt_step1Instruction'), { a, columns });
         },
