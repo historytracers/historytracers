@@ -341,6 +341,25 @@ function buildStepsForNumbers(a, b) {
     const unitsProduct = unitsDigit * b;
     const total = a * b;
     
+    const maxDigits = Math.max(
+        tensProduct.toString().length,
+        unitsProduct.toString().length,
+        total.toString().length
+    );
+    
+    const placeNames = [
+        localSorobanController.TextManager.getUnitUnits(),
+        localSorobanController.TextManager.getUnitTens(),
+        localSorobanController.TextManager.getUnitHundreds(),
+        localSorobanController.TextManager.getUnitThousands(),
+        localSorobanController.TextManager.getUnitTenThousands(),
+        localSorobanController.TextManager.getUnitHundredThousands(),
+        localSorobanController.TextManager.getUnitMillions(),
+        localSorobanController.TextManager.getUnitTenMillions(),
+        localSorobanController.TextManager.getUnitHundredMillions()
+    ];
+    const multipliers = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000];
+    
     const tensMultStr = `${tensMult.toLocaleString()} × ${b.toLocaleString()} = ${tensProduct.toLocaleString()}`;
     
     stepsList.push({
@@ -348,10 +367,34 @@ function buildStepsForNumbers(a, b) {
         targetValue: tensProduct
     });
     
-    stepsList.push({
-        instruction: localSorobanController.TextManager.getSimpleAddInstruction(unitsDigit, b, unitsProduct.toLocaleString(), total.toLocaleString()),
-        targetValue: total
-    });
+    let currentValue = tensProduct;
+    
+    for (let p = 0; p < maxDigits; p++) {
+        const digitB = Math.floor(unitsProduct / multipliers[p]) % 10;
+        
+        if (digitB === 0) continue;
+        
+        const digitA = Math.floor(currentValue / multipliers[p]) % 10;
+        const total_digit = digitA + digitB;
+        
+        if (total_digit < 10) {
+            currentValue += digitB * multipliers[p];
+            stepsList.push({
+                instruction: localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p], currentValue.toLocaleString()),
+                targetValue: currentValue
+            });
+        } else {
+            const complement = 10 - digitB;
+            const newValue = currentValue + (multipliers[p] * 10) - (complement * multipliers[p]);
+            const nextPlace = placeNames[p+1] || localSorobanController.TextManager.getNextText();
+            
+            stepsList.push({
+                instruction: localSorobanController.TextManager.getCarryInstruction(placeNames[p], digitB, digitA, total_digit, nextPlace, complement, newValue.toLocaleString()),
+                targetValue: newValue
+            });
+            currentValue = newValue;
+        }
+    }
     
     stepsList.push({
         instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString(), b.toLocaleString(), total.toLocaleString()),
@@ -518,8 +561,8 @@ function htLoadContent() {
             return this.format(this.get('txt_step1Instruction'), { a, b, tensMult });
         },
 
-        getSimpleAddInstruction: function(unitsDigit, b, unitsProduct, result) {
-            return this.format(this.get('txt_simpleAddInstruction'), { unitsDigit, b, unitsProduct, result });
+        getSimpleAddInstruction: function(digit, placeName, result) {
+            return this.format(this.get('txt_simpleAddInstruction'), { digit, placeName, result });
         },
 
         getCarryInstruction: function(placeName, digit, digitA, total, nextPlace, complement, result) {
