@@ -1232,12 +1232,22 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	var htmlText string
 	var err error
 
+	text := txt.Text
+	for i := range txt.Source {
+		placeholder := fmt.Sprintf("<htcite%d>", i)
+		citationText := txt.Source[i].Text
+		if txt.Source[i].Page != "" {
+			citationText += " (" + txt.Source[i].Page + ")"
+		}
+		text = strings.ReplaceAll(text, placeholder, citationText)
+	}
+
 	if txt.Format == "html" {
-		ret := htChangeTag2Keywords(txt.Text)
+		ret := htChangeTag2Keywords(text)
 
 		htmlText = htOverwriteDates(ret, txt.FillDates, "", lang, dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {
-		work := txt.Text
+		work := text
 		if len(txt.PostMention) > 0 {
 			work += txt.PostMention
 		}

@@ -2621,10 +2621,13 @@ function htFillStringOnPage(data, idx, page)
     const localLang = $("#site_language").val();
     const localCalendar = $("#site_calendar").val();
 
-    const hasHtmlValue = item.html_value && Array.isArray(item.html_value) && item.html_value.length > 0;
+    const isHtmlValueArray = Array.isArray(item.html_value);
+    const hasHtmlValue = item.html_value && (isHtmlValueArray ? item.html_value.length > 0 : item.html_value.length > 0);
 
     const modifiedText = hasHtmlValue
-        ? item.html_value.map(obj => htParagraphFromObject(obj, localLang, localCalendar)).join("")
+        ? (isHtmlValueArray
+            ? item.html_value.map(obj => htParagraphFromObject(obj, localLang, localCalendar)).join("")
+            : item.html_value)
         : "";
 
     // Handle special IDs

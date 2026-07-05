@@ -469,7 +469,6 @@ func htFamiliesToAudio() {
 		err := htLoadFamilyIndex(localPath, dir)
 		if err != nil {
 			panic(err)
-			return
 		}
 	}
 }
