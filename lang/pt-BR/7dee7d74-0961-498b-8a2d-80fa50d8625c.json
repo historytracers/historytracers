@@ -61,34 +61,86 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htSlides\"><div class=\"htSlide\"><div class=\"htSlideCounter\">1 / 3</div><img class=\"imgGameSize\" id=\"imgAthens\" onclick=\"htImageZoom('imgAthens', '0%')\"><div class=\"htSlideCaption\">Templo Erechtheion em Atenas, Grécia (<htcite0>). Foto tirada em <htdate0>, durante uma visita ao sítio.</div><div class=\"htSlideRefs\"><b>Related content:</b><ul><li>História: Culturas e Civilização - Existe uma hierarquia entre elas? (<htcite1>)</li></ul></div></div><div class=\"htSlide\"><div class=\"htSlideCounter\">2 / 3</div><img class=\"imgGameSize\" id=\"img5\" onclick=\"htImageZoom('img5', '0%')\"><div class=\"htSlideCaption\">Colunas presentes no Parthenon, Grécia (<htcite0>). Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico.</div><div class=\"htSlideRefs\"><b>Related content:</b><ul><li>História: Culturas e Civilização - Existe uma hierarquia entre elas? (<htcite1>)</li></ul></div></div><div class=\"htSlide\"><div class=\"htSlideCounter\">3 / 3</div><img class=\"imgGameSize\" id=\"img0\" onclick=\"htImageZoom('img0', '0%')\"><div class=\"htSlideCaption\">Prisão de Sócrates, Atenas, Grécia (<htcite0>). Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico.</div><div class=\"htSlideRefs\"><b>Related content:</b><ul><li>História: Culturas e Civilização - Existe uma hierarquia entre elas? (<htcite1>)</li></ul></div></div><i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i><i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i></div></p>",
+               "text": "<p><div class=\"htSlides\"><div class=\"htSlide\"><div class=\"htSlideCounter\">1 / 3</div><img class=\"imgGameSize\" id=\"imgAthens\" onclick=\"htImageZoom('imgAthens', '0%')\"><div class=\"htSlideCaption\">Templo Erechtheion em Atenas, Grécia (<htcite0>). Foto tirada em <htdate0>, durante uma visita ao sítio.</div><div class=\"htSlideRefs\"><b>Related content:</b><ul><li>Culturas e Civilização - Existe uma hierarquia entre elas? (<htcite1>)</li></ul></div></div><div class=\"htSlide\"><div class=\"htSlideCounter\">2 / 3</div><img class=\"imgGameSize\" id=\"img5\" onclick=\"htImageZoom('img5', '0%')\"><div class=\"htSlideCaption\">Colunas presentes no Parthenon, Grécia (<htcite4>). Foto tirada em <htdate1>, durante uma visita ao sítio arqueológico.</div><div class=\"htSlideRefs\"><b>Related content:</b><ul><li>Continuidade: Ao olharmos ao nosso redor e para nós mesmos, não vemos buracos em todos os lugares. Neste texto, começamos a ver como conectar as coisas (<htcite2>).</li></ul></div></div><div class=\"htSlide\"><div class=\"htSlideCounter\">3 / 3</div><img class=\"imgGameSize\" id=\"img0\" onclick=\"htImageZoom('img0', '0%')\"><div class=\"htSlideCaption\">Prisão de Sócrates, Atenas, Grécia (<htcite5>). Foto tirada em <htdate2>, durante uma visita ao sítio arqueológico.</div><div class=\"htSlideRefs\"><b>Related content:</b><ul><li>Entendo isto como...: Neste texto, começamos a explorar o entendimento da filosofia (<htcite3>).</li></ul></div></div><i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i><i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i></div></p>",
                "source": [
                   {
                      "type": 0,
                      "uuid": "38444844-0e52-4748-89f7-025ebd713e10",
-                     "text": "The Acropolis Museum, 02/01/2025",
+                     "text": "The Acropolis Museum",
                      "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "",
-                        "day": ""
-                     }
+                     "date_time": null
                   },
                   {
                      "type": 1,
                      "uuid": "245b24d9-1d99-41fc-b25c-c72878b5a34a",
-                     "text": "Culturas e Civilização",
-                     "page": "",
+                     "text": "History Tracers Team",
+                     "page": "Culturas e Civilização",
                      "date_time": {
                         "type": "",
                         "year": "",
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a2f0fc1d-12ac-4020-b951-fe6613ff7049",
+                     "text": "History Tracers Team",
+                     "page": "Continuidade",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7890842a-a372-49e9-9e26-ae6047946ee9",
+                     "text": "History Tracers Team",
+                     "page": "Entendo isso como...",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "38444844-0e52-4748-89f7-025ebd713e10",
+                     "text": "The Acropolis Museum",
+                     "page": "",
+                     "date_time": null
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "38444844-0e52-4748-89f7-025ebd713e10",
+                     "text": "The Acropolis Museum",
+                     "page": "",
+                     "date_time": null
                   }
                ],
-               "date_time": null,
+               "date_time": [
+                    {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "1",
+                        "day": "2"
+                    },
+                    {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "1",
+                        "day": "2"
+                    },
+                    {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "1",
+                        "day": "2"
+                     }
+               ],
                "isTable": false,
                "imgdesc": "",
                "format": "html",
