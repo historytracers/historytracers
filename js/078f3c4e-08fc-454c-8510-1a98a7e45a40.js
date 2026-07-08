@@ -675,25 +675,31 @@ function htLoadContent() {
     
         getNextText: function() {
             return this.get('txt_next');
+        },
+
+        getRandomLabel: function() {
+            return this.get('txt_randomLabel');
         }
     };
 
     const sel = document.getElementById('multiplierSelect');
     if (sel) {
-        for (let i = 1; i <= 9; i++) {
-            const opt = document.createElement('option');
-            opt.value = i.toString();
-            opt.textContent = i.toString();
-            sel.appendChild(opt);
+        if (sel.options.length === 0) {
+            for (let i = 1; i <= 9; i++) {
+                const opt = document.createElement('option');
+                opt.value = i.toString();
+                opt.textContent = i.toString();
+                sel.appendChild(opt);
+            }
+            const rOpt = document.createElement('option');
+            rOpt.value = "-1";
+            rOpt.textContent = localSorobanController.TextManager.getRandomLabel();
+            sel.appendChild(rOpt);
+            sel.addEventListener('change', function() {
+                startNewExercise();
+            });
         }
-        const rOpt = document.createElement('option');
-        rOpt.value = "-1";
-        rOpt.textContent = "Randomly";
-        sel.appendChild(rOpt);
         sel.value = "-1";
-        sel.addEventListener('change', function() {
-            startNewExercise();
-        });
     }
 
     initAbacus();
