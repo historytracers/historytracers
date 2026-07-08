@@ -448,7 +448,7 @@ function startNewExercise() {
     document.getElementById('stepStatus').innerHTML = localSorobanController.TextManager.getStepStatus(1, localSorobanController.steps.length);
     document.getElementById('feedbackArea').innerHTML = '';
     setControlButtonsVisibility(true);
-    setControlStepVisibility(true);
+    setControlStepVisibility(false);
 }
 
 function resetTutorToStepOne() {
@@ -462,7 +462,7 @@ function resetTutorToStepOne() {
     document.getElementById('stepStatus').innerHTML = localSorobanController.TextManager.getStepStatus(1, localSorobanController.steps.length);
     document.getElementById('feedbackArea').innerHTML = '';
     setControlButtonsVisibility(true);
-    setControlStepVisibility(true);
+    setControlStepVisibility(false);
 }
 
 function toggleLevel() {
@@ -491,10 +491,12 @@ window.checkCurrentStepPositive = function() {
                 }
             } else {
                 document.getElementById('feedbackArea').innerHTML = `<div class="success-message">${localSorobanController.TextManager.getCorrectMessage()}</div>`;
+                setControlStepVisibility(true);
             }
         }
     } else {
         localSorobanController.stepCompleted = false;
+        setControlStepVisibility(false);
         if (document.getElementById('feedbackArea').innerHTML && 
             !document.getElementById('feedbackArea').innerHTML.includes('PERFECT') &&
             !document.getElementById('feedbackArea').innerHTML.includes('Correct')) {
@@ -522,6 +524,7 @@ function nextStep() {
         document.getElementById('stepMessage').innerHTML = `${localSorobanController.TextManager.getStepPrefix()} ${localSorobanController.steps[localSorobanController.currentStepIdx].instruction}`;
         document.getElementById('stepStatus').innerHTML = localSorobanController.TextManager.getStepStatus(localSorobanController.currentStepIdx+1, localSorobanController.steps.length);
         document.getElementById('feedbackArea').innerHTML = '';
+        setControlStepVisibility(false);
         setTimeout(() => window.checkCurrentStepPositive(), 50);
     } else {
         if (currentVal === localSorobanController.currentExercise.expected && !localSorobanController.finalCongratsShown) {
