@@ -326,8 +326,17 @@ function getAbacusValue() { return htSorobanGetCurrentNumericValue(); }
 function setAbacusToNumber(val) { htSorobanSetToNumber(val); }
 
 function generateRandomNumbersByLevel() {
+    const select = document.getElementById('multiplierSelect');
+    let b;
+    if (select && select.value === "-1") {
+        b = Math.floor(Math.random() * 9) + 1;
+    } else if (select) {
+        b = parseInt(select.value);
+    } else {
+        b = localSorobanController.currentMultiplier;
+    }
     const a = Math.floor(Math.random() * 90) + 10;
-    const b = localSorobanController.currentMultiplier;
+    localSorobanController.currentMultiplier = b;
     return { a, b };
 }
 
@@ -471,6 +480,8 @@ function toggleLevel() {
         localSorobanController.currentMultiplier = 1;
         document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getFinalLevelMessage(localSorobanController.currentMultiplier)}</div>`;
     }
+    const sel = document.getElementById('multiplierSelect');
+    if (sel) sel.value = localSorobanController.currentMultiplier.toString();
     startNewExercise();
 }
 
@@ -648,6 +659,24 @@ function htLoadContent() {
             return this.get('txt_next');
         }
     };
+
+    const sel = document.getElementById('multiplierSelect');
+    if (sel) {
+        for (let i = 1; i <= 9; i++) {
+            const opt = document.createElement('option');
+            opt.value = i.toString();
+            opt.textContent = i.toString();
+            sel.appendChild(opt);
+        }
+        const rOpt = document.createElement('option');
+        rOpt.value = "-1";
+        rOpt.textContent = "Randomly";
+        sel.appendChild(rOpt);
+        sel.value = "-1";
+        sel.addEventListener('change', function() {
+            startNewExercise();
+        });
+    }
 
     initAbacus();
     document.getElementById('nextStepBtn').onclick = nextStep;
