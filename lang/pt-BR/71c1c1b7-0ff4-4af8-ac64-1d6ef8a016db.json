@@ -65,12 +65,12 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htSlides\"><div class=\"htSlide\"><div class=\"htSlideCounter\">1 / 1</div><img class=\"imgGameSize\" id=\"bndPortugal6r\" onclick=\"htImageZoom('bndPortugal6r', '0%')\"><div class=\"htSlideCaption\">Folha do Tratado de Tordesilhas (<htcite0>). <span id=\"bndPortugal\"></span>).</div><div class=\"htSlideRefs\"><b>Related content:</b><ul><li>Família: Lem/Leme - Uma análise da história desta família, que participou de eventos marcantes como o Tratado de Tordesilhas e a Guerra Civil Paulista. (<htcite1>)</li></ul></div></div><i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i><i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i></div></p>",
+               "text": "<p><div class=\"htSlides\"><div class=\"htSlide\"><div class=\"htSlideCounter\">1 / 1</div><img class=\"imgGameSize\" id=\"bndPortugal6r\" onclick=\"htImageZoom('bndPortugal6r', '0%')\"><div class=\"htSlideCaption\">Folha do Tratado de Tordesilhas (<htcite0>). <span id=\"bndPortugal\"></span>).</div><div class=\"htSlideRefs\"><b>Related content:</b><ul><li>Família: Lem/Leme - Uma análise da história desta família, que participou de eventos marcantes como o Tratado de Tordesilhas e a Guerra Civil Paulista. (<htcite1>)</li><li>Indígenas de São Vicente, Brasil (Pindorama) (<htdate0> - <hdate1>): Indígenas que viveram na capitânia de São Vicente nos primeiros séculos da colonização do Brasil (Pindorama (<htcite2>).</ul></div></div><i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i><i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i></div></p>",
                "source": [
                   {
                      "type": 0,
                      "uuid": "086440f2-0df7-4589-ac73-0353cf1b5312",
-                     "text": "Galeria (<htcite0>)",
+                     "text": "Galeria",
                      "page": "Biblioteca Nacional de Portugal - BNP, BN MS. 5, n.º 25, 11/26/1494, F. 6r",
                      "date_time": {
                         "type": "gregory",
@@ -90,9 +90,34 @@
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b90e1218-8e75-47e6-bf5a-fe02dd3428bb",
+                     "text": "History Tracers Team",
+                     "page": "Indígenas de São Vicente, Brasil (Pindorama)",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
-               "date_time": null,
+               "date_time": [
+                    {
+                        "type": "gregory",
+                        "year": "-8000",
+                        "month": "",
+                        "day": ""
+                    },
+                    {
+                        "type": "gregory",
+                        "year": "1645",
+                        "month": "",
+                        "day": ""
+                     }
+               ],
                "isTable": false,
                "imgdesc": "",
                "format": "html",
