@@ -397,17 +397,10 @@ function buildStepsForNumbers(a, b) {
     });
     
     let currentValue = first.product;
-    let firstAddStep = true;
-    
     for (let ci = 1; ci < contribs.length; ci++) {
         const c = contribs[ci];
         const addValue = c.product;
-        
-        let prefix = '';
-        if (firstAddStep) {
-            prefix = localSorobanController.TextManager.getUnitsProductHeader(c.digit, b, addValue.toLocaleString());
-            firstAddStep = false;
-        }
+        const multPrefix = `${(c.digit * c.placeValue).toLocaleString()} \u00D7 ${b.toLocaleString()} = ${addValue.toLocaleString()}: `;
         
         const addStr = addValue.toString();
         const maxPlace = multipliers.length - 1;
@@ -423,7 +416,7 @@ function buildStepsForNumbers(a, b) {
             if (totalDigit < 10) {
                 currentValue += digitB * multipliers[p];
                 stepsList.push({
-                    instruction: prefix + localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p] || placeNames[placeNames.length - 1], currentValue.toLocaleString()),
+                    instruction: multPrefix + localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p] || placeNames[placeNames.length - 1], currentValue.toLocaleString()),
                     targetValue: currentValue
                 });
             } else {
@@ -431,7 +424,7 @@ function buildStepsForNumbers(a, b) {
                 const newValue = currentValue + (multipliers[p] * 10) - (complement * multipliers[p]);
                 const nextPlace = placeNames[p + 1] || localSorobanController.TextManager.getNextText();
                 stepsList.push({
-                    instruction: prefix + localSorobanController.TextManager.getCarryInstruction(placeNames[p] || placeNames[placeNames.length - 1], digitB, digitA, totalDigit, nextPlace, complement, newValue.toLocaleString()),
+                    instruction: multPrefix + localSorobanController.TextManager.getCarryInstruction(placeNames[p] || placeNames[placeNames.length - 1], digitB, digitA, totalDigit, nextPlace, complement, newValue.toLocaleString()),
                     targetValue: newValue
                 });
                 currentValue = newValue;
