@@ -85,6 +85,11 @@ func htRunStopFlags() {
 		stopRun = true
 	}
 
+	if CreateDBFlag {
+		htCreateDatabase("")
+		stopRun = true
+	}
+
 	if stopRun {
 		os.Exit(0)
 	}
