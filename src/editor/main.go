@@ -1239,6 +1239,7 @@ func main() {
 	mux.HandleFunc("/api/editor/generate-gallery", generateGalleryHandler)
 	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
 	mux.HandleFunc("/api/editor/session", sessionHandler)
+	mux.HandleFunc("/api/editor/related-files", relatedFilesHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
@@ -1276,6 +1277,57 @@ func main() {
 
 	srv.Close()
 	fmt.Println("Stopped.")
+}
+
+func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	uuidStr := r.URL.Query().Get("uuid")
+	if uuidStr == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	if _, err := uuid.Parse(uuidStr); err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	result := make([]map[string]string, 0)
+	langDir := filepath.Join(rootDir, "lang")
+	langEntries, err := os.ReadDir(langDir)
+	if err == nil {
+		for _, e := range langEntries {
+			if !e.IsDir() || e.Name() == "sources" {
+				continue
+			}
+			if !strings.Contains(e.Name(), "-") {
+				continue
+			}
+			candidate := filepath.Join(langDir, e.Name(), uuidStr+".json")
+			if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
+				rel, _ := filepath.Rel(rootDir, candidate)
+				result = append(result, map[string]string{
+					"path":  filepath.ToSlash(rel),
+					"label": e.Name(),
+				})
+			}
+		}
+	}
+	srcCandidate := filepath.Join(rootDir, "lang", "sources", uuidStr+".json")
+	if info, err := os.Stat(srcCandidate); err == nil && !info.IsDir() {
+		rel, _ := filepath.Rel(rootDir, srcCandidate)
+		result = append(result, map[string]string{
+			"path":  filepath.ToSlash(rel),
+			"label": "Source",
+		})
+	}
+	jsCandidate := filepath.Join(rootDir, "js", uuidStr+".js")
+	if info, err := os.Stat(jsCandidate); err == nil && !info.IsDir() {
+		rel, _ := filepath.Rel(rootDir, jsCandidate)
+		result = append(result, map[string]string{
+			"path":  filepath.ToSlash(rel),
+			"label": "JavaScript",
+		})
+	}
+	json.NewEncoder(w).Encode(result)
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {

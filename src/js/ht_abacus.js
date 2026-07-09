@@ -18,6 +18,45 @@ function htSorobanInitState() {
     }
 }
 
+function htSorobanGetCurrentNumericValue() {
+    let digits = [];
+    for(let i=0; i<localSorobanController.COLUMNS; i++){
+        let col = localSorobanController.state[i];
+        let colVal = (col.upper * 5) + col.lower;
+        if (colVal > 9) colVal = 9;
+        digits.push(colVal);
+    }
+    const markerPos = localSorobanController.decimalMarkerCol;
+    let intValue = 0;
+    for(let i=0; i<=markerPos; i++) intValue = intValue * 10 + digits[i];
+    return intValue;
+}
+
+function htSorobanSetToNumber(value) {
+    for(let i=0; i<localSorobanController.COLUMNS; i++){
+        localSorobanController.state[i].upper = 0;
+        localSorobanController.state[i].lower = 0;
+    }
+    let str = Math.floor(value).toString();
+    let start = localSorobanController.COLUMNS - str.length;
+    for(let i=0; i<str.length; i++){
+        let digit = parseInt(str[i]);
+        let col = start + i;
+        if(col >= 0 && col < localSorobanController.COLUMNS){
+            const maxUpper = localSorobanController.state[col].upperMax;
+            const maxLower = localSorobanController.state[col].lowerMax;
+            let upper = Math.floor(digit / 5);
+            let lower = digit % 5;
+            if(upper > maxUpper) upper = maxUpper;
+            if(lower > maxLower) lower = maxLower;
+            localSorobanController.state[col].upper = upper;
+            localSorobanController.state[col].lower = lower;
+        }
+    }
+    htSorobanRender();
+    htSorobanUpdateDisplay();
+}
+
 function htSorobanCheckOverflow() {
     if (localSorobanController.abacusMode !== "suanpan") return false;
     let hasOverflow = false;
