@@ -3,6 +3,7 @@ package main
 
 import (
 	"crypto/rand"
+	"database/sql"
 	"encoding/gob"
 	"encoding/hex"
 	"encoding/json"
@@ -26,6 +27,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/historytracers/common"
+	_ "modernc.org/sqlite"
 )
 
 var srv *http.Server
@@ -339,6 +341,16 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	content = strings.ReplaceAll(content, "\r\n", "\n")
+
+	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
+		uuidStr := strings.TrimSuffix(filepath.Base(fileParam), ".json")
+		if err := htSaveSourceFileToDB(uuidStr, []byte(content)); err != nil {
+			log.Printf("ERROR saving source to DB: %v", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+	}
+
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -448,6 +460,27 @@ func updateFeedInAllLangs(pageType string, arg string, displayName string) {
 	}
 }
 
+func htInsertSourceFileEntry(fileID string, description string) error {
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return fmt.Errorf("database not found: %s", dbPath)
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return fmt.Errorf("failed to open database: %w", err)
+	}
+	defer db.Close()
+
+	_, err = db.Exec(`INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)`, fileID, description)
+	if err != nil {
+		return fmt.Errorf("failed to insert file entry: %w", err)
+	}
+
+	return nil
+}
+
 func createClassHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -549,15 +582,8 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 		os.Remove(tmpPath)
 	}
 
-	srcTpl := filepath.Join(rootDir, "src", "json", "sources_template.json")
-	srcDst := filepath.Join(rootDir, "lang", "sources", strID+".json")
-	if err := os.MkdirAll(filepath.Join(rootDir, "lang", "sources"), 0755); err != nil {
-		log.Printf("ERROR createClass: mkdir lang/sources: %v", err)
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	if err := copyFile(srcDst, srcTpl); err != nil {
-		log.Printf("ERROR createClass: copy sources %s <- %s: %v", srcDst, srcTpl, err)
+	if err := htInsertSourceFileEntry(strID, className); err != nil {
+		log.Printf("ERROR createClass: insert source entry: %v", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -652,10 +678,7 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		os.Remove(tmpPath)
 	}
 
-	srcTpl := filepath.Join(rootDir, "src", "json", "sources_template.json")
-	srcDst := filepath.Join(rootDir, "lang", "sources", strID+".json")
-	os.MkdirAll(filepath.Join(rootDir, "lang", "sources"), 0755)
-	if err := copyFile(srcDst, srcTpl); err != nil {
+	if err := htInsertSourceFileEntry(strID, strID); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -1302,6 +1325,160 @@ func main() {
 	fmt.Println("Stopped.")
 }
 
+func htBuildSourceFileFromDB(uuid string) ([]byte, error) {
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return nil, fmt.Errorf("database not found: %s", dbPath)
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to open database: %w", err)
+	}
+	defer db.Close()
+
+	var count int
+	err = db.QueryRow("SELECT COUNT(*) FROM files WHERE fil_id = ?", uuid).Scan(&count)
+	if err != nil || count == 0 {
+		return nil, fmt.Errorf("source file %s not found in database", uuid)
+	}
+
+	rows, err := db.Query(`
+		SELECT c.cit_type, s.src_id, COALESCE(s.sfo_id, ''), s.src_citation, s.src_date, s.src_publish_date, COALESCE(s.src_url, '')
+		FROM citation c
+		JOIN sources s ON c.src_id = s.src_id
+		WHERE c.fil_id = ?
+	`, uuid)
+	if err != nil {
+		return nil, fmt.Errorf("failed to query sources: %w", err)
+	}
+	defer rows.Close()
+
+	sf := common.HTSourceFile{
+		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+		LastUpdate: []string{""},
+		Version:    1,
+		Type:       "sources",
+	}
+
+	for rows.Next() {
+		var citType int
+		var elem common.HTSourceElement
+		if err := rows.Scan(&citType, &elem.ID, &elem.SfoID, &elem.Citation, &elem.Date, &elem.PublishDate, &elem.URL); err != nil {
+			continue
+		}
+		switch citType {
+		case 0:
+			sf.PrimarySources = append(sf.PrimarySources, elem)
+		case 1:
+			sf.ReferencesSources = append(sf.ReferencesSources, elem)
+		case 2:
+			sf.ReligiousSources = append(sf.ReligiousSources, elem)
+		case 3:
+			sf.SocialMediaSources = append(sf.SocialMediaSources, elem)
+		}
+	}
+
+	data, err := json.MarshalIndent(sf, "", "   ")
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal source file: %w", err)
+	}
+
+	return data, nil
+}
+
+func htGenerateSourceTempFile(uuid string) (string, error) {
+	data, err := htBuildSourceFileFromDB(uuid)
+	if err != nil {
+		return "", err
+	}
+
+	cacheDir := filepath.Join(rootDir, ".ht_src_cache")
+	if err := os.MkdirAll(cacheDir, 0755); err != nil {
+		return "", fmt.Errorf("failed to create cache directory: %w", err)
+	}
+
+	dst := filepath.Join(cacheDir, uuid+".json")
+	if err := os.WriteFile(dst, data, 0644); err != nil {
+		return "", fmt.Errorf("failed to write source file: %w", err)
+	}
+
+	return filepath.Join(".ht_src_cache", uuid+".json"), nil
+}
+
+func htSaveSourceFileToDB(uuid string, data []byte) error {
+	var sf common.HTSourceFile
+	if err := json.Unmarshal(data, &sf); err != nil {
+		return fmt.Errorf("invalid source file JSON: %w", err)
+	}
+
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return fmt.Errorf("database not found: %s", dbPath)
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return fmt.Errorf("failed to open database: %w", err)
+	}
+	defer db.Close()
+
+	tx, err := db.Begin()
+	if err != nil {
+		return fmt.Errorf("failed to begin transaction: %w", err)
+	}
+	defer tx.Rollback()
+
+	fileStmt, err := tx.Prepare(`INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)`)
+	if err != nil {
+		return fmt.Errorf("failed to prepare file statement: %w", err)
+	}
+	defer fileStmt.Close()
+
+	srcStmt, err := tx.Prepare(`INSERT OR REPLACE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`)
+	if err != nil {
+		return fmt.Errorf("failed to prepare source statement: %w", err)
+	}
+	defer srcStmt.Close()
+
+	citStmt, err := tx.Prepare(`INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (?, ?, ?)`)
+	if err != nil {
+		return fmt.Errorf("failed to prepare citation statement: %w", err)
+	}
+	defer citStmt.Close()
+
+	if _, err := tx.Exec("DELETE FROM citation WHERE fil_id = ?", uuid); err != nil {
+		return fmt.Errorf("failed to delete citations: %w", err)
+	}
+
+	apaUUID := "a1b2c3d4-0000-4000-8000-000000000001"
+
+	insertSources := func(elems []common.HTSourceElement, citType int) {
+		for _, elem := range elems {
+			sfoID := elem.SfoID
+			if sfoID == "" {
+				sfoID = apaUUID
+			}
+			srcStmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL)
+			citStmt.Exec(uuid, elem.ID, citType)
+		}
+	}
+
+	insertSources(sf.PrimarySources, 0)
+	insertSources(sf.ReferencesSources, 1)
+	insertSources(sf.ReligiousSources, 2)
+	insertSources(sf.SocialMediaSources, 3)
+
+	fileStmt.Exec(uuid, "")
+
+	if err := tx.Commit(); err != nil {
+		return fmt.Errorf("failed to commit transaction: %w", err)
+	}
+
+	return nil
+}
+
 func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	uuidStr := r.URL.Query().Get("uuid")
@@ -1334,13 +1511,21 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-	srcCandidate := filepath.Join(rootDir, "lang", "sources", uuidStr+".json")
-	if info, err := os.Stat(srcCandidate); err == nil && !info.IsDir() {
-		rel, _ := filepath.Rel(rootDir, srcCandidate)
-		result = append(result, map[string]string{
-			"path":  filepath.ToSlash(rel),
-			"label": "Source",
-		})
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); err == nil {
+		db, err := sql.Open("sqlite", dbPath)
+		if err == nil {
+			var count int
+			if db.QueryRow("SELECT COUNT(*) FROM files WHERE fil_id = ?", uuidStr).Scan(&count) == nil && count > 0 {
+				if tempPath, err := htGenerateSourceTempFile(uuidStr); err == nil {
+					result = append(result, map[string]string{
+						"path":  tempPath,
+						"label": "Source",
+					})
+				}
+			}
+			db.Close()
+		}
 	}
 	jsCandidate := filepath.Join(rootDir, "js", uuidStr+".js")
 	if info, err := os.Stat(jsCandidate); err == nil && !info.IsDir() {

@@ -3,6 +3,8 @@
 package main
 
 import (
+	"database/sql"
+	"encoding/json"
 	"fmt"
 	"os"
 	"regexp"
@@ -13,9 +15,10 @@ import (
 	"github.com/tdewolff/minify/v2/css"
 	"github.com/tdewolff/minify/v2/html"
 	"github.com/tdewolff/minify/v2/js"
-	"github.com/tdewolff/minify/v2/json"
+	mjson "github.com/tdewolff/minify/v2/json"
 
 	"github.com/google/uuid"
+	_ "modernc.org/sqlite"
 )
 
 type HTFileChanged struct {
@@ -225,7 +228,7 @@ func htRewriteAndMinifySMGame(lang string) {
 	}
 
 	m := minify.New()
-	m.AddFunc("application/json", json.Minify)
+	m.AddFunc("application/json", mjson.Minify)
 
 	for _, entry := range entries {
 		if entry.IsDir() {
@@ -260,9 +263,13 @@ func htMinifyJSON() {
 	var err error
 
 	m := minify.New()
-	m.AddFunc("application/json", json.Minify)
+	m.AddFunc("application/json", mjson.Minify)
 
 	for i := HTDirLangSources; i < HTDirWebFonts; i++ {
+		if i == HTDirLangSources {
+			continue
+		}
+
 		outBodies := fmt.Sprintf("%s%s/", CFG.ContentPath, htDirectories[i])
 		inBodies := fmt.Sprintf("%s%s/", CFG.SrcPath, htDirectories[i])
 		entries, err1 := os.ReadDir(inBodies)
@@ -284,6 +291,66 @@ func htMinifyJSON() {
 			if err != nil {
 				panic(err)
 			}
+		}
+	}
+}
+
+func htMinifySourcesFromDB() {
+	dbPath := fmt.Sprintf("%slang/sources/history_tracers.db", CFG.SrcPath)
+	outDir := fmt.Sprintf("%slang/sources/", CFG.ContentPath)
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		panic(fmt.Errorf("database file not found: %s", dbPath))
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		panic(fmt.Errorf("failed to open database: %w", err))
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT fil_id FROM files ORDER BY fil_id")
+	if err != nil {
+		panic(fmt.Errorf("failed to query files: %w", err))
+	}
+	defer rows.Close()
+
+	m := minify.New()
+	m.AddFunc("application/json", mjson.Minify)
+
+	for rows.Next() {
+		var fileID string
+		if err := rows.Scan(&fileID); err != nil {
+			panic(fmt.Errorf("failed to scan file ID: %w", err))
+		}
+
+		sf := htLoadHTSourceFileFromDB(db, fileID)
+		if sf == nil {
+			continue
+		}
+
+		outFile := outDir + fileID + ".json"
+
+		id := uuid.New()
+		tmpFile := fmt.Sprintf("%s%s.tmp", outDir, id.String())
+
+		fp, err := os.Create(tmpFile)
+		if err != nil {
+			panic(fmt.Errorf("failed to create tmp file %s: %w", tmpFile, err))
+		}
+		e := json.NewEncoder(fp)
+		e.SetEscapeHTML(false)
+		e.Encode(sf)
+		fp.Close()
+
+		err = htMinifyJSONFile(m, tmpFile, outFile)
+		if err != nil {
+			panic(fmt.Errorf("failed to minify source file %s: %w", fileID, err))
+		}
+
+		err = os.Remove(tmpFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR removing tmp %s: %v\n", tmpFile, err)
 		}
 	}
 }
@@ -587,14 +654,16 @@ func HTMinifyAllFiles() {
 	// Generate gallery index from images directory
 	HTGenerateGalleryIndex()
 
-	// Rewrite Sources
-	htRewriteSources()
+	// Rewrite Sources from DB
+	htRewriteSourcesFromDB()
 
 	htMinifyJS()
 
 	htUpdateHTJS()
 
 	htMinifyJSON()
+
+	htMinifySourcesFromDB()
 
 	for _, lang := range htLangPaths {
 		htRewriteAndMinifySMGame(lang)

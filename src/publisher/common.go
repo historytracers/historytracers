@@ -283,24 +283,7 @@ func htFillSourcesMap(src *HTSourceFile, fileID string) {
 }
 
 func htLoadSourceFromFile(srcs []string) {
-	for _, ptr := range srcs {
-		localPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, ptr)
-		byteValue, err := htOpenFileReadClose(localPath)
-		if err != nil {
-			panic(err)
-		}
-
-		var sources HTSourceFile
-		err = json.Unmarshal(byteValue, &sources)
-		if err != nil {
-			htCommonJSONError(byteValue, err)
-			panic(err)
-		}
-
-		htUpdateSourceFile(&sources, localPath)
-
-		htFillSourcesMap(&sources, ptr)
-	}
+	htLoadSourceFromDB(srcs)
 }
 
 func htUpdateSourceFile(src *HTSourceFile, filename string) {
@@ -358,19 +341,7 @@ func htRewriteSource(fileName string) {
 }
 
 func htRewriteSources() {
-	srcDir := fmt.Sprintf("%slang/sources/", CFG.SrcPath)
-	entries, err := os.ReadDir(srcDir)
-	if err != nil {
-		panic(err)
-	}
-
-	for _, fileName := range entries {
-		if fileName.IsDir() {
-			continue
-		} else {
-			htRewriteSource(fileName.Name())
-		}
-	}
+	htRewriteSourcesFromDB()
 }
 
 func htRewriteSourceFileTemplate() {
@@ -1359,28 +1330,7 @@ func htWriteClassIndexFile(lang string, index *ClassIdx) (string, error) {
 }
 
 func htAddNewSourceToDirectory(newFile string) {
-	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
-	dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
-
-	if verboseFlag {
-		fmt.Println("Copying ", srcPath, " to ", dstPath)
-	}
-
-	byteValue, err := htOpenFileReadClose(srcPath)
-	if err != nil {
-		panic(err)
-	}
-
-	var source HTSourceFile
-	err = json.Unmarshal(byteValue, &source)
-	if err != nil {
-		htCommonJSONError(byteValue, err)
-		panic(err)
-	}
-
-	source.LastUpdate[0] = HTUpdateTimestamp()
-
-	htUpdateSourceFile(&source, dstPath)
+	htAddNewSourceEntryToDB(newFile)
 }
 
 func htAddNewJSToDirectory(newFile string) {

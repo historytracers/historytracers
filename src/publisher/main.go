@@ -85,6 +85,17 @@ func htRunStopFlags() {
 		stopRun = true
 	}
 
+	if dbFileFlag != "" {
+		if _, err := os.Stat(dbFileFlag); err == nil {
+			htReadDatabase(dbFileFlag)
+		}
+	}
+
+	if CreateDBFlag {
+		htCreateDatabase(dbFileFlag)
+		stopRun = true
+	}
+
 	if stopRun {
 		os.Exit(0)
 	}
