@@ -1315,6 +1315,88 @@ func main() {
 	fmt.Println("Stopped.")
 }
 
+func htBuildSourceFileFromDB(uuid string) ([]byte, error) {
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return nil, fmt.Errorf("database not found: %s", dbPath)
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to open database: %w", err)
+	}
+	defer db.Close()
+
+	var count int
+	err = db.QueryRow("SELECT COUNT(*) FROM files WHERE fil_id = ?", uuid).Scan(&count)
+	if err != nil || count == 0 {
+		return nil, fmt.Errorf("source file %s not found in database", uuid)
+	}
+
+	rows, err := db.Query(`
+		SELECT c.cit_type, s.src_id, COALESCE(s.sfo_id, ''), s.src_citation, s.src_date, s.src_publish_date, COALESCE(s.src_url, '')
+		FROM citation c
+		JOIN sources s ON c.src_id = s.src_id
+		WHERE c.fil_id = ?
+	`, uuid)
+	if err != nil {
+		return nil, fmt.Errorf("failed to query sources: %w", err)
+	}
+	defer rows.Close()
+
+	sf := common.HTSourceFile{
+		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+		LastUpdate: []string{""},
+		Version:    1,
+		Type:       "sources",
+	}
+
+	for rows.Next() {
+		var citType int
+		var elem common.HTSourceElement
+		if err := rows.Scan(&citType, &elem.ID, &elem.SfoID, &elem.Citation, &elem.Date, &elem.PublishDate, &elem.URL); err != nil {
+			continue
+		}
+		switch citType {
+		case 0:
+			sf.PrimarySources = append(sf.PrimarySources, elem)
+		case 1:
+			sf.ReferencesSources = append(sf.ReferencesSources, elem)
+		case 2:
+			sf.ReligiousSources = append(sf.ReligiousSources, elem)
+		case 3:
+			sf.SocialMediaSources = append(sf.SocialMediaSources, elem)
+		}
+	}
+
+	data, err := json.MarshalIndent(sf, "", "   ")
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal source file: %w", err)
+	}
+
+	return data, nil
+}
+
+func htGenerateSourceTempFile(uuid string) (string, error) {
+	data, err := htBuildSourceFileFromDB(uuid)
+	if err != nil {
+		return "", err
+	}
+
+	cacheDir := filepath.Join(rootDir, ".ht_src_cache")
+	if err := os.MkdirAll(cacheDir, 0755); err != nil {
+		return "", fmt.Errorf("failed to create cache directory: %w", err)
+	}
+
+	dst := filepath.Join(cacheDir, uuid+".json")
+	if err := os.WriteFile(dst, data, 0644); err != nil {
+		return "", fmt.Errorf("failed to write source file: %w", err)
+	}
+
+	return filepath.Join(".ht_src_cache", uuid+".json"), nil
+}
+
 func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	uuidStr := r.URL.Query().Get("uuid")
@@ -1347,13 +1429,21 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-	srcCandidate := filepath.Join(rootDir, "lang", "sources", uuidStr+".json")
-	if info, err := os.Stat(srcCandidate); err == nil && !info.IsDir() {
-		rel, _ := filepath.Rel(rootDir, srcCandidate)
-		result = append(result, map[string]string{
-			"path":  filepath.ToSlash(rel),
-			"label": "Source",
-		})
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); err == nil {
+		db, err := sql.Open("sqlite", dbPath)
+		if err == nil {
+			var count int
+			if db.QueryRow("SELECT COUNT(*) FROM files WHERE fil_id = ?", uuidStr).Scan(&count) == nil && count > 0 {
+				if tempPath, err := htGenerateSourceTempFile(uuidStr); err == nil {
+					result = append(result, map[string]string{
+						"path":  tempPath,
+						"label": "Source",
+					})
+				}
+			}
+			db.Close()
+		}
 	}
 	jsCandidate := filepath.Join(rootDir, "js", uuidStr+".js")
 	if info, err := os.Stat(jsCandidate); err == nil && !info.IsDir() {
