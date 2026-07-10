@@ -338,6 +338,7 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+	content = strings.ReplaceAll(content, "\r\n", "\n")
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -712,6 +713,72 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	updateFeedInAllLangs("tree", strID, strID)
+	rotateToken()
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("X-HT-Next-Token", viewerToken)
+	json.NewEncoder(w).Encode(map[string]string{"uuid": strID})
+}
+
+func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	id := uuid.New()
+	strID := id.String()
+
+	tplPath := filepath.Join(rootDir, "src", "json", "scientific_method_game_template.json")
+	data, err := os.ReadFile(tplPath)
+	if err != nil {
+		log.Printf("ERROR createSmartphone: cannot read template %s: %v", tplPath, err)
+		http.Error(w, fmt.Sprintf("cannot read template: %v", err), http.StatusInternalServerError)
+		return
+	}
+	var tpl common.SMGameFile
+	if err := json.Unmarshal(data, &tpl); err != nil {
+		log.Printf("ERROR createSmartphone: invalid template %s: %v", tplPath, err)
+		http.Error(w, fmt.Sprintf("invalid template: %v", err), http.StatusInternalServerError)
+		return
+	}
+
+	tpl.Sources = []string{strID}
+	tpl.License = []string{"SPDX-License-Identifier: GPL-3.0-or-later"}
+	tpl.LastUpdate = []string{common.HTUpdateTimestamp()}
+	tpl.Authors = ""
+	tpl.Reviewers = ""
+	tpl.Version = 1
+	tpl.Type = "sm_game"
+	tpl.Content = []common.SMGameContent{}
+	tpl.Levels = []common.SMGameLevel{}
+	tpl.DateTime = []common.HTDate{}
+
+	for _, lang := range editorLangs {
+		smartphoneDir := filepath.Join(rootDir, "lang", lang, "smartphone")
+		if err := os.MkdirAll(smartphoneDir, 0755); err != nil {
+			log.Printf("ERROR createSmartphone: mkdir %s: %v", smartphoneDir, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		tplFile := filepath.Join(smartphoneDir, strID+".json")
+		fp, err := os.Create(tplFile)
+		if err != nil {
+			log.Printf("ERROR createSmartphone: create %s: %v", tplFile, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		e := json.NewEncoder(fp)
+		e.SetEscapeHTML(false)
+		e.SetIndent("", "   ")
+		if err := e.Encode(tpl); err != nil {
+			fp.Close()
+			os.Remove(tplFile)
+			log.Printf("ERROR createSmartphone: encode %s: %v", tplFile, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		fp.Close()
+	}
+
 	rotateToken()
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -1237,6 +1304,7 @@ func main() {
 	mux.HandleFunc("/api/editor/create-class", createClassHandler)
 	mux.HandleFunc("/api/editor/create-family", createFamilyHandler)
 	mux.HandleFunc("/api/editor/generate-gallery", generateGalleryHandler)
+	mux.HandleFunc("/api/editor/create-smartphone", createSmartphoneHandler)
 	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
 	mux.HandleFunc("/api/editor/session", sessionHandler)
 	mux.HandleFunc("/api/editor/related-files", relatedFilesHandler)
