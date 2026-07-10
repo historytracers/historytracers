@@ -9,10 +9,13 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/google/uuid"
 	_ "modernc.org/sqlite"
 
 	"github.com/historytracers/common"
 )
+
+var apaFormatUUID = uuid.MustParse("a1b2c3d4-0000-4000-8000-000000000001")
 
 func htCreateDatabase(dbPath string) {
 	if dbPath == "" {
@@ -25,6 +28,7 @@ func htCreateDatabase(dbPath string) {
 	}
 	defer db.Close()
 
+	htCreateSourceFormatTable(db)
 	htCreateSourcesTable(db)
 
 	srcDir := fmt.Sprintf("%slang/sources/", CFG.SrcPath)
@@ -40,7 +44,7 @@ func htCreateDatabase(dbPath string) {
 	}
 	defer tx.Rollback()
 
-	stmt, err := tx.Prepare(`INSERT OR IGNORE INTO sources (src_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?)`)
+	stmt, err := tx.Prepare(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`)
 	if err != nil {
 		panic(fmt.Errorf("failed to prepare statement: %w", err))
 	}
@@ -79,9 +83,26 @@ func htCreateDatabase(dbPath string) {
 	fmt.Printf("Database created successfully at %s\n", dbPath)
 }
 
+func htCreateSourceFormatTable(db *sql.DB) {
+	query := `CREATE TABLE IF NOT EXISTS source_format (
+		sfo_id          TEXT    NOT NULL PRIMARY KEY,
+		sfo_name        TEXT    NOT NULL,
+		sfo_description TEXT    NOT NULL
+	)`
+	if _, err := db.Exec(query); err != nil {
+		panic(fmt.Errorf("failed to create source_format table: %w", err))
+	}
+
+	insert := `INSERT OR IGNORE INTO source_format (sfo_id, sfo_name, sfo_description) VALUES (?, ?, ?)`
+	if _, err := db.Exec(insert, apaFormatUUID.String(), "APA", "American Psychological Association"); err != nil {
+		panic(fmt.Errorf("failed to insert APA format: %w", err))
+	}
+}
+
 func htCreateSourcesTable(db *sql.DB) {
 	query := `CREATE TABLE IF NOT EXISTS sources (
 		src_id          TEXT    NOT NULL PRIMARY KEY,
+		sfo_id          TEXT    NOT NULL,
 		src_citation    TEXT    NOT NULL,
 		src_date        TEXT    NOT NULL,
 		src_publish_date TEXT   NOT NULL,
@@ -106,7 +127,11 @@ func htInsertSourceElements(stmt *sql.Stmt, seen map[string]bool, elements []com
 		}
 		seen[elem.ID] = true
 
-		if _, err := stmt.Exec(elem.ID, elem.Citation, elem.Date, elem.PublishDate, elem.URL); err != nil {
+		sfoID := elem.SfoID
+		if sfoID == "" {
+			sfoID = apaFormatUUID.String()
+		}
+		if _, err := stmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL); err != nil {
 			fmt.Fprintf(os.Stderr, "ERROR inserting source %s: %v\n", elem.ID, err)
 		}
 	}
