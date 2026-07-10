@@ -18,6 +18,42 @@ import (
 
 var apaFormatUUID = uuid.MustParse("a1b2c3d4-0000-4000-8000-000000000001")
 
+func htReadDatabase(dbPath string) {
+	if dbPath == "" {
+		dbPath = "history_tracers.db"
+	}
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		fmt.Fprintf(os.Stderr, "Database file not found: %s\n", dbPath)
+		return
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR opening database: %v\n", err)
+		return
+	}
+	defer db.Close()
+
+	rows, err := db.Query(`SELECT 'files' AS tbl, COUNT(*) FROM files UNION ALL SELECT 'sources', COUNT(*) FROM sources UNION ALL SELECT 'source_format', COUNT(*) FROM source_format UNION ALL SELECT 'citation', COUNT(*) FROM citation`)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR querying database: %v\n", err)
+		return
+	}
+	defer rows.Close()
+
+	fmt.Println("Database:", dbPath)
+	for rows.Next() {
+		var table string
+		var count int
+		if err := rows.Scan(&table, &count); err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR scanning row: %v\n", err)
+			continue
+		}
+		fmt.Printf("  %s: %d\n", table, count)
+	}
+}
+
 func htCreateDatabase(dbPath string) {
 	if dbPath == "" {
 		dbPath = "history_tracers.db"
