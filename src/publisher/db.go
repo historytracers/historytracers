@@ -32,6 +32,7 @@ func htCreateDatabase(dbPath string) {
 	htCreateSourceFormatTable(db)
 	htCreateSourcesTable(db)
 	htCreateFilesTable(db)
+	htCreateCitationTable(db)
 
 	srcDir := fmt.Sprintf("%slang/sources/", CFG.SrcPath)
 	entries, err := os.ReadDir(srcDir)
@@ -57,6 +58,12 @@ func htCreateDatabase(dbPath string) {
 		panic(fmt.Errorf("failed to prepare file statement: %w", err))
 	}
 	defer fileStmt.Close()
+
+	citationStmt, err := tx.Prepare(`INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (?, ?, ?)`)
+	if err != nil {
+		panic(fmt.Errorf("failed to prepare citation statement: %w", err))
+	}
+	defer citationStmt.Close()
 
 	for _, entry := range entries {
 		if entry.IsDir() || filepath.Ext(entry.Name()) != ".json" {
@@ -86,6 +93,11 @@ func htCreateDatabase(dbPath string) {
 		htInsertSourceElements(stmt, seen, sf.ReferencesSources)
 		htInsertSourceElements(stmt, seen, sf.ReligiousSources)
 		htInsertSourceElements(stmt, seen, sf.SocialMediaSources)
+
+		htInsertCitationElements(citationStmt, fileID, sf.PrimarySources, 0)
+		htInsertCitationElements(citationStmt, fileID, sf.ReferencesSources, 1)
+		htInsertCitationElements(citationStmt, fileID, sf.ReligiousSources, 2)
+		htInsertCitationElements(citationStmt, fileID, sf.SocialMediaSources, 3)
 	}
 
 	if err := tx.Commit(); err != nil {
@@ -115,6 +127,26 @@ func htGetFileTitle(fileID string) string {
 		}
 	}
 	return "Title not defined"
+}
+
+func htCreateCitationTable(db *sql.DB) {
+	query := `CREATE TABLE IF NOT EXISTS citation (
+		fil_id          TEXT    NOT NULL,
+		src_id          TEXT    NOT NULL,
+		cit_type        TINYINT NOT NULL,
+		PRIMARY KEY (fil_id, src_id, cit_type)
+	)`
+	if _, err := db.Exec(query); err != nil {
+		panic(fmt.Errorf("failed to create citation table: %w", err))
+	}
+}
+
+func htInsertCitationElements(stmt *sql.Stmt, fileID string, elements []common.HTSourceElement, citType int) {
+	for _, elem := range elements {
+		if _, err := stmt.Exec(fileID, elem.ID, citType); err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR inserting citation %s/%s: %v\n", fileID, elem.ID, err)
+		}
+	}
 }
 
 func htCreateSourceFormatTable(db *sql.DB) {
