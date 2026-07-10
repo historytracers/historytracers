@@ -77,10 +77,7 @@ func htCreateDatabase(dbPath string) {
 		}
 
 		fileID := strings.TrimSuffix(entry.Name(), ".json")
-		fileDesc := sf.Type
-		if fileDesc == "" {
-			fileDesc = fileID
-		}
+		fileDesc := htGetFileTitle(fileID)
 		if _, err := fileStmt.Exec(fileID, fileDesc); err != nil {
 			fmt.Fprintf(os.Stderr, "ERROR inserting file %s: %v\n", fileID, err)
 		}
@@ -98,6 +95,26 @@ func htCreateDatabase(dbPath string) {
 	htCreateSourcesIndex(db)
 
 	fmt.Printf("Database created successfully at %s\n", dbPath)
+}
+
+func htGetFileTitle(fileID string) string {
+	for _, lang := range htLangPaths {
+		langFilePath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileID)
+		byteValue, err := os.ReadFile(langFilePath)
+		if err != nil {
+			continue
+		}
+		var titleStruct struct {
+			Title string `json:"title"`
+		}
+		if err := json.Unmarshal(byteValue, &titleStruct); err != nil {
+			continue
+		}
+		if titleStruct.Title != "" {
+			return titleStruct.Title
+		}
+	}
+	return "Title not defined"
 }
 
 func htCreateSourceFormatTable(db *sql.DB) {
