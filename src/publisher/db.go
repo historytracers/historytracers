@@ -300,6 +300,134 @@ func htRewriteSourcesFromDB() {
 	}
 }
 
+func htLoadAllSourceFilesFromDB() (map[string]srcEntry, map[string]map[string]bool) {
+	allSources := make(map[string]srcEntry)
+	srcFileIDs := make(map[string]map[string]bool)
+
+	dbPath := fmt.Sprintf("%slang/sources/history_tracers.db", CFG.SrcPath)
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return allSources, srcFileIDs
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return allSources, srcFileIDs
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT fil_id FROM files")
+	if err != nil {
+		return allSources, srcFileIDs
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var fileID string
+		if err := rows.Scan(&fileID); err != nil {
+			continue
+		}
+
+		sf := htLoadHTSourceFileFromDB(db, fileID)
+		if sf == nil {
+			continue
+		}
+
+		if srcFileIDs[fileID] == nil {
+			srcFileIDs[fileID] = make(map[string]bool)
+		}
+		htFillSourceMapForCheck(sf, allSources, srcFileIDs[fileID])
+	}
+
+	return allSources, srcFileIDs
+}
+
+func htAddEntryToSourceFileDB(uid, cat string, elem common.HTSourceElement) error {
+	dbPath := fmt.Sprintf("%slang/sources/history_tracers.db", CFG.SrcPath)
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return fmt.Errorf("database not found: %s", dbPath)
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return fmt.Errorf("failed to open database: %w", err)
+	}
+	defer db.Close()
+
+	tx, err := db.Begin()
+	if err != nil {
+		return fmt.Errorf("failed to begin transaction: %w", err)
+	}
+	defer tx.Rollback()
+
+	if _, err := tx.Exec("INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)", uid, ""); err != nil {
+		return fmt.Errorf("failed to insert file entry: %w", err)
+	}
+
+	sfoID := elem.SfoID
+	if sfoID == "" {
+		sfoID = apaFormatUUID.String()
+	}
+	if _, err := tx.Exec(`INSERT OR REPLACE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
+		elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL); err != nil {
+		return fmt.Errorf("failed to insert source: %w", err)
+	}
+
+	citType := 0
+	switch cat {
+	case "reference_sources":
+		citType = 1
+	case "religious_sources":
+		citType = 2
+	case "social_media_sources":
+		citType = 3
+	}
+
+	if _, err := tx.Exec(`INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (?, ?, ?)`,
+		uid, elem.ID, citType); err != nil {
+		return fmt.Errorf("failed to insert citation: %w", err)
+	}
+
+	return tx.Commit()
+}
+
+func htLoadSourceFromDB(srcs []string) {
+	dbPath := fmt.Sprintf("%slang/sources/history_tracers.db", CFG.SrcPath)
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		panic(fmt.Errorf("database file not found: %s", dbPath))
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		panic(fmt.Errorf("failed to open database: %w", err))
+	}
+	defer db.Close()
+
+	for _, ptr := range srcs {
+		sf := htLoadHTSourceFileFromDB(db, ptr)
+		if sf == nil {
+			continue
+		}
+		htFillSourcesMap(sf, ptr)
+	}
+}
+
+func htAddNewSourceEntryToDB(newFile string) {
+	dbPath := fmt.Sprintf("%slang/sources/history_tracers.db", CFG.SrcPath)
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		panic(fmt.Errorf("failed to open database: %w", err))
+	}
+	defer db.Close()
+
+	_, err = db.Exec("INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)", newFile, "")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR inserting source file entry %s: %v\n", newFile, err)
+	}
+}
+
 func htCreateSourcesIndex(db *sql.DB) {
 	query := `CREATE INDEX IF NOT EXISTS idx_sources_src_citation ON sources (src_citation)`
 	if _, err := db.Exec(query); err != nil {
