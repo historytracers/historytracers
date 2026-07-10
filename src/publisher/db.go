@@ -225,6 +225,81 @@ func htCreateFilesTable(db *sql.DB) {
 	}
 }
 
+func htLoadHTSourceFileFromDB(db *sql.DB, fileID string) *common.HTSourceFile {
+	rows, err := db.Query(`
+		SELECT c.cit_type, s.src_id, COALESCE(s.sfo_id, ''), s.src_citation, s.src_date, s.src_publish_date, COALESCE(s.src_url, '')
+		FROM citation c
+		JOIN sources s ON c.src_id = s.src_id
+		WHERE c.fil_id = ?
+	`, fileID)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR querying sources for %s: %v\n", fileID, err)
+		return nil
+	}
+	defer rows.Close()
+
+	sf := &common.HTSourceFile{
+		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+		LastUpdate: []string{""},
+		Version:    1,
+		Type:       "sources",
+	}
+
+	for rows.Next() {
+		var citType int
+		var elem common.HTSourceElement
+		if err := rows.Scan(&citType, &elem.ID, &elem.SfoID, &elem.Citation, &elem.Date, &elem.PublishDate, &elem.URL); err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR scanning row for %s: %v\n", fileID, err)
+			continue
+		}
+		switch citType {
+		case 0:
+			sf.PrimarySources = append(sf.PrimarySources, elem)
+		case 1:
+			sf.ReferencesSources = append(sf.ReferencesSources, elem)
+		case 2:
+			sf.ReligiousSources = append(sf.ReligiousSources, elem)
+		case 3:
+			sf.SocialMediaSources = append(sf.SocialMediaSources, elem)
+		}
+	}
+	return sf
+}
+
+func htRewriteSourcesFromDB() {
+	dbPath := fmt.Sprintf("%slang/sources/history_tracers.db", CFG.SrcPath)
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		panic(fmt.Errorf("database file not found: %s", dbPath))
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		panic(fmt.Errorf("failed to open database: %w", err))
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT fil_id FROM files ORDER BY fil_id")
+	if err != nil {
+		panic(fmt.Errorf("failed to query files: %w", err))
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var fileID string
+		if err := rows.Scan(&fileID); err != nil {
+			panic(fmt.Errorf("failed to scan file ID: %w", err))
+		}
+
+		sf := htLoadHTSourceFileFromDB(db, fileID)
+		if sf == nil {
+			continue
+		}
+
+		htFillSourcesMap(sf, fileID)
+	}
+}
+
 func htCreateSourcesIndex(db *sql.DB) {
 	query := `CREATE INDEX IF NOT EXISTS idx_sources_src_citation ON sources (src_citation)`
 	if _, err := db.Exec(query); err != nil {
