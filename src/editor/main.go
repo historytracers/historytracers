@@ -3,6 +3,7 @@ package main
 
 import (
 	"crypto/rand"
+	"database/sql"
 	"encoding/gob"
 	"encoding/hex"
 	"encoding/json"
@@ -26,6 +27,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/historytracers/common"
+	_ "modernc.org/sqlite"
 )
 
 var srv *http.Server
@@ -448,6 +450,27 @@ func updateFeedInAllLangs(pageType string, arg string, displayName string) {
 	}
 }
 
+func htInsertSourceFileEntry(fileID string, description string) error {
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return fmt.Errorf("database not found: %s", dbPath)
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return fmt.Errorf("failed to open database: %w", err)
+	}
+	defer db.Close()
+
+	_, err = db.Exec(`INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)`, fileID, description)
+	if err != nil {
+		return fmt.Errorf("failed to insert file entry: %w", err)
+	}
+
+	return nil
+}
+
 func createClassHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -549,15 +572,8 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 		os.Remove(tmpPath)
 	}
 
-	srcTpl := filepath.Join(rootDir, "src", "json", "sources_template.json")
-	srcDst := filepath.Join(rootDir, "lang", "sources", strID+".json")
-	if err := os.MkdirAll(filepath.Join(rootDir, "lang", "sources"), 0755); err != nil {
-		log.Printf("ERROR createClass: mkdir lang/sources: %v", err)
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	if err := copyFile(srcDst, srcTpl); err != nil {
-		log.Printf("ERROR createClass: copy sources %s <- %s: %v", srcDst, srcTpl, err)
+	if err := htInsertSourceFileEntry(strID, className); err != nil {
+		log.Printf("ERROR createClass: insert source entry: %v", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -652,10 +668,7 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		os.Remove(tmpPath)
 	}
 
-	srcTpl := filepath.Join(rootDir, "src", "json", "sources_template.json")
-	srcDst := filepath.Join(rootDir, "lang", "sources", strID+".json")
-	os.MkdirAll(filepath.Join(rootDir, "lang", "sources"), 0755)
-	if err := copyFile(srcDst, srcTpl); err != nil {
+	if err := htInsertSourceFileEntry(strID, strID); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
