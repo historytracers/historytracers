@@ -341,6 +341,16 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	content = strings.ReplaceAll(content, "\r\n", "\n")
+
+	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
+		uuidStr := strings.TrimSuffix(filepath.Base(fileParam), ".json")
+		if err := htSaveSourceFileToDB(uuidStr, []byte(content)); err != nil {
+			log.Printf("ERROR saving source to DB: %v", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+	}
+
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -1395,6 +1405,78 @@ func htGenerateSourceTempFile(uuid string) (string, error) {
 	}
 
 	return filepath.Join(".ht_src_cache", uuid+".json"), nil
+}
+
+func htSaveSourceFileToDB(uuid string, data []byte) error {
+	var sf common.HTSourceFile
+	if err := json.Unmarshal(data, &sf); err != nil {
+		return fmt.Errorf("invalid source file JSON: %w", err)
+	}
+
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return fmt.Errorf("database not found: %s", dbPath)
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return fmt.Errorf("failed to open database: %w", err)
+	}
+	defer db.Close()
+
+	tx, err := db.Begin()
+	if err != nil {
+		return fmt.Errorf("failed to begin transaction: %w", err)
+	}
+	defer tx.Rollback()
+
+	fileStmt, err := tx.Prepare(`INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)`)
+	if err != nil {
+		return fmt.Errorf("failed to prepare file statement: %w", err)
+	}
+	defer fileStmt.Close()
+
+	srcStmt, err := tx.Prepare(`INSERT OR REPLACE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`)
+	if err != nil {
+		return fmt.Errorf("failed to prepare source statement: %w", err)
+	}
+	defer srcStmt.Close()
+
+	citStmt, err := tx.Prepare(`INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (?, ?, ?)`)
+	if err != nil {
+		return fmt.Errorf("failed to prepare citation statement: %w", err)
+	}
+	defer citStmt.Close()
+
+	if _, err := tx.Exec("DELETE FROM citation WHERE fil_id = ?", uuid); err != nil {
+		return fmt.Errorf("failed to delete citations: %w", err)
+	}
+
+	apaUUID := "a1b2c3d4-0000-4000-8000-000000000001"
+
+	insertSources := func(elems []common.HTSourceElement, citType int) {
+		for _, elem := range elems {
+			sfoID := elem.SfoID
+			if sfoID == "" {
+				sfoID = apaUUID
+			}
+			srcStmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL)
+			citStmt.Exec(uuid, elem.ID, citType)
+		}
+	}
+
+	insertSources(sf.PrimarySources, 0)
+	insertSources(sf.ReferencesSources, 1)
+	insertSources(sf.ReligiousSources, 2)
+	insertSources(sf.SocialMediaSources, 3)
+
+	fileStmt.Exec(uuid, "")
+
+	if err := tx.Commit(); err != nil {
+		return fmt.Errorf("failed to commit transaction: %w", err)
+	}
+
+	return nil
 }
 
 func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
