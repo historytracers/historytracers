@@ -339,5 +339,3 @@ func htFillSourceMapForCheck(src *HTSourceFile, dst map[string]srcEntry, fileIDs
 		add(src.SocialMediaSources, "social_media_sources")
 	}
 }
-
-
