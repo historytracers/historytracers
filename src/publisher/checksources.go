@@ -9,7 +9,6 @@ import (
 	"os"
 	"regexp"
 	"strings"
-	"time"
 
 	. "github.com/historytracers/common"
 )
@@ -40,8 +39,8 @@ func htCheckSources() {
 	fmt.Printf("Checking and fixing source date_time.year vs published for %d UUID files\n", len(sortedUUIDs))
 	fmt.Println(strings.Repeat("=", 60))
 
-	// Load all source files once into a lookup map + per-file ID tracking
-	allSources, srcFileIDs := htLoadAllSourceFilesWithCat()
+	// Load all source files from DB into a lookup map + per-file ID tracking
+	allSources, srcFileIDs := htLoadAllSourceFilesFromDB()
 
 	totalFixed := 0
 	totalFilesFixed := 0
@@ -101,15 +100,8 @@ func htCheckSources() {
 			}
 		}
 
-		// Second pass: ensure lang/sources/uid.json contains all citation IDs
+		// Second pass: ensure DB contains all citation IDs
 		// referenced by this UUID file's source entries
-		srcFpath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, uid)
-		srcExists := true
-		if _, err := os.Stat(srcFpath); os.IsNotExist(err) {
-			srcExists = false
-		}
-
-		// Collect existing IDs in the source file
 		existingIDs := srcFileIDs[uid]
 		if existingIDs == nil {
 			existingIDs = make(map[string]bool)
@@ -139,46 +131,16 @@ func htCheckSources() {
 				continue
 			}
 			if entry, found := allSources[suuid]; found {
-				// Add to the source file's correct category array
-				if srcExists {
-					if err := htAddEntryToSourceFile(uid, entry.Category, entry.Element, CFG.SrcPath); err != nil {
-						fmt.Fprintf(os.Stderr, "ERROR updating source file %s: %s\n", srcFpath, err)
-						continue
-					}
-					existingIDs[suuid] = true
-					srcFileIDs[uid][suuid] = true
-				} else {
-					// Source file doesn't exist — create it with just this entry
-					sf := HTSourceFile{
-						License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later"},
-						LastUpdate: []string{fmt.Sprintf("%d", time.Now().Unix())},
-						Version:    0,
-						Type:       "sources",
-					}
-					switch entry.Category {
-					case "primary_sources":
-						sf.PrimarySources = []HTSourceElement{entry.Element}
-					case "reference_sources":
-						sf.ReferencesSources = []HTSourceElement{entry.Element}
-					case "religious_sources":
-						sf.ReligiousSources = []HTSourceElement{entry.Element}
-					case "social_media_sources":
-						sf.SocialMediaSources = []HTSourceElement{entry.Element}
-					}
-					bv2, err := json.MarshalIndent(sf, "", "   ")
-					if err != nil {
-						fmt.Fprintf(os.Stderr, "ERROR marshalling source file %s: %s\n", srcFpath, err)
-						continue
-					}
-					if err := os.WriteFile(srcFpath, bv2, 0644); err != nil {
-						fmt.Fprintf(os.Stderr, "ERROR writing source file %s: %s\n", srcFpath, err)
-						continue
-					}
-					srcExists = true
-					existingIDs[suuid] = true
-					srcFileIDs[uid] = existingIDs
+				if err := htAddEntryToSourceFileDB(uid, entry.Category, entry.Element); err != nil {
+					fmt.Fprintf(os.Stderr, "ERROR adding citation %s to DB: %s\n", suuid, err)
+					continue
 				}
-				fmt.Printf("[ADDED] lang/sources/%s.json: citation %s (%s)\n", uid, suuid, entry.Category)
+				existingIDs[suuid] = true
+				if srcFileIDs[uid] == nil {
+					srcFileIDs[uid] = make(map[string]bool)
+				}
+				srcFileIDs[uid][suuid] = true
+				fmt.Printf("[ADDED] citation %s (%s) for file %s\n", suuid, entry.Category, uid)
 				totalAdded++
 			} else {
 				fmt.Printf("[MISSING] citation UUID %s referenced by %s not found in any source file\n",
@@ -352,42 +314,6 @@ type srcEntry struct {
 	SourceFile string
 }
 
-// htLoadAllSourceFilesWithCat loads all source definitions from lang/sources/.
-// Returns (uuid→entry map, sourceFileName→set of ids map).
-func htLoadAllSourceFilesWithCat() (map[string]srcEntry, map[string]map[string]bool) {
-	allSources := make(map[string]srcEntry)
-	srcFileIDs := make(map[string]map[string]bool)
-
-	srcDir := fmt.Sprintf("%slang/sources/", CFG.SrcPath)
-	entries, err := os.ReadDir(srcDir)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "ERROR reading source directory %s: %s\n", srcDir, err)
-		return allSources, srcFileIDs
-	}
-
-	for _, e := range entries {
-		if e.IsDir() || !strings.HasSuffix(e.Name(), ".json") {
-			continue
-		}
-		fname := strings.TrimSuffix(e.Name(), ".json")
-		fpath := fmt.Sprintf("%slang/sources/%s", CFG.SrcPath, e.Name())
-		bv, err := htOpenFileReadClose(fpath)
-		if err != nil {
-			continue
-		}
-		var sf HTSourceFile
-		if err := json.Unmarshal(bv, &sf); err != nil {
-			continue
-		}
-		if srcFileIDs[fname] == nil {
-			srcFileIDs[fname] = make(map[string]bool)
-		}
-		htFillSourceMapForCheck(&sf, allSources, srcFileIDs[fname])
-	}
-
-	return allSources, srcFileIDs
-}
-
 func htFillSourceMapForCheck(src *HTSourceFile, dst map[string]srcEntry, fileIDs map[string]bool) {
 	add := func(list []HTSourceElement, cat string) {
 		for _, elem := range list {
@@ -412,35 +338,4 @@ func htFillSourceMapForCheck(src *HTSourceFile, dst map[string]srcEntry, fileIDs
 	if src.SocialMediaSources != nil {
 		add(src.SocialMediaSources, "social_media_sources")
 	}
-}
-
-func htAddEntryToSourceFile(uid, cat string, elem HTSourceElement, srcPath string) error {
-	fpath := fmt.Sprintf("%slang/sources/%s.json", srcPath, uid)
-
-	bv, err := htOpenFileReadClose(fpath)
-	if err != nil {
-		return err
-	}
-	var sf HTSourceFile
-	if err := json.Unmarshal(bv, &sf); err != nil {
-		return err
-	}
-
-	// Add the entry to the correct category array
-	switch cat {
-	case "primary_sources":
-		sf.PrimarySources = append(sf.PrimarySources, elem)
-	case "reference_sources":
-		sf.ReferencesSources = append(sf.ReferencesSources, elem)
-	case "religious_sources":
-		sf.ReligiousSources = append(sf.ReligiousSources, elem)
-	case "social_media_sources":
-		sf.SocialMediaSources = append(sf.SocialMediaSources, elem)
-	}
-
-	bv2, err := json.MarshalIndent(sf, "", "   ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(fpath, bv2, 0644)
 }

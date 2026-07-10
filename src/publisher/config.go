@@ -39,6 +39,8 @@ var (
 	smGameTemplate      string
 	langTestFlag        string
 	checkSourcesFlag    bool
+	CreateDBFlag        bool
+	dbFileFlag          string
 	compileConfPath     string
 	compileSrcPath      string
 	compileContentPath  string
@@ -64,7 +66,9 @@ func HTParseArg() {
 	flag.StringVar(&smGameTemplate, "smgame", smGameTemplate, "Create a foundation for a new SM Game.")
 	flag.StringVar(&langTestFlag, "langtest", "", "Test a language file: 'lang:uuid' (e.g. en-US:03bb4b8e-...). Validates JSON, counts lines, and compares across languages.")
 	flag.BoolVar(&globalLangTestFlag, "globalangtest", false, "Test all UUID files in lang/??-??/. Validates JSON and compares line counts across all languages.")
+	flag.StringVar(&dbFileFlag, "db", "", "Path to the SQLite database file. (default: history_tracers.db)")
 	flag.BoolVar(&checkSourcesFlag, "checksources", false, "Check and fix date_time.year mismatches in UUID files against published field in lang/sources/.")
+	flag.BoolVar(&CreateDBFlag, "createdb", false, "Create a local SQLite database with all sources from lang/sources/. (default: false)")
 
 	flag.Parse()
 
