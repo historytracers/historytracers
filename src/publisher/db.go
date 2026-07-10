@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/google/uuid"
 	_ "modernc.org/sqlite"
@@ -30,6 +31,7 @@ func htCreateDatabase(dbPath string) {
 
 	htCreateSourceFormatTable(db)
 	htCreateSourcesTable(db)
+	htCreateFilesTable(db)
 
 	srcDir := fmt.Sprintf("%slang/sources/", CFG.SrcPath)
 	entries, err := os.ReadDir(srcDir)
@@ -50,6 +52,12 @@ func htCreateDatabase(dbPath string) {
 	}
 	defer stmt.Close()
 
+	fileStmt, err := tx.Prepare(`INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)`)
+	if err != nil {
+		panic(fmt.Errorf("failed to prepare file statement: %w", err))
+	}
+	defer fileStmt.Close()
+
 	for _, entry := range entries {
 		if entry.IsDir() || filepath.Ext(entry.Name()) != ".json" {
 			continue
@@ -66,6 +74,15 @@ func htCreateDatabase(dbPath string) {
 		if err := json.Unmarshal(byteValue, &sf); err != nil {
 			fmt.Fprintf(os.Stderr, "ERROR parsing %s: %v\n", filePath, err)
 			continue
+		}
+
+		fileID := strings.TrimSuffix(entry.Name(), ".json")
+		fileDesc := sf.Type
+		if fileDesc == "" {
+			fileDesc = fileID
+		}
+		if _, err := fileStmt.Exec(fileID, fileDesc); err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR inserting file %s: %v\n", fileID, err)
 		}
 
 		htInsertSourceElements(stmt, seen, sf.PrimarySources)
@@ -110,6 +127,16 @@ func htCreateSourcesTable(db *sql.DB) {
 	)`
 	if _, err := db.Exec(query); err != nil {
 		panic(fmt.Errorf("failed to create sources table: %w", err))
+	}
+}
+
+func htCreateFilesTable(db *sql.DB) {
+	query := `CREATE TABLE IF NOT EXISTS files (
+		fil_id          TEXT    NOT NULL PRIMARY KEY,
+		fil_desc        TEXT    NOT NULL
+	)`
+	if _, err := db.Exec(query); err != nil {
+		panic(fmt.Errorf("failed to create files table: %w", err))
 	}
 }
 
