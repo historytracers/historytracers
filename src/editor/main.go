@@ -1286,6 +1286,7 @@ func main() {
 	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
 	mux.HandleFunc("/api/editor/session", sessionHandler)
 	mux.HandleFunc("/api/editor/related-files", relatedFilesHandler)
+	mux.HandleFunc("/api/editor/file-indexes", fileIndexesHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
@@ -1534,6 +1535,49 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			"path":  filepath.ToSlash(rel),
 			"label": "JavaScript",
 		})
+	}
+	json.NewEncoder(w).Encode(result)
+}
+
+func fileIndexesHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	lang := r.URL.Query().Get("lang")
+	uuidStr := r.URL.Query().Get("uuid")
+	if lang == "" || uuidStr == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	if _, err := uuid.Parse(uuidStr); err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	result := make([]map[string]string, 0)
+	langDir := filepath.Join(rootDir, "lang", lang)
+	entries, err := os.ReadDir(langDir)
+	if err != nil {
+		json.NewEncoder(w).Encode(result)
+		return
+	}
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".json") {
+			continue
+		}
+		name := strings.TrimSuffix(e.Name(), ".json")
+		if _, err := uuid.Parse(name); err == nil {
+			continue
+		}
+		candidate := filepath.Join(langDir, e.Name())
+		data, err := os.ReadFile(candidate)
+		if err != nil {
+			continue
+		}
+		if strings.Contains(string(data), uuidStr) {
+			rel, _ := filepath.Rel(rootDir, candidate)
+			result = append(result, map[string]string{
+				"path":  filepath.ToSlash(rel),
+				"label": name,
+			})
+		}
 	}
 	json.NewEncoder(w).Encode(result)
 }

@@ -640,6 +640,26 @@ async function updateRelatedFiles(){
 			sel.appendChild(opt);
 		});
 	}catch(e){}
+	// fetch index files from the same language that reference this UUID
+	if(parts.length>=3&&parts[0]==='lang'){
+		var lang=parts[1];
+		try{
+			var r2=await fetch('/api/editor/file-indexes?lang='+encodeURIComponent(lang)+'&uuid='+encodeURIComponent(base));
+			var idxs=await r2.json();
+			if(idxs.length>0){
+				var sep=document.createElement('option');
+				sep.disabled=true;
+				sep.textContent='\u2500\u2500 Indexes \u2500\u2500';
+				sel.appendChild(sep);
+				idxs.forEach(function(f){
+					var opt=document.createElement('option');
+					opt.value=f.path;
+					opt.textContent=f.label;
+					sel.appendChild(opt);
+				});
+			}
+		}catch(e){}
+	}
 }
 
 function switchRelatedFile(path){
