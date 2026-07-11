@@ -338,6 +338,8 @@ func htLoadAllSourceFilesFromDB() (map[string]srcEntry, map[string]map[string]bo
 		htFillSourceMapForCheck(sf, allSources, srcFileIDs[fileID])
 	}
 
+	htLoadSourcesFromJSONFiles(allSources, srcFileIDs)
+
 	return allSources, srcFileIDs
 }
 
@@ -449,5 +451,36 @@ func htInsertSourceElements(stmt *sql.Stmt, seen map[string]bool, elements []com
 		if _, err := stmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL); err != nil {
 			fmt.Fprintf(os.Stderr, "ERROR inserting source %s: %v\n", elem.ID, err)
 		}
+	}
+}
+
+func htLoadSourcesFromJSONFiles(allSources map[string]srcEntry, srcFileIDs map[string]map[string]bool) {
+	srcDir := fmt.Sprintf("%slang/sources/", CFG.SrcPath)
+	entries, err := os.ReadDir(srcDir)
+	if err != nil {
+		return
+	}
+
+	for _, entry := range entries {
+		if entry.IsDir() || filepath.Ext(entry.Name()) != ".json" {
+			continue
+		}
+
+		fileID := strings.TrimSuffix(entry.Name(), ".json")
+		filePath := fmt.Sprintf("%slang/sources/%s", CFG.SrcPath, entry.Name())
+		bv, err := os.ReadFile(filePath)
+		if err != nil {
+			continue
+		}
+
+		var sf common.HTSourceFile
+		if err := json.Unmarshal(bv, &sf); err != nil {
+			continue
+		}
+
+		if srcFileIDs[fileID] == nil {
+			srcFileIDs[fileID] = make(map[string]bool)
+		}
+		htFillSourceMapForCheck(&sf, allSources, srcFileIDs[fileID])
 	}
 }
