@@ -628,36 +628,50 @@ async function updateRelatedFiles(){
 	var parts=t.path.split('/');
 	var name=parts[parts.length-1];
 	var base=name.replace(/\.(json|js)$/,'');
-	if(!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(base))return;
-	try{
-		var r=await fetch('/api/editor/related-files?uuid='+encodeURIComponent(base));
-		var files=await r.json();
-		files.forEach(function(f){
-			if(f.path===t.path)return;
-			var opt=document.createElement('option');
-			opt.value=f.path;
-			opt.textContent=f.label;
-			sel.appendChild(opt);
-		});
-	}catch(e){}
-	// fetch index files from the same language that reference this UUID
-	if(parts.length>=3&&parts[0]==='lang'){
-		var lang=parts[1];
+	if(/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(base)){
 		try{
-			var r2=await fetch('/api/editor/file-indexes?lang='+encodeURIComponent(lang)+'&uuid='+encodeURIComponent(base));
-			var idxs=await r2.json();
-			if(idxs.length>0){
-				var sep=document.createElement('option');
-				sep.disabled=true;
-				sep.textContent='\u2500\u2500 Indexes \u2500\u2500';
-				sel.appendChild(sep);
-				idxs.forEach(function(f){
-					var opt=document.createElement('option');
-					opt.value=f.path;
-					opt.textContent=f.label;
-					sel.appendChild(opt);
-				});
-			}
+			var r=await fetch('/api/editor/related-files?uuid='+encodeURIComponent(base));
+			var files=await r.json();
+			files.forEach(function(f){
+				if(f.path===t.path)return;
+				var opt=document.createElement('option');
+				opt.value=f.path;
+				opt.textContent=f.label;
+				sel.appendChild(opt);
+			});
+		}catch(e){}
+		// fetch index files from the same language that reference this UUID
+		if(parts.length>=3&&parts[0]==='lang'){
+			var lang=parts[1];
+			try{
+				var r2=await fetch('/api/editor/file-indexes?lang='+encodeURIComponent(lang)+'&uuid='+encodeURIComponent(base));
+				var idxs=await r2.json();
+				if(idxs.length>0){
+					var sep=document.createElement('option');
+					sep.disabled=true;
+					sep.textContent='\u2500\u2500 Indexes \u2500\u2500';
+					sel.appendChild(sep);
+					idxs.forEach(function(f){
+						var opt=document.createElement('option');
+						opt.value=f.path;
+						opt.textContent=f.label;
+						sel.appendChild(opt);
+					});
+				}
+			}catch(e){}
+		}
+	}else if(parts.length>=3&&parts[0]==='lang'&&name.endsWith('.json')){
+		// non-UUID index file: show same-named files from other languages
+		try{
+			var r=await fetch('/api/editor/lang-index-files?name='+encodeURIComponent(name));
+			var files=await r.json();
+			files.forEach(function(f){
+				if(f.path===t.path)return;
+				var opt=document.createElement('option');
+				opt.value=f.path;
+				opt.textContent=f.label;
+				sel.appendChild(opt);
+			});
 		}catch(e){}
 	}
 }

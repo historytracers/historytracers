@@ -1288,6 +1288,7 @@ func main() {
 	mux.HandleFunc("/api/editor/session", sessionHandler)
 	mux.HandleFunc("/api/editor/related-files", relatedFilesHandler)
 	mux.HandleFunc("/api/editor/file-indexes", fileIndexesHandler)
+	mux.HandleFunc("/api/editor/lang-index-files", langIndexFilesHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
@@ -1580,6 +1581,36 @@ func fileIndexesHandler(w http.ResponseWriter, r *http.Request) {
 			result = append(result, map[string]string{
 				"path":  filepath.ToSlash(rel),
 				"label": name,
+			})
+		}
+	}
+	json.NewEncoder(w).Encode(result)
+}
+
+func langIndexFilesHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	name := r.URL.Query().Get("name")
+	if name == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	result := make([]map[string]string, 0)
+	langDir := filepath.Join(rootDir, "lang")
+	entries, err := os.ReadDir(langDir)
+	if err != nil {
+		json.NewEncoder(w).Encode(result)
+		return
+	}
+	for _, e := range entries {
+		if !e.IsDir() || e.Name() == "sources" || !strings.Contains(e.Name(), "-") {
+			continue
+		}
+		candidate := filepath.Join(langDir, e.Name(), name)
+		if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
+			rel, _ := filepath.Rel(rootDir, candidate)
+			result = append(result, map[string]string{
+				"path":  filepath.ToSlash(rel),
+				"label": e.Name(),
 			})
 		}
 	}
