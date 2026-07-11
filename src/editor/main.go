@@ -2,6 +2,7 @@
 package main
 
 import (
+	"bytes"
 	"crypto/rand"
 	"database/sql"
 	"encoding/gob"
@@ -1381,12 +1382,15 @@ func htBuildSourceFileFromDB(uuid string) ([]byte, error) {
 		}
 	}
 
-	data, err := json.MarshalIndent(sf, "", "   ")
-	if err != nil {
+	var buf bytes.Buffer
+	e := json.NewEncoder(&buf)
+	e.SetEscapeHTML(false)
+	e.SetIndent("", "   ")
+	if err := e.Encode(sf); err != nil {
 		return nil, fmt.Errorf("failed to marshal source file: %w", err)
 	}
 
-	return data, nil
+	return buf.Bytes(), nil
 }
 
 func htGenerateSourceTempFile(uuid string) (string, error) {
