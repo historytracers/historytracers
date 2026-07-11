@@ -1431,6 +1431,9 @@ function openConfig(){
 				e.preventDefault();
 				document.execCommand('redo');
 			}
+		}else if(e.key==='Tab'&&document.activeElement===document.getElementById('editorArea')){
+			e.preventDefault();
+			document.execCommand('insertText',false,'\t');
 		}else if(document.activeElement!==document.getElementById('editorArea')){
 			// sidebar keyboard navigation (only when textarea is NOT focused)
 			var sideEl=treeEl.style.display!=='none'?treeEl:(gitEl.style.display!=='none'?gitEl:null);
