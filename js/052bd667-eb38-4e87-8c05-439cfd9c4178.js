@@ -322,7 +322,7 @@ function htSorobanSwitchMode(mode) {
 function setupEvents() { const canvas = localSorobanController.canvas; const getCoords = (e) => { const rect = canvas.getBoundingClientRect(); const scaleX = canvas.width/rect.width; const scaleY = canvas.height/rect.height; let cx, cy; if(e.touches){ cx=e.touches[0].clientX; cy=e.touches[0].clientY; e.preventDefault(); } else { cx=e.clientX; cy=e.clientY; } return { x: (cx-rect.left)*scaleX, y: (cy-rect.top)*scaleY }; }; canvas.onmousedown = (e) => { const {x,y}=getCoords(e); const hit=htSorobanGetHitRegion(x,y); if(hit?.type==='decimal') return; if(hit?.type==='upper') htSorobanToggleUpper(hit.col, hit.idx); if(hit?.type==='lower') htSorobanHandleLowerClick(hit.col, hit.idx); }; canvas.ontouchstart = (e) => { e.preventDefault(); const {x,y}=getCoords(e); const hit=htSorobanGetHitRegion(x,y); if(hit?.type==='upper') htSorobanToggleUpper(hit.col,hit.idx); if(hit?.type==='lower') htSorobanHandleLowerClick(hit.col,hit.idx); };}
 function initAbacus() { localSorobanController.canvas = document.getElementById('sorobanCanvas'); if(!localSorobanController.canvas) return; localSorobanController.ctx = localSorobanController.canvas.getContext('2d'); htSorobanInitState(); htSorobanComputeLayout(); setupEvents(); htSorobanRender(); htSorobanUpdateDisplay(); window.addEventListener('resize', () => { htSorobanComputeLayout(); htSorobanRender(); }); }
 
-// ================ TUTOR WITH 9 LEVELS & FIXED CARRY (NO EXTRA STEPS) ================
+// ================ TUTOR WITH 7 LEVELS & FIXED CARRY (NO EXTRA STEPS) ================
 function getAbacusValue() { return htSorobanGetCurrentNumericValue(); }
 function setAbacusToNumber(val) { htSorobanSetToNumber(val); }
 
@@ -496,7 +496,7 @@ function resetTutorToStepOne() {
 
 function toggleLevel() {
     localSorobanController.currentDigitLevel++;
-    if (localSorobanController.currentDigitLevel > 8) {
+    if (localSorobanController.currentDigitLevel > 7) {
         localSorobanController.currentDigitLevel = 1;
         document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getFinalLevelMessage(localSorobanController.currentDigitLevel)}</div>`;
     }
