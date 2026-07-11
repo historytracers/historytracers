@@ -305,7 +305,7 @@ function htSorobanGetHitRegion(mx, my) {
 
 function htSorobanToggleUpper(col, idx) { let c=localSorobanController.state[col]; if(idx<c.upper) c.upper=idx; else c.upper=idx+1; if(c.upper>c.upperMax)c.upper=c.upperMax; htSorobanRender(); htSorobanUpdateDisplay(); if(window.checkCurrentStepPositive) window.checkCurrentStepPositive();}
 function htSorobanHandleLowerClick(col, idx) { let c=localSorobanController.state[col]; if(idx<c.lower) c.lower=idx; else c.lower=idx+1; if(c.lower>c.lowerMax)c.lower=c.lowerMax; htSorobanRender(); htSorobanUpdateDisplay(); if(window.checkCurrentStepPositive) window.checkCurrentStepPositive();}
-function htSorobanReset() { for(let i=0;i<localSorobanController.COLUMNS;i++){ localSorobanController.state[i].upper=0; localSorobanController.state[i].lower=0; } htSorobanRender(); htSorobanUpdateDisplay();}
+function htSorobanReset() { for(let i=0;i<localSorobanController.COLUMNS;i++){ localSorobanController.state[i].upper=0; localSorobanController.state[i].lower=0; } htSorobanRender(); htSorobanUpdateDisplay(); if(window.checkCurrentStepPositive) window.checkCurrentStepPositive();}
 function htSorobanSwitchMode(mode) { 
     if(localSorobanController.abacusMode === mode) return;
     const currentValue = htSorobanGetCurrentNumericValue();
@@ -822,7 +822,7 @@ function htLoadContent() {
     initAbacus();
     document.getElementById('nextStepBtn').onclick = nextStep;
     document.getElementById('resetTutorBtn').onclick = () => { startNewExercise(); };
-    document.getElementById('resetButton').onclick = () => { resetTutorToStepOne(); };
+    document.getElementById('resetButton').onclick = () => { htSorobanReset(); };
     document.getElementById('nextLevelBtn').onclick = () => { toggleLevel(); };
     document.getElementById('btnSorobanMode').onclick = () => { htSorobanSwitchMode('soroban'); };
     document.getElementById('btnSuanpanMode').onclick = () => { htSorobanSwitchMode('suanpan'); };
