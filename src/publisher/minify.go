@@ -651,9 +651,6 @@ func HTMinifyAllFiles() {
 	// Create directories
 	htMinifyCreateDirectories()
 
-	// Generate gallery index from images directory
-	HTGenerateGalleryIndex()
-
 	// Rewrite Sources from DB
 	htRewriteSourcesFromDB()
 

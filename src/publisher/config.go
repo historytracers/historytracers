@@ -40,6 +40,7 @@ var (
 	langTestFlag        string
 	checkSourcesFlag    bool
 	CreateDBFlag        bool
+	GalleryFlag         bool
 	dbFileFlag          string
 	compileConfPath     string
 	compileSrcPath      string
@@ -69,6 +70,7 @@ func HTParseArg() {
 	flag.StringVar(&dbFileFlag, "db", "", "Path to the SQLite database file. (default: history_tracers.db)")
 	flag.BoolVar(&checkSourcesFlag, "checksources", false, "Check and fix date_time.year mismatches in UUID files against published field in lang/sources/.")
 	flag.BoolVar(&CreateDBFlag, "createdb", false, "Create a local SQLite database with all sources from lang/sources/. (default: false)")
+	flag.BoolVar(&GalleryFlag, "gallery", false, "Generate and update gallery index from images directory. (default: false)")
 
 	flag.Parse()
 
