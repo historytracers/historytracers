@@ -1289,6 +1289,7 @@ func main() {
 	mux.HandleFunc("/api/editor/source-file", sourceFileHandler)
 	mux.HandleFunc("/api/editor/file-indexes", fileIndexesHandler)
 	mux.HandleFunc("/api/editor/lang-index-files", langIndexFilesHandler)
+	mux.HandleFunc("/api/editor/find-source", findSourceHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
@@ -1648,6 +1649,53 @@ func langIndexFilesHandler(w http.ResponseWriter, r *http.Request) {
 				"label": e.Name(),
 			})
 		}
+	}
+	json.NewEncoder(w).Encode(result)
+}
+
+func findSourceHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	q := r.URL.Query().Get("q")
+	if q == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	defer db.Close()
+	var rows *sql.Rows
+	likeQ := "%" + q + "%"
+	if _, err := uuid.Parse(q); err == nil {
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
+	} else {
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? ORDER BY s.src_id", likeQ)
+	}
+	if err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	defer rows.Close()
+	result := make([]map[string]string, 0)
+	for rows.Next() {
+		var srcID, srcCitation, srcURL, srcDate, srcPublishDate string
+		if err := rows.Scan(&srcID, &srcCitation, &srcURL, &srcDate, &srcPublishDate); err != nil {
+			continue
+		}
+		result = append(result, map[string]string{
+			"src_id":           srcID,
+			"src_citation":     srcCitation,
+			"src_url":          srcURL,
+			"src_date":         srcDate,
+			"src_publish_date": srcPublishDate,
+		})
 	}
 	json.NewEncoder(w).Encode(result)
 }
