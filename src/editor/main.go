@@ -2,7 +2,6 @@
 package main
 
 import (
-	"bytes"
 	"crypto/rand"
 	"database/sql"
 	"encoding/gob"
@@ -1287,6 +1286,7 @@ func main() {
 	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
 	mux.HandleFunc("/api/editor/session", sessionHandler)
 	mux.HandleFunc("/api/editor/related-files", relatedFilesHandler)
+	mux.HandleFunc("/api/editor/source-file", sourceFileHandler)
 	mux.HandleFunc("/api/editor/file-indexes", fileIndexesHandler)
 	mux.HandleFunc("/api/editor/lang-index-files", langIndexFilesHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
@@ -1383,15 +1383,12 @@ func htBuildSourceFileFromDB(uuid string) ([]byte, error) {
 		}
 	}
 
-	var buf bytes.Buffer
-	e := json.NewEncoder(&buf)
-	e.SetEscapeHTML(false)
-	e.SetIndent("", "   ")
-	if err := e.Encode(sf); err != nil {
+	data, err := json.MarshalIndent(sf, "", "   ")
+	if err != nil {
 		return nil, fmt.Errorf("failed to marshal source file: %w", err)
 	}
 
-	return buf.Bytes(), nil
+	return data, nil
 }
 
 func htGenerateSourceTempFile(uuid string) (string, error) {
@@ -1542,6 +1539,44 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 	json.NewEncoder(w).Encode(result)
+}
+
+func sourceFileHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	uuidStr := r.URL.Query().Get("uuid")
+	if uuidStr == "" {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	if _, err := uuid.Parse(uuidStr); err != nil {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); err != nil {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	defer db.Close()
+	var count int
+	if db.QueryRow("SELECT COUNT(*) FROM files WHERE fil_id = ?", uuidStr).Scan(&count) != nil || count == 0 {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	tempPath, err := htGenerateSourceTempFile(uuidStr)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	json.NewEncoder(w).Encode(map[string]string{
+		"path":  tempPath,
+		"label": "Source",
+	})
 }
 
 func fileIndexesHandler(w http.ResponseWriter, r *http.Request) {

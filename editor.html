@@ -640,6 +640,23 @@ async function updateRelatedFiles(){
 				sel.appendChild(opt);
 			});
 		}catch(e){}
+		// fetch source file for this UUID
+		try{
+			var r3=await fetch('/api/editor/source-file?uuid='+encodeURIComponent(base));
+			var src=await r3.json();
+			if(src.path&&src.path!==t.path){
+				var exists=false;
+				for(var i=0;i<sel.options.length;i++){
+					if(sel.options[i].value===src.path){exists=true;break}
+				}
+				if(!exists){
+					var opt=document.createElement('option');
+					opt.value=src.path;
+					opt.textContent=src.label;
+					sel.appendChild(opt);
+				}
+			}
+		}catch(e){}
 		// fetch index files from the same language that reference this UUID
 		if(parts.length>=3&&parts[0]==='lang'){
 			var lang=parts[1];
