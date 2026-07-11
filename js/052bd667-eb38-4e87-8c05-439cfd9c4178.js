@@ -330,7 +330,7 @@ function generateRandomNumbersByLevel() {
     const select = document.getElementById('multiplierSelect');
     let b;
     if (select && select.value === "-1") {
-        b = Math.floor(Math.random() * 9) + 1;
+        b = (Math.floor(Math.random() * 9) + 1) * 10;
     } else if (select) {
         b = parseInt(select.value);
     } else {
@@ -685,7 +685,7 @@ function htLoadContent() {
     const sel = document.getElementById('multiplierSelect');
     if (sel) {
         if (sel.options.length === 0) {
-            for (let i = 1; i <= 9; i++) {
+            for (let i = 10; i <= 90; i += 10) {
                 const opt = document.createElement('option');
                 opt.value = i.toString();
                 opt.textContent = i.toString();
