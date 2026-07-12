@@ -577,7 +577,7 @@ function resetTutorToStepOne() {
 
 function toggleLevel() {
     localSorobanController.currentDigitLevel++;
-    if (localSorobanController.currentDigitLevel > 7) {
+    if (localSorobanController.currentDigitLevel > 5) {
         localSorobanController.currentDigitLevel = 1;
         document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getFinalLevelMessage(localSorobanController.currentDigitLevel)}</div>`;
     }
