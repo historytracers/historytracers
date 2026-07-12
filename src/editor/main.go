@@ -349,6 +349,14 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
+		cacheFile := filepath.Join(getCacheDir(), filepath.Base(fileParam))
+		if err := os.WriteFile(cacheFile, []byte(content), 0644); err != nil {
+			log.Printf("ERROR writing cache file: %v", err)
+		}
+		rotateToken()
+		w.Header().Set("X-HT-Next-Token", viewerToken)
+		w.WriteHeader(http.StatusNoContent)
+		return
 	}
 
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
@@ -854,6 +862,13 @@ func initDataDir() {
 	}
 }
 
+func getCacheDir() string {
+	if dataDir != "" {
+		return filepath.Join(dataDir, ".ht_src_cache")
+	}
+	return filepath.Join(rootDir, ".ht_src_cache")
+}
+
 func readEditorOptions() optionsData {
 	if optionsFile == "" {
 		return optionsData{}
@@ -1298,6 +1313,8 @@ func main() {
 	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.HandleFunc("/metrics", metricsHandler)
 	mux.HandleFunc("/api/editor/viewer", viewHandler)
+	cacheFS := http.FileServer(http.Dir(getCacheDir()))
+	mux.Handle("/.ht_src_cache/", http.StripPrefix("/.ht_src_cache/", cacheFS))
 	fs := http.FileServer(projectFS{})
 	mux.Handle("/", logMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/" {
@@ -1398,7 +1415,7 @@ func htGenerateSourceTempFile(uuid string) (string, error) {
 		return "", err
 	}
 
-	cacheDir := filepath.Join(rootDir, ".ht_src_cache")
+	cacheDir := getCacheDir()
 	if err := os.MkdirAll(cacheDir, 0755); err != nil {
 		return "", fmt.Errorf("failed to create cache directory: %w", err)
 	}
