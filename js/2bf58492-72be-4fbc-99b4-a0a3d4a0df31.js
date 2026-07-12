@@ -466,11 +466,13 @@ function resetTutorToStepOne() {
 }
 
 function toggleLevel() {
-    localSorobanController.currentMultiplier++;
-    if (localSorobanController.currentMultiplier > 9) {
+    if (localSorobanController.currentMultiplier === 9) {
         localSorobanController.currentMultiplier = 1;
-        document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getFinalLevelMessage(localSorobanController.currentMultiplier)}</div>`;
+        document.getElementById('levelBadge').innerHTML = '× ' + localSorobanController.currentMultiplier;
+        document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getLastLevelMessage()}</div>`;
+        return;
     }
+    localSorobanController.currentMultiplier++;
     startNewExercise();
 }
 
@@ -646,6 +648,10 @@ function htLoadContent() {
     
         getNextText: function() {
             return this.get('txt_next');
+        },
+
+        getLastLevelMessage: function() {
+            return this.get('txt_lastLevelMessage');
         }
     };
 
