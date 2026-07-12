@@ -302,10 +302,16 @@ func editorReadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "missing file", http.StatusBadRequest)
 		return
 	}
-	absPath, err := validateEditPath(fileParam)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
+	var absPath string
+	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
+		absPath = filepath.Join(getCacheDir(), filepath.Base(fileParam))
+	} else {
+		var err error
+		absPath, err = validateEditPath(fileParam)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
 	}
 	sessionID := r.Header.Get("X-HT-Session")
 	fileLocksMu.Lock()
