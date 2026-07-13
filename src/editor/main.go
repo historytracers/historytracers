@@ -19,6 +19,7 @@ import (
 	"path"
 	"path/filepath"
 	"runtime"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -1311,6 +1312,7 @@ func main() {
 	mux.HandleFunc("/api/editor/file-indexes", fileIndexesHandler)
 	mux.HandleFunc("/api/editor/lang-index-files", langIndexFilesHandler)
 	mux.HandleFunc("/api/editor/find-source", findSourceHandler)
+	mux.HandleFunc("/api/editor/link-source", linkSourceHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
@@ -1721,6 +1723,87 @@ func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 	json.NewEncoder(w).Encode(result)
+}
+
+func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	fileUUID := r.FormValue("file_uuid")
+	srcID := r.FormValue("src_id")
+	srcCitation := r.FormValue("src_citation")
+	srcDate := r.FormValue("src_date")
+	srcPublishDate := r.FormValue("src_publish_date")
+	srcURL := r.FormValue("src_url")
+	citTypeStr := r.FormValue("cit_type")
+
+	if fileUUID == "" || srcID == "" {
+		json.NewEncoder(w).Encode(map[string]string{"error": "file_uuid and src_id are required"})
+		return
+	}
+
+	citType := 0
+	if citTypeStr != "" {
+		if v, err := strconv.Atoi(citTypeStr); err == nil {
+			citType = v
+		}
+	}
+
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		json.NewEncoder(w).Encode(map[string]string{"error": "database not found"})
+		return
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to open database"})
+		return
+	}
+	defer db.Close()
+
+	tx, err := db.Begin()
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to begin transaction"})
+		return
+	}
+	defer tx.Rollback()
+
+	fileStmt, err := tx.Prepare(`INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)`)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to prepare file statement"})
+		return
+	}
+	defer fileStmt.Close()
+
+	srcStmt, err := tx.Prepare(`INSERT OR REPLACE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to prepare source statement"})
+		return
+	}
+	defer srcStmt.Close()
+
+	citStmt, err := tx.Prepare(`INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (?, ?, ?)`)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to prepare citation statement"})
+		return
+	}
+	defer citStmt.Close()
+
+	apaUUID := "a1b2c3d4-0000-4000-8000-000000000001"
+
+	fileStmt.Exec(fileUUID, "")
+	srcStmt.Exec(srcID, apaUUID, srcCitation, srcDate, srcPublishDate, srcURL)
+	citStmt.Exec(fileUUID, srcID, citType)
+
+	if err := tx.Commit(); err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to commit transaction"})
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
