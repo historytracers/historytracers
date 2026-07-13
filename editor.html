@@ -1471,6 +1471,20 @@ function insertSourceFromFind(item){
     }
     area.focus();
     document.execCommand('insertText',false,tpl);
+
+    var parts=tabs[currentTab].path.split('/');
+    var name=parts[parts.length-1];
+    var base=name.replace(/\.(json|js)$/,'');
+    if(/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(base)){
+        var body='file_uuid='+encodeURIComponent(base)+
+            '&src_id='+encodeURIComponent(item.src_id||'')+
+            '&src_citation='+encodeURIComponent(item.src_citation||'')+
+            '&src_date='+encodeURIComponent(item.src_date||'')+
+            '&src_publish_date='+encodeURIComponent(item.src_publish_date||'')+
+            '&src_url='+encodeURIComponent(item.src_url||'');
+        fetch('/api/editor/link-source',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body});
+    }
+
     toast(tr('insDone'),'success');
     document.getElementById('findPanel').classList.remove('open');
 }
