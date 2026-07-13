@@ -2716,11 +2716,11 @@ function htFillWebPage(page, data)
         last_update = parseInt(last_update[0], 10);
     }
     const page_last_update = last_update;
-    let page_authors = (keywords.length > 34) ? keywords[35] : "Editors of History Tracers";
-    let page_reviewers = (keywords.length > 36) ? keywords[37] : "Reviewers of History Tracers";
+    let page_authors = (keywords.length > 34 && keywords[35] && keywords[35].length > 0) ? keywords[35] : "Editors of History Tracers";
+    let page_reviewers = (keywords.length > 36 && keywords[37] && keywords[37].length > 0) ? keywords[37] : "Reviewers of History Tracers";
 
-    if (data?.authors?.length) page_authors = data.authors;
-    if (data?.reviewers?.length) page_reviewers = data.reviewers;
+    if (data?.authors != null && data.authors.length > 0) page_authors = data.authors;
+    if (data?.reviewers != null && data.reviewers.length > 0) page_reviewers = data.reviewers;
 
     if ($("#extpaper").length && page_last_update > 0) {
         htFillDivAuthorsContent("#extpaper", page_last_update, page_authors, page_reviewers);
