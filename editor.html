@@ -1437,8 +1437,8 @@ function insertSourceFromFind(item){
         return
     }
     var content=tabs[currentTab].content;
-    if(content.indexOf('"type": "class"')===-1){
-        toast('This action requires a class file (type: "class")','error');
+    if(content.indexOf('"type": "class"')===-1&&content.indexOf('"type": "genealogy"')===-1&&content.indexOf('"type": "index"')===-1){
+        toast('This action requires a class, genealogy or index file','error');
         return
     }
     var date={type:"gregory",year:"",month:"",day:""};
