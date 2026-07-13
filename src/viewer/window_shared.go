@@ -726,7 +726,8 @@ L['en']=L['en-US'];
 					fetch('/api/open/external?url='+encodeURIComponent(url));
 					return;
 				}
-				if(u.pathname.indexOf('/index.html')!==0&&u.pathname.indexOf('index.html')!==0){
+				var p=u.pathname;
+				if(p.indexOf('/index.html')!==0&&p.indexOf('index.html')!==0&&p.indexOf('/csv/')!==0&&p.indexOf('/gedcom/')!==0){
 					fetch('/api/open/external?url='+encodeURIComponent(url));
 					return;
 				}

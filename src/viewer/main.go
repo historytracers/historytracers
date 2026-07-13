@@ -1029,7 +1029,7 @@ func main() {
 
 	port := flag.Int("port", 0, "HTTP port (0 = random available)")
 	listen := flag.Int("listen", -1, "Static port in range 1-65535 (-1 = use -port)")
-	path := flag.String("path", "", "Content directory (overrides -dir when set)")
+	pathFlag := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
 	cal := flag.String("calendar", "",
@@ -1045,8 +1045,8 @@ func main() {
 	flag.Parse()
 
 	contentDir = *dir
-	if *path != "" {
-		contentDir = *path
+	if *pathFlag != "" {
+		contentDir = *pathFlag
 	}
 	tlsCertFile = *tlsCert
 	tlsKeyFile = *tlsKey
@@ -1165,6 +1165,24 @@ func main() {
 	mux.HandleFunc("/api/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/options", optionsHandler)
 	mux.HandleFunc("/metrics", metricsHandler)
+	mux.Handle("/csv/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		clean := path.Clean(r.URL.Path)
+		if !isAllowedProjectFile(clean) {
+			http.Error(w, "not found", http.StatusNotFound)
+			return
+		}
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		http.ServeFile(w, r, filepath.Join(contentDir, clean))
+	}))
+	mux.Handle("/gedcom/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		clean := path.Clean(r.URL.Path)
+		if !isAllowedProjectFile(clean) {
+			http.Error(w, "not found", http.StatusNotFound)
+			return
+		}
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		http.ServeFile(w, r, filepath.Join(contentDir, clean))
+	}))
 	mux.Handle("/", metricsMiddleware(logMiddleware(http.FileServer(projectFS{}))))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
