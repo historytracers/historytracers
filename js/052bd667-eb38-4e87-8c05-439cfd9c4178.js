@@ -26,6 +26,9 @@ var localSorobanController = {
     "isDraggingDecimal": false,
     "verticalStep": 14,
     "currentMultiplier": 1,
+    "currentOnesDigit": 1,
+    "storedValue": 0,
+    "currentDigitLevel": 1,
     "currentExercise": { a:0, b:0, expected:0 },
     "steps": [],
     "currentStepIdx": 0,
@@ -302,7 +305,7 @@ function htSorobanGetHitRegion(mx, my) {
 
 function htSorobanToggleUpper(col, idx) { let c=localSorobanController.state[col]; if(idx<c.upper) c.upper=idx; else c.upper=idx+1; if(c.upper>c.upperMax)c.upper=c.upperMax; htSorobanRender(); htSorobanUpdateDisplay(); if(window.checkCurrentStepPositive) window.checkCurrentStepPositive();}
 function htSorobanHandleLowerClick(col, idx) { let c=localSorobanController.state[col]; if(idx<c.lower) c.lower=idx; else c.lower=idx+1; if(c.lower>c.lowerMax)c.lower=c.lowerMax; htSorobanRender(); htSorobanUpdateDisplay(); if(window.checkCurrentStepPositive) window.checkCurrentStepPositive();}
-function htSorobanReset() { for(let i=0;i<localSorobanController.COLUMNS;i++){ localSorobanController.state[i].upper=0; localSorobanController.state[i].lower=0; } htSorobanRender(); htSorobanUpdateDisplay();}
+function htSorobanReset() { for(let i=0;i<localSorobanController.COLUMNS;i++){ localSorobanController.state[i].upper=0; localSorobanController.state[i].lower=0; } htSorobanRender(); htSorobanUpdateDisplay(); if(window.checkCurrentStepPositive) window.checkCurrentStepPositive();}
 function htSorobanSwitchMode(mode) { 
     if(localSorobanController.abacusMode === mode) return;
     const currentValue = htSorobanGetCurrentNumericValue();
@@ -321,32 +324,147 @@ function htSorobanSwitchMode(mode) {
 function setupEvents() { const canvas = localSorobanController.canvas; const getCoords = (e) => { const rect = canvas.getBoundingClientRect(); const scaleX = canvas.width/rect.width; const scaleY = canvas.height/rect.height; let cx, cy; if(e.touches){ cx=e.touches[0].clientX; cy=e.touches[0].clientY; e.preventDefault(); } else { cx=e.clientX; cy=e.clientY; } return { x: (cx-rect.left)*scaleX, y: (cy-rect.top)*scaleY }; }; canvas.onmousedown = (e) => { const {x,y}=getCoords(e); const hit=htSorobanGetHitRegion(x,y); if(hit?.type==='decimal') return; if(hit?.type==='upper') htSorobanToggleUpper(hit.col, hit.idx); if(hit?.type==='lower') htSorobanHandleLowerClick(hit.col, hit.idx); }; canvas.ontouchstart = (e) => { e.preventDefault(); const {x,y}=getCoords(e); const hit=htSorobanGetHitRegion(x,y); if(hit?.type==='upper') htSorobanToggleUpper(hit.col,hit.idx); if(hit?.type==='lower') htSorobanHandleLowerClick(hit.col,hit.idx); };}
 function initAbacus() { localSorobanController.canvas = document.getElementById('sorobanCanvas'); if(!localSorobanController.canvas) return; localSorobanController.ctx = localSorobanController.canvas.getContext('2d'); htSorobanInitState(); htSorobanComputeLayout(); setupEvents(); htSorobanRender(); htSorobanUpdateDisplay(); window.addEventListener('resize', () => { htSorobanComputeLayout(); htSorobanRender(); }); }
 
-// ================ TUTOR WITH 9 LEVELS & FIXED CARRY (NO EXTRA STEPS) ================
+// ================ TUTOR WITH 7 LEVELS & FIXED CARRY (NO EXTRA STEPS) ================
 function getAbacusValue() { return htSorobanGetCurrentNumericValue(); }
 function setAbacusToNumber(val) { htSorobanSetToNumber(val); }
 
 function generateRandomNumbersByLevel() {
-    const a = Math.floor(Math.random() * 90) + 10;
-    const b = localSorobanController.currentMultiplier;
-    return { a, b };
+    const select = document.getElementById('multiplierSelect');
+    let b;
+    if (select && select.value === "-1") {
+        b = (Math.floor(Math.random() * 9) + 1) * 10;
+    } else if (select) {
+        b = parseInt(select.value);
+    } else {
+        b = localSorobanController.currentMultiplier;
+    }
+    const level = localSorobanController.currentDigitLevel;
+    let min, max;
+    if (level === 1) {
+        min = 1;
+        max = 9;
+    } else {
+        const power = Math.pow(10, level - 1);
+        min = power;
+        max = 2 * power - 1;
+    }
+    const a = Math.floor(Math.random() * (max - min + 1)) + min;
+    const onesDigit = Math.floor(Math.random() * 9) + 1;
+    const fullB = b + onesDigit;
+    localSorobanController.currentMultiplier = b;
+    localSorobanController.currentOnesDigit = onesDigit;
+    return { a, b, onesDigit, fullB };
 }
 
-function buildStepsForNumbers(a, b) {
+function buildSingleDigitMultiplySteps(a, digit, placeNames, multipliers) {
+    const steps = [];
+    const strA = a.toString();
+    const numPlaces = strA.length;
+
+    const contribs = [];
+    for (let i = 0; i < strA.length; i++) {
+        const d = parseInt(strA[i]);
+        if (d === 0) continue;
+        const place = numPlaces - 1 - i;
+        contribs.push({
+            digit: d,
+            place: place,
+            placeName: placeNames[place] || placeNames[placeNames.length - 1],
+            placeValue: Math.pow(10, place),
+            product: d * Math.pow(10, place) * digit
+        });
+    }
+
+    if (contribs.length === 0) {
+        steps.push({ instruction: '', targetValue: 0 });
+        return { steps, result: 0 };
+    }
+
+    const first = contribs[0];
+    const firstStr = `${(first.digit * first.placeValue).toLocaleString()} \u00D7 ${digit} = ${first.product.toLocaleString()}`;
+    steps.push({
+        instruction: localSorobanController.TextManager.getStep1Instruction(a.toLocaleString(), digit.toString(), firstStr),
+        targetValue: first.product
+    });
+
+    let currentVal = first.product;
+    for (let ci = 1; ci < contribs.length; ci++) {
+        const c = contribs[ci];
+        const addVal = c.product;
+        const prefix = `${(c.digit * c.placeValue).toLocaleString()} \u00D7 ${digit} = ${addVal.toLocaleString()}: `;
+
+        const addStr = addVal.toString();
+        const maxPlace = multipliers.length - 1;
+        const highPlace = Math.min(c.place + addStr.length - 1, maxPlace);
+        for (let p = c.place; p <= highPlace; p++) {
+            const digitB = Math.floor(addVal / multipliers[p]) % 10;
+            if (digitB === 0 && p < highPlace) continue;
+            if (digitB === 0) break;
+
+            const digitA = Math.floor(currentVal / multipliers[p]) % 10;
+            const totalDigit = digitA + digitB;
+
+            if (totalDigit < 10) {
+                currentVal += digitB * multipliers[p];
+                steps.push({
+                    instruction: prefix + localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p] || placeNames[placeNames.length - 1], currentVal.toLocaleString()),
+                    targetValue: currentVal
+                });
+            } else {
+                const complement = 10 - digitB;
+                const newVal = currentVal + (multipliers[p] * 10) - (complement * multipliers[p]);
+                const nextPlace = placeNames[p + 1] || localSorobanController.TextManager.getNextText();
+                steps.push({
+                    instruction: prefix + localSorobanController.TextManager.getCarryInstruction(placeNames[p] || placeNames[placeNames.length - 1], digitB, digitA, totalDigit, nextPlace, complement, newVal.toLocaleString()),
+                    targetValue: newVal
+                });
+                currentVal = newVal;
+            }
+        }
+    }
+
+    return { steps, result: currentVal };
+}
+
+function buildAddValueSteps(addVal, startVal, placeNames, multipliers, prefix) {
+    const steps = [];
+    let currentVal = startVal;
+    const addStr = addVal.toString();
+    const highPlace = addStr.length - 1;
+
+    for (let p = 0; p <= highPlace; p++) {
+        const digitB = Math.floor(addVal / multipliers[p]) % 10;
+        if (digitB === 0) continue;
+
+        const digitA = Math.floor(currentVal / multipliers[p]) % 10;
+        const totalDigit = digitA + digitB;
+
+        if (totalDigit < 10) {
+            currentVal += digitB * multipliers[p];
+            steps.push({
+                instruction: prefix + localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p] || placeNames[placeNames.length - 1], currentVal.toLocaleString()),
+                targetValue: currentVal
+            });
+        } else {
+            const complement = 10 - digitB;
+            const newVal = currentVal + (multipliers[p] * 10) - (complement * multipliers[p]);
+            const nextPlace = placeNames[p + 1] || localSorobanController.TextManager.getNextText();
+            steps.push({
+                instruction: prefix + localSorobanController.TextManager.getCarryInstruction(placeNames[p] || placeNames[placeNames.length - 1], digitB, digitA, totalDigit, nextPlace, complement, newVal.toLocaleString()),
+                targetValue: newVal
+            });
+            currentVal = newVal;
+        }
+    }
+
+    return steps;
+}
+
+function buildStepsForNumbers(a, b, onesDigit, fullB) {
     const stepsList = [];
-    
-    const tensDigit = Math.floor(a / 10);
-    const unitsDigit = a % 10;
-    const tensMult = tensDigit * 10;
-    const tensProduct = tensMult * b;
-    const unitsProduct = unitsDigit * b;
-    const total = a * b;
-    
-    const maxDigits = Math.max(
-        tensProduct.toString().length,
-        unitsProduct.toString().length,
-        total.toString().length
-    );
-    
+    const storedValue = a * b;
+    const total = a * fullB;
+
     const placeNames = [
         localSorobanController.TextManager.getUnitUnits(),
         localSorobanController.TextManager.getUnitTens(),
@@ -359,55 +477,43 @@ function buildStepsForNumbers(a, b) {
         localSorobanController.TextManager.getUnitHundredMillions()
     ];
     const multipliers = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000];
-    
-    const tensMultStr = `${tensMult.toLocaleString()} × ${b.toLocaleString()} = ${tensProduct.toLocaleString()}`;
-    
+
+    const tensDigit = b / 10;
+
+    const tensMult = buildSingleDigitMultiplySteps(a, tensDigit, placeNames, multipliers);
+    for (const s of tensMult.steps) stepsList.push(s);
+
+    const tensResult = tensMult.result;
     stepsList.push({
-        instruction: localSorobanController.TextManager.getStep1Instruction(a.toLocaleString(), b.toLocaleString(), tensMultStr),
-        targetValue: tensProduct
+        instruction: localSorobanController.TextManager.getShiftInstruction(tensResult.toLocaleString(), storedValue.toLocaleString()),
+        targetValue: storedValue
     });
-    
-    let currentValue = tensProduct;
-    let firstAddStep = true;
-    
-    for (let p = 0; p < maxDigits; p++) {
-        const digitB = Math.floor(unitsProduct / multipliers[p]) % 10;
-        
-        if (digitB === 0) continue;
-        
-        let prefix = '';
-        if (firstAddStep) {
-            prefix = localSorobanController.TextManager.getUnitsProductHeader(unitsDigit, b, unitsProduct.toLocaleString());
-            firstAddStep = false;
-        }
-        
-        const digitA = Math.floor(currentValue / multipliers[p]) % 10;
-        const total_digit = digitA + digitB;
-        
-        if (total_digit < 10) {
-            currentValue += digitB * multipliers[p];
-            stepsList.push({
-                instruction: prefix + localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p], currentValue.toLocaleString()),
-                targetValue: currentValue
-            });
-        } else {
-            const complement = 10 - digitB;
-            const newValue = currentValue + (multipliers[p] * 10) - (complement * multipliers[p]);
-            const nextPlace = placeNames[p+1] || localSorobanController.TextManager.getNextText();
-            
-            stepsList.push({
-                instruction: prefix + localSorobanController.TextManager.getCarryInstruction(placeNames[p], digitB, digitA, total_digit, nextPlace, complement, newValue.toLocaleString()),
-                targetValue: newValue
-            });
-            currentValue = newValue;
-        }
-    }
-    
+
     stepsList.push({
-        instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString(), b.toLocaleString(), total.toLocaleString()),
+        instruction: localSorobanController.TextManager.getStoreInstruction(storedValue.toLocaleString()),
+        targetValue: storedValue,
+        isStoreStep: true
+    });
+
+    stepsList.push({
+        instruction: localSorobanController.TextManager.getResetPhaseInstruction(),
+        targetValue: 0
+    });
+
+    const onesMult = buildSingleDigitMultiplySteps(a, onesDigit, placeNames, multipliers);
+    for (const s of onesMult.steps) stepsList.push(s);
+
+    const onesResult = onesMult.result;
+
+    const addSteps = buildAddValueSteps(storedValue, onesResult, placeNames, multipliers,
+        localSorobanController.TextManager.getAddStoredPrefix(storedValue.toLocaleString()));
+    for (const s of addSteps) stepsList.push(s);
+
+    stepsList.push({
+        instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString(), fullB.toLocaleString(), total.toLocaleString()),
         targetValue: total
     });
-    
+
     return stepsList;
 }
 
@@ -435,13 +541,15 @@ function setControlStepVisibility(show) {
 function startNewExercise() {
     localSorobanController.finalCongratsShown = false;
     localSorobanController.exerciseStarted = false;
+    localSorobanController.storedValue = 0;
     const nums = generateRandomNumbersByLevel();
-    localSorobanController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a * nums.b };
-    document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString()} × ${localSorobanController.currentExercise.b.toLocaleString()}`;
-    document.getElementById('levelBadge').innerHTML = '× ' + localSorobanController.currentMultiplier;
+    localSorobanController.currentExercise = { a: nums.a, b: nums.b, onesDigit: nums.onesDigit, fullB: nums.fullB, expected: nums.a * nums.fullB };
+    document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString()} × ${localSorobanController.currentExercise.fullB.toLocaleString()}`;
+    document.getElementById('levelBadge').innerHTML = 'Level ' + localSorobanController.currentDigitLevel;
     document.getElementById('levelBadge').style.background = "#ffb347";
+    document.getElementById('storedResult').classList.add('hidden');
     setAbacusToNumber(0);
-    localSorobanController.steps = buildStepsForNumbers(localSorobanController.currentExercise.a, localSorobanController.currentExercise.b);
+    localSorobanController.steps = buildStepsForNumbers(localSorobanController.currentExercise.a, localSorobanController.currentExercise.b, localSorobanController.currentExercise.onesDigit, localSorobanController.currentExercise.fullB);
     localSorobanController.currentStepIdx = 0;
     localSorobanController.stepCompleted = false;
     document.getElementById('stepMessage').innerHTML = `${localSorobanController.TextManager.getStepPrefix()} ${localSorobanController.steps[0].instruction}`;
@@ -454,8 +562,10 @@ function startNewExercise() {
 function resetTutorToStepOne() {
     localSorobanController.finalCongratsShown = false;
     localSorobanController.exerciseStarted = false;
+    localSorobanController.storedValue = 0;
     setAbacusToNumber(0);
-    localSorobanController.steps = buildStepsForNumbers(localSorobanController.currentExercise.a, localSorobanController.currentExercise.b);
+    document.getElementById('storedResult').classList.add('hidden');
+    localSorobanController.steps = buildStepsForNumbers(localSorobanController.currentExercise.a, localSorobanController.currentExercise.b, localSorobanController.currentExercise.onesDigit, localSorobanController.currentExercise.fullB);
     localSorobanController.currentStepIdx = 0;
     localSorobanController.stepCompleted = false;
     document.getElementById('stepMessage').innerHTML = `${localSorobanController.TextManager.getStepPrefix()} ${localSorobanController.steps[0].instruction}`;
@@ -466,13 +576,13 @@ function resetTutorToStepOne() {
 }
 
 function toggleLevel() {
-    if (localSorobanController.currentMultiplier === 9) {
-        localSorobanController.currentMultiplier = 1;
-        document.getElementById('levelBadge').innerHTML = '× ' + localSorobanController.currentMultiplier;
+    if (localSorobanController.currentDigitLevel === 5) {
+        localSorobanController.currentDigitLevel = 1;
+        document.getElementById('levelBadge').innerHTML = 'Level 1';
         document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getLastLevelMessage()}</div>`;
         return;
     }
-    localSorobanController.currentMultiplier++;
+    localSorobanController.currentDigitLevel++;
     startNewExercise();
 }
 
@@ -481,13 +591,21 @@ window.checkCurrentStepPositive = function() {
     const currentVal = getAbacusValue();
     const step = localSorobanController.steps[localSorobanController.currentStepIdx];
     
+    if (step.isStoreStep) {
+        const storedEl = document.getElementById('storedResult');
+        if (storedEl) {
+            storedEl.classList.remove('hidden');
+            storedEl.innerHTML = localSorobanController.TextManager.getStoredResultDisplay(localSorobanController.steps[localSorobanController.currentStepIdx - 1]?.targetValue?.toLocaleString() || '');
+        }
+    }
+    
     if (currentVal === step.targetValue) {
         if (!localSorobanController.stepCompleted) {
             localSorobanController.stepCompleted = true;
             if (localSorobanController.currentStepIdx === localSorobanController.steps.length - 1) {
                 if (!localSorobanController.finalCongratsShown) {
                     localSorobanController.finalCongratsShown = true;
-                    document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getPerfectMessage(localSorobanController.currentExercise.a.toLocaleString(), localSorobanController.currentExercise.b.toLocaleString(), localSorobanController.currentExercise.expected.toLocaleString())}</div>`;
+                    document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getPerfectMessage(localSorobanController.currentExercise.a.toLocaleString(), localSorobanController.currentExercise.fullB.toLocaleString(), localSorobanController.currentExercise.expected.toLocaleString())}</div>`;
                     setControlButtonsVisibility(true);
                     setControlStepVisibility(false);
                 }
@@ -523,15 +641,23 @@ function nextStep() {
     if (localSorobanController.currentStepIdx + 1 < localSorobanController.steps.length) {
         localSorobanController.currentStepIdx++;
         localSorobanController.stepCompleted = false;
-        document.getElementById('stepMessage').innerHTML = `${localSorobanController.TextManager.getStepPrefix()} ${localSorobanController.steps[localSorobanController.currentStepIdx].instruction}`;
+        const nextStep = localSorobanController.steps[localSorobanController.currentStepIdx];
+        document.getElementById('stepMessage').innerHTML = `${localSorobanController.TextManager.getStepPrefix()} ${nextStep.instruction}`;
         document.getElementById('stepStatus').innerHTML = localSorobanController.TextManager.getStepStatus(localSorobanController.currentStepIdx+1, localSorobanController.steps.length);
         document.getElementById('feedbackArea').innerHTML = '';
+        if (nextStep.isStoreStep) {
+            const storedEl = document.getElementById('storedResult');
+            if (storedEl) {
+                storedEl.classList.remove('hidden');
+                storedEl.innerHTML = localSorobanController.TextManager.getStoredResultDisplay(localSorobanController.steps[localSorobanController.currentStepIdx - 1]?.targetValue?.toLocaleString() || '');
+            }
+        }
         setControlStepVisibility(false);
         setTimeout(() => window.checkCurrentStepPositive(), 50);
     } else {
         if (currentVal === localSorobanController.currentExercise.expected && !localSorobanController.finalCongratsShown) {
             localSorobanController.finalCongratsShown = true;
-            document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getCongratsMessage(localSorobanController.currentExercise.a.toLocaleString(), localSorobanController.currentExercise.b.toLocaleString(), localSorobanController.currentExercise.expected.toLocaleString())}</div>`;
+            document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getCongratsMessage(localSorobanController.currentExercise.a.toLocaleString(), localSorobanController.currentExercise.fullB.toLocaleString(), localSorobanController.currentExercise.expected.toLocaleString())}</div>`;
             setControlButtonsVisibility(true);
         }
     }
@@ -650,15 +776,59 @@ function htLoadContent() {
             return this.get('txt_next');
         },
 
+        getRandomLabel: function() {
+            return this.get('txt_randomLabel');
+        },
+
+        getShiftInstruction: function(from, to) {
+            return this.format(this.get('txt_shiftInstruction'), { from, to });
+        },
+
+        getStoreInstruction: function(value) {
+            return this.format(this.get('txt_storeInstruction'), { value });
+        },
+
+        getResetPhaseInstruction: function() {
+            return this.get('txt_resetPhaseInstruction');
+        },
+
+        getAddStoredPrefix: function(value) {
+            return this.format(this.get('txt_addStoredPrefix'), { value });
+        },
+
+        getStoredResultDisplay: function(value) {
+            return this.format(this.get('txt_storedResultDisplay'), { value });
+        },
+
         getLastLevelMessage: function() {
             return this.get('txt_lastLevelMessage');
         }
     };
 
+    const sel = document.getElementById('multiplierSelect');
+    if (sel) {
+        if (sel.options.length === 0) {
+            for (let i = 10; i <= 90; i += 10) {
+                const opt = document.createElement('option');
+                opt.value = i.toString();
+                opt.textContent = i.toString();
+                sel.appendChild(opt);
+            }
+            const rOpt = document.createElement('option');
+            rOpt.value = "-1";
+            rOpt.textContent = localSorobanController.TextManager.getRandomLabel();
+            sel.appendChild(rOpt);
+            sel.addEventListener('change', function() {
+                startNewExercise();
+            });
+        }
+        sel.value = "-1";
+    }
+
     initAbacus();
     document.getElementById('nextStepBtn').onclick = nextStep;
     document.getElementById('resetTutorBtn').onclick = () => { startNewExercise(); };
-    document.getElementById('resetButton').onclick = () => { resetTutorToStepOne(); };
+    document.getElementById('resetButton').onclick = () => { htSorobanReset(); };
     document.getElementById('nextLevelBtn').onclick = () => { toggleLevel(); };
     document.getElementById('btnSorobanMode').onclick = () => { htSorobanSwitchMode('soroban'); };
     document.getElementById('btnSuanpanMode').onclick = () => { htSorobanSwitchMode('suanpan'); };

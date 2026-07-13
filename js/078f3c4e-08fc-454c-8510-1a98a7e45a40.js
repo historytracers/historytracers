@@ -495,11 +495,13 @@ function resetTutorToStepOne() {
 }
 
 function toggleLevel() {
-    localSorobanController.currentDigitLevel++;
-    if (localSorobanController.currentDigitLevel > 8) {
+    if (localSorobanController.currentDigitLevel === 8) {
         localSorobanController.currentDigitLevel = 1;
-        document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getFinalLevelMessage(localSorobanController.currentDigitLevel)}</div>`;
+        document.getElementById('levelBadge').innerHTML = 'Level 1';
+        document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getLastLevelMessage()}</div>`;
+        return;
     }
+    localSorobanController.currentDigitLevel++;
     startNewExercise();
 }
 
@@ -679,6 +681,10 @@ function htLoadContent() {
 
         getRandomLabel: function() {
             return this.get('txt_randomLabel');
+        },
+
+        getLastLevelMessage: function() {
+            return this.get('txt_lastLevelMessage');
         }
     };
 
