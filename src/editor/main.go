@@ -302,10 +302,16 @@ func editorReadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "missing file", http.StatusBadRequest)
 		return
 	}
-	absPath, err := validateEditPath(fileParam)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
+	var absPath string
+	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
+		absPath = filepath.Join(getCacheDir(), filepath.Base(fileParam))
+	} else {
+		var err error
+		absPath, err = validateEditPath(fileParam)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
 	}
 	sessionID := r.Header.Get("X-HT-Session")
 	fileLocksMu.Lock()
@@ -349,6 +355,14 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
+		cacheFile := filepath.Join(getCacheDir(), filepath.Base(fileParam))
+		if err := os.WriteFile(cacheFile, []byte(content), 0644); err != nil {
+			log.Printf("ERROR writing cache file: %v", err)
+		}
+		rotateToken()
+		w.Header().Set("X-HT-Next-Token", viewerToken)
+		w.WriteHeader(http.StatusNoContent)
+		return
 	}
 
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
@@ -854,6 +868,13 @@ func initDataDir() {
 	}
 }
 
+func getCacheDir() string {
+	if dataDir != "" {
+		return filepath.Join(dataDir, ".ht_src_cache")
+	}
+	return filepath.Join(rootDir, ".ht_src_cache")
+}
+
 func readEditorOptions() optionsData {
 	if optionsFile == "" {
 		return optionsData{}
@@ -1286,6 +1307,10 @@ func main() {
 	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
 	mux.HandleFunc("/api/editor/session", sessionHandler)
 	mux.HandleFunc("/api/editor/related-files", relatedFilesHandler)
+	mux.HandleFunc("/api/editor/source-file", sourceFileHandler)
+	mux.HandleFunc("/api/editor/file-indexes", fileIndexesHandler)
+	mux.HandleFunc("/api/editor/lang-index-files", langIndexFilesHandler)
+	mux.HandleFunc("/api/editor/find-source", findSourceHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
@@ -1294,6 +1319,8 @@ func main() {
 	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.HandleFunc("/metrics", metricsHandler)
 	mux.HandleFunc("/api/editor/viewer", viewHandler)
+	cacheFS := http.FileServer(http.Dir(getCacheDir()))
+	mux.Handle("/.ht_src_cache/", http.StripPrefix("/.ht_src_cache/", cacheFS))
 	fs := http.FileServer(projectFS{})
 	mux.Handle("/", logMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/" {
@@ -1394,7 +1421,7 @@ func htGenerateSourceTempFile(uuid string) (string, error) {
 		return "", err
 	}
 
-	cacheDir := filepath.Join(rootDir, ".ht_src_cache")
+	cacheDir := getCacheDir()
 	if err := os.MkdirAll(cacheDir, 0755); err != nil {
 		return "", fmt.Errorf("failed to create cache directory: %w", err)
 	}
@@ -1533,6 +1560,164 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 		result = append(result, map[string]string{
 			"path":  filepath.ToSlash(rel),
 			"label": "JavaScript",
+		})
+	}
+	json.NewEncoder(w).Encode(result)
+}
+
+func sourceFileHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	uuidStr := r.URL.Query().Get("uuid")
+	if uuidStr == "" {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	if _, err := uuid.Parse(uuidStr); err != nil {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); err != nil {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	defer db.Close()
+	var count int
+	if db.QueryRow("SELECT COUNT(*) FROM files WHERE fil_id = ?", uuidStr).Scan(&count) != nil || count == 0 {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	tempPath, err := htGenerateSourceTempFile(uuidStr)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{})
+		return
+	}
+	json.NewEncoder(w).Encode(map[string]string{
+		"path":  tempPath,
+		"label": "Source",
+	})
+}
+
+func fileIndexesHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	lang := r.URL.Query().Get("lang")
+	uuidStr := r.URL.Query().Get("uuid")
+	if lang == "" || uuidStr == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	if _, err := uuid.Parse(uuidStr); err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	result := make([]map[string]string, 0)
+	langDir := filepath.Join(rootDir, "lang", lang)
+	entries, err := os.ReadDir(langDir)
+	if err != nil {
+		json.NewEncoder(w).Encode(result)
+		return
+	}
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".json") {
+			continue
+		}
+		name := strings.TrimSuffix(e.Name(), ".json")
+		if _, err := uuid.Parse(name); err == nil {
+			continue
+		}
+		candidate := filepath.Join(langDir, e.Name())
+		data, err := os.ReadFile(candidate)
+		if err != nil {
+			continue
+		}
+		if strings.Contains(string(data), uuidStr) {
+			rel, _ := filepath.Rel(rootDir, candidate)
+			result = append(result, map[string]string{
+				"path":  filepath.ToSlash(rel),
+				"label": name,
+			})
+		}
+	}
+	json.NewEncoder(w).Encode(result)
+}
+
+func langIndexFilesHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	name := r.URL.Query().Get("name")
+	if name == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	result := make([]map[string]string, 0)
+	langDir := filepath.Join(rootDir, "lang")
+	entries, err := os.ReadDir(langDir)
+	if err != nil {
+		json.NewEncoder(w).Encode(result)
+		return
+	}
+	for _, e := range entries {
+		if !e.IsDir() || e.Name() == "sources" || !strings.Contains(e.Name(), "-") {
+			continue
+		}
+		candidate := filepath.Join(langDir, e.Name(), name)
+		if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
+			rel, _ := filepath.Rel(rootDir, candidate)
+			result = append(result, map[string]string{
+				"path":  filepath.ToSlash(rel),
+				"label": e.Name(),
+			})
+		}
+	}
+	json.NewEncoder(w).Encode(result)
+}
+
+func findSourceHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	q := r.URL.Query().Get("q")
+	if q == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	defer db.Close()
+	var rows *sql.Rows
+	likeQ := "%" + q + "%"
+	if _, err := uuid.Parse(q); err == nil {
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
+	} else {
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? ORDER BY s.src_id", likeQ)
+	}
+	if err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	defer rows.Close()
+	result := make([]map[string]string, 0)
+	for rows.Next() {
+		var srcID, srcCitation, srcURL, srcDate, srcPublishDate string
+		if err := rows.Scan(&srcID, &srcCitation, &srcURL, &srcDate, &srcPublishDate); err != nil {
+			continue
+		}
+		result = append(result, map[string]string{
+			"src_id":           srcID,
+			"src_citation":     srcCitation,
+			"src_url":          srcURL,
+			"src_date":         srcDate,
+			"src_publish_date": srcPublishDate,
 		})
 	}
 	json.NewEncoder(w).Encode(result)
