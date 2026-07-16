@@ -573,6 +573,9 @@ function loadEditorState(index){
 		document.getElementById('noFileMsg').style.display='none';
 		document.getElementById('fileName').textContent=t.path;
 		var cf=document.getElementById('configFrame');
+		cf.onload=function(){
+			try{cf.contentWindow.addEventListener('keydown',frameKeyHandler)}catch(ex){}
+		};
 		cf.src=t.configUrl;
 		cf.style.display='';
 		updateStatus(index);
@@ -588,6 +591,9 @@ function loadEditorState(index){
 		document.getElementById('noFileMsg').style.display='none';
 		document.getElementById('fileName').textContent=t.path+' (View)';
 		var vf=document.getElementById('viewFrame');
+		vf.onload=function(){
+			try{vf.contentWindow.addEventListener('keydown',frameKeyHandler)}catch(ex){}
+		};
 		vf.src=t.url;
 		vf.style.display='';
 		// show URL for debugging
@@ -1085,6 +1091,16 @@ function redoFile(){
 			area.selectionStart=area.selectionEnd=pos;
 			area.focus();
 		}
+	}
+}
+
+function frameKeyHandler(e){
+	if((e.ctrlKey||e.metaKey)&&e.key==='PageUp'){
+		e.preventDefault();
+		if(parent.currentTab>0)parent.switchTab(parent.currentTab-1);
+	}else if((e.ctrlKey||e.metaKey)&&e.key==='PageDown'){
+		e.preventDefault();
+		if(parent.currentTab<parent.tabs.length-1)parent.switchTab(parent.currentTab+1);
 	}
 }
 
