@@ -327,15 +327,7 @@ function getAbacusValue() { return htSorobanGetCurrentNumericValue(); }
 function setAbacusToNumber(val) { htSorobanSetToNumber(val); }
 
 function generateRandomNumbersByLevel() {
-    const select = document.getElementById('multiplierSelect');
-    let b;
-    if (select && select.value === "-1") {
-        b = Math.floor(Math.random() * 9) + 1;
-    } else if (select) {
-        b = parseInt(select.value);
-    } else {
-        b = localSorobanController.currentSubtrahend;
-    }
+    let b = Math.floor(Math.random() * 9) + 1;
     const level = localSorobanController.currentDigitLevel;
     let min, max;
     if (level === 1) {
@@ -352,17 +344,6 @@ function generateRandomNumbersByLevel() {
     }
     localSorobanController.currentSubtrahend = b;
     return { a, b };
-}
-
-function findBorrowChain(strA) {
-    const len = strA.length;
-    for (let i = len - 2; i >= 0; i--) {
-        const digit = parseInt(strA[i]);
-        if (digit > 0) {
-            return { borrowIdx: i, borrowDigit: digit, numZeros: len - 2 - i };
-        }
-    }
-    return null;
 }
 
 function buildStepsForNumbers(a, b) {
@@ -382,6 +363,7 @@ function buildStepsForNumbers(a, b) {
     ];
 
     const strA = a.toString();
+    const len = strA.length;
     const unitsDigit = a % 10;
 
     stepsList.push({
@@ -390,29 +372,82 @@ function buildStepsForNumbers(a, b) {
     });
 
     if (unitsDigit >= b) {
-        const newValue = a - b;
+        let currentValue = a - b;
         stepsList.push({
-            instruction: localSorobanController.TextManager.getSimpleSubInstruction(b, placeNames[0], newValue.toLocaleString()),
-            targetValue: newValue
+            instruction: localSorobanController.TextManager.getSubStepInstruction(
+                localSorobanController.TextManager.format(
+                    localSorobanController.TextManager.get('txt_subStepDesc'),
+                    { digit: b.toString(), placeName: placeNames[0] }
+                ),
+                currentValue.toLocaleString()
+            ),
+            targetValue: currentValue
         });
     } else {
-        const chain = findBorrowChain(strA);
-        const newValue = a - b;
-        if (chain) {
-            const borrowPlaceName = placeNames[chain.borrowIdx] || placeNames[placeNames.length - 1];
+        let currentValue = a;
+        const digits = strA.split('').map(Number);
+        let borrowStrIdx = -1;
+        for (let i = len - 2; i >= 0; i--) {
+            if (digits[i] > 0) { borrowStrIdx = i; break; }
+        }
+        const borrowPlace = borrowStrIdx >= 0 ? len - 1 - borrowStrIdx : 1;
+
+        for (let p = 1; p < borrowPlace; p++) {
+            const strIdx = len - 1 - p;
+            if (strIdx >= 0 && digits[strIdx] === 0) {
+                currentValue += 9 * Math.pow(10, p);
+                stepsList.push({
+                    instruction: localSorobanController.TextManager.getSubStepInstruction(
+                        localSorobanController.TextManager.format(
+                            localSorobanController.TextManager.get('txt_borrowSetNine'),
+                            { placeName: placeNames[p] }
+                        ),
+                        currentValue.toLocaleString()
+                    ),
+                    targetValue: currentValue
+                });
+            }
+        }
+
+        if (borrowStrIdx >= 0) {
+            const borrowDigit = digits[borrowStrIdx];
+            currentValue -= Math.pow(10, borrowPlace);
             stepsList.push({
-                instruction: localSorobanController.TextManager.getBorrowInstruction(
-                    placeNames[0], unitsDigit, b,
-                    borrowPlaceName, chain.borrowDigit, chain.numZeros,
-                    newValue.toLocaleString()
+                instruction: localSorobanController.TextManager.getSubStepInstruction(
+                    localSorobanController.TextManager.format(
+                        localSorobanController.TextManager.get('txt_borrowReduce'),
+                        { placeName: placeNames[borrowPlace], digit: borrowDigit.toString(), newDigit: (borrowDigit - 1).toString() }
+                    ),
+                    currentValue.toLocaleString()
                 ),
-                targetValue: newValue
+                targetValue: currentValue
             });
         } else {
-            const newValue = a - b;
+            currentValue -= Math.pow(10, borrowPlace);
             stepsList.push({
-                instruction: localSorobanController.TextManager.getSimpleSubInstruction(b, placeNames[0], newValue.toLocaleString()),
-                targetValue: newValue
+                instruction: localSorobanController.TextManager.getSubStepInstruction(
+                    localSorobanController.TextManager.format(
+                        localSorobanController.TextManager.get('txt_borrowReduce'),
+                        { placeName: placeNames[borrowPlace], digit: '1', newDigit: '0' }
+                    ),
+                    currentValue.toLocaleString()
+                ),
+                targetValue: currentValue
+            });
+        }
+
+        {
+            const complement = 10 - b;
+            currentValue += complement;
+            stepsList.push({
+                instruction: localSorobanController.TextManager.getSubStepInstruction(
+                    localSorobanController.TextManager.format(
+                        localSorobanController.TextManager.get('txt_borrowSubUnits'),
+                        { unitsDigit: unitsDigit.toString(), b: b.toString(), complement: complement.toString(), newUnits: (unitsDigit + complement).toString() }
+                    ),
+                    currentValue.toLocaleString()
+                ),
+                targetValue: currentValue
             });
         }
     }
@@ -594,14 +629,8 @@ function htLoadContent() {
             return this.format(this.get('txt_setupInstruction'), { a });
         },
 
-        getSimpleSubInstruction: function(digit, placeName, result) {
-            return this.format(this.get('txt_simpleSubInstruction'), { digit, placeName, result });
-        },
-
-        getBorrowInstruction: function(placeName, unitsDigit, b, borrowPlaceName, borrowDigit, numZeros, result) {
-            return this.format(this.get('txt_borrowInstruction'), {
-                placeName, unitsDigit, b, borrowPlaceName, borrowDigit, numZeros, result
-            });
+        getSubStepInstruction: function(description, result) {
+            return this.format(this.get('txt_subStepInstruction'), { description, result });
         },
 
         getFinalInstruction: function(a, b, result) {
@@ -668,26 +697,6 @@ function htLoadContent() {
             return this.get('txt_lastLevelMessage');
         }
     };
-
-    const sel = document.getElementById('multiplierSelect');
-    if (sel) {
-        if (sel.options.length === 0) {
-            for (let i = 1; i <= 9; i++) {
-                const opt = document.createElement('option');
-                opt.value = i.toString();
-                opt.textContent = i.toString();
-                sel.appendChild(opt);
-            }
-            const rOpt = document.createElement('option');
-            rOpt.value = "-1";
-            rOpt.textContent = localSorobanController.TextManager.getRandomLabel();
-            sel.appendChild(rOpt);
-            sel.addEventListener('change', function() {
-                startNewExercise();
-            });
-        }
-        sel.value = "-1";
-    }
 
     initAbacus();
     document.getElementById('nextStepBtn').onclick = nextStep;
