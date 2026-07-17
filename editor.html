@@ -1502,8 +1502,9 @@ function insertSourceFromFind(item){
         if(parts.length>1)date.month=parts[1];
         if(parts.length>2)date.day=parts[2];
     }
+    var citType=item.cit_type?parseInt(item.cit_type):0;
     var tpl=JSON.stringify({
-        type:0,
+        type:citType,
         uuid:item.src_id||"",
         text:item.src_citation||"",
         page:"",
@@ -1535,7 +1536,8 @@ function insertSourceFromFind(item){
             '&src_citation='+encodeURIComponent(item.src_citation||'')+
             '&src_date='+encodeURIComponent(item.src_date||'')+
             '&src_publish_date='+encodeURIComponent(item.src_publish_date||'')+
-            '&src_url='+encodeURIComponent(item.src_url||'');
+            '&src_url='+encodeURIComponent(item.src_url||'')+
+            '&cit_type='+encodeURIComponent(citType);
         fetch('/api/editor/link-source',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body});
     }
 
