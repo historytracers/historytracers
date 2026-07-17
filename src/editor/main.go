@@ -1714,15 +1714,45 @@ func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 		if err := rows.Scan(&srcID, &srcCitation, &srcURL, &srcDate, &srcPublishDate); err != nil {
 			continue
 		}
+		ct := lookupCitType(srcID)
 		result = append(result, map[string]string{
 			"src_id":           srcID,
 			"src_citation":     srcCitation,
 			"src_url":          srcURL,
 			"src_date":         srcDate,
 			"src_publish_date": srcPublishDate,
+			"cit_type":         strconv.Itoa(ct),
 		})
 	}
 	json.NewEncoder(w).Encode(result)
+}
+
+func lookupCitType(srcID string) int {
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return 0
+	}
+	defer db.Close()
+
+	var types []int
+	rows, err := db.Query(`SELECT DISTINCT cit_type FROM citation WHERE src_id = ?`, srcID)
+	if err != nil {
+		return 0
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var t int
+		if err := rows.Scan(&t); err == nil {
+			types = append(types, t)
+		}
+	}
+
+	if len(types) == 1 {
+		return types[0]
+	}
+	return 0
 }
 
 func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
@@ -1743,11 +1773,14 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	citType := 0
+	var citType int
 	if citTypeStr != "" {
+		citType = 0
 		if v, err := strconv.Atoi(citTypeStr); err == nil {
 			citType = v
 		}
+	} else {
+		citType = lookupCitType(srcID)
 	}
 
 	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")

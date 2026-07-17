@@ -573,6 +573,9 @@ function loadEditorState(index){
 		document.getElementById('noFileMsg').style.display='none';
 		document.getElementById('fileName').textContent=t.path;
 		var cf=document.getElementById('configFrame');
+		cf.onload=function(){
+			try{cf.contentWindow.addEventListener('keydown',frameKeyHandler)}catch(ex){}
+		};
 		cf.src=t.configUrl;
 		cf.style.display='';
 		updateStatus(index);
@@ -588,6 +591,9 @@ function loadEditorState(index){
 		document.getElementById('noFileMsg').style.display='none';
 		document.getElementById('fileName').textContent=t.path+' (View)';
 		var vf=document.getElementById('viewFrame');
+		vf.onload=function(){
+			try{vf.contentWindow.addEventListener('keydown',frameKeyHandler)}catch(ex){}
+		};
 		vf.src=t.url;
 		vf.style.display='';
 		// show URL for debugging
@@ -760,7 +766,7 @@ async function restoreSession(){
 			try{
 				var rr=await fetch('/api/editor/read?file='+encodeURIComponent(s.path),{headers:{'X-HT-Session':window.__ht_session}});
 				var rd=await rr.json();
-				tabs.push({id:createTabId(),path:s.path,content:rd.content,originalContent:rd.content,modified:false,cursorPos:s.cursorPos,scrollPos:s.scrollPos});
+				tabs.push({id:createTabId(),path:s.path,content:rd.content,originalContent:rd.content,modified:false,cursorPos:s.cursorPos,scrollPos:s.scrollPos,undoStack:[rd.content],redoStack:[]});
 				if(rd.locked)toast(tr('fileLocked')+rd.lockedBy,'error',true);
 			}catch(e){}
 		}
@@ -828,7 +834,7 @@ async function openFile(path){
 		var r=await fetch('/api/editor/read?file='+encodeURIComponent(path),{headers:{'X-HT-Session':window.__ht_session}});
 		var data=await r.json();
 		saveEditorState();
-		tabs.push({id:createTabId(),path:path,content:data.content,originalContent:data.content,modified:false});
+		tabs.push({id:createTabId(),path:path,content:data.content,originalContent:data.content,modified:false,undoStack:[data.content],redoStack:[]});
 		currentTab=tabs.length-1;
 		loadEditorState(currentTab);
 		refreshTabBar();
@@ -1035,6 +1041,9 @@ function formatFile(){
 		toast(tr('saved'),'info');
 		return;
 	}
+	t.undoStack.push(area.value);
+	if(t.undoStack.length>10)t.undoStack.shift();
+	t.redoStack=[];
 	area.value=formatted;
 	t.content=formatted;
 	t.modified=true;
@@ -1045,8 +1054,53 @@ function formatFile(){
 function undoFile(){
 	var area=document.getElementById('editorArea');
 	if(area.style.display!=='none'&&currentTab>=0){
-		area.focus();
-		document.execCommand('undo');
+		var t=tabs[currentTab];
+		if(t.undoStack.length>0){
+			t.redoStack.push(area.value);
+			var prev=t.undoStack.pop();
+			area.value=prev;
+			t.content=prev;
+			t.modified=prev!==t.originalContent;
+			updateStatus(currentTab);
+			refreshTabBar();
+			updateLineNumbers();
+			var pos=area.selectionStart||0;
+			if(pos>prev.length)pos=prev.length;
+			area.selectionStart=area.selectionEnd=pos;
+			area.focus();
+		}
+	}
+}
+
+function redoFile(){
+	var area=document.getElementById('editorArea');
+	if(area.style.display!=='none'&&currentTab>=0){
+		var t=tabs[currentTab];
+		if(t.redoStack.length>0){
+			t.undoStack.push(area.value);
+			if(t.undoStack.length>10)t.undoStack.shift();
+			var next=t.redoStack.pop();
+			area.value=next;
+			t.content=next;
+			t.modified=next!==t.originalContent;
+			updateStatus(currentTab);
+			refreshTabBar();
+			updateLineNumbers();
+			var pos=area.selectionStart||0;
+			if(pos>next.length)pos=next.length;
+			area.selectionStart=area.selectionEnd=pos;
+			area.focus();
+		}
+	}
+}
+
+function frameKeyHandler(e){
+	if((e.ctrlKey||e.metaKey)&&e.key==='PageUp'){
+		e.preventDefault();
+		if(parent.currentTab>0)parent.switchTab(parent.currentTab-1);
+	}else if((e.ctrlKey||e.metaKey)&&e.key==='PageDown'){
+		e.preventDefault();
+		if(parent.currentTab<parent.tabs.length-1)parent.switchTab(parent.currentTab+1);
 	}
 }
 
@@ -1448,8 +1502,9 @@ function insertSourceFromFind(item){
         if(parts.length>1)date.month=parts[1];
         if(parts.length>2)date.day=parts[2];
     }
+    var citType=item.cit_type?parseInt(item.cit_type):0;
     var tpl=JSON.stringify({
-        type:0,
+        type:citType,
         uuid:item.src_id||"",
         text:item.src_citation||"",
         page:"",
@@ -1481,7 +1536,8 @@ function insertSourceFromFind(item){
             '&src_citation='+encodeURIComponent(item.src_citation||'')+
             '&src_date='+encodeURIComponent(item.src_date||'')+
             '&src_publish_date='+encodeURIComponent(item.src_publish_date||'')+
-            '&src_url='+encodeURIComponent(item.src_url||'');
+            '&src_url='+encodeURIComponent(item.src_url||'')+
+            '&cit_type='+encodeURIComponent(citType);
         fetch('/api/editor/link-source',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body});
     }
 
@@ -1600,7 +1656,7 @@ function openConfig(){
 		}else if((e.ctrlKey||e.metaKey)&&e.key==='z'&&!e.shiftKey){
 			if(document.activeElement===document.getElementById('editorArea')){
 				e.preventDefault();
-				document.execCommand('undo');
+				undoFile();
 			}
 		}else if((e.ctrlKey||e.metaKey)&&(e.key==='w')){
 			e.preventDefault();
@@ -1609,7 +1665,7 @@ function openConfig(){
 		}else if((e.ctrlKey||e.metaKey)&&(e.key==='y'||(e.key==='z'&&e.shiftKey))){
 			if(document.activeElement===document.getElementById('editorArea')){
 				e.preventDefault();
-				document.execCommand('redo');
+				redoFile();
 			}
 		}else if(e.key==='Tab'&&document.activeElement===document.getElementById('editorArea')){
 			e.preventDefault();
@@ -1651,6 +1707,17 @@ function openConfig(){
 			refreshTabBar();
 		}
 		updateLineNumbers();
+	});
+	// capture content snapshots before each change for custom undo
+	document.getElementById('editorArea').addEventListener('beforeinput',function(){
+		if(currentTab>=0&&currentTab<tabs.length){
+			var t=tabs[currentTab];
+			if(t.undoStack.length===0||t.undoStack[t.undoStack.length-1]!==this.value){
+				t.undoStack.push(this.value);
+				if(t.undoStack.length>10)t.undoStack.shift();
+			}
+			t.redoStack=[];
+		}
 	});
 	// sync line numbers scroll with textarea
 	document.getElementById('editorArea').addEventListener('scroll',function(){
