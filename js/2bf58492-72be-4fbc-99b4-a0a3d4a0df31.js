@@ -24,7 +24,7 @@ var localSorobanController = {
     "decimalTrackBottom": 0,
     "barY": 0,
     "isDraggingDecimal": false,
-    "verticalStep": 14,
+    "verticalStep": 22,
     "currentMultiplier": 1,
     "currentExercise": { a:0, b:0, expected:0 },
     "steps": [],
@@ -143,7 +143,7 @@ function htSorobanComputeLayout() {
     const { upperMax, lowerMax } = htSorobanGetBeadConfig();
     const upperBaseActive = localSorobanController.decimalTrackTop - 6;
     const upperStartInactive = localSorobanController.decimalTrackTop - 38;
-    const stepY = 14;
+    const stepY = 22;
     localSorobanController.upperPositions = [];
     for (let i = 0; i < upperMax; i++) {
         let activeY = upperBaseActive - (i * stepY);
@@ -159,7 +159,7 @@ function htSorobanComputeLayout() {
         let inactiveY = activeY + lowerInactiveDrop;
         localSorobanController.lowerPositions.push({ activeY, inactiveY });
     }
-    localSorobanController.ballRadius = Math.min(localSorobanController.colWidth * 0.38, stepY * 0.55, 14);
+    localSorobanController.ballRadius = Math.min(localSorobanController.colWidth * 0.38, stepY * 0.45, 14);
     localSorobanController.ballRadius = Math.max(localSorobanController.ballRadius, 10);
 }
 

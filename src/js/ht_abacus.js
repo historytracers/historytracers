@@ -183,7 +183,7 @@ function htSorobanComputeLayout() {
     
     const upperBaseActive = localSorobanController.decimalTrackTop - 6;
     const upperStartInactive = localSorobanController.decimalTrackTop - 38;
-    const stepY = 14;
+    const stepY = 22;
     localSorobanController.upperPositions = [];
     for (let i = 0; i < upperMax; i++) {
         let activeY = upperBaseActive - (i * stepY);
@@ -202,7 +202,7 @@ function htSorobanComputeLayout() {
     }
     
     let maxRadiusByWidth = localSorobanController.colWidth * 0.38;
-    let maxRadiusByVertical = localSorobanController.verticalStep * 0.55;
+    let maxRadiusByVertical = localSorobanController.verticalStep * 0.45;
     localSorobanController.ballRadius = Math.min(maxRadiusByWidth, maxRadiusByVertical, 14);
     localSorobanController.ballRadius = Math.max(localSorobanController.ballRadius, 10);
 
@@ -835,7 +835,7 @@ function htSorobanLoadContent() {
         "decimalTrackBottom": 0,
         "barY": 0,
         "isDraggingDecimal": false,
-        "verticalStep": 14,
+        "verticalStep": 22,
         "currentGameLevel": 0
     };
 
