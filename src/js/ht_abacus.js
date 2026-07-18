@@ -33,6 +33,7 @@ function htSorobanGetCurrentNumericValue() {
 }
 
 function htSorobanSetToNumber(value) {
+    if (isNaN(value)) value = 0;
     for(let i=0; i<localSorobanController.COLUMNS; i++){
         localSorobanController.state[i].upper = 0;
         localSorobanController.state[i].lower = 0;

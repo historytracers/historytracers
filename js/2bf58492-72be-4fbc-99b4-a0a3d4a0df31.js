@@ -63,6 +63,7 @@ function htSorobanGetCurrentNumericValue() {
 }
 
 function htSorobanSetToNumber(value) {
+    if (isNaN(value)) value = 0;
     for(let i=0; i<localSorobanController.COLUMNS; i++){
         localSorobanController.state[i].upper = 0;
         localSorobanController.state[i].lower = 0;
@@ -318,7 +319,7 @@ function htSorobanSwitchMode(mode) {
     if(window.checkCurrentStepPositive) window.checkCurrentStepPositive();
 }
 
-function setupEvents() { const canvas = localSorobanController.canvas; const getCoords = (e) => { const rect = canvas.getBoundingClientRect(); const scaleX = canvas.width/rect.width; const scaleY = canvas.height/rect.height; let cx, cy; if(e.touches){ cx=e.touches[0].clientX; cy=e.touches[0].clientY; e.preventDefault(); } else { cx=e.clientX; cy=e.clientY; } return { x: (cx-rect.left)*scaleX, y: (cy-rect.top)*scaleY }; }; canvas.onmousedown = (e) => { const {x,y}=getCoords(e); const hit=htSorobanGetHitRegion(x,y); if(hit?.type==='decimal') return; if(hit?.type==='upper') htSorobanToggleUpper(hit.col, hit.idx); if(hit?.type==='lower') htSorobanHandleLowerClick(hit.col, hit.idx); }; canvas.ontouchstart = (e) => { e.preventDefault(); const {x,y}=getCoords(e); const hit=htSorobanGetHitRegion(x,y); if(hit?.type==='upper') htSorobanToggleUpper(hit.col,hit.idx); if(hit?.type==='lower') htSorobanHandleLowerClick(hit.col,hit.idx); };}
+function setupEvents() { const canvas = localSorobanController.canvas; const getCoords = (e) => { const rect = canvas.getBoundingClientRect(); const scaleX = canvas.width/rect.width; const scaleY = canvas.height/rect.height; let cx, cy; if(e.touches){ cx=e.touches[0].clientX; cy=e.touches[0].clientY; e.preventDefault(); } else { cx=e.clientX; cy=e.clientY; } return { x: (cx-rect.left)*scaleX, y: (cy-rect.top)*scaleY }; }; canvas.onmousedown = (e) => { const {x,y}=getCoords(e); const hit=htSorobanGetHitRegion(x,y); if(hit?.type==='decimal') return; if(!localSorobanController.finalCongratsShown) setControlButtonsVisibility(false); if(hit?.type==='upper') htSorobanToggleUpper(hit.col, hit.idx); if(hit?.type==='lower') htSorobanHandleLowerClick(hit.col, hit.idx); }; canvas.ontouchstart = (e) => { e.preventDefault(); const {x,y}=getCoords(e); const hit=htSorobanGetHitRegion(x,y); if(!localSorobanController.finalCongratsShown) setControlButtonsVisibility(false); if(hit?.type==='upper') htSorobanToggleUpper(hit.col,hit.idx); if(hit?.type==='lower') htSorobanHandleLowerClick(hit.col,hit.idx); };}
 function initAbacus() { localSorobanController.canvas = document.getElementById('sorobanCanvas'); if(!localSorobanController.canvas) return; localSorobanController.ctx = localSorobanController.canvas.getContext('2d'); htSorobanInitState(); htSorobanComputeLayout(); setupEvents(); htSorobanRender(); htSorobanUpdateDisplay(); window.addEventListener('resize', () => { htSorobanComputeLayout(); htSorobanRender(); }); }
 
 // ================ TUTOR WITH 9 LEVELS & FIXED CARRY (NO EXTRA STEPS) ================
@@ -551,7 +552,10 @@ function htLoadContent() {
         format: function(template, data) {
             let result = template;
             for (const [key, value] of Object.entries(data)) {
-                result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+                let displayValue = value;
+                if (typeof value === 'number' && isNaN(value)) displayValue = '0';
+                if (displayValue === undefined || displayValue === null) displayValue = '';
+                result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), displayValue);
             }
             return result;
         },
