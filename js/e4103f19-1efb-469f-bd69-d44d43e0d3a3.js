@@ -403,10 +403,10 @@ function buildStepsForNumbers(a, b) {
                     currentValue += 9 * ninePow;
                     stepsList.push({
                         instruction: localSorobanController.TextManager.getSubStepInstruction(
-                            localSorobanController.TextManager.format(
-                                localSorobanController.TextManager.get('txt_borrowSetNine'),
-                                { placeName: placeNames[p] }
-                            ),
+                    localSorobanController.TextManager.format(
+                        localSorobanController.TextManager.get('txt_borrowSetNine'),
+                        { placeName: placeNames[p], borrowPlaceName: placeNames[borrowFrom] }
+                    ),
                             currentValue.toLocaleString()
                         ),
                         targetValue: currentValue
