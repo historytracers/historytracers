@@ -360,10 +360,10 @@ function buildStepsForNumbers(a, b) {
     ];
     const multipliers = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000];
     
-    const tensMultStr = `${tensMult.toLocaleString()} × ${b.toLocaleString()} = ${tensProduct.toLocaleString()}`;
+    const tensMultStr = `${tensMult.toLocaleString($("#site_language").val())} × ${b.toLocaleString($("#site_language").val())} = ${tensProduct.toLocaleString($("#site_language").val())}`;
     
     stepsList.push({
-        instruction: localSorobanController.TextManager.getStep1Instruction(a.toLocaleString(), b.toLocaleString(), tensMultStr),
+        instruction: localSorobanController.TextManager.getStep1Instruction(a.toLocaleString($("#site_language").val()), b.toLocaleString($("#site_language").val()), tensMultStr),
         targetValue: tensProduct
     });
     
@@ -377,7 +377,7 @@ function buildStepsForNumbers(a, b) {
         
         let prefix = '';
         if (firstAddStep) {
-            prefix = localSorobanController.TextManager.getUnitsProductHeader(unitsDigit, b, unitsProduct.toLocaleString());
+            prefix = localSorobanController.TextManager.getUnitsProductHeader(unitsDigit, b, unitsProduct.toLocaleString($("#site_language").val()));
             firstAddStep = false;
         }
         
@@ -387,7 +387,7 @@ function buildStepsForNumbers(a, b) {
         if (total_digit < 10) {
             currentValue += digitB * multipliers[p];
             stepsList.push({
-                instruction: prefix + localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p], currentValue.toLocaleString()),
+                instruction: prefix + localSorobanController.TextManager.getSimpleAddInstruction(digitB, placeNames[p], currentValue.toLocaleString($("#site_language").val())),
                 targetValue: currentValue
             });
         } else {
@@ -396,7 +396,7 @@ function buildStepsForNumbers(a, b) {
             const nextPlace = placeNames[p+1] || localSorobanController.TextManager.getNextText();
             
             stepsList.push({
-                instruction: prefix + localSorobanController.TextManager.getCarryInstruction(placeNames[p], digitB, digitA, total_digit, nextPlace, complement, newValue.toLocaleString()),
+                instruction: prefix + localSorobanController.TextManager.getCarryInstruction(placeNames[p], digitB, digitA, total_digit, nextPlace, complement, newValue.toLocaleString($("#site_language").val())),
                 targetValue: newValue
             });
             currentValue = newValue;
@@ -404,7 +404,7 @@ function buildStepsForNumbers(a, b) {
     }
     
     stepsList.push({
-        instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString(), b.toLocaleString(), total.toLocaleString()),
+        instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString($("#site_language").val()), b.toLocaleString($("#site_language").val()), total.toLocaleString($("#site_language").val())),
         targetValue: total
     });
     
@@ -437,7 +437,7 @@ function startNewExercise() {
     localSorobanController.exerciseStarted = false;
     const nums = generateRandomNumbersByLevel();
     localSorobanController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a * nums.b };
-    document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString()} × ${localSorobanController.currentExercise.b.toLocaleString()}`;
+    document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString($("#site_language").val())} × ${localSorobanController.currentExercise.b.toLocaleString($("#site_language").val())}`;
     document.getElementById('levelBadge').innerHTML = '× ' + localSorobanController.currentMultiplier;
     document.getElementById('levelBadge').style.background = "#ffb347";
     setAbacusToNumber(0);
@@ -487,7 +487,7 @@ window.checkCurrentStepPositive = function() {
             if (localSorobanController.currentStepIdx === localSorobanController.steps.length - 1) {
                 if (!localSorobanController.finalCongratsShown) {
                     localSorobanController.finalCongratsShown = true;
-                    document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getPerfectMessage(localSorobanController.currentExercise.a.toLocaleString(), localSorobanController.currentExercise.b.toLocaleString(), localSorobanController.currentExercise.expected.toLocaleString())}</div>`;
+                    document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getPerfectMessage(localSorobanController.currentExercise.a.toLocaleString($("#site_language").val()), localSorobanController.currentExercise.b.toLocaleString($("#site_language").val()), localSorobanController.currentExercise.expected.toLocaleString($("#site_language").val()))}</div>`;
                     setControlButtonsVisibility(true);
                     setControlStepVisibility(false);
                 }
@@ -531,7 +531,7 @@ function nextStep() {
     } else {
         if (currentVal === localSorobanController.currentExercise.expected && !localSorobanController.finalCongratsShown) {
             localSorobanController.finalCongratsShown = true;
-            document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getCongratsMessage(localSorobanController.currentExercise.a.toLocaleString(), localSorobanController.currentExercise.b.toLocaleString(), localSorobanController.currentExercise.expected.toLocaleString())}</div>`;
+            document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getCongratsMessage(localSorobanController.currentExercise.a.toLocaleString($("#site_language").val()), localSorobanController.currentExercise.b.toLocaleString($("#site_language").val()), localSorobanController.currentExercise.expected.toLocaleString($("#site_language").val()))}</div>`;
             setControlButtonsVisibility(true);
         }
     }
@@ -652,6 +652,11 @@ function htLoadContent() {
 
         getLastLevelMessage: function() {
             return this.get('txt_lastLevelMessage');
+        },
+
+        formatNumber: function(num) {
+            const locale = $("#site_language").val();
+            return new Intl.NumberFormat(locale).format(num);
         }
     };
 

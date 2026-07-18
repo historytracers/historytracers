@@ -363,7 +363,7 @@ function buildStepsForNumbers(a, b) {
     ];
 
     stepsList.push({
-        instruction: localSorobanController.TextManager.getSetupInstruction(a.toLocaleString()),
+        instruction: localSorobanController.TextManager.getSetupInstruction(a.toLocaleString($("#site_language").val())),
         targetValue: a
     });
 
@@ -387,7 +387,7 @@ function buildStepsForNumbers(a, b) {
                         localSorobanController.TextManager.get('txt_subStepDesc'),
                         { digit: bDigit.toString(), placeName: placeNames[pos] }
                     ),
-                    currentValue.toLocaleString()
+                    currentValue.toLocaleString($("#site_language").val())
                 ),
                 targetValue: currentValue
             });
@@ -407,7 +407,7 @@ function buildStepsForNumbers(a, b) {
                         localSorobanController.TextManager.get('txt_borrowSetNine'),
                         { placeName: placeNames[p], borrowPlaceName: placeNames[borrowFrom] }
                     ),
-                            currentValue.toLocaleString()
+                            currentValue.toLocaleString($("#site_language").val())
                         ),
                         targetValue: currentValue
                     });
@@ -427,7 +427,7 @@ function buildStepsForNumbers(a, b) {
                             newDigit: (borrowDigit - 1).toString()
                         }
                     ),
-                    currentValue.toLocaleString()
+                    currentValue.toLocaleString($("#site_language").val())
                 ),
                 targetValue: currentValue
             });
@@ -447,7 +447,7 @@ function buildStepsForNumbers(a, b) {
                             newDigit: newDigit.toString()
                         }
                     ),
-                    currentValue.toLocaleString()
+                    currentValue.toLocaleString($("#site_language").val())
                 ),
                 targetValue: currentValue
             });
@@ -455,7 +455,7 @@ function buildStepsForNumbers(a, b) {
     }
 
     stepsList.push({
-        instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString(), b.toLocaleString(), result.toLocaleString()),
+        instruction: localSorobanController.TextManager.getFinalInstruction(a.toLocaleString($("#site_language").val()), b.toLocaleString($("#site_language").val()), result.toLocaleString($("#site_language").val())),
         targetValue: result
     });
 
@@ -488,7 +488,7 @@ function startNewExercise() {
     localSorobanController.exerciseStarted = false;
     const nums = generateRandomNumbersByLevel();
     localSorobanController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a - nums.b };
-    document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString()} − ${localSorobanController.currentExercise.b.toLocaleString()}`;
+    document.getElementById('problemDisplay').innerHTML = `${localSorobanController.currentExercise.a.toLocaleString($("#site_language").val())} − ${localSorobanController.currentExercise.b.toLocaleString($("#site_language").val())}`;
     document.getElementById('levelBadge').innerHTML = 'Level ' + localSorobanController.currentDigitLevel;
     document.getElementById('levelBadge').style.background = "#ffb347";
     setAbacusToNumber(0);
@@ -538,7 +538,7 @@ window.checkCurrentStepPositive = function() {
             if (localSorobanController.currentStepIdx === localSorobanController.steps.length - 1) {
                 if (!localSorobanController.finalCongratsShown) {
                     localSorobanController.finalCongratsShown = true;
-                    document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getPerfectMessage(localSorobanController.currentExercise.a.toLocaleString(), localSorobanController.currentExercise.b.toLocaleString(), localSorobanController.currentExercise.expected.toLocaleString())}</div>`;
+                    document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getPerfectMessage(localSorobanController.currentExercise.a.toLocaleString($("#site_language").val()), localSorobanController.currentExercise.b.toLocaleString($("#site_language").val()), localSorobanController.currentExercise.expected.toLocaleString($("#site_language").val()))}</div>`;
                     setControlButtonsVisibility(true);
                     setControlStepVisibility(false);
                 }
@@ -582,7 +582,7 @@ function nextStep() {
     } else {
         if (currentVal === localSorobanController.currentExercise.expected && !localSorobanController.finalCongratsShown) {
             localSorobanController.finalCongratsShown = true;
-            document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getCongratsMessage(localSorobanController.currentExercise.a.toLocaleString(), localSorobanController.currentExercise.b.toLocaleString(), localSorobanController.currentExercise.expected.toLocaleString())}</div>`;
+            document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getCongratsMessage(localSorobanController.currentExercise.a.toLocaleString($("#site_language").val()), localSorobanController.currentExercise.b.toLocaleString($("#site_language").val()), localSorobanController.currentExercise.expected.toLocaleString($("#site_language").val()))}</div>`;
             setControlButtonsVisibility(true);
         }
     }
@@ -697,6 +697,11 @@ function htLoadContent() {
 
         getLastLevelMessage: function() {
             return this.get('txt_lastLevelMessage');
+        },
+
+        formatNumber: function(num) {
+            const locale = $("#site_language").val();
+            return new Intl.NumberFormat(locale).format(num);
         }
     };
 
