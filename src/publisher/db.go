@@ -136,6 +136,12 @@ func htCreateDatabase(dbPath string) {
 		htInsertCitationElements(citationStmt, fileID, sf.SocialMediaSources, 3)
 	}
 
+	// Also seed default citations from the sources template
+	templateSources := htLoadDefaultSourcesFromTemplate()
+	for _, entry := range templateSources {
+		htInsertSourceElements(stmt, seen, []common.HTSourceElement{entry.Element})
+	}
+
 	if err := tx.Commit(); err != nil {
 		panic(fmt.Errorf("failed to commit transaction: %w", err))
 	}

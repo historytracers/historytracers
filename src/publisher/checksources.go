@@ -13,6 +13,88 @@ import (
 	. "github.com/historytracers/common"
 )
 
+var citeRefRE = regexp.MustCompile(`htFillReferenceSource\s*\(\s*'([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})'\s*\)`)
+
+// collectAllSourceUUIDs extracts source UUIDs from both "source" arrays
+// and UUID patterns embedded in text strings (e.g. htFillReferenceSource('...')).
+func collectAllSourceUUIDs(obj interface{}) []string {
+	seen := make(map[string]bool)
+	var result []string
+
+	add := func(uuid string) {
+		if uuid != "" && !seen[uuid] {
+			seen[uuid] = true
+			result = append(result, uuid)
+		}
+	}
+
+	var walk func(interface{})
+	walk = func(v interface{}) {
+		switch val := v.(type) {
+		case map[string]interface{}:
+			if srcArr, ok := val["source"].([]interface{}); ok {
+				for _, srcElem := range srcArr {
+					if srcMap, ok := srcElem.(map[string]interface{}); ok {
+						if u, _ := srcMap["uuid"].(string); u != "" {
+							add(u)
+						}
+					}
+				}
+			}
+			// Also extract UUIDs from htFillReferenceSource calls in text
+			for _, child := range val {
+				walk(child)
+			}
+		case []interface{}:
+			for _, item := range val {
+				walk(item)
+			}
+		case string:
+			for _, m := range citeRefRE.FindAllStringSubmatch(val, -1) {
+				if len(m) > 1 {
+					add(m[1])
+				}
+			}
+		}
+	}
+
+	walk(obj)
+	return result
+}
+
+func htLoadDefaultSourcesFromTemplate() map[string]srcEntry {
+	result := make(map[string]srcEntry)
+
+	fileName := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		return result
+	}
+
+	var sf HTSourceFile
+	if err := json.Unmarshal(byteValue, &sf); err != nil {
+		return result
+	}
+
+	add := func(list []HTSourceElement, cat string) {
+		for _, elem := range list {
+			if elem.ID != "" && !strings.HasPrefix(elem.ID, "Unique identifier") {
+				result[elem.ID] = srcEntry{
+					Element:  elem,
+					Category: cat,
+				}
+			}
+		}
+	}
+
+	add(sf.PrimarySources, "primary_sources")
+	add(sf.ReferencesSources, "reference_sources")
+	add(sf.ReligiousSources, "religious_sources")
+	add(sf.SocialMediaSources, "social_media_sources")
+
+	return result
+}
+
 func htCheckSources() {
 	allUUIDs := make(map[string]bool)
 
@@ -41,6 +123,9 @@ func htCheckSources() {
 
 	// Load all source files from DB into a lookup map + per-file ID tracking
 	allSources, srcFileIDs := htLoadAllSourceFilesFromDB()
+
+	// Load default citations from the sources template as fallback
+	templateSources := htLoadDefaultSourcesFromTemplate()
 
 	totalFixed := 0
 	totalFilesFixed := 0
@@ -122,7 +207,7 @@ func htCheckSources() {
 			if err := json.Unmarshal(bv, &anyVal); err != nil {
 				continue
 			}
-			referenced = collectSourceUUIDsFlat(anyVal)
+			referenced = collectAllSourceUUIDs(anyVal)
 			break
 		}
 
@@ -143,8 +228,120 @@ func htCheckSources() {
 				fmt.Printf("[ADDED] citation %s (%s) for file %s\n", suuid, entry.Category, uid)
 				totalAdded++
 			} else {
+				totalMissing++
+				if tplEntry, found := templateSources[suuid]; found {
+					srcFile := &HTSourceFile{
+						License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+						LastUpdate: []string{HTUpdateTimestamp()},
+						Version:    1,
+						Type:       "sources",
+					}
+					switch tplEntry.Category {
+					case "primary_sources":
+						srcFile.PrimarySources = []HTSourceElement{tplEntry.Element}
+					case "reference_sources":
+						srcFile.ReferencesSources = []HTSourceElement{tplEntry.Element}
+					case "religious_sources":
+						srcFile.ReligiousSources = []HTSourceElement{tplEntry.Element}
+					case "social_media_sources":
+						srcFile.SocialMediaSources = []HTSourceElement{tplEntry.Element}
+					}
+
+					srcFilePath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, suuid)
+					htUpdateSourceFile(srcFile, srcFilePath)
+
+					if err := htAddEntryToSourceFileDB(uid, tplEntry.Category, tplEntry.Element); err != nil {
+						fmt.Fprintf(os.Stderr, "ERROR adding citation %s to DB: %s\n", suuid, err)
+						continue
+					}
+
+					allSources[suuid] = tplEntry
+
+					existingIDs[suuid] = true
+					if srcFileIDs[uid] == nil {
+						srcFileIDs[uid] = make(map[string]bool)
+					}
+					srcFileIDs[uid][suuid] = true
+					totalMissing--
+
+					fmt.Printf("[ADDED-FROM-TEMPLATE] citation %s (%s) for file %s\n", suuid, tplEntry.Category, uid)
+					totalAdded++
+				} else {
+					fmt.Printf("[MISSING] citation UUID %s referenced by %s not found in any source file\n",
+						suuid, uid)
+				}
+			}
+		}
+	}
+
+	// Also process non-UUID content files that contain source references
+	contentFiles := []string{"acknowledgement", "common_keywords"}
+	for _, fn := range contentFiles {
+		existingIDs, ok := srcFileIDs[fn]
+		if !ok {
+			existingIDs = make(map[string]bool)
+		}
+		var referenced []string
+		for _, lang := range htLangPaths {
+			fpath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fn)
+			if _, err := os.Stat(fpath); os.IsNotExist(err) {
+				continue
+			}
+			bv, err := htOpenFileReadClose(fpath)
+			if err != nil {
+				continue
+			}
+			var anyVal interface{}
+			if err := json.Unmarshal(bv, &anyVal); err != nil {
+				continue
+			}
+			referenced = collectAllSourceUUIDs(anyVal)
+			break
+		}
+		for _, suuid := range referenced {
+			if existingIDs[suuid] {
+				continue
+			}
+			if entry, found := allSources[suuid]; found {
+				if err := htAddEntryToSourceFileDB(fn, entry.Category, entry.Element); err != nil {
+					fmt.Fprintf(os.Stderr, "ERROR adding citation %s to DB: %s\n", suuid, err)
+					continue
+				}
+				existingIDs[suuid] = true
+				srcFileIDs[fn] = existingIDs
+				fmt.Printf("[ADDED] citation %s (%s) for content file %s\n", suuid, entry.Category, fn)
+				totalAdded++
+			} else if tplEntry, found := templateSources[suuid]; found {
+				srcFile := &HTSourceFile{
+					License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+					LastUpdate: []string{HTUpdateTimestamp()},
+					Version:    1,
+					Type:       "sources",
+				}
+				switch tplEntry.Category {
+				case "primary_sources":
+					srcFile.PrimarySources = []HTSourceElement{tplEntry.Element}
+				case "reference_sources":
+					srcFile.ReferencesSources = []HTSourceElement{tplEntry.Element}
+				case "religious_sources":
+					srcFile.ReligiousSources = []HTSourceElement{tplEntry.Element}
+				case "social_media_sources":
+					srcFile.SocialMediaSources = []HTSourceElement{tplEntry.Element}
+				}
+				srcFilePath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, suuid)
+				htUpdateSourceFile(srcFile, srcFilePath)
+				if err := htAddEntryToSourceFileDB(fn, tplEntry.Category, tplEntry.Element); err != nil {
+					fmt.Fprintf(os.Stderr, "ERROR adding citation %s to DB: %s\n", suuid, err)
+					continue
+				}
+				allSources[suuid] = tplEntry
+				existingIDs[suuid] = true
+				srcFileIDs[fn] = existingIDs
+				fmt.Printf("[ADDED-FROM-TEMPLATE] citation %s (%s) for content file %s\n", suuid, tplEntry.Category, fn)
+				totalAdded++
+			} else {
 				fmt.Printf("[MISSING] citation UUID %s referenced by %s not found in any source file\n",
-					suuid, uid)
+					suuid, fn)
 				totalMissing++
 			}
 		}

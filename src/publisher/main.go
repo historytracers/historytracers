@@ -122,6 +122,11 @@ func main() {
 
 	HTLoadConfig()
 
+	// Re-apply explicit --src flag value; the TOML config may have overridden it
+	if srcVal != compileSrcPath {
+		CFG.SrcPath = srcVal
+	}
+
 	htRunStopFlags()
 
 	fmt.Println("No action specified. Use --help to see available options.")
