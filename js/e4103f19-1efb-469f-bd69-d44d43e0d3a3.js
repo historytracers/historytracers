@@ -327,7 +327,6 @@ function getAbacusValue() { return htSorobanGetCurrentNumericValue(); }
 function setAbacusToNumber(val) { htSorobanSetToNumber(val); }
 
 function generateRandomNumbersByLevel() {
-    let b = Math.floor(Math.random() * 9) + 1;
     const level = localSorobanController.currentDigitLevel;
     let min, max;
     if (level === 1) {
@@ -339,9 +338,10 @@ function generateRandomNumbersByLevel() {
         max = 2 * power - 1;
     }
     let a = Math.floor(Math.random() * (max - min + 1)) + min;
-    if (a < b) {
-        a = Math.floor(Math.random() * (max - b + 1)) + b;
-    }
+
+    // b has the same order of magnitude as a (same number of digits)
+    let b = Math.floor(Math.random() * (a - min + 1)) + min;
+
     localSorobanController.currentSubtrahend = b;
     return { a, b };
 }
@@ -362,88 +362,90 @@ function buildStepsForNumbers(a, b) {
         localSorobanController.TextManager.getUnitHundredMillions()
     ];
 
-    const strA = a.toString();
-    const len = strA.length;
-    const unitsDigit = a % 10;
-
     stepsList.push({
         instruction: localSorobanController.TextManager.getSetupInstruction(a.toLocaleString()),
         targetValue: a
     });
 
-    if (unitsDigit >= b) {
-        let currentValue = a - b;
-        stepsList.push({
-            instruction: localSorobanController.TextManager.getSubStepInstruction(
-                localSorobanController.TextManager.format(
-                    localSorobanController.TextManager.get('txt_subStepDesc'),
-                    { digit: b.toString(), placeName: placeNames[0] }
-                ),
-                currentValue.toLocaleString()
-            ),
-            targetValue: currentValue
-        });
-    } else {
-        let currentValue = a;
-        const digits = strA.split('').map(Number);
-        let borrowStrIdx = -1;
-        for (let i = len - 2; i >= 0; i--) {
-            if (digits[i] > 0) { borrowStrIdx = i; break; }
-        }
-        const borrowPlace = borrowStrIdx >= 0 ? len - 1 - borrowStrIdx : 1;
+    let currentValue = a;
+    const strB = b.toString();
+    const lenB = strB.length;
 
-        for (let p = 1; p < borrowPlace; p++) {
-            const strIdx = len - 1 - p;
-            if (strIdx >= 0 && digits[strIdx] === 0) {
-                currentValue += 9 * Math.pow(10, p);
-                stepsList.push({
-                    instruction: localSorobanController.TextManager.getSubStepInstruction(
-                        localSorobanController.TextManager.format(
-                            localSorobanController.TextManager.get('txt_borrowSetNine'),
-                            { placeName: placeNames[p] }
-                        ),
-                        currentValue.toLocaleString()
-                    ),
-                    targetValue: currentValue
-                });
-            }
-        }
+    for (let pos = 0; pos < lenB; pos++) {
+        const digitIdx = lenB - 1 - pos;
+        const bDigit = parseInt(strB[digitIdx]);
+        if (bDigit === 0) continue;
 
-        if (borrowStrIdx >= 0) {
-            const borrowDigit = digits[borrowStrIdx];
-            currentValue -= Math.pow(10, borrowPlace);
+        const pow = Math.pow(10, pos);
+        const currentDigit = Math.floor(currentValue / pow) % 10;
+
+        if (currentDigit >= bDigit) {
+            currentValue -= bDigit * pow;
             stepsList.push({
                 instruction: localSorobanController.TextManager.getSubStepInstruction(
                     localSorobanController.TextManager.format(
-                        localSorobanController.TextManager.get('txt_borrowReduce'),
-                        { placeName: placeNames[borrowPlace], digit: borrowDigit.toString(), newDigit: (borrowDigit - 1).toString() }
+                        localSorobanController.TextManager.get('txt_subStepDesc'),
+                        { digit: bDigit.toString(), placeName: placeNames[pos] }
                     ),
                     currentValue.toLocaleString()
                 ),
                 targetValue: currentValue
             });
         } else {
-            currentValue -= Math.pow(10, borrowPlace);
+            let borrowFrom = pos + 1;
+            while (Math.floor(currentValue / Math.pow(10, borrowFrom)) % 10 === 0) {
+                borrowFrom++;
+            }
+
+            for (let p = pos + 1; p < borrowFrom; p++) {
+                const ninePow = Math.pow(10, p);
+                if (Math.floor(currentValue / ninePow) % 10 === 0) {
+                    currentValue += 9 * ninePow;
+                    stepsList.push({
+                        instruction: localSorobanController.TextManager.getSubStepInstruction(
+                            localSorobanController.TextManager.format(
+                                localSorobanController.TextManager.get('txt_borrowSetNine'),
+                                { placeName: placeNames[p] }
+                            ),
+                            currentValue.toLocaleString()
+                        ),
+                        targetValue: currentValue
+                    });
+                }
+            }
+
+            const borrowPow = Math.pow(10, borrowFrom);
+            const borrowDigit = Math.floor(currentValue / borrowPow) % 10;
+            currentValue -= borrowPow;
             stepsList.push({
                 instruction: localSorobanController.TextManager.getSubStepInstruction(
                     localSorobanController.TextManager.format(
                         localSorobanController.TextManager.get('txt_borrowReduce'),
-                        { placeName: placeNames[borrowPlace], digit: '1', newDigit: '0' }
+                        {
+                            placeName: placeNames[borrowFrom],
+                            digit: borrowDigit.toString(),
+                            newDigit: (borrowDigit - 1).toString()
+                        }
                     ),
                     currentValue.toLocaleString()
                 ),
                 targetValue: currentValue
             });
-        }
 
-        {
-            const complement = 10 - b;
-            currentValue += complement;
+            const complement = 10 - bDigit;
+            currentValue += complement * pow;
+            const newDigit = currentDigit + complement;
             stepsList.push({
                 instruction: localSorobanController.TextManager.getSubStepInstruction(
                     localSorobanController.TextManager.format(
                         localSorobanController.TextManager.get('txt_borrowSubUnits'),
-                        { unitsDigit: unitsDigit.toString(), b: b.toString(), complement: complement.toString(), newUnits: (unitsDigit + complement).toString() }
+                        {
+                            placeName: placeNames[pos],
+                            currentDigit: currentDigit.toString(),
+                            bDigit: bDigit.toString(),
+                            complement: complement.toString(),
+                            newDigit: newDigit.toString()
+                        }
                     ),
                     currentValue.toLocaleString()
                 ),
