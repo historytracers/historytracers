@@ -849,5 +849,8 @@ function htLoadContent() {
 
     startNewExercise();
 
+    window.htSorobanLoadContent = undefined;
+    window.htTriangleLoadContent = undefined;
+    window.htLoadExercise = undefined;
     return false;
 }
