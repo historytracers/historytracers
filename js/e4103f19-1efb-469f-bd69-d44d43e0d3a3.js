@@ -335,7 +335,7 @@ function generateRandomNumbersByLevel() {
     } else {
         const power = Math.pow(10, level - 1);
         min = power;
-        max = 2 * power - 1;
+        max = 10 * power - 1;
     }
     let a = Math.floor(Math.random() * (max - min + 1)) + min;
 
