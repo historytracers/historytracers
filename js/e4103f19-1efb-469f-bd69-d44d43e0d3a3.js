@@ -378,11 +378,12 @@ function buildStepsForNumbers(a, b) {
 
         const pow = Math.pow(10, pos);
         const currentDigit = Math.floor(currentValue / pow) % 10;
+        const stepPrefix = currentDigit.toString() + " − " + bDigit.toString() + ": ";
 
         if (currentDigit >= bDigit) {
             currentValue -= bDigit * pow;
             stepsList.push({
-                instruction: localSorobanController.TextManager.getSubStepInstruction(
+                instruction: stepPrefix + localSorobanController.TextManager.getSubStepInstruction(
                     localSorobanController.TextManager.format(
                         localSorobanController.TextManager.get('txt_subStepDesc'),
                         { digit: bDigit.toString(), placeName: placeNames[pos] }
@@ -402,7 +403,7 @@ function buildStepsForNumbers(a, b) {
                 if (Math.floor(currentValue / ninePow) % 10 === 0) {
                     currentValue += 9 * ninePow;
                     stepsList.push({
-                        instruction: localSorobanController.TextManager.getSubStepInstruction(
+                        instruction: stepPrefix + localSorobanController.TextManager.getSubStepInstruction(
                     localSorobanController.TextManager.format(
                         localSorobanController.TextManager.get('txt_borrowSetNine'),
                         { placeName: placeNames[p], borrowPlaceName: placeNames[borrowFrom] }
@@ -418,7 +419,7 @@ function buildStepsForNumbers(a, b) {
             const borrowDigit = Math.floor(currentValue / borrowPow) % 10;
             currentValue -= borrowPow;
             stepsList.push({
-                instruction: localSorobanController.TextManager.getSubStepInstruction(
+                instruction: stepPrefix + localSorobanController.TextManager.getSubStepInstruction(
                     localSorobanController.TextManager.format(
                         localSorobanController.TextManager.get('txt_borrowReduce'),
                         {
@@ -436,7 +437,7 @@ function buildStepsForNumbers(a, b) {
             currentValue += complement * pow;
             const newDigit = currentDigit + complement;
             stepsList.push({
-                instruction: localSorobanController.TextManager.getSubStepInstruction(
+                instruction: stepPrefix + localSorobanController.TextManager.getSubStepInstruction(
                     localSorobanController.TextManager.format(
                         localSorobanController.TextManager.get('txt_borrowSubUnits'),
                         {
