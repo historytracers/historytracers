@@ -155,6 +155,8 @@ func htCreateDatabase(dbPath string) {
 	htCreateSourcesIndex(db)
 
 	fmt.Printf("Database created successfully at %s\n", dbPath)
+
+	htUpdateFileDescriptions(dbPath)
 }
 
 func htGetFileTitle(fileID string) string {
@@ -495,4 +497,86 @@ func htLoadSourcesFromJSONFiles(allSources map[string]srcEntry, srcFileIDs map[s
 		}
 		htFillSourceMapForCheck(&sf, allSources, srcFileIDs[fileID])
 	}
+}
+
+func htUpdateFileDescriptions(dbPath string) {
+	if dbPath == "" {
+		dbPath = fmt.Sprintf("%slang/sources/history_tracers.db", CFG.SrcPath)
+	}
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		return
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR opening database: %v\n", err)
+		return
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT fil_id, fil_desc FROM files")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR querying files: %v\n", err)
+		return
+	}
+
+	indexNames := make(map[string]bool)
+	for _, name := range indexFiles {
+		indexNames[name] = true
+	}
+
+	type pendingUpdate struct {
+		filID   string
+		filDesc string
+		header  string
+	}
+	var pending []pendingUpdate
+
+	for rows.Next() {
+		var filID, filDesc string
+		if err := rows.Scan(&filID, &filDesc); err != nil {
+			continue
+		}
+		if !indexNames[filDesc] {
+			continue
+		}
+
+		headerPath := fmt.Sprintf("%slang/en-US/%s.json", CFG.SrcPath, filID)
+		bv, err := os.ReadFile(headerPath)
+		if err != nil {
+			continue
+		}
+		var headerStruct struct {
+			Header string `json:"header"`
+		}
+		if err := json.Unmarshal(bv, &headerStruct); err != nil {
+			continue
+		}
+		if headerStruct.Header == "" {
+			continue
+		}
+
+		pending = append(pending, pendingUpdate{filID: filID, filDesc: filDesc, header: headerStruct.Header})
+	}
+	rows.Close()
+
+	if len(pending) == 0 {
+		return
+	}
+
+	stmt, err := db.Prepare("UPDATE files SET fil_desc = ? WHERE fil_id = ?")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR preparing update: %v\n", err)
+		return
+	}
+	defer stmt.Close()
+
+	for _, p := range pending {
+		if _, err := stmt.Exec(p.header, p.filID); err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR updating fil_desc for %s: %v\n", p.filID, err)
+			continue
+		}
+		fmt.Printf("[UPDATED] fil_desc for %s: \"%s\" -> \"%s\"\n", p.filID, p.filDesc, p.header)
+	}
+	fmt.Printf("Updated fil_desc for %d file(s)\n", len(pending))
 }
