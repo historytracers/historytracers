@@ -15,8 +15,53 @@ import (
 
 var citeRefRE = regexp.MustCompile(`htFillReferenceSource\s*\(\s*'([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})'\s*\)`)
 
+var placeholderIDRE = regexp.MustCompile(`id="(htChinaZhongguo|htJapanNipponNihonKoku)"`)
+
+// placeholderSourceUUIDs maps HTML placeholder IDs to their implicit source UUIDs.
+// Populated from htFillReferenceSource calls in common_keywords.json.
+var placeholderSourceUUIDs map[string]string
+
+func initPlaceholderSourceUUIDs() {
+	if placeholderSourceUUIDs != nil {
+		return
+	}
+	placeholderSourceUUIDs = make(map[string]string)
+
+	type kwEntry struct {
+		tagName string
+		kwIndex int
+	}
+	knownPlaceholders := []kwEntry{
+		{"htChinaZhongguo", 137},
+		{"htJapanNipponNihonKoku", 139},
+	}
+
+	for _, lang := range htLangPaths {
+		fpath := fmt.Sprintf("%slang/%s/common_keywords.json", CFG.SrcPath, lang)
+		bv, err := htOpenFileReadClose(fpath)
+		if err != nil {
+			continue
+		}
+		var kf HTKeywordsFormat
+		if err := json.Unmarshal(bv, &kf); err != nil {
+			continue
+		}
+		for _, e := range knownPlaceholders {
+			if e.kwIndex < len(kf.Keywords) {
+				for _, m := range citeRefRE.FindAllStringSubmatch(kf.Keywords[e.kwIndex], -1) {
+					if len(m) > 1 && m[1] != "" {
+						placeholderSourceUUIDs[e.tagName] = m[1]
+					}
+				}
+			}
+		}
+		break
+	}
+}
+
 // collectAllSourceUUIDs extracts source UUIDs from both "source" arrays
 // and UUID patterns embedded in text strings (e.g. htFillReferenceSource('...')).
+// It also handles implicit citations from placeholder tags like htChinaZhongguo.
 func collectAllSourceUUIDs(obj interface{}) []string {
 	seen := make(map[string]bool)
 	var result []string
@@ -53,6 +98,13 @@ func collectAllSourceUUIDs(obj interface{}) []string {
 			for _, m := range citeRefRE.FindAllStringSubmatch(val, -1) {
 				if len(m) > 1 {
 					add(m[1])
+				}
+			}
+			for _, m := range placeholderIDRE.FindAllStringSubmatch(val, -1) {
+				if len(m) > 1 {
+					if uuid, ok := placeholderSourceUUIDs[m[1]]; ok {
+						add(uuid)
+					}
 				}
 			}
 		}
@@ -96,6 +148,8 @@ func htLoadDefaultSourcesFromTemplate() map[string]srcEntry {
 }
 
 func htCheckSources() {
+	initPlaceholderSourceUUIDs()
+
 	allUUIDs := make(map[string]bool)
 
 	for _, lang := range htLangPaths {
