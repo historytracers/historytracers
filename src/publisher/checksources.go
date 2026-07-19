@@ -150,6 +150,9 @@ func htLoadDefaultSourcesFromTemplate() map[string]srcEntry {
 func htCheckSources() {
 	initPlaceholderSourceUUIDs()
 
+	dbPath := fmt.Sprintf("%slang/sources/history_tracers.db", CFG.SrcPath)
+	htUpdateFileDescriptions(dbPath)
+
 	allUUIDs := make(map[string]bool)
 
 	for _, lang := range htLangPaths {
