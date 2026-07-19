@@ -1496,8 +1496,8 @@ function insertSourceFromFind(item){
         return
     }
     var date={type:"gregory",year:"",month:"",day:""};
-    if(item.src_date){
-        var parts=item.src_date.split('-');
+    if(item.src_publish_date){
+        var parts=item.src_publish_date.split('-');
         if(parts.length>0)date.year=parts[0];
         if(parts.length>1)date.month=parts[1];
         if(parts.length>2)date.day=parts[2];
