@@ -230,26 +230,6 @@ func htCheckSources() {
 			} else {
 				totalMissing++
 				if tplEntry, found := templateSources[suuid]; found {
-					srcFile := &HTSourceFile{
-						License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
-						LastUpdate: []string{HTUpdateTimestamp()},
-						Version:    1,
-						Type:       "sources",
-					}
-					switch tplEntry.Category {
-					case "primary_sources":
-						srcFile.PrimarySources = []HTSourceElement{tplEntry.Element}
-					case "reference_sources":
-						srcFile.ReferencesSources = []HTSourceElement{tplEntry.Element}
-					case "religious_sources":
-						srcFile.ReligiousSources = []HTSourceElement{tplEntry.Element}
-					case "social_media_sources":
-						srcFile.SocialMediaSources = []HTSourceElement{tplEntry.Element}
-					}
-
-					srcFilePath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, suuid)
-					htUpdateSourceFile(srcFile, srcFilePath)
-
 					if err := htAddEntryToSourceFileDB(uid, tplEntry.Category, tplEntry.Element); err != nil {
 						fmt.Fprintf(os.Stderr, "ERROR adding citation %s to DB: %s\n", suuid, err)
 						continue
@@ -267,8 +247,19 @@ func htCheckSources() {
 					fmt.Printf("[ADDED-FROM-TEMPLATE] citation %s (%s) for file %s\n", suuid, tplEntry.Category, uid)
 					totalAdded++
 				} else {
-					fmt.Printf("[MISSING] citation UUID %s referenced by %s not found in any source file\n",
-						suuid, uid)
+					minElem := HTSourceElement{ID: suuid}
+					if err := htAddEntryToSourceFileDB(uid, "reference_sources", minElem); err != nil {
+						fmt.Fprintf(os.Stderr, "ERROR adding citation %s to DB: %s\n", suuid, err)
+						continue
+					}
+					existingIDs[suuid] = true
+					if srcFileIDs[uid] == nil {
+						srcFileIDs[uid] = make(map[string]bool)
+					}
+					srcFileIDs[uid][suuid] = true
+					totalMissing--
+					fmt.Printf("[ADDED-MINIMAL] citation %s for file %s\n", suuid, uid)
+					totalAdded++
 				}
 			}
 		}
@@ -312,24 +303,6 @@ func htCheckSources() {
 				fmt.Printf("[ADDED] citation %s (%s) for content file %s\n", suuid, entry.Category, fn)
 				totalAdded++
 			} else if tplEntry, found := templateSources[suuid]; found {
-				srcFile := &HTSourceFile{
-					License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
-					LastUpdate: []string{HTUpdateTimestamp()},
-					Version:    1,
-					Type:       "sources",
-				}
-				switch tplEntry.Category {
-				case "primary_sources":
-					srcFile.PrimarySources = []HTSourceElement{tplEntry.Element}
-				case "reference_sources":
-					srcFile.ReferencesSources = []HTSourceElement{tplEntry.Element}
-				case "religious_sources":
-					srcFile.ReligiousSources = []HTSourceElement{tplEntry.Element}
-				case "social_media_sources":
-					srcFile.SocialMediaSources = []HTSourceElement{tplEntry.Element}
-				}
-				srcFilePath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, suuid)
-				htUpdateSourceFile(srcFile, srcFilePath)
 				if err := htAddEntryToSourceFileDB(fn, tplEntry.Category, tplEntry.Element); err != nil {
 					fmt.Fprintf(os.Stderr, "ERROR adding citation %s to DB: %s\n", suuid, err)
 					continue
@@ -340,9 +313,16 @@ func htCheckSources() {
 				fmt.Printf("[ADDED-FROM-TEMPLATE] citation %s (%s) for content file %s\n", suuid, tplEntry.Category, fn)
 				totalAdded++
 			} else {
-				fmt.Printf("[MISSING] citation UUID %s referenced by %s not found in any source file\n",
-					suuid, fn)
-				totalMissing++
+				minElem := HTSourceElement{ID: suuid}
+				if err := htAddEntryToSourceFileDB(fn, "reference_sources", minElem); err != nil {
+					fmt.Fprintf(os.Stderr, "ERROR adding citation %s to DB: %s\n", suuid, err)
+					continue
+				}
+				allSources[suuid] = srcEntry{Element: minElem, Category: "reference_sources"}
+				existingIDs[suuid] = true
+				srcFileIDs[fn] = existingIDs
+				fmt.Printf("[ADDED-MINIMAL] citation %s for content file %s\n", suuid, fn)
+				totalAdded++
 			}
 		}
 	}

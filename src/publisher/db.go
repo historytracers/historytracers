@@ -70,10 +70,10 @@ func htCreateDatabase(dbPath string) {
 	htCreateFilesTable(db)
 	htCreateCitationTable(db)
 
-	srcDir := fmt.Sprintf("%slang/sources/", CFG.SrcPath)
-	entries, err := os.ReadDir(srcDir)
-	if err != nil {
-		panic(fmt.Errorf("failed to read source directory %s: %w", srcDir, err))
+	// Scan both lang/sources/ and www/lang/sources/ for JSON source files
+	srcDirs := []string{
+		fmt.Sprintf("%slang/sources/", CFG.SrcPath),
+		fmt.Sprintf("%swww/lang/sources/", CFG.SrcPath),
 	}
 
 	seen := make(map[string]bool)
@@ -101,39 +101,45 @@ func htCreateDatabase(dbPath string) {
 	}
 	defer citationStmt.Close()
 
-	for _, entry := range entries {
-		if entry.IsDir() || filepath.Ext(entry.Name()) != ".json" {
-			continue
-		}
-
-		filePath := filepath.Join(srcDir, entry.Name())
-		byteValue, err := os.ReadFile(filePath)
+	for _, srcDir := range srcDirs {
+		entries, err := os.ReadDir(srcDir)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "ERROR reading %s: %v\n", filePath, err)
 			continue
 		}
+		for _, entry := range entries {
+			if entry.IsDir() || filepath.Ext(entry.Name()) != ".json" {
+				continue
+			}
 
-		var sf common.HTSourceFile
-		if err := json.Unmarshal(byteValue, &sf); err != nil {
-			fmt.Fprintf(os.Stderr, "ERROR parsing %s: %v\n", filePath, err)
-			continue
+			filePath := filepath.Join(srcDir, entry.Name())
+			byteValue, err := os.ReadFile(filePath)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "ERROR reading %s: %v\n", filePath, err)
+				continue
+			}
+
+			var sf common.HTSourceFile
+			if err := json.Unmarshal(byteValue, &sf); err != nil {
+				fmt.Fprintf(os.Stderr, "ERROR parsing %s: %v\n", filePath, err)
+				continue
+			}
+
+			fileID := strings.TrimSuffix(entry.Name(), ".json")
+			fileDesc := htGetFileTitle(fileID)
+			if _, err := fileStmt.Exec(fileID, fileDesc); err != nil {
+				fmt.Fprintf(os.Stderr, "ERROR inserting file %s: %v\n", fileID, err)
+			}
+
+			htInsertSourceElements(stmt, seen, sf.PrimarySources)
+			htInsertSourceElements(stmt, seen, sf.ReferencesSources)
+			htInsertSourceElements(stmt, seen, sf.ReligiousSources)
+			htInsertSourceElements(stmt, seen, sf.SocialMediaSources)
+
+			htInsertCitationElements(citationStmt, fileID, sf.PrimarySources, 0)
+			htInsertCitationElements(citationStmt, fileID, sf.ReferencesSources, 1)
+			htInsertCitationElements(citationStmt, fileID, sf.ReligiousSources, 2)
+			htInsertCitationElements(citationStmt, fileID, sf.SocialMediaSources, 3)
 		}
-
-		fileID := strings.TrimSuffix(entry.Name(), ".json")
-		fileDesc := htGetFileTitle(fileID)
-		if _, err := fileStmt.Exec(fileID, fileDesc); err != nil {
-			fmt.Fprintf(os.Stderr, "ERROR inserting file %s: %v\n", fileID, err)
-		}
-
-		htInsertSourceElements(stmt, seen, sf.PrimarySources)
-		htInsertSourceElements(stmt, seen, sf.ReferencesSources)
-		htInsertSourceElements(stmt, seen, sf.ReligiousSources)
-		htInsertSourceElements(stmt, seen, sf.SocialMediaSources)
-
-		htInsertCitationElements(citationStmt, fileID, sf.PrimarySources, 0)
-		htInsertCitationElements(citationStmt, fileID, sf.ReferencesSources, 1)
-		htInsertCitationElements(citationStmt, fileID, sf.ReligiousSources, 2)
-		htInsertCitationElements(citationStmt, fileID, sf.SocialMediaSources, 3)
 	}
 
 	// Also seed default citations from the sources template
