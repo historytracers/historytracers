@@ -1101,6 +1101,9 @@ function frameKeyHandler(e){
 	}else if((e.ctrlKey||e.metaKey)&&e.key==='PageDown'){
 		e.preventDefault();
 		if(parent.currentTab<parent.tabs.length-1)parent.switchTab(parent.currentTab+1);
+	}else if((e.ctrlKey||e.metaKey)&&e.key==='w'){
+		e.preventDefault();
+		if(parent.currentTab>=0&&parent.currentTab<parent.tabs.length)parent.closeTab(parent.currentTab);
 	}
 }
 
