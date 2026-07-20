@@ -370,6 +370,7 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	addHistory(fileParam)
 	rotateToken()
 	w.Header().Set("X-HT-Next-Token", viewerToken)
 	w.WriteHeader(http.StatusNoContent)
@@ -834,6 +835,7 @@ var (
 	sessionFile  string
 	dataDir      string
 	optionsFile  string
+	historyFile  string
 	savedOptions optionsData
 )
 
@@ -844,6 +846,7 @@ type optionsData struct {
 	TLSKey       string `json:"tls_key"`
 	OpenNewFiles bool   `json:"open_new_files"`
 	Design       string `json:"design"`
+	MyName       string `json:"my_name"`
 }
 
 func initDataDir() {
@@ -866,6 +869,7 @@ func initDataDir() {
 	if dataDir != "" {
 		sessionFile = filepath.Join(dataDir, "session.json")
 		optionsFile = filepath.Join(dataDir, "editor_options.json")
+		historyFile = filepath.Join(dataDir, "history.json")
 	}
 }
 
@@ -990,6 +994,68 @@ func sessionHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func loadHistory() []string {
+	if historyFile == "" {
+		return nil
+	}
+	b, err := os.ReadFile(historyFile)
+	if err != nil {
+		return nil
+	}
+	var history []string
+	if err := json.Unmarshal(b, &history); err != nil {
+		return nil
+	}
+	return history
+}
+
+func addHistory(path string) {
+	if historyFile == "" {
+		return
+	}
+	if !isAllowedEditFile(path) {
+		return
+	}
+	history := loadHistory()
+	var newHistory []string
+	for _, p := range history {
+		if p != path {
+			newHistory = append(newHistory, p)
+		}
+	}
+	newHistory = append([]string{path}, newHistory...)
+	if len(newHistory) > 20 {
+		newHistory = newHistory[:20]
+	}
+	b, err := json.Marshal(newHistory)
+	if err != nil {
+		return
+	}
+	os.WriteFile(historyFile, b, 0644)
+}
+
+func historyHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		w.Header().Set("Content-Type", "application/json")
+		history := loadHistory()
+		if history == nil {
+			history = []string{}
+		}
+		json.NewEncoder(w).Encode(history)
+	case http.MethodPost:
+		fileParam := r.FormValue("file")
+		if fileParam == "" {
+			http.Error(w, "missing file", http.StatusBadRequest)
+			return
+		}
+		addHistory(fileParam)
+		w.WriteHeader(http.StatusNoContent)
+	default:
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
 func optionsHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
@@ -1019,7 +1085,13 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		if v := r.FormValue("design"); v != "" {
 			data.Design = v
 		}
+		if v := r.FormValue("my_name"); v != "" {
+			data.MyName = v
+		} else if _, ok := r.Form["my_name"]; ok {
+			data.MyName = ""
+		}
 		writeEditorOptions(data)
+		savedOptions = data
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
 		w.WriteHeader(http.StatusNoContent)
@@ -1116,6 +1188,7 @@ html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
 html+='<div class="form-group"><label><input type="checkbox" id="opt_open_new_files"'+(openNewFiles==='true'?' checked':'')+'> '+l.openNewFilesLabel+'</label></div>';
 html+='<div class="form-group"><label>'+l.designLabel+'</label><select id="opt_design"><option value="default"'+(curDesign==='default'?' selected':'')+'>'+l.designDefault+'</option><option value="light"'+(curDesign==='light'?' selected':'')+'>'+l.designLight+'</option></select></div>';
+html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
 html+='<div id="opt_status"></div>';
@@ -1133,7 +1206,9 @@ document.getElementById('opt_apply').onclick=function(){
 	if(token)h['X-HT-Token']=token;
 	var nof=document.getElementById('opt_open_new_files').checked?'true':'false';
 	var nd=document.getElementById('opt_design').value;
-	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)}).then(function(r){
+	var nm=document.getElementById('opt_my_name').value;
+	localStorage.setItem('ht_my_name',nm);
+	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)}).then(function(r){
 		if(r.ok&&window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
@@ -1313,6 +1388,7 @@ func main() {
 	mux.HandleFunc("/api/editor/lang-index-files", langIndexFilesHandler)
 	mux.HandleFunc("/api/editor/find-source", findSourceHandler)
 	mux.HandleFunc("/api/editor/link-source", linkSourceHandler)
+	mux.HandleFunc("/api/editor/history", historyHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
