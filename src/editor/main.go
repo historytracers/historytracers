@@ -370,6 +370,7 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	addHistory(fileParam)
 	rotateToken()
 	w.Header().Set("X-HT-Next-Token", viewerToken)
 	w.WriteHeader(http.StatusNoContent)
@@ -834,6 +835,7 @@ var (
 	sessionFile  string
 	dataDir      string
 	optionsFile  string
+	historyFile  string
 	savedOptions optionsData
 )
 
@@ -867,6 +869,7 @@ func initDataDir() {
 	if dataDir != "" {
 		sessionFile = filepath.Join(dataDir, "session.json")
 		optionsFile = filepath.Join(dataDir, "editor_options.json")
+		historyFile = filepath.Join(dataDir, "history.json")
 	}
 }
 
@@ -985,6 +988,68 @@ func sessionHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		saveSession(tabs)
+		w.WriteHeader(http.StatusNoContent)
+	default:
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
+func loadHistory() []string {
+	if historyFile == "" {
+		return nil
+	}
+	b, err := os.ReadFile(historyFile)
+	if err != nil {
+		return nil
+	}
+	var history []string
+	if err := json.Unmarshal(b, &history); err != nil {
+		return nil
+	}
+	return history
+}
+
+func addHistory(path string) {
+	if historyFile == "" {
+		return
+	}
+	if !isAllowedEditFile(path) {
+		return
+	}
+	history := loadHistory()
+	var newHistory []string
+	for _, p := range history {
+		if p != path {
+			newHistory = append(newHistory, p)
+		}
+	}
+	newHistory = append([]string{path}, newHistory...)
+	if len(newHistory) > 20 {
+		newHistory = newHistory[:20]
+	}
+	b, err := json.Marshal(newHistory)
+	if err != nil {
+		return
+	}
+	os.WriteFile(historyFile, b, 0644)
+}
+
+func historyHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		w.Header().Set("Content-Type", "application/json")
+		history := loadHistory()
+		if history == nil {
+			history = []string{}
+		}
+		json.NewEncoder(w).Encode(history)
+	case http.MethodPost:
+		fileParam := r.FormValue("file")
+		if fileParam == "" {
+			http.Error(w, "missing file", http.StatusBadRequest)
+			return
+		}
+		addHistory(fileParam)
 		w.WriteHeader(http.StatusNoContent)
 	default:
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -1323,6 +1388,7 @@ func main() {
 	mux.HandleFunc("/api/editor/lang-index-files", langIndexFilesHandler)
 	mux.HandleFunc("/api/editor/find-source", findSourceHandler)
 	mux.HandleFunc("/api/editor/link-source", linkSourceHandler)
+	mux.HandleFunc("/api/editor/history", historyHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
