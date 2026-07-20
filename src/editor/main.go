@@ -1116,6 +1116,7 @@ html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
 html+='<div class="form-group"><label><input type="checkbox" id="opt_open_new_files"'+(openNewFiles==='true'?' checked':'')+'> '+l.openNewFilesLabel+'</label></div>';
 html+='<div class="form-group"><label>'+l.designLabel+'</label><select id="opt_design"><option value="default"'+(curDesign==='default'?' selected':'')+'>'+l.designDefault+'</option><option value="light"'+(curDesign==='light'?' selected':'')+'>'+l.designLight+'</option></select></div>';
+html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
 html+='<div id="opt_status"></div>';
@@ -1133,6 +1134,8 @@ document.getElementById('opt_apply').onclick=function(){
 	if(token)h['X-HT-Token']=token;
 	var nof=document.getElementById('opt_open_new_files').checked?'true':'false';
 	var nd=document.getElementById('opt_design').value;
+	var nm=document.getElementById('opt_my_name').value;
+	localStorage.setItem('ht_my_name',nm);
 	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)}).then(function(r){
 		if(r.ok&&window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
 		if(!r.ok)throw new Error(r.status);

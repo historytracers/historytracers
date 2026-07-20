@@ -17,6 +17,9 @@ select#langSelect option{color:#000;background:#fff}
 #toolbar button:active{background:#37474f}
 #toolbar .spacer{flex:1}
 #portDisplay{color:#80cbc4;font-size:12px;margin-right:8px;white-space:nowrap}
+#myNameInput{background:#1e272e;border:1px solid #546e7a;color:#eceff1;padding:3px 8px;border-radius:4px;font:12px/1.4 sans-serif;outline:none;width:100px}
+#myNameInput:focus{border-color:#80cbc4}
+#myNameInput::placeholder{color:#546e7a}
 #toolbar .sep{color:#555;margin:0 4px;user-select:none}
 .actions .sep{color:#555;margin:0 4px;user-select:none}
 #main{display:flex;flex:1;overflow:hidden}
@@ -150,6 +153,7 @@ select#langSelect option{color:#000;background:#fff}
 .design-light #lineNumbers{background:#f0f0f0!important;color:#999!important;border-right-color:#ddd!important}
 .design-light #editor textarea{background:#fff!important;color:#000!important}
 .design-light #portDisplay{color:#00695c!important}
+.design-light #myNameInput{background:#fff!important;color:#000!important;border-color:#ccc!important}
 .design-light #configFrame{background:#fff!important}
 </style>
 </head>
@@ -163,6 +167,7 @@ select#langSelect option{color:#000;background:#fff}
 </select>
 <span class="sep">|</span>
 <span id="portDisplay">Listening on 0</span>
+<input type="text" id="myNameInput" placeholder="My Name">
 <div class="spacer"></div>
 <button onclick="toggleNewMenu()" id="newBtn">New</button>
 <button onclick="toggleInsert()" id="insBtn" style="display:none">Insert</button>
@@ -1639,8 +1644,11 @@ function openConfig(){
 			if(tabs[i].type!=='config'&&tabs[i].type!=='view')unlockFile(tabs[i].path);
 		}
 	});
-	document.getElementById('portDisplay').textContent='Listening on '+window.location.port;
-	// listen for keyboard shortcuts
+document.getElementById('portDisplay').textContent='Listening on '+window.location.port;
+var myNameInput=document.getElementById('myNameInput');
+myNameInput.value=localStorage.getItem('ht_my_name')||'';
+myNameInput.addEventListener('change',function(){localStorage.setItem('ht_my_name',this.value)});
+// listen for keyboard shortcuts
 	var treeEl=document.getElementById('tree');
 	var gitEl=document.getElementById('gitPanel');
 	document.addEventListener('keydown',function(e){
