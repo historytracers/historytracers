@@ -1647,7 +1647,12 @@ function openConfig(){
 document.getElementById('portDisplay').textContent='Listening on '+window.location.port;
 var myNameInput=document.getElementById('myNameInput');
 myNameInput.value=localStorage.getItem('ht_my_name')||'';
-myNameInput.addEventListener('change',function(){localStorage.setItem('ht_my_name',this.value)});
+myNameInput.addEventListener('change',function(){
+	localStorage.setItem('ht_my_name',this.value);
+	var fd=new URLSearchParams();
+	fd.set('my_name',this.value);
+	fetch('/api/editor/options',{method:'POST',body:fd});
+});
 // listen for keyboard shortcuts
 	var treeEl=document.getElementById('tree');
 	var gitEl=document.getElementById('gitPanel');

@@ -254,7 +254,12 @@ L['en']=L['en-US'];
 		myNameInput.placeholder='My Name';
 		myNameInput.value=localStorage.getItem('ht_my_name')||'';
 		myNameInput.style.cssText='background:#fff;border:1px solid #ccc;color:#333;padding:2px 6px;border-radius:3px;font:12px/1.4 sans-serif;outline:none;width:100px;flex-shrink:0;';
-		myNameInput.addEventListener('change',function(){localStorage.setItem('ht_my_name',this.value)});
+		myNameInput.addEventListener('change',function(){
+			localStorage.setItem('ht_my_name',this.value);
+			var fd=new URLSearchParams();
+			fd.set('my_name',this.value);
+			fetch('/api/options',{method:'POST',body:fd});
+		});
 		b.appendChild(myNameInput);
 		var favBtn=document.createElement('button');
 		favBtn.id='__ht_fav_btn';

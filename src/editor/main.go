@@ -844,6 +844,7 @@ type optionsData struct {
 	TLSKey       string `json:"tls_key"`
 	OpenNewFiles bool   `json:"open_new_files"`
 	Design       string `json:"design"`
+	MyName       string `json:"my_name"`
 }
 
 func initDataDir() {
@@ -1019,7 +1020,13 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		if v := r.FormValue("design"); v != "" {
 			data.Design = v
 		}
+		if v := r.FormValue("my_name"); v != "" {
+			data.MyName = v
+		} else if _, ok := r.Form["my_name"]; ok {
+			data.MyName = ""
+		}
 		writeEditorOptions(data)
+		savedOptions = data
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
 		w.WriteHeader(http.StatusNoContent)
@@ -1136,7 +1143,7 @@ document.getElementById('opt_apply').onclick=function(){
 	var nd=document.getElementById('opt_design').value;
 	var nm=document.getElementById('opt_my_name').value;
 	localStorage.setItem('ht_my_name',nm);
-	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)}).then(function(r){
+	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)}).then(function(r){
 		if(r.ok&&window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
