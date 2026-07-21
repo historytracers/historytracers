@@ -51,7 +51,7 @@ function htCheckAnswers()
 }
 
 function htLoadContent() {
-    local = { "inverseIskayRValues": [], "inverseIskayLValues": [], "inverseKimsaRValues": [], "inverseKimsaLValues": [], "inversePisqaRValues": [], "inversePisqaLValues": [], "inversePichanaRValues": [], "inversePichanaLValues": [], "sumFirstTime": true, "counter": 0, "answerVector": undefined };
+    local = { "inverseIskayRValues": [], "inverseIskayLValues": [], "inverseKimsaRValues": [], "inverseKimsaLValues": [], "inversePisqaRValues": [], "inversePisqaLValues": [], "inversePichanaRValues": [], "inversePichanaLValues": [], "pichanaLeftValue": 2, "pichanaRightValue": 1, "sumFirstTime": true, "counter": 0, "answerVector": undefined };
 
     htWriteNavigation();
 
@@ -100,18 +100,32 @@ function htLoadContent() {
         htWriteYupanaValuesOnHTMLTable('#vr', '#yupana80', local.inversePisqaRValues);
     });
 
+    $(document).on("change", "input[name='pichanaMovement']", function() {
+        if ($(this).val() === "3-2") {
+            local.pichanaLeftValue = 3;
+            local.pichanaRightValue = 2;
+        } else {
+            local.pichanaLeftValue = 2;
+            local.pichanaRightValue = 1;
+        }
+        $("#leftHandImg9").attr("src","images/HistoryTracers/" + local.pichanaLeftValue + "Left_Hand_Small.png");
+        $("#rightHandImg9").attr("src","images/HistoryTracers/" + local.pichanaRightValue + "Right_Hand_Small.png");
+        htInversePichanaMove(local.pichanaLeftValue, local.pichanaRightValue);
+        htWriteYupanaValuesOnHTMLTable('#vl', '#yupana90', local.inversePichanaLValues);
+        htWriteYupanaValuesOnHTMLTable('#vr', '#yupana90', local.inversePichanaRValues);
+    });
+
     $("#traineeUp9").on("click", function() {
+        htCleanYupanaDecimalValues('#yupana90');
+        htFillYupanaDecimalValues('#yupana90', 1, 1, 'red_dot_right_up');
         $("#leftHandImg9").attr("src","images/HistoryTracers/1Left_Hand_Small.png");
         $("#rightHandImg9").attr("src","images/HistoryTracers/0Right_Hand_Small.png");
-        htInversePichanaMove(1, 0);
-        var totals = htSumYupanaVectors(local.inversePichanaLValues, local.inversePichanaRValues);
-        htFillYupanaDecimalValues('#yupana90', totals, 1, 'red_dot_right_up');
     });
 
     $("#traineeDown9").on("click", function() {
-        $("#leftHandImg9").attr("src","images/HistoryTracers/2Left_Hand_Small.png");
-        $("#rightHandImg9").attr("src","images/HistoryTracers/0Right_Hand_Small.png");
-        htInversePichanaMove(2, 0);
+        $("#leftHandImg9").attr("src","images/HistoryTracers/" + local.pichanaLeftValue + "Left_Hand_Small.png");
+        $("#rightHandImg9").attr("src","images/HistoryTracers/" + local.pichanaRightValue + "Right_Hand_Small.png");
+        htInversePichanaMove(local.pichanaLeftValue, local.pichanaRightValue);
         htWriteYupanaValuesOnHTMLTable('#vl', '#yupana90', local.inversePichanaLValues);
         htWriteYupanaValuesOnHTMLTable('#vr', '#yupana90', local.inversePichanaRValues);
     });
@@ -120,7 +134,7 @@ function htLoadContent() {
         htInverseIskayMove(3, 1);
         htInverseKimsaMove(5, 1);
         htInversePisqaMove(10, 5);
-        htInversePichanaMove(2, 0);
+        htInversePichanaMove(2, 1);
         local.sumFirstTime = false;
     }
 
@@ -131,6 +145,6 @@ function htLoadContent() {
     htSetImageSrc("leftHandImg8", "images/HistoryTracers/1Left_Hand_Small.png");
     htSetImageSrc("rightHandImg8", "images/HistoryTracers/5Right_Hand_Small.png");
     htSetImageSrc("leftHandImg9", "images/HistoryTracers/2Left_Hand_Small.png");
-    htSetImageSrc("rightHandImg9", "images/HistoryTracers/0Right_Hand_Small.png");
+    htSetImageSrc("rightHandImg9", "images/HistoryTracers/1Right_Hand_Small.png");
     return false;
 }
