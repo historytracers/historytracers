@@ -46,7 +46,7 @@ function htLoadExercise() {
 }
 
 function htLoadContent() {
-    local = { "iskayRValues": [], "iskayLValues": [], "kimsaRValues": [], "kimsaLValues": [], "pisqaRValues": [], "pisqaLValues": [], "pichanaRValues": [], "pichanaLValues": [], "kinkinRValues": [], "kinkinLValues": [], "sumFirstTime": true, "counter": 0, "answerVector": undefined }; 
+    local = { "iskayRValues": [], "iskayLValues": [], "kimsaRValues": [], "kimsaLValues": [], "pisqaRValues": [], "pisqaLValues": [], "pichanaRValues": [], "pichanaLValues": [], "kinkinRValues": [], "kinkinLValues": [], "pichanaLeftValue": 1, "pichanaRightValue": 2, "sumFirstTime": true, "counter": 0, "answerVector": undefined }; 
 
     htWriteNavigation();
 
@@ -151,29 +151,32 @@ function htLoadContent() {
         htWriteYupanaValuesOnHTMLTable('#vr', '#yupana30', local.pisqaRValues);
     });
 
+    $(document).on("change", "input[name='pichanaMovement']", function() {
+        if ($(this).val() === "2-3") {
+            local.pichanaLeftValue = 2;
+            local.pichanaRightValue = 3;
+        } else {
+            local.pichanaLeftValue = 1;
+            local.pichanaRightValue = 2;
+        }
+        $("#leftHandImg4").attr("src","images/HistoryTracers/" + local.pichanaLeftValue + "Left_Hand_Small.png");
+        $("#rightHandImg4").attr("src","images/HistoryTracers/" + local.pichanaRightValue + "Right_Hand_Small.png");
+        htPichanaMove(local.pichanaLeftValue, local.pichanaRightValue);
+        htWriteYupanaValuesOnHTMLTable('#vl', '#yupana40', local.pichanaLValues);
+        htWriteYupanaValuesOnHTMLTable('#vr', '#yupana40', local.pichanaRValues);
+    });
+
     $("#traineeUp4").on("click", function() {
-        htCleanYupanaDecimalValues('#yupana40', 1);
-        htFillYupanaDecimalValues('#yupana40', 2, 1, 'red_dot_right_up');
-        htFillYupanaDecimalValues('#yupana40', 0, 1, 'blue_dot_right_bottom');
-        $("#leftHandImg4").attr("src","images/HistoryTracers/2Left_Hand_Small.png");
-        setTimeout(function() {
-            htCleanYupanaDecimalValues('#yupana40', 1);
-            htFillYupanaDecimalValues('#yupana40', 3, 1, 'red_dot_right_up');
-            htFillYupanaDecimalValues('#yupana40', 0, 1, 'blue_dot_right_bottom');
-            setTimeout(function() {
-                $("#leftHandImg4").attr("src","images/HistoryTracers/0Left_Hand_Small.png");
-                $("#rightHandImg4").attr("src","images/HistoryTracers/3Right_Hand_Small.png");
-                htPichanaMove(3, 0);
-                var totals = htSumYupanaVectors(local.pichanaLValues, local.pichanaRValues);
-                htFillYupanaDecimalValues('#yupana40', totals, 1, 'red_dot_right_up');
-            }, 1500);
-        }, 1500);
+        htCleanYupanaDecimalValues('#yupana40');
+        htFillYupanaDecimalValues('#yupana40', local.pichanaLeftValue + local.pichanaRightValue, 1, 'red_dot_right_up');
+        $("#leftHandImg4").attr("src","images/HistoryTracers/" + (local.pichanaLeftValue + local.pichanaRightValue) + "Left_Hand_Small.png");
+        $("#rightHandImg4").attr("src","images/HistoryTracers/0Right_Hand_Small.png");
     });
 
     $("#traineeDown4").on("click", function() {
-        $("#leftHandImg4").attr("src","images/HistoryTracers/2Left_Hand_Small.png");
-        $("#rightHandImg4").attr("src","images/HistoryTracers/1Right_Hand_Small.png");
-        htPichanaMove(2, 1);
+        $("#leftHandImg4").attr("src","images/HistoryTracers/" + local.pichanaLeftValue + "Left_Hand_Small.png");
+        $("#rightHandImg4").attr("src","images/HistoryTracers/" + local.pichanaRightValue + "Right_Hand_Small.png");
+        htPichanaMove(local.pichanaLeftValue, local.pichanaRightValue);
         htWriteYupanaValuesOnHTMLTable('#vl', '#yupana40', local.pichanaLValues);
         htWriteYupanaValuesOnHTMLTable('#vr', '#yupana40', local.pichanaRValues);
     });
@@ -208,7 +211,7 @@ function htLoadContent() {
         htIskayMove(2, 2);
         htKimsaMove(3, 3);
         htPisqaMove(5, 5);
-        htPichanaMove(2, 1);
+        htPichanaMove(1, 2);
         htKinkinMove(1, 1);
         local.sumFirstTime = false;
     }
@@ -217,13 +220,13 @@ function htLoadContent() {
     htSetImageSrc("leftHandImg1", "images/HistoryTracers/2Left_Hand_Small.png");
     htSetImageSrc("leftHandImg2", "images/HistoryTracers/3Left_Hand_Small.png");
     htSetImageSrc("leftHandImg3", "images/HistoryTracers/5Left_Hand_Small.png");
-    htSetImageSrc("leftHandImg4", "images/HistoryTracers/2Left_Hand_Small.png");
+    htSetImageSrc("leftHandImg4", "images/HistoryTracers/1Left_Hand_Small.png");
     htSetImageSrc("leftHandImg5", "images/HistoryTracers/1Left_Hand_Small.png");
     htSetImageSrc("rightHandImg0", "images/HistoryTracers/0Right_Hand_Small.png");
     htSetImageSrc("rightHandImg1", "images/HistoryTracers/2Right_Hand_Small.png");
     htSetImageSrc("rightHandImg2", "images/HistoryTracers/3Right_Hand_Small.png");
     htSetImageSrc("rightHandImg3", "images/HistoryTracers/5Right_Hand_Small.png");
-    htSetImageSrc("rightHandImg4", "images/HistoryTracers/1Right_Hand_Small.png");
+    htSetImageSrc("rightHandImg4", "images/HistoryTracers/2Right_Hand_Small.png");
     htSetImageSrc("rightHandImg5", "images/HistoryTracers/1Right_Hand_Small.png");
     return false;
 }
