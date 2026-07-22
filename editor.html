@@ -1438,17 +1438,19 @@ async function loadHistoryPanel(){
 		list.innerHTML='';
 		var allowed=[];
 		for(var i=0;i<history.length;i++){
-			if(isAllowedFile(history[i]))allowed.push(history[i]);
+			if(isAllowedFile(history[i].path||history[i]))allowed.push(history[i]);
 		}
 		if(allowed.length===0){
 			list.innerHTML='<div class="hist-empty">'+tr('noHistory')+'</div>';
 			return;
 		}
 		for(var i=0;i<allowed.length;i++){
-			(function(path){
+			(function(entry){
+				var path=entry.path||entry;
+				var displayName=entry.displayName||path;
 				var d=document.createElement('div');
 				d.className='hist-item';
-				d.textContent=path;
+				d.textContent=displayName;
 				d.title=path;
 				d.onclick=function(){document.getElementById('historyPanel').classList.remove('open');openFile(path)};
 				list.appendChild(d);
