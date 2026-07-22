@@ -94,9 +94,9 @@ var editorBarJS = `
 		try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||''}catch(e){}
 		if(!loc)loc=window.__ht_lang||navigator.language||'en-US';
 		var L={};
-L['pt-BR']={homeTitle:'P\u00e1gina inicial',menuTitle:'Menu',exitTitle:'Sair',devTitle:'Dev',debugTitle:'Depurador',editorTitle:'Editor',openTitle:'Abrir no Navegador'};
-L['es-ES']={homeTitle:'P\u00e1gina de inicio',menuTitle:'Men\u00fa',exitTitle:'Salir',devTitle:'Dev',debugTitle:'Depurador',editorTitle:'Editor',openTitle:'Abrir en el Navegador'};
-L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'Dev',debugTitle:'Debug',editorTitle:'Editor',openTitle:'Open in Browser'};
+L['pt-BR']={homeTitle:'P\u00e1gina inicial',menuTitle:'Menu',exitTitle:'Sair',devTitle:'Dev',debugTitle:'Depurador',editorTitle:'Editor',openTitle:'Abrir no Navegador',historicalTitle:'Hist\u00f3rico',noHistory:'(nenhum)'};
+L['es-ES']={homeTitle:'P\u00e1gina de inicio',menuTitle:'Men\u00fa',exitTitle:'Salir',devTitle:'Dev',debugTitle:'Depurador',editorTitle:'Editor',openTitle:'Abrir en el Navegador',historicalTitle:'Historial',noHistory:'(ninguno)'};
+L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'Dev',debugTitle:'Debug',editorTitle:'Editor',openTitle:'Open in Browser',historicalTitle:'Historical',noHistory:'(none)'};
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var s=document.createElement('style');
 		s.id='__ht_style';
@@ -161,6 +161,69 @@ L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'De
 		menuDrop.appendChild(sep);
 		var exit=addMenuItem('__ht_exit_item',l.exitTitle);
 		exit.onclick=function(e){e.preventDefault();menuDrop.style.display='none';closeWindow()};
+		// Historical section
+		var histSep=document.createElement('div');
+		histSep.style.cssText='height:1px;background:#555;margin:4px 0;';
+		menuDrop.appendChild(histSep);
+		var histHeader=document.createElement('div');
+		histHeader.textContent=l.historicalTitle||'Historical';
+		histHeader.style.cssText='display:block;padding:4px 16px 2px;color:#80cbc4;font:11px/1.4 sans-serif;text-transform:uppercase;letter-spacing:0.5px;';
+		menuDrop.appendChild(histHeader);
+		var histContainer=document.createElement('div');
+		histContainer.id='__ht_hist_container';
+		menuDrop.appendChild(histContainer);
+		function isAllowedFile(path){
+			var idx=path.lastIndexOf('.');
+			if(idx<0)return false;
+			var ext=path.substring(idx+1).toLowerCase();
+			return ext==='html'||ext==='css'||ext==='js'||ext==='json'||ext==='md'||ext==='txt';
+		}
+		function loadHistory(){
+			var container=document.getElementById('__ht_hist_container');
+			if(!container)return;
+			container.innerHTML='<div style="display:block;padding:4px 16px;color:#546e7a;font:11px/1.4 sans-serif">Loading...</div>';
+			fetch('/api/editor/history').then(function(r){return r.json()}).then(function(history){
+				container.innerHTML='';
+				var allowed=[];
+				for(var i=0;i<history.length;i++){
+					if(isAllowedFile(history[i]))allowed.push(history[i]);
+				}
+				if(allowed.length===0){
+					var empty=document.createElement('div');
+					empty.textContent=l.noHistory||'(none)';
+					empty.style.cssText='display:block;padding:6px 16px;color:#78909c;font:12px/1.4 sans-serif;font-style:italic;';
+					container.appendChild(empty);
+					return;
+				}
+				for(var i=0;i<allowed.length;i++){
+					(function(path){
+						var item=document.createElement('a');
+						item.href='#';
+						item.textContent=path;
+						item.title=path;
+						item.style.cssText='display:block;padding:4px 16px;text-decoration:none;color:#b0bec5;font:11px/1.4 monospace;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+						item.onmouseover=function(){this.style.background='#455a64'};
+						item.onmouseout=function(){this.style.background='transparent'};
+						item.onclick=function(e){
+							e.preventDefault();
+							menuDrop.style.display='none';
+							if(typeof openFile==='function')openFile(path);
+						};
+						container.appendChild(item);
+					})(allowed[i]);
+				}
+			}).catch(function(){
+				container.innerHTML='<div style="display:block;padding:6px 16px;color:#f48771;font:11px/1.4 sans-serif">Error loading history</div>';
+			});
+		}
+		menuBtn.onclick=function(e){
+			e.stopPropagation();
+			var r=menuBtn.getBoundingClientRect();
+			menuDrop.style.top=(r.bottom+2)+'px';
+			var isOpen=menuDrop.style.display==='none'||menuDrop.style.display==='';
+			menuDrop.style.display=isOpen?'block':'none';
+			if(isOpen)loadHistory();
+		};
 		document.documentElement.insertBefore(b,document.documentElement.firstChild);
 		document.body.style.marginTop=ADDR_H+'px';
 		function toggleDevPanel(){

@@ -65,6 +65,7 @@ type optionsData struct {
 	Home    string `json:"home"`
 	TLSCert string `json:"tls_cert"`
 	TLSKey  string `json:"tls_key"`
+	MyName  string `json:"my_name"`
 }
 
 var validLangs = map[string]bool{
@@ -376,7 +377,13 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		} else {
 			data.TLSKey = ""
 		}
+		if v := r.FormValue("my_name"); v != "" {
+			data.MyName = v
+		} else if _, ok := r.Form["my_name"]; ok {
+			data.MyName = ""
+		}
 		writeOptionsLocked(data)
+		savedOptions = data
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
 		w.WriteHeader(http.StatusNoContent)
@@ -489,6 +496,7 @@ html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" 
 html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
 html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
+html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<div id="opt_status"></div>';
 html+='<div class="back"><a href="#" onclick="event.preventDefault();(parent.open||window.open)(window.location.origin+\'/index.html?page=\'+encodeURIComponent(parent.location.search.match(/[?&]page=([^&]*)/)?decodeURIComponent(RegExp.$1):\'main\')+\'&lang=\'+encodeURIComponent(lang)+\'&cal=\'+encodeURIComponent(cal))">'+l.back+'</a></div>';
@@ -507,7 +515,9 @@ document.getElementById('opt_apply').onclick=function(){
 	var tk=document.getElementById('opt_tls_key').value;
 	var hdr={'Content-Type':'application/x-www-form-urlencoded'};
 	if(window.__ht_token)hdr['X-HT-Token']=window.__ht_token;
-	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)}).then(function(r){
+	var nm=document.getElementById('opt_my_name').value;
+	localStorage.setItem('ht_my_name',nm);
+	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)}).then(function(r){
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
 		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);parent.location.href=pu.toString()}catch(e){}
