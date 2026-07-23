@@ -216,3 +216,5 @@ To simplify the process, we’ve added the script `ht2pkg.sh`, which automatical
 $ ./ht2pkg.sh
 ```
 
+> **Editor Status:** The History Tracers Editor is currently in development and is **not included** in the generated packages by default. To build and use the editor, run `./historytracers-installer.sh`.
+
