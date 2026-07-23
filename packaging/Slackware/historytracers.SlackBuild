@@ -114,7 +114,7 @@ chmod 755 $PKG/install/doinst.sh
 
 # Fix permissions
 find $PKG -type d -exec chmod 755 {} \;
-chown -R root:root $PKG
+# Ownership is handled by makepkg at package creation time
 find $PKG -type f -perm 755 -exec chmod 755 {} \;
 find $PKG -type f -perm 644 -exec chmod 644 {} \;
 
