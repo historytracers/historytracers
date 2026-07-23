@@ -36,7 +36,7 @@ fi
 # Set ownership on all installed files (outside home directories)
 chown -R historytracers:historytracers /usr/share/historytracers/ 2>/dev/null || true
 chown historytracers:historytracers /usr/bin/historytracers 2>/dev/null || true
-chown historytracers:historytracers /usr/bin/historytracers-editor 2>/dev/null || true
+#chown historytracers:historytracers /usr/bin/historytracers-editor 2>/dev/null || true
 chown -R historytracers:historytracers /etc/historytracers 2>/dev/null || true
 chown historytracers:historytracers /var/lib/historytracers 2>/dev/null || true
 chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true

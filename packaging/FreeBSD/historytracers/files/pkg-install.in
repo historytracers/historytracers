@@ -14,7 +14,7 @@ PRE-INSTALL)
 POST-INSTALL)
 	chown -R historytracers:historytracers %%PREFIX%%/share/historytracers 2>/dev/null || true
 	chown historytracers:historytracers %%PREFIX%%/bin/historytracers 2>/dev/null || true
-	chown historytracers:historytracers %%PREFIX%%/bin/historytracers-editor 2>/dev/null || true
+	#chown historytracers:historytracers %%PREFIX%%/bin/historytracers-editor 2>/dev/null || true
 	chown -R historytracers:historytracers %%PREFIX%%/etc/historytracers 2>/dev/null || true
 	chown historytracers:historytracers /var/db/historytracers 2>/dev/null || true
 	chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true
