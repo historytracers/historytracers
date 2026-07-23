@@ -186,7 +186,7 @@ L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'De
 				container.innerHTML='';
 				var allowed=[];
 				for(var i=0;i<history.length;i++){
-					if(isAllowedFile(history[i]))allowed.push(history[i]);
+					if(isAllowedFile(history[i].path||history[i]))allowed.push(history[i]);
 				}
 				if(allowed.length===0){
 					var empty=document.createElement('div');
@@ -196,10 +196,12 @@ L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'De
 					return;
 				}
 				for(var i=0;i<allowed.length;i++){
-					(function(path){
+					(function(entry){
+						var path=entry.path||entry;
+						var displayName=entry.displayName||path;
 						var item=document.createElement('a');
 						item.href='#';
-						item.textContent=path;
+						item.textContent=displayName;
 						item.title=path;
 						item.style.cssText='display:block;padding:4px 16px;text-decoration:none;color:#b0bec5;font:11px/1.4 monospace;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
 						item.onmouseover=function(){this.style.background='#455a64'};
