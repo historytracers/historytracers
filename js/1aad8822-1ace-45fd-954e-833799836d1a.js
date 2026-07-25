@@ -72,6 +72,11 @@ function htSchyotyUpdateDisplay() {
         if (sv) {
             if (val.toString() === cmp.innerText.trim()) {
                 sv.style.display = 'inline'; sv.style.visibility = 'visible';
+                if (localSchyotyController.currentTargetLevel === localSchyotyController.ROWS - 1) {
+                    const fb = document.getElementById('feedbackArea');
+                    const msg = document.getElementById('txt_finalLevelMessage');
+                    if (fb && msg) fb.innerHTML = '<div class="congrats">' + msg.innerHTML + '</div>';
+                }
             } else {
                 sv.style.display = 'none'; sv.style.visibility = 'hidden';
             }
@@ -209,6 +214,8 @@ function htSchyotyReset() {
     for (let r = 0; r < localSchyotyController.ROWS; r++) {
         localSchyotyController.state[r] = 0;
     }
+    const fb = document.getElementById('feedbackArea');
+    if (fb) fb.innerHTML = '';
     const cmp = document.getElementById('schyotyCMP');
     if (cmp) {
         const sv = document.getElementById('schyotySuccess');
@@ -227,6 +234,7 @@ function htSchyotyFillGame() {
     if (sv) { sv.style.display = 'none'; sv.style.visibility = 'hidden'; }
 
     const lvl = localSchyotyController.gameLvl || 0;
+    localSchyotyController.currentTargetLevel = lvl;
     const minV = Math.pow(10, lvl);
     const maxV = Math.pow(10, lvl + 1) - 1;
     cmp.innerText = Math.floor(Math.random() * (maxV - minV + 1)) + minV;
@@ -270,6 +278,7 @@ function htSchyotyBindEvents() {
 }
 
 function htSchyotyInit() {
+    localSchyotyController.currentTargetLevel = 0;
     localSchyotyController.canvas = document.getElementById('schyotyCanvas');
     if (!localSchyotyController.canvas) return;
     localSchyotyController.ctx = localSchyotyController.canvas.getContext('2d');
