@@ -135,12 +135,12 @@ function htSchyotyDrawRow(r, ctx) {
 
     for (let p = 0; p < cnt; p++) {
         const x = localSchyotyController.activeX0 + p * localSchyotyController.beadStep;
-        htSchyotyDrawBead(ctx, x, y, true);
+        htSchyotyDrawBead(ctx, x, y, true, p);
     }
 
     for (let p = 0; p < localSchyotyController.BEADS_PER_ROW - cnt; p++) {
         const x = localSchyotyController.inactiveX0 - p * localSchyotyController.beadStep;
-        htSchyotyDrawBead(ctx, x, y, false);
+        htSchyotyDrawBead(ctx, x, y, false, 9 - p);
     }
 
     ctx.fillStyle = '#3a2a1a';
@@ -150,13 +150,17 @@ function htSchyotyDrawRow(r, ctx) {
     ctx.fillText(cnt.toString(), localSchyotyController.wireL + 3, y - localSchyotyController.rowSp * 0.28);
 }
 
-function htSchyotyDrawBead(ctx, x, y, active) {
+function htSchyotyDrawBead(ctx, x, y, active, idx) {
     const r = localSchyotyController.beadR;
+    const isSpecial = idx === 4 || idx === 5;
     ctx.shadowBlur = active ? 3 : 1;
     ctx.shadowColor = 'rgba(0,0,0,0.25)';
 
     const grad = ctx.createRadialGradient(x - r * 0.3, y - r * 0.3, r * 0.1, x, y, r);
-    if (active) {
+    if (isSpecial) {
+        grad.addColorStop(0, active ? '#d0d0d0' : '#a0a0a0');
+        grad.addColorStop(1, active ? '#808080' : '#606060');
+    } else if (active) {
         grad.addColorStop(0, '#f5c860');
         grad.addColorStop(1, '#b08030');
     } else {
@@ -169,12 +173,16 @@ function htSchyotyDrawBead(ctx, x, y, active) {
     ctx.fillStyle = grad;
     ctx.fill();
     ctx.shadowBlur = 0;
-    ctx.strokeStyle = active ? '#6a4a1a' : '#5a4030';
+    ctx.strokeStyle = isSpecial ? (active ? '#3a3a3a' : '#2a2a2a') : (active ? '#6a4a1a' : '#5a4030');
     ctx.lineWidth = active ? 1.5 : 1;
     ctx.stroke();
     ctx.beginPath();
     ctx.arc(x - r * 0.25, y - r * 0.25, r * 0.25, 0, Math.PI * 2);
-    ctx.fillStyle = active ? 'rgba(255,235,190,0.6)' : 'rgba(240,225,205,0.35)';
+    if (isSpecial) {
+        ctx.fillStyle = active ? 'rgba(230,230,230,0.6)' : 'rgba(180,180,180,0.35)';
+    } else {
+        ctx.fillStyle = active ? 'rgba(255,235,190,0.6)' : 'rgba(240,225,205,0.35)';
+    }
     ctx.fill();
 }
 
