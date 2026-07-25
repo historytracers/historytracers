@@ -144,6 +144,10 @@ function htSorobanComputeDecimalValue() {
 }
 
 function htSorobanUpdateDisplay() {
+    if (localSorobanController.abacusMode === 'schyoty') {
+        htSchyotyUpdateDisplay();
+        return;
+    }
     const numSpan = document.getElementById('numericValue');
     if (!numSpan) return;
     const { display } = htSorobanComputeDecimalValue();
@@ -167,6 +171,10 @@ function htSorobanUpdateDisplay() {
 function htSorobanComputeLayout() {
     localSorobanController.canvasWidth = localSorobanController.canvas.width;
     localSorobanController.canvasHeight = localSorobanController.canvas.height;
+    if (localSorobanController.abacusMode === 'schyoty') {
+        htSchyotyComputeLayout();
+        return;
+    }
     
     let horizontalMargin = 28;
     let totalColSpace = localSorobanController.canvasWidth - (horizontalMargin * 2);
@@ -407,6 +415,10 @@ function htSorobanDrawFrameDecorations() {
         
 function htSorobanRender() {
     if(!localSorobanController.ctx) return;
+    if (localSorobanController.abacusMode === 'schyoty') {
+        htSchyotyRender();
+        return;
+    }
     localSorobanController.ctx.clearRect(0, 0, localSorobanController.canvasWidth, localSorobanController.canvasHeight);
     localSorobanController.ctx.fillStyle = '#fef5e0';
     localSorobanController.ctx.fillRect(0, 0, localSorobanController.canvasWidth, localSorobanController.canvasHeight);
@@ -551,6 +563,10 @@ function htSorobanStopDecimalDrag() {
         
 function htSorobanHandleCanvasStart(e) {
     if (!localSorobanController.canvas) return;
+    if (localSorobanController.abacusMode === 'schyoty') {
+        htSchyotyHandleCanvasStart(e);
+        return;
+    }
     const rect = localSorobanController.canvas.getBoundingClientRect();
     const scaleX = localSorobanController.canvas.width / rect.width;
     const scaleY = localSorobanController.canvas.height / rect.height;
@@ -609,6 +625,27 @@ function htSorobanHandleCanvasEnd(e) {
 function htFillAbacoGameValue() {
     const cmpobj = document.getElementById('abacoCMP');
     if (cmpobj == undefined) {
+        return;
+    }
+
+    if (localSorobanController.abacusMode === 'schyoty') {
+        const level = localSorobanController.currentTargetLevel;
+        if (level >= HT_SCHYOTY_ROWS) {
+            cmpobj.innerText = '0';
+            const feedback = document.getElementById('feedbackArea');
+            if (feedback) {
+                const msg = document.getElementById('txt_finalLevelMessage');
+                feedback.innerHTML = '<div class="congrats">' + (msg ? msg.innerText : '') + '</div>';
+            }
+            return;
+        }
+        const minVal = Math.pow(10, level);
+        const maxVal = Math.pow(10, level + 1) - 1;
+        if (level === 0) {
+            cmpobj.innerText = htGetRandomArbitrary(1, 9).toString();
+        } else {
+            cmpobj.innerText = htGetRandomArbitrary(minVal, maxVal).toString();
+        }
         return;
     }
 
@@ -719,6 +756,13 @@ function htSorobanResetSoroban() {
     localSorobanController._multCurrentSum = undefined;
     localSorobanController._multRepeatVal = undefined;
 
+    if (localSorobanController.abacusMode === 'schyoty') {
+        const feedback = document.getElementById('feedbackArea');
+        if (feedback) feedback.innerHTML = '';
+        htSchyotyReset();
+        return;
+    }
+
     for(let i=0;i<localSorobanController.COLUMNS;i++){
         localSorobanController.state[i].upper = 0;
         localSorobanController.state[i].lower = 0;
@@ -743,19 +787,38 @@ function htSorobanResetSoroban() {
 function htSorobanSwitchMode(mode) {
     if (localSorobanController.abacusMode === mode) return;
     localSorobanController.abacusMode = mode;
+
+    const sorobanBtn = document.getElementById('btnSorobanMode');
+    const suanpanBtn = document.getElementById('btnSuanpanMode');
+    const schyotyBtn = document.getElementById('btnSchyotyMode');
+    if (sorobanBtn) sorobanBtn.classList.toggle('active', mode === 'soroban');
+    if (suanpanBtn) suanpanBtn.classList.toggle('active', mode === 'suanpan');
+    if (schyotyBtn) schyotyBtn.classList.toggle('active', mode === 'schyoty');
+
+    const feedback = document.getElementById('feedbackArea');
+    if (feedback) feedback.innerHTML = '';
+
+    const successDiv = document.getElementById('suanpanSuccessText');
+    if (successDiv) {
+        $("#suanpanSuccessText").css("display","none").css("visibility","hidden");
+    }
+
+    if (mode === 'schyoty') {
+        htSchyotyInitState();
+        htSchyotyComputeLayout();
+        htSchyotyRender();
+        htSorobanUpdateDisplay();
+        const cmpobj = document.getElementById('abacoCMP');
+        if (cmpobj) htFillAbacoGameValue();
+        return;
+    }
+
     const { upperMax, lowerMax } = htSorobanGetBeadConfig();
     for(let i = 0; i < localSorobanController.COLUMNS; i++) {
         localSorobanController.state[i].upperMax = upperMax;
         localSorobanController.state[i].lowerMax = lowerMax;
         localSorobanController.state[i].upper = 0;
         localSorobanController.state[i].lower = 0;
-    }
-    document.getElementById('btnSorobanMode').classList.toggle('active', mode === 'soroban');
-    document.getElementById('btnSuanpanMode').classList.toggle('active', mode === 'suanpan');
-
-    const successDiv = document.getElementById('suanpanSuccessText');
-    if (successDiv) {
-        $("#suanpanSuccessText").css("display","none").css("visibility","hidden");
     }
     
     htSorobanComputeLayout();
@@ -768,6 +831,7 @@ function htSorobanAttachEvents() {
     const resetBtn = document.getElementById('resetButton');
     const sorobanBtn = document.getElementById('btnSorobanMode');
     const suanpanBtn = document.getElementById('btnSuanpanMode');
+    const schyotyBtn = document.getElementById('btnSchyotyMode');
     
     if (!canvas) return;
     
@@ -780,6 +844,7 @@ function htSorobanAttachEvents() {
     if (resetBtn) resetBtn.removeEventListener('click', htSorobanResetSoroban);
     if (sorobanBtn) sorobanBtn.removeEventListener('click', () => htSorobanSwitchMode('soroban'));
     if (suanpanBtn) suanpanBtn.removeEventListener('click', () => htSorobanSwitchMode('suanpan'));
+    if (schyotyBtn) schyotyBtn.removeEventListener('click', () => htSorobanSwitchMode('schyoty'));
     window.removeEventListener('resize', htSorobanComputeLayout);
     
     canvas.addEventListener('mousedown', htSorobanHandleCanvasStart);
@@ -791,6 +856,7 @@ function htSorobanAttachEvents() {
     if (resetBtn) resetBtn.addEventListener('click', htSorobanResetSoroban);
     if (sorobanBtn) sorobanBtn.addEventListener('click', () => htSorobanSwitchMode('soroban'));
     if (suanpanBtn) suanpanBtn.addEventListener('click', () => htSorobanSwitchMode('suanpan'));
+    if (schyotyBtn) schyotyBtn.addEventListener('click', () => htSorobanSwitchMode('schyoty'));
     window.addEventListener('resize', function() {
         htSorobanComputeLayout();
         htSorobanRender();
@@ -837,7 +903,15 @@ function htSorobanLoadContent() {
         "barY": 0,
         "isDraggingDecimal": false,
         "verticalStep": 22,
-        "currentGameLevel": 0
+        "currentGameLevel": 0,
+        "schyotyState": [],
+        "schyotyRowY": [],
+        "schyotyBeadR": 0,
+        "schyotyBeadStep": 0,
+        "schyotyActiveX0": 0,
+        "schyotyInactiveX0": 0,
+        "schyotyWireL": 14,
+        "currentTargetLevel": 0
     };
 
     if (document.getElementById('btnSuanpanMode') == undefined) {
@@ -855,6 +929,198 @@ function htSorobanLoadContent() {
         document.addEventListener('DOMContentLoaded', htSorobanInit);
     } else {
         htSorobanInit();
+    }
+}
+
+// ----- Schyoty (счёты) Mode -----
+
+const HT_SCHYOTY_ROWS = 9;
+const HT_SCHYOTY_BEADS_PER_ROW = 10;
+
+function htSchyotyInitState() {
+    localSorobanController.schyotyState = new Array(HT_SCHYOTY_ROWS).fill(0);
+    localSorobanController.currentTargetLevel = 0;
+}
+
+function htSchyotyComputeLayout() {
+    const topMargin = 20;
+    const bottomMargin = 30;
+    const rowSpacing = (localSorobanController.canvasHeight - topMargin - bottomMargin) / (HT_SCHYOTY_ROWS - 1);
+    localSorobanController.schyotyRowY = [];
+    for (let r = 0; r < HT_SCHYOTY_ROWS; r++) {
+        localSorobanController.schyotyRowY.push(localSorobanController.canvasHeight - bottomMargin - r * rowSpacing);
+    }
+    const wireL = localSorobanController.schyotyWireL;
+    const wireR = localSorobanController.canvasWidth - wireL;
+    const beadSpace = (wireR - wireL) / (HT_SCHYOTY_BEADS_PER_ROW + 1);
+    localSorobanController.schyotyBeadR = Math.min(beadSpace * 0.4, rowSpacing * 0.4, 18);
+    localSorobanController.schyotyBeadR = Math.max(localSorobanController.schyotyBeadR, 8);
+    localSorobanController.schyotyBeadStep = beadSpace;
+    localSorobanController.schyotyActiveX0 = wireL + localSorobanController.schyotyBeadR + 2;
+    localSorobanController.schyotyInactiveX0 = wireR - localSorobanController.schyotyBeadR - 2;
+}
+
+function htSchyotyRender() {
+    const ctx = localSorobanController.ctx;
+    if (!ctx) return;
+    ctx.clearRect(0, 0, localSorobanController.canvasWidth, localSorobanController.canvasHeight);
+    ctx.fillStyle = '#fef7e0';
+    ctx.fillRect(0, 0, localSorobanController.canvasWidth, localSorobanController.canvasHeight);
+
+    ctx.shadowBlur = 0;
+    const wireL = localSorobanController.schyotyWireL;
+    const wireR = localSorobanController.canvasWidth - wireL;
+
+    for (let r = 0; r < HT_SCHYOTY_ROWS; r++) {
+        const y = localSorobanController.schyotyRowY[r];
+        ctx.beginPath();
+        ctx.moveTo(wireL, y);
+        ctx.lineTo(wireR, y);
+        ctx.strokeStyle = '#5a4030';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        const cnt = localSorobanController.schyotyState[r];
+        for (let p = 0; p < cnt; p++) {
+            const x = localSorobanController.schyotyActiveX0 + p * localSorobanController.schyotyBeadStep;
+            htSchyotyDrawBead(ctx, x, y, true, p);
+        }
+        for (let p = 0; p < HT_SCHYOTY_BEADS_PER_ROW - cnt; p++) {
+            const x = localSorobanController.schyotyInactiveX0 - p * localSorobanController.schyotyBeadStep;
+            htSchyotyDrawBead(ctx, x, y, false, 9 - p);
+        }
+    }
+}
+
+function htSchyotyDrawBead(ctx, x, y, active, idx) {
+    const r = localSorobanController.schyotyBeadR;
+    const isSpecial = idx === 4 || idx === 5;
+    ctx.shadowBlur = active ? 3 : 1;
+    ctx.shadowColor = 'rgba(0,0,0,0.25)';
+
+    const grad = ctx.createRadialGradient(x - r * 0.3, y - r * 0.3, r * 0.1, x, y, r);
+    if (isSpecial) {
+        grad.addColorStop(0, active ? '#d0d0d0' : '#a0a0a0');
+        grad.addColorStop(1, active ? '#808080' : '#606060');
+    } else if (active) {
+        grad.addColorStop(0, '#f5c860');
+        grad.addColorStop(1, '#b08030');
+    } else {
+        grad.addColorStop(0, '#d4bc98');
+        grad.addColorStop(1, '#8a7050');
+    }
+
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = isSpecial ? (active ? '#3a3a3a' : '#2a2a2a') : (active ? '#6a4a1a' : '#5a4030');
+    ctx.lineWidth = active ? 1.5 : 1;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(x - r * 0.25, y - r * 0.25, r * 0.25, 0, Math.PI * 2);
+    ctx.fillStyle = isSpecial ? (active ? 'rgba(230,230,230,0.6)' : 'rgba(180,180,180,0.35)') : (active ? 'rgba(255,235,190,0.6)' : 'rgba(240,225,205,0.35)');
+    ctx.fill();
+}
+
+function htSchyotyGetNumericValue() {
+    let value = 0;
+    for (let r = 0; r < HT_SCHYOTY_ROWS; r++) {
+        value += localSorobanController.schyotyState[r] * Math.pow(10, r);
+    }
+    return value;
+}
+
+function htSchyotyGetHitRegion(mouseX, mouseY) {
+    const r = localSorobanController.schyotyBeadR;
+    for (let row = 0; row < HT_SCHYOTY_ROWS; row++) {
+        const y = localSorobanController.schyotyRowY[row];
+        if (Math.abs(mouseY - y) > r + 10) continue;
+        const cnt = localSorobanController.schyotyState[row];
+        for (let p = 0; p < cnt; p++) {
+            const x = localSorobanController.schyotyActiveX0 + p * localSorobanController.schyotyBeadStep;
+            if (Math.abs(mouseX - x) < r + 4 && Math.hypot(mouseX - x, mouseY - y) < r + 4) {
+                return { type: 'schyoty', row: row, position: p, isActive: true };
+            }
+        }
+        for (let p = 0; p < HT_SCHYOTY_BEADS_PER_ROW - cnt; p++) {
+            const x = localSorobanController.schyotyInactiveX0 - p * localSorobanController.schyotyBeadStep;
+            if (Math.abs(mouseX - x) < r + 4 && Math.hypot(mouseX - x, mouseY - y) < r + 4) {
+                return { type: 'schyoty', row: row, position: p, isActive: false };
+            }
+        }
+    }
+    return null;
+}
+
+function htSchyotyHandleClick(hit) {
+    const row = hit.row;
+    const cnt = localSorobanController.schyotyState[row];
+    if (hit.isActive) {
+        localSorobanController.schyotyState[row] = hit.position;
+    } else {
+        const inactiveCount = HT_SCHYOTY_BEADS_PER_ROW - cnt;
+        const beadsFromRight = hit.position;
+        localSorobanController.schyotyState[row] = cnt + (inactiveCount - beadsFromRight);
+    }
+    htSchyotyRender();
+    htSorobanUpdateDisplay();
+}
+
+function htSchyotyUpdateDisplay() {
+    const numSpan = document.getElementById('numericValue');
+    if (numSpan) {
+        numSpan.innerText = htSchyotyGetNumericValue().toString();
+    }
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj) {
+        if (htSchyotyGetNumericValue().toString() == cmpobj.innerText) {
+            const successDiv = document.getElementById('suanpanSuccessText');
+            if (successDiv) {
+                $("#suanpanSuccessText").css("display","block").css("visibility","visible");
+            }
+            localSorobanController.currentTargetLevel++;
+            const feedback = document.getElementById('feedbackArea');
+            if (feedback) feedback.innerHTML = '';
+            htFillAbacoGameValue();
+        }
+    }
+}
+
+function htSchyotyReset() {
+    htSchyotyInitState();
+    htSchyotyRender();
+    htSorobanUpdateDisplay();
+    const successDiv = document.getElementById('suanpanSuccessText');
+    if (successDiv) {
+        $("#suanpanSuccessText").css("display","none").css("visibility","hidden");
+    }
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj) {
+        htFillAbacoGameValue();
+    }
+}
+
+function htSchyotyHandleCanvasStart(e) {
+    if (!localSorobanController.canvas) return;
+    const rect = localSorobanController.canvas.getBoundingClientRect();
+    const scaleX = localSorobanController.canvas.width / rect.width;
+    const scaleY = localSorobanController.canvas.height / rect.height;
+    let clientX, clientY;
+    if (e.touches) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+        e.preventDefault();
+    } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+    }
+    const canvasX = (clientX - rect.left) * scaleX;
+    const canvasY = (clientY - rect.top) * scaleY;
+    const hit = htSchyotyGetHitRegion(canvasX, canvasY);
+    if (hit) {
+        htSchyotyHandleClick(hit);
     }
 }
 
