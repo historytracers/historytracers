@@ -15,11 +15,6 @@ var localSchyotyController = {};
 localSchyotyController.ROWS = 9;
 localSchyotyController.BEADS_PER_ROW = 10;
 
-localSchyotyController.ROW_NAMES = [
-    "Units", "Tens", "Hundreds", "Thousands", "Ten T.",
-    "H. T.", "Millions", "Ten M.", "H. M."
-];
-
 function htSchyotyInitState() {
     localSchyotyController.state = [];
     for (let r = 0; r < localSchyotyController.ROWS; r++) {
@@ -32,7 +27,7 @@ function htSchyotyComputeLayout() {
     localSchyotyController.W = cvs.width;
     localSchyotyController.H = cvs.height;
 
-    const M = { top: 16, bottom: 14, left: 78, right: 14 };
+    const M = { top: 16, bottom: 14, left: 14, right: 14 };
     localSchyotyController.M = M;
 
     localSchyotyController.wireL = M.left;
@@ -120,13 +115,6 @@ function htSchyotyRender() {
 
 function htSchyotyDrawRow(r, ctx) {
     const y = localSchyotyController.rowY[r];
-    const M = localSchyotyController.M;
-
-    ctx.fillStyle = '#5a4a3a';
-    ctx.font = 'bold 11px sans-serif';
-    ctx.textAlign = 'right';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(localSchyotyController.ROW_NAMES[r], M.left - 7, y);
 
     ctx.beginPath();
     ctx.moveTo(localSchyotyController.wireL, y);
@@ -238,18 +226,13 @@ function htSchyotyFillGame() {
     const sv = document.getElementById('schyotySuccess');
     if (sv) { sv.style.display = 'none'; sv.style.visibility = 'hidden'; }
 
-    const maxEl = document.getElementById('schyotyMax');
-    const minEl = document.getElementById('schyotyMin');
-    let minV = 1, maxV = 9;
-    if (maxEl && minEl) {
-        minV = parseInt(minEl.innerText) || 1;
-        const base = Math.pow(10, localSchyotyController.gameLvl || 0);
-        minV *= base;
-        maxV = Math.floor(99.9999999 * base);
-        localSchyotyController.gameLvl = (localSchyotyController.gameLvl || 0) + 1;
-        if (localSchyotyController.gameLvl >= 8) localSchyotyController.gameLvl = 0;
-    }
+    const lvl = localSchyotyController.gameLvl || 0;
+    const minV = Math.pow(10, lvl);
+    const maxV = Math.pow(10, lvl + 1) - 1;
     cmp.innerText = Math.floor(Math.random() * (maxV - minV + 1)) + minV;
+
+    localSchyotyController.gameLvl = lvl + 1;
+    if (localSchyotyController.gameLvl >= localSchyotyController.ROWS) localSchyotyController.gameLvl = 0;
 }
 
 function htSchyotyHandleClick(e) {
