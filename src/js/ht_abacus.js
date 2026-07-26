@@ -1077,6 +1077,7 @@ function htSchyotyHandleClick(hit) {
     }
     htSchyotyRender();
     htSorobanUpdateDisplay();
+    if (window.checkCurrentStepPositive) window.checkCurrentStepPositive();
 }
 
 function htSchyotyUpdateDisplay() {
