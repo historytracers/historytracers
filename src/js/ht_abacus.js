@@ -966,7 +966,7 @@ function htSchyotyComputeLayout() {
     const beadSpace = (wireR - wireL) / (HT_SCHYOTY_BEADS_PER_ROW + 1);
     localSorobanController.schyotyBeadR = Math.min(beadSpace * 0.4, rowSpacing * 0.4, 18);
     localSorobanController.schyotyBeadR = Math.max(localSorobanController.schyotyBeadR, 8);
-    localSorobanController.schyotyBeadStep = beadSpace;
+    localSorobanController.schyotyBeadStep = localSorobanController.schyotyBeadR * 2;
     localSorobanController.schyotyActiveX0 = wireL + localSorobanController.schyotyBeadR + 2;
     localSorobanController.schyotyInactiveX0 = wireR - localSorobanController.schyotyBeadR - 2;
 }
