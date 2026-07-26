@@ -673,6 +673,17 @@ function htFillAbacoGameValue() {
 }
 
 function htSetAbacusValue(value) {
+    if (localSorobanController.abacusMode === 'schyoty') {
+        localSorobanController.schyotyState = new Array(HT_SCHYOTY_ROWS).fill(0);
+        let numStr = Math.abs(value).toString();
+        for (let i = 0; i < numStr.length && i < HT_SCHYOTY_ROWS; i++) {
+            localSorobanController.schyotyState[i] = parseInt(numStr[numStr.length - 1 - i]);
+        }
+        htSorobanRender();
+        htSorobanUpdateDisplay();
+        return;
+    }
+
     for (let i = 0; i < localSorobanController.COLUMNS; i++) {
         localSorobanController.state[i].upper = 0;
         localSorobanController.state[i].lower = 0;
