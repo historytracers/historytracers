@@ -1,6 +1,6 @@
 {
-   "title": "Ábaco soroban y suanpan (算盤) en la relectura:",
-   "header": "Ábaco soroban y suanpan (算盤) en la relectura:",
+   "title": "Ábaco soroban, suanpan (算盤) y schyoty (счёты) en la relectura",
+   "header": "Ábaco soroban, suanpan (算盤) y schyoty (счёты) en la relectura",
    "sources": [
       "2836521c-6ddd-4fb9-a78d-b1b12db94883"
    ],
@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1783083666"
+      "1785072260"
    ],
    "authors": [
       ""
@@ -196,7 +196,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Límites en la suma (máximos y mínimos)\n\nPara visualizar mejor el concepto de límite en las operaciones estudiadas, utilizaremos inicialmente herramientas desarrolladas en China (Zhongguo 中國) y Japón (Nippon koku o Nihon koku, 日本国), conocidas, en general, como ábacos.\n\nComenzaremos usando la versión japonesa, el **Soroban (1×4)**. Por lo tanto, haga clic en él para continuar.",
+               "text": "#### Límites en la suma (máximos y mínimos)\n\nPara visualizar mejor el concepto de límite en las operaciones estudiadas, utilizaremos inicialmente herramientas desarrolladas en China (Zhongguo 中國), Japón (Nippon koku o Nihon koku, 日本国) y Rusia (Schyoty, счёты), conocidas, en general, como ábacos.\n\nComenzaremos usando la versión japonesa, el **Soroban (1×4)**. Por lo tanto, haga clic en él para continuar.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -214,7 +214,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">¡Hay columna(s) con valores mayores que 9! Cada dígito debe permanecer entre 0 y 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">¡Hay columna(s) con valores mayores que 9! Cada dígito debe permanecer entre 0 y 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button><button id=\"btnSchyotyMode\" class=\"mode-btn\">Schyoty (счёты)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -306,7 +306,7 @@
                "PostMention": ""
             },
             {
-               "text": "Si lo desea, puede cambiar el ábaco de arriba al modo **Suanpan (2x5)** y ejecutar el **Cálculo 2** en él.\n\nEn el **Cálculo 2**, podemos observar que:\n- hasta alcanzar el complemento de 6, que es 4, todas las sumas permanecen en el orden de las unidades;\n- a partir del momento en que alcanzamos el complemento, todas las sumas comienzan a involucrar también el orden de las decenas.\n\nAnte este escenario, podemos llegar a importantes conclusiones sobre cómo los complementos y los límites nos ayudan a verificar si nuestros cálculos podrían contener algún error:\n- al sumar un número menor que el complemento, no es posible obtener un resultado que alcance el orden de las decenas;\n- a partir del momento en que sumamos el complemento o un número mayor, el resultado obligatoriamente comienza a involucrar un nuevo orden.\n\nCon estas conclusiones sobre la adición, podemos reflexionar sobre nuestros próximos pasos.",
+               "text": "Si lo desea, puede cambiar el ábaco de arriba al modo **Suanpan (2x5)** o **Schyoty (счёты)** y ejecutar el **Cálculo 2** en él.\n\nEn el **Cálculo 2**, podemos observar que:\n- hasta alcanzar el complemento de 6, que es 4, todas las sumas permanecen en el orden de las unidades;\n- a partir del momento en que alcanzamos el complemento, todas las sumas comienzan a involucrar también el orden de las decenas.\n\nAnte este escenario, podemos llegar a importantes conclusiones sobre cómo los complementos y los límites nos ayudan a verificar si nuestros cálculos podrían contener algún error:\n- al sumar un número menor que el complemento, no es posible obtener un resultado que alcance el orden de las decenas;\n- a partir del momento en que sumamos el complemento o un número mayor, el resultado obligatoriamente comienza a involucrar un nuevo orden.\n\nCon estas conclusiones sobre la adición, podemos reflexionar sobre nuestros próximos pasos.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -403,7 +403,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Multiplicando en el Soroban y Suanpan (算盤) (6 × 2)</b><br />Este ejercicio está basado en otro texto de History Tracers, si no lo has estudiado, sería mejor revisarlo primero: <htcite0>.<br /><br />1. Elige un modelo de ábaco (\"Soroban (1×4)\" o \"Suanpan (2×5)\").<br /><br />2. Suma de 2 en 2 hasta visualizar el número 12. Es decir, suma 2 seis veces.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Multiplicando en el Soroban, Suanpan (算盤) y Schyoty (счёты) (6 × 2)</b><br />Este ejercicio está basado en otro texto de History Tracers, si no lo has estudiado, sería mejor revisarlo primero: <htcite0>.<br /><br />1. Elige un modelo de ábaco (\"Soroban (1×4)\", \"Suanpan (2×5)\" o \"Schyoty (счёты)\").<br /><br />2. Suma de 2 en 2 hasta visualizar el número 12. Es decir, suma 2 seis veces.</div></div></p>",
                "source": [
                   {
                      "type": 1,
@@ -474,7 +474,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Multiplicando en el Soroban y Suanpan (算盤) (52 × 2)</b><br />En primer lugar, debemos recordar que el número 52, que deseamos repetir dos veces, puede reescribirse como: 50 + 2 (<htcite0>). Con esto, podemos analizar el número por separado:<br /><br />- Cuando multiplicamos 0 por 2, sabemos que esto resultará en 0, ya que estamos repitiendo nada varias veces (<htcite1>). Al multiplicar el 5, como el resultado es igual a 10, esto nos indica que el resultado final de la multiplicación irá más allá de las decenas que inicialmente propusimos, es decir, el resultado final tendrá tres dígitos.<br /><br />Sabiendo que nuestro resultado tendrá tres dígitos debido a un componente (las decenas), necesitamos ver cómo las unidades afectarán el otro resultado.<br /><br />- Como 2 es menor que 5, podemos concluir que no será necesaria otra orden — la decena — para escribir el resultado.<br /><br />Después de analizar los números mediante la lectura de los componentes iniciales (decenas y unidades) por separado, podemos realizar el cálculo final usando el ábaco de la siguiente manera:<br /><br />- Haz clic en el botón <b>Reiniciar</b> del ábaco.<br />- Como el orden de la suma no altera el resultado, comenzaremos multiplicando la decena, es decir, 50 × 2;<br />- No alteraremos las unidades, ya que 0 × 2 = 0;<br />- Ahora, muévete a las decenas y suma 5 dos veces, es decir, haremos 5 × 2 = 10. No olvides que solo podemos representar números entre 0 y 9 en cada columna, por lo que el resultado final tendrá 1 en la centena, 0 en la decena y 0 en la unidad.<br />- Ahora, pasamos a multiplicar las unidades. Para ello, coloca el número 4 en el ábaco, ya que 2 × 2 = 4.<br /><br />Al finalizar estos pasos, tu ábaco debería mostrar el resultado 104.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Multiplicando en el Soroban, Suanpan (算盤) y Schyoty (счёты) (52 × 2)</b><br />En primer lugar, debemos recordar que el número 52, que deseamos repetir dos veces, puede reescribirse como: 50 + 2 (<htcite0>). Con esto, podemos analizar el número por separado:<br /><br />- Cuando multiplicamos 0 por 2, sabemos que esto resultará en 0, ya que estamos repitiendo nada varias veces (<htcite1>). Al multiplicar el 5, como el resultado es igual a 10, esto nos indica que el resultado final de la multiplicación irá más allá de las decenas que inicialmente propusimos, es decir, el resultado final tendrá tres dígitos.<br /><br />Sabiendo que nuestro resultado tendrá tres dígitos debido a un componente (las decenas), necesitamos ver cómo las unidades afectarán el otro resultado.<br /><br />- Como 2 es menor que 5, podemos concluir que no será necesaria otra orden — la decena — para escribir el resultado.<br /><br />Después de analizar los números mediante la lectura de los componentes iniciales (decenas y unidades) por separado, podemos realizar el cálculo final usando el ábaco de la siguiente manera:<br /><br />- Haz clic en el botón <b>Reiniciar</b> del ábaco.<br />- Como el orden de la suma no altera el resultado, comenzaremos multiplicando la decena, es decir, 50 × 2;<br />- No alteraremos las unidades, ya que 0 × 2 = 0;<br />- Ahora, muévete a las decenas y suma 5 dos veces, es decir, haremos 5 × 2 = 10. No olvides que solo podemos representar números entre 0 y 9 en cada columna, por lo que el resultado final tendrá 1 en la centena, 0 en la decena y 0 en la unidad.<br />- Ahora, pasamos a multiplicar las unidades. Para ello, coloca el número 4 en el ábaco, ya que 2 × 2 = 4.<br /><br />Al finalizar estos pasos, tu ábaco debería mostrar el resultado 104.</div></div></p>",
                "source": [
                   {
                      "type": 1,
