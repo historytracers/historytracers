@@ -301,6 +301,7 @@ function htSchyotyReset() {
     htSchyotyInitState();
     htSchyotyRender();
     htSorobanUpdateDisplay();
+    if (window.checkCurrentStepPositive) window.checkCurrentStepPositive();
 }
 
 function htSchyotyHandleCanvasStart(e) {
