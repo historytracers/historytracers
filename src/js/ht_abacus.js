@@ -945,8 +945,8 @@ function htSorobanLoadContent() {
 
 // ----- Schyoty (счёты) Mode -----
 
-const HT_SCHYOTY_ROWS = 9;
-const HT_SCHYOTY_BEADS_PER_ROW = 10;
+var HT_SCHYOTY_ROWS = 9;
+var HT_SCHYOTY_BEADS_PER_ROW = 10;
 
 function htSchyotyInitState() {
     localSorobanController.schyotyState = new Array(HT_SCHYOTY_ROWS).fill(0);
