@@ -1,6 +1,6 @@
 {
-   "title": "Practicing subtraction with the Soroban and the Suanpan (算盤)",
-   "header": "Practicing subtraction with the Soroban and the Suanpan (算盤)",
+   "title": "Practicing subtraction with the Soroban, the Suanpan (算盤) and the Schyoty (счёты)",
+   "header": "Practicing subtraction with the Soroban, the Suanpan (算盤) and the Schyoty (счёты)",
    "sources": [
       "e4103f19-1efb-469f-bd69-d44d43e0d3a3"
    ],
@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1784404519"
+      "1785094290"
    ],
    "authors": [
       ""
@@ -53,13 +53,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text accompanies an application that teaches, step by step, how to perform subtractions using the abacus. For a better understanding of the steps, we suggest first studying the text Subtraction on the abacuses of China (Zhōngguó, 中国) and Japan (Nippon-koku or Nihon-koku, 日本国) before proceeding (<htcite0>).",
+               "text": "### Prerequisites\n\nThis text accompanies an application that teaches, step by step, how to perform subtractions using the abacus. For a better understanding of the steps, we suggest first studying the text Subtraction on the abacuses of China (Zhōngguó, 中国), Japan (Nippon-koku or Nihon-koku, 日本国) and Russia (Schyoty, счёты) before proceeding (<htcite0>).",
                "source": [
                   {
                      "type": 1,
                      "uuid": "00e38f0b-08c9-4833-8857-ae7946d26b74",
                      "text": "History Tracers Team",
-                     "page": "Subtraindo com Soroban e Suanpan (算盤)",
+                     "page": "Subtraindo com Soroban e Suanpan (算盤) and Schyoty (счёты)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -98,7 +98,7 @@
                      "type": 1,
                      "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
                      "text": "History Tracers Team",
-                     "page": "Subtracting with Soroban and Suanpan (算盤)",
+                     "page": "Subtracting with Soroban, Suanpan and Schyoty (счёты) (算盤)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -110,7 +110,7 @@
                      "type": 1,
                      "uuid": "5edb2a2d-ea6e-47dc-b526-e9db86c06181",
                      "text": "History Tracers Team",
-                     "page": "Soroban and Suanpan (算盤): subtraction in practice",
+                     "page": "Soroban, Suanpan and Schyoty (счёты) (算盤): subtraction in practice",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -135,7 +135,7 @@
                "PostMention": ""
             },
             {
-               "text": "With everything we have seen so far, we can conclude that we should follow exactly the same steps we performed earlier, but repeating them more times.\n\nTo better visualize these new steps, we will again use the abacuses developed in China (Zhongguo, 中國) and Japan (Nippon-koku or Nihon-koku, 日本国).",
+               "text": "With everything we have seen so far, we can conclude that we should follow exactly the same steps we performed earlier, but repeating them more times.\n\nTo better visualize these new steps, we will again use the abacuses developed in China (Zhongguo, 中國), Japan (Nippon-koku or Nihon-koku, 日本国) and Russia (Schyoty, счёты).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -180,7 +180,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_setupInstruction\">📌 <strong>Step 1:</strong> Set the abacus to show <strong>{a}</strong>.</span> <span id=\"txt_subStepInstruction\">{description} After this change, the abacus should show <strong>{result}</strong>.</span> <span id=\"txt_subStepDesc\">➖ Subtract <strong>{digit}</strong> from the <strong>{placeName}</strong> column.</span> <span id=\"txt_borrowSetNine\">⚡ Since {placeName} is 0, borrow from <strong>{borrowPlaceName}</strong>: set <strong>{placeName}</strong> to 9 (we keep 9 here; the remaining value passes to the next column).</span> <span id=\"txt_borrowReduce\">⚡ Borrow from <strong>{placeName}</strong> (reduce from <strong>{digit}</strong> to <strong>{newDigit}</strong>). The value removed will be passed to the next column.</span> <span id=\"txt_borrowSubUnits\">⚡ Add the complement <strong>{complement}</strong> (10 − {bDigit} = {complement}) to the {placeName} column ({placeName} becomes <strong>{newDigit}</strong>).</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> {a} − {b} = <strong>{result}</strong>. The abacus should show this result!</span> <span id=\"txt_correctMessage\">✅ Correct! Click 'Next step' to continue.</span> <span id=\"txt_perfectMessage\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} − {b} = {result}<br>Great job using the abacus!</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You calculated {a} − {b} = {result}<br>Click 'New exercise' to practice more!</span> <span id=\"txt_finalLevelMessage\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉<br>You mastered subtraction! Click \"New exercise\" to start again at level 1.</span> <span id=\"txt_stepStatus\">📖 Step {current}/{total}</span> <span id=\"txt_readyStatus\">🎲 Ready</span> <span id=\"txt_welcomeMessage\">Click 'New exercise' to start. Follow the instructions to arrange the abacus.</span> <span id=\"txt_next\">next</span> <span id=\"txt_units\">UNITS</span> <span id=\"txt_tens\">TENS</span> <span id=\"txt_hundreds\">HUNDREDS</span> <span id=\"txt_thousands\">THOUSANDS</span> <span id=\"txt_tenthousands\">TEN THOUSANDS</span> <span id=\"txt_hundredthousands\">HUNDRED THOUSANDS</span> <span id=\"txt_million\">MILLIONS</span> <span id=\"txt_tenmillions\">TEN MILLIONS</span> <span id=\"txt_hundredmillions\">HUNDRED MILLIONS</span><span id=\"txt_lastLevelMessage\">🏅 Congratulations! You reached the last level! 🏅</span></div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; aspect-ratio:860/400; max-width:688px; margin:0 auto; display:block;\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div> <div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠</span><span id=\"warningText\">Number greater than 9</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset abacus</button></div><div class=\"tutor-panel\" id=\"tutorPanel\"> <div class=\"tutor-header\"> <div class=\"problem-box\" id=\"problemDisplay\">-- − --</div><div style=\"display: flex; align-items: center; gap: 8px;\"> <span class=\"status-badge\" id=\"stepStatus\">🎲 Ready</span> <span id=\"levelBadge\" class=\"level-badge\">🔢 UNITS</span></div> <div style=\"display: flex; gap: 8px;\"> <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🎲 New exercise</button> <button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button> </div></div> <div class=\"step-message\" id=\"stepMessage\">🧮 Click 'New exercise' to start. Follow the instructions to change the abacus. </div><div class=\"step-buttons\"> <button id=\"nextStepBtn\" class=\"step-btn primary\">➡ Next step</button>  </div> <div id=\"feedbackArea\" style=\"min-height: 70px;\"></div> </div><div class=\"footer\"> <div class=\"mode-selector\"> <span class=\"mode-label\">🧮 Abacus:</span> <button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban</button> <button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan</button> </div>  <div class=\"info-area\"> </div> <div class=\"decimal-control\">⚫ Decimal marker · move horizontally</div> </div> </div>",
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_setupInstruction\">📌 <strong>Step 1:</strong> Set the abacus to show <strong>{a}</strong>.</span> <span id=\"txt_subStepInstruction\">{description} After this change, the abacus should show <strong>{result}</strong>.</span> <span id=\"txt_subStepDesc\">➖ Subtract <strong>{digit}</strong> from the <strong>{placeName}</strong> column.</span> <span id=\"txt_borrowSetNine\">⚡ Since {placeName} is 0, borrow from <strong>{borrowPlaceName}</strong>: set <strong>{placeName}</strong> to 9 (we keep 9 here; the remaining value passes to the next column).</span> <span id=\"txt_borrowReduce\">⚡ Borrow from <strong>{placeName}</strong> (reduce from <strong>{digit}</strong> to <strong>{newDigit}</strong>). The value removed will be passed to the next column.</span> <span id=\"txt_borrowSubUnits\">⚡ Add the complement <strong>{complement}</strong> (10 − {bDigit} = {complement}) to the {placeName} column ({placeName} becomes <strong>{newDigit}</strong>).</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> {a} − {b} = <strong>{result}</strong>. The abacus should show this result!</span> <span id=\"txt_correctMessage\">✅ Correct! Click 'Next step' to continue.</span> <span id=\"txt_perfectMessage\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} − {b} = {result}<br>Great job using the abacus!</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You calculated {a} − {b} = {result}<br>Click 'New exercise' to practice more!</span> <span id=\"txt_finalLevelMessage\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉<br>You mastered subtraction! Click \"New exercise\" to start again at level 1.</span> <span id=\"txt_stepStatus\">📖 Step {current}/{total}</span> <span id=\"txt_readyStatus\">🎲 Ready</span> <span id=\"txt_welcomeMessage\">Click 'New exercise' to start. Follow the instructions to arrange the abacus.</span> <span id=\"txt_next\">next</span> <span id=\"txt_units\">UNITS</span> <span id=\"txt_tens\">TENS</span> <span id=\"txt_hundreds\">HUNDREDS</span> <span id=\"txt_thousands\">THOUSANDS</span> <span id=\"txt_tenthousands\">TEN THOUSANDS</span> <span id=\"txt_hundredthousands\">HUNDRED THOUSANDS</span> <span id=\"txt_million\">MILLIONS</span> <span id=\"txt_tenmillions\">TEN MILLIONS</span> <span id=\"txt_hundredmillions\">HUNDRED MILLIONS</span><span id=\"txt_lastLevelMessage\">🏅 Congratulations! You reached the last level! 🏅</span></div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; aspect-ratio:860/400; max-width:688px; margin:0 auto; display:block;\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div> <div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠</span><span id=\"warningText\">Number greater than 9</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset abacus</button></div><div class=\"tutor-panel\" id=\"tutorPanel\"> <div class=\"tutor-header\"> <div class=\"problem-box\" id=\"problemDisplay\">-- − --</div><div style=\"display: flex; align-items: center; gap: 8px;\"> <span class=\"status-badge\" id=\"stepStatus\">🎲 Ready</span> <span id=\"levelBadge\" class=\"level-badge\">🔢 UNITS</span></div> <div style=\"display: flex; gap: 8px;\"> <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🎲 New exercise</button> <button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button> </div></div> <div class=\"step-message\" id=\"stepMessage\">🧮 Click 'New exercise' to start. Follow the instructions to change the abacus. </div><div class=\"step-buttons\"> <button id=\"nextStepBtn\" class=\"step-btn primary\">➡ Next step</button>  </div> <div id=\"feedbackArea\" style=\"min-height: 70px;\"></div> </div><div class=\"footer\"> <div class=\"mode-selector\"> <span class=\"mode-label\">🧮 Abacus:</span> <button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban</button> <button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan</button><button id=\"btnSchyotyMode\" class=\"mode-btn\">Schyoty (счёты)</button> </div>  <div class=\"info-area\"> </div> <div class=\"decimal-control\">⚫ Decimal marker · move horizontally</div> </div> </div>",
                "source": null,
                "date_time": null,
                "isTable": false,
