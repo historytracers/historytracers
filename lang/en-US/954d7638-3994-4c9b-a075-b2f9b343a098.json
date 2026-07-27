@@ -1,6 +1,6 @@
 {
-   "title": "Subtracting with Soroban and Suanpan (算盤)",
-   "header": "Subtracting with Soroban and Suanpan (算盤)",
+   "title": "Subtracting with Soroban, Suanpan (算盤) and Schyoty (счёты)",
+   "header": "Subtracting with Soroban, Suanpan (算盤) and Schyoty (счёты)",
    "sources": [
       "954d7638-3994-4c9b-a075-b2f9b343a098"
    ],
@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1784240231"
+      "1785165357"
    ],
    "authors": [
       ""
@@ -54,7 +54,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text continues the teaching of using the abacuses developed in China (Zhongguo, 中國) and Japan (Nippon-koku or Nihon-koku, 日本国). For a better understanding, we suggest studying all the texts presented in Chapter 3 of the *Math Games* section (<htcite0>).",
+               "text": "### Prerequisites\n\nThis text continues the teaching of using the abacuses developed in China (Zhongguo, 中國), Japan (Nippon-koku or Nihon-koku, 日本国) and Russia. For a better understanding, we suggest studying all the texts presented in Chapter 3 of the *Math Games* section (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -81,7 +81,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nWhen we first worked with the Soroban and Suanpan (算盤) abacuses, we always moved the markers toward the beam, whether to represent a number, or to add or multiply values (<htcite0>).\n\nWhen we begin to study subtraction, we observe that, by comparing it to a path, we can understand it as a return to a place (<htcite1>).\n\nGiven this scenario, reflect:",
+               "text": "### Introduction\n\nWhen we first worked with the Soroban, Suanpan (算盤) and Schyoty (счёты) abacuses, we always moved the markers toward the beam, whether to represent a number, or to add or multiply values (<htcite0>).\n\nWhen we begin to study subtraction, we observe that, by comparing it to a path, we can understand it as a return to a place (<htcite1>).\n\nGiven this scenario, reflect:",
                "source": [
                   {
                      "type": 1,
@@ -135,7 +135,7 @@
                      "type": 1,
                      "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
                      "text": "History Tracers Team (2026)",
-                     "page": "Adding with Soroban and Suanpan (算盤) - Part 2",
+                     "page": "Adding with Soroban, Suanpan (算盤) and Schyoty (счёты) - Part 2",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -160,7 +160,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There is/are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span><span id=\"suanpanColumnNumber\" style=\"display: none; visibility: hidden;\">2</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There is/are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span><span id=\"suanpanColumnNumber\" style=\"display: none; visibility: hidden;\">2</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button><button id=\"btnSchyotyMode\" class=\"mode-btn\">Schyoty (счёты)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -193,7 +193,7 @@
                      "type": 1,
                      "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
                      "text": "History Tracers Team (2026)",
-                     "page": "Adding with Soroban and Suanpan (算盤) - Part 2",
+                     "page": "Adding with Soroban, Suanpan (算盤) and Schyoty (счёты) - Part 2",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -205,7 +205,7 @@
                      "type": 1,
                      "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
                      "text": "History Tracers Team (2026)",
-                     "page": "Adding with Soroban and Suanpan (算盤) - Part 2",
+                     "page": "Adding with Soroban, Suanpan (算盤) and Schyoty (счёты) - Part 2",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -266,7 +266,7 @@
                "PostMention": ""
             },
             {
-               "text": "From Calculation 3, we can perform subtractions in which the units digit we want to subtract is larger than the units digit of the minuend.\n\nIn situations like this, it is common to observe teachers teaching that we are *\"borrowing\"* a ten to perform the calculation (<htcite0>). However, this didactic device deserves a more detailed explanation. First, we will perform the calculation 25 − 7 through the separation of orders, which we have already studied (<htcite1>), since this is where the idea of **\"borrowing\"** comes from. Then, we will use the abacus.",
+               "text": "From Calculation 3, we can perform subtractions in which the units digit we want to subtract is larger than the units digit of the minuend.\n\nIn situations like this, it is common to observe teachers teaching that we are *\"borrowing\"* a ten to perform the calculation (<htcite0>; <htcite1>). However, this didactic device deserves a more detailed explanation. First, we will perform the calculation 25 − 7 through the separation of orders, which we have already studied (<htcite2>), since this is where the idea of **\"borrowing\"** comes from. Then, we will use the abacus.",
                "source": [
                   {
                      "type": 1,
@@ -276,6 +276,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
+                     "text": "Amarteifio, Jessica",
+                     "page": "pp. 6",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
                         "month": "",
                         "day": ""
                      }

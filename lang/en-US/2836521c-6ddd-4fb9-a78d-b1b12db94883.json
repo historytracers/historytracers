@@ -1,6 +1,6 @@
 {
-   "title": "Soroban and Suanpan (算盤) in rereading",
-   "header": "Soroban and Suanpan (算盤) in rereading",
+   "title": "Soroban, Suanpan (算盤) and Schyoty (счёты) in rereading",
+   "header": "Soroban, Suanpan (算盤) and Schyoty (счёты) in rereading",
    "sources": [
       "2836521c-6ddd-4fb9-a78d-b1b12db94883"
    ],
@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1783083646"
+      "1785114455"
    ],
    "authors": [
       ""
@@ -196,7 +196,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Limits in addition (maximums and minimums)\n\nTo better visualize the concept of limits in the operations studied, we will initially use tools developed in China (Zhongguo 中國) and Japan (Nippon koku or Nihon koku, 日本国), generally known as abacuses.\n\nWe will start with the Japanese version, the **Soroban (1×4)**. So click on it to proceed.",
+               "text": "#### Limits in addition (maximums and minimums)\n\nTo better visualize the concept of limits in the operations studied, we will initially use tools developed in China (Zhongguo 中國), Japan (Nippon koku or Nihon koku, 日本国) and Russia, generally known as abacuses.\n\nWe will start with the Japanese version, the **Soroban (1×4)**. So click on it to proceed.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -214,7 +214,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button><button id=\"btnSchyotyMode\" class=\"mode-btn\">Schyoty (счёты)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -281,7 +281,7 @@
                      "type": 1,
                      "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
                      "text": "History Tracers Team",
-                     "page": "Adding with Soroban and Suanpan (算盤) (Part 2)",
+                     "page": "Adding with Soroban, Suanpan (算盤) and Schyoty (счёты) (Part 2)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -306,7 +306,7 @@
                "PostMention": ""
             },
             {
-               "text": "If you wish, you can switch the abacus above to **Suanpan (2x5)** mode and execute **Calculation 2** on it.\n\nIn **Calculation 2**, we can observe that:\n- until we reach the complement of 6, which is 4, all sums remain in the units order;\n- from the moment we reach the complement, all sums also start involving the tens order.\n\nGiven this scenario, we can reach important conclusions about how complements and limits help us verify whether our calculations might contain errors:\n- when adding a number smaller than the complement, it is not possible to obtain a result that reaches the tens order;\n- from the moment we add the complement or a larger number, the result necessarily starts involving a new order.\n\nWith these conclusions about addition, we can reflect on our next steps.",
+               "text": "If you wish, you can switch the abacus above to **Suanpan (2x5)** or **Schyoty (счёты)** mode and execute **Calculation 2** on it.\n\nIn **Calculation 2**, we can observe that:\n- until we reach the complement of 6, which is 4, all sums remain in the units order;\n- from the moment we reach the complement, all sums also start involving the tens order.\n\nGiven this scenario, we can reach important conclusions about how complements and limits help us verify whether our calculations might contain errors:\n- when adding a number smaller than the complement, it is not possible to obtain a result that reaches the tens order;\n- from the moment we add the complement or a larger number, the result necessarily starts involving a new order.\n\nWith these conclusions about addition, we can reflect on our next steps.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -335,7 +335,7 @@
                      "type": 1,
                      "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
                      "text": "History Tracers Team",
-                     "page": "Multiplying with Soroban and Suanpan (算盤)",
+                     "page": "Multiplying with Soroban, Suanpan (算盤) and Schyoty (счёты)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -403,13 +403,13 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Multiplying on the Soroban and Suanpan (算盤) (6 × 2)</b><br />This exercise is based on another History Tracers text. If you haven't studied it yet, it would be better to check it out first: <htcite0>.<br /><br />1. Choose an abacus model (\"Soroban (1×4)\" or \"Suanpan (2×5)\").<br /><br />2. Add 2 repeatedly until you reach the number 12. That is, add 2 six times.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Multiplying on the Soroban, Suanpan (算盤) and Schyoty (счёты) (6 × 2)</b><br />This exercise is based on another History Tracers text. If you haven't studied it yet, it would be better to check it out first: <htcite0>.<br /><br />1. Choose an abacus model (\"Soroban (1×4)\", \"Suanpan (2×5)\" or \"Schyoty (счёты)\").<br /><br />2. Add 2 repeatedly until you reach the number 12. That is, add 2 six times.</div></div></p>",
                "source": [
                   {
                      "type": 1,
                      "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
                      "text": "History Tracers Team",
-                     "page": "Multiplying with Soroban and Suanpan (算盤)",
+                     "page": "Multiplying with Soroban, Suanpan (算盤) and Schyoty (счёты)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -474,7 +474,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Multiplying on the Soroban and Suanpan (算盤) (52 × 2)</b><br />First of all, we must remember that the number 52, which we want to repeat twice, can be rewritten as: 50 + 2 (<htcite0>). With this, we can analyze the number separately:<br /><br />- When we multiply 0 by 2, we know this will result in 0, since we are repeating nothing several times (<htcite1>). On the other hand, when we multiply the 5, since the result equals 10, this indicates that the final multiplication result will go beyond the tens we initially proposed, that is, the final result will have three digits.<br /><br />Knowing that our result will have three digits due to one component (the tens), we need to see how the units will affect the other result.<br /><br />- Since 2 is less than 5, we can conclude that there will be no need for another order — the tens — to write the result.<br /><br />After analyzing the numbers by reading the initial components (tens and units) separately, we can perform the final calculation using the abacus as follows:<br /><br />- Click the <b>Reset</b> button on the abacus.<br />- Since the order of addition does not change the result, we will start by multiplying the tens, that is, 50 × 2;<br />- We will not change the units, since 0 × 2 = 0;<br />- Now, go to the tens column and add 5 twice, that is, we will do 5 × 2 = 10. Do not forget that we can only represent numbers between 0 and 9 in each column, so the final result will have 1 in the hundreds, 0 in the tens, and 0 in the units.<br />- Now, we move on to multiplying the units. To do this, place the number 4 on the abacus, since 2 × 2 = 4.<br /><br />At the end of these steps, your abacus should show the result 104.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Multiplying on the Soroban, Suanpan (算盤) and Schyoty (счёты) (52 × 2)</b><br />First of all, we must remember that the number 52, which we want to repeat twice, can be rewritten as: 50 + 2 (<htcite0>). With this, we can analyze the number separately:<br /><br />- When we multiply 0 by 2, we know this will result in 0, since we are repeating nothing several times (<htcite1>). On the other hand, when we multiply the 5, since the result equals 10, this indicates that the final multiplication result will go beyond the tens we initially proposed, that is, the final result will have three digits.<br /><br />Knowing that our result will have three digits due to one component (the tens), we need to see how the units will affect the other result.<br /><br />- Since 2 is less than 5, we can conclude that there will be no need for another order — the tens — to write the result.<br /><br />After analyzing the numbers by reading the initial components (tens and units) separately, we can perform the final calculation using the abacus as follows:<br /><br />- Click the <b>Reset</b> button on the abacus.<br />- Since the order of addition does not change the result, we will start by multiplying the tens, that is, 50 × 2;<br />- We will not change the units, since 0 × 2 = 0;<br />- Now, go to the tens column and add 5 twice, that is, we will do 5 × 2 = 10. Do not forget that we can only represent numbers between 0 and 9 in each column, so the final result will have 1 in the hundreds, 0 in the tens, and 0 in the units.<br />- Now, we move on to multiplying the units. To do this, place the number 4 on the abacus, since 2 × 2 = 4.<br /><br />At the end of these steps, your abacus should show the result 104.</div></div></p>",
                "source": [
                   {
                      "type": 1,

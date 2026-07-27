@@ -12,7 +12,7 @@
             "id" : "Unique identifier for the current section.",
             "text" : [ { "text" : "A text to be written on game screen.",
                          "source" : [
-                            { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                             { "type": 0,
                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
                                   "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
@@ -22,7 +22,7 @@
                                 {"type" : "unix", "epoch" : "0" },
                                 {"type" : "julian",  "epoch" : "0" }
                             ],
-                            "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
+                            "isTable" : false,
                             "format" : "markdown or html",
                             "PostMention": "A character used after a mention to include citations."
                        }
@@ -32,7 +32,7 @@
             "prev" : "ID of the previous section",
             "jumpTo" : "ID of the section to jump to.",
             "answer": "Value indicating the correct answer to be selected.",
-            "score" : "Numeric value awarded when the reader reaches the goal. It is recommended to assign at least one point to encourage learning.",
+            "score" : 0,
             "position": "Position of the content on screen: top/center/topCenter"
         }
     ],

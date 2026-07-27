@@ -349,7 +349,7 @@ func htFamilyAudio(fileName string, lang string) error {
 
 	audioTxt := htTextFamily(&family, lang)
 	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
-	audioTxt = htRemoveChineseCharacters(audioTxt)
+	audioTxt = htRemoveAsiaticCharacters(audioTxt)
 	err = htWriteAudioFile(fileName, lang, audioTxt)
 	if err != nil {
 		return err
@@ -383,7 +383,7 @@ func htLoadTreeData(lang string) {
 
 	defaultFamilyTop = htLoopThroughContentFiles(ctf.Title, ctf.Content, lang)
 	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop, lang)
-	defaultFamilyTop = htRemoveChineseCharacters(defaultFamilyTop)
+	defaultFamilyTop = htRemoveAsiaticCharacters(defaultFamilyTop)
 
 	newFile, err := htWriteTmpFile(lang, &ctf)
 	if err != nil {
@@ -449,7 +449,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 	}
 
 	indexTxt = htAdjustAudioStringBeforeWrite(indexTxt, lang)
-	indexTxt = htRemoveChineseCharacters(indexTxt)
+	indexTxt = htRemoveAsiaticCharacters(indexTxt)
 	err = htWriteAudioFile("families", lang, indexTxt)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
@@ -557,7 +557,7 @@ func htConvertClassesToAudio(pages []string, lang string) {
 			audioTxt += htPrepareQuestions(ctf.Exercises, lang)
 		}
 		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
-		audioTxt = htRemoveChineseCharacters(audioTxt)
+		audioTxt = htRemoveAsiaticCharacters(audioTxt)
 
 		err = htWriteAudioFile(page, lang, audioTxt)
 		if err != nil {
@@ -630,7 +630,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 
 	audioTxt := htParseIndexText(&index, lang)
 	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
-	audioTxt = htRemoveChineseCharacters(audioTxt)
+	audioTxt = htRemoveAsiaticCharacters(audioTxt)
 	err = htWriteAudioFile(idxName, lang, audioTxt)
 	if err != nil {
 		panic(err)
@@ -816,7 +816,9 @@ func htConvertGreekLetter(letter string, lang string) string {
 	return letter
 }
 
-func htRemoveChineseCharacters(text string) string {
+func htRemoveAsiaticCharacters(text string) string {
+	text = strings.ReplaceAll(text, "Schyoty (счёты)", "Schyoty")
+
 	chineseRegex := regexp.MustCompile(`[\p{Han}]+`)
 	cleaned := chineseRegex.ReplaceAllString(text, "")
 
@@ -1018,7 +1020,7 @@ func htConvertSMGameToAudio() {
 					}
 
 					cleanText := htRemoveHTMLTags(textBlock.Text)
-					cleanText = htRemoveChineseCharacters(cleanText)
+					cleanText = htRemoveAsiaticCharacters(cleanText)
 					cleanText = strings.TrimSpace(cleanText)
 
 					if len(cleanText) > 0 {
@@ -1034,7 +1036,7 @@ func htConvertSMGameToAudio() {
 			}
 
 			audioContent = htAdjustAudioStringBeforeWrite(audioContent, lang)
-			audioContent = htRemoveChineseCharacters(audioContent)
+			audioContent = htRemoveAsiaticCharacters(audioContent)
 
 			baseName := strings.TrimSuffix(fileName, ".json")
 			err = htWriteAudioFile(baseName, lang, audioContent)
