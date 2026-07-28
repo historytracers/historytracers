@@ -1511,38 +1511,48 @@ function htYupanaSetDigitRow(tableID, bottom2topRow, digit, dotClass)
 
 function htYupanaNewState(rows)
 {
-    return { digits: new Array(rows).fill(0), rows: rows };
+    var cells = [];
+    for (var i = 0; i < rows; i++) {
+        cells.push([false, false, false, false]);
+    }
+    return { cells: cells, rows: rows };
 }
 
 function htYupanaStateSetValue(tableID, state, value, dotClass)
 {
-    if (isNaN(value)) value = 0;
     for (var i = 0; i < state.rows; i++) {
-        state.digits[i] = 0;
-    }
-    var str = Math.floor(value).toString();
-    for (var i = 0; i < str.length && i < state.rows; i++) {
-        var digit = parseInt(str[str.length - 1 - i]);
-        state.digits[i] = digit;
-        htYupanaSetDigitRow(tableID, state.rows - i, digit, dotClass);
-    }
-    for (var i = str.length; i < state.rows; i++) {
-        htYupanaSetDigitRow(tableID, state.rows - i, 0, dotClass);
+        htCleanYupanaDecimalRow(tableID, state.rows - i);
+        state.cells[i] = [false, false, false, false];
     }
 }
 
 function htYupanaStateGetValue(state)
 {
+    var colValues = [5, 3, 2, 1];
     var total = 0;
     for (var i = 0; i < state.rows; i++) {
-        total += state.digits[i] * Math.pow(10, i);
+        var rowVal = 0;
+        for (var c = 0; c < 4; c++) {
+            if (state.cells[i][c]) {
+                rowVal += colValues[c];
+            }
+        }
+        total += rowVal * Math.pow(10, i);
     }
     return total;
 }
 
-function htYupanaStateCycleRow(tableID, state, rowIdx, dotClass)
+function htYupanaStateToggleCell(tableID, state, rowIdx, colIdx, dotClass)
 {
-    state.digits[rowIdx] = (state.digits[rowIdx] + 1) % 10;
-    htYupanaSetDigitRow(tableID, state.rows - rowIdx, state.digits[rowIdx], dotClass);
+    var row = state.rows - rowIdx;
+    var cellSelector = tableID + " #tc" + (colIdx + 1) + "f" + row;
+    var existing = $(cellSelector).find(".circValues");
+    if (existing.length > 0) {
+        existing.remove();
+        state.cells[rowIdx][colIdx] = false;
+    } else {
+        $(cellSelector).append("<span class=\"dot circValues " + dotClass + "\"></span>");
+        state.cells[rowIdx][colIdx] = true;
+    }
     return htYupanaStateGetValue(state);
 }

@@ -276,15 +276,18 @@ function htLoadContent() {
     htYupanaStateSetValue('#yupana1', localYupanaController.state, 0, 'red_dot_right_up');
 
     for (var row = 1; row <= localYupanaController.ROWS; row++) {
-        (function(r) {
-            $('#yupana1 #tc1f' + r + ', #yupana1 #tc2f' + r + ', #yupana1 #tc3f' + r + ', #yupana1 #tc4f' + r).on("click", function() {
-                if (localYupanaController.finalCongratsShown) return;
-                var rowIdx = localYupanaController.ROWS - r;
-                htYupanaStateCycleRow('#yupana1', localYupanaController.state, rowIdx, 'red_dot_right_up');
-                if (!localYupanaController.finalCongratsShown) setControlButtonsVisibility(false);
-                window.checkCurrentStepPositive();
-            });
-        })(row);
+        for (var col = 1; col <= 4; col++) {
+            (function(r, c) {
+                $('#yupana1 #tc' + c + 'f' + r).on("click", function() {
+                    if (localYupanaController.finalCongratsShown) return;
+                    var rowIdx = localYupanaController.ROWS - r;
+                    var colIdx = c - 1;
+                    htYupanaStateToggleCell('#yupana1', localYupanaController.state, rowIdx, colIdx, 'red_dot_right_up');
+                    if (!localYupanaController.finalCongratsShown) setControlButtonsVisibility(false);
+                    window.checkCurrentStepPositive();
+                });
+            })(row, col);
+        }
     }
 
     var _ = function(id) { return document.getElementById(id); };
