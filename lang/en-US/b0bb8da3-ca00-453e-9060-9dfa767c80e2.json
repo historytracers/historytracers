@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782007927"
+      "1785251245"
    ],
    "authors": [
       ""
@@ -96,7 +96,7 @@
          "id": "SECTION_sum",
          "text": [
             {
-               "text": "### Practicing with the *Yupana*\n\nTo better understand the *Yupana Inka Tawa Pukllay* method, we will use a Yupana with 4 rows to add two numbers. With this configuration, we can represent values up to **4,999**. However, it is possible to add more rows to add larger numbers, without limitations.\n\nIn the following example, we initially demonstrate the addition of **512 + 513**. We invite the reader to switch between the three options to better understand the *Yupana Inka Tawa Pukllay*. Each option presents the following:\n- **Values**: shows how the numbers are written on the *Yupana*;\n- **Calculate**: shows the final result of the addition operation;\n- **Step by Step**: performs the addition row by row.\n\nYou can also modify the values in the example to reinforce your learning. After changing them, first click the **Valores** button to display the numbers, and then see how they are represented on the *Yupana.*",
+               "text": "### Practicing with the *Yupana*\n\nTo better understand the *Yupana Inka Tawa Pukllay* method, we will use a Yupana with 4 rows to add two numbers. With this configuration, we can represent values up to **4,999**. However, it is possible to add more rows to add larger numbers, without limitations.\n\n#### The Yupana in this section\n\nAs soon as the page loads, the Yupana is initialized with the first level (units) and with two numbers to be added.\n\nBetween the bar containing the buttons \"🎲 New Exercise\" and \"⭐ Next Level\" and the button \"➡️ Next Step\", an instruction will be displayed indicating the movements to be performed at the current stage. Upon correctly completing the stage, a message will appear at the bottom of the Yupana congratulating you.\n\nYou should follow the steps until you complete the calculation. To enter each number, click on any cell of the corresponding row in the Yupana. Each click changes the digit of that row from 0 to 9 cyclically.\n\nYou may repeat as many exercises as you wish at the same level. To do so, simply click \"🎲 New Exercise\" after completing a calculation.\n\nIf you already feel comfortable with the current level, you can deepen your knowledge by advancing to the next level using the \"⭐ Next Level\" button.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -105,7 +105,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align: center;\"><input type=\"number\" value=\"512\" min=\"0\" max=\"4999\" id=\"ia2yupana0\" /> +  <input type=\"number\" value=\"513\" min=\"0\" max=\"4999\" id=\"ia2yupana1\" />:  <button type=\"button\" class=\"yupana-btn\" data-action=\"values\"><i class=\"fa-solid fa-eye\"></i> Values</button> <button type=\"button\" class=\"yupana-btn\" data-action=\"calcular\"><i class=\"fa-solid fa-calculator\"></i> Result</button> <button type=\"button\" class=\"yupana-btn\" data-action=\"stepbystep\"><i class=\"fa-solid fa-list-ol\"></i> Step by Step</button></p>",
+               "text": "<style>.exercise-header { background: #2e241f; border-radius: 50px; padding: 8px 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; } .level-badge { background: #ffb347; color: #1f2a0e; font-weight: bold; padding: 4px 14px; border-radius: 30px; font-size: clamp(0.8rem, 3vw, 1rem); white-space: nowrap; } .problem-display { background: #f2ecd8; padding: 4px 16px; border-radius: 35px; font-family: 'Courier New', monospace; font-weight: bold; font-size: clamp(1rem, 4vw, 1.5rem); color: #1f2a0e; white-space: nowrap; } .ex-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 2.5vw, 0.9rem); font-family: inherit; padding: 6px 14px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .ex-btn:hover { background: #a58a6a; transform: scale(1.03); } .ex-btn.hidden { display: none; } .step-panel { background: #2e241f; border-radius: 50px; padding: 8px 18px; margin: 10px 0; color: #ffefcf; font-size: clamp(0.8rem, 2.5vw, 1rem); } .step-status { font-size: clamp(0.7rem, 2vw, 0.85rem); opacity: 0.8; margin-top: 4px; } .feedback-area { text-align: center; margin: 10px 0; font-size: clamp(0.9rem, 3vw, 1.2rem); } .congrats { color: #2e7d32; font-weight: bold; } .success-message { color: #1565c0; } .next-step-btn { display: block; margin: 10px auto; background: #2e7d32; border: none; color: white; font-weight: bold; font-size: clamp(0.9rem, 3vw, 1.1rem); font-family: inherit; padding: 10px 30px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .next-step-btn:hover { background: #388e3c; transform: scale(1.03); } .next-step-btn.hidden { display: none; }</p><div class=\"exercise-header\"><span class=\"level-badge\" id=\"levelBadge\">🔢 Units</span><span class=\"problem-display\" id=\"problemDisplay\">512 + 513</span><button class=\"ex-btn\" id=\"resetTutorBtn\">🎲 New Exercise</button><button class=\"ex-btn\" id=\"nextLevelBtn\">⭐ Next Level</button></div><button class=\"ex-btn\" id=\"resetButton\" style=\"margin-bottom:10px;\">↺ Reset</button>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -163,6 +163,15 @@
                      }
                   }
                ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"step-panel\" id=\"stepMessage\">🧮 Click 'New exercise' to start</div><div class=\"step-status\" id=\"stepStatus\"></div><div class=\"feedback-area\" id=\"feedbackArea\"></div><button class=\"next-step-btn\" id=\"nextStepBtn\">➡️ Next Step</button><div class=\"text-store\" style=\"display:none;\"><span id=\"txt_stepPrefix\">🧮</span><span id=\"txt_correctMessage\">✅ Correct! Click 'Next step' to continue.</span><span id=\"txt_perfectMessage\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} + {b} = {result}<br>Great job using the Yupana!</span><span id=\"txt_congratsMessage\">🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You calculated {a} + {b} = {result}<br>Click 'New exercise' to practice more!</span><span id=\"txt_finalLevelMessage\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉<br>You mastered addition on the Yupana! Click \"New exercise\" to start again at level 1.</span><span id=\"txt_step1Instruction\">📌 <strong>Step 1:</strong> Write the first number <strong>{a}</strong> in the Yupana rows ({columns}).</span><span id=\"txt_simpleAddInstruction\">➕ <strong>Add to the {placeName}:</strong> Add <strong>{digit}</strong> to the {placeName} row. After this addition, the Yupana should show <strong>{result}</strong>.</span><span id=\"txt_carryInstruction\">⚡ <strong>Carrying 1:</strong> Adding <strong>{digit}</strong> to {placeName} gives {digitA} + {digit} = {total}, meaning the result is greater than or equal to 10. Therefore, you will also need to:<br> &nbsp;&nbsp;➡ Remove the complement <strong>{complement}</strong> from the {placeName} row, which will be added to another row.<br>&nbsp;&nbsp;➡ Add <strong>1</strong> to the <strong>{nextPlace}</strong> row.<br>&nbsp;&nbsp;➡ Please note: carrying 1 in one row may create the need to carry 1 again to reach the desired result.<br>After these movements, the Yupana should show <strong>{result}</strong>.</span><span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> {a} + {b} = <strong>{result}</strong>. The Yupana should show this sum!</span><span id=\"txt_stepStatus\">📖 Step {current}/{total}</span><span id=\"txt_readyStatus\">🎲 Ready</span><span id=\"txt_welcomeMessage\">Click 'New exercise' to start. Click on the Yupana rows to arrange the number.</span><span id=\"txt_units\">Units</span><span id=\"txt_tens\">Tens</span><span id=\"txt_hundreds\">Hundreds</span><span id=\"txt_thousands\">Thousands</span><span id=\"txt_levelUnits\">🔢 Units</span><span id=\"txt_levelTens\">🔟 Tens</span><span id=\"txt_levelHundreds\">🏆 Hundreds</span><span id=\"txt_levelThousands\">🔥 Thousands</span><span id=\"txt_next\">next</span></div>",
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

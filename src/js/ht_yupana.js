@@ -1500,3 +1500,49 @@ function htDrawDecomposed2(tableID, row, leftVal, rightVal, applyTransfer)
         htFillYupanaDecimalRow(tableID, row, rightPart, 'blue_dot_right_bottom');
     }
 }
+
+function htYupanaSetDigitRow(tableID, bottom2topRow, digit, dotClass)
+{
+    htCleanYupanaDecimalRow(tableID, bottom2topRow);
+    if (digit > 0) {
+        htFillYupanaDecimalRow(tableID, bottom2topRow, digit, dotClass);
+    }
+}
+
+function htYupanaNewState(rows)
+{
+    return { digits: new Array(rows).fill(0), rows: rows };
+}
+
+function htYupanaStateSetValue(tableID, state, value, dotClass)
+{
+    if (isNaN(value)) value = 0;
+    for (var i = 0; i < state.rows; i++) {
+        state.digits[i] = 0;
+    }
+    var str = Math.floor(value).toString();
+    for (var i = 0; i < str.length && i < state.rows; i++) {
+        var digit = parseInt(str[str.length - 1 - i]);
+        state.digits[i] = digit;
+        htYupanaSetDigitRow(tableID, state.rows - i, digit, dotClass);
+    }
+    for (var i = str.length; i < state.rows; i++) {
+        htYupanaSetDigitRow(tableID, state.rows - i, 0, dotClass);
+    }
+}
+
+function htYupanaStateGetValue(state)
+{
+    var total = 0;
+    for (var i = 0; i < state.rows; i++) {
+        total += state.digits[i] * Math.pow(10, i);
+    }
+    return total;
+}
+
+function htYupanaStateCycleRow(tableID, state, rowIdx, dotClass)
+{
+    state.digits[rowIdx] = (state.digits[rowIdx] + 1) % 10;
+    htYupanaSetDigitRow(tableID, state.rows - rowIdx, state.digits[rowIdx], dotClass);
+    return htYupanaStateGetValue(state);
+}
