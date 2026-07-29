@@ -62,16 +62,19 @@ function showPhase(p) {
     if (p === 1) {
         document.getElementById('stepMessage').innerHTML = t.get('txt_stepPrefix') + " " + t.get('txt_step1Instruction').replace('{a}', fmt(a));
         document.getElementById('stepStatus').innerHTML = t.get('txt_stepStatus').replace('{current}','1').replace('{total}','2');
-        setVis('nextStepBtn', false);
     } else if (p === 2) {
         document.getElementById('stepMessage').innerHTML = t.get('txt_stepPrefix') + " " + t.get('txt_step2Instruction').replace('{b}', fmt(b));
         document.getElementById('stepStatus').innerHTML = t.get('txt_stepStatus').replace('{current}','2').replace('{total}','2');
-        setVis('nextStepBtn', false);
     } else if (p === 3) {
+        setVis('nextStepBtn', false);
         startEvaluation();
+        return;
     } else if (p === 4) {
+        setVis('nextStepBtn', false);
         showCongratulations();
+        return;
     }
+    setVis('nextStepBtn', true);
     document.getElementById('feedbackArea').innerHTML = '';
 }
 
@@ -210,8 +213,6 @@ function onCellClick(rowIdx, colIdx) {
         }
         if (ok) {
             document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' + tm('txt_correctMessage') + '</div>';
-            // auto-advance to evaluation
-            showPhase(3);
         }
         return;
     }
@@ -322,6 +323,11 @@ function htLoadContent() {
     var ex = _('resetTutorBtn'); if (ex) ex.onclick = function() { startNewExercise(); };
     var rs = _('resetButton'); if (rs) rs.onclick = function() { startNewExercise(); };
     var lv = _('nextLevelBtn'); if (lv) lv.onclick = function() { toggleLevel(); };
+    var ns = _('nextStepBtn'); if (ns) ns.onclick = function() {
+        var p = localYupanaController.phase;
+        if (p === 1) showPhase(2);
+        else if (p === 2) showPhase(3);
+    };
 
     _('stepMessage') && (_('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + tm('txt_welcomeMessage'));
     startNewExercise();
