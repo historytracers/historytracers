@@ -1511,48 +1511,85 @@ function htYupanaSetDigitRow(tableID, bottom2topRow, digit, dotClass)
 
 function htYupanaNewState(rows)
 {
+    function mkRow() { return [false, false, false, false]; }
     var cells = [];
-    for (var i = 0; i < rows; i++) {
-        cells.push([false, false, false, false]);
-    }
-    return { cells: cells, rows: rows };
+    for (var i = 0; i < rows; i++) cells.push(mkRow());
+    return { rows: rows, red: cells, blue: JSON.parse(JSON.stringify(cells)) };
 }
 
-function htYupanaStateSetValue(tableID, state, value, dotClass)
+function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
+{
+    var row = state.rows - rowIdx;
+    var sel = tableID + " #tc" + (colIdx + 1) + "f" + row;
+    $(sel).find(".circValues").remove();
+    if (state.red[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues red_dot_right_up\"></span>");
+    }
+    if (state.blue[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues blue_dot_right_bottom\"></span>");
+    }
+}
+
+function htYupanaStateClear(tableID, state)
 {
     for (var i = 0; i < state.rows; i++) {
         htCleanYupanaDecimalRow(tableID, state.rows - i);
-        state.cells[i] = [false, false, false, false];
+        state.red[i] = [false, false, false, false];
+        state.blue[i] = [false, false, false, false];
     }
 }
 
-function htYupanaStateGetValue(state)
+function htYupanaStateGetRedValue(state)
 {
     var colValues = [5, 3, 2, 1];
     var total = 0;
     for (var i = 0; i < state.rows; i++) {
         var rowVal = 0;
         for (var c = 0; c < 4; c++) {
-            if (state.cells[i][c]) {
-                rowVal += colValues[c];
-            }
+            if (state.red[i][c]) rowVal += colValues[c];
         }
         total += rowVal * Math.pow(10, i);
     }
     return total;
 }
 
-function htYupanaStateToggleCell(tableID, state, rowIdx, colIdx, dotClass)
+function htYupanaStateGetTotalValue(state)
 {
-    var row = state.rows - rowIdx;
-    var cellSelector = tableID + " #tc" + (colIdx + 1) + "f" + row;
-    var existing = $(cellSelector).find(".circValues");
-    if (existing.length > 0) {
-        existing.remove();
-        state.cells[rowIdx][colIdx] = false;
-    } else {
-        $(cellSelector).append("<span class=\"dot circValues " + dotClass + "\"></span>");
-        state.cells[rowIdx][colIdx] = true;
+    var colValues = [5, 3, 2, 1];
+    var total = 0;
+    for (var i = 0; i < state.rows; i++) {
+        var rowVal = 0;
+        for (var c = 0; c < 4; c++) {
+            if (state.red[i][c]) rowVal += colValues[c];
+            if (state.blue[i][c]) rowVal += colValues[c];
+        }
+        total += rowVal * Math.pow(10, i);
     }
-    return htYupanaStateGetValue(state);
+    return total;
+}
+
+function htYupanaStateDrawGreen(tableID, state, totalValue)
+{
+    var rows = state.rows;
+    var temp = totalValue;
+    for (var i = 0; i < rows; i++) {
+        var digit = temp % 10;
+        temp = Math.trunc(temp / 10);
+        if (digit > 0) {
+            for (var sel = digit; sel < 30; sel += 10) {
+                if (yupanaSelectors[sel] < 0) continue;
+                var colIdx = yupanaSelectors[sel];
+                var sel2 = tableID + " #tc" + colIdx + "f" + (rows - i);
+                $(sel2).append("<span class=\"dot circValues green_dot_center\"></span>");
+            }
+        }
+    }
+}
+
+function htYupanaStateToggleCell(tableID, state, rowIdx, colIdx, color)
+{
+    var target = (color === 'blue') ? state.blue : state.red;
+    target[rowIdx][colIdx] = !target[rowIdx][colIdx];
+    htYupanaStateRenderCell(tableID, state, rowIdx, colIdx);
+    return color === 'blue' ? htYupanaStateGetTotalValue(state) : htYupanaStateGetRedValue(state);
 }

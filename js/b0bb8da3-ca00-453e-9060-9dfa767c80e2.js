@@ -26,68 +26,19 @@ function generateRandomNumbersByLevel() {
 }
 
 function buildStepsForNumbers(a, b) {
-    var stepsList = [];
-    var maxDigits, placeNames, multipliers;
     var tm = localYupanaController.TextManager;
-
-    if (localYupanaController.currentLevel === "units") {
-        maxDigits = 1;
-        placeNames = [tm.getUnitUnits()];
-        multipliers = [1];
-    } else if (localYupanaController.currentLevel === "tens") {
-        maxDigits = 2;
-        placeNames = [tm.getUnitUnits(), tm.getUnitTens()];
-        multipliers = [1, 10];
-    } else if (localYupanaController.currentLevel === "hundreds") {
-        maxDigits = 3;
-        placeNames = [tm.getUnitUnits(), tm.getUnitTens(), tm.getUnitHundreds()];
-        multipliers = [1, 10, 100];
-    } else {
-        maxDigits = 4;
-        placeNames = [tm.getUnitUnits(), tm.getUnitTens(), tm.getUnitHundreds(), tm.getUnitThousands()];
-        multipliers = [1, 10, 100, 1000];
-    }
-
-    var placeDescription = placeNames.slice().reverse().join(', ');
-    stepsList.push({
-        instruction: tm.getStep1Instruction(tm.formatNumber(a), placeDescription),
-        targetValue: a
-    });
-
-    var currentValue = a;
-
-    for (var p = 0; p < maxDigits; p++) {
-        var digitB = Math.floor(b / multipliers[p]) % 10;
-        if (digitB === 0) continue;
-
-        var digitA = Math.floor(currentValue / multipliers[p]) % 10;
-        var total = digitA + digitB;
-
-        if (total < 10) {
-            currentValue += digitB * multipliers[p];
-            stepsList.push({
-                instruction: tm.getSimpleAddInstruction(placeNames[p], digitB, tm.formatNumber(currentValue)),
-                targetValue: currentValue
-            });
-        } else {
-            var complement = 10 - digitB;
-            var newValue = currentValue + (multipliers[p] * 10) - (complement * multipliers[p]);
-            var nextPlace = placeNames[p + 1] || tm.getNextText();
-
-            stepsList.push({
-                instruction: tm.getCarryInstruction(placeNames[p], digitB, digitA, total, nextPlace, complement, tm.formatNumber(newValue)),
-                targetValue: newValue
-            });
-            currentValue = newValue;
+    return [
+        {
+            instruction: tm.getStep1Instruction(tm.formatNumber(a)),
+            targetValue: a,
+            color: 'red'
+        },
+        {
+            instruction: tm.getStep2Instruction(tm.formatNumber(b), tm.formatNumber(a + b)),
+            targetValue: a + b,
+            color: 'blue'
         }
-    }
-
-    stepsList.push({
-        instruction: tm.getFinalInstruction(tm.formatNumber(a), tm.formatNumber(b), tm.formatNumber(a + b)),
-        targetValue: a + b
-    });
-
-    return stepsList;
+    ];
 }
 
 function setControlButtonsVisibility(show) {
@@ -103,11 +54,11 @@ function setControlButtonsVisibility(show) {
 }
 
 function setControlStepVisibility(show) {
-    var nextLevelBtn = document.getElementById('nextStepBtn');
+    var nextStepBtn = document.getElementById('nextStepBtn');
     if (show) {
-        nextLevelBtn.classList.remove('hidden');
+        nextStepBtn.classList.remove('hidden');
     } else {
-        nextLevelBtn.classList.add('hidden');
+        nextStepBtn.classList.add('hidden');
     }
 }
 
@@ -118,7 +69,7 @@ function startNewExercise() {
     localYupanaController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a + nums.b };
     document.getElementById('problemDisplay').innerHTML = localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.a) + " + " + localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.b);
     localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
-    htYupanaStateSetValue('#yupana1', localYupanaController.state, 0, 'red_dot_right_up');
+    htYupanaStateClear('#yupana1', localYupanaController.state);
     localYupanaController.steps = buildStepsForNumbers(localYupanaController.currentExercise.a, localYupanaController.currentExercise.b);
     localYupanaController.currentStepIdx = 0;
     localYupanaController.stepCompleted = false;
@@ -133,7 +84,7 @@ function resetTutorToStepOne() {
     localYupanaController.finalCongratsShown = false;
     localYupanaController.exerciseStarted = false;
     localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
-    htYupanaStateSetValue('#yupana1', localYupanaController.state, 0, 'red_dot_right_up');
+    htYupanaStateClear('#yupana1', localYupanaController.state);
     localYupanaController.steps = buildStepsForNumbers(localYupanaController.currentExercise.a, localYupanaController.currentExercise.b);
     localYupanaController.currentStepIdx = 0;
     localYupanaController.stepCompleted = false;
@@ -166,10 +117,25 @@ function toggleLevel() {
     startNewExercise();
 }
 
+function getCurrentStepTargetValue() {
+    if (localYupanaController.currentStepIdx >= localYupanaController.steps.length) return undefined;
+    return localYupanaController.steps[localYupanaController.currentStepIdx].targetValue;
+}
+
+function getCurrentStepColor() {
+    if (localYupanaController.currentStepIdx >= localYupanaController.steps.length) return 'red';
+    return localYupanaController.steps[localYupanaController.currentStepIdx].color;
+}
+
 window.checkCurrentStepPositive = function() {
     if (localYupanaController.currentStepIdx >= localYupanaController.steps.length) return;
-    var currentVal = htYupanaStateGetValue(localYupanaController.state);
+    var currentVal;
     var step = localYupanaController.steps[localYupanaController.currentStepIdx];
+    if (step.color === 'red') {
+        currentVal = htYupanaStateGetRedValue(localYupanaController.state);
+    } else {
+        currentVal = htYupanaStateGetTotalValue(localYupanaController.state);
+    }
 
     if (currentVal === step.targetValue) {
         if (!localYupanaController.stepCompleted) {
@@ -177,6 +143,7 @@ window.checkCurrentStepPositive = function() {
             if (localYupanaController.currentStepIdx === localYupanaController.steps.length - 1) {
                 if (!localYupanaController.finalCongratsShown) {
                     localYupanaController.finalCongratsShown = true;
+                    htYupanaStateDrawGreen('#yupana1', localYupanaController.state, localYupanaController.currentExercise.expected);
                     document.getElementById('feedbackArea').innerHTML = '<div class="congrats">' + localYupanaController.TextManager.getPerfectMessage(localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.a), localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.b), localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.expected)) + '</div>';
                     setControlButtonsVisibility(true);
                     setControlStepVisibility(false);
@@ -196,10 +163,16 @@ window.checkCurrentStepPositive = function() {
 };
 
 function nextStep() {
-    var currentVal = htYupanaStateGetValue(localYupanaController.state);
-    var currentStepTarget = localYupanaController.steps[localYupanaController.currentStepIdx] ? localYupanaController.steps[localYupanaController.currentStepIdx].targetValue : undefined;
+    var currentVal;
+    var currentStep = localYupanaController.steps[localYupanaController.currentStepIdx];
+    if (!currentStep) return;
+    if (currentStep.color === 'red') {
+        currentVal = htYupanaStateGetRedValue(localYupanaController.state);
+    } else {
+        currentVal = htYupanaStateGetTotalValue(localYupanaController.state);
+    }
 
-    if (currentVal !== currentStepTarget) {
+    if (currentVal !== currentStep.targetValue) {
         return;
     }
 
@@ -248,17 +221,11 @@ function htLoadContent() {
         getPerfectMessage: function(a, b, result) { return this.format(this.get('txt_perfectMessage'), { a: a, b: b, result: result }); },
         getCongratsMessage: function(a, b, result) { return this.format(this.get('txt_congratsMessage'), { a: a, b: b, result: result }); },
         getFinalLevelMessage: function() { return this.get('txt_finalLevelMessage'); },
-        getStep1Instruction: function(a, columns) { return this.format(this.get('txt_step1Instruction'), { a: a, columns: columns }); },
-        getSimpleAddInstruction: function(placeName, digit, result) { return this.format(this.get('txt_simpleAddInstruction'), { placeName: placeName, digit: digit, result: result }); },
-        getCarryInstruction: function(placeName, digit, digitA, total, nextPlace, complement, result) { return this.format(this.get('txt_carryInstruction'), { placeName: placeName, digit: digit, digitA: digitA, total: total, nextPlace: nextPlace, complement: complement, result: result }); },
-        getFinalInstruction: function(a, b, result) { return this.format(this.get('txt_finalInstruction'), { a: a, b: b, result: result }); },
+        getStep1Instruction: function(a) { return this.format(this.get('txt_step1Instruction'), { a: a }); },
+        getStep2Instruction: function(b, result) { return this.format(this.get('txt_step2Instruction'), { b: b, result: result }); },
         getStepStatus: function(current, total) { return this.format(this.get('txt_stepStatus'), { current: current, total: total }); },
         getReadyStatus: function() { return this.get('txt_readyStatus'); },
         getWelcomeMessage: function() { return this.get('txt_welcomeMessage'); },
-        getUnitUnits: function() { return this.get('txt_units'); },
-        getUnitTens: function() { return this.get('txt_tens'); },
-        getUnitHundreds: function() { return this.get('txt_hundreds'); },
-        getUnitThousands: function() { return this.get('txt_thousands'); },
         getLevelUnits: function() { return this.get('txt_levelUnits'); },
         getLevelTens: function() { return this.get('txt_levelTens'); },
         getLevelHundreds: function() { return this.get('txt_levelHundreds'); },
@@ -273,7 +240,7 @@ function htLoadContent() {
     };
 
     localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
-    htYupanaStateSetValue('#yupana1', localYupanaController.state, 0, 'red_dot_right_up');
+    htYupanaStateClear('#yupana1', localYupanaController.state);
 
     for (var row = 1; row <= localYupanaController.ROWS; row++) {
         for (var col = 1; col <= 4; col++) {
@@ -282,7 +249,8 @@ function htLoadContent() {
                     if (localYupanaController.finalCongratsShown) return;
                     var rowIdx = localYupanaController.ROWS - r;
                     var colIdx = c - 1;
-                    htYupanaStateToggleCell('#yupana1', localYupanaController.state, rowIdx, colIdx, 'red_dot_right_up');
+                    var color = getCurrentStepColor();
+                    htYupanaStateToggleCell('#yupana1', localYupanaController.state, rowIdx, colIdx, color);
                     if (!localYupanaController.finalCongratsShown) setControlButtonsVisibility(false);
                     window.checkCurrentStepPositive();
                 });
