@@ -818,6 +818,7 @@ func htConvertGreekLetter(letter string, lang string) string {
 
 func htRemoveAsiaticCharacters(text string) string {
 	text = strings.ReplaceAll(text, "Schyoty (счёты)", "Schyoty")
+	text = strings.ReplaceAll(text, "(матрёшка)", "")
 
 	chineseRegex := regexp.MustCompile(`[\p{Han}]+`)
 	cleaned := chineseRegex.ReplaceAllString(text, "")
