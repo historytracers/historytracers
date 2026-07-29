@@ -1,6 +1,6 @@
 {
-   "title": "Restando con Soroban y Suanpan (算盤)",
-   "header": "Restando con Soroban y Suanpan (算盤)",
+   "title": "Restando con Soroban, Suanpan (算盤) y Schyoty (счёты)",
+   "header": "Restando con Soroban, Suanpan (算盤) y Schyoty (счёты)",
    "sources": [
       "954d7638-3994-4c9b-a075-b2f9b343a098"
    ],
@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1784240249"
+      "1785165381"
    ],
    "authors": [
       ""
@@ -54,7 +54,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEste texto continúa la enseñanza del uso de los ábacos desarrollados en China (Zhongguo, 中國) y Japón (Nippon-koku o Nihon-koku, 日本国). Para una mejor comprensión, sugerimos estudiar todos los textos presentados en el Capítulo 3 de la sección *Juegos Matemáticos* (<htcite0>).",
+               "text": "### Prerrequisitos\n\nEste texto continúa la enseñanza del uso de los ábacos desarrollados en China (Zhongguo, 中國), Japón (Nippon-koku o Nihon-koku, 日本国) y Rusia. Para una mejor comprensión, sugerimos estudiar todos los textos presentados en el Capítulo 3 de la sección *Juegos Matemáticos* (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -81,7 +81,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nAl trabajar inicialmente con los ábacos Soroban y Suanpan (算盤), siempre movimos los marcadores hacia la barra, ya sea para representar un número, o para sumar o multiplicar valores (<htcite0>).\n\nAl comenzar a estudiar la resta, observamos que, al compararla con un camino, podemos entenderla como un retorno a un lugar (<htcite1>).\n\nAnte este escenario, reflexione:",
+               "text": "### Introducción\n\nAl trabajar inicialmente con los ábacos Soroban, Suanpan (算盤) y Schyoty (счёты), siempre movimos los marcadores hacia la barra, ya sea para representar un número, o para sumar o multiplicar valores (<htcite0>).\n\nAl comenzar a estudiar la resta, observamos que, al compararla con un camino, podemos entenderla como un retorno a un lugar (<htcite1>).\n\nAnte este escenario, reflexione:",
                "source": [
                   {
                      "type": 1,
@@ -135,7 +135,7 @@
                      "type": 1,
                      "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
                      "text": "History Tracers Team (2026)",
-                     "page": "Sumando con Soroban y Suanpan (算盤) - Parte 2",
+                     "page": "Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) - Parte 2",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -160,7 +160,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There is/are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span><span id=\"suanpanColumnNumber\" style=\"display: none; visibility: hidden;\">2</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There is/are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span><span id=\"suanpanColumnNumber\" style=\"display: none; visibility: hidden;\">2</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button><button id=\"btnSchyotyMode\" class=\"mode-btn\">Schyoty (счёты)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -193,7 +193,7 @@
                      "type": 1,
                      "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
                      "text": "History Tracers Team (2026)",
-                     "page": "Sumando con Soroban y Suanpan (算盤) - Parte 2",
+                     "page": "Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) - Parte 2",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -205,7 +205,7 @@
                      "type": 1,
                      "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
                      "text": "History Tracers Team (2026)",
-                     "page": "Sumando con Soroban y Suanpan (算盤) - Parte 2",
+                     "page": "Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) - Parte 2",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -266,7 +266,7 @@
                "PostMention": ""
             },
             {
-               "text": "A partir del Cálculo 3, podemos realizar restas en las cuales la cifra de las unidades que deseamos restar es mayor que la cifra de las unidades del minuendo.\n\nEn situaciones como esta, es común observar a profesores enseñando que estamos *\"pidiendo prestada\"* una decena para realizar el cálculo (<htcite0>). Sin embargo, este artificio didáctico merece una explicación más detallada. Primero realizaremos el cálculo 25 − 7 mediante la separación de órdenes, que ya estudiamos (<htcite1>), pues es de ahí que surge la idea de **\"prestar\"**. A continuación, utilizaremos el ábaco.",
+               "text": "A partir del Cálculo 3, podemos realizar restas en las cuales la cifra de las unidades que deseamos restar es mayor que la cifra de las unidades del minuendo.\n\nEn situaciones como esta, es común observar a profesores enseñando que estamos *\"pidiendo prestada\"* una decena para realizar el cálculo (<htcite0>; <htcite1>). Sin embargo, este artificio didáctico merece una explicación más detallada. Primero realizaremos el cálculo 25 − 7 mediante la separación de órdenes, que ya estudiamos (<htcite2>), pues es de ahí que surge la idea de **\"prestar\"**. A continuación, utilizaremos el ábaco.",
                "source": [
                   {
                      "type": 1,
@@ -276,6 +276,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
+                     "text": "Amarteifio, Jessica",
+                     "page": "pp. 6",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
                         "month": "",
                         "day": ""
                      }

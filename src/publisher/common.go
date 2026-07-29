@@ -1204,14 +1204,8 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	var err error
 
 	text := txt.Text
-	for i := range txt.Source {
-		placeholder := fmt.Sprintf("<htcite%d>", i)
-		citationText := txt.Source[i].Text
-		if txt.Source[i].Page != "" {
-			citationText += " (" + txt.Source[i].Page + ")"
-		}
-		text = strings.ReplaceAll(text, placeholder, citationText)
-	}
+	htciteRegex := regexp.MustCompile(`\(<htcite\d+>\)`)
+	text = htciteRegex.ReplaceAllString(text, "")
 
 	if txt.Format == "html" {
 		ret := htChangeTag2Keywords(text)
