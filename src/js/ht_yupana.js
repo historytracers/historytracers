@@ -1514,7 +1514,7 @@ function htYupanaNewState(rows)
     function mkRow() { return [false, false, false, false]; }
     var cells = [];
     for (var i = 0; i < rows; i++) cells.push(mkRow());
-    return { rows: rows, red: cells, blue: JSON.parse(JSON.stringify(cells)) };
+    return { rows: rows, red: cells, blue: JSON.parse(JSON.stringify(cells)), gray: JSON.parse(JSON.stringify(cells)), green: JSON.parse(JSON.stringify(cells)) };
 }
 
 function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
@@ -1522,11 +1522,18 @@ function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
     var row = state.rows - rowIdx;
     var sel = tableID + " #tc" + (colIdx + 1) + "f" + row;
     $(sel).find(".circValues").remove();
-    if (state.red[rowIdx][colIdx]) {
-        $(sel).append("<span class=\"dot circValues red_dot_right_up\"></span>");
-    }
-    if (state.blue[rowIdx][colIdx]) {
-        $(sel).append("<span class=\"dot circValues blue_dot_right_bottom\"></span>");
+    if (state.green[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues green_dot_result\"></span>");
+    } else {
+        if (state.red[rowIdx][colIdx]) {
+            $(sel).append("<span class=\"dot circValues red_dot_right_up\"></span>");
+        }
+        if (state.blue[rowIdx][colIdx]) {
+            $(sel).append("<span class=\"dot circValues blue_dot_right_bottom\"></span>");
+        }
+        if (state.gray[rowIdx][colIdx]) {
+            $(sel).append("<span class=\"dot circValues gray_dot_center\"></span>");
+        }
     }
 }
 
@@ -1536,6 +1543,8 @@ function htYupanaStateClear(tableID, state)
         htCleanYupanaDecimalRow(tableID, state.rows - i);
         state.red[i] = [false, false, false, false];
         state.blue[i] = [false, false, false, false];
+        state.gray[i] = [false, false, false, false];
+        state.green[i] = [false, false, false, false];
     }
 }
 
@@ -1576,6 +1585,24 @@ function htYupanaStateGetTotalValue(state)
         total += rowVal * Math.pow(10, i);
     }
     return total;
+}
+
+function htYupanaRowSetGreen(tableID, state, rowIdx, digit)
+{
+    state.red[rowIdx] = [false, false, false, false];
+    state.blue[rowIdx] = [false, false, false, false];
+    state.gray[rowIdx] = [false, false, false, false];
+    state.green[rowIdx] = [false, false, false, false];
+    if (digit > 0) {
+        for (var sel = digit; sel < 30; sel += 10) {
+            if (yupanaSelectors[sel] < 0) continue;
+            var col = yupanaSelectors[sel] - 1;
+            state.green[rowIdx][col] = true;
+        }
+    }
+    for (var c = 0; c < 4; c++) {
+        htYupanaStateRenderCell(tableID, state, rowIdx, c);
+    }
 }
 
 function htYupanaStateDrawGreen(tableID, state, totalValue)
