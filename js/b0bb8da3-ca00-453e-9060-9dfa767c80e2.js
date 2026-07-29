@@ -5,11 +5,8 @@ var localYupanaController = {
     "state": null,
     "currentLevel": "units",
     "currentExercise": { a: 0, b: 0, expected: 0 },
-    "steps": [],
-    "currentStepIdx": 0,
-    "stepCompleted": false,
+    "phase": 0,
     "finalCongratsShown": false,
-    "exerciseStarted": false,
     "TextManager": null
 };
 
@@ -25,174 +22,135 @@ function generateRandomNumbersByLevel() {
     }
 }
 
-function buildStepsForNumbers(a, b) {
+function setButtonVisibility(show) {
+    var b = document.getElementById('resetTutorBtn');
+    var l = document.getElementById('nextLevelBtn');
+    if (b) b.classList.toggle('hidden', !show);
+    if (l) l.classList.toggle('hidden', !show);
+}
+
+function showPhase1() {
     var tm = localYupanaController.TextManager;
-    return [
-        {
-            instruction: tm.getStep1Instruction(tm.formatNumber(a)),
-            targetValue: a,
-            color: 'red'
-        },
-        {
-            instruction: tm.getStep2Instruction(tm.formatNumber(b), tm.formatNumber(a + b)),
-            targetValue: a + b,
-            color: 'blue'
-        }
-    ];
+    localYupanaController.phase = 1;
+    document.getElementById('stepMessage').innerHTML = tm.getStepPrefix() + " " + tm.getStep1Instruction(tm.formatNumber(localYupanaController.currentExercise.a));
+    document.getElementById('stepStatus').innerHTML = tm.getStepStatus(1, 2);
+    document.getElementById('feedbackArea').innerHTML = '';
+    setButtonVisibility(false);
 }
 
-function setControlButtonsVisibility(show) {
-    var resetTutorBtn = document.getElementById('resetTutorBtn');
-    var nextLevelBtn = document.getElementById('nextLevelBtn');
-    if (show) {
-        resetTutorBtn.classList.remove('hidden');
-        nextLevelBtn.classList.remove('hidden');
-    } else {
-        resetTutorBtn.classList.add('hidden');
-        nextLevelBtn.classList.add('hidden');
-    }
+function showPhase2() {
+    var tm = localYupanaController.TextManager;
+    localYupanaController.phase = 2;
+    document.getElementById('stepMessage').innerHTML = tm.getStepPrefix() + " " + tm.getStep2Instruction(tm.formatNumber(localYupanaController.currentExercise.b));
+    document.getElementById('stepStatus').innerHTML = tm.getStepStatus(2, 2);
+    document.getElementById('feedbackArea').innerHTML = '';
 }
 
-function setControlStepVisibility(show) {
-    var nextStepBtn = document.getElementById('nextStepBtn');
-    if (show) {
-        nextStepBtn.classList.remove('hidden');
-    } else {
-        nextStepBtn.classList.add('hidden');
+function checkFinal() {
+    var totalOk = true;
+    var dig = htYupanaStateGetTotalValue(localYupanaController.state);
+    if (dig !== localYupanaController.currentExercise.expected) return false;
+    for (var i = 0; i < localYupanaController.ROWS; i++) {
+        if (htYupanaStateGetRowDigit(localYupanaController.state, i) > 9) return false;
     }
+    return true;
 }
 
 function startNewExercise() {
     localYupanaController.finalCongratsShown = false;
-    localYupanaController.exerciseStarted = false;
+    localYupanaController.phase = 0;
     var nums = generateRandomNumbersByLevel();
     localYupanaController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a + nums.b };
-    document.getElementById('problemDisplay').innerHTML = localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.a) + " + " + localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.b);
+    document.getElementById('problemDisplay').innerHTML = localYupanaController.TextManager.formatNumber(nums.a) + " + " + localYupanaController.TextManager.formatNumber(nums.b);
     localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
     htYupanaStateClear('#yupana1', localYupanaController.state);
-    localYupanaController.steps = buildStepsForNumbers(localYupanaController.currentExercise.a, localYupanaController.currentExercise.b);
-    localYupanaController.currentStepIdx = 0;
-    localYupanaController.stepCompleted = false;
-    document.getElementById('stepMessage').innerHTML = localYupanaController.TextManager.getStepPrefix() + " " + localYupanaController.steps[0].instruction;
-    document.getElementById('stepStatus').innerHTML = localYupanaController.TextManager.getStepStatus(1, localYupanaController.steps.length);
     document.getElementById('feedbackArea').innerHTML = '';
-    setControlButtonsVisibility(true);
-    setControlStepVisibility(true);
+    setButtonVisibility(true);
+    showPhase1();
 }
 
 function resetTutorToStepOne() {
     localYupanaController.finalCongratsShown = false;
-    localYupanaController.exerciseStarted = false;
+    localYupanaController.phase = 0;
     localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
     htYupanaStateClear('#yupana1', localYupanaController.state);
-    localYupanaController.steps = buildStepsForNumbers(localYupanaController.currentExercise.a, localYupanaController.currentExercise.b);
-    localYupanaController.currentStepIdx = 0;
-    localYupanaController.stepCompleted = false;
-    document.getElementById('stepMessage').innerHTML = localYupanaController.TextManager.getStepPrefix() + " " + localYupanaController.steps[0].instruction;
-    document.getElementById('stepStatus').innerHTML = localYupanaController.TextManager.getStepStatus(1, localYupanaController.steps.length);
     document.getElementById('feedbackArea').innerHTML = '';
-    setControlButtonsVisibility(true);
-    setControlStepVisibility(true);
+    setButtonVisibility(true);
+    showPhase1();
 }
 
 function toggleLevel() {
-    if (localYupanaController.currentLevel === "units") {
-        localYupanaController.currentLevel = "tens";
-        document.getElementById('levelBadge').innerHTML = localYupanaController.TextManager.getLevelTens();
-        document.getElementById('levelBadge').style.background = "#4caf50";
-    } else if (localYupanaController.currentLevel === "tens") {
-        localYupanaController.currentLevel = "hundreds";
-        document.getElementById('levelBadge').innerHTML = localYupanaController.TextManager.getLevelHundreds();
-        document.getElementById('levelBadge').style.background = "#ff7043";
-    } else if (localYupanaController.currentLevel === "hundreds") {
-        localYupanaController.currentLevel = "thousands";
-        document.getElementById('levelBadge').innerHTML = localYupanaController.TextManager.getLevelThousands();
-        document.getElementById('levelBadge').style.background = "#9c27b0";
+    var lvl = ["units", "tens", "hundreds", "thousands"];
+    var badges = ["txt_levelUnits", "txt_levelTens", "txt_levelHundreds", "txt_levelThousands"];
+    var colors = ["#ffb347", "#4caf50", "#ff7043", "#9c27b0"];
+    var idx = lvl.indexOf(localYupanaController.currentLevel);
+    if (idx < 3) {
+        idx++;
+        localYupanaController.currentLevel = lvl[idx];
+        document.getElementById('levelBadge').innerHTML = localYupanaController.TextManager.get(badges[idx]);
+        document.getElementById('levelBadge').style.background = colors[idx];
     } else {
         localYupanaController.currentLevel = "units";
-        document.getElementById('levelBadge').innerHTML = localYupanaController.TextManager.getLevelUnits();
-        document.getElementById('levelBadge').style.background = "#ffb347";
+        document.getElementById('levelBadge').innerHTML = localYupanaController.TextManager.get(badges[0]);
+        document.getElementById('levelBadge').style.background = colors[0];
         document.getElementById('feedbackArea').innerHTML = '<div class="congrats">' + localYupanaController.TextManager.getFinalLevelMessage() + '</div>';
     }
     startNewExercise();
 }
 
-function getCurrentStepTargetValue() {
-    if (localYupanaController.currentStepIdx >= localYupanaController.steps.length) return undefined;
-    return localYupanaController.steps[localYupanaController.currentStepIdx].targetValue;
-}
+function onCellClick(rowIdx, colIdx) {
+    if (localYupanaController.finalCongratsShown) return;
+    var s = localYupanaController.state;
+    var phase = localYupanaController.phase;
 
-function getCurrentStepColor() {
-    if (localYupanaController.currentStepIdx >= localYupanaController.steps.length) return 'red';
-    return localYupanaController.steps[localYupanaController.currentStepIdx].color;
-}
-
-window.checkCurrentStepPositive = function() {
-    if (localYupanaController.currentStepIdx >= localYupanaController.steps.length) return;
-    var currentVal;
-    var step = localYupanaController.steps[localYupanaController.currentStepIdx];
-    if (step.color === 'red') {
-        currentVal = htYupanaStateGetRedValue(localYupanaController.state);
-    } else {
-        currentVal = htYupanaStateGetTotalValue(localYupanaController.state);
-    }
-
-    if (currentVal === step.targetValue) {
-        if (!localYupanaController.stepCompleted) {
-            localYupanaController.stepCompleted = true;
-            if (localYupanaController.currentStepIdx === localYupanaController.steps.length - 1) {
-                if (!localYupanaController.finalCongratsShown) {
-                    localYupanaController.finalCongratsShown = true;
-                    htYupanaStateDrawGreen('#yupana1', localYupanaController.state, localYupanaController.currentExercise.expected);
-                    document.getElementById('feedbackArea').innerHTML = '<div class="congrats">' + localYupanaController.TextManager.getPerfectMessage(localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.a), localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.b), localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.expected)) + '</div>';
-                    setControlButtonsVisibility(true);
-                    setControlStepVisibility(false);
-                }
-            } else {
-                document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' + localYupanaController.TextManager.getCorrectMessage() + '</div>';
-            }
+    if (phase === 1) {
+        htYupanaStateToggleCell('#yupana1', s, rowIdx, colIdx, 'red');
+    } else if (phase === 2) {
+        if (s.red[rowIdx][colIdx] || s.blue[rowIdx][colIdx]) {
+            s.red[rowIdx][colIdx] = false;
+            s.blue[rowIdx][colIdx] = false;
+        } else {
+            s.blue[rowIdx][colIdx] = true;
         }
+        htYupanaStateRenderCell('#yupana1', s, rowIdx, colIdx);
     } else {
-        localYupanaController.stepCompleted = false;
-        if (document.getElementById('feedbackArea').innerHTML &&
-            !document.getElementById('feedbackArea').innerHTML.includes('PERFECT') &&
-            !document.getElementById('feedbackArea').innerHTML.includes('Correct')) {
-            document.getElementById('feedbackArea').innerHTML = '';
-        }
-    }
-};
-
-function nextStep() {
-    var currentVal;
-    var currentStep = localYupanaController.steps[localYupanaController.currentStepIdx];
-    if (!currentStep) return;
-    if (currentStep.color === 'red') {
-        currentVal = htYupanaStateGetRedValue(localYupanaController.state);
-    } else {
-        currentVal = htYupanaStateGetTotalValue(localYupanaController.state);
-    }
-
-    if (currentVal !== currentStep.targetValue) {
         return;
     }
 
-    if (!localYupanaController.exerciseStarted && localYupanaController.currentStepIdx === 0) {
-        localYupanaController.exerciseStarted = true;
-        setControlButtonsVisibility(false);
+    if (phase === 1) {
+        var redOk = true;
+        for (var i = 0; i < localYupanaController.ROWS; i++) {
+            var cv = [5, 3, 2, 1];
+            var actual = 0;
+            for (var c = 0; c < 4; c++) {
+                if (s.red[i][c]) actual += cv[c];
+            }
+            var target = Math.floor(localYupanaController.currentExercise.a / Math.pow(10, i)) % 10;
+            if (actual !== target) { redOk = false; break; }
+        }
+        if (redOk) {
+            document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' + localYupanaController.TextManager.getCorrectMessage() + '</div>';
+            localYupanaController.phase = 1;
+        }
     }
 
-    if (localYupanaController.currentStepIdx + 1 < localYupanaController.steps.length) {
-        localYupanaController.currentStepIdx++;
-        localYupanaController.stepCompleted = false;
-        document.getElementById('stepMessage').innerHTML = localYupanaController.TextManager.getStepPrefix() + " " + localYupanaController.steps[localYupanaController.currentStepIdx].instruction;
-        document.getElementById('stepStatus').innerHTML = localYupanaController.TextManager.getStepStatus(localYupanaController.currentStepIdx + 1, localYupanaController.steps.length);
-        document.getElementById('feedbackArea').innerHTML = '';
-        setTimeout(function() { window.checkCurrentStepPositive(); }, 50);
-    } else {
-        if (currentVal === localYupanaController.currentExercise.expected && !localYupanaController.finalCongratsShown) {
+    if (phase === 2) {
+        var anyOver = false;
+        for (var i = 0; i < localYupanaController.ROWS; i++) {
+            if (htYupanaStateGetRowDigit(s, i) > 9) { anyOver = true; break; }
+        }
+        if (anyOver) {
+            document.getElementById('feedbackArea').innerHTML = '';
+            return;
+        }
+        if (checkFinal()) {
             localYupanaController.finalCongratsShown = true;
-            document.getElementById('feedbackArea').innerHTML = '<div class="congrats">' + localYupanaController.TextManager.getCongratsMessage(localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.a), localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.b), localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.expected)) + '</div>';
-            setControlButtonsVisibility(true);
+            htYupanaStateDrawGreen('#yupana1', s, localYupanaController.currentExercise.expected);
+            document.getElementById('feedbackArea').innerHTML = '<div class="congrats">' + localYupanaController.TextManager.getPerfectMessage(
+                localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.a),
+                localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.b),
+                localYupanaController.TextManager.formatNumber(localYupanaController.currentExercise.expected)) + '</div>';
+            setButtonVisibility(true);
         }
     }
 }
@@ -202,41 +160,36 @@ function htLoadContent() {
 
     localYupanaController.TextManager = {
         get: function(id) {
-            var element = document.getElementById(id);
-            return element ? element.innerHTML : id;
+            var el = document.getElementById(id);
+            return el ? el.innerHTML : id;
         },
-        format: function(template, data) {
-            var result = template;
-            for (var key in data) {
-                if (data.hasOwnProperty(key)) {
-                    var value = data[key];
-                    if (value === undefined || value === null) value = '';
-                    result = result.replace(new RegExp('\\{' + key + '\\}', 'g'), value);
+        format: function(t, d) {
+            for (var k in d) {
+                if (d.hasOwnProperty(k)) {
+                    var v = d[k];
+                    if (v === undefined || v === null) v = '';
+                    t = t.replace(new RegExp('\\{' + k + '\\}', 'g'), v);
                 }
             }
-            return result;
+            return t;
         },
         getStepPrefix: function() { return this.get('txt_stepPrefix'); },
         getCorrectMessage: function() { return this.get('txt_correctMessage'); },
-        getPerfectMessage: function(a, b, result) { return this.format(this.get('txt_perfectMessage'), { a: a, b: b, result: result }); },
-        getCongratsMessage: function(a, b, result) { return this.format(this.get('txt_congratsMessage'), { a: a, b: b, result: result }); },
+        getPerfectMessage: function(a, b, r) { return this.format(this.get('txt_perfectMessage'), { a: a, b: b, result: r }); },
+        getCongratsMessage: function(a, b, r) { return this.format(this.get('txt_congratsMessage'), { a: a, b: b, result: r }); },
         getFinalLevelMessage: function() { return this.get('txt_finalLevelMessage'); },
         getStep1Instruction: function(a) { return this.format(this.get('txt_step1Instruction'), { a: a }); },
-        getStep2Instruction: function(b, result) { return this.format(this.get('txt_step2Instruction'), { b: b, result: result }); },
-        getStepStatus: function(current, total) { return this.format(this.get('txt_stepStatus'), { current: current, total: total }); },
-        getReadyStatus: function() { return this.get('txt_readyStatus'); },
-        getWelcomeMessage: function() { return this.get('txt_welcomeMessage'); },
+        getStep2Instruction: function(b) { return this.format(this.get('txt_step2Instruction'), { b: b }); },
+        getStepStatus: function(c, t) { return this.format(this.get('txt_stepStatus'), { current: c, total: t }); },
+        formatNumber: function(n) {
+            if (typeof n !== 'number' || isNaN(n)) return '0';
+            try { return new Intl.NumberFormat($("#site_language").val()).format(n); }
+            catch(e) { return n.toString(); }
+        },
         getLevelUnits: function() { return this.get('txt_levelUnits'); },
         getLevelTens: function() { return this.get('txt_levelTens'); },
         getLevelHundreds: function() { return this.get('txt_levelHundreds'); },
-        getLevelThousands: function() { return this.get('txt_levelThousands'); },
-        getNextText: function() { return this.get('txt_next'); },
-        formatNumber: function(num) {
-            if (typeof num !== 'number' || isNaN(num)) return '0';
-            var locale = $("#site_language").val();
-            try { return new Intl.NumberFormat(locale).format(num); }
-            catch(e) { return num.toString(); }
-        }
+        getLevelThousands: function() { return this.get('txt_levelThousands'); }
     };
 
     localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
@@ -246,25 +199,18 @@ function htLoadContent() {
         for (var col = 1; col <= 4; col++) {
             (function(r, c) {
                 $('#yupana1 #tc' + c + 'f' + r).on("click", function() {
-                    if (localYupanaController.finalCongratsShown) return;
-                    var rowIdx = localYupanaController.ROWS - r;
-                    var colIdx = c - 1;
-                    var color = getCurrentStepColor();
-                    htYupanaStateToggleCell('#yupana1', localYupanaController.state, rowIdx, colIdx, color);
-                    if (!localYupanaController.finalCongratsShown) setControlButtonsVisibility(false);
-                    window.checkCurrentStepPositive();
+                    onCellClick(localYupanaController.ROWS - r, c - 1);
                 });
             })(row, col);
         }
     }
 
     var _ = function(id) { return document.getElementById(id); };
-    _('nextStepBtn') && (_('nextStepBtn').onclick = nextStep);
-    _('resetTutorBtn') && (_('resetTutorBtn').onclick = function() { startNewExercise(); });
-    _('resetButton') && (_('resetButton').onclick = function() { resetTutorToStepOne(); });
-    _('nextLevelBtn') && (_('nextLevelBtn').onclick = function() { toggleLevel(); });
+    var ex = _('resetTutorBtn'); if (ex) ex.onclick = function() { startNewExercise(); };
+    var rs = _('resetButton'); if (rs) rs.onclick = function() { resetTutorToStepOne(); };
+    var lv = _('nextLevelBtn'); if (lv) lv.onclick = function() { toggleLevel(); };
 
-    _('stepMessage') && (_('stepMessage').innerHTML = localYupanaController.TextManager.getStepPrefix() + " " + localYupanaController.TextManager.getWelcomeMessage());
+    _('stepMessage') && (_('stepMessage').innerHTML = localYupanaController.TextManager.getStepPrefix() + " " + localYupanaController.TextManager.get('txt_welcomeMessage'));
 
     startNewExercise();
 

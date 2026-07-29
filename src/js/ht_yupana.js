@@ -1553,6 +1553,16 @@ function htYupanaStateGetRedValue(state)
     return total;
 }
 
+function htYupanaStateGetBlueDigit(state, rowIdx)
+{
+    var colValues = [5, 3, 2, 1];
+    var rowVal = 0;
+    for (var c = 0; c < 4; c++) {
+        if (state.blue[rowIdx][c]) rowVal += colValues[c];
+    }
+    return rowVal;
+}
+
 function htYupanaStateGetTotalValue(state)
 {
     var colValues = [5, 3, 2, 1];
@@ -1584,6 +1594,26 @@ function htYupanaStateDrawGreen(tableID, state, totalValue)
             }
         }
     }
+}
+
+function htYupanaStateGetRowDigit(state, rowIdx)
+{
+    var colValues = [5, 3, 2, 1];
+    var rowVal = 0;
+    for (var c = 0; c < 4; c++) {
+        if (state.red[rowIdx][c]) rowVal += colValues[c];
+        if (state.blue[rowIdx][c]) rowVal += colValues[c];
+    }
+    return rowVal;
+}
+
+function htYupanaStateRowOverflows(state)
+{
+    for (var i = 0; i < state.rows; i++) {
+        var d = htYupanaStateGetRowDigit(state, i);
+        if (d > 9) return { row: i, digit: d };
+    }
+    return null;
 }
 
 function htYupanaStateToggleCell(tableID, state, rowIdx, colIdx, color)
