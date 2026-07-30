@@ -1597,8 +1597,8 @@ function insertSourceFromFind(item){
         return
     }
     var content=tabs[currentTab].content;
-    if(content.indexOf('"type": "class"')===-1&&content.indexOf('"type": "genealogy"')===-1&&content.indexOf('"type": "index"')===-1){
-        toast('This action requires a class, genealogy or index file','error');
+    if(content.indexOf('"type": "class"')===-1&&content.indexOf('"type": "genealogy"')===-1&&content.indexOf('"type": "index"')===-1&&content.indexOf('"type": "sm_game"')===-1){
+        toast('This action requires a class, genealogy, index or sm_game file','error');
         return
     }
     var date={type:"gregory",year:"",month:"",day:""};
@@ -1609,11 +1609,12 @@ function insertSourceFromFind(item){
         if(parts.length>2)date.day=parts[2];
     }
     var citType=item.cit_type?parseInt(item.cit_type):0;
+    var isSMGame=content.indexOf('"type": "sm_game"')>=0;
     var tpl=JSON.stringify({
         type:citType,
         uuid:item.src_id||"",
         text:item.src_citation||"",
-        page:"",
+        page:isSMGame?item.src_url||"":"",
         date_time:date
     },null,3);
     var pos=area.selectionStart;
