@@ -347,8 +347,24 @@ function htLoadContent() {
     var lv = _('nextLevelBtn'); if (lv) lv.onclick = function() { toggleLevel(); };
     var ns = _('nextStepBtn'); if (ns) ns.onclick = function() {
         var p = localYupanaController.phase;
-        if (p === 1) showPhase(2);
-        else if (p === 2) showPhase(3);
+        var s = localYupanaController.state;
+        var ex = localYupanaController.currentExercise;
+        var ok = true;
+        if (p === 1) {
+            for (var i = 0; i < localYupanaController.ROWS; i++) {
+                var cv = [5,3,2,1], actual = 0;
+                for (var c = 0; c < 4; c++) if (s.red[i][c]) actual += cv[c];
+                if (actual !== getDigit(ex.a, i)) { ok = false; break; }
+            }
+            if (ok) showPhase(2);
+        } else if (p === 2) {
+            for (var i = 0; i < localYupanaController.ROWS; i++) {
+                var cv = [5,3,2,1], actual = 0;
+                for (var c = 0; c < 4; c++) if (s.blue[i][c]) actual += cv[c];
+                if (actual !== getDigit(ex.b, i)) { ok = false; break; }
+            }
+            if (ok) showPhase(3);
+        }
     };
 
     _('stepMessage') && (_('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + tm('txt_welcomeMessage'));
