@@ -146,7 +146,9 @@ function processNextColumn() {
     var resultDigit = total - 10;
     var instr = tm('txt_carryInstruction')
         .replace('{digit}', dB)
+        .replace('{digitA}', dA)
         .replace('{placeName}', getPlaceName(col))
+        .replace('{nextPlace}', getPlaceName(col + 1))
         .replace('{total}', total)
         .replace('{resultDigit}', resultDigit);
     document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + instr;
