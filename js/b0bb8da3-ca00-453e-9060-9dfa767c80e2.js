@@ -198,8 +198,7 @@ function onCellClick(rowIdx, colIdx) {
     }
 
     if (phase === 2) {
-        if (s.red[rowIdx][colIdx] || s.blue[rowIdx][colIdx]) {
-            s.red[rowIdx][colIdx] = false;
+        if (s.blue[rowIdx][colIdx]) {
             s.blue[rowIdx][colIdx] = false;
         } else {
             s.blue[rowIdx][colIdx] = true;

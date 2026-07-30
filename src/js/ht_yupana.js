@@ -1609,17 +1609,11 @@ function htYupanaStateDrawGreen(tableID, state, totalValue)
 {
     var rows = state.rows;
     var temp = totalValue;
+    htYupanaStateClear(tableID, state);
     for (var i = 0; i < rows; i++) {
         var digit = temp % 10;
         temp = Math.trunc(temp / 10);
-        if (digit > 0) {
-            for (var sel = digit; sel < 30; sel += 10) {
-                if (yupanaSelectors[sel] < 0) continue;
-                var colIdx = yupanaSelectors[sel];
-                var sel2 = tableID + " #tc" + colIdx + "f" + (rows - i);
-                $(sel2).append("<span class=\"dot circValues green_dot_center\"></span>");
-            }
-        }
+        htYupanaRowSetGreen(tableID, state, i, digit);
     }
 }
 
