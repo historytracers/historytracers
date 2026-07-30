@@ -102,6 +102,7 @@ function showPhase(p) {
         updateStepStatus();
     } else if (p === 3) {
         setVis('nextStepBtn', false);
+        document.getElementById('feedbackArea').innerHTML = '';
         startEvaluation();
         return;
     } else if (p === 4) {
