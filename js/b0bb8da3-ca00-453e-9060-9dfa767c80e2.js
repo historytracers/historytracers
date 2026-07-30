@@ -116,45 +116,33 @@ function processNextColumn() {
     var dB = getDigit(localYupanaController.currentExercise.b, col);
     var total = dA + dB + carry;
 
-    if (total < 10 && col < maxC) {
-        // No carry out — just set green and move on
-        var nextCarry = 0;
-        for (var nc = col + 1; nc < maxC; nc++) {
-            var ndA = getDigit(localYupanaController.currentExercise.a, nc);
-            var ndB = getDigit(localYupanaController.currentExercise.b, nc);
-            if (ndA > 0 || ndB > 0 || nextCarry > 0) break;
-        }
-        htYupanaRowSetGreen('#yupana1', s, col, total);
-        localYupanaController.evalCol = col + 1;
-        localYupanaController.evalCarry = 0;
-        processNextColumn();
-        return;
-    }
-
     if (col >= maxC && carry > 0) {
-        // Extra carry row
         localYupanaController.expectCarryClick = true;
         document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + tm('txt_carryFinalInstruction');
-        s.gray[col] = [false, false, false, false];
-        s.gray[col][0] = true; // Mark tc1 (value 5) won't work for carry 1... need tc4
-        s.gray[col] = [false, false, false, true]; // tc4 = value 1
+        s.gray[col] = [false, false, false, true];
         htYupanaStateRenderCell('#yupana1', s, col, 3);
         return;
     }
 
-    // total >= 10: need user to set this column and then confirm carry
-    var resultDigit = total - 10;
-    var instr = tm('txt_carryInstruction')
-        .replace('{digit}', dB)
-        .replace('{digitA}', dA)
-        .replace('{placeName}', getPlaceName(col))
-        .replace('{nextPlace}', getPlaceName(col + 1))
-        .replace('{total}', total)
-        .replace('{resultDigit}', resultDigit);
+    var resultDigit = total >= 10 ? total - 10 : total;
+    var instr;
+    if (total >= 10) {
+        instr = tm('txt_carryInstruction')
+            .replace(/\{digit\}/g, dB)
+            .replace(/\{digitA\}/g, dA)
+            .replace(/\{placeName\}/g, getPlaceName(col))
+            .replace(/\{nextPlace\}/g, getPlaceName(col + 1))
+            .replace(/\{total\}/g, total)
+            .replace(/\{resultDigit\}/g, resultDigit);
+    } else {
+        instr = tm('txt_simpleAddInstruction')
+            .replace(/\{digit\}/g, dB)
+            .replace(/\{placeName\}/g, getPlaceName(col))
+            .replace(/\{result\}/g, total);
+    }
     document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + instr;
 
     localYupanaController.evalDone = false;
-    // Clear the column's red/blue/green — user will set green
     s.red[col] = [false, false, false, false];
     s.blue[col] = [false, false, false, false];
     s.green[col] = [false, false, false, false];
