@@ -1639,13 +1639,35 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			if !strings.Contains(e.Name(), "-") {
 				continue
 			}
-			candidate := filepath.Join(langDir, e.Name(), uuidStr+".json")
+			langName := e.Name()
+			langPath := filepath.Join(langDir, langName)
+			// check root language directory
+			candidate := filepath.Join(langPath, uuidStr+".json")
 			if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
 				rel, _ := filepath.Rel(rootDir, candidate)
 				result = append(result, map[string]string{
 					"path":  filepath.ToSlash(rel),
-					"label": e.Name(),
+					"label": langName,
 				})
+				continue
+			}
+			// check subdirectories (smartphone, smGame, etc.)
+			subEntries, err := os.ReadDir(langPath)
+			if err == nil {
+				for _, sub := range subEntries {
+					if !sub.IsDir() {
+						continue
+					}
+					candidate := filepath.Join(langPath, sub.Name(), uuidStr+".json")
+					if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
+						rel, _ := filepath.Rel(rootDir, candidate)
+						result = append(result, map[string]string{
+							"path":  filepath.ToSlash(rel),
+							"label": langName,
+						})
+						break
+					}
+				}
 			}
 		}
 	}
