@@ -1597,7 +1597,7 @@ function insertSourceFromFind(item){
         return
     }
     var content=tabs[currentTab].content;
-    if(content.indexOf('"type": "class"')===-1&&content.indexOf('"type": "genealogy"')===-1&&content.indexOf('"type": "index"')===-1){
+    if(content.indexOf('"type": "class"')===-1&&content.indexOf('"type": "genealogy"')===-1&&content.indexOf('"type": "index"')===-1&&content.indexOf('"type": "sm_game"')===-1){
         toast('This action requires a class, genealogy or index file','error');
         return
     }
