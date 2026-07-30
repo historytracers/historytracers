@@ -169,26 +169,15 @@ function processNextColumn() {
     var resultDigit = total >= 10 ? total - 10 : total;
     var instr;
     if (total >= 10) {
-        instr = tm('txt_carryInstruction')
-            .replace(/\{digit\}/g, dB)
-            .replace(/\{digitA\}/g, dA)
-            .replace(/\{placeName\}/g, getPlaceName(col))
-            .replace(/\{nextPlace\}/g, getPlaceName(col + 1))
-            .replace(/\{total\}/g, total)
-            .replace(/\{resultDigit\}/g, resultDigit);
+        instr = getPlaceName(col) + ": " + dA + " + " + dB + " = " + total + ". This exceeds 9. <strong>Carry 1 to " + getPlaceName(col + 1) + "</strong>. Set the " + getPlaceName(col) + " to <strong>" + resultDigit + "</strong> using green markers.";
     } else {
-        instr = tm('txt_simpleAddInstruction')
-            .replace(/\{digit\}/g, dB)
-            .replace(/\{placeName\}/g, getPlaceName(col))
-            .replace(/\{result\}/g, total);
+        instr = getPlaceName(col) + ": " + dA + " + " + dB + " = " + total + ". <strong>Set the " + getPlaceName(col) + " to " + total + "</strong> using green markers.";
     }
     document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + instr;
 
     localYupanaController.stepNumber++;
     updateStepStatus();
     localYupanaController.evalDone = false;
-    s.red[col] = [false, false, false, false];
-    s.blue[col] = [false, false, false, false];
     s.green[col] = [false, false, false, false];
     for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, col, c);
 }

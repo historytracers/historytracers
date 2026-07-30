@@ -1522,18 +1522,17 @@ function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
     var row = state.rows - rowIdx;
     var sel = tableID + " #tc" + (colIdx + 1) + "f" + row;
     $(sel).find(".circValues").remove();
+    if (state.red[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues red_dot_right_up\"></span>");
+    }
+    if (state.blue[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues blue_dot_right_bottom\"></span>");
+    }
+    if (state.gray[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues gray_dot_center\"></span>");
+    }
     if (state.green[rowIdx][colIdx]) {
         $(sel).append("<span class=\"dot circValues green_dot_result\"></span>");
-    } else {
-        if (state.red[rowIdx][colIdx]) {
-            $(sel).append("<span class=\"dot circValues red_dot_right_up\"></span>");
-        }
-        if (state.blue[rowIdx][colIdx]) {
-            $(sel).append("<span class=\"dot circValues blue_dot_right_bottom\"></span>");
-        }
-        if (state.gray[rowIdx][colIdx]) {
-            $(sel).append("<span class=\"dot circValues gray_dot_center\"></span>");
-        }
     }
 }
 
