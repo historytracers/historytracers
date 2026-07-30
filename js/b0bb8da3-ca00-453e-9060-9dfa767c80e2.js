@@ -64,7 +64,9 @@ function countEvaluationSteps() {
         var dA = getDigit(a, p);
         var dB = getDigit(b, p);
         var total = dA + dB + carry;
-        count++;
+        if (dA > 0 || dB > 0 || carry > 0) {
+            count++;
+        }
         if (total >= 10) {
             carry = 1;
         } else {
@@ -83,6 +85,8 @@ function updateStepStatus() {
 }
 
 function showPhase(p) {
+    setVis('nextLevelBtn', true);
+    setVis('resetTutorBtn', true);
     localYupanaController.phase = p;
     var t = localYupanaController.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
     var a = localYupanaController.currentExercise.a;
@@ -146,6 +150,13 @@ function processNextColumn() {
     var dA = getDigit(localYupanaController.currentExercise.a, col);
     var dB = getDigit(localYupanaController.currentExercise.b, col);
     var total = dA + dB + carry;
+
+    if (dA === 0 && dB === 0 && carry === 0 && col < maxC) {
+        localYupanaController.evalCol = col + 1;
+        localYupanaController.evalCarry = 0;
+        processNextColumn();
+        return;
+    }
 
     if (col >= maxC && carry > 0) {
         localYupanaController.expectCarryClick = true;
