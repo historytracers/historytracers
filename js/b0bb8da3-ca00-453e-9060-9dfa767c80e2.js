@@ -11,6 +11,8 @@ var localYupanaController = {
     "evalDone": false,
     "expectCarryClick": false,
     "finalCongratsShown": false,
+    "stepNumber": 0,
+    "totalSteps": 0,
     "TextManager": null
 };
 
@@ -54,17 +56,46 @@ function fmt(n) {
 
 function tm(id) { var el = document.getElementById(id); return el ? el.innerHTML : id; }
 
+function countEvaluationSteps() {
+    var a = localYupanaController.currentExercise.a;
+    var b = localYupanaController.currentExercise.b;
+    var count = 0, carry = 0;
+    for (var p = 0; p < localYupanaController.ROWS; p++) {
+        var dA = getDigit(a, p);
+        var dB = getDigit(b, p);
+        var total = dA + dB + carry;
+        count++;
+        if (total >= 10) {
+            carry = 1;
+        } else {
+            carry = 0;
+        }
+    }
+    if (carry > 0) count++;
+    return count;
+}
+
+function updateStepStatus() {
+    var t = localYupanaController.TextManager;
+    document.getElementById('stepStatus').innerHTML = t.get('txt_stepStatus')
+        .replace('{current}', localYupanaController.stepNumber)
+        .replace('{total}', localYupanaController.totalSteps);
+}
+
 function showPhase(p) {
     localYupanaController.phase = p;
     var t = localYupanaController.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
     var a = localYupanaController.currentExercise.a;
     var b = localYupanaController.currentExercise.b;
     if (p === 1) {
+        localYupanaController.stepNumber = 1;
+        localYupanaController.totalSteps = 2 + countEvaluationSteps();
         document.getElementById('stepMessage').innerHTML = t.get('txt_stepPrefix') + " " + t.get('txt_step1Instruction').replace('{a}', fmt(a));
-        document.getElementById('stepStatus').innerHTML = t.get('txt_stepStatus').replace('{current}','1').replace('{total}','2');
+        updateStepStatus();
     } else if (p === 2) {
+        localYupanaController.stepNumber = 2;
         document.getElementById('stepMessage').innerHTML = t.get('txt_stepPrefix') + " " + t.get('txt_step2Instruction').replace('{b}', fmt(b));
-        document.getElementById('stepStatus').innerHTML = t.get('txt_stepStatus').replace('{current}','2').replace('{total}','2');
+        updateStepStatus();
     } else if (p === 3) {
         setVis('nextStepBtn', false);
         startEvaluation();
@@ -142,6 +173,8 @@ function processNextColumn() {
     }
     document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + instr;
 
+    localYupanaController.stepNumber++;
+    updateStepStatus();
     localYupanaController.evalDone = false;
     s.red[col] = [false, false, false, false];
     s.blue[col] = [false, false, false, false];
