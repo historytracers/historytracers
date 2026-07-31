@@ -10,6 +10,7 @@ var localYupanaController = {
     "evalCarry": 0,
     "evalDone": false,
     "expectCarryClick": false,
+    "awaitingCarryStep": false,
     "finalCongratsShown": false,
     "stepNumber": 0,
     "totalSteps": 0,
@@ -119,6 +120,7 @@ function startEvaluation() {
     localYupanaController.evalCarry = 0;
     localYupanaController.evalDone = false;
     localYupanaController.expectCarryClick = false;
+    localYupanaController.awaitingCarryStep = false;
     setVis('nextStepBtn', false);
     document.getElementById('stepStatus').innerHTML = '';
     processNextColumn();
@@ -170,9 +172,20 @@ function processNextColumn() {
     var resultDigit = total >= 10 ? total - 10 : total;
     var instr;
     if (total >= 10) {
-        instr = getPlaceName(col) + ": " + dA + " + " + dB + " = " + total + ". This exceeds 9. <strong>Carry 1 to " + getPlaceName(col + 1) + "</strong>. Set the " + getPlaceName(col) + " to <strong>" + resultDigit + "</strong> using green markers.";
+        instr = tm('txt_evalCarry')
+            .replace(/\{placeName\}/g, getPlaceName(col))
+            .replace(/\{digitA\}/g, dA)
+            .replace(/\{digitB\}/g, dB)
+            .replace(/\{total\}/g, total)
+            .replace(/\{nextPlace\}/g, getPlaceName(col + 1))
+            .replace(/\{resultDigit\}/g, resultDigit);
     } else {
-        instr = getPlaceName(col) + ": " + dA + " + " + dB + " = " + total + ". <strong>Set the " + getPlaceName(col) + " to " + total + "</strong> using green markers.";
+        instr = tm('txt_evalSimple')
+            .replace(/\{placeName\}/g, getPlaceName(col))
+            .replace(/\{digitA\}/g, dA)
+            .replace(/\{digitB\}/g, dB)
+            .replace(/\{total\}/g, total)
+            .replace(/\{result\}/g, total);
     }
     document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + instr;
 
@@ -280,15 +293,11 @@ function onCellClick(rowIdx, colIdx) {
         if (col >= localYupanaController.ROWS) need = carry;
 
         if (actual === need) {
-            // Column resolved
             htYupanaRowSetGreen('#yupana1', s, col, need);
             if (total >= 10) {
-                // Show gray carry marker in next column
-                localYupanaController.expectCarryClick = true;
-                var nextCol = col + 1;
-                s.gray[nextCol] = [false, false, false, true]; // tc4 (value 1)
-                htYupanaStateRenderCell('#yupana1', s, nextCol, 3);
-                document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + tm('txt_carryFinalInstruction');
+                localYupanaController.awaitingCarryStep = true;
+                document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' + tm('txt_correctMessage') + '</div>';
+                setVis('nextStepBtn', true);
             } else {
                 localYupanaController.evalCarry = 0;
                 localYupanaController.evalCol = col + 1;
@@ -361,6 +370,20 @@ function htLoadContent() {
         var s = localYupanaController.state;
         var a = localYupanaController.currentExercise.a;
         var b = localYupanaController.currentExercise.b;
+
+        if (localYupanaController.awaitingCarryStep) {
+            var col = localYupanaController.evalCol;
+            localYupanaController.awaitingCarryStep = false;
+            localYupanaController.expectCarryClick = true;
+            var nextCol = col + 1;
+            s.gray[nextCol] = [false, false, false, true];
+            htYupanaStateRenderCell('#yupana1', s, nextCol, 3);
+            document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + tm('txt_carryFinalInstruction');
+            document.getElementById('feedbackArea').innerHTML = '';
+            setVis('nextStepBtn', false);
+            return;
+        }
+
         var ok = true;
         if (p === 1) {
             for (var i = 0; i < localYupanaController.ROWS; i++) {
