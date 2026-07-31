@@ -344,25 +344,36 @@ function htLoadContent() {
 
     var _ = function(id) { return document.getElementById(id); };
     var ex = _('resetTutorBtn'); if (ex) ex.onclick = function() { startNewExercise(); };
-    var rs = _('resetButton'); if (rs) rs.onclick = function() { startNewExercise(); };
+    var rs = _('resetButton'); if (rs) rs.onclick = function() {
+        localYupanaController.finalCongratsShown = false;
+        localYupanaController.phase = 0;
+        localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
+        htYupanaStateClear('#yupana1', localYupanaController.state);
+        document.getElementById('feedbackArea').innerHTML = '';
+        setVis('nextStepBtn', true);
+        setVis('nextLevelBtn', true);
+        setVis('resetTutorBtn', true);
+        showPhase(1);
+    };
     var lv = _('nextLevelBtn'); if (lv) lv.onclick = function() { toggleLevel(); };
     var ns = _('nextStepBtn'); if (ns) ns.onclick = function() {
         var p = localYupanaController.phase;
         var s = localYupanaController.state;
-        var ex = localYupanaController.currentExercise;
+        var a = localYupanaController.currentExercise.a;
+        var b = localYupanaController.currentExercise.b;
         var ok = true;
         if (p === 1) {
             for (var i = 0; i < localYupanaController.ROWS; i++) {
                 var cv = [5,3,2,1], actual = 0;
                 for (var c = 0; c < 4; c++) if (s.red[i][c]) actual += cv[c];
-                if (actual !== getDigit(ex.a, i)) { ok = false; break; }
+                if (actual !== getDigit(a, i)) { ok = false; break; }
             }
             if (ok) showPhase(2);
         } else if (p === 2) {
             for (var i = 0; i < localYupanaController.ROWS; i++) {
                 var cv = [5,3,2,1], actual = 0;
                 for (var c = 0; c < 4; c++) if (s.blue[i][c]) actual += cv[c];
-                if (actual !== getDigit(ex.b, i)) { ok = false; break; }
+                if (actual !== getDigit(b, i)) { ok = false; break; }
             }
             if (ok) showPhase(3);
         }
