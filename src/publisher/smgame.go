@@ -102,6 +102,8 @@ func htWriteSMGameFile(lang string, newFile string, template *SMGameFile) error 
 }
 
 func htSetDefaultSMGameValues(fp *SMGameFile, newFile string) {
+	fp.Title = ""
+	fp.Index = ""
 	fp.Sources = []string{newFile}
 	fp.License = []string{"SPDX-License-Identifier: GPL-3.0-or-later"}
 	fp.LastUpdate = []string{HTUpdateTimestamp()}
