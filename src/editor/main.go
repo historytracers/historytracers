@@ -741,6 +741,8 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	tpl.Title = ""
+	tpl.Index = ""
 	tpl.Sources = []string{strID}
 	tpl.License = []string{"SPDX-License-Identifier: GPL-3.0-or-later"}
 	tpl.LastUpdate = []string{common.HTUpdateTimestamp()}
@@ -777,6 +779,12 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		fp.Close()
+	}
+
+	if err := htInsertSourceFileEntry(strID, strID); err != nil {
+		log.Printf("ERROR createSmartphone: insert source entry: %v", err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	rotateToken()
