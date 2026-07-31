@@ -955,32 +955,6 @@ func htConvertTextsToAudio() {
 	htConvertSMGameToAudio()
 }
 
-type HTSMGameBlock struct {
-	ID       string      `json:"id"`
-	Audio    string      `json:"audio"`
-	Text     []HTText    `json:"text"`
-	Desc     interface{} `json:"desc"`
-	Next     string      `json:"next"`
-	Prev     string      `json:"prev"`
-	JumpTo   string      `json:"jumpTo"`
-	Answer   interface{} `json:"answer"`
-	Score    int         `json:"score"`
-	Position string      `json:"position,omitempty"`
-}
-
-type HTSMGameFile struct {
-	Sources    []string        `json:"sources"`
-	License    []string        `json:"license"`
-	LastUpdate []string        `json:"last_update"`
-	Authors    string          `json:"authors"`
-	Reviewers  string          `json:"reviewers"`
-	Version    int             `json:"version"`
-	Type       string          `json:"type"`
-	Content    []HTSMGameBlock `json:"content"`
-	Levels     []SMGameLevel   `json:"levels,omitempty"`
-	DateTime   []HTDate        `json:"date_time,omitempty"`
-}
-
 func htConvertSMGameToAudio() {
 	for _, lang := range htLangPaths {
 		smGameDir := fmt.Sprintf("%slang/%s/smGame", CFG.SrcPath, lang)
@@ -1006,7 +980,7 @@ func htConvertSMGameToAudio() {
 				continue
 			}
 
-			var smGame HTSMGameFile
+			var smGame SMGameFile
 			err = json.Unmarshal(byteValue, &smGame)
 			if err != nil || smGame.Type != "sm_game" {
 				continue
