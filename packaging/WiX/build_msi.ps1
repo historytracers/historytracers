@@ -87,7 +87,7 @@ $wwwHarvest      = Join-Path $WixDir "www-fragment.wxs"
 $imgHarvest      = Join-Path $WixDir "images-fragment.wxs"
 $buildHarvest    = Join-Path $WixDir "build-fragment.wxs"
 $optionsHarvest  = Join-Path $WixDir "options-fragment.wxs"
-$editorHarvest   = Join-Path $WixDir "editor-fragment.wxs"
+#$editorHarvest   = Join-Path $WixDir "editor-fragment.wxs"
 $excludeImagesXsl = Join-Path $WixDir "exclude-images.xsl"
 $excludeOptionsXsl = Join-Path $WixDir "exclude-options.xsl"
 $buildDir        = Join-Path $ProjectDir "build"
@@ -163,31 +163,8 @@ if (-not (Test-Path $buildHarvest)) {
     exit 1
 }
 
-# ---- Step 0c: Generate editor-fragment.wxs (editor binary + editor.html → INSTALLDIR) ----
-Write-Host "Generating editor fragment..."
-$editorExe = $buildFiles | Where-Object { $_.Name -eq 'historytracers-editor.exe' }
-$editorHtml = Join-Path $ProjectDir "editor.html"
-if ($editorExe -and (Test-Path $editorHtml)) {
-    $lines = @()
-    $lines += '<?xml version="1.0" encoding="utf-8"?>'
-    $lines += "<Wix xmlns='http://wixtoolset.org/schemas/v4/wxs'>"
-    $lines += "  <Fragment>"
-    $lines += "    <ComponentGroup Id='CG_EDITOR_BIN'>"
-    $idsExe = Get-FileId -rel $editorExe.Name -prefix 'cmp_editor_'
-    $wixSrcExe = '$(var.BuildDir)\' + $editorExe.Name
-    $lines += "      <Component Id='$($idsExe.cid)' Directory='INSTALLDIR' Guid='*'><File Id='$($idsExe.fid)' Source='$wixSrcExe'/></Component>"
-    $idsHtml = Get-FileId -rel 'editor.html' -prefix 'cmp_editor_'
-    $wixSrcHtml = '$(var.ProjectDir)\editor.html'
-    $lines += "      <Component Id='$($idsHtml.cid)' Directory='INSTALLDIR' Guid='*'><File Id='$($idsHtml.fid)' Source='$wixSrcHtml'/></Component>"
-    $lines += "    </ComponentGroup>"
-    $lines += "  </Fragment>"
-    $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $editorHarvest -NoNewline
-}
-if (-not (Test-Path $editorHarvest)) {
-    Write-Error "Failed to generate editor-fragment.wxs"
-    exit 1
-}
+# Editor fragment generation skipped — editor not shipped in this release
+# See commit history for the full editor-fragment.wxs generation block
 
 # ---- Step 0b: Generate options-fragment.wxs (img_options.json → WWW_IMAGES) ----
 Write-Host "Generating options fragment..."
@@ -336,7 +313,7 @@ if (-not (Test-Path $imgHarvest)) {
 
 # ---- Step 3: Build MSI with wix.exe build ----
 Write-Host "Building MSI..."
-& $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest $editorHarvest `
+& $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest `
     -o $msiOut `
     -arch x64 `
     -d BuildDir=$buildDir `
@@ -351,7 +328,7 @@ if (-not $KeepFragments) {
   Remove-Item $imgHarvest -Force -ErrorAction SilentlyContinue
   Remove-Item $buildHarvest -Force -ErrorAction SilentlyContinue
   Remove-Item $optionsHarvest -Force -ErrorAction SilentlyContinue
-  Remove-Item $editorHarvest -Force -ErrorAction SilentlyContinue
+  #Remove-Item $editorHarvest -Force -ErrorAction SilentlyContinue
 }
 
 Write-Host "MSI built successfully: $msiOut"

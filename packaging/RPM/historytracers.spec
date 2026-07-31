@@ -84,12 +84,12 @@ find . -maxdepth 1 ! -name "." ! -name "www" -exec cp -r {} %{buildroot}/usr/src
 %pre
 getent group historytracers >/dev/null || groupadd -r historytracers
 getent passwd historytracers >/dev/null || useradd -r -g historytracers -s /sbin/nologin \
-    -c "A teaching tool" historytracers
+    -d /usr/share/historytracers -c "A teaching tool" historytracers
 
 %post
 chown -R historytracers:historytracers %{_datadir}/historytracers 2>/dev/null || true
 chown historytracers:historytracers %{_bindir}/historytracers 2>/dev/null || true
-chown historytracers:historytracers %{_bindir}/historytracers-editor 2>/dev/null || true
+#chown historytracers:historytracers %{_bindir}/historytracers-editor 2>/dev/null || true
 chown -R historytracers:historytracers %{_sysconfdir}/historytracers 2>/dev/null || true
 chown historytracers:historytracers %{_localstatedir}/lib/historytracers 2>/dev/null || true
 [ -d %{_localstatedir}/log/historytracers ] && chown historytracers:historytracers %{_localstatedir}/log/historytracers 2>/dev/null || true

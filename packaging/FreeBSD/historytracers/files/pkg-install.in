@@ -1,10 +1,20 @@
 #!/bin/sh
 
 case $2 in
+PRE-INSTALL)
+	if ! /usr/sbin/pw groupshow historytracers 2>/dev/null; then
+		/usr/sbin/pw groupadd -n historytracers
+	fi
+	if ! /usr/sbin/pw usershow historytracers 2>/dev/null; then
+		/usr/sbin/pw useradd -n historytracers -g historytracers \
+			-d /usr/share/historytracers -s /usr/sbin/nologin \
+			-c "History Tracers User"
+	fi
+	;;
 POST-INSTALL)
 	chown -R historytracers:historytracers %%PREFIX%%/share/historytracers 2>/dev/null || true
 	chown historytracers:historytracers %%PREFIX%%/bin/historytracers 2>/dev/null || true
-	chown historytracers:historytracers %%PREFIX%%/bin/historytracers-publisher 2>/dev/null || true
+	#chown historytracers:historytracers %%PREFIX%%/bin/historytracers-editor 2>/dev/null || true
 	chown -R historytracers:historytracers %%PREFIX%%/etc/historytracers 2>/dev/null || true
 	chown historytracers:historytracers /var/db/historytracers 2>/dev/null || true
 	chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true

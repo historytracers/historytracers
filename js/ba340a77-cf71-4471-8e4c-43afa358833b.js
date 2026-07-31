@@ -34,6 +34,7 @@ function htLoadContent() {
 
     htSetImageSrc("imgSoroban", "images/Tohoku/Soroban.png");
     htSetImageSrc("imgSuanpan", "images/BritishMuseum/mid_01381495_001.jpg");
+    htSetImageSrc("imgSchyoty", "images/BritishMuseum/289044001.jpg");
 
     htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
     htSetImageSrc("rightHandImg", "images/HistoryTracers/0Right_Hand_Small.png");

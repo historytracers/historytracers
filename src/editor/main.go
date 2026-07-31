@@ -431,6 +431,11 @@ type indexFile struct {
 	Content []indexContentItem `json:"content"`
 }
 
+type historyEntry struct {
+	Path        string `json:"path"`
+	DisplayName string `json:"displayName"`
+}
+
 func updateFeedInAllLangs(pageType string, arg string, displayName string) {
 	link := fmt.Sprintf(`<a href="index.html?page=%s&arg=%s" onclick="htLoadPage('%s','html', '%s', false); return false;">%s</a>`, pageType, arg, pageType, arg, displayName)
 	for _, lang := range editorLangs {
@@ -736,6 +741,8 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	tpl.Title = ""
+	tpl.Index = ""
 	tpl.Sources = []string{strID}
 	tpl.License = []string{"SPDX-License-Identifier: GPL-3.0-or-later"}
 	tpl.LastUpdate = []string{common.HTUpdateTimestamp()}
@@ -772,6 +779,12 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		fp.Close()
+	}
+
+	if err := htInsertSourceFileEntry(strID, strID); err != nil {
+		log.Printf("ERROR createSmartphone: insert source entry: %v", err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	rotateToken()
@@ -1034,6 +1047,27 @@ func addHistory(path string) {
 	os.WriteFile(historyFile, b, 0644)
 }
 
+func getDisplayName(path string) string {
+	if !strings.HasSuffix(strings.ToLower(path), ".json") {
+		return path
+	}
+	absPath := filepath.Join(rootDir, path)
+	b, err := os.ReadFile(absPath)
+	if err != nil {
+		return path
+	}
+	var data map[string]interface{}
+	if err := json.Unmarshal(b, &data); err != nil {
+		return path
+	}
+	if header, ok := data["header"]; ok {
+		if s, ok := header.(string); ok && s != "" {
+			return s
+		}
+	}
+	return path
+}
+
 func historyHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
@@ -1042,7 +1076,14 @@ func historyHandler(w http.ResponseWriter, r *http.Request) {
 		if history == nil {
 			history = []string{}
 		}
-		json.NewEncoder(w).Encode(history)
+		entries := make([]historyEntry, len(history))
+		for i, p := range history {
+			entries[i] = historyEntry{
+				Path:        p,
+				DisplayName: getDisplayName(p),
+			}
+		}
+		json.NewEncoder(w).Encode(entries)
 	case http.MethodPost:
 		fileParam := r.FormValue("file")
 		if fileParam == "" {
@@ -1606,13 +1647,35 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			if !strings.Contains(e.Name(), "-") {
 				continue
 			}
-			candidate := filepath.Join(langDir, e.Name(), uuidStr+".json")
+			langName := e.Name()
+			langPath := filepath.Join(langDir, langName)
+			// check root language directory
+			candidate := filepath.Join(langPath, uuidStr+".json")
 			if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
 				rel, _ := filepath.Rel(rootDir, candidate)
 				result = append(result, map[string]string{
 					"path":  filepath.ToSlash(rel),
-					"label": e.Name(),
+					"label": langName,
 				})
+				continue
+			}
+			// check subdirectories (smartphone, smGame, etc.)
+			subEntries, err := os.ReadDir(langPath)
+			if err == nil {
+				for _, sub := range subEntries {
+					if !sub.IsDir() {
+						continue
+					}
+					candidate := filepath.Join(langPath, sub.Name(), uuidStr+".json")
+					if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
+						rel, _ := filepath.Rel(rootDir, candidate)
+						result = append(result, map[string]string{
+							"path":  filepath.ToSlash(rel),
+							"label": langName,
+						})
+						break
+					}
+				}
 			}
 		}
 	}

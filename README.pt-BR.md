@@ -216,3 +216,5 @@ $ make install            # Instalar binários no sistema
 $ make clean              # Remover artefatos de compilação
 ```
 
+> **Status do Editor:** O History Tracers Editor está atualmente em desenvolvimento e **não está incluído** nos pacotes gerados por padrão. Para compilar e usar o editor, execute `./historytracers-installer.sh`.
+

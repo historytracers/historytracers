@@ -36,7 +36,7 @@ fi
 # Set ownership on all installed files (outside home directories)
 chown -R historytracers:historytracers /usr/share/historytracers/ 2>/dev/null || true
 chown historytracers:historytracers /usr/bin/historytracers 2>/dev/null || true
-chown historytracers:historytracers /usr/bin/historytracers-editor 2>/dev/null || true
+#chown historytracers:historytracers /usr/bin/historytracers-editor 2>/dev/null || true
 chown -R historytracers:historytracers /etc/historytracers 2>/dev/null || true
 chown historytracers:historytracers /var/lib/historytracers 2>/dev/null || true
 chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true
@@ -44,12 +44,4 @@ chown -R historytracers:historytracers /usr/src/historytracers 2>/dev/null || tr
 
 echo ""
 echo "History Tracers has been installed."
-echo ""
-echo "To start History Tracers:"
-echo "bash /etc/rc.d/rc.historytracers start"
-echo ""
-echo "To enable at boot, make /etc/rc.d/rc.historytracers executable:"
-echo "  chmod +x /etc/rc.d/rc.historytracers"
-echo ""
-echo "And add start command to /etc/rc.d/rc.local"
 echo ""
