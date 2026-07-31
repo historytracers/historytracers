@@ -781,6 +781,12 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		fp.Close()
 	}
 
+	if err := htInsertSourceFileEntry(strID, strID); err != nil {
+		log.Printf("ERROR createSmartphone: insert source entry: %v", err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
 	rotateToken()
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
