@@ -481,6 +481,7 @@ function showLevelCongrats(msg) {
     document.getElementById('stepStatus').innerHTML = '';
     document.getElementById('feedbackArea').innerHTML = '<div class="congrats">' + msg + '</div>';
     setVis('nextStepBtn', false);
+    setVis('nextLevelBtn', false);
 }
 
 function htLoadContent() {
