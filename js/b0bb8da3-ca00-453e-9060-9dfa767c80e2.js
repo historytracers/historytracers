@@ -12,6 +12,7 @@ var localYupanaController = {
     "expectCarryClick": false,
     "awaitingMovementStep": false,
     "awaitingDigitStep": false,
+    "carryJustPlaced": false,
     "pendingCarry": false,
     "movementsDone": [],
     "digitPositions": [],
@@ -45,6 +46,7 @@ function startNewExercise() {
     localYupanaController.expectCarryClick = false;
     localYupanaController.awaitingMovementStep = false;
     localYupanaController.awaitingDigitStep = false;
+    localYupanaController.carryJustPlaced = false;
     localYupanaController.pendingCarry = false;
     var n = generateRandomNumbersByLevel();
     localYupanaController.currentExercise = { a: n.a, b: n.b, expected: n.a + n.b };
@@ -73,11 +75,12 @@ function countEvaluationSteps() {
         var dA = getDigit(a, p);
         var dB = getDigit(b, p);
         var total = dA + dB + carry;
-        if (dA > 0 || dB > 0 || carry > 0) {
+        if (dA > 0 || dB > 0) {
             count++;
         }
         if (total >= 10) {
             carry = 1;
+            count++;
         } else {
             carry = 0;
         }
@@ -142,6 +145,7 @@ function startEvaluation() {
     localYupanaController.expectCarryClick = false;
     localYupanaController.awaitingMovementStep = false;
     localYupanaController.pendingCarry = false;
+    localYupanaController.carryJustPlaced = false;
     setVis('nextStepBtn', false);
     document.getElementById('stepStatus').innerHTML = '';
     processNextColumn();
@@ -271,7 +275,7 @@ function processNextColumn() {
     var dB = getDigit(localYupanaController.currentExercise.b, col);
     var total = dA + dB + carry;
 
-    if (dA === 0 && dB === 0 && carry === 0 && col < maxC) {
+    if (dA === 0 && dB === 0 && col < maxC) {
         localYupanaController.evalCol = col + 1;
         localYupanaController.evalCarry = 0;
         processNextColumn();
@@ -304,19 +308,20 @@ function processNextColumn() {
         return;
     }
 
+    var carryTerm = carry > 0 ? " + 1 (" + tm('txt_carrying') + ")" : "";
     var instr;
     if (total >= 10) {
         instr = tm('txt_evalCarryDigit')
             .replace(/\{placeName\}/g, getPlaceName(col))
             .replace(/\{digitA\}/g, dA)
-            .replace(/\{digitB\}/g, dB)
+            .replace(/\{digitB\}/g, dB + carryTerm)
             .replace(/\{total\}/g, total)
             .replace(/\{resultDigit\}/g, resultDigit);
     } else {
         instr = tm('txt_evalSimple')
             .replace(/\{placeName\}/g, getPlaceName(col))
             .replace(/\{digitA\}/g, dA)
-            .replace(/\{digitB\}/g, dB)
+            .replace(/\{digitB\}/g, dB + carryTerm)
             .replace(/\{total\}/g, total)
             .replace(/\{result\}/g, total);
     }
@@ -404,7 +409,10 @@ function onCellClick(rowIdx, colIdx) {
                 localYupanaController.expectCarryClick = false;
                 localYupanaController.awaitingMovementStep = true;
                 localYupanaController.pendingCarry = false;
+                localYupanaController.carryJustPlaced = true;
                 localYupanaController.movementsDone = ['PISQA'];
+                localYupanaController.stepNumber++;
+                updateStepStatus();
                 document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' +
                     tm('txt_carryConfirmMessage')
                         .replace(/\{nextPlace\}/g, getPlaceName(rowIdx))
@@ -497,6 +505,7 @@ function htLoadContent() {
         localYupanaController.expectCarryClick = false;
         localYupanaController.awaitingMovementStep = false;
         localYupanaController.awaitingDigitStep = false;
+        localYupanaController.carryJustPlaced = false;
         localYupanaController.pendingCarry = false;
         localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
         htYupanaStateClear('#yupana1', localYupanaController.state);
@@ -526,7 +535,8 @@ function htLoadContent() {
                 document.getElementById('feedbackArea').innerHTML = '';
                 setVis('nextStepBtn', false);
             } else {
-                localYupanaController.evalCarry = 0;
+                localYupanaController.evalCarry = localYupanaController.carryJustPlaced ? 1 : 0;
+                localYupanaController.carryJustPlaced = false;
                 localYupanaController.evalCol = localYupanaController.evalCol + 1;
                 processNextColumn();
             }
