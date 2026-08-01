@@ -287,6 +287,21 @@ function processNextColumn() {
     }
 
     var resultDigit = total >= 10 ? total - 10 : total;
+
+    if (resultDigit === 0) {
+        localYupanaController.stepNumber++;
+        updateStepStatus();
+        localYupanaController.evalDone = false;
+        s.green[col] = [false, false, false, false];
+        for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, col, c);
+        localYupanaController.movementsDone = getColumnMovements(dA, dB, carry);
+        localYupanaController.pendingCarry = total >= 10;
+        localYupanaController.awaitingMovementStep = true;
+        document.getElementById('stepMessage').innerHTML = '';
+        showMovementsMessage(getPlaceName(col));
+        return;
+    }
+
     var instr;
     if (total >= 10) {
         instr = tm('txt_evalCarryDigit')
