@@ -302,7 +302,13 @@ function processNextColumn() {
         localYupanaController.movementsDone = getColumnMovements(dA, dB, carry);
         localYupanaController.pendingCarry = total >= 10;
         localYupanaController.awaitingMovementStep = true;
-        document.getElementById('stepMessage').innerHTML = '';
+        var carryTerm = carry > 0 ? " + 1 (" + tm('txt_carrying') + ")" : "";
+        document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " +
+            tm('txt_evalZero')
+                .replace(/\{placeName\}/g, getPlaceName(col))
+                .replace(/\{digitA\}/g, dA)
+                .replace(/\{digitB\}/g, dB + carryTerm)
+                .replace(/\{total\}/g, total);
         showMovementsMessage(getPlaceName(col));
         return;
     }
