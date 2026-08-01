@@ -11,6 +11,7 @@ var localYupanaController = {
     "evalDone": false,
     "expectCarryClick": false,
     "awaitingMovementStep": false,
+    "awaitingDigitStep": false,
     "pendingCarry": false,
     "movementsDone": [],
     "digitPositions": [],
@@ -43,6 +44,7 @@ function startNewExercise() {
     localYupanaController.evalDone = false;
     localYupanaController.expectCarryClick = false;
     localYupanaController.awaitingMovementStep = false;
+    localYupanaController.awaitingDigitStep = false;
     localYupanaController.pendingCarry = false;
     var n = generateRandomNumbersByLevel();
     localYupanaController.currentExercise = { a: n.a, b: n.b, expected: n.a + n.b };
@@ -168,6 +170,7 @@ function showDigitInstruction(phase) {
     var pos = localYupanaController.digitPositions[localYupanaController.digitIdx];
     var n = (phase === 1) ? localYupanaController.currentExercise.a : localYupanaController.currentExercise.b;
     var key = (phase === 1) ? 'txt_step1DigitInstruction' : 'txt_step2DigitInstruction';
+    localYupanaController.awaitingDigitStep = false;
     document.getElementById('feedbackArea').innerHTML = '';
     document.getElementById('stepMessage').innerHTML = t.get('txt_stepPrefix') + " " + t.get(key)
         .replace(/\{step\}/g, localYupanaController.stepNumber)
@@ -337,10 +340,12 @@ function onCellClick(rowIdx, colIdx) {
     if (phase === 1) {
         var pos1 = localYupanaController.digitPositions[localYupanaController.digitIdx];
         if (rowIdx !== pos1) return;
+        if (localYupanaController.awaitingDigitStep) return;
         htYupanaStateToggleCell('#yupana1', s, rowIdx, colIdx, 'red');
         var cv1 = [5,3,2,1], actual1 = 0;
         for (var c1 = 0; c1 < 4; c1++) if (s.red[rowIdx][c1]) actual1 += cv1[c1];
         if (actual1 === getDigit(localYupanaController.currentExercise.a, pos1)) {
+            localYupanaController.awaitingDigitStep = true;
             document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' + tm('txt_correctMessage') + '</div>';
         }
         return;
@@ -349,6 +354,7 @@ function onCellClick(rowIdx, colIdx) {
     if (phase === 2) {
         var pos2 = localYupanaController.digitPositions[localYupanaController.digitIdx];
         if (rowIdx !== pos2) return;
+        if (localYupanaController.awaitingDigitStep) return;
         if (s.blue[rowIdx][colIdx]) {
             s.blue[rowIdx][colIdx] = false;
         } else {
@@ -358,6 +364,7 @@ function onCellClick(rowIdx, colIdx) {
         var cv2 = [5,3,2,1], actual2 = 0;
         for (var c2 = 0; c2 < 4; c2++) if (s.blue[rowIdx][c2]) actual2 += cv2[c2];
         if (actual2 === getDigit(localYupanaController.currentExercise.b, pos2)) {
+            localYupanaController.awaitingDigitStep = true;
             document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' + tm('txt_correctMessage') + '</div>';
         }
         return;
@@ -472,6 +479,7 @@ function htLoadContent() {
         localYupanaController.evalDone = false;
         localYupanaController.expectCarryClick = false;
         localYupanaController.awaitingMovementStep = false;
+        localYupanaController.awaitingDigitStep = false;
         localYupanaController.pendingCarry = false;
         localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
         htYupanaStateClear('#yupana1', localYupanaController.state);
