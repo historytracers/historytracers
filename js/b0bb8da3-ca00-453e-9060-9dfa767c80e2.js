@@ -211,14 +211,14 @@ function getColumnMovements(dA, dB, carry) {
     addDigit(dA); addDigit(dB); if (carry > 0) add(1);
     var moves = [], guard = 0;
     while (guard++ < 50) {
-        if (c5 >= 2) { c5 -= 2; moves.push('PISQA'); }
-        else if (c3 >= 2) { c3 -= 2; c1 += 1; c5 += 1; moves.push('KIMSA'); }
-        else if (c2 >= 2) { c2 -= 2; c1 += 1; c3 += 1; moves.push('ISKAY'); }
-        else if (c1 >= 5) { c1 -= 5; c5 += 1; moves.push('KINKIN'); }
-        else if (c1 >= 3) { c1 -= 3; c3 += 1; moves.push('KINKIN'); }
-        else if (c1 >= 2) { c1 -= 2; c2 += 1; moves.push('KINKIN'); }
-        else if (c2 >= 1 && c3 >= 1) { c2 -= 1; c3 -= 1; c5 += 1; moves.push('PICHANA'); }
-        else if (c1 >= 1 && c2 >= 1) { c1 -= 1; c2 -= 1; c3 += 1; moves.push('PICHANA'); }
+        if (c5 >= 2) { c5 -= 2; moves.push({ name: 'PISQA', op: '5 + 5 = 10' }); }
+        else if (c3 >= 2) { c3 -= 2; c1 += 1; c5 += 1; moves.push({ name: 'KIMSA', op: '3 + 3 = 1 + 5' }); }
+        else if (c2 >= 2) { c2 -= 2; c1 += 1; c3 += 1; moves.push({ name: 'ISKAY', op: '2 + 2 = 1 + 3' }); }
+        else if (c1 >= 5) { c1 -= 5; c5 += 1; moves.push({ name: 'KINKIN', op: '1 + 1 + 1 + 1 + 1 = 5' }); }
+        else if (c1 >= 3) { c1 -= 3; c3 += 1; moves.push({ name: 'KINKIN', op: '1 + 1 + 1 = 3' }); }
+        else if (c1 >= 2) { c1 -= 2; c2 += 1; moves.push({ name: 'KINKIN', op: '1 + 1 = 2' }); }
+        else if (c2 >= 1 && c3 >= 1) { c2 -= 1; c3 -= 1; c5 += 1; moves.push({ name: 'PICHANA', op: '2 + 3 = 5' }); }
+        else if (c1 >= 1 && c2 >= 1) { c1 -= 1; c2 -= 1; c3 += 1; moves.push({ name: 'PICHANA', op: '1 + 2 = 3' }); }
         else break;
     }
     return moves;
@@ -226,7 +226,14 @@ function getColumnMovements(dA, dB, carry) {
 
 function formatMovements(moves) {
     var names = [];
-    for (var i = 0; i < moves.length; i++) names.push(tm('txt_movement' + moves[i]));
+    for (var i = 0; i < moves.length; i++) {
+        var m = moves[i];
+        if (typeof m === 'string') {
+            names.push(tm('txt_movement' + m));
+        } else {
+            names.push(tm('txt_movement' + m.name) + " (" + m.op + ")");
+        }
+    }
     return names.join(", ");
 }
 
