@@ -301,6 +301,7 @@ function processNextColumn() {
             .replace(/\{result\}/g, total);
     }
     document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + instr;
+    document.getElementById('feedbackArea').innerHTML = '';
 
     localYupanaController.stepNumber++;
     updateStepStatus();
