@@ -3,7 +3,7 @@
 var localYupanaController = {
     "ROWS": 4,
     "state": null,
-    "currentLevel": "units",
+    "currentLevel": 1,
     "currentExercise": { value: 0, times: 0, expected: 0 },
     "currentTotal": 0,
     "currentStep": 0,
@@ -27,9 +27,7 @@ var localYupanaController = {
 
 function generateRandomNumbersByLevel() {
     var l = localYupanaController.currentLevel;
-    if (l === "units") return { value: rand(8)+2, times: rand(2)+2 };
-    if (l === "tens") return { value: rand(8)+2, times: rand(3)+4 };
-    return { value: rand(8)+2, times: rand(3)+7 };
+    return { value: rand(8)+2, times: l };
     function rand(m) { return Math.floor(Math.random() * m); }
 }
 
@@ -207,9 +205,18 @@ function advanceDigitPhase(phase) {
             localYupanaController.currentTotal = localYupanaController.currentExercise.value;
             localYupanaController.currentStep = 1;
             appendMultRow();
-            showPhase(2);
+            localYupanaController.stepNumber++;
+            if (localYupanaController.currentStep >= localYupanaController.currentExercise.times) {
+                showPhase(4);
+            } else {
+                showPhase(2);
+            }
         } else {
-            showPhase(3);
+            if (localYupanaController.currentStep >= localYupanaController.currentExercise.times) {
+                showPhase(4);
+            } else {
+                showPhase(3);
+            }
         }
     }
 }
@@ -317,8 +324,11 @@ function processNextColumn() {
     }
 
     if (col >= maxC && carry > 0) {
+        localYupanaController.stepNumber++;
+        updateStepStatus();
         localYupanaController.expectCarryClick = true;
-        document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + tm('txt_carryFinalInstruction');
+        document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " +
+            tm('txt_carryFinalInstruction').replace(/\{step\}/g, localYupanaController.stepNumber);
         s.gray[col] = [false, false, false, true];
         htYupanaStateRenderCell('#yupana1', s, col, 3);
         return;
@@ -340,6 +350,7 @@ function processNextColumn() {
         var carryTerm = carry > 0 ? " + 1 (" + tm('txt_carrying') + ")" : "";
         document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " +
             tm('txt_evalZero')
+                .replace(/\{step\}/g, localYupanaController.stepNumber)
                 .replace(/\{placeName\}/g, getPlaceName(col))
                 .replace(/\{digitA\}/g, dA)
                 .replace(/\{digitB\}/g, dB + carryTerm)
@@ -349,9 +360,12 @@ function processNextColumn() {
     }
 
     var carryTerm = carry > 0 ? " + 1 (" + tm('txt_carrying') + ")" : "";
+    localYupanaController.stepNumber++;
+    updateStepStatus();
     var instr;
     if (total >= 10) {
         instr = tm('txt_evalCarryDigit')
+            .replace(/\{step\}/g, localYupanaController.stepNumber)
             .replace(/\{placeName\}/g, getPlaceName(col))
             .replace(/\{digitA\}/g, dA)
             .replace(/\{digitB\}/g, dB + carryTerm)
@@ -359,6 +373,7 @@ function processNextColumn() {
             .replace(/\{resultDigit\}/g, resultDigit);
     } else {
         instr = tm('txt_evalSimple')
+            .replace(/\{step\}/g, localYupanaController.stepNumber)
             .replace(/\{placeName\}/g, getPlaceName(col))
             .replace(/\{digitA\}/g, dA)
             .replace(/\{digitB\}/g, dB + carryTerm)
@@ -368,8 +383,6 @@ function processNextColumn() {
     document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + instr;
     document.getElementById('feedbackArea').innerHTML = '';
 
-    localYupanaController.stepNumber++;
-    updateStepStatus();
     localYupanaController.evalDone = false;
     s.green[col] = [false, false, false, false];
     for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, col, c);
@@ -474,8 +487,6 @@ function onCellClick(rowIdx, colIdx) {
                 localYupanaController.pendingCarry = false;
                 localYupanaController.carryJustPlaced = true;
                 localYupanaController.movementsDone = ['PISQA'];
-                localYupanaController.stepNumber++;
-                updateStepStatus();
                 document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' +
                     tm('txt_carryConfirmMessage')
                         .replace(/\{nextPlace\}/g, getPlaceName(rowIdx))
@@ -516,21 +527,25 @@ function onCellClick(rowIdx, colIdx) {
     }
 }
 
+function updateLevelBadge() {
+    var lvl = localYupanaController.currentLevel;
+    var bg = ["#ffb347", "#4caf50", "#ff7043"];
+    var el = document.getElementById('levelBadge');
+    if (!el) return;
+    el.innerHTML = tm('txt_level') + " " + lvl;
+    el.style.background = bg[(lvl - 1) % bg.length];
+}
+
 function toggleLevel() {
-    var lvls = ["units","tens","hundreds"];
-    var bg = ["#ffb347","#4caf50","#ff7043"];
-    var idx = lvls.indexOf(localYupanaController.currentLevel);
-    if (idx === 2) {
-        localYupanaController.currentLevel = "units";
-        document.getElementById('levelBadge').innerHTML = tm('txt_levelUnits');
-        document.getElementById('levelBadge').style.background = bg[0];
+    var lvl = localYupanaController.currentLevel;
+    if (lvl >= 9) {
+        localYupanaController.currentLevel = 1;
+        updateLevelBadge();
         showLevelCongrats(tm('txt_lastLevelMessage'));
         return;
     }
-    idx++;
-    localYupanaController.currentLevel = lvls[idx];
-    document.getElementById('levelBadge').innerHTML = tm('txt_level' + lvls[idx].charAt(0).toUpperCase() + lvls[idx].slice(1));
-    document.getElementById('levelBadge').style.background = bg[idx];
+    localYupanaController.currentLevel = lvl + 1;
+    updateLevelBadge();
     startNewExercise();
 }
 
@@ -601,10 +616,13 @@ function htLoadContent() {
                 var col = localYupanaController.evalCol;
                 localYupanaController.pendingCarry = false;
                 localYupanaController.expectCarryClick = true;
+                localYupanaController.stepNumber++;
+                updateStepStatus();
                 var nextCol = col + 1;
                 s.gray[nextCol] = [false, false, false, true];
                 htYupanaStateRenderCell('#yupana1', s, nextCol, 3);
-                document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + tm('txt_carryFinalInstruction');
+                document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " +
+                    tm('txt_carryFinalInstruction').replace(/\{step\}/g, localYupanaController.stepNumber);
                 document.getElementById('feedbackArea').innerHTML = '';
                 setVis('nextStepBtn', false);
             } else {
@@ -629,6 +647,7 @@ function htLoadContent() {
         }
     };
 
+    updateLevelBadge();
     _('stepMessage') && (_('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + tm('txt_welcomeMessage'));
     startNewExercise();
 
