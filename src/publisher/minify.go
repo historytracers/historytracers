@@ -8,7 +8,9 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"runtime"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/tdewolff/minify/v2"
@@ -71,6 +73,83 @@ var chartPattern = regexp.MustCompile("^chart_")
 var jqueryPattern = regexp.MustCompile("^jquery-")
 var showdownPattern = regexp.MustCompile("^showdown.")
 var rewriteHTML bool = false
+
+// htMinifyJob is a single, self-contained file minification task. Each job
+// references a distinct pair of input/output files, so the same file can
+// never be processed by more than one worker at a time.
+type htMinifyJob struct {
+	MinifyType string
+	InFile     string
+	OutFile    string
+}
+
+// htRegisterMinifier registers the minifier matching the given mediatype on
+// an minify.M instance. Only the relevant minifier is registered so that
+// other minifiers never touch content of a different type (e.g. inline JS
+// inside HTML must not be run through the JS minifier).
+func htRegisterMinifier(m *minify.M, minifyType string) {
+	switch minifyType {
+	case "application/json":
+		m.AddFunc("application/json", mjson.Minify)
+	case "application/javascript":
+		m.AddFunc("application/javascript", js.Minify)
+	case "text/css":
+		m.AddFunc("text/css", css.Minify)
+	case "text/html":
+		m.AddFunc("text/html", html.Minify)
+	}
+}
+
+// htRunMinifyParallel runs the given jobs concurrently, one worker per
+// available processor. Each worker owns its own minify.M instance (the
+// minify library is not safe for concurrent use of a single instance), and
+// the caller blocks until every job has finished. The first error (if any)
+// is returned.
+func htRunMinifyParallel(jobs []htMinifyJob) error {
+	if len(jobs) == 0 {
+		return nil
+	}
+
+	numWorkers := runtime.NumCPU()
+	if numWorkers > len(jobs) {
+		numWorkers = len(jobs)
+	}
+
+	jobCh := make(chan htMinifyJob)
+	errCh := make(chan error, len(jobs))
+
+	var wg sync.WaitGroup
+	for i := 0; i < numWorkers; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			ms := make(map[string]*minify.M)
+			for job := range jobCh {
+				m := ms[job.MinifyType]
+				if m == nil {
+					m = minify.New()
+					htRegisterMinifier(m, job.MinifyType)
+					ms[job.MinifyType] = m
+				}
+				if err := htMinifyCommonFile(m, job.MinifyType, job.InFile, job.OutFile); err != nil {
+					errCh <- err
+				}
+			}
+		}()
+	}
+
+	for _, job := range jobs {
+		jobCh <- job
+	}
+	close(jobCh)
+	wg.Wait()
+	close(errCh)
+
+	for err := range errCh {
+		return err
+	}
+	return nil
+}
 
 func htMinifyCreateDirectories() {
 	htCreateDirectory(CFG.ContentPath)
@@ -224,43 +303,41 @@ func htRewriteAndMinifySMGame(lang string) {
 		return
 	}
 
-	m := minify.New()
-	m.AddFunc("application/json", mjson.Minify)
-
+	// Rewrites mutate global source maps, so they must run sequentially.
 	for _, entry := range entries {
 		if entry.IsDir() {
 			continue
 		}
 
 		smGameFile := smGameDir + entry.Name()
-		dstFile := contentSmGameDir + entry.Name()
 
 		err = htRewriteSMGame(smGameFile)
 		if err != nil {
 			fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
 		}
+	}
 
-		err = htMinifyJSONFile(m, smGameFile, dstFile)
-		if err != nil {
-			panic(err)
+	var jobs []htMinifyJob
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
 		}
-	}
-}
 
-func htMinifyJSONFile(m *minify.M, inFile string, outFile string) error {
-	if verboseFlag {
-		fmt.Println("Minifying JSON", outFile)
+		jobs = append(jobs, htMinifyJob{
+			MinifyType: "application/json",
+			InFile:     smGameDir + entry.Name(),
+			OutFile:    contentSmGameDir + entry.Name(),
+		})
 	}
-	return htMinifyCommonFile(m, "application/json", inFile, outFile)
+
+	err = htRunMinifyParallel(jobs)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func htMinifyJSON() {
-	var outFile string
-	var inFile string
-	var err error
-
-	m := minify.New()
-	m.AddFunc("application/json", mjson.Minify)
+	var jobs []htMinifyJob
 
 	for i := HTDirLangSources; i < HTDirWebFonts; i++ {
 		if i == HTDirLangSources {
@@ -282,13 +359,17 @@ func htMinifyJSON() {
 				continue
 			}
 
-			outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
-			inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
-			err = htMinifyJSONFile(m, inFile, outFile)
-			if err != nil {
-				panic(err)
-			}
+			jobs = append(jobs, htMinifyJob{
+				MinifyType: "application/json",
+				InFile:     fmt.Sprintf("%s%s", inBodies, fileName.Name()),
+				OutFile:    fmt.Sprintf("%s%s", outBodies, fileName.Name()),
+			})
 		}
+	}
+
+	err := htRunMinifyParallel(jobs)
+	if err != nil {
+		panic(err)
 	}
 }
 
@@ -312,9 +393,7 @@ func htMinifySourcesFromDB() {
 	}
 	defer rows.Close()
 
-	m := minify.New()
-	m.AddFunc("application/json", mjson.Minify)
-
+	var jobs []htMinifyJob
 	for rows.Next() {
 		var fileID string
 		if err := rows.Scan(&fileID); err != nil {
@@ -340,14 +419,22 @@ func htMinifySourcesFromDB() {
 		e.Encode(sf)
 		fp.Close()
 
-		err = htMinifyJSONFile(m, tmpFile, outFile)
-		if err != nil {
-			panic(fmt.Errorf("failed to minify source file %s: %w", fileID, err))
-		}
+		jobs = append(jobs, htMinifyJob{
+			MinifyType: "application/json",
+			InFile:     tmpFile,
+			OutFile:    outFile,
+		})
+	}
 
-		err = os.Remove(tmpFile)
+	err = htRunMinifyParallel(jobs)
+	if err != nil {
+		panic(fmt.Errorf("failed to minify source files: %w", err))
+	}
+
+	for _, job := range jobs {
+		err = os.Remove(job.InFile)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "ERROR removing tmp %s: %v\n", tmpFile, err)
+			fmt.Fprintf(os.Stderr, "ERROR removing tmp %s: %v\n", job.InFile, err)
 		}
 	}
 }
@@ -398,12 +485,7 @@ func htParseJS(fileName string, dstFile string, srcFile string) bool {
 }
 
 func htMinifyJS() {
-	var outFile string
-	var inFile string
-
-	m := minify.New()
-	var err error
-	m.AddFunc("application/javascript", js.Minify)
+	var jobs []htMinifyJob
 
 	outBodies := fmt.Sprintf("%sjs/", CFG.ContentPath)
 	inBodies := fmt.Sprintf("%sjs/", CFG.SrcPath)
@@ -413,16 +495,22 @@ func htMinifyJS() {
 	}
 
 	for _, fileName := range entries {
-		outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
-		inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
+		outFile := fmt.Sprintf("%s%s", outBodies, fileName.Name())
+		inFile := fmt.Sprintf("%s%s", inBodies, fileName.Name())
 		if htParseJS(fileName.Name(), outFile, inFile) == false {
 			continue
 		}
 
-		err = htMinifyJSFile(m, inFile, outFile)
-		if err != nil {
-			panic(err)
-		}
+		jobs = append(jobs, htMinifyJob{
+			MinifyType: "application/javascript",
+			InFile:     inFile,
+			OutFile:    outFile,
+		})
+	}
+
+	err := htRunMinifyParallel(jobs)
+	if err != nil {
+		panic(err)
 	}
 }
 
@@ -494,28 +582,14 @@ func htUpdateIndex() {
 	}
 }
 
-func htMinifyHTMLFile(m *minify.M, inFile string, outFile string) error {
-	if verboseFlag {
-		fmt.Println("Minifying HTML", outFile)
-	}
-	return htMinifyCommonFile(m, "text/html", inFile, outFile)
-}
-
 func htMinifyHTML() {
-	var outFile string
-	var inFile string
+	var jobs []htMinifyJob
 
-	outFile = fmt.Sprintf("%sindex.html", CFG.ContentPath)
-	inFile = fmt.Sprintf("%sindex.html", CFG.SrcPath)
-
-	m := minify.New()
-	var err error
-	m.AddFunc("text/html", html.Minify)
-
-	err0 := htMinifyHTMLFile(m, inFile, outFile)
-	if err0 != nil {
-		panic(err0)
-	}
+	jobs = append(jobs, htMinifyJob{
+		MinifyType: "text/html",
+		InFile:     fmt.Sprintf("%sindex.html", CFG.SrcPath),
+		OutFile:    fmt.Sprintf("%sindex.html", CFG.ContentPath),
+	})
 
 	outBodies := fmt.Sprintf("%sbodies/", CFG.ContentPath)
 	inBodies := fmt.Sprintf("%sbodies/", CFG.SrcPath)
@@ -525,12 +599,16 @@ func htMinifyHTML() {
 	}
 
 	for _, fileName := range entries {
-		outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
-		inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
-		err = htMinifyHTMLFile(m, inFile, outFile)
-		if err != nil {
-			panic(err)
-		}
+		jobs = append(jobs, htMinifyJob{
+			MinifyType: "text/html",
+			InFile:     fmt.Sprintf("%s%s", inBodies, fileName.Name()),
+			OutFile:    fmt.Sprintf("%s%s", outBodies, fileName.Name()),
+		})
+	}
+
+	err := htRunMinifyParallel(jobs)
+	if err != nil {
+		panic(err)
 	}
 }
 
