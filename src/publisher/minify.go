@@ -97,22 +97,19 @@ func htMinifyCommonFile(m *minify.M, minifyType string, inFile string, outFile s
 	if err1 != nil {
 		return err1
 	}
+	defer r.Close()
 
 	w, err2 := os.Create(outFile)
 	if err2 != nil {
 		return err2
 	}
+	defer w.Close()
 
 	if err3 := m.Minify(minifyType, w, r); err3 != nil {
 		return err3
 	}
 
-	err4 := w.Close()
-	if err4 != nil {
-		return err4
-	}
-
-	return nil
+	return w.Close()
 }
 
 func htUpdateHTCSS() error {
