@@ -462,25 +462,25 @@ function toggleLevel() {
     var lvls = ["units","tens","hundreds"];
     var bg = ["#ffb347","#4caf50","#ff7043"];
     var idx = lvls.indexOf(localYupanaController.currentLevel);
-    var congratsMsg = '';
-    if (idx < 2) {
-        idx++;
-        localYupanaController.currentLevel = lvls[idx];
-        document.getElementById('levelBadge').innerHTML = tm('txt_level' + lvls[idx].charAt(0).toUpperCase() + lvls[idx].slice(1));
-        document.getElementById('levelBadge').style.background = bg[idx];
-        if (idx === 2) {
-            congratsMsg = tm('txt_lastLevelMessage');
-        }
-    } else {
+    if (idx === 2) {
         localYupanaController.currentLevel = "units";
         document.getElementById('levelBadge').innerHTML = tm('txt_levelUnits');
         document.getElementById('levelBadge').style.background = bg[0];
-        congratsMsg = tm('txt_finalLevelMessage');
+        showLevelCongrats(tm('txt_lastLevelMessage'));
+        return;
     }
+    idx++;
+    localYupanaController.currentLevel = lvls[idx];
+    document.getElementById('levelBadge').innerHTML = tm('txt_level' + lvls[idx].charAt(0).toUpperCase() + lvls[idx].slice(1));
+    document.getElementById('levelBadge').style.background = bg[idx];
     startNewExercise();
-    if (congratsMsg) {
-        document.getElementById('feedbackArea').innerHTML = '<div class="congrats">' + congratsMsg + '</div>';
-    }
+}
+
+function showLevelCongrats(msg) {
+    document.getElementById('stepMessage').innerHTML = '';
+    document.getElementById('stepStatus').innerHTML = '';
+    document.getElementById('feedbackArea').innerHTML = '<div class="congrats">' + msg + '</div>';
+    setVis('nextStepBtn', false);
 }
 
 function htLoadContent() {
