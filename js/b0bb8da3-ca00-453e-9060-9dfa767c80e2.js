@@ -227,12 +227,11 @@ function processNextColumn() {
     var resultDigit = total >= 10 ? total - 10 : total;
     var instr;
     if (total >= 10) {
-        instr = tm('txt_evalCarry')
+        instr = tm('txt_evalCarryDigit')
             .replace(/\{placeName\}/g, getPlaceName(col))
             .replace(/\{digitA\}/g, dA)
             .replace(/\{digitB\}/g, dB)
             .replace(/\{total\}/g, total)
-            .replace(/\{nextPlace\}/g, getPlaceName(col + 1))
             .replace(/\{resultDigit\}/g, resultDigit);
     } else {
         instr = tm('txt_evalSimple')
