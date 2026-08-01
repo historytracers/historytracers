@@ -27,8 +27,7 @@ function generateRandomNumbersByLevel() {
     var l = localYupanaController.currentLevel;
     if (l === "units") return { a: rand(10), b: rand(10) };
     if (l === "tens") return { a: rand(90)+10, b: rand(90)+10 };
-    if (l === "hundreds") return { a: rand(900)+100, b: rand(900)+100 };
-    return { a: rand(9000)+1000, b: rand(9000)+1000 };
+    return { a: rand(900)+100, b: rand(900)+100 };
     function rand(m) { return Math.floor(Math.random() * m); }
 }
 
@@ -454,10 +453,10 @@ function onCellClick(rowIdx, colIdx) {
 }
 
 function toggleLevel() {
-    var lvls = ["units","tens","hundreds","thousands"];
-    var bg = ["#ffb347","#4caf50","#ff7043","#9c27b0"];
+    var lvls = ["units","tens","hundreds"];
+    var bg = ["#ffb347","#4caf50","#ff7043"];
     var idx = lvls.indexOf(localYupanaController.currentLevel);
-    if (idx < 3) {
+    if (idx < 2) {
         idx++;
         localYupanaController.currentLevel = lvls[idx];
         document.getElementById('levelBadge').innerHTML = tm('txt_level' + lvls[idx].charAt(0).toUpperCase() + lvls[idx].slice(1));
