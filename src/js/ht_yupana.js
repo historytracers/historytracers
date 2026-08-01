@@ -1532,7 +1532,8 @@ function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
         $(sel).append("<span class=\"dot circValues gray_dot_center\"></span>");
     }
     if (state.green[rowIdx][colIdx]) {
-        $(sel).append("<span class=\"dot circValues green_dot_result\"></span>");
+        var greenClass = state.red[rowIdx][colIdx] ? "green_dot_result_side" : "green_dot_result";
+        $(sel).append("<span class=\"dot circValues " + greenClass + "\"></span>");
     }
 }
 
