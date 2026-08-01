@@ -168,7 +168,9 @@ function showDigitInstruction(phase) {
     var pos = localYupanaController.digitPositions[localYupanaController.digitIdx];
     var n = (phase === 1) ? localYupanaController.currentExercise.a : localYupanaController.currentExercise.b;
     var key = (phase === 1) ? 'txt_step1DigitInstruction' : 'txt_step2DigitInstruction';
+    document.getElementById('feedbackArea').innerHTML = '';
     document.getElementById('stepMessage').innerHTML = t.get('txt_stepPrefix') + " " + t.get(key)
+        .replace(/\{step\}/g, localYupanaController.stepNumber)
         .replace(/\{placeName\}/g, getPlaceName(pos))
         .replace(/\{digit\}/g, getDigit(n, pos));
     updateStepStatus();
