@@ -292,6 +292,8 @@ function processNextColumn() {
         localYupanaController.stepNumber++;
         updateStepStatus();
         localYupanaController.evalDone = false;
+        s.red[col] = [false, false, false, false];
+        s.blue[col] = [false, false, false, false];
         s.green[col] = [false, false, false, false];
         for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, col, c);
         localYupanaController.movementsDone = getColumnMovements(dA, dB, carry);
