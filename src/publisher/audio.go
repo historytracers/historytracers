@@ -823,6 +823,9 @@ func htRemoveAsiaticCharacters(text string) string {
 	chineseRegex := regexp.MustCompile(`[\p{Han}]+`)
 	cleaned := chineseRegex.ReplaceAllString(text, "")
 
+	emojiSymbolRegex := regexp.MustCompile(`[\x{1F000}-\x{1FAFF}\x{2600}-\x{27BF}\x{2B00}-\x{2BFF}\x{FE0F}\x{200D}]`)
+	cleaned = emojiSymbolRegex.ReplaceAllString(cleaned, "")
+
 	emptyParenRegex := regexp.MustCompile(`\(\s*\)`)
 	cleaned = emptyParenRegex.ReplaceAllString(cleaned, "")
 
