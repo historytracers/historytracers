@@ -1237,7 +1237,7 @@ function searchKeydown(e){
 
 var templates={
 	Date:'{\n  "type": "gregory",\n  "year": "",\n  "month": "",\n  "day": ""\n}',
-	Text:'{\n  "text": "",\n  "source": [],\n  "date_time": [],\n  "isTable": false,\n  "imgdesc": "",\n  "format": "markdown or html",\n  "PostMention": ""\n}',
+	Text:'{\n  "text": "",\n  "source": [],\n  "date_time": [],\n  "isTable": false,\n  "imgdesc": "",\n  "format": "markdown/html/text",\n  "PostMention": ""\n}',
 	Source:'{\n  "type": 0,\n  "uuid": "",\n  "text": "",\n  "page": "",\n  "date_time": {\n    "type": "gregory",\n    "year": "",\n    "month": "",\n    "day": ""\n  }\n}',
 	Event:'{\n  "date": [],\n  "address": "",\n  "city_id": "",\n  "city": "",\n  "state_id": "",\n  "state": "",\n  "pc": "",\n  "country_id": "",\n  "country": "",\n  "sources": []\n}',
 	Parents:'{\n  "type": "",\n  "father_external_family_file": false,\n  "father_family": "",\n  "father_id": "",\n  "father_name": "",\n  "mother_external_family_file": false,\n  "mother_family": "",\n  "mother_id": "",\n  "mother_name": ""\n}',
@@ -1245,8 +1245,8 @@ var templates={
 	Child:'{\n  "type": "",\n  "id": "",\n  "marriage_id": "",\n  "name": "",\n  "family_id": "",\n  "external_family_file": false,\n  "add_link": false,\n  "history": [],\n  "adopted_child": false\n}',
 	Haplogroup:'{\n  "type": "",\n  "haplogroup": "",\n  "sources": []\n}',
 	Person:'{\n  "id": "",\n  "name": "",\n  "surname": "",\n  "patronymic": "",\n  "fullname": "",\n  "sex": "",\n  "gender": "",\n  "is_real": false,\n  "haplogroup": [],\n  "history": [],\n  "parents": [],\n  "birth": [],\n  "baptism": [],\n  "marriages": [],\n  "divorced": [],\n  "children": [],\n  "death": []\n}',
-	ClassContent:'{\n  "id": "SECTION_NAME",\n  "text": [\n    {\n      "text": "### ",\n      "source": [],\n      "date_time": null,\n      "isTable": false,\n      "imgdesc": "",\n      "format": "markdown or html",\n      "PostMention": ""\n    }\n  ]\n}',
-	SMGameContent:'{\n  "id": "",\n  "audio": "",\n  "smile": "",\n  "source_menu": [],\n  "text": [\n    {\n      "text": "",\n      "source": [],\n      "date_time": null,\n      "isTable": false,\n      "imgdesc": "",\n      "format": "markdown or html",\n      "PostMention": ""\n    }\n  ],\n  "desc": null,\n  "next": "",\n  "prev": "",\n  "jumpTo": "",\n  "answer": null,\n  "score": 1,\n  "position": ""\n}'
+	ClassContent:'{\n  "id": "SECTION_NAME",\n  "text": [\n    {\n      "text": "### ",\n      "source": [],\n      "date_time": null,\n      "isTable": false,\n      "imgdesc": "",\n      "format": "markdown/html/text",\n      "PostMention": ""\n    }\n  ]\n}',
+	SMGameContent:'{\n  "id": "",\n  "audio": "",\n  "smile": "",\n  "source_menu": [],\n  "text": [\n    {\n      "text": "",\n      "source": [],\n      "date_time": null,\n      "isTable": false,\n      "imgdesc": "",\n      "format": "markdown/html/text",\n      "PostMention": ""\n    }\n  ],\n  "desc": null,\n  "next": "",\n  "prev": "",\n  "jumpTo": "",\n  "answer": null,\n  "score": 1,\n  "position": ""\n}'
 };
 
 function buildInsertList(){
