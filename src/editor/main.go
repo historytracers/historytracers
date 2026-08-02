@@ -1065,6 +1065,11 @@ func getDisplayName(path string) string {
 			return s
 		}
 	}
+	if title, ok := data["title"]; ok {
+		if s, ok := title.(string); ok && s != "" {
+			return s
+		}
+	}
 	return path
 }
 
