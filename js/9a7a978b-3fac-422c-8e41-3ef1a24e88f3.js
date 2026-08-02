@@ -250,7 +250,7 @@ function colValue(s, rowIdx) {
     var cv = [5,3,2,1], sum = 0;
     for (var c = 0; c < 4; c++) {
         if (s.red[rowIdx][c]) sum += cv[c];
-        if (s.blue[rowIdx][c]) sum += cv[c];
+        sum += cv[c] * s.blue[rowIdx][c];
     }
     return sum;
 }
@@ -354,7 +354,7 @@ function processNextColumn() {
         updateStepStatus();
         localYupanaController.evalDone = false;
         s.red[col] = [false, false, false, false];
-        s.blue[col] = [false, false, false, false];
+        s.blue[col] = [0, 0, 0, 0];
         s.green[col] = [false, false, false, false];
         for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, col, c);
         localYupanaController.movementsDone = getColumnMovements(dA, dB, carry);
@@ -413,7 +413,7 @@ function completeIteration() {
             s.red[i] = s.green[i].slice();
             s.green[i] = [false, false, false, false];
             s.gray[i] = [false, false, false, false];
-            s.blue[i] = [false, false, false, false];
+            s.blue[i] = [0, 0, 0, 0];
             for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, i, c);
         }
         localYupanaController.stepNumber++;
@@ -466,14 +466,10 @@ function onCellClick(rowIdx, colIdx) {
         var pos2 = localYupanaController.digitPositions[localYupanaController.digitIdx];
         if (rowIdx !== pos2) return;
         if (localYupanaController.awaitingDigitStep) return;
-        if (s.blue[rowIdx][colIdx]) {
-            s.blue[rowIdx][colIdx] = false;
-        } else {
-            s.blue[rowIdx][colIdx] = true;
-        }
+        s.blue[rowIdx][colIdx] = s.blue[rowIdx][colIdx] ? 0 : 1;
         htYupanaStateRenderCell('#yupana1', s, rowIdx, colIdx);
         var cv2 = [5,3,2,1], actual2 = 0;
-        for (var c2 = 0; c2 < 4; c2++) if (s.blue[rowIdx][c2]) actual2 += cv2[c2];
+        for (var c2 = 0; c2 < 4; c2++) actual2 += cv2[c2] * s.blue[rowIdx][c2];
         if (actual2 === getDigit(n, pos2)) {
             localYupanaController.awaitingDigitStep = true;
             document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' + tm('txt_correctMessage') + '</div>';
@@ -495,7 +491,7 @@ function onCellClick(rowIdx, colIdx) {
             // User clicking to confirm carry
             if (s.gray[rowIdx] && s.gray[rowIdx][colIdx]) {
                 s.gray[rowIdx][colIdx] = false;
-                s.blue[rowIdx][colIdx] = true;
+                s.blue[rowIdx][colIdx] += 1;
                 htYupanaStateRenderCell('#yupana1', s, rowIdx, colIdx);
                 localYupanaController.expectCarryClick = false;
                 localYupanaController.awaitingMovementStep = true;
@@ -657,7 +653,7 @@ function htLoadContent() {
         } else if (p === 2 || p === 5) {
             var pos2 = localYupanaController.digitPositions[localYupanaController.digitIdx];
             var cv2 = [5,3,2,1], actual2 = 0;
-            for (var c2 = 0; c2 < 4; c2++) if (s.blue[pos2][c2]) actual2 += cv2[c2];
+            for (var c2 = 0; c2 < 4; c2++) actual2 += cv2[c2] * s.blue[pos2][c2];
             if (actual2 === getDigit(n, pos2)) advanceDigitPhase(p);
         }
     };

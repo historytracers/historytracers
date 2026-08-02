@@ -1512,9 +1512,14 @@ function htYupanaSetDigitRow(tableID, bottom2topRow, digit, dotClass)
 function htYupanaNewState(rows)
 {
     function mkRow() { return [false, false, false, false]; }
+    function mkCountRow() { return [0, 0, 0, 0]; }
     var cells = [];
-    for (var i = 0; i < rows; i++) cells.push(mkRow());
-    return { rows: rows, red: cells, blue: JSON.parse(JSON.stringify(cells)), gray: JSON.parse(JSON.stringify(cells)), green: JSON.parse(JSON.stringify(cells)) };
+    var blueCells = [];
+    for (var i = 0; i < rows; i++) {
+        cells.push(mkRow());
+        blueCells.push(mkCountRow());
+    }
+    return { rows: rows, red: cells, blue: blueCells, gray: JSON.parse(JSON.stringify(cells)), green: JSON.parse(JSON.stringify(cells)) };
 }
 
 function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
@@ -1525,8 +1530,10 @@ function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
     if (state.red[rowIdx][colIdx]) {
         $(sel).append("<span class=\"dot circValues red_dot_right_up\"></span>");
     }
-    if (state.blue[rowIdx][colIdx]) {
-        $(sel).append("<span class=\"dot circValues blue_dot_right_bottom\"></span>");
+    var bCount = state.blue[rowIdx][colIdx] || 0;
+    for (var b = 0; b < bCount; b++) {
+        var bCls = (b === 0) ? "blue_dot_right_bottom" : "blue_dot_right_bottom_1";
+        $(sel).append("<span class=\"dot circValues " + bCls + "\"></span>");
     }
     if (state.gray[rowIdx][colIdx]) {
         $(sel).append("<span class=\"dot circValues gray_dot_center\"></span>");
@@ -1542,7 +1549,7 @@ function htYupanaStateClear(tableID, state)
     for (var i = 0; i < state.rows; i++) {
         htCleanYupanaDecimalRow(tableID, state.rows - i);
         state.red[i] = [false, false, false, false];
-        state.blue[i] = [false, false, false, false];
+        state.blue[i] = [0, 0, 0, 0];
         state.gray[i] = [false, false, false, false];
         state.green[i] = [false, false, false, false];
     }
@@ -1567,7 +1574,7 @@ function htYupanaStateGetBlueDigit(state, rowIdx)
     var colValues = [5, 3, 2, 1];
     var rowVal = 0;
     for (var c = 0; c < 4; c++) {
-        if (state.blue[rowIdx][c]) rowVal += colValues[c];
+        rowVal += (state.blue[rowIdx][c] || 0) * colValues[c];
     }
     return rowVal;
 }
@@ -1580,7 +1587,7 @@ function htYupanaStateGetTotalValue(state)
         var rowVal = 0;
         for (var c = 0; c < 4; c++) {
             if (state.red[i][c]) rowVal += colValues[c];
-            if (state.blue[i][c]) rowVal += colValues[c];
+            rowVal += (state.blue[i][c] || 0) * colValues[c];
         }
         total += rowVal * Math.pow(10, i);
     }
@@ -1590,7 +1597,7 @@ function htYupanaStateGetTotalValue(state)
 function htYupanaRowSetGreen(tableID, state, rowIdx, digit)
 {
     state.red[rowIdx] = [false, false, false, false];
-    state.blue[rowIdx] = [false, false, false, false];
+    state.blue[rowIdx] = [0, 0, 0, 0];
     state.gray[rowIdx] = [false, false, false, false];
     state.green[rowIdx] = [false, false, false, false];
     if (digit > 0) {
@@ -1623,7 +1630,7 @@ function htYupanaStateGetRowDigit(state, rowIdx)
     var rowVal = 0;
     for (var c = 0; c < 4; c++) {
         if (state.red[rowIdx][c]) rowVal += colValues[c];
-        if (state.blue[rowIdx][c]) rowVal += colValues[c];
+        rowVal += (state.blue[rowIdx][c] || 0) * colValues[c];
     }
     return rowVal;
 }
@@ -1639,8 +1646,11 @@ function htYupanaStateRowOverflows(state)
 
 function htYupanaStateToggleCell(tableID, state, rowIdx, colIdx, color)
 {
-    var target = (color === 'blue') ? state.blue : state.red;
-    target[rowIdx][colIdx] = !target[rowIdx][colIdx];
+    if (color === 'blue') {
+        state.blue[rowIdx][colIdx] = state.blue[rowIdx][colIdx] ? 0 : 1;
+    } else {
+        state.red[rowIdx][colIdx] = !state.red[rowIdx][colIdx];
+    }
     htYupanaStateRenderCell(tableID, state, rowIdx, colIdx);
     return color === 'blue' ? htYupanaStateGetTotalValue(state) : htYupanaStateGetRedValue(state);
 }
