@@ -495,7 +495,7 @@ function onCellClick(rowIdx, colIdx) {
             // User clicking to confirm carry
             if (s.gray[rowIdx] && s.gray[rowIdx][colIdx]) {
                 s.gray[rowIdx][colIdx] = false;
-                s.green[rowIdx][colIdx] = true;
+                s.blue[rowIdx][colIdx] = true;
                 htYupanaStateRenderCell('#yupana1', s, rowIdx, colIdx);
                 localYupanaController.expectCarryClick = false;
                 localYupanaController.awaitingMovementStep = true;
