@@ -1606,6 +1606,7 @@ function htYupanaRowSetGreen(tableID, state, rowIdx, digit)
     state.blue[rowIdx] = [0, 0, 0, 0];
     state.gray[rowIdx] = [false, false, false, false];
     state.green[rowIdx] = [false, false, false, false];
+    if (state.redCarry) state.redCarry[rowIdx] = [false, false, false, false];
     if (digit > 0) {
         for (var sel = digit; sel < 30; sel += 10) {
             if (yupanaSelectors[sel] < 0) continue;

@@ -356,6 +356,7 @@ function processNextColumn() {
         s.red[col] = [false, false, false, false];
         s.blue[col] = [0, 0, 0, 0];
         s.green[col] = [false, false, false, false];
+        s.redCarry[col] = [false, false, false, false];
         for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, col, c);
         localYupanaController.movementsDone = getColumnMovements(dA, dB, carry);
         localYupanaController.pendingCarry = total >= 10;
