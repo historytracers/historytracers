@@ -548,9 +548,13 @@ func htUpdateFileDescriptions(dbPath string) {
 		}
 		var headerStruct struct {
 			Header string `json:"header"`
+			Title  string `json:"title"`
 		}
 		if err := json.Unmarshal(bv, &headerStruct); err != nil {
 			continue
+		}
+		if headerStruct.Header == "" {
+			headerStruct.Header = headerStruct.Title
 		}
 		if headerStruct.Header == "" {
 			continue

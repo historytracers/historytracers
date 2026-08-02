@@ -131,185 +131,105 @@ function htWriteYupanaEquals(txtIdx)
 
 function htWriteSumOnYupana(lValue, rValue, result)
 {
-    var text = "";
-    if (lValue == rValue) {
-        switch (lValue) {
-            case 1:
-                text = "<i>"+mathKeywords[3]+"</i><br />";
-                break;
-            case 4:
-                text = "<i>"+mathKeywords[3]+"</i><br />";
-                text += "<i>"+mathKeywords[1]+"</i><br />";
-                break;
-            case 2:
-                text = "<i>"+mathKeywords[0]+"</i><br />";
-                break;
-            case 3:
-                text = "<i>"+mathKeywords[1]+"</i><br />";
-                break;
-            case 5:
-                text = "<i>"+mathKeywords[2]+"</i><br />";
-                break;
-            case 6:
-                text = htWriteYupanaEquals(3);
-                break;
-            case 7:
-                text = htWriteYupanaEquals(0);
-                break;
-            case 8:
-                text = htWriteYupanaEquals(1);
-                break;
-            case 9:
-                text += "<i>"+mathKeywords[1]+"</i><br />"
-                text += "<i>"+mathKeywords[3]+"</i><br />"
-                text += "<i>"+mathKeywords[2]+"</i><br />"
-            default:
-                break;
+    function getYpMarkersForDigit(digit) {
+        var cols = [];
+        for (var offset = 0; offset <= 2; offset++) {
+            var idx = digit + offset * 10;
+            if (idx >= yupanaSelectors.length) break;
+            var col = yupanaSelectors[idx];
+            if (col > 0) cols.push(col);
         }
-    } else if (lValue != 0 && rValue != 0) {
-        if (result > 10 && lValue >= 5 && rValue >= 5) {
-            var leftRem = lValue - 5;
-            var rightRem = rValue - 5;
-            if (leftRem + rightRem < 5) {
-                if (leftRem > 0 && rightRem > 0 && leftRem + rightRem !== 4) {
-                    text = "<i>"+mathKeywords[4]+"</i><br /><i>"+mathKeywords[2]+"</i><br />";
-                } else {
-                    text = "<i>"+mathKeywords[2]+"</i><br />";
-                }
-                return text;
-            }
-        }
-        var bigger = false;
-        if (result > 10) {
-            text = "<i>"+mathKeywords[67]+"</i><br />";
-            result = result % 10;
-            bigger = true;
-        }
-
-        switch (result) {
-            case 2:
-            case 3:
-                if (bigger == true) {
-                    var carryText23 = text;
-                    var leftRem23 = lValue >= 5 ? lValue - 5 : lValue;
-                    var rightRem23 = rValue >= 5 ? rValue - 5 : rValue;
-                    if (leftRem23 == 1 || leftRem23 == 4 || rightRem23 == 1 || rightRem23 == 4) {
-                        text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
-                    } else {
-                        text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
-                    }
-                    text += carryText23;
-                }
-                else if (bigger == false && result == 3) {
-                    text = "<i>"+mathKeywords[4]+"</i><br />";
-                }
-                break;
-            case 7:
-                if (bigger) {
-                    var carryText7 = text;
-                    var leftRem7 = lValue >= 5 ? lValue - 5 : lValue;
-                    var rightRem7 = rValue >= 5 ? rValue - 5 : rValue;
-                    if (leftRem7 == 1 || leftRem7 == 4 || rightRem7 == 1 || rightRem7 == 4) {
-                        text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
-                    } else {
-                        text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
-                    }
-                    text += carryText7;
-                } else {
-                    if (lValue == 4 || rValue == 4) {
-                        text += "<i>"+mathKeywords[1]+"</i><br />"
-                    }
-                    else if (lValue == 5 || rValue == 5) {
-                        text = mathKeywords[5]+"<br />";
-                        break;
-                    }
-                    text += "<i>"+mathKeywords[3]+"</i><br />"
-                }
-                break;
-            case 4:
-                text = mathKeywords[5]+"<br />";
-                break;
-            case 5:
-                if (bigger) {
-                    var carryText5 = text;
-                    var leftRem5 = lValue >= 5 ? lValue - 5 : lValue;
-                    var rightRem5 = rValue >= 5 ? rValue - 5 : rValue;
-                    if (leftRem5 == 1 || leftRem5 == 4 || rightRem5 == 1 || rightRem5 == 4) {
-                        text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
-                    } else {
-                        text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
-                    }
-                    text += carryText5;
-                } else {
-                    if (lValue == 4 || rValue == 4) {
-                        text = "<i>"+mathKeywords[3]+"</i><br />";
-                    }
-                    text += "<i>"+mathKeywords[4]+"</i><br />";
-                }
-                break;
-            case 1:
-            case 6:
-                if (bigger) {
-                    var carryText16 = text;
-                    text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+text;
-                    text += carryText16;
-                } else {
-                    if (lValue == 4 || rValue == 4) {
-                        text = "<i>"+mathKeywords[4]+"</i><br />";
-                    }
-                }
-                break;
-            case 9:
-                if (lValue == 7 || rValue == 7) {
-                    text += "<i>"+mathKeywords[0]+"</i><br />"
-                }
-                break;
-            case 10:
-                if (lValue == 9 || rValue == 9) {
-                    text += "<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />";
-                }
-                else if (lValue == 8 || rValue == 8) {
-                    text += "<i>"+mathKeywords[1]+"</i><br />";
-                }
-                else if (lValue == 7 || rValue == 7) {
-                    text += "<i>"+mathKeywords[1]+"</i><br />";
-                }
-                else if (lValue == 6 || rValue == 6) {
-                    text += "<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />";
-                }
-                text += "<i>"+mathKeywords[2]+"</i><br />"
-                break;
-             case 8:
-                if (bigger == false) {
-                    if (lValue == 5 || rValue == 5) {
-                        text = mathKeywords[5] + "<br />";
-                        text += "<i>" + mathKeywords[1] + "</i><br />";
-                    } else if (lValue == 6 || rValue == 6 || lValue == 7 || rValue == 7) {
-                        var leftRem = lValue >= 5 ? lValue - 5 : lValue;
-                        var rightRem = rValue >= 5 ? rValue - 5 : rValue;
-                        text = "<i>" + mathKeywords[2] + "</i><br />";
-                        var rems = [leftRem, rightRem];
-                        for (var ri = 0; ri < rems.length; ri++) {
-                            if (rems[ri] == 1) {
-                                text += "<i>" + mathKeywords[4] + "</i><br />";
-                            } else if (rems[ri] == 2) {
-                                text += "<i>" + mathKeywords[0] + "</i><br />";
-                            }
-                        }
-                        text += "<i>" + mathKeywords[2] + "</i><br />";
-                        text += "<i>" + mathKeywords[1] + "</i><br />";
-                    } else {
-                        text = mathKeywords[5] + "<br />";
-                    }
-                }
-                break;
-            default:
-                break;
-        }
+        return cols;
     }
 
-    if (text.length == 0) {
-        text = mathKeywords[5]+"<br />";
+    var text = "";
+
+    if (lValue === 0 && rValue === 0) {
+        if (text.length === 0) text = mathKeywords[5] + "<br />";
+        return text;
+    }
+
+    var leftMarkers = getYpMarkersForDigit(lValue);
+    var rightMarkers = getYpMarkersForDigit(rValue);
+
+    // count[0]=col1(value5), count[1]=col2(value3), count[2]=col3(value2), count[3]=col4(value1)
+    var count = [0, 0, 0, 0];
+    for (var ci = 0; ci < leftMarkers.length; ci++) count[leftMarkers[ci] - 1]++;
+    for (var ci = 0; ci < rightMarkers.length; ci++) count[rightMarkers[ci] - 1]++;
+
+    var moves = [];
+
+    while (true) {
+        var changed = false;
+
+        // KINKIN: 1+1+1=3 (three col4 markers → one col2 marker)
+        while (count[3] >= 3) {
+            count[3] -= 3;
+            count[1]++;
+            moves.push(mathKeywords[3]);
+            changed = true;
+        }
+
+        // PICHANA: 1+2=3 (col3 + col4 → col2)
+        while (count[2] >= 1 && count[3] >= 1) {
+            count[2]--;
+            count[3]--;
+            count[1]++;
+            moves.push(mathKeywords[1]);
+            changed = true;
+        }
+
+        // KINKIN: 1+1=2 (col4 + col4 → col3)
+        while (count[3] >= 2) {
+            count[3] -= 2;
+            count[2]++;
+            moves.push(mathKeywords[0]);
+            changed = true;
+        }
+
+        // ISKAY: 2+2=1+3 (col3 + col3 → col4 + col2)
+        while (count[2] >= 2) {
+            count[2] -= 2;
+            count[1]++;
+            count[3]++;
+            moves.push(mathKeywords[0]);
+            changed = true;
+        }
+
+        // KIMSA: 3+3=1+5 (col2 + col2 → col4 + col1)
+        while (count[1] >= 2) {
+            count[1] -= 2;
+            count[0]++;
+            count[3]++;
+            moves.push(mathKeywords[4]);
+            changed = true;
+        }
+
+        // PICHANA: 2+3=5 (col2 + col3 → col1)
+        while (count[1] >= 1 && count[2] >= 1) {
+            count[1]--;
+            count[2]--;
+            count[0]++;
+            moves.push(mathKeywords[1]);
+            changed = true;
+        }
+
+        // PISQA: 5+5=10 (col1 + col1 → carry to next row)
+        while (count[0] >= 2) {
+            count[0] -= 2;
+            moves.push(mathKeywords[2]);
+            changed = true;
+        }
+
+        if (!changed) break;
+    }
+
+    if (moves.length === 0) {
+        text = mathKeywords[5] + "<br />";
+    } else {
+        for (var mi = 0; mi < moves.length; mi++) {
+            text += "<i>" + moves[mi] + "</i><br />";
+        }
     }
 
     return text;
@@ -1579,4 +1499,165 @@ function htDrawDecomposed2(tableID, row, leftVal, rightVal, applyTransfer)
     if (rightPart > 0) {
         htFillYupanaDecimalRow(tableID, row, rightPart, 'blue_dot_right_bottom');
     }
+}
+
+function htYupanaSetDigitRow(tableID, bottom2topRow, digit, dotClass)
+{
+    htCleanYupanaDecimalRow(tableID, bottom2topRow);
+    if (digit > 0) {
+        htFillYupanaDecimalRow(tableID, bottom2topRow, digit, dotClass);
+    }
+}
+
+function htYupanaNewState(rows)
+{
+    function mkRow() { return [false, false, false, false]; }
+    function mkCountRow() { return [0, 0, 0, 0]; }
+    var cells = [];
+    var blueCells = [];
+    var carryCells = [];
+    for (var i = 0; i < rows; i++) {
+        cells.push(mkRow());
+        blueCells.push(mkCountRow());
+        carryCells.push(mkRow());
+    }
+    return { rows: rows, red: cells, blue: blueCells, gray: JSON.parse(JSON.stringify(cells)), green: JSON.parse(JSON.stringify(cells)), redCarry: carryCells };
+}
+
+function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
+{
+    var row = state.rows - rowIdx;
+    var sel = tableID + " #tc" + (colIdx + 1) + "f" + row;
+    $(sel).find(".circValues").remove();
+    if (state.red[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues red_dot_right_up\"></span>");
+    }
+    if (state.redCarry && state.redCarry[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues red_dot_left_up\"></span>");
+    }
+    var bCount = state.blue[rowIdx][colIdx] || 0;
+    for (var b = 0; b < bCount; b++) {
+        var bCls = (b === 0) ? "blue_dot_right_bottom" : "blue_dot_right_bottom_1";
+        $(sel).append("<span class=\"dot circValues " + bCls + "\"></span>");
+    }
+    if (state.gray[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues gray_dot_center\"></span>");
+    }
+    if (state.green[rowIdx][colIdx]) {
+        var greenClass = state.red[rowIdx][colIdx] ? "green_dot_result_side" : "green_dot_result";
+        $(sel).append("<span class=\"dot circValues " + greenClass + "\"></span>");
+    }
+}
+
+function htYupanaStateClear(tableID, state)
+{
+    for (var i = 0; i < state.rows; i++) {
+        htCleanYupanaDecimalRow(tableID, state.rows - i);
+        state.red[i] = [false, false, false, false];
+        state.blue[i] = [0, 0, 0, 0];
+        state.gray[i] = [false, false, false, false];
+        state.green[i] = [false, false, false, false];
+        if (state.redCarry) state.redCarry[i] = [false, false, false, false];
+    }
+}
+
+function htYupanaStateGetRedValue(state)
+{
+    var colValues = [5, 3, 2, 1];
+    var total = 0;
+    for (var i = 0; i < state.rows; i++) {
+        var rowVal = 0;
+        for (var c = 0; c < 4; c++) {
+            if (state.red[i][c]) rowVal += colValues[c];
+        }
+        total += rowVal * Math.pow(10, i);
+    }
+    return total;
+}
+
+function htYupanaStateGetBlueDigit(state, rowIdx)
+{
+    var colValues = [5, 3, 2, 1];
+    var rowVal = 0;
+    for (var c = 0; c < 4; c++) {
+        rowVal += (state.blue[rowIdx][c] || 0) * colValues[c];
+    }
+    return rowVal;
+}
+
+function htYupanaStateGetTotalValue(state)
+{
+    var colValues = [5, 3, 2, 1];
+    var total = 0;
+    for (var i = 0; i < state.rows; i++) {
+        var rowVal = 0;
+        for (var c = 0; c < 4; c++) {
+            if (state.red[i][c]) rowVal += colValues[c];
+            rowVal += (state.blue[i][c] || 0) * colValues[c];
+        }
+        total += rowVal * Math.pow(10, i);
+    }
+    return total;
+}
+
+function htYupanaRowSetGreen(tableID, state, rowIdx, digit)
+{
+    state.red[rowIdx] = [false, false, false, false];
+    state.blue[rowIdx] = [0, 0, 0, 0];
+    state.gray[rowIdx] = [false, false, false, false];
+    state.green[rowIdx] = [false, false, false, false];
+    if (state.redCarry) state.redCarry[rowIdx] = [false, false, false, false];
+    if (digit > 0) {
+        for (var sel = digit; sel < 30; sel += 10) {
+            if (yupanaSelectors[sel] < 0) continue;
+            var col = yupanaSelectors[sel] - 1;
+            state.green[rowIdx][col] = true;
+        }
+    }
+    for (var c = 0; c < 4; c++) {
+        htYupanaStateRenderCell(tableID, state, rowIdx, c);
+    }
+}
+
+function htYupanaStateDrawGreen(tableID, state, totalValue)
+{
+    var rows = state.rows;
+    var temp = totalValue;
+    htYupanaStateClear(tableID, state);
+    for (var i = 0; i < rows; i++) {
+        var digit = temp % 10;
+        temp = Math.trunc(temp / 10);
+        htYupanaRowSetGreen(tableID, state, i, digit);
+    }
+}
+
+function htYupanaStateGetRowDigit(state, rowIdx)
+{
+    var colValues = [5, 3, 2, 1];
+    var rowVal = 0;
+    for (var c = 0; c < 4; c++) {
+        if (state.red[rowIdx][c]) rowVal += colValues[c];
+        rowVal += (state.blue[rowIdx][c] || 0) * colValues[c];
+    }
+    return rowVal;
+}
+
+function htYupanaStateRowOverflows(state)
+{
+    for (var i = 0; i < state.rows; i++) {
+        var d = htYupanaStateGetRowDigit(state, i);
+        if (d > 9) return { row: i, digit: d };
+    }
+    return null;
+}
+
+function htYupanaStateToggleCell(tableID, state, rowIdx, colIdx, color)
+{
+    if (color === 'blue') {
+        state.blue[rowIdx][colIdx] = state.blue[rowIdx][colIdx] ? 0 : 1;
+    } else {
+        state.red[rowIdx][colIdx] = !state.red[rowIdx][colIdx];
+    }
+    htYupanaStateRenderCell(tableID, state, rowIdx, colIdx);
+    return color === 'blue' ? htYupanaStateGetTotalValue(state) : htYupanaStateGetRedValue(state);
 }
