@@ -249,14 +249,23 @@ function getColumnMovements(dA, dB, borrow, didBorrow) {
 }
 
 function formatMovements(moves) {
+    var inverseNames = { ISKAY: 1, KIMSA: 1, PISQA: 1, PICHANA: 1 };
     var names = [];
     for (var i = 0; i < moves.length; i++) {
         var m = moves[i];
+        var label;
         if (typeof m === 'string') {
-            names.push(tm('txt_movement' + m));
+            label = tm('txt_movement' + m);
+            if (inverseNames[m]) label += " (" + tm('txt_inverse') + ")";
         } else {
-            names.push(tm('txt_movement' + m.name) + " (" + m.op + ")");
+            label = tm('txt_movement' + m.name);
+            if (inverseNames[m.name]) {
+                label += " (" + tm('txt_inverse') + ": " + m.op + ")";
+            } else {
+                label += " (" + m.op + ")";
+            }
         }
+        names.push(label);
     }
     return names.join(", ");
 }
