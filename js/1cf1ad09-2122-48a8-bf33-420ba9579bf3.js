@@ -7,12 +7,11 @@ var localYupanaController = {
     "currentExercise": { a: 0, b: 0, expected: 0 },
     "phase": 0,
     "evalCol": 0,
-    "evalBorrow": 0,
     "evalDone": false,
-    "expectBorrowClick": false,
+    "expectBorrowRewrite": false,
+    "borrowRewriteTargets": {},
     "awaitingMovementStep": false,
     "awaitingDigitStep": false,
-    "borrowJustTaken": false,
     "movementsDone": [],
     "digitPositions": [],
     "digitIdx": 0,
@@ -46,12 +45,11 @@ function startNewExercise() {
     localYupanaController.finalCongratsShown = false;
     localYupanaController.phase = 0;
     localYupanaController.evalCol = 0;
-    localYupanaController.evalBorrow = 0;
     localYupanaController.evalDone = false;
-    localYupanaController.expectBorrowClick = false;
+    localYupanaController.expectBorrowRewrite = false;
+    localYupanaController.borrowRewriteTargets = {};
     localYupanaController.awaitingMovementStep = false;
     localYupanaController.awaitingDigitStep = false;
-    localYupanaController.borrowJustTaken = false;
     var n = generateRandomNumbersByLevel();
     localYupanaController.currentExercise = { a: n.a, b: n.b, expected: n.a - n.b };
     document.getElementById('problemDisplay').innerHTML = fmt(n.a) + " − " + fmt(n.b);
@@ -71,22 +69,30 @@ function fmt(n) {
 
 function tm(id) { var el = document.getElementById(id); return el ? el.innerHTML : id; }
 
+function getRowRedValue(rowIdx) {
+    var s = localYupanaController.state;
+    var cv = [5,3,2,1], sum = 0;
+    for (var c = 0; c < 4; c++) if (s.red[rowIdx][c]) sum += cv[c];
+    return sum;
+}
+
 function countEvaluationSteps() {
     var a = localYupanaController.currentExercise.a;
     var b = localYupanaController.currentExercise.b;
-    var count = 0, borrow = 0;
-    for (var p = 0; p < localYupanaController.ROWS; p++) {
-        var dA = getDigit(a, p);
-        var dB = getDigit(b, p);
-        var sEff = dB + borrow;
-        if (dA > 0 || sEff > 0) {
-            count++;
-        }
-        if (sEff > dA) {
-            borrow = 1;
-            count++;
+    var digits = [];
+    for (var p = 0; p < localYupanaController.ROWS; p++) digits.push(getDigit(a, p));
+    var count = 0;
+    for (var col = 0; col < localYupanaController.ROWS; col++) {
+        var dA = digits[col];
+        var dB = getDigit(b, col);
+        if (dA === 0 && dB === 0) continue;
+        if (dB > dA) {
+            count += 2;
+            var t = col + 1;
+            while (t < localYupanaController.ROWS && digits[t] === 0) { digits[t] = 9; t++; }
+            if (t < localYupanaController.ROWS) digits[t] -= 1;
         } else {
-            borrow = 0;
+            count += 1;
         }
     }
     return count;
@@ -143,11 +149,10 @@ function showPhase(p) {
 
 function startEvaluation() {
     localYupanaController.evalCol = 0;
-    localYupanaController.evalBorrow = 0;
     localYupanaController.evalDone = false;
-    localYupanaController.expectBorrowClick = false;
+    localYupanaController.expectBorrowRewrite = false;
+    localYupanaController.borrowRewriteTargets = {};
     localYupanaController.awaitingMovementStep = false;
-    localYupanaController.borrowJustTaken = false;
     setVis('nextStepBtn', false);
     document.getElementById('stepStatus').innerHTML = '';
     processNextColumn();
@@ -284,9 +289,9 @@ function showMovementsMessage(placeName) {
     setVis('nextStepBtn', true);
 }
 
-function showColumnSolve(col, dA, dB, borrow, result, didBorrow) {
+function showColumnSolve(col, dA, dB, didBorrow) {
     var s = localYupanaController.state;
-    var bTerm = borrow > 0 ? " + 1 (" + tm('txt_borrowing') + ")" : "";
+    var result = didBorrow ? dA + 10 - dB : dA - dB;
     if (result === 0) {
         localYupanaController.stepNumber++;
         updateStepStatus();
@@ -295,13 +300,13 @@ function showColumnSolve(col, dA, dB, borrow, result, didBorrow) {
         s.blue[col] = [0, 0, 0, 0];
         s.green[col] = [false, false, false, false];
         for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, col, c);
-        localYupanaController.movementsDone = getColumnMovements(dA, dB, borrow, didBorrow);
+        localYupanaController.movementsDone = getColumnMovements(dA, dB, 0, false);
         localYupanaController.awaitingMovementStep = true;
         document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " +
             tm('txt_evalZero')
                 .replace(/\{placeName\}/g, getPlaceName(col))
                 .replace(/\{digitA\}/g, dA)
-                .replace(/\{digitB\}/g, dB + bTerm)
+                .replace(/\{digitB\}/g, dB)
                 .replace(/\{result\}/g, result);
         showMovementsMessage(getPlaceName(col));
         return;
@@ -311,13 +316,13 @@ function showColumnSolve(col, dA, dB, borrow, result, didBorrow) {
         instr = tm('txt_evalBorrow')
             .replace(/\{placeName\}/g, getPlaceName(col))
             .replace(/\{digitA\}/g, dA)
-            .replace(/\{digitB\}/g, dB + bTerm)
+            .replace(/\{digitB\}/g, dB)
             .replace(/\{result\}/g, result);
     } else {
         instr = tm('txt_evalSimple')
             .replace(/\{placeName\}/g, getPlaceName(col))
             .replace(/\{digitA\}/g, dA)
-            .replace(/\{digitB\}/g, dB + bTerm)
+            .replace(/\{digitB\}/g, dB)
             .replace(/\{result\}/g, result);
     }
     document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " + instr;
@@ -332,7 +337,6 @@ function showColumnSolve(col, dA, dB, borrow, result, didBorrow) {
 function processNextColumn() {
     var s = localYupanaController.state;
     var col = localYupanaController.evalCol;
-    var borrow = localYupanaController.evalBorrow;
     var maxC = localYupanaController.ROWS;
 
     if (col >= maxC) {
@@ -340,36 +344,44 @@ function processNextColumn() {
         return;
     }
 
-    var dA = getDigit(localYupanaController.currentExercise.a, col);
+    var dA = getRowRedValue(col);
     var dB = getDigit(localYupanaController.currentExercise.b, col);
-    var sEff = dB + borrow;
 
-    if (dA === 0 && sEff === 0) {
+    if (dA === 0 && dB === 0) {
         localYupanaController.evalCol = col + 1;
-        localYupanaController.evalBorrow = 0;
         processNextColumn();
         return;
     }
 
-    if (sEff > dA) {
+    if (dB > dA) {
         localYupanaController.stepNumber++;
         updateStepStatus();
-        localYupanaController.expectBorrowClick = true;
-        var nextCol = col + 1;
-        s.gray[nextCol] = [false, false, false, true];
-        htYupanaStateRenderCell('#yupana1', s, nextCol, 3);
+        localYupanaController.expectBorrowRewrite = true;
+        localYupanaController.borrowRewriteTargets = {};
+        var t = col + 1;
+        while (t < maxC && getRowRedValue(t) === 0) {
+            localYupanaController.borrowRewriteTargets[t] = 9;
+            t++;
+        }
+        if (t >= maxC) t = maxC - 1;
+        localYupanaController.borrowRewriteTargets[t] = getRowRedValue(t) - 1;
+        var list = [];
+        for (var r in localYupanaController.borrowRewriteTargets) {
+            list.push(getPlaceName(parseInt(r)) + " → " + localYupanaController.borrowRewriteTargets[r]);
+        }
         document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " +
             tm('txt_borrowInstruction')
                 .replace(/\{placeName\}/g, getPlaceName(col))
-                .replace(/\{nextPlace\}/g, getPlaceName(nextCol))
+                .replace(/\{nextPlace\}/g, getPlaceName(col + 1))
                 .replace(/\{digitA\}/g, dA)
-                .replace(/\{digitB\}/g, dB + (borrow > 0 ? " + 1 (" + tm('txt_borrowing') + ")" : ""));
+                .replace(/\{digitB\}/g, dB)
+                .replace(/\{rewriteList\}/g, list.join(", "));
         document.getElementById('feedbackArea').innerHTML = '';
         setVis('nextStepBtn', false);
         return;
     }
 
-    showColumnSolve(col, dA, dB, borrow, dA - sEff, false);
+    showColumnSolve(col, dA, dB, false);
 }
 
 function getPlaceName(idx) {
@@ -427,24 +439,26 @@ function onCellClick(rowIdx, colIdx) {
 
     if (phase === 3) {
         var col = localYupanaController.evalCol;
-        var borrow = localYupanaController.evalBorrow;
-        var dA = getDigit(localYupanaController.currentExercise.a, col);
-        var dB = getDigit(localYupanaController.currentExercise.b, col);
-        var sEff = dB + borrow;
 
-        if (localYupanaController.expectBorrowClick) {
-            if (s.gray[rowIdx] && s.gray[rowIdx][colIdx]) {
-                s.gray[rowIdx][colIdx] = false;
-                htYupanaStateRenderCell('#yupana1', s, rowIdx, colIdx);
-                localYupanaController.expectBorrowClick = false;
-                localYupanaController.borrowJustTaken = true;
-                localYupanaController.awaitingMovementStep = false;
-                var result = dA + 10 - sEff;
+        if (localYupanaController.expectBorrowRewrite) {
+            if (!localYupanaController.borrowRewriteTargets.hasOwnProperty(rowIdx)) return;
+            htYupanaStateToggleCell('#yupana1', s, rowIdx, colIdx, 'red');
+            var allOk = true;
+            for (var r in localYupanaController.borrowRewriteTargets) {
+                if (getRowRedValue(parseInt(r)) !== localYupanaController.borrowRewriteTargets[r]) {
+                    allOk = false;
+                    break;
+                }
+            }
+            if (allOk) {
+                localYupanaController.expectBorrowRewrite = false;
+                var dA2 = getRowRedValue(col);
+                var dB2 = getDigit(localYupanaController.currentExercise.b, col);
                 document.getElementById('feedbackArea').innerHTML = '<div class="success-message">' +
                     tm('txt_borrowConfirmMessage')
-                        .replace(/\{nextPlace\}/g, getPlaceName(rowIdx)) +
+                        .replace(/\{nextPlace\}/g, getPlaceName(col + 1)) +
                     '</div>';
-                showColumnSolve(col, dA, dB, borrow, result, true);
+                showColumnSolve(col, dA2, dB2, true);
             }
             return;
         }
@@ -462,11 +476,13 @@ function onCellClick(rowIdx, colIdx) {
 
         var cv = [5,3,2,1], actual = 0;
         for (var c = 0; c < 4; c++) if (s.green[rowIdx][c]) actual += cv[c];
-        var need = localYupanaController.borrowJustTaken ? dA + 10 - sEff : dA - sEff;
+        var dA = getRowRedValue(col);
+        var dB = getDigit(localYupanaController.currentExercise.b, col);
+        var need = dB > dA ? dA + 10 - dB : dA - dB;
 
         if (actual === need) {
             htYupanaRowSetGreen('#yupana1', s, col, need);
-            localYupanaController.movementsDone = getColumnMovements(dA, dB, borrow, localYupanaController.borrowJustTaken);
+            localYupanaController.movementsDone = getColumnMovements(dA, dB, 0, dB > dA);
             localYupanaController.awaitingMovementStep = true;
             showMovementsMessage(getPlaceName(col));
         }
@@ -531,10 +547,10 @@ function htLoadContent() {
         localYupanaController.finalCongratsShown = false;
         localYupanaController.phase = 0;
         localYupanaController.evalDone = false;
-        localYupanaController.expectBorrowClick = false;
+        localYupanaController.expectBorrowRewrite = false;
+        localYupanaController.borrowRewriteTargets = {};
         localYupanaController.awaitingMovementStep = false;
         localYupanaController.awaitingDigitStep = false;
-        localYupanaController.borrowJustTaken = false;
         localYupanaController.state = htYupanaNewState(localYupanaController.ROWS);
         htYupanaStateClear('#yupana1', localYupanaController.state);
         document.getElementById('feedbackArea').innerHTML = '';
@@ -551,8 +567,6 @@ function htLoadContent() {
 
         if (localYupanaController.awaitingMovementStep) {
             localYupanaController.awaitingMovementStep = false;
-            localYupanaController.evalBorrow = localYupanaController.borrowJustTaken ? 1 : 0;
-            localYupanaController.borrowJustTaken = false;
             localYupanaController.evalCol = localYupanaController.evalCol + 1;
             processNextColumn();
             return;
