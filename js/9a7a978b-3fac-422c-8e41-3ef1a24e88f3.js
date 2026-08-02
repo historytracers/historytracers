@@ -329,7 +329,7 @@ function processNextColumn() {
     var dB = getDigit(b, col);
     var total = dA + dB + carry;
 
-    if (dA === 0 && dB === 0 && col < maxC) {
+    if (dA === 0 && dB === 0 && carry === 0 && col < maxC) {
         localYupanaController.evalCol = col + 1;
         localYupanaController.evalCarry = 0;
         processNextColumn();
@@ -414,6 +414,7 @@ function completeIteration() {
             s.green[i] = [false, false, false, false];
             s.gray[i] = [false, false, false, false];
             s.blue[i] = [0, 0, 0, 0];
+            s.redCarry[i] = [false, false, false, false];
             for (var c = 0; c < 4; c++) htYupanaStateRenderCell('#yupana1', s, i, c);
         }
         localYupanaController.stepNumber++;
@@ -491,7 +492,7 @@ function onCellClick(rowIdx, colIdx) {
             // User clicking to confirm carry
             if (s.gray[rowIdx] && s.gray[rowIdx][colIdx]) {
                 s.gray[rowIdx][colIdx] = false;
-                s.blue[rowIdx][colIdx] += 1;
+                s.redCarry[rowIdx][colIdx] = true;
                 htYupanaStateRenderCell('#yupana1', s, rowIdx, colIdx);
                 localYupanaController.expectCarryClick = false;
                 localYupanaController.awaitingMovementStep = true;

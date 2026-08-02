@@ -1515,11 +1515,13 @@ function htYupanaNewState(rows)
     function mkCountRow() { return [0, 0, 0, 0]; }
     var cells = [];
     var blueCells = [];
+    var carryCells = [];
     for (var i = 0; i < rows; i++) {
         cells.push(mkRow());
         blueCells.push(mkCountRow());
+        carryCells.push(mkRow());
     }
-    return { rows: rows, red: cells, blue: blueCells, gray: JSON.parse(JSON.stringify(cells)), green: JSON.parse(JSON.stringify(cells)) };
+    return { rows: rows, red: cells, blue: blueCells, gray: JSON.parse(JSON.stringify(cells)), green: JSON.parse(JSON.stringify(cells)), redCarry: carryCells };
 }
 
 function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
@@ -1529,6 +1531,9 @@ function htYupanaStateRenderCell(tableID, state, rowIdx, colIdx)
     $(sel).find(".circValues").remove();
     if (state.red[rowIdx][colIdx]) {
         $(sel).append("<span class=\"dot circValues red_dot_right_up\"></span>");
+    }
+    if (state.redCarry && state.redCarry[rowIdx][colIdx]) {
+        $(sel).append("<span class=\"dot circValues red_dot_left_up\"></span>");
     }
     var bCount = state.blue[rowIdx][colIdx] || 0;
     for (var b = 0; b < bCount; b++) {
@@ -1552,6 +1557,7 @@ function htYupanaStateClear(tableID, state)
         state.blue[i] = [0, 0, 0, 0];
         state.gray[i] = [false, false, false, false];
         state.green[i] = [false, false, false, false];
+        if (state.redCarry) state.redCarry[i] = [false, false, false, false];
     }
 }
 
