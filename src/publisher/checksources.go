@@ -77,11 +77,15 @@ func collectAllSourceUUIDs(obj interface{}) []string {
 	walk = func(v interface{}) {
 		switch val := v.(type) {
 		case map[string]interface{}:
-			if srcArr, ok := val["source"].([]interface{}); ok {
-				for _, srcElem := range srcArr {
-					if srcMap, ok := srcElem.(map[string]interface{}); ok {
-						if u, _ := srcMap["uuid"].(string); u != "" {
-							add(u)
+			// Smartphone/smGame content uses "source_menu" arrays; class
+			// content uses "source" arrays. Scan both.
+			for _, key := range []string{"source", "source_menu"} {
+				if srcArr, ok := val[key].([]interface{}); ok {
+					for _, srcElem := range srcArr {
+						if srcMap, ok := srcElem.(map[string]interface{}); ok {
+							if u, _ := srcMap["uuid"].(string); u != "" {
+								add(u)
+							}
 						}
 					}
 				}
@@ -147,6 +151,22 @@ func htLoadDefaultSourcesFromTemplate() map[string]srcEntry {
 	return result
 }
 
+// htFindContentFilePath returns the path of the language content file for the
+// given language and UUID, checking both the top-level lang directory and the
+// smartphone subdirectory. It returns an empty string when the file does not
+// exist in either location.
+func htFindContentFilePath(lang string, uid string) string {
+	fpath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, uid)
+	if _, err := os.Stat(fpath); err == nil {
+		return fpath
+	}
+	fpath = fmt.Sprintf("%slang/%s/smartphone/%s.json", CFG.SrcPath, lang, uid)
+	if _, err := os.Stat(fpath); err == nil {
+		return fpath
+	}
+	return ""
+}
+
 func htCheckSources() {
 	initPlaceholderSourceUUIDs()
 
@@ -165,6 +185,18 @@ func htCheckSources() {
 		for _, e := range entries {
 			if !e.IsDir() && uuidFileRE.MatchString(e.Name()) {
 				allUUIDs[strings.TrimSuffix(e.Name(), ".json")] = true
+			}
+		}
+
+		// Smartphone content files live in a subdirectory. Scan them too so
+		// their source_menu references are checked and stored in the DB.
+		smartphoneDir := fmt.Sprintf("%slang/%s/smartphone/", CFG.SrcPath, lang)
+		sentries, err := os.ReadDir(smartphoneDir)
+		if err == nil {
+			for _, e := range sentries {
+				if !e.IsDir() && uuidFileRE.MatchString(e.Name()) {
+					allUUIDs[strings.TrimSuffix(e.Name(), ".json")] = true
+				}
 			}
 		}
 	}
@@ -191,8 +223,8 @@ func htCheckSources() {
 
 	for _, uid := range sortedUUIDs {
 		for _, lang := range htLangPaths {
-			fpath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, uid)
-			if _, err := os.Stat(fpath); os.IsNotExist(err) {
+			fpath := htFindContentFilePath(lang, uid)
+			if fpath == "" {
 				continue
 			}
 			bv, err := htOpenFileReadClose(fpath)
@@ -252,8 +284,8 @@ func htCheckSources() {
 		// Collect citation UUIDs from the first available language file
 		var referenced []string
 		for _, lang := range htLangPaths {
-			fpath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, uid)
-			if _, err := os.Stat(fpath); os.IsNotExist(err) {
+			fpath := htFindContentFilePath(lang, uid)
+			if fpath == "" {
 				continue
 			}
 			bv, err := htOpenFileReadClose(fpath)
@@ -409,11 +441,15 @@ func collectSourceUUIDsFlat(obj interface{}) []string {
 	var result []string
 	switch v := obj.(type) {
 	case map[string]interface{}:
-		if srcArr, ok := v["source"].([]interface{}); ok {
-			for _, srcElem := range srcArr {
-				if srcMap, ok := srcElem.(map[string]interface{}); ok {
-					if u, _ := srcMap["uuid"].(string); u != "" {
-						result = append(result, u)
+		// Smartphone/smGame content uses "source_menu" arrays; class
+		// content uses "source" arrays. Scan both.
+		for _, key := range []string{"source", "source_menu"} {
+			if srcArr, ok := v[key].([]interface{}); ok {
+				for _, srcElem := range srcArr {
+					if srcMap, ok := srcElem.(map[string]interface{}); ok {
+						if u, _ := srcMap["uuid"].(string); u != "" {
+							result = append(result, u)
+						}
 					}
 				}
 			}
@@ -437,46 +473,50 @@ func findMismatches(obj interface{}, allSources map[string]srcEntry) []srcFix {
 
 	switch v := obj.(type) {
 	case map[string]interface{}:
-		if srcArr, ok := v["source"].([]interface{}); ok {
-			for _, srcElem := range srcArr {
-				if srcMap, ok := srcElem.(map[string]interface{}); ok {
-					srcUUID, _ := srcMap["uuid"].(string)
-					if srcUUID == "" {
-						continue
-					}
-					dt, ok := srcMap["date_time"].(map[string]interface{})
-					if !ok {
-						continue
-					}
-					fileYear, _ := dt["year"].(string)
-					if fileYear == "" {
-						continue
-					}
-
-					if entry, found := allSources[srcUUID]; found {
-						pubStr := entry.Element.PublishDate
-						if pubStr == "" {
+		// Smartphone/smGame content uses "source_menu" arrays; class
+		// content uses "source" arrays. Scan both.
+		for _, key := range []string{"source", "source_menu"} {
+			if srcArr, ok := v[key].([]interface{}); ok {
+				for _, srcElem := range srcArr {
+					if srcMap, ok := srcElem.(map[string]interface{}); ok {
+						srcUUID, _ := srcMap["uuid"].(string)
+						if srcUUID == "" {
 							continue
 						}
-						pubYear := pubStr
-						if len(pubYear) > 4 {
-							pubYear = strings.SplitN(pubYear, "-", 2)[0]
+						dt, ok := srcMap["date_time"].(map[string]interface{})
+						if !ok {
+							continue
 						}
-						if pubYear == fileYear {
+						fileYear, _ := dt["year"].(string)
+						if fileYear == "" {
 							continue
 						}
 
-						result = append(result, srcFix{
-							srcUUID:  srcUUID,
-							fileYear: fileYear,
-							fixedTo:  pubYear,
-						})
-					} else {
-						result = append(result, srcFix{
-							srcUUID:  srcUUID,
-							fileYear: fileYear,
-							fixedTo:  "(NOT-FOUND)",
-						})
+						if entry, found := allSources[srcUUID]; found {
+							pubStr := entry.Element.PublishDate
+							if pubStr == "" {
+								continue
+							}
+							pubYear := pubStr
+							if len(pubYear) > 4 {
+								pubYear = strings.SplitN(pubYear, "-", 2)[0]
+							}
+							if pubYear == fileYear {
+								continue
+							}
+
+							result = append(result, srcFix{
+								srcUUID:  srcUUID,
+								fileYear: fileYear,
+								fixedTo:  pubYear,
+							})
+						} else {
+							result = append(result, srcFix{
+								srcUUID:  srcUUID,
+								fileYear: fileYear,
+								fixedTo:  "(NOT-FOUND)",
+							})
+						}
 					}
 				}
 			}

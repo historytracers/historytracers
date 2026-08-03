@@ -382,7 +382,7 @@ func htAddEntryToSourceFileDB(uid, cat string, elem common.HTSourceElement) erro
 	if sfoID == "" {
 		sfoID = apaFormatUUID.String()
 	}
-	if _, err := tx.Exec(`INSERT OR REPLACE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
+	if _, err := tx.Exec(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
 		elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL); err != nil {
 		return fmt.Errorf("failed to insert source: %w", err)
 	}
