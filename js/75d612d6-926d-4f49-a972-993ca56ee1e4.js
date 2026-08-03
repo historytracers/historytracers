@@ -9,10 +9,6 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htSetImageSrc("imgBZ0", "images/BingZhao/img-5.jpg");
-    htSetImageSrc("imgGB", "images/BritishMuseum/mid_01289911_001.jpg");
-    htSetImageSrc("imgLVR", "images/Louvre/0000166561_OG.JPG");
-    htSetImageSrc("imgWALL", "images/UNESCO/site_0364_0028-1000-750-20250313170037.jpg");
     return false;
 }
 
@@ -29,5 +25,10 @@ function htLoadContent() {
     htWriteNavigation();
     $("#htChinaZhongguo").html(keywords[137]);
 
+    htSetImageSrc("imgBZ0", "images/BingZhao/img-5.jpg");
+    htSetImageSrc("imgBZ24", "images/BingZhao/img-24.jpg");
+    htSetImageSrc("imgGB", "images/BritishMuseum/mid_01289911_001.jpg");
+    htSetImageSrc("imgLVR", "images/Louvre/0000166561_OG.JPG");
+    htSetImageSrc("imgWALL", "images/UNESCO/site_0364_0028-1000-750-20250313170037.jpg");
     return false;
 }

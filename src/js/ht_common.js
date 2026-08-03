@@ -27,6 +27,7 @@ var htAtlas = new Map();
 var htAtlasIdx = new Map();
 
 var loadedIdx = [];
+var htIndexesOrder = [];
 var htCurrentPage = "";
 var htCurrentArg = "";
 var htAllowJsonLoad = false;
@@ -34,6 +35,7 @@ var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFirstStepsVolume2Idx = new Map();
+var htShapesIdx = new Map();
 var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
 var htMythsBelievesIdx = new Map();
@@ -43,6 +45,7 @@ var htChemicalIdx = new Map();
 var htPhysicsIdx = new Map();
 var htPhilosophyIdx = new Map();
 var htFamilyIdx = new Map();
+var htGalleryIdx = new Map();
 
 var extLatexIdx = 0;
 
@@ -151,6 +154,7 @@ function htResetAllIndexes()
         htHistoryIdx,
         htFirstStepsIdx,
         htFirstStepsVolume2Idx,
+        htShapesIdx,
         htMathGamesIdx,
         htFamilyIdx,
         htIndigenousWhoIdx,
@@ -160,7 +164,8 @@ function htResetAllIndexes()
         htChemicalIdx,
         htPhysicsIdx,
         htPhilosophyIdx,
-        htAtlasIdx
+        htAtlasIdx,
+        htGalleryIdx
     ];
 
     indexMaps.forEach(map => {
@@ -1471,6 +1476,8 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     }
     htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
 
+    $(".htSlide, .htSlides").remove();
+
     var idx = 0;
     var navigationPage = "";
     if (index) {
@@ -1687,6 +1694,7 @@ function htSelectIndexMap(index)
         literature: htLiteratureIdx,
         first_steps: htFirstStepsIdx,
         first_steps_volume2: htFirstStepsVolume2Idx,
+        shapes: htShapesIdx,
         math_games: htMathGamesIdx,
         families: htFamilyIdx,
         indigenous_who: htIndigenousWhoIdx,
@@ -1696,7 +1704,8 @@ function htSelectIndexMap(index)
         philosophy: htPhilosophyIdx,
         chemistry: htChemicalIdx,
         biology: htBiologyIdx,
-        atlas: htAtlasIdx
+        atlas: htAtlasIdx,
+        gallery: htGalleryIdx
     };
 
     return map[index];
@@ -1707,6 +1716,7 @@ function htSelectIndexName(index) {
         families: keywords[8],
         first_steps: keywords[121],
         first_steps_volume2: keywords[136],
+        shapes: keywords[142],
         atlas: "Atlas",
         literature: keywords[122],
         indigenous_who: keywords[123],
@@ -1718,6 +1728,7 @@ function htSelectIndexName(index) {
         biology: keywords[129],
         historical_events: keywords[130],
         philosophy: keywords[138],
+        gallery: keywords[143],
     };
 
     return map[index] || "Undefined";
@@ -2624,11 +2635,42 @@ function htFillStringOnPage(data, idx, page)
     const isHtmlValueArray = Array.isArray(item.html_value);
     const hasHtmlValue = item.html_value && (isHtmlValueArray ? item.html_value.length > 0 : item.html_value.length > 0);
 
-    const modifiedText = hasHtmlValue
+    let modifiedText = hasHtmlValue
         ? (isHtmlValueArray
             ? item.html_value.map(obj => htParagraphFromObject(obj, localLang, localCalendar)).join("")
             : item.html_value)
         : "";
+
+    if (modifiedText && item.source && item.source.length > 0) {
+        var citeSources = " (";
+        for (const i in item.source) {
+            var searchFor = "<htcite" + i + ">";
+            var pos = modifiedText.search(searchFor);
+            var fcnt = htFillHistorySourcesSelectFunction(item.source[i].type);
+            var dateText = "";
+            if (item.source[i].date != undefined && item.source[i].date.year.length > 0) {
+                dateText = ", " + htMountSpecificDate(item.source[i].date, localLang, localCalendar);
+            } else if (item.source[i].date_time != undefined && item.source[i].date_time.year.length > 0) {
+                dateText = ", " + htMountSpecificDate(item.source[i].date_time, localLang, localCalendar);
+            }
+            var pageText = "";
+            if (item.source[i].page != undefined && item.source[i].page.length > 0) {
+                pageText = ", " + item.source[i].page;
+            }
+            var appendText = '<a href="#" onclick="htCleanSources(); ' + fcnt + "('" + item.source[i].uuid + "'); return false;\"><i>" + item.source[i].text + dateText + pageText + "</i></a>";
+            if (pos < 0) {
+                if (i != 0 && citeSources.length > 2) {
+                    citeSources += " ; ";
+                }
+                citeSources += appendText;
+            } else {
+                modifiedText = modifiedText.replace(searchFor, appendText);
+            }
+        }
+        if (citeSources.length > 2) {
+            modifiedText += citeSources + ")";
+        }
+    }
 
     // Handle special IDs
     if (item.id === "date_time") {
@@ -2664,7 +2706,7 @@ function htFillStringOnPage(data, idx, page)
         "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry",
-        "philosophy", "atlas"
+        "philosophy", "atlas", "gallery", "shapes"
     ];
 
     if (allowedPages.includes(page) && item.target) {
@@ -2891,6 +2933,7 @@ function htFillWebPage(page, data)
             if (typeof htSorobanLoadContent !== "undefined") htSorobanLoadContent();
             if (typeof htTriangleLoadContent !== "undefined") htTriangleLoadContent();
             if (typeof htLoadExercise !== "undefined") htLoadExercise();
+            if (typeof htWriteNavigation !== "undefined") htWriteNavigation();
         });
 
         $("#btncheck").off("click").on("click", e => {
@@ -3038,12 +3081,13 @@ function htLoadIndex(data, arg, page)
         if (data.index.constructor === vectorConstructor) {
             for (const i in data.index) {
                 var newData = { "index" : data.index[i] };
-                htPendingIndexes.push(data.index[i]);
                 htLoadIndex(newData, arg, page);
             }
             return;
         } else {
-            htPendingIndexes.push(data.index);
+            if (!htPendingIndexes.includes(data.index)) {
+                htPendingIndexes.push(data.index);
+            }
         }
     }
 
@@ -3061,7 +3105,9 @@ function htLoadIndex(data, arg, page)
         myths_believes: htMythsBelievesIdx,
         physics: htPhysicsIdx,
         philosophy: htPhilosophyIdx,
-        atlas: htAtlasIdx
+        atlas: htAtlasIdx,
+        shapes: htShapesIdx,
+        gallery: htGalleryIdx
     };
 
     if (page && pageConfig[page] && !pageConfig[page].has(page)) {

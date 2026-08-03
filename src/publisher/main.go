@@ -96,6 +96,11 @@ func htRunStopFlags() {
 		stopRun = true
 	}
 
+	if GalleryFlag {
+		HTGenerateGalleryIndex()
+		stopRun = true
+	}
+
 	if stopRun {
 		os.Exit(0)
 	}
