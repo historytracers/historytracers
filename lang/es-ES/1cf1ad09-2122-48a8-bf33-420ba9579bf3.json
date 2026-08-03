@@ -1,0 +1,197 @@
+{
+   "title": "Practicando la resta con la Yupana",
+   "header": "Practicando la resta con la Yupana",
+   "sources": [
+      "1cf1ad09-2122-48a8-bf33-420ba9579bf3"
+   ],
+   "scripts": [
+      "1cf1ad09-2122-48a8-bf33-420ba9579bf3",
+      "ht_yupana"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/1cf1ad09-2122-48a8-bf33-420ba9579bf3_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6HzKMKKfZOOwZcYukAdaAC?si=jXCo6b6jRJOKO2yDtbf1fQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1785716255"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEn este texto, presentamos una aplicación que enseñará, paso a paso, cómo realizar la resta utilizando la Yupana. Para entenderla mejor, sugerimos la lectura de los textos anteriores, en los que se explicaron los movimientos en la Yupana:\n- **Yupana (Suma)**: Explicamos el nombre de los movimientos definidos en el método *Yupana Inka Tawa Pukllay*, desarrollado y publicado por Dhavit Prem (<htcite0>).\n- *Resta con la Yupana*: Estudiamos los movimientos inversos de la suma y cómo realizar la resta en la *Yupana* (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Suma)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3c9d1602-7644-4bd5-8d00-1b6df3b580bb",
+                     "text": "History Tracers Team",
+                     "page": "Resta con la Yupana",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Ejercitando con la *Yupana*\n\nPara comprender mejor el método *Yupana Inka Tawa Pukllay*, utilizaremos una Yupana con 4 filas para restar dos números. Con esta configuración, podemos representar valores de hasta **4.999**. Sin embargo, es posible agregar más filas para restar números mayores, sin limitaciones.\n\n#### La Yupana en esta sección\n\nTan pronto como la página se carga, la Yupana se inicializa con el primer nivel (unidades) y con dos números para restar.\n\nEntre la barra que contiene los botones \"🎲 Nuevo Ejercicio\" y \"⭐ Siguiente Nivel\" y el botón \"➡️ Siguiente Paso\", se mostrará una instrucción indicando los movimientos a realizar en la etapa actual. Al completar correctamente la etapa, aparecerá un mensaje en la parte inferior de la Yupana felicitándolo.\n\nDebe seguir los pasos hasta completar el cálculo. Para ingresar cada número, haga clic en cualquier celda de la fila correspondiente en la Yupana. Cada clic cambia el dígito de esa fila de 0 a 9 de forma cíclica.\n\nPuede repetir tantos ejercicios como desee en el mismo nivel. Para ello, simplemente haga clic en \"🎲 Nuevo Ejercicio\" después de completar un cálculo.\n\nSi ya se siente cómodo con el nivel actual, puede profundizar sus conocimientos avanzando al siguiente nivel usando el botón \"⭐ Siguiente Nivel\".",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.yupana-panel { background: #2e241f; border-radius: 50px; padding: 8px 18px; margin-bottom: 15px; margin-top: 15px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .yupana-panel .exercise-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; } .level-badge { background: #ffb347; color: #1f2a0e; font-weight: bold; padding: 4px 14px; border-radius: 30px; font-size: clamp(0.8rem, 3vw, 1rem); white-space: nowrap; } .problem-display { background: #f2ecd8; padding: 4px 16px; border-radius: 35px; font-family: 'Courier New', monospace; font-weight: bold; font-size: clamp(1rem, 4vw, 1.5rem); color: #1f2a0e; white-space: nowrap; } .ex-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 2.5vw, 0.9rem); font-family: inherit; padding: 6px 14px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .ex-btn:hover { background: #a58a6a; transform: scale(1.03); } .ex-btn.hidden { display: none; } .step-panel { padding: 8px 0; color: #ffefcf; font-size: clamp(0.8rem, 2.5vw, 1rem); } .step-status { font-size: clamp(0.7rem, 2vw, 0.85rem); opacity: 0.9; margin-top: 4px; color: #ffefcf; } .feedback-area { text-align: center; margin: 10px 0; font-size: clamp(0.9rem, 3vw, 1.2rem); } .congrats { color: #2e7d32; font-weight: bold; } .success-message { color: #1565c0; } .next-step-btn { display: block; margin: 10px auto; background: #2e7d32; border: none; color: white; font-weight: bold; font-size: clamp(0.9rem, 3vw, 1.1rem); font-family: inherit; padding: 10px 30px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .next-step-btn:hover { background: #388e3c; transform: scale(1.03); } .next-step-btn.hidden { display: none; } #yupana1 { zoom: 0.7; }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1615",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabla 1</b>: Representación de una <i>Yupana</i> según Poma de Ayala (<htcite0> ; <htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 355",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1615",
+                        "month": "02",
+                        "day": "13"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"yupana-panel\"><div class=\"exercise-header\"><span class=\"level-badge\" id=\"levelBadge\">🔢 Unidades</span><span class=\"problem-display\" id=\"problemDisplay\">512 − 305</span><button class=\"ex-btn\" id=\"resetTutorBtn\">🎲 Nuevo Ejercicio</button><button class=\"ex-btn\" id=\"nextLevelBtn\">⭐ Siguiente Nivel</button></div><button class=\"ex-btn\" id=\"resetButton\">↺ Reiniciar</button><div class=\"step-panel\" id=\"stepMessage\">🧮 Haga clic en 'Nuevo ejercicio' para comenzar</div><div class=\"step-status\" id=\"stepStatus\"></div><div class=\"feedback-area\" id=\"feedbackArea\"></div><button class=\"next-step-btn\" id=\"nextStepBtn\">➡️ Siguiente Paso</button></div><div class=\"text-store\" style=\"display:none;\"><span id=\"txt_stepPrefix\">🧮</span><span id=\"txt_movementISKAY\">ISKAY</span><span id=\"txt_movementKIMSA\">KIMSA</span><span id=\"txt_movementPISQA\">PISQA</span><span id=\"txt_movementPICHANA\">PICHANA</span><span id=\"txt_movementCANCEL\">CANCELACIÓN</span><span id=\"txt_inverse\">inverso</span><span id=\"txt_as\">como</span><span id=\"txt_correctMessage\">✅ ¡Correcto! Haga clic en 'Siguiente paso' para continuar.</span><span id=\"txt_movementsMessage\">✅ ¡Correcto! Movimiento(s) realizado(s) en {placeName}: <strong>{movements}</strong>. Haga clic en 'Siguiente paso' para continuar.</span><span id=\"txt_noMovementsMessage\">✅ ¡Correcto! No se necesita movimiento en {placeName}. Haga clic en 'Siguiente paso' para continuar.</span><span id=\"txt_borrowConfirmMessage\">✅ ¡Correcto! Prestó <strong>1</strong> de {nextPlace}. Haga clic en 'Siguiente paso' para continuar.</span><span id=\"txt_borrowing\">prestado</span><span id=\"txt_perfectMessage\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br>{a} − {b} = {result}<br>¡Buen trabajo usando la Yupana!</span><span id=\"txt_congratsMessage\">🎉🎉🎉 ¡FELICITACIONES! 🎉🎉🎉<br>Calculaste {a} − {b} = {result}<br>¡Haga clic en 'Nuevo ejercicio' para practicar más!</span><span id=\"txt_finalLevelMessage\">🎉🏆 ¡NIVELES COMPLETADOS! 🏆🎉<br>¡Dominaste la resta en la Yupana! Haga clic en \"Nuevo ejercicio\" para comenzar de nuevo en el nivel 1.</span><span id=\"txt_lastLevelMessage\">🏅 ¡Felicidades! ¡Llegaste al último nivel! 🏅</span><span id=\"txt_step1Instruction\">📌 <strong>Paso 1:</strong> Escriba el primer número <strong>{a}</strong>. Haga clic en los cuadrados de la Yupana.</span><span id=\"txt_step2Instruction\">📌 <strong>Paso 2:</strong> Escriba el segundo número <strong>{b}</strong>. Haga clic en los cuadrados de la Yupana.</span><span id=\"txt_step1DigitInstruction\">📌 <strong>Paso {step}:</strong> Escriba el <strong>{digit}</strong> en la casilla de {placeName}. Haga clic en los cuadrados de esa fila.</span><span id=\"txt_step2DigitInstruction\">📌 <strong>Paso {step}:</strong> Escriba el <strong>{digit}</strong> en la casilla de {placeName}. Haga clic en los cuadrados de esa fila.</span><span id=\"txt_evalSimple\">📌 <strong>Paso {step}:</strong> ➖ <strong>Resolver {placeName}:</strong> {digitA} − {digitB} = <strong>{result}</strong>. Coloque <strong>{result}</strong> en {placeName} haciendo clic en los cuadrados de la Yupana.</span><span id=\"txt_evalBorrow\">📌 <strong>Paso {step}:</strong> ⚡ <strong>Resolver {placeName}:</strong> Después de prestar, {digitA} + 10 − {digitB} = <strong>{result}</strong>. Coloque <strong>{result}</strong> en {placeName} haciendo clic en los cuadrados de la Yupana.</span><span id=\"txt_evalZero\">📌 <strong>Paso {step}:</strong> ➖ <strong>{placeName} resultará en 0:</strong> {digitA} − {digitB} = <strong>{result}</strong>. Como el resultado en la fila es <strong>0</strong>, los marcadores se cancelan entre sí.</span><span id=\"txt_evalNine\">📌 <strong>Paso {step}:</strong> 🎉 <strong>{placeName} será {result}:</strong> Después de prestar, {digitA} + 10 − {digitB} = <strong>{result}</strong>. El resultado se colocó automáticamente.</span><span id=\"txt_borrowInstruction\">📌 <strong>Paso {step}:</strong> ⚡ <strong>Prestar de {nextPlace}:</strong> {digitA} − {digitB} no es posible en {placeName}. Reescriba {rewriteList} con marcadores rojos.</span><span id=\"txt_finalInstruction\">🎉 <strong>Verificar:</strong> {a} − {b} = <strong>{result}</strong>. Los marcadores en la Yupana deben coincidir con este resultado.</span><span id=\"txt_stepStatus\">📖 Paso {current}/{total}</span><span id=\"txt_readyStatus\">🎲 Listo</span><span id=\"txt_welcomeMessage\">Haga clic en 'Nuevo ejercicio' para comenzar. Haga clic en las filas de la Yupana para escribir el número.</span><span id=\"txt_overflowMessage\">⚠️ <strong>¡Desbordamiento!</strong> La fila de {place} tiene un valor de {digit}, que excede el máximo de 9. Cada línea de la Yupana solo puede representar dígitos del 0 al 9. Limpie algunos marcadores e intente nuevamente.</span><span id=\"txt_units\">Unidades</span><span id=\"txt_tens\">Decenas</span><span id=\"txt_hundreds\">Centenas</span><span id=\"txt_thousands\">Millares</span><span id=\"txt_levelUnits\">🔢 Unidades</span><span id=\"txt_levelTens\">🔟 Decenas</span><span id=\"txt_levelHundreds\">🏆 Centenas</span><span id=\"txt_next\">siguiente</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
