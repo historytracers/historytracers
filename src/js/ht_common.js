@@ -27,6 +27,7 @@ var htAtlas = new Map();
 var htAtlasIdx = new Map();
 
 var loadedIdx = [];
+var htIndexesOrder = [];
 var htCurrentPage = "";
 var htCurrentArg = "";
 var htAllowJsonLoad = false;
@@ -2932,6 +2933,7 @@ function htFillWebPage(page, data)
             if (typeof htSorobanLoadContent !== "undefined") htSorobanLoadContent();
             if (typeof htTriangleLoadContent !== "undefined") htTriangleLoadContent();
             if (typeof htLoadExercise !== "undefined") htLoadExercise();
+            if (typeof htWriteNavigation !== "undefined") htWriteNavigation();
         });
 
         $("#btncheck").off("click").on("click", e => {
@@ -3079,12 +3081,13 @@ function htLoadIndex(data, arg, page)
         if (data.index.constructor === vectorConstructor) {
             for (const i in data.index) {
                 var newData = { "index" : data.index[i] };
-                htPendingIndexes.push(data.index[i]);
                 htLoadIndex(newData, arg, page);
             }
             return;
         } else {
-            htPendingIndexes.push(data.index);
+            if (!htPendingIndexes.includes(data.index)) {
+                htPendingIndexes.push(data.index);
+            }
         }
     }
 
