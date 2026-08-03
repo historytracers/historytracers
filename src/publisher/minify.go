@@ -54,17 +54,20 @@ const (
 	HTDirLangSources
 	HTDirLangEnUS
 	HTDirLangEnUSGames
+	HTDirLangEnUSSmartphone
 	HTDirLangEsES
 	HTDirLangEsESGames
+	HTDirLangEsESSmartphone
 	HTDirLangPtBR
 	HTDirLangPtBRGames
+	HTDirLangPtBRSmartphone
 	HTDirWebFonts
 )
 
 var htDirectories []string = []string{"bodies", "css", "csv", "gedcom", "images", "js", "lang",
-	"lang/sources", "lang/en-US", "lang/en-US/smGame",
-	"lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR",
-	"lang/pt-BR/smGame", "webfonts"}
+	"lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/en-US/smartphone",
+	"lang/es-ES", "lang/es-ES/smGame", "lang/es-ES/smartphone", "lang/pt-BR",
+	"lang/pt-BR/smGame", "lang/pt-BR/smartphone", "webfonts"}
 
 var readmePattern = regexp.MustCompile("^README")
 var htPattern = regexp.MustCompile("^ht_")
