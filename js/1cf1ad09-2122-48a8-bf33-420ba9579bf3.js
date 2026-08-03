@@ -378,14 +378,17 @@ function processNextColumn() {
         localYupanaController.borrowRewriteTargets = {};
         var t = col + 1;
         while (t < maxC && getRowRedValue(t) === 0) {
-            localYupanaController.borrowRewriteTargets[t] = 9;
+            localYupanaController.borrowRewriteTargets[t] = { old: 0, new: 9 };
             t++;
         }
         if (t >= maxC) t = maxC - 1;
-        localYupanaController.borrowRewriteTargets[t] = getRowRedValue(t) - 1;
+        var oldDigit = getRowRedValue(t);
+        localYupanaController.borrowRewriteTargets[t] = { old: oldDigit, new: oldDigit - 1 };
         var list = [];
         for (var r in localYupanaController.borrowRewriteTargets) {
-            list.push(getPlaceName(parseInt(r)) + " → " + localYupanaController.borrowRewriteTargets[r]);
+            var o = localYupanaController.borrowRewriteTargets[r];
+            var deriv = (o.old === 0) ? (o.old + " + 10 − 1 = " + o.new) : (o.old + " − 1 = " + o.new);
+            list.push(getPlaceName(parseInt(r)) + " " + tm('txt_as') + " " + o.new + " (" + deriv + ")");
         }
         document.getElementById('stepMessage').innerHTML = tm('txt_stepPrefix') + " " +
             tm('txt_borrowInstruction')
@@ -464,7 +467,7 @@ function onCellClick(rowIdx, colIdx) {
             htYupanaStateToggleCell('#yupana1', s, rowIdx, colIdx, 'red');
             var allOk = true;
             for (var r in localYupanaController.borrowRewriteTargets) {
-                if (getRowRedValue(parseInt(r)) !== localYupanaController.borrowRewriteTargets[r]) {
+                if (getRowRedValue(parseInt(r)) !== localYupanaController.borrowRewriteTargets[r].new) {
                     allOk = false;
                     break;
                 }
