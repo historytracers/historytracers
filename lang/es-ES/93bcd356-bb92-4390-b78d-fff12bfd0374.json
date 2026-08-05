@@ -1,0 +1,246 @@
+{
+   "title": "Jugando con la Tangente",
+   "header": "Jugando con la Tangente",
+   "sources": [
+      "93bcd356-bb92-4390-b78d-fff12bfd0374"
+   ],
+   "scripts": [
+      "93bcd356-bb92-4390-b78d-fff12bfd0374"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/93bcd356-bb92-4390-b78d-fff12bfd0374_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "atlas",
+      "shapes"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1785952456"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerrequisitos\n\nEste texto contiene una aplicación para reforzar el conocimiento sobre la relación entre la tangente y la secante. Antes de utilizarla, recomendamos estudiar qué es la tangente y cómo caminamos sobre el círculo en los textos anteriores (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6b3f54c1-7ef7-9554-b93d-ab157bf92eec",
+                     "text": "History Tracers Atlas",
+                     "page": "¿Rozamos el planeta?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4f5700fe-e0c8-5655-92ec-7990b20562b2",
+                     "text": "History Tracers Atlas",
+                     "page": "Caminando sobre el círculo",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nCuando caminamos sobre el círculo, aprendimos que la relación entre el seno y el coseno de un ángulo viene dada por la suma de sus cuadrados (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4f5700fe-e0c8-5655-92ec-7990b20562b2",
+                     "text": "History Tracers Atlas",
+                     "page": "Caminando sobre el círculo",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Fórmula 1</b>: Relación entre los cuadrados del seno y el coseno.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "También aprendimos que la tangente de un ángulo viene dada por la división del seno entre el coseno (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6b3f54c1-7ef7-9554-b93d-ab157bf92eec",
+                     "text": "History Tracers Atlas",
+                     "page": "¿Rozamos el planeta?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>tan (θ)</mi><mo>=</mo><mfrac><mi>sen(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definición de la tangente según las funciones trigonométricas.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Con estas dos fórmulas, podemos descubrir ahora una nueva relación. Si dividimos cada término de la **Fórmula 1** entre el cuadrado del coseno, obtenemos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mfrac><mo>+</mo><mfrac><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mfrac><mo>=</mo><mfrac><mn>1</mn><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mfrac></math></p><p class=\"desc\"><b>Fórmula 3</b>: Dividiendo cada término de la Fórmula 1 entre el cuadrado del coseno.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El primer término es igual a 1, el segundo término es igual al cuadrado de la tangente (**Fórmula 2**), y el tercer término es el cuadrado del recíproco del coseno, es decir, el cuadrado de la secante. Por lo tanto, obtenemos la relación (**Fórmula 4**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>tan</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 4</b>: Relación entre la tangente y la secante.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Dividir entre cero?</b><br /><br />Para llegar a la **Fórmula 4**, dividimos entre el cuadrado del coseno.<br /><br />¿Para qué ángulos de theta (θ) no sería posible esta división?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Práctica\n\nPara comprender mejor la relación entre la tangente y la secante, sugerimos que mueva la flecha del ángulo theta (θ) en la siguiente secuencia:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.card { width: 100%; max-width: 960px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(2px); border-radius: 44px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05); padding: 20px 24px 28px; transition: all 0.2s ease; } .sub { color: #2c5a6e; border-left: 4px solid #2c8faa; padding-left: 14px; margin: 4px 0 16px 0; font-weight: 500; font-size: clamp(0.75rem, 3vw, 0.9rem); } .triangle-visual { display: flex; justify-content: center; margin: 6px 0 18px 0; width: 100%; position: relative; } canvas { background: #fefcf5; border-radius: 24px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); width: 100%; height: auto; display: block; border: 2px solid #dfe8ed; object-fit: contain; max-height: 380px; } .controls { display: flex;  flex-wrap: wrap; gap: 16px; justify-content: center; margin: 12px 0 20px; } .side-card { background: white; border-radius: 36px; padding: 10px 14px; min-width: 140px; flex: 1 1 200px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); transition: transform 0.1s ease; border: 1px solid #e5f0f5; } .side-card label { font-weight: 700; font-size: clamp(0.9rem, 4.5vw, 1.2rem); display: block; margin-bottom: 8px; } .side-card label { color: #1e3a8a; } .side-card input[type=\"number\"] { width: 100%; max-width: 120px; padding: 8px 6px; font-size: 1.1rem; text-align: center; font-weight: 600; border: 2px solid #cad6dd; border-radius: 50px; background: #fefcf5; transition: 0.1s; font-family: monospace;  margin: 0 auto; display: inline-block; } .side-card input[type=\"number\"]:focus { border-color: #2c8faa;  outline: none;  box-shadow: 0 0 0 3px rgba(44, 143, 170, 0.2); } .range-slider { margin-top: 10px; width: 100%; } input[type=\"range\"] { width: 100%; cursor: pointer; background: #dce6ea; height: 4px;  border-radius: 10px; -webkit-appearance: none; } input[type=\"range\"]:focus { outline: none; } input[type=\"range\"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px;  border-radius: 50%; background: #2c8faa; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.2);  border: none; } .theorem-box { background: #eef3f7; border-radius: 36px; padding: 12px 18px; text-align: center; font-size: clamp(0.85rem, 3.5vw, 1.1rem); font-weight: 500; font-family: 'Courier New', 'Fira Code', monospace; margin-top: 12px; border: 1px solid #cde0e8; word-break: break-word; } .theorem-box p { margin: 4px 0; } .equation { font-size: clamp(0.9rem, 4.5vw, 1.3rem); background: #ffffffcc; display: inline-block; padding: 4px 14px; border-radius: 50px; font-weight: 700; letter-spacing: 1px; } @media (max-width: 680px) { .card { padding: 16px 16px 22px;  } .side-card {  min-width: 120px; padding: 8px 10px; } .side-card input[type=\"number\"] { font-size: 0.95rem; max-width: 100px; } canvas { max-height: 320px; } } @media (max-width: 520px) { .controls { gap: 12px;  } .side-card { flex-basis: 160px; } .equation { font-size: 0.85rem; padding: 3px 10px; } .theorem-box { padding: 10px 12px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"card\"><div class=\"triangle-visual\"><canvas id=\"tansecCanvas93bc\" width=\"560\" height=\"380\" style=\"width:100%; height:auto; max-width:560px; aspect-ratio:560/380\"></canvas></div><div class=\"controls\"><div class=\"side-card\"><label>Ángulo θ (grados)</label><input type=\"number\" id=\"thetaInput93bc\" step=\"1\" min=\"5\" max=\"72\" value=\"30\"><div class=\"range-slider\"><input type=\"range\" id=\"thetaRange93bc\" min=\"5\" max=\"72\" step=\"1\" value=\"30\"></div></div></div><div class=\"theorem-box\"><p>✨ <strong>Identidad trigonométrica</strong> ✨</p><p class=\"equation\" id=\"identityText93bc\">1 + tan²(θ) = sec²(θ)</p><p id=\"numericProof93bc\" style=\"font-size:0.8rem; opacity:0.85;\">tan(θ) = 0.5774  →  1 + tan²(θ) = 1 + 0.3333 = 1.3333 = sec²(θ) = 1.3333</p></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como puede observarse, el cambio en el ángulo theta (θ) modifica el valor de la tangente y de la secante, pero la relación 1 + tan² (θ) = sec² (θ) siempre se cumple. Es decir, independientemente del ángulo theta (θ), la suma de 1 y el cuadrado de la tangente es igual al cuadrado de la secante.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, derivamos la relación entre la tangente y la secante a partir de la relación que aprendimos al caminar sobre el círculo. También reforzamos nuestro conocimiento sobre la imposibilidad de dividir entre cero y comprendimos, a través de la aplicación, que 1 + tan² (θ) = sec² (θ) es siempre válido para los ángulos en los que el coseno no es cero.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
