@@ -528,6 +528,18 @@ function htSecantValues(quadrants) {
     return values
 }
 
+// Cosecant
+function htCosecantValues(quadrants) {
+    var values = htSineValues(quadrants);
+
+    var end = 256;
+    for (let i = 0; i < 256; i++) {
+        values.y[i] = 1.0/values.y[i];
+    }
+
+    return values
+}
+
 // Sine
 function htSineValues(quadrants) {
     var values = { x: [], y: []};
@@ -563,6 +575,30 @@ function htTanValues(quadrants) {
         var val = step*i;
         x.push(nextStep);
         y.push(Math.tan(val));
+    }
+    values.x = x;
+    values.y = y;
+
+    return values;
+}
+
+// Cotangent
+function htCotangentValues(quadrants) {
+    var values = { x: [], y: []};
+
+    var end = 512;
+    const step = 2 / (end - 1);
+    var x = [];
+    var y = [];
+    for (let i = 0; i < end; i++) {
+        var val = step*i;
+        var sine = Math.sin(val);
+        if (Math.abs(sine) < 0.01) {
+            y.push(null);
+        } else {
+            y.push(Math.cos(val)/sine);
+        }
+        x.push(val);
     }
     values.x = x;
     values.y = y;
@@ -679,6 +715,38 @@ function htPlotTan(target, quadrants) {
     return htPlotConstantContinuousChart(chartOptions);
 }
 
+function htPlotCotangent(target, label, quadrants) {
+    var xVector = [];
+    var localCot = undefined;
+    var obj = undefined;
+    var datasets = [ ];
+
+    localCot = htCotangentValues(quadrants);
+    xVector = localCot.x;
+    var obj = {
+                data : localCot.y,
+                label : label,
+                fill : false
+              };
+    datasets.push(obj);
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": mathKeywords[50],
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin": 0,
+        "ymax": 5,
+        "xmin": 0,
+        "xmax": 2,
+        "useCallBack": false
+    };
+    return htPlotConstantContinuousChart(chartOptions);
+}
+
 function htPlotInverse(target, xlabel, ylabel) {
     var xVector = [];
     var localTan = undefined;
@@ -719,6 +787,36 @@ function htPlotSecant(target, xlabel, ylabel, quadrants) {
     xVector = localSec.x;
     var obj = {
                 data : localSec.y,
+                label : ylabel,
+                fill : false
+              };
+    datasets.push(obj);
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": xlabel,
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin":  0,
+        "ymax": 20,
+        "useCallBack": false
+    };
+    return htPlotConstantContinuousChart(chartOptions);
+}
+
+function htPlotCosecant(target, xlabel, ylabel, quadrants) {
+    var xVector = [];
+    var localCsc = undefined;
+    var obj = undefined;
+    var datasets = [ ];
+
+    localCsc = htCosecantValues(quadrants);
+    xVector = localCsc.x;
+    var obj = {
+                data : localCsc.y,
                 label : ylabel,
                 fill : false
               };
