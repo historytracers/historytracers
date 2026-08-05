@@ -71,7 +71,7 @@ compile() {
     echo "=== pre-validating UUID files across languages ==="
     ./build/$PUBLISHER_BIN -globalangtest -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: globalangtest found issues"
 
-    echo "=== generating gallery index ==="
+#    echo "=== generating gallery index ==="
 #    ./build/$PUBLISHER_BIN -gallery -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: gallery generation found issues"
 
     ./build/$PUBLISHER_BIN -minify -audiofiles -gedcom -verbose >> historytracers.log 2> >(tee -a historytracers.log >&2)
