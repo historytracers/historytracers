@@ -586,16 +586,19 @@ function htTanValues(quadrants) {
 function htCotangentValues(quadrants) {
     var values = { x: [], y: []};
 
-    var end = 256;
-    var nextStep = 0;
-    const next = 1/256;
-    const step = (Math.PI / 2) / (end - 1);
+    var end = 512;
+    const step = 2 / (end - 1);
     var x = [];
     var y = [];
-    for (let i = 0, nextStep = 0; i < 256; i++, nextStep += step) {
+    for (let i = 0; i < end; i++) {
         var val = step*i;
-        x.push(nextStep);
-        y.push(Math.cos(val)/Math.sin(val));
+        var sine = Math.sin(val);
+        if (Math.abs(sine) < 0.01) {
+            y.push(null);
+        } else {
+            y.push(Math.cos(val)/sine);
+        }
+        x.push(val);
     }
     values.x = x;
     values.y = y;
@@ -735,8 +738,10 @@ function htPlotCotangent(target, label, quadrants) {
         "xLable": mathKeywords[50],
         "xType" : "linear",
         "datasetFill" : false,
-        "ymin": (quadrants < 2)? 0: -1,
-        "ymax": 1.2,
+        "ymin": 0,
+        "ymax": 5,
+        "xmin": 0,
+        "xmax": 2,
         "useCallBack": false
     };
     return htPlotConstantContinuousChart(chartOptions);

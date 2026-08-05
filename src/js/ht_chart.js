@@ -139,6 +139,8 @@ function htPlotConstantContinuousChart(options)
                 },
                 x: {
                     beginAtZero: true,
+                    min: options.xmin,
+                    max: options.xmax,
                     title: {
                         display: true,
                         text: options.xLable
