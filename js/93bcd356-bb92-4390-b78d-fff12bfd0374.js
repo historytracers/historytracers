@@ -223,7 +223,8 @@ window.localTanSec93bc.draw = function() {
     ctx.fillText("θ", ox + (ra + fontSize * 0.8) * Math.cos(ta), oy - (ra + fontSize * 0.8) * Math.sin(ta) + fontSize * 0.35);
 
     ctx.fillStyle = '#71a6d2';
-    ctx.fillText("1", ox + 0.5 * (px - ox) - sin * fontSize * 1.2, oy - 0.5 * (py - oy) - cos * fontSize * 1.2 + fontSize * 0.3);
+    var oneOff = Math.min(fontSize * 1.2, R * 0.18);
+    ctx.fillText("1", ox + 0.5 * (px - ox) - sin * oneOff, oy + 0.5 * (py - oy) - cos * oneOff + fontSize * 0.3);
 
     ctx.fillStyle = '#8e44ad';
     var tMidX = (px + tx) / 2;
