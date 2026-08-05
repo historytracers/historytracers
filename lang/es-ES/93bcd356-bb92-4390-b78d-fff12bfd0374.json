@@ -23,7 +23,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1785954391"
+      "1785955377"
    ],
    "authors": [
       ""
@@ -156,7 +156,7 @@
                "PostMention": ""
             },
             {
-               "text": "El primer término es igual a 1, el segundo término es igual al cuadrado de la tangente (**Fórmula 2**), y el tercer término es el cuadrado del recíproco del coseno, es decir, el cuadrado de la secante. Por lo tanto, obtenemos la relación (**Fórmula 4**):",
+               "text": "Para identificar el tercer término, recordamos la definición de la secante: el recíproco del coseno. Por lo tanto, su cuadrado es (**Fórmula 4**):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -165,7 +165,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>tan</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 4</b>: Relación entre la tangente y la secante.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 4</b>: El recíproco del cuadrado del coseno es el cuadrado de la secante.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -174,7 +174,25 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Dividir entre cero?</b><br /><br />Para llegar a la **Fórmula 4**, dividimos entre el cuadrado del coseno.<br /><br />¿Para qué ángulos de theta (θ) no sería posible esta división?</div></div></center></p>",
+               "text": "El primer término es igual a 1, el segundo término es igual al cuadrado de la tangente (**Fórmula 2**), y el tercer término es el cuadrado del recíproco del coseno, es decir, el cuadrado de la secante (**Fórmula 4**). Por lo tanto, obtenemos la relación (**Fórmula 5**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>tan</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 5</b>: Relación entre la tangente y la secante.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Dividir entre cero?</b><br /><br />Para llegar a la **Fórmula 5**, dividimos entre el cuadrado del coseno.<br /><br />¿Para qué ángulos de theta (θ) no sería posible esta división?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,

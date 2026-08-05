@@ -23,7 +23,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1785954383"
+      "1785955368"
    ],
    "authors": [
       ""
@@ -156,7 +156,7 @@
                "PostMention": ""
             },
             {
-               "text": "The first term is equal to 1, the second term is equal to the square of the tangent (**Formula 2**), and the third term is the square of the reciprocal of the cosine, that is, the square of the secant. Therefore, we obtain the relationship (**Formula 4**):",
+               "text": "To identify the third term, we remember the definition of the secant: the reciprocal of the cosine. Therefore, its square is (**Formula 4**):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -165,7 +165,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>tan</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Formula 4</b>: Relationship between the tangent and the secant.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Formula 4</b>: The reciprocal of the square of the cosine is the square of the secant.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -174,7 +174,25 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Dividing by zero?</b><br /><br />To reach **Formula 4**, we divided by the square of the cosine.<br /><br />For which angles of theta (θ) would this division not be possible?</div></div></center></p>",
+               "text": "The first term is equal to 1, the second term is equal to the square of the tangent (**Formula 2**), and the third term is the square of the reciprocal of the cosine, that is, the square of the secant (**Formula 4**). Therefore, we obtain the relationship (**Formula 5**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>tan</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Formula 5</b>: Relationship between the tangent and the secant.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Dividing by zero?</b><br /><br />To reach **Formula 5**, we divided by the square of the cosine.<br /><br />For which angles of theta (θ) would this division not be possible?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
