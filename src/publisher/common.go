@@ -1198,8 +1198,19 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 	return ret, nil
 }
 
+// htIsAbacusApp reports whether an HTML text element contains the interactive
+// abacus app, which should not be read aloud by the audio generator.
+func htIsAbacusApp(text string) bool {
+	return strings.Contains(text, "sorobanCanvas")
+}
+
 func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	var finalText string = ""
+
+	if txt.Format == "html" && htIsAbacusApp(txt.Text) {
+		return finalText
+	}
+
 	var htmlText string
 	var err error
 
