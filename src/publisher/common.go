@@ -1009,7 +1009,7 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 			return false
 		}
 		switch n.Data {
-		case "script", "style", "noscript", "head", "meta", "link":
+		case "script", "style", "noscript", "head", "meta", "link", "svg":
 			return true
 		}
 		return false
