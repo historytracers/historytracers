@@ -57,21 +57,53 @@ func htRewriteSMGame(smGameFile string) error {
 	return os.Remove(newFile)
 }
 
-func htValidateSMGameFormats() {
-	for _, dir := range htLangPaths {
-		smGameDir := fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, dir)
-		entries, err := os.ReadDir(smGameDir)
-		if err != nil {
-			continue
+func htValidateSMGameIDs(smGameFile string) error {
+	byteValue, err := htOpenFileReadClose(smGameFile)
+	if err != nil {
+		return err
+	}
+
+	var localSMGameFile SMGameFile
+	err = json.Unmarshal(byteValue, &localSMGameFile)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return fmt.Errorf("%s: unable to parse file as an SM file: %v", smGameFile, err)
+	}
+
+	if localSMGameFile.Type != "sm_game" {
+		return nil
+	}
+
+	for i, block := range localSMGameFile.Content {
+		if _, err := uuid.Parse(block.ID); err != nil {
+			return fmt.Errorf("%s: content block %d has an invalid \"id\" field (expected uuid format, got %q)", smGameFile, i, block.ID)
 		}
-		for _, entry := range entries {
-			if entry.IsDir() {
+	}
+
+	return nil
+}
+
+func htValidateSMGameFormats() {
+	subDirs := []string{"smGame", "smartphone"}
+	for _, dir := range htLangPaths {
+		for _, subDir := range subDirs {
+			smGameDir := fmt.Sprintf("%slang/%s/%s/", CFG.SrcPath, dir, subDir)
+			entries, err := os.ReadDir(smGameDir)
+			if err != nil {
 				continue
 			}
-			smGameFile := smGameDir + entry.Name()
-			err := htRewriteSMGame(smGameFile)
-			if err != nil {
-				fmt.Fprintln(os.Stderr, "ERROR:", err)
+			for _, entry := range entries {
+				if entry.IsDir() {
+					continue
+				}
+				if !strings.HasSuffix(entry.Name(), ".json") {
+					continue
+				}
+				smGameFile := smGameDir + entry.Name()
+				err := htValidateSMGameIDs(smGameFile)
+				if err != nil {
+					fmt.Fprintln(os.Stderr, "ERROR:", err)
+				}
 			}
 		}
 	}
