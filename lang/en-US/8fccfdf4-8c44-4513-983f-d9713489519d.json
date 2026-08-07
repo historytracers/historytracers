@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1786030338"
+      "1786129627"
    ],
    "authors": [
       ""
@@ -38,7 +38,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nWe recommend reading the previous text first to improve understanding (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -74,7 +74,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Trigonometry (Cosine)\n\nIn the previous text, we explored how to draw a right triangle and saw that, through the legs of the triangle or the hypotenuse, from the center we could reach any point **P** located on the circle.\n\nIn addition to the paths via the triangle, we also learned that, as a ray moves away from the horizontal line, we create an angle theta (θ) that we have not yet explored. This fact leads us to a reflection.",
+               "text": "#### Trigonometry (Cosine)\n\nIn the previous text, we explored how to draw a right triangle and saw that, through the legs of the triangle or the hypotenuse, from the center we could reach any point **P** located on the circle.\n\nIn addition to the paths through the triangle, we also learned that, as a ray moves away from the horizontal line, we create an angle theta (θ) that we have not yet explored. This fact leads us to a reflection.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -162,7 +162,7 @@
                "PostMention": ""
             },
             {
-               "text": "Since leg **a** has the same length as ray **c** in **Graph 2**, that is, **a = c**, the cosine of theta (θ) —for when there is no angle separating two rays— will be the greatest possible value: 1, as shown in **Calculation 1** (<htcite0>):",
+               "text": "Since leg **a** has the same length as ray **c** in **Graph 2**, that is, **a = c**, the cosine of theta (θ) — for when there is no angle separating two rays — will have its greatest possible value: 1, as shown in **Calculation 1** (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -211,7 +211,7 @@
                "PostMention": ""
             },
             {
-               "text": "Another observed consequence of this rotation of the radius is the decrease in the size of leg **a**. This does not happen by chance: it occurs because leg a represents the projection of the hypotenuse **c** onto the base.\n\nThese two behaviors we have described have direct consequences for the cosine of theta (θ). As leg a (the projection) decreases in size, the value of the cosine also decreases, because we are dividing smaller values of a leg by a constant, the hypotenuse.\n\n#### The Smallest Value\n\nThe smallest possible value we are visualizing in the graphs on this page will occur when leg **a** has a length equal to zero. This will happen whenever the radius (our hypotenuse) is completely vertical, as shown in **Graph 4**.",
+               "text": "Another observed consequence of this rotation of the radius is the decrease in the size of leg **a**. This is no coincidence: it happens because leg **a** represents the projection of the hypotenuse **c** onto the base.\n\nThese two behaviors we have described have direct consequences for the cosine of theta (θ). As leg **a** (the projection) decreases in size, the value of the cosine also decreases, because we are dividing smaller values of a leg by a constant, the hypotenuse.\n\n#### The Smallest Value\n\nThe smallest possible value we are visualizing in the graphs on this page will occur when leg **a** has a length equal to zero. This will happen whenever the radius (our hypotenuse) is completely vertical, as shown in **Graph 4**.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -229,7 +229,7 @@
                "PostMention": ""
             },
             {
-               "text": "Something more needs to be said about **Graph 4**. Despite the projection of the radius onto the horizontal being zero when the radius is vertical, the angle theta (θ) is still present.\n\n#### Conclusions\n\nThe cosine of theta (θ) perfectly represents the projection of leg a as the radius rotates around center **O**. This information is even demonstrated in **Formula 1** and can be made explicit by multiplying both sides of it by the hypotenuse (the radius **c**):",
+               "text": "Something more needs to be said about **Graph 4**. Despite the projection of the radius onto the horizontal being zero when the radius is vertical, the angle theta (θ) is still present.\n\n#### Conclusions\n\nThe cosine of theta (θ) perfectly represents the projection of leg **a** as the radius rotates around center **O**. This information is even shown in **Formula 1** and can be made explicit by multiplying both sides of it by the hypotenuse (the radius **c**):",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -247,7 +247,7 @@
                "PostMention": ""
             },
             {
-               "text": "From **Calculation 2**, we can confirm the data present in the list provided in the *Trigonometry* section above:\n- **Line 1**: This line tells us that as leg **a** grows from the center **O**, it will reach its greatest size when it attains the maximum possible length within the circle: the length of the radius **c**. Consequently, the cosine, in this case, will be equal to 1. On the other hand, as the leg decreases from the edge of the circle, the cosine of theta will reduce until it reaches zero, which corresponds to the center. This description matches items *1, 3 and 4* of the *Trigonometry* section.\n- **Line 2**: The radius **c** functions as a limiter on both sides of the calculation. To understand how the leg is influenced by it and by the angle, it is necessary to add both sides repeatedly until the size of the radius **c**, is reached; that is, we multiply both sides by **c**.\n- **Line 3**: Since on the right side we were already dividing by the size of the radius, this means that on that side, we obtained the total value, which allows us to replace it with 1.\n- **Line 4**: Finally, this line informs us that as the value of the cosine decreases, leg **a** reduces its length. This event occurs precisely because the angle is increasing, and as a consequence, the projection **a** is decreasing. This last line corresponds exactly to *item 2* of the list in the *Trigonometry* section.",
+               "text": "From **Calculation 2**, we can confirm the data present in the list provided in the *Trigonometry* section above:\n- **Line 1**: This line tells us that as leg **a** grows from the center **O**, it will reach its greatest size when it attains the maximum possible length within the circle: the length of the radius **c**. Consequently, the cosine, in this case, will be equal to 1. On the other hand, as the leg decreases from the edge of the circle, the cosine of theta will reduce until it reaches zero, which corresponds to the center. This description matches items *1, 3 and 4* of the *Trigonometry* section.\n- **Line 2**: The radius **c** functions as a limiter on both sides of the calculation. To understand how the leg is influenced by it and by the angle, it is necessary to add both sides repeatedly until the size of the radius **c** is reached; that is, we multiply both sides by **c**.\n- **Line 3**: Since on the right side we were already dividing by the size of the radius, this means that on that side, we obtained the total value, which allows us to replace it with 1.\n- **Line 4**: Finally, this line informs us that as the value of the cosine decreases, leg **a** reduces its length. This event occurs precisely because the angle is increasing, and as a consequence, the projection **a** is decreasing. This last line corresponds exactly to *item 2* of the list in the *Trigonometry* section.",
                "source": [],
                "date_time": null,
                "isTable": false,
