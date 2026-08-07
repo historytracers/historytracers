@@ -1,0 +1,265 @@
+{
+   "title": "Jogando com a Cotangente",
+   "header": "Jogando com a Cotangente",
+   "sources": [
+      "f74e0412-ac03-4bc4-b6a1-fa22dd5c441d"
+   ],
+   "scripts": [
+      "f74e0412-ac03-4bc4-b6a1-fa22dd5c441d"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f74e0412-ac03-4bc4-b6a1-fa22dd5c441d_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "atlas",
+      "shapes",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1786129660"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste texto possui um aplicativo para praticar a relação entre a cotangente e a cossecante. Antes de utilizá-lo, recomendamos estudar o que é a tangente e como caminhamos sobre o círculo nos textos anteriores (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6b3f54c1-7ef7-9554-b93d-ab157bf92eec",
+                     "text": "History Tracers Atlas",
+                     "page": "Roçamos o planeta?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4f5700fe-e0c8-5655-92ec-7990b20562b2",
+                     "text": "History Tracers Atlas",
+                     "page": "Caminhando sobre o disco",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAo caminharmos sobre o círculo, aprendemos que a relação entre o seno e o cosseno de um ângulo é dada pela soma de seus quadrados (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4f5700fe-e0c8-5655-92ec-7990b20562b2",
+                     "text": "History Tracers Atlas",
+                     "page": "Caminhando sobre o disco",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Fórmula 1</b>: Relação entre os quadrados do seno e do cosseno.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Também aprendemos que a cotangente de um ângulo é dada pela divisão do cosseno pelo seno (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6b3f54c1-7ef7-9554-b93d-ab157bf92eec",
+                     "text": "History Tracers Atlas",
+                     "page": "Roçamos o planeta?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>cot (θ)</mi><mo>=</mo><mfrac><mi>cos(θ)</mi><mi>sen (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definição da cotangente segundo as funções trigonométricas.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Com essas duas fórmulas, podemos agora descobrir uma nova relação. Se dividirmos cada termo da **Fórmula 1** pelo quadrado do seno, obtemos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>+</mo><mfrac><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac></math></p><p class=\"desc\"><b>Fórmula 3</b>: Dividindo cada termo da Fórmula 1 pelo quadrado do seno.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para identificar o terceiro termo, lembramos a definição da cossecante: o recíproco do seno. Portanto, o seu quadrado é (**Fórmula 4**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><msup><mi>csc</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 4</b>: O recíproco do quadrado do seno é o quadrado da cossecante.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O primeiro termo é o quadrado da cotangente (**Fórmula 2**). O segundo termo é igual a 1. O terceiro termo é o quadrado do recíproco do seno, ou seja, o quadrado da cossecante (**Fórmula 4**). Portanto, obtemos a relação (**Fórmula 5**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>cot</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>csc</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 5</b>: Relação entre a cotangente e a cossecante.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Dividir por zero?</b><br /><br />Para chegar à <b>Fórmula 5</b>, dividimos pelo quadrado do seno.<br /><br />Para quais ângulos de teta (θ) essa divisão não seria possível?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Prática\n\nPara compreender melhor a relação entre a cotangente e a cossecante, sugerimos que você movimente a seta do ângulo teta (θ) na seguinte ordem:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.card { width: 100%; max-width: 960px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(2px); border-radius: 44px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05); padding: 20px 24px 28px; transition: all 0.2s ease; } .sub { color: #2c5a6e; border-left: 4px solid #2c8faa; padding-left: 14px; margin: 4px 0 16px 0; font-weight: 500; font-size: clamp(0.75rem, 3vw, 0.9rem); } .triangle-visual { display: flex; justify-content: center; margin: 6px 0 18px 0; width: 100%; position: relative; } canvas { background: #fefcf5; border-radius: 24px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); width: 100%; height: auto; display: block; border: 2px solid #dfe8ed; object-fit: contain; max-height: 380px; } .controls { display: flex;  flex-wrap: wrap; gap: 16px; justify-content: center; margin: 12px 0 20px; } .side-card { background: white; border-radius: 36px; padding: 10px 14px; min-width: 140px; flex: 1 1 200px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); transition: transform 0.1s ease; border: 1px solid #e5f0f5; } .side-card label { font-weight: 700; font-size: clamp(0.9rem, 4.5vw, 1.2rem); display: block; margin-bottom: 8px; } .side-card label { color: #1e3a8a; } .side-card input[type=\"number\"] { width: 100%; max-width: 120px; padding: 8px 6px; font-size: 1.1rem; text-align: center; font-weight: 600; border: 2px solid #cad6dd; border-radius: 50px; background: #fefcf5; transition: 0.1s; font-family: monospace;  margin: 0 auto; display: inline-block; } .side-card input[type=\"number\"]:focus { border-color: #2c8faa;  outline: none;  box-shadow: 0 0 0 3px rgba(44, 143, 170, 0.2); } .range-slider { margin-top: 10px; width: 100%; } input[type=\"range\"] { width: 100%; cursor: pointer; background: #dce6ea; height: 4px;  border-radius: 10px; -webkit-appearance: none; } input[type=\"range\"]:focus { outline: none; } input[type=\"range\"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px;  border-radius: 50%; background: #2c8faa; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.2);  border: none; } .theorem-box { background: #eef3f7; border-radius: 36px; padding: 12px 18px; text-align: center; font-size: clamp(0.85rem, 3.5vw, 1.1rem); font-weight: 500; font-family: 'Courier New', 'Fira Code', monospace; margin-top: 12px; border: 1px solid #cde0e8; word-break: break-word; } .theorem-box p { margin: 4px 0; } .equation { font-size: clamp(0.9rem, 4.5vw, 1.3rem); background: #ffffffcc; display: inline-block; padding: 4px 14px; border-radius: 50px; font-weight: 700; letter-spacing: 1px; } @media (max-width: 680px) { .card { padding: 16px 16px 22px;  } .side-card {  min-width: 120px; padding: 8px 10px; } .side-card input[type=\"number\"] { font-size: 0.95rem; max-width: 100px; } canvas { max-height: 320px; } } @media (max-width: 520px) { .controls { gap: 12px;  } .side-card { flex-basis: 160px; } .equation { font-size: 0.85rem; padding: 3px 10px; } .theorem-box { padding: 10px 12px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"card\"><div class=\"triangle-visual\"><canvas id=\"cotcscCanvasf74e\" width=\"560\" height=\"380\" style=\"width:100%; height:auto; max-width:560px; aspect-ratio:560/380\"></canvas></div><div class=\"controls\"><div class=\"side-card\"><label>Ângulo teta (θ) em graus</label><input type=\"number\" id=\"thetaInputf74e\" step=\"1\" min=\"15\" max=\"75\" value=\"30\"><div class=\"range-slider\"><input type=\"range\" id=\"thetaRangef74e\" min=\"15\" max=\"75\" step=\"1\" value=\"30\"></div></div></div><div class=\"theorem-box\"><p>✨ <strong>Identidade trigonométrica</strong> ✨</p><p class=\"equation\" id=\"identityTextf74e\">1 + cot²(θ) = csc²(θ)</p><p id=\"numericProoff74e\" style=\"font-size:0.8rem; opacity:0.85;\">cot(θ) = 1.7321  →  1 + cot²(θ) = 1 + 3.0000 = 4.0000 = csc²(θ) = 4.0000</p></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Conforme podemos ver, a alteração no ângulo teta (θ) modifica o valor da cotangente e da cossecante, mas a relação 1 + cot² (θ) = csc² (θ) sempre permanece verdadeira. Ou seja, não importa o ângulo teta (θ), a soma de 1 e o quadrado da cotangente é sempre o quadrado da cossecante.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, derivamos a relação entre a cotangente e a cossecante a partir da relação que aprendemos ao caminhar sobre o círculo. Também revisamos a impossibilidade de dividir por zero e compreendemos, com o aplicativo, que 1 + cot² (θ) = csc² (θ) é sempre válido para os ângulos em que o seno não é zero.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

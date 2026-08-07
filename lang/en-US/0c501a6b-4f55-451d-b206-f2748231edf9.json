@@ -1,0 +1,216 @@
+{
+   "title": "Playing with the Identity",
+   "header": "Playing with the Identity",
+   "sources": [
+      "0c501a6b-4f55-451d-b206-f2748231edf9"
+   ],
+   "scripts": [
+      "0c501a6b-4f55-451d-b206-f2748231edf9"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/0c501a6b-4f55-451d-b206-f2748231edf9_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "atlas",
+      "shapes",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1786129611"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis text has an application to practice the fundamental trigonometric identity sen²(θ) + cos²(θ) = 1. Before using it, we recommend studying the sine and cosine functions (<htcite0>; <htcite1>) and how we walked on the circle to discover their relationship (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Cosine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Sine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4f5700fe-e0c8-5655-92ec-7990b20562b2",
+                     "text": "History Tracers Atlas",
+                     "page": "Walking on the Circle",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nWhen we studied the sine and the cosine, we learned that each one relates an angle theta (θ) to one leg of the right triangle: the sine relates it to the opposite leg, and the cosine to the adjacent leg (<htcite0>; <htcite1>). When we walked on the circle, we also learned that the sum of the squares of these two functions is always equal to the square of the radius, which for the unit circle is 1 (<htcite2>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Cosine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Sine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4f5700fe-e0c8-5655-92ec-7990b20562b2",
+                     "text": "History Tracers Atlas",
+                     "page": "Walking on the Circle",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Formula 1</b>: Fundamental trigonometric identity.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In other words, no matter the value of the angle theta (θ), the sum of the squares of the sine and the cosine is always equal to 1. To reinforce this idea, we invite you to use the application below: move the angle theta (θ) and see that the values of sen²(θ) and cos²(θ) change, but their sum always stays 1.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Practice\n\nTo better understand the relationship between the sine and the cosine, we suggest that you move the angle theta (θ) in the following order:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.card { width: 100%; max-width: 960px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(2px); border-radius: 44px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05); padding: 20px 24px 28px; transition: all 0.2s ease; } .sub { color: #2c5a6e; border-left: 4px solid #2c8faa; padding-left: 14px; margin: 4px 0 16px 0; font-weight: 500; font-size: clamp(0.75rem, 3vw, 0.9rem); } .triangle-visual { display: flex; justify-content: center; margin: 6px 0 18px 0; width: 100%; position: relative; } canvas { background: #fefcf5; border-radius: 24px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); width: 100%; height: auto; display: block; border: 2px solid #dfe8ed; object-fit: contain; max-height: 380px; } .controls { display: flex;  flex-wrap: wrap; gap: 16px; justify-content: center; margin: 12px 0 20px; } .side-card { background: white; border-radius: 36px; padding: 10px 14px; min-width: 140px; flex: 1 1 200px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); transition: transform 0.1s ease; border: 1px solid #e5f0f5; } .side-card label { font-weight: 700; font-size: clamp(0.9rem, 4.5vw, 1.2rem); display: block; margin-bottom: 8px; } .side-card label { color: #1e3a8a; } .side-card input[type=\"number\"] { width: 100%; max-width: 120px; padding: 8px 6px; font-size: 1.1rem; text-align: center; font-weight: 600; border: 2px solid #cad6dd; border-radius: 50px; background: #fefcf5; transition: 0.1s; font-family: monospace;  margin: 0 auto; display: inline-block; } .side-card input[type=\"number\"]:focus { border-color: #2c8faa;  outline: none;  box-shadow: 0 0 0 3px rgba(44, 143, 170, 0.2); } .range-slider { margin-top: 10px; width: 100%; } input[type=\"range\"] { width: 100%; cursor: pointer; background: #dce6ea; height: 4px;  border-radius: 10px; -webkit-appearance: none; } input[type=\"range\"]:focus { outline: none; } input[type=\"range\"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px;  border-radius: 50%; background: #2c8faa; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.2);  border: none; } .theorem-box { background: #eef3f7; border-radius: 36px; padding: 12px 18px; text-align: center; font-size: clamp(0.85rem, 3.5vw, 1.1rem); font-weight: 500; font-family: 'Courier New', 'Fira Code', monospace; margin-top: 12px; border: 1px solid #cde0e8; word-break: break-word; } .theorem-box p { margin: 4px 0; } .equation { font-size: clamp(0.9rem, 4.5vw, 1.3rem); background: #ffffffcc; display: inline-block; padding: 4px 14px; border-radius: 50px; font-weight: 700; letter-spacing: 1px; } @media (max-width: 680px) { .card { padding: 16px 16px 22px;  } .side-card {  min-width: 120px; padding: 8px 10px; } .side-card input[type=\"number\"] { font-size: 0.95rem; max-width: 100px; } canvas { max-height: 320px; } } @media (max-width: 520px) { .controls { gap: 12px;  } .side-card { flex-basis: 160px; } .equation { font-size: 0.85rem; padding: 3px 10px; } .theorem-box { padding: 10px 12px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"card\"><div class=\"triangle-visual\"><canvas id=\"identityCanvas0c50\" width=\"560\" height=\"380\" style=\"width:100%; height:auto; max-width:560px; aspect-ratio:560/380\"></canvas></div><div class=\"controls\"><div class=\"side-card\"><label>Angle θ (degrees)</label><input type=\"number\" id=\"thetaInput0c50\" step=\"1\" min=\"5\" max=\"90\" value=\"30\"><div class=\"range-slider\"><input type=\"range\" id=\"thetaRange0c50\" min=\"5\" max=\"90\" step=\"1\" value=\"30\"></div></div></div><div class=\"theorem-box\"><p><strong>Trigonometric identity</strong></p><p class=\"equation\" id=\"identityText0c50\">sen²(θ) + cos²(θ) = 1</p><p id=\"numericProof0c50\" style=\"font-size:0.8rem; opacity:0.85;\">sen(θ) = 0.5000, cos(θ) = 0.8660  →  sen²(θ) + cos²(θ) = 0.2500 + 0.7500 = 1.0000</p></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As we can see, changing the angle theta (θ) changes the value of the sine and the cosine, but the relationship sen²(θ) + cos²(θ) = 1 always stays true. That is, no matter the angle theta (θ), the sum of the squares of the sine and the cosine is always 1.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we practiced the fundamental trigonometric identity sen²(θ) + cos²(θ) = 1. With the application, we saw that when the angle theta (θ) changes, the values of the sine and the cosine also change, but the sum of their squares always stays equal to 1.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

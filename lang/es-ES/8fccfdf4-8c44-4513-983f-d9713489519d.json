@@ -16,14 +16,15 @@
    ],
    "index": [
       "atlas",
-      "shapes"
+      "shapes",
+      "math_games"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1786129654"
    ],
    "authors": [
       ""
@@ -161,7 +162,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como el cateto **a** tiene la misma longitud del rayo **c** en el **Gráfico 2**, es decir, **a = c**, el coseno de theta (θ) — para cuando no existe ángulo separando dos rayos— será el mayor valor posible: 1, como muestra el **Cálculo 1** (<htcite0>):",
+               "text": "Como el cateto **a** tiene la misma longitud del rayo **c** en el **Gráfico 2**, es decir, **a = c**, el coseno de theta (θ) — para cuando no existe ángulo separando dos rayos — tendrá el mayor valor posible: 1, como muestra el **Cálculo 1** (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -210,7 +211,7 @@
                "PostMention": ""
             },
             {
-               "text": "Otra consecuencia observada de este giro del radio es la disminución del tamaño del cateto **a**. Este hecho no ocurre por casualidad: ocurre porque el cateto a representa la proyección de la hipotenusa **c** en la base.\n\nEstos dos comportamientos que describimos tienen consecuencias directas en el coseno de theta (θ). A medida que el cateto **a** (la proyección) reduce su tamaño, el valor del coseno también disminuye, ya que estamos dividiendo valores menores de un cateto por una constante, la hipotenusa.\n\n#### El valor menor\n\nEl menor valor posible que estamos visualizando en los gráficos de esta página ocurrirá cuando el cateto **a** tenga longitud igual a cero. Esto sucederá siempre que el radio (nuestra hipotenusa) esté totalmente vertical, como se muestra en el **Gráfico 4**.",
+               "text": "Otra consecuencia observada de este giro del radio es la disminución del tamaño del cateto **a**. Este hecho no ocurre por casualidad: ocurre porque el cateto **a** representa la proyección de la hipotenusa **c** en la base.\n\nEstos dos comportamientos que describimos tienen consecuencias directas en el coseno de theta (θ). A medida que el cateto **a** (la proyección) reduce su tamaño, el valor del coseno también disminuye, ya que estamos dividiendo valores menores de un cateto por una constante, la hipotenusa.\n\n#### El valor menor\n\nEl menor valor posible que estamos visualizando en los gráficos de esta página ocurrirá cuando el cateto **a** tenga longitud igual a cero. Esto sucederá siempre que el radio (nuestra hipotenusa) esté totalmente vertical, como se muestra en el **Gráfico 4**.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -228,7 +229,7 @@
                "PostMention": ""
             },
             {
-               "text": "Algo más debe ser dicho sobre el **Gráfico 4**. A pesar de que la proyección del radio en la horizontal es cero cuando el radio está en vertical, el ángulo theta (θ) continúa presente.\n\n#### Conclusiones\n\nEl coseno de theta (θ) representa perfectamente la proyección del cateto a a medida que el radio gira alrededor del centro **O**. Esta información incluso está demostrada en la **Fórmula 1** y puede ser explicada al multiplicar ambos lados de ella por la hipotenusa (el radio **c**):",
+               "text": "Algo más debe ser dicho sobre el **Gráfico 4**. A pesar de que la proyección del radio en la horizontal es cero cuando el radio está en vertical, el ángulo theta (θ) continúa presente.\n\n#### Conclusiones\n\nEl coseno de theta (θ) representa perfectamente la proyección del cateto **a** a medida que el radio gira alrededor del centro **O**. Esta información incluso está demostrada en la **Fórmula 1** y puede hacerse explícita al multiplicar ambos lados de ella por la hipotenusa (el radio **c**):",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -252,6 +253,24 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Practicando\n\nAhora es momento de practicar lo que acabamos de aprender. En el **Gráfico 2**, el radio estaba sobre la línea horizontal, donde el cateto **a** tiene la misma longitud del radio **c**, y el coseno de theta (θ) tiene su mayor valor: 1. Desde esta posición, a medida que el radio gira en sentido antihorario, el cateto **a** reduce su tamaño y el coseno comienza a disminuir, hasta llegar a cero cuando el radio está totalmente vertical.\n\nHaz clic en el gráfico para mover el radio dentro del primer cuadrante. Observa cómo cambian el triángulo rectángulo, el ángulo theta (θ) y el valor del coseno. Mueve el radio a diferentes posiciones e intenta anticipar el valor del coseno antes de leerlo en el panel debajo del gráfico.",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"cscPracticeInstruction\" style=\"text-align:center;\">Haz clic en el gráfico para mover el radio en el primer cuadrante. Observa cómo el cateto adyacente (y el coseno) disminuye a medida que el ángulo theta (θ) crece.</p> <div class=\"atlasCircleContainer\"><div id=\"cospractice8fcc\"></div></div> <p class=\"desc\"><b>Gráfico 5</b>: Práctica interactiva: moviendo el radio en el primer cuadrante, el coseno disminuye a medida que el ángulo theta (θ) crece.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]

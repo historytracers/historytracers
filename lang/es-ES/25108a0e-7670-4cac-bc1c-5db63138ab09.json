@@ -16,14 +16,15 @@
    ],
    "index": [
       "atlas",
-      "shapes"
+      "shapes",
+      "math_games"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1786129655"
    ],
    "authors": [
       ""
@@ -213,7 +214,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Entendiendo la gráfica\n\nEl resultado de nuestra gráfica de la tangente estará dado por la **Fórmula 1**, es decir, será dado por la división del seno de theta (θ) por el coseno de theta (θ), siendo el valor del ángulo theta (θ) igual para ambas funciones trigonométricas. Observando la **Gráfica 2** que muestra los valores del seno y del coseno para ángulos iguales, podemos concluir:\n- Cuando el coseno tenga valor cero, no habrá valor definido. Por lo tanto, este es un escenario en el que utilizaremos límites para entender hacia qué valor se aproximan los resultados a medida que el coseno se acerca a cero; Como se vio en otro texto de *History Tracers*, entre 0 y 1 hay infinitos números (<htcite0>). De esta forma, cuando el valor del coseno de theta (θ) sea igual a 1, entonces el valor de la tangente será igual al valor del seno. Por ejemplo, el valor del coseno es igual a 1 cuando el seno es igual a 0; por lo tanto, la tangente será igual a 0;\n- Por otro lado, a medida que el valor del coseno de theta va disminuyendo hacia cero, el valor de la tangente irá aumentando; de esta manera, el valor tenderá al infinito sin limitarse a valores entre 0 y 1.\n\nPara entender mejor lo que describimos, vea la **Gráfica 3**:",
+               "text": "#### Entendiendo la gráfica\n\nEl resultado de nuestra gráfica de la tangente estará dado por la **Fórmula 1**, es decir, será dado por la división del seno de theta (θ) por el coseno de theta (θ), siendo el valor del ángulo theta (θ) igual para ambas funciones trigonométricas. Observando la **Gráfica 2** que muestra los valores del seno y del coseno para ángulos iguales, podemos concluir:\n- Cuando el coseno tenga valor cero, no habrá valor definido. Por lo tanto, este es un escenario en el que utilizaremos límites para entender hacia qué valor se aproximan los resultados a medida que el coseno se acerca a cero;\n- Como se vio en otro texto de *History Tracers*, entre 0 y 1 hay infinitos números (<htcite0>). De esta forma, cuando el valor del coseno de theta (θ) sea igual a 1, entonces el valor de la tangente será igual al valor del seno. Por ejemplo, el valor del coseno es igual a 1 cuando el seno es igual a 0; por lo tanto, la tangente será igual a 0;\n- Por otro lado, a medida que el valor del coseno de theta va disminuyendo hacia cero, el valor de la tangente irá aumentando; de esta manera, el valor tenderá al infinito sin limitarse a valores entre 0 y 1.\n\nPara entender mejor lo que describimos, vea la **Gráfica 3**:",
                "source": [
                   {
                      "type": 1,
@@ -315,6 +316,24 @@
                "PostMention": ""
             },
             {
+               "text": "#### Practicando\n\nAhora es momento de practicar lo que acabamos de aprender. En el **Gráfico 4**, el radio estaba hacia la derecha, donde el seno de theta (θ) es igual a 0 y el coseno de theta (θ) tiene su mayor valor, 1. En este escenario, la tangente de theta (θ) también es igual a 0, ya que se obtiene de la división del seno entre el coseno (**Fórmula 1**). Esta es exactamente la posición inicial de la aplicación interactiva del **Gráfico 6**.\n\nHaz clic en el gráfico para mover el radio dentro del primer cuadrante. Observa cómo cambian el triángulo rectángulo y el ángulo theta (θ): a medida que el radio se aleja de la horizontal, el seno de theta (θ) comienza a crecer mientras que el coseno de theta (θ) se reduce, y la tangente de theta (θ) crece, tal como predijimos con el **Gráfico 2** y observamos en el **Gráfico 3** y en el **Gráfico 5**. Mueve el radio a diferentes posiciones e intenta anticipar los valores del seno, del coseno y de la tangente antes de leerlos en el panel debajo del gráfico.",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"tanPracticeInstruction\" style=\"text-align:center;\">Haz clic en el gráfico para mover el radio en el primer cuadrante. Observa cómo el seno crece mientras el coseno se reduce y la tangente crece.</p> <div class=\"atlasCircleContainer\"><div id=\"tanpractice2510\"></div></div> <p class=\"desc\"><b>Gráfico 6</b>: Práctica interactiva: moviendo el radio en el primer cuadrante, el seno crece mientras el coseno se reduce y la tangente crece.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
                "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: Salirse por la tangente</b><br /><br />Al observar los gráficos de este texto, ¿te ayudan a entender lo que significa la expresión “salirse por la tangente”?</div></div></center></p>",
                "source": [],
                "date_time": null,
@@ -324,7 +343,7 @@
                "PostMention": ""
             },
             {
-               "text": "Volviendo a nuestra reflexión inicial, con el conocimiento adquirido en este texto y en el anterior (<htcite0>), podemos concluir que estamos más cerca de tangenciar el planeta cuando estamos de pie, pues, en ese caso, reducimos nuestra área de contacto con el planeta, acercándonos a un punto.",
+               "text": "#### Puntando en la vertical\n\nVolviendo a nuestra reflexión inicial, con el conocimiento adquirido en este texto y en el anterior (<htcite0>), podemos concluir que estamos más cerca de tangenciar el planeta cuando estamos de pie, pues, en ese caso, reducimos nuestra área de contacto con el planeta, acercándonos a un punto.",
                "source": [
                   {
                      "type": 1,

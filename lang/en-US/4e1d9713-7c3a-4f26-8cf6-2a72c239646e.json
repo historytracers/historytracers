@@ -21,14 +21,15 @@
    ],
    "index": [
       "atlas",
-      "shapes"
+      "shapes",
+      "math_games"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1785949043"
+      "1786129629"
    ],
    "authors": [
       ""
@@ -78,7 +79,7 @@
                "PostMention": ""
             },
             {
-               "text": "### The other opposite side\n\nIn this text, we will focus on the cosecant line illustrated in **Graph 1** and understand what we can expect from the values of this function in the first quadrant we are studying.\n\n#### Isolating\n\nIn order to make what we are analyzing in this text more visible, we will isolate from Graph 1 the parts necessary for this study:",
+               "text": "### The other opposite side\n\nIn this text, we will focus on the cosecant line illustrated in **Graph 1** and understand what we can expect from the values of this function in the first quadrant we are studying.\n\n#### Isolating\n\nIn order to make what we are analyzing in this text more visible, we will isolate from **Graph 1** the parts necessary for this study:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -136,7 +137,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Curiosity\n\nDespite our knowledge of the function, an important point raised by Eric W. Weisstein is worth highlighting. This function had its origin practically alongside the sine; however, its use ended up being reduced, so much so that it came to be counted among the rarely used functions (<htcite0>).\n\n#### Graph\n\nWe can understand the graph of the cosecant function from the cotangent graph itself, since both functions have the sine theta in the denominator (<htcite1>). In it, we learned that the cotangent is given by dividing the cosine function by the sine function (**Formula 2**):",
+               "text": "#### Curiosity\n\nDespite our knowledge of the function, an important point raised by Eric W. Weisstein is worth highlighting. This function had its origin practically alongside the sine; however, its use ended up being reduced, so much so that it came to be counted among the rarely used functions (<htcite0>).\n\n#### Graph\n\nWe can understand the graph of the cosecant function from the cotangent graph itself, since both functions have the sine of theta in the denominator (<htcite1>). In it, we learned that the cotangent is given by dividing the cosine function by the sine function (**Formula 2**):",
                "source": [
                   {
                      "type": 1,
@@ -179,7 +180,7 @@
                "PostMention": ""
             },
             {
-               "text": "By comparing **Formulas 1 and 2**, we can observe that both have sine theta in the denominator, but in **Formula 1**, we have a constant value in the numerator. From this, we can expect from the graph:\n- When sine theta (θ) has its greatest value, 1, then the value of the cosecant will be equal to 1;\n- As seen in another text from History Tracers, between 0 and 1 there are infinite numbers (<htcite0>). As the sine value starts at its maximum value and decreases toward zero, the cosecant value will begin to grow as we approach zero;\n- There is no cosecant value when the sine value is equal to zero.\n\nTo better understand what we have described, see **Graph 3**:",
+               "text": "By comparing **Formulas 1 and 2**, we can observe that both have the sine of theta in the denominator, but in **Formula 1**, we have a constant value in the numerator. From this, we can expect from the graph:\n- When the sine of theta (θ) has its greatest value, 1, then the value of the cosecant will be equal to 1;\n- As seen in another text from History Tracers, between 0 and 1 there are infinite numbers (<htcite0>). As the sine value starts at its maximum value and decreases toward zero, the cosecant value will begin to grow as we approach zero;\n- There is no cosecant value when the sine value is equal to zero.\n\nTo better understand what we have described, see **Graph 3**:",
                "source": [
                   {
                      "type": 1,
@@ -254,7 +255,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### From one graph to the other\n\n**Graph 1** shows us the cosecant in an intermediate position. Thus, we will adjust this graph to the extremes, so that we can understand the values that appear in **Graph 3**.\n\nFirst, we will start with the scenario in which sine theta reaches its greatest value and, consequently, cosecant theta has its smallest value:",
+               "text": "#### From one graph to the other\n\n**Graph 1** shows us the cosecant in an intermediate position. Thus, we will adjust this graph to the extremes, so that we can understand the values that appear in **Graph 3**.\n\nFirst, we will start with the scenario in which the sine of theta reaches its greatest value and, consequently, the cosecant of theta has its smallest value:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -272,7 +273,7 @@
                "PostMention": ""
             },
             {
-               "text": "As the radius begins to rotate, sine theta (θ) will begin to reduce its value, heading toward zero. As a consequence, the cosecant will begin to grow indefinitely. Thus, **Graph 5**, in the limit as sine approaches zero, would look like:",
+               "text": "As the radius begins to rotate, the sine of theta (θ) will begin to reduce its value, heading toward zero. As a consequence, the cosecant will begin to grow indefinitely. Thus, **Graph 5**, in the limit as the sine approaches zero, would look like:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -290,7 +291,7 @@
                "PostMention": ""
             },
             {
-               "text": "In this last graph, we kept sine theta (θ) visible, but the cosecant has been expanded in such a way that its text is no longer visible.",
+               "text": "In this last graph, we kept the sine of theta (θ) visible, but the cosecant has been expanded in such a way that its label is no longer visible.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -299,7 +300,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Practicing\n\nNow it is time to practice what we have just learned. In **Graph 5**, the radius was at the top, where sine theta (θ) has its greatest value and, consequently, cosecant theta has its smallest value: both are equal to 1. This is exactly the starting position of the interactive app in **Graph 7**.\n\nClick on the chart to move the radius inside the first quadrant. Watch the right triangle and the angle theta (θ) change: as the radius moves away from the top, sine theta (θ) reduces its value while cosecant theta starts to grow, just as we predicted from **Graph 3** and observed in **Graph 6**. Move the radius to different positions and try to anticipate the values of sine and cosecant before reading them in the panel below the chart.",
+               "text": "#### Practicing\n\nNow it is time to practice what we have just learned. In **Graph 5**, the radius was at the top, where the sine of theta (θ) has its greatest value and, consequently, the cosecant of theta has its smallest value: both are equal to 1. This is exactly the starting position of the interactive app in **Graph 7**.\n\nClick on the chart to move the radius inside the first quadrant. Watch the right triangle and the angle theta (θ) change: as the radius moves away from the top, the sine of theta (θ) reduces its value while the cosecant of theta starts to grow, just as we predicted from **Graph 3** and observed in **Graph 6**. Move the radius to different positions and try to anticipate the values of sine and cosecant before reading them in the panel below the chart.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -317,7 +318,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Conclusion\n\nAlthough it is rarely used (<htcite0>), the existence of this function cannot be denied, which is why we explored, in this text, its graphs to reinforce the knowledge we are building.",
+               "text": "#### Conclusion\n\nAlthough it is rarely used (<htcite0>), the existence of this function cannot be denied, which is why we explored, in this text, its graphs to review the knowledge we are building.",
                "source": [
                   {
                      "type": 1,
