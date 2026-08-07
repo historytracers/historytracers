@@ -914,8 +914,14 @@ func htRemoveSVGBlocks(text string) string {
 	return svgRegex.ReplaceAllString(text, "")
 }
 
+func htRemoveStyleBlocks(text string) string {
+	styleRegex := regexp.MustCompile(`(?s)<style[^>]*>.*?</style>`)
+	return styleRegex.ReplaceAllString(text, "")
+}
+
 func htRemoveHTMLTags(text string) string {
 	text = htRemoveSVGBlocks(text)
+	text = htRemoveStyleBlocks(text)
 	htmlTagRegex := regexp.MustCompile(`<[^>]+>`)
 	return htmlTagRegex.ReplaceAllString(text, "")
 }
@@ -958,87 +964,122 @@ func htConvertTextsToAudio() {
 	htConvertSMGameToAudio()
 }
 
-func htConvertSMGameToAudio() {
-	for _, lang := range htLangPaths {
-		smGameDir := fmt.Sprintf("%slang/%s/smGame", CFG.SrcPath, lang)
+func htBuildSMGameAudioText(textBlocks []HTText) string {
+	var audioBuilder strings.Builder
 
-		files, err := os.ReadDir(smGameDir)
-		if err != nil {
+	for _, textBlock := range textBlocks {
+		if textBlock.Text == "" {
 			continue
 		}
 
-		for _, file := range files {
-			if file.IsDir() {
-				continue
-			}
+		cleanText := htRemoveHTMLTags(textBlock.Text)
+		cleanText = htRemoveAsiaticCharacters(cleanText)
+		cleanText = strings.TrimSpace(cleanText)
 
-			fileName := file.Name()
-			if !strings.HasSuffix(fileName, ".json") {
-				continue
-			}
+		if len(cleanText) > 0 {
+			audioBuilder.WriteString(cleanText)
+			audioBuilder.WriteString("\n")
+		}
+	}
 
-			filePath := smGameDir + "/" + fileName
-			byteValue, err := htOpenFileReadClose(filePath)
+	return audioBuilder.String()
+}
+
+func htConvertSMGameToAudio() {
+	subDirs := []string{"smGame", "smartphone"}
+	for _, lang := range htLangPaths {
+		for _, subDir := range subDirs {
+			smGameDir := fmt.Sprintf("%slang/%s/%s", CFG.SrcPath, lang, subDir)
+
+			files, err := os.ReadDir(smGameDir)
 			if err != nil {
 				continue
 			}
 
-			var smGame SMGameFile
-			err = json.Unmarshal(byteValue, &smGame)
-			if err != nil || smGame.Type != "sm_game" {
-				continue
-			}
+			for _, file := range files {
+				if file.IsDir() {
+					continue
+				}
 
-			var audioBuilder strings.Builder
+				fileName := file.Name()
+				if !strings.HasSuffix(fileName, ".json") {
+					continue
+				}
 
-			for _, block := range smGame.Content {
-				for _, textBlock := range block.Text {
-					if textBlock.Text == "" {
+				filePath := smGameDir + "/" + fileName
+				byteValue, err := htOpenFileReadClose(filePath)
+				if err != nil {
+					continue
+				}
+
+				var smGame SMGameFile
+				err = json.Unmarshal(byteValue, &smGame)
+				if err != nil || smGame.Type != "sm_game" {
+					continue
+				}
+
+				baseName := strings.TrimSuffix(fileName, ".json")
+				audioWritten := false
+
+				if subDir == "smartphone" {
+					for _, block := range smGame.Content {
+						audioContent := htBuildSMGameAudioText(block.Text)
+						if len(audioContent) == 0 {
+							continue
+						}
+
+						audioContent = htAdjustAudioStringBeforeWrite(audioContent, lang)
+						audioContent = htRemoveAsiaticCharacters(audioContent)
+
+						err = htWriteAudioFile(baseName+"_"+block.ID, lang, audioContent)
+						if err != nil {
+							continue
+						}
+					}
+				} else {
+					var audioBuilder strings.Builder
+
+					for _, block := range smGame.Content {
+						audioBuilder.WriteString(htBuildSMGameAudioText(block.Text))
+					}
+
+					audioContent := audioBuilder.String()
+					if len(audioContent) == 0 {
 						continue
 					}
 
-					cleanText := htRemoveHTMLTags(textBlock.Text)
-					cleanText = htRemoveAsiaticCharacters(cleanText)
-					cleanText = strings.TrimSpace(cleanText)
+					audioContent = htAdjustAudioStringBeforeWrite(audioContent, lang)
+					audioContent = htRemoveAsiaticCharacters(audioContent)
 
-					if len(cleanText) > 0 {
-						audioBuilder.WriteString(cleanText)
-						audioBuilder.WriteString("\n")
+					err = htWriteAudioFile(baseName, lang, audioContent)
+					if err != nil {
+						continue
 					}
+					audioWritten = true
 				}
-			}
 
-			audioContent := audioBuilder.String()
-			if len(audioContent) == 0 {
-				continue
-			}
+				if !audioWritten || subDir == "smartphone" {
+					continue
+				}
 
-			audioContent = htAdjustAudioStringBeforeWrite(audioContent, lang)
-			audioContent = htRemoveAsiaticCharacters(audioContent)
+				fileWasModified := false
+				if smGameFilePath, ok := htGitModifiedMap[filePath]; ok {
+					fileWasModified = smGameFilePath
+				}
+				if fileWasModified {
+					smGame.LastUpdate[0] = HTUpdateTimestamp()
+				}
 
-			baseName := strings.TrimSuffix(fileName, ".json")
-			err = htWriteAudioFile(baseName, lang, audioContent)
-			if err != nil {
-				continue
-			}
-
-			fileWasModified := false
-			if smGameFilePath, ok := htGitModifiedMap[filePath]; ok {
-				fileWasModified = smGameFilePath
-			}
-			if fileWasModified {
-				smGame.LastUpdate[0] = HTUpdateTimestamp()
-			}
-
-			newFile, err := htWriteTmpFile(lang, &smGame)
-			if err != nil {
-				continue
-			}
-			equal, err := HTAreFilesEqual(newFile, filePath)
-			if !equal && err == nil || updateDateFlag == true {
-				_ = os.Rename(newFile, filePath)
-			} else {
-				os.Remove(newFile)
+				newFile, err := htWriteTmpFile(lang, &smGame)
+				if err != nil {
+					continue
+				}
+				equal, err := HTAreFilesEqual(newFile, filePath)
+				if !equal && err == nil || updateDateFlag == true {
+					_ = os.Rename(newFile, filePath)
+				} else {
+					os.Remove(newFile)
+				}
 			}
 		}
 	}

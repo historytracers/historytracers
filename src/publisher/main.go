@@ -28,6 +28,7 @@ func htCreateDirectory(name string) {
 
 func htRunStopFlags() {
 	htFillModifiedGit()
+	htValidateSMGameFormats()
 
 	var stopRun bool = false
 	if ShowCompilationFlag {
