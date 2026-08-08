@@ -33,6 +33,20 @@ func htRewriteSMGame(smGameFile string) error {
 		htLoadSourceFromFile(localSMGameFile.Sources)
 	}
 
+	if len(localSMGameFile.Content) > 0 && localSMGameFile.Content[0].Smile == "" {
+		localSMGameFile.Content[0].Smile = "nerd"
+	}
+
+	if len(localSMGameFile.Content) > 0 && localSMGameFile.Content[len(localSMGameFile.Content)-1].Smile == "" {
+		localSMGameFile.Content[len(localSMGameFile.Content)-1].Smile = "party"
+	}
+
+	for i := range localSMGameFile.Content {
+		if localSMGameFile.Content[i].Answer != nil && localSMGameFile.Content[i].Smile == "" {
+			localSMGameFile.Content[i].Smile = "thinking"
+		}
+	}
+
 	_, fileWasModified := htGitModifiedMap[smGameFile]
 	if fileWasModified {
 		localSMGameFile.LastUpdate[0] = HTUpdateTimestamp()
