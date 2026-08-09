@@ -12,18 +12,24 @@
          "url": "https://www.historytracers.org/audios/8fccfdf4-8c44-4513-983f-d9713489519d_pt-BR.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/40wgEvernNgQrnWEFUDete?si=rXgE0QsKQu2oC4iM57ZPAw",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
       "atlas",
-      "shapes"
+      "shapes",
+      "math_games"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765779"
+      "1786276122"
    ],
    "authors": [
       ""
@@ -82,7 +88,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: Como posso te ajudar?</b><br /><br />Sabendo que o ângulo teta (θ) representa a abertura do raio, que por sua vez tem relação com a hipotenusa do triângulo retângulo.<br /><br />Como podemos ligar esse ângulo aos catetos?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Como posso te ajudar?</b><br /><br />Sabendo que o ângulo teta (θ) representa a abertura do raio, que por sua vez tem relação com a hipotenusa do triângulo retângulo.<br /><br />Como podemos ligar esse ângulo aos catetos?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -134,7 +140,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: A definição do cosseno</b><br /><br />A definição do cosseno apresentada na <b>Fórmula 1</b> consegue representar tudo o que descrevemos em relação ao cateto <b>a</b>, ao ângulo e à hipotenusa?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: A definição do cosseno</b><br /><br />A definição do cosseno apresentada na <b>Fórmula 1</b> consegue representar tudo o que descrevemos em relação ao cateto <b>a</b>, ao ângulo e à hipotenusa?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -161,7 +167,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como o cateto **a** tem o mesmo comprimento do raio **c** no **Gráfico 2**, ou seja, **a = c**, o cosseno de teta (θ) — para quando não existe ângulo separando dois raios — será o maior valor possível: 1, como mostra o **Cálculo 1** (<htcite0>):",
+               "text": "Como o cateto **a** tem o mesmo comprimento do raio **c** no **Gráfico 2**, ou seja, **a = c**, o cosseno de teta (θ) — para quando não existe ângulo separando dois raios — terá o maior valor possível: 1, como mostra o **Cálculo 1** (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -246,12 +252,30 @@
                "PostMention": ""
             },
             {
-               "text": "A partir do **Cálculo 2**, podemos confirmar os dados presentes na lista apresentada na seção *Trigonometria* acima:\n- **Linha 1**: Esta linha nos diz que, à medida que o cateto **a** vai crescendo a partir do centro **O**, ele alcançará seu maior tamanho quando atingir o maior comprimento possível dentro do círculo: o tamanho do raio **c**. Consequentemente, o cosseno, nesse caso, será igual a 1. Por outro lado, à medida que o cateto diminui a partir da borda do círculo, o cosseno de teta irá se reduzindo até chegar a zero, que corresponde ao centro. Esta descrição corresponde aos itens *1, 3 e 4* da seção *Trigonometria*.\n- **Linha 2**: O raio **c** funciona como um limitador em ambos os lados do cálculo. Para entendermos como o cateto é influenciado por ele e pelo ângulo, é necessário somar todos ambos os lados repetidamente até que se atinja o tamanho do raio **c**, ou seja, multiplicamos ambos os lados por **c**.\n- **Linha 3**: Como no lado direito já dividíamos pelo tamanho do raio, isso quer dizer que, nesse lado, obtivemos o valor total, o que nos permite substituí-lo por 1.\n- **Linha 4**: Finalmente, esta linha nos informa que, à medida que o valor do cosseno diminui, o cateto **a** reduz o seu comprimento. Esse evento ocorre justamente porque o ângulo está aumentando e, como consequência, a projeção **a** vai diminuindo. Esta última linha corresponde exatamente ao *ítem 2* da lista da seção *Trigonometria*.",
+               "text": "A partir do **Cálculo 2**, podemos confirmar os dados presentes na lista apresentada na seção *Trigonometria* acima:\n- **Linha 1**: Esta linha nos diz que, à medida que o cateto **a** vai crescendo a partir do centro **O**, ele alcançará seu maior tamanho quando atingir o maior comprimento possível dentro do círculo: o tamanho do raio **c**. Consequentemente, o cosseno, nesse caso, será igual a 1. Por outro lado, à medida que o cateto diminui a partir da borda do círculo, o cosseno de teta irá se reduzindo até chegar a zero, que corresponde ao centro. Esta descrição corresponde aos itens *1, 3 e 4* da seção *Trigonometria*.\n- **Linha 2**: O raio **c** funciona como um limitador em ambos os lados do cálculo. Para entendermos como o cateto é influenciado por ele e pelo ângulo, é necessário somar ambos os lados repetidamente até que se atinja o tamanho do raio **c**, ou seja, multiplicamos ambos os lados por **c**.\n- **Linha 3**: Como no lado direito já dividíamos pelo tamanho do raio, isso quer dizer que, nesse lado, obtivemos o valor total, o que nos permite substituí-lo por 1.\n- **Linha 4**: Finalmente, esta linha nos informa que, à medida que o valor do cosseno diminui, o cateto **a** reduz o seu comprimento. Esse evento ocorre justamente porque o ângulo está aumentando e, como consequência, a projeção **a** vai diminuindo. Esta última linha corresponde exatamente ao *ítem 2* da lista da seção *Trigonometria*.",
                "source": [],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Praticando\n\nAgora é hora de praticar o que acabamos de aprender. No **Gráfico 2**, o raio estava sobre a linha horizontal, onde o cateto **a** tem o mesmo comprimento do raio **c**, e o cosseno de teta (θ) tem seu maior valor: 1. A partir dessa posição, à medida que o raio gira no sentido anti-horário, o cateto **a** reduz seu tamanho e o cosseno começa a diminuir, até chegar a zero quando o raio está totalmente vertical.\n\nClique no gráfico para mover o raio dentro do primeiro quadrante. Observe como mudam o triângulo retângulo, o ângulo teta (θ) e o valor do cosseno. Mova o raio para diferentes posições e tente antecipar o valor do cosseno antes de lê-lo no painel abaixo do gráfico.",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"cscPracticeInstruction\" style=\"text-align:center;\">Clique no gráfico para mover o raio no primeiro quadrante. Observe como o cateto adjacente (e o cosseno) diminui à medida que o ângulo teta (θ) cresce.</p> <div class=\"atlasCircleContainer\"><div id=\"cospractice8fcc\"></div></div> <p class=\"desc\"><b>Gráfico 5</b>: Prática interativa: movendo o raio no primeiro quadrante, o cosseno diminui à medida que o ângulo teta (θ) cresce.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]

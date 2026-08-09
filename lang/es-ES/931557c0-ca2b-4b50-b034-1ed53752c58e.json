@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/931557c0-ca2b-4b50-b034-1ed53752c58e_es-ES.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/2ixdwzcwAO8VZJXFPigmMY?si=TUF_W1vqTwGhS6-M-9JxzA",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -23,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1786280003"
    ],
    "authors": [
       ""
@@ -73,7 +78,7 @@
                "PostMention": ""
             },
             {
-               "text": "### ¿Dónde estamos en un disco?\n\n#### Caminando\n\nCuando estamos caminando por una calle recta, podemos ubicarnos a partir de una esquina con otra calle. Por ejemplo, si esa calle está dividida en manzanas y cada manzana tiene 50 metros, sabremos que, al caminar 4 manzanas, habremos recorrido 200 metros desde la esquina en que comenzamos nuestro recorrido (50 × 4 = 200) (<htcite0>).\n\nLo que acabamos de describir es una medición en una dimensión, es decir, necesitamos solo un valor para obtener el resultado y describir su medida (<htcite1>).\n\nAl observar el **Gráfico 1** en esta sección, podemos notar que, si deseamos saber la distancia entre los puntos **O** y **Q** (que representaremos, a partir de ahora, como **OQ**), podremos realizar esa medición precisamente porque estamos hablando de una línea horizontal, que pasamos a llamar **eje x**.\n\n#### El eje x\n\nAl estudiar la función coseno, aprendimos que la longitud del cateto a corresponde a la multiplicación del radio del círculo por el coseno de theta (c × cos(θ)). Esto sucede porque el cateto **a** representa la proyección del radio **c** en el cateto adyacente (<htcite2>).\n\nEn el **Gráfico 2**, representamos nuevamente esa proyección cuando hay un ángulo theta (θ) entre el radio y el **eje x**.",
+               "text": "### ¿Dónde estamos en un disco?\n\n#### Caminando\n\nCuando estamos caminando por una calle recta, podemos ubicarnos a partir de una esquina con otra calle. Por ejemplo, si esa calle está dividida en manzanas y cada manzana tiene 50 metros, sabremos que, al caminar 4 manzanas, habremos recorrido 200 metros desde la esquina en que comenzamos nuestro recorrido (50 × 4 = 200) (<htcite0>).\n\nLo que acabamos de describir es una medición en una dimensión, es decir, necesitamos solo un valor para obtener el resultado y describir su medida (<htcite1>).\n\nAl observar el **Gráfico 1** en esta sección, podemos notar que, si deseamos saber la distancia entre los puntos **O** y **Q** (que representaremos, a partir de ahora, como **OQ**), podremos realizar esa medición precisamente porque estamos hablando de una línea horizontal, que pasamos a llamar **eje x**.\n\n#### El eje x\n\nAl estudiar la función coseno, aprendimos que la longitud del cateto **a** corresponde a la multiplicación del radio del círculo por el coseno de theta (c × cos(θ)). Esto sucede porque el cateto **a** representa la proyección del radio **c** en el cateto adyacente (<htcite2>).\n\nEn el **Gráfico 2**, representamos nuevamente esa proyección cuando hay un ángulo theta (θ) entre el radio y el **eje x**.",
                "source": [
                   {
                      "type": 1,
@@ -137,7 +142,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Y hacia arriba?</b><br /><br />¿Lo que escribimos sobre un camino horizontal podría aplicarse a un eje vertical?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Y hacia arriba?</b><br /><br />¿Lo que escribimos sobre un camino horizontal podría aplicarse a un eje vertical?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -155,7 +160,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: 200 para allá, 200 para acá...</b><br /><br />Ignora casas, árboles, personas y animales, y concéntrate solo en la distancia de 200 metros en línea recta.<br /><br />Al caminar 200 metros en cualquier calle recta, ¿estás caminando la misma distancia?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: 200 para allá, 200 para acá...</b><br /><br />Ignora casas, árboles, personas y animales, y concéntrate solo en la distancia de 200 metros en línea recta.<br /><br />Al caminar 200 metros en cualquier calle recta, ¿estás caminando la misma distancia?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -164,7 +169,7 @@
                "PostMention": ""
             },
             {
-               "text": "Posiblemente, en tu reflexión, habrás observado que la distancia de 200 metros es la misma tanto en una calle como en la otra. Es decir, en ambos casos estamos en una línea recta e, independientemente de la dirección en que caminemos, al final recorremos los mismos 200 metros.\n\nAhora, podemos volver a las diferencias. Al seguir una calle recta y, luego, girar en otra calle y caminar un poco más, estamos siguiendo trayectorias diferentes, a pesar de realizar exactamente el mismo tipo de movimiento.\n\nDe esta forma, utilizaremos lo que aprendimos en el texto sobre senos para proyectar el radio del círculo en la vertical (<htcite0>), como muestra el **Gráfico 3**:",
+               "text": "Posiblemente, en tu reflexión, habrás observado que la distancia de 200 metros es la misma tanto en una calle como en la otra. Es decir, en ambos casos estamos en una línea recta e, sin importar la dirección en que caminemos, al final recorremos los mismos 200 metros.\n\nAhora, podemos volver a las diferencias. Al seguir una calle recta y, luego, girar en otra calle y caminar un poco más, estamos siguiendo trayectorias diferentes, a pesar de realizar exactamente el mismo tipo de movimiento.\n\nDe esta forma, utilizaremos lo que aprendimos en el texto sobre senos para proyectar el radio del círculo en la vertical (<htcite0>), como muestra el **Gráfico 3**:",
                "source": [
                   {
                      "type": 1,
@@ -226,7 +231,7 @@
                "PostMention": ""
             },
             {
-               "text": "Estos datos nos llevan a concluir que no podemos utilizar una proyección horizontal para representar el camino vertical. Es decir, se trata de caminos independientes, lo que nos lleva a concluir que se necesitan dos medidas —o dos dimensiones (<htcite0>)—para describir el camino.",
+               "text": "Estos datos nos llevan a concluir que no podemos utilizar una proyección horizontal para representar el camino vertical. Es decir, se trata de caminos independientes, lo que nos lleva a concluir que se necesitan dos medidas — o dos dimensiones (<htcite0>) — para describir el camino.",
                "source": [
                   {
                      "type": 1,
@@ -257,7 +262,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### El Regreso del Teorema\n\nToda esta parte de trigonometría del Atlas do *History Tracers* comenzó cuando estudiamos cómo los babilonios ya poseían un conocimiento previo de lo que el Dr. Daniel F. Mansfield denominó *\"triple diagonal\"* (<htcite0>). Siglos después, esta relación pasó a ser conocida como el Teorema de Pitágoras, demostrado en la **Fórmula 2**:",
+               "text": "#### El Regreso del Teorema\n\nToda esta parte de trigonometría del Atlas de *History Tracers* comenzó cuando estudiamos cómo los babilonios ya poseían un conocimiento previo de lo que el Dr. Daniel F. Mansfield denominó *\"triple diagonal\"* (<htcite0>). Siglos después, esta relación pasó a ser conocida como el Teorema de Pitágoras, demostrado en la **Fórmula 2**:",
                "source": [
                   {
                      "type": 1,

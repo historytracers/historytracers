@@ -12,18 +12,24 @@
          "url": "https://www.historytracers.org/audios/dc29a98c-70c2-49b3-b3a7-431b040dbfed_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5U0X5HxQGPc0rPP6nh65Xm?si=yIM08640RdmnOcsA385vlg",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
       "atlas",
-      "shapes"
+      "shapes",
+      "math_games"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765767"
+      "1786277150"
    ],
    "authors": [
       ""
@@ -37,7 +43,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nWe recommend reading the previous text first to improve understanding (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -107,7 +113,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: What about the other one?</b><br /><br />The right triangle has two legs. How does the opposite leg relate to the angle theta (θ)?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: What about the other one?</b><br /><br />The right triangle has two legs. How does the opposite leg relate to the angle theta (θ)?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -190,7 +196,7 @@
                "PostMention": ""
             },
             {
-               "text": "Since leg **b** has the same length as radius radio **c** in **Graph 2**, that is, **b = c**, the sine of theta (θ) —for when there is a right angle (90 degrees) separating two radii— will be the highest possible value: 1, as shown in **Calculation 1** (<htcite0>):",
+               "text": "Since leg **b** has the same length as radius **c** in **Graph 2**, that is, **b = c**, the sine of theta (θ) — for when there is a right angle (90 degrees) separating two radii — will have its highest possible value: 1, as shown in **Calculation 1** (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -239,7 +245,7 @@
                "PostMention": ""
             },
             {
-               "text": "Another observed consequence of this rotation of the radius is the increase in the length of leg **b**. This fact does not happen by chance: it happens because leg **b** represents the projection of the hypotenuse **c** onto the side opposite the angle.\n\nThese two behaviors we describe have direct consequences on the sine of theta (θ). As leg **b** (the projection) increases in size, the value of the sine also increases, because we are dividing larger values of a leg by a constant: the hypotenuse.\n\n#### The Minimum Value\n\nThe smallest possible value we are visualizing in the graphs on this page will occur when leg **b** has a length equal to zero. This will happen whenever the radius (our hypotenuse) is completely horizontal, as demonstrated in **Graph 4**.",
+               "text": "Another observed consequence of this rotation of the radius is the increase in the length of leg **b**. This is no coincidence: it happens because leg **b** represents the projection of the hypotenuse **c** onto the side opposite the angle.\n\nThese two behaviors we describe have direct consequences on the sine of theta (θ). As leg **b** (the projection) increases in size, the value of the sine also increases, because we are dividing larger values of a leg by a constant: the hypotenuse.\n\n#### The Minimum Value\n\nThe smallest possible value we are visualizing in the graphs on this page will occur when leg **b** has a length equal to zero. This will happen whenever the radius (our hypotenuse) is completely horizontal, as demonstrated in **Graph 4**.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -257,7 +263,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Conclusions\n\nThe sine of theta (θ) perfectly represents the projection of leg **b** as the radius rotates around the center **O**. This information is even demonstrated in **Formula 1** and can be made explicit by multiplying both sides of it by the hypotenuse (the radius **c**):",
+               "text": "#### Conclusions\n\nThe sine of theta (θ) perfectly represents the projection of leg **b** as the radius rotates around the center **O**. This information is even shown in **Formula 1** and can be made explicit by multiplying both sides of it by the hypotenuse (the radius **c**):",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -281,6 +287,24 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Practicing\n\nNow it is time to practice what we have just learned. In **Graph 2**, the radius was on the vertical line, where leg **b** has the same length as the radius **c**, and the sine of theta (θ) has its greatest value: 1. From this position, as the radius rotates counterclockwise, leg **b** reduces its size and the sine starts to decrease, until it reaches zero when the radius is completely horizontal.\n\nClick on the chart to move the radius inside the first quadrant. Watch the right triangle, the angle theta (θ), and the value of the sine change. Move the radius to different positions and try to anticipate the value of the sine before reading it in the panel below the chart.",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"cscPracticeInstruction\" style=\"text-align:center;\">Click on the chart to move the radius in the first quadrant. Observe how the opposite leg (and the sine) reduces as the radius approaches the horizontal line.</p> <div class=\"atlasCircleContainer\"><div id=\"senpracticedc29\"></div></div> <p class=\"desc\"><b>Graph 5</b>: Interactive practice: moving the radius in the first quadrant, the sine reduces as the radius approaches the horizontal line.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]
