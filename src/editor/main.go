@@ -755,7 +755,7 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 	tpl.DateTime = []common.HTDate{}
 
 	for _, lang := range editorLangs {
-		smartphoneDir := filepath.Join(rootDir, "lang", lang, "smartphone")
+		smartphoneDir := filepath.Join(rootDir, "src", "common", "src", "smartphone", lang)
 		if err := os.MkdirAll(smartphoneDir, 0755); err != nil {
 			log.Printf("ERROR createSmartphone: mkdir %s: %v", smartphoneDir, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -1664,7 +1664,7 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 				})
 				continue
 			}
-			// check subdirectories (smartphone, smGame, etc.)
+			// check subdirectories (smGame, etc.)
 			subEntries, err := os.ReadDir(langPath)
 			if err == nil {
 				for _, sub := range subEntries {
@@ -1681,6 +1681,15 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 						break
 					}
 				}
+			}
+			// smartphone files live under src/common/src/smartphone/<lang>/
+			smartCandidate := filepath.Join(rootDir, "src", "common", "src", "smartphone", langName, uuidStr+".json")
+			if info, err := os.Stat(smartCandidate); err == nil && !info.IsDir() {
+				rel, _ := filepath.Rel(rootDir, smartCandidate)
+				result = append(result, map[string]string{
+					"path":  filepath.ToSlash(rel),
+					"label": langName,
+				})
 			}
 		}
 	}
