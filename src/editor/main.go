@@ -755,7 +755,7 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 	tpl.DateTime = []common.HTDate{}
 
 	for _, lang := range editorLangs {
-		smartphoneDir := filepath.Join(rootDir, "src", "common", "src", "smartphone", lang)
+		smartphoneDir := smartphoneDirForLang(lang)
 		if err := os.MkdirAll(smartphoneDir, 0755); err != nil {
 			log.Printf("ERROR createSmartphone: mkdir %s: %v", smartphoneDir, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -853,13 +853,14 @@ var (
 )
 
 type optionsData struct {
-	Lang         string `json:"lang"`
-	Port         string `json:"port"`
-	TLSCert      string `json:"tls_cert"`
-	TLSKey       string `json:"tls_key"`
-	OpenNewFiles bool   `json:"open_new_files"`
-	Design       string `json:"design"`
-	MyName       string `json:"my_name"`
+	Lang             string `json:"lang"`
+	Port             string `json:"port"`
+	TLSCert          string `json:"tls_cert"`
+	TLSKey           string `json:"tls_key"`
+	OpenNewFiles     bool   `json:"open_new_files"`
+	Design           string `json:"design"`
+	MyName           string `json:"my_name"`
+	SmartphonePrefix string `json:"smartphone_prefix"`
 }
 
 func initDataDir() {
@@ -936,6 +937,25 @@ func validateEditorOptions(data *optionsData) {
 		data.TLSCert = ""
 		data.TLSKey = ""
 	}
+	data.SmartphonePrefix = normalizeSmartphonePrefix(data.SmartphonePrefix)
+}
+
+func normalizeSmartphonePrefix(p string) string {
+	p = strings.TrimSpace(p)
+	p = strings.Trim(p, "/\\")
+	p = filepath.ToSlash(p)
+	if p == "" || p == "." {
+		return ""
+	}
+	clean := path.Clean(p)
+	if clean == ".." || strings.HasPrefix(clean, "../") || strings.HasPrefix(clean, "/") {
+		return ""
+	}
+	return clean
+}
+
+func smartphoneDirForLang(lang string) string {
+	return filepath.Join(rootDir, normalizeSmartphonePrefix(savedOptions.SmartphonePrefix), "src", "common", "src", "smartphone", lang)
 }
 
 type sessionTab struct {
@@ -1136,6 +1156,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		} else if _, ok := r.Form["my_name"]; ok {
 			data.MyName = ""
 		}
+		if v := r.FormValue("smartphone_prefix"); v != "" {
+			data.SmartphonePrefix = v
+		} else if _, ok := r.Form["smartphone_prefix"]; ok {
+			data.SmartphonePrefix = ""
+		}
 		writeEditorOptions(data)
 		savedOptions = data
 		rotateToken()
@@ -1180,6 +1205,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	if curDesign == "" {
 		curDesign = "default"
 	}
+	curSmartphonePrefix := data.SmartphonePrefix
 	defaultTLSDir := "/etc/historytracers/"
 	if runtime.GOOS == "windows" {
 		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
@@ -1214,10 +1240,11 @@ var certDir=%q;
 var token=%q;
 var openNewFiles=%q;
 var curDesign=%q;
+var smartphonePrefixVal=%q;
 var L={};
-L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro'};
-L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro'};
-L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light'};
+L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro',smartphonePrefixLabel:'Prefixo do caminho Smartphone',smartphonePrefixNote:'Prefixa o caminho padr\u00e3o src/common/src/smartphone. Por exemplo, MYSMARTPHONE.
+L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro',smartphonePrefixLabel:'Prefijo de ruta Smartphone',smartphonePrefixNote:'Prefija la ruta predeterminada src/common/src/smartphone. Por ejemplo, MYSMARTPHONE.
+L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light',smartphonePrefixLabel:'Smartphone path prefix',smartphonePrefixNote:'Prefixes the default path src/common/src/smartphone. For example, MYSMARTPHONE.
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
@@ -1235,6 +1262,8 @@ html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'
 html+='<div class="form-group"><label><input type="checkbox" id="opt_open_new_files"'+(openNewFiles==='true'?' checked':'')+'> '+l.openNewFilesLabel+'</label></div>';
 html+='<div class="form-group"><label>'+l.designLabel+'</label><select id="opt_design"><option value="default"'+(curDesign==='default'?' selected':'')+'>'+l.designDefault+'</option><option value="light"'+(curDesign==='light'?' selected':'')+'>'+l.designLight+'</option></select></div>';
 html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
+html+='<div class="form-group"><label>'+l.smartphonePrefixLabel+'</label><input type="text" id="opt_smartphone_prefix" placeholder="MYSMARTPHONE" value="'+smartphonePrefixVal+'"></div>';
+html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.smartphonePrefixNote+'</div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
 html+='<div id="opt_status"></div>';
@@ -1253,8 +1282,9 @@ document.getElementById('opt_apply').onclick=function(){
 	var nof=document.getElementById('opt_open_new_files').checked?'true':'false';
 	var nd=document.getElementById('opt_design').value;
 	var nm=document.getElementById('opt_my_name').value;
+	var sp=document.getElementById('opt_smartphone_prefix').value;
 	localStorage.setItem('ht_my_name',nm);
-	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)}).then(function(r){
+	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)+'&smartphone_prefix='+encodeURIComponent(sp)}).then(function(r){
 		if(r.ok&&window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
@@ -1274,7 +1304,7 @@ document.getElementById('opt_import').onclick=function(){
 	});
 };
 </script>
-</body></html>`, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, token, fmt.Sprint(openNewFiles), curDesign)
+</body></html>`, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, token, fmt.Sprint(openNewFiles), curDesign, curSmartphonePrefix)
 }
 
 func init() {
@@ -1682,8 +1712,8 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 					}
 				}
 			}
-			// smartphone files live under src/common/src/smartphone/<lang>/
-			smartCandidate := filepath.Join(rootDir, "src", "common", "src", "smartphone", langName, uuidStr+".json")
+			// smartphone files live under <prefix>/src/common/src/smartphone/<lang>/
+			smartCandidate := filepath.Join(smartphoneDirForLang(langName), uuidStr+".json")
 			if info, err := os.Stat(smartCandidate); err == nil && !info.IsDir() {
 				rel, _ := filepath.Rel(rootDir, smartCandidate)
 				result = append(result, map[string]string{
