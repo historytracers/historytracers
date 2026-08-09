@@ -298,44 +298,53 @@ func htParseJSON(fileName string) bool {
 }
 
 func htRewriteAndMinifySMGame(lang string) {
-	smGameDir := fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, lang)
-	contentSmGameDir := fmt.Sprintf("%slang/%s/smGame/", CFG.ContentPath, lang)
+	subDirs := []string{"smGame", "smartphone"}
+	for _, subDir := range subDirs {
+		smGameDir := fmt.Sprintf("%slang/%s/%s/", CFG.SrcPath, lang, subDir)
+		contentSmGameDir := fmt.Sprintf("%slang/%s/%s/", CFG.ContentPath, lang, subDir)
 
-	entries, err := os.ReadDir(smGameDir)
-	if err != nil {
-		return
-	}
-
-	// Rewrites mutate global source maps, so they must run sequentially.
-	for _, entry := range entries {
-		if entry.IsDir() {
-			continue
-		}
-
-		smGameFile := smGameDir + entry.Name()
-
-		err = htRewriteSMGame(smGameFile)
+		entries, err := os.ReadDir(smGameDir)
 		if err != nil {
-			fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
-		}
-	}
-
-	var jobs []htMinifyJob
-	for _, entry := range entries {
-		if entry.IsDir() {
 			continue
 		}
 
-		jobs = append(jobs, htMinifyJob{
-			MinifyType: "application/json",
-			InFile:     smGameDir + entry.Name(),
-			OutFile:    contentSmGameDir + entry.Name(),
-		})
-	}
+		// Rewrites mutate global source maps, so they must run sequentially.
+		for _, entry := range entries {
+			if entry.IsDir() {
+				continue
+			}
+			if !strings.HasSuffix(entry.Name(), ".json") {
+				continue
+			}
 
-	err = htRunMinifyParallel(jobs)
-	if err != nil {
-		panic(err)
+			smGameFile := smGameDir + entry.Name()
+
+			err = htRewriteSMGame(smGameFile)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
+			}
+		}
+
+		var jobs []htMinifyJob
+		for _, entry := range entries {
+			if entry.IsDir() {
+				continue
+			}
+			if !strings.HasSuffix(entry.Name(), ".json") {
+				continue
+			}
+
+			jobs = append(jobs, htMinifyJob{
+				MinifyType: "application/json",
+				InFile:     smGameDir + entry.Name(),
+				OutFile:    contentSmGameDir + entry.Name(),
+			})
+		}
+
+		err = htRunMinifyParallel(jobs)
+		if err != nil {
+			panic(err)
+		}
 	}
 }
 

@@ -1617,11 +1617,15 @@ function insertSourceFromFind(item){
     }
     var citType=item.cit_type?parseInt(item.cit_type):0;
     var isSMGame=content.indexOf('"type": "sm_game"')>=0;
+    var page=isSMGame?item.src_url||"":"";
+    if(isSMGame&&page.indexOf('index.html?')===0){
+        page='https://www.historytracers.org/'+page;
+    }
     var tpl=JSON.stringify({
         type:citType,
         uuid:item.src_id||"",
         text:item.src_citation||"",
-        page:isSMGame?item.src_url||"":"",
+        page:page,
         date_time:date
     },null,3);
     var pos=area.selectionStart;
