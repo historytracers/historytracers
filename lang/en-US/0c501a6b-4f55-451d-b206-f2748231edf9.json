@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/0c501a6b-4f55-451d-b206-f2748231edf9_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/42f1EF742bCsvQdtg1v64A?si=usWnuT_EQKOjDmyabjCUDQ",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -24,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1786129611"
+      "1786283884"
    ],
    "authors": [
       ""
@@ -38,7 +43,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nThis text has an application to practice the fundamental trigonometric identity sen²(θ) + cos²(θ) = 1. Before using it, we recommend studying the sine and cosine functions (<htcite0>; <htcite1>) and how we walked on the circle to discover their relationship (<htcite2>).",
+               "text": "### Prerequisites\n\nThis text has an application to practice the fundamental trigonometric identity sin²(θ) + cos²(θ) = 1. Before using it, we recommend studying the sine and cosine functions (<htcite0>; <htcite1>) and how we walked on the circle to discover their relationship (<htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -135,7 +140,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Formula 1</b>: Fundamental trigonometric identity.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sin</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Formula 1</b>: Fundamental trigonometric identity.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -144,7 +149,7 @@
                "PostMention": ""
             },
             {
-               "text": "In other words, no matter the value of the angle theta (θ), the sum of the squares of the sine and the cosine is always equal to 1. To reinforce this idea, we invite you to use the application below: move the angle theta (θ) and see that the values of sen²(θ) and cos²(θ) change, but their sum always stays 1.",
+               "text": "In other words, no matter the value of the angle theta (θ), the sum of the squares of the sine and the cosine is always equal to 1. To reinforce this idea, we invite you to use the application below: move the angle theta (θ) and see that the values of sin²(θ) and cos²(θ) change, but their sum always stays 1.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -176,7 +181,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"card\"><div class=\"triangle-visual\"><canvas id=\"identityCanvas0c50\" width=\"560\" height=\"380\" style=\"width:100%; height:auto; max-width:560px; aspect-ratio:560/380\"></canvas></div><div class=\"controls\"><div class=\"side-card\"><label>Angle θ (degrees)</label><input type=\"number\" id=\"thetaInput0c50\" step=\"1\" min=\"5\" max=\"90\" value=\"30\"><div class=\"range-slider\"><input type=\"range\" id=\"thetaRange0c50\" min=\"5\" max=\"90\" step=\"1\" value=\"30\"></div></div></div><div class=\"theorem-box\"><p><strong>Trigonometric identity</strong></p><p class=\"equation\" id=\"identityText0c50\">sen²(θ) + cos²(θ) = 1</p><p id=\"numericProof0c50\" style=\"font-size:0.8rem; opacity:0.85;\">sen(θ) = 0.5000, cos(θ) = 0.8660  →  sen²(θ) + cos²(θ) = 0.2500 + 0.7500 = 1.0000</p></div></div>",
+               "text": "<div class=\"card\"><div class=\"triangle-visual\"><canvas id=\"identityCanvas0c50\" width=\"560\" height=\"380\" style=\"width:100%; height:auto; max-width:560px; aspect-ratio:560/380\"></canvas></div><div class=\"controls\"><div class=\"side-card\"><label>Angle θ (degrees)</label><input type=\"number\" id=\"thetaInput0c50\" step=\"1\" min=\"5\" max=\"90\" value=\"30\"><div class=\"range-slider\"><input type=\"range\" id=\"thetaRange0c50\" min=\"5\" max=\"90\" step=\"1\" value=\"30\"></div></div></div><div class=\"theorem-box\"><p><strong>Trigonometric identity</strong></p><p class=\"equation\" id=\"identityText0c50\">sin²(θ) + cos²(θ) = 1</p><p id=\"numericProof0c50\" style=\"font-size:0.8rem; opacity:0.85;\">sin(θ) = 0.5000, cos(θ) = 0.8660  →  sin²(θ) + cos²(θ) = 0.2500 + 0.7500 = 1.0000</p></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -185,7 +190,7 @@
                "PostMention": ""
             },
             {
-               "text": "As we can see, changing the angle theta (θ) changes the value of the sine and the cosine, but the relationship sen²(θ) + cos²(θ) = 1 always stays true. That is, no matter the angle theta (θ), the sum of the squares of the sine and the cosine is always 1.",
+               "text": "As we can see, changing the angle theta (θ) changes the value of the sine and the cosine, but the relationship sin²(θ) + cos²(θ) = 1 always stays true. That is, no matter the angle theta (θ), the sum of the squares of the sine and the cosine is always 1.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -199,7 +204,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we practiced the fundamental trigonometric identity sen²(θ) + cos²(θ) = 1. With the application, we saw that when the angle theta (θ) changes, the values of the sine and the cosine also change, but the sum of their squares always stays equal to 1.",
+               "text": "### Conclusion\n\nIn this text, we practiced the fundamental trigonometric identity sin²(θ) + cos²(θ) = 1. With the application, we saw that when the angle theta (θ) changes, the values of the sine and the cosine also change, but the sum of their squares always stays equal to 1.",
                "source": null,
                "date_time": null,
                "isTable": false,
