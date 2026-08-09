@@ -12,7 +12,7 @@ import (
 	. "github.com/historytracers/common"
 )
 
-func htRewriteSMGame(smGameFile string) error {
+func htRewriteSMGame(lang string, smGameFile string) error {
 	if verboseFlag {
 		fmt.Println("Adjusting file", smGameFile)
 	}
@@ -57,9 +57,6 @@ func htRewriteSMGame(smGameFile string) error {
 		localSMGameFile.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
-	smGameRel := strings.TrimPrefix(smGameFile, CFG.SrcPath+"lang/")
-	lang := strings.SplitN(smGameRel, "/", 2)[0]
-
 	newFile, err := htWriteTmpFile(lang, &localSMGameFile)
 	if err != nil {
 		return err
@@ -103,10 +100,12 @@ func htValidateSMGameIDs(smGameFile string) error {
 }
 
 func htValidateSMGameFormats() {
-	subDirs := []string{"smGame", "smartphone"}
 	for _, dir := range htLangPaths {
-		for _, subDir := range subDirs {
-			smGameDir := fmt.Sprintf("%slang/%s/%s/", CFG.SrcPath, dir, subDir)
+		smGameDirs := []string{
+			fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, dir),
+			fmt.Sprintf("%ssrc/common/src/smartphone/%s/", CFG.SrcPath, dir),
+		}
+		for _, smGameDir := range smGameDirs {
 			entries, err := os.ReadDir(smGameDir)
 			if err != nil {
 				continue

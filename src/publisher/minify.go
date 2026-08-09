@@ -297,55 +297,61 @@ func htParseJSON(fileName string) bool {
 	return true
 }
 
-func htRewriteAndMinifySMGame(lang string) {
-	subDirs := []string{"smGame", "smartphone"}
-	for _, subDir := range subDirs {
-		smGameDir := fmt.Sprintf("%slang/%s/%s/", CFG.SrcPath, lang, subDir)
-		contentSmGameDir := fmt.Sprintf("%slang/%s/%s/", CFG.ContentPath, lang, subDir)
+func htRewriteAndMinifySMSubDir(lang string, srcDir string, outDir string) {
+	entries, err := os.ReadDir(srcDir)
+	if err != nil {
+		return
+	}
 
-		entries, err := os.ReadDir(smGameDir)
-		if err != nil {
+	// Rewrites mutate global source maps, so they must run sequentially.
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+		if !strings.HasSuffix(entry.Name(), ".json") {
 			continue
 		}
 
-		// Rewrites mutate global source maps, so they must run sequentially.
-		for _, entry := range entries {
-			if entry.IsDir() {
-				continue
-			}
-			if !strings.HasSuffix(entry.Name(), ".json") {
-				continue
-			}
+		smGameFile := srcDir + entry.Name()
 
-			smGameFile := smGameDir + entry.Name()
-
-			err = htRewriteSMGame(smGameFile)
-			if err != nil {
-				fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
-			}
-		}
-
-		var jobs []htMinifyJob
-		for _, entry := range entries {
-			if entry.IsDir() {
-				continue
-			}
-			if !strings.HasSuffix(entry.Name(), ".json") {
-				continue
-			}
-
-			jobs = append(jobs, htMinifyJob{
-				MinifyType: "application/json",
-				InFile:     smGameDir + entry.Name(),
-				OutFile:    contentSmGameDir + entry.Name(),
-			})
-		}
-
-		err = htRunMinifyParallel(jobs)
+		err = htRewriteSMGame(lang, smGameFile)
 		if err != nil {
-			panic(err)
+			fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
 		}
 	}
+
+	var jobs []htMinifyJob
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+		if !strings.HasSuffix(entry.Name(), ".json") {
+			continue
+		}
+
+		jobs = append(jobs, htMinifyJob{
+			MinifyType: "application/json",
+			InFile:     srcDir + entry.Name(),
+			OutFile:    outDir + entry.Name(),
+		})
+	}
+
+	err = htRunMinifyParallel(jobs)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func htRewriteAndMinifySMGame(lang string) {
+	// smGame content stays in lang/<lang>/smGame/
+	htRewriteAndMinifySMSubDir(lang,
+		fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, lang),
+		fmt.Sprintf("%slang/%s/smGame/", CFG.ContentPath, lang))
+	// smartphone content moved to src/common/src/smartphone/<lang>/ but the
+	// published output keeps the historical lang/<lang>/smartphone/ location.
+	htRewriteAndMinifySMSubDir(lang,
+		fmt.Sprintf("%ssrc/common/src/smartphone/%s/", CFG.SrcPath, lang),
+		fmt.Sprintf("%slang/%s/smartphone/", CFG.ContentPath, lang))
 }
 
 func htMinifyJSON() {
@@ -353,6 +359,11 @@ func htMinifyJSON() {
 
 	for i := HTDirLangSources; i < HTDirWebFonts; i++ {
 		if i == HTDirLangSources {
+			continue
+		}
+		if i == HTDirLangEnUSSmartphone || i == HTDirLangEsESSmartphone || i == HTDirLangPtBRSmartphone {
+			// Smartphone content now lives in src/common/src/smartphone/ and
+			// is handled by htRewriteAndMinifySMGame.
 			continue
 		}
 
