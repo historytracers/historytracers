@@ -963,9 +963,9 @@ func normalizeSmartphonePrefix(p string) string {
 func smartphoneDirForLang(lang string) string {
 	prefix := normalizeSmartphonePrefix(savedOptions.SmartphonePrefix)
 	if filepath.IsAbs(prefix) {
-		return filepath.Join(prefix, "src", "common", "src", "smartphone", lang)
+		return filepath.Join(prefix, "src", "smartphone", lang)
 	}
-	return filepath.Join(rootDir, prefix, "src", "common", "src", "smartphone", lang)
+	return filepath.Join(rootDir, prefix, "src", "smartphone", lang)
 }
 
 type sessionTab struct {
@@ -1252,9 +1252,9 @@ var openNewFiles=%q;
 var curDesign=%q;
 var smartphonePrefixVal=%q;
 var L={};
-L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro',smartphonePrefixLabel:'Prefixo do caminho Smartphone',smartphonePrefixNote:'Prefixa o caminho padr\u00e3o src/common/src/smartphone. Por exemplo, MYSMARTPHONE.'};
-L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro',smartphonePrefixLabel:'Prefijo de ruta Smartphone',smartphonePrefixNote:'Prefija la ruta predeterminada src/common/src/smartphone. Por ejemplo, MYSMARTPHONE.'};
-L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light',smartphonePrefixLabel:'Smartphone path prefix',smartphonePrefixNote:'Prefixes the default path src/common/src/smartphone. For example, MYSMARTPHONE.'};
+L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro',smartphonePrefixLabel:'Prefixo do caminho Smartphone',smartphonePrefixNote:'Prefixa o caminho padr\u00e3o src/smartphone. Por exemplo, MYSMARTPHONE.'};
+L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro',smartphonePrefixLabel:'Prefijo de ruta Smartphone',smartphonePrefixNote:'Prefija la ruta predeterminada src/smartphone. Por ejemplo, MYSMARTPHONE.'};
+L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light',smartphonePrefixLabel:'Smartphone path prefix',smartphonePrefixNote:'Prefixes the default path src/smartphone. For example, MYSMARTPHONE.'};
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
@@ -1722,7 +1722,7 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 					}
 				}
 			}
-			// smartphone files live under <prefix>/src/common/src/smartphone/<lang>/
+			// smartphone files live under <prefix>/src/smartphone/<lang>/
 			smartCandidate := filepath.Join(smartphoneDirForLang(langName), uuidStr+".json")
 			if info, err := os.Stat(smartCandidate); err == nil && !info.IsDir() {
 				if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {

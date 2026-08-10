@@ -1680,7 +1680,7 @@ async function createSmartphone(){
 		toast(tr('smartphoneCreated')+': '+data.uuid,'success');
 		refreshTree();
 		document.getElementById('newPanel').classList.remove('open');
-		if(window.__ht_editor_opts.open_new_files!==false)openFile((window.__ht_editor_opts.smartphone_prefix?window.__ht_editor_opts.smartphone_prefix+'/':'')+'src/common/src/smartphone/'+LOC+'/'+data.uuid+'.json');
+		if(window.__ht_editor_opts.open_new_files!==false)openFile((window.__ht_editor_opts.smartphone_prefix?window.__ht_editor_opts.smartphone_prefix+'/':'')+'src/smartphone/'+LOC+'/'+data.uuid+'.json');
 	}catch(e){
 		toast(tr('newError')+': '+e.message,'error');
 	}
