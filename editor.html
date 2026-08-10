@@ -1265,9 +1265,43 @@ function smileEmoji(smile){
 	return m[String(smile||'').toLowerCase().trim()]||'\uD83D\uDE0A';
 }
 
+function currentFileIsSMGame(){
+	if(currentTab<0||!tabs[currentTab])return false;
+	return (tabs[currentTab].content||'').indexOf('"type": "sm_game"')>=0;
+}
+
+function appendInsertSep(el){
+	var sep=document.createElement('div');
+	sep.style.cssText='height:1px;background:#455a64;margin:4px 10px';
+	el.appendChild(sep);
+}
+
+function appendInsertItem(el,name,fn){
+	var d=document.createElement('div');
+	d.className='ins-item';
+	d.textContent=tr('inm_'+name);
+	var lb=document.createElement('span');
+	lb.className='ins-label';
+	lb.textContent=tr('insLbl_'+name);
+	d.appendChild(lb);
+	d.onclick=fn;
+	el.appendChild(d);
+}
+
 function buildInsertList(){
 	var el=document.getElementById('insertList');
 	el.innerHTML='';
+	if(currentFileIsSMGame()){
+		appendInsertItem(el,'SMGameContent',function(){insertTemplate('SMGameContent')});
+		appendInsertSep(el);
+		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
+		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
+		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertSep(el);
+		appendInsertItem(el,'UUID',function(){insertUUID()});
+		appendInsertItem(el,'Smile',function(){openSmilePicker()});
+		return
+	}
 	var keys=Object.keys(templates);
 	for(var i=0;i<keys.length;i++){
 		if(keys[i]==='ClassContent'||keys[i]==='SMGameContent')continue;
@@ -1347,7 +1381,9 @@ function toggleInsert(){
 	var dp=document.getElementById('__ht_dev_panel');
 	if(dp)dp.style.display='none';
 	var p=document.getElementById('insertPanel');
+	var opening=!p.classList.contains('open');
 	p.classList.toggle('open');
+	if(opening)buildInsertList();
 }
 
 function jsonDepthIndent(val,pos){
