@@ -206,8 +206,15 @@ func isAllowedEditFile(filePath string) bool {
 
 func validateEditPath(filePath string) (string, error) {
 	clean := path.Clean(filePath)
-	if strings.Contains(clean, "..") || path.IsAbs(clean) {
+	if strings.Contains(clean, "..") {
 		return "", fmt.Errorf("invalid path")
+	}
+	if path.IsAbs(clean) {
+		base := smartphonePrefixAbs()
+		if base == "" || !strings.HasPrefix(clean, base+"/") {
+			return "", fmt.Errorf("invalid path")
+		}
+		return clean, nil
 	}
 	abs := filepath.Join(rootDir, clean)
 	absRoot, _ := filepath.Abs(rootDir)
@@ -966,6 +973,14 @@ func smartphoneDirForLang(lang string) string {
 		return filepath.Join(prefix, "src", "smartphone", lang)
 	}
 	return filepath.Join(rootDir, prefix, "src", "smartphone", lang)
+}
+
+func smartphonePrefixAbs() string {
+	prefix := normalizeSmartphonePrefix(savedOptions.SmartphonePrefix)
+	if prefix != "" && filepath.IsAbs(prefix) {
+		return prefix
+	}
+	return ""
 }
 
 type sessionTab struct {
