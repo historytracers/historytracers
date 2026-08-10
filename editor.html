@@ -1270,6 +1270,11 @@ function currentFileIsSMGame(){
 	return (tabs[currentTab].content||'').indexOf('"type": "sm_game"')>=0;
 }
 
+function currentFileIsClass(){
+	if(currentTab<0||!tabs[currentTab])return false;
+	return (tabs[currentTab].content||'').indexOf('"type": "class"')>=0;
+}
+
 function appendInsertSep(el){
 	var sep=document.createElement('div');
 	sep.style.cssText='height:1px;background:#455a64;margin:4px 10px';
@@ -1297,6 +1302,17 @@ function buildInsertList(){
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
 		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertSep(el);
+		appendInsertItem(el,'UUID',function(){insertUUID()});
+		appendInsertItem(el,'Smile',function(){openSmilePicker()});
+		return
+	}
+	if(currentFileIsClass()){
+		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
+		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
+		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertSep(el);
+		appendInsertItem(el,'ClassContent',function(){insertTemplate('ClassContent')});
 		appendInsertSep(el);
 		appendInsertItem(el,'UUID',function(){insertUUID()});
 		appendInsertItem(el,'Smile',function(){openSmilePicker()});
