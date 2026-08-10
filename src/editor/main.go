@@ -942,20 +942,30 @@ func validateEditorOptions(data *optionsData) {
 
 func normalizeSmartphonePrefix(p string) string {
 	p = strings.TrimSpace(p)
+	if p == "" || p == "." {
+		return ""
+	}
+	if filepath.IsAbs(p) {
+		return path.Clean(filepath.ToSlash(p))
+	}
 	p = strings.Trim(p, "/\\")
 	p = filepath.ToSlash(p)
 	if p == "" || p == "." {
 		return ""
 	}
 	clean := path.Clean(p)
-	if clean == ".." || strings.HasPrefix(clean, "../") || strings.HasPrefix(clean, "/") {
+	if clean == ".." || strings.HasPrefix(clean, "../") {
 		return ""
 	}
 	return clean
 }
 
 func smartphoneDirForLang(lang string) string {
-	return filepath.Join(rootDir, normalizeSmartphonePrefix(savedOptions.SmartphonePrefix), "src", "common", "src", "smartphone", lang)
+	prefix := normalizeSmartphonePrefix(savedOptions.SmartphonePrefix)
+	if filepath.IsAbs(prefix) {
+		return filepath.Join(prefix, "src", "common", "src", "smartphone", lang)
+	}
+	return filepath.Join(rootDir, prefix, "src", "common", "src", "smartphone", lang)
 }
 
 type sessionTab struct {
@@ -1715,11 +1725,12 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			// smartphone files live under <prefix>/src/common/src/smartphone/<lang>/
 			smartCandidate := filepath.Join(smartphoneDirForLang(langName), uuidStr+".json")
 			if info, err := os.Stat(smartCandidate); err == nil && !info.IsDir() {
-				rel, _ := filepath.Rel(rootDir, smartCandidate)
-				result = append(result, map[string]string{
-					"path":  filepath.ToSlash(rel),
-					"label": langName,
-				})
+				if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
+					result = append(result, map[string]string{
+						"path":  filepath.ToSlash(rel),
+						"label": langName,
+					})
+				}
 			}
 		}
 	}
