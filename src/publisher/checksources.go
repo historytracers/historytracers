@@ -153,14 +153,14 @@ func htLoadDefaultSourcesFromTemplate() map[string]srcEntry {
 
 // htFindContentFilePath returns the path of the language content file for the
 // given language and UUID, checking both the top-level lang directory and the
-// smartphone subdirectory. It returns an empty string when the file does not
-// exist in either location.
+// smartphone location (src/common/src/smartphone/<lang>/). It returns an empty
+// string when the file does not exist in either location.
 func htFindContentFilePath(lang string, uid string) string {
 	fpath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, uid)
 	if _, err := os.Stat(fpath); err == nil {
 		return fpath
 	}
-	fpath = fmt.Sprintf("%slang/%s/smartphone/%s.json", CFG.SrcPath, lang, uid)
+	fpath = fmt.Sprintf("%ssrc/common/src/smartphone/%s/%s.json", CFG.SrcPath, lang, uid)
 	if _, err := os.Stat(fpath); err == nil {
 		return fpath
 	}
@@ -188,9 +188,10 @@ func htCheckSources() {
 			}
 		}
 
-		// Smartphone content files live in a subdirectory. Scan them too so
-		// their source_menu references are checked and stored in the DB.
-		smartphoneDir := fmt.Sprintf("%slang/%s/smartphone/", CFG.SrcPath, lang)
+		// Smartphone content files live in src/common/src/smartphone/<lang>/.
+		// Scan them too so their source_menu references are checked and stored
+		// in the DB.
+		smartphoneDir := fmt.Sprintf("%ssrc/common/src/smartphone/%s/", CFG.SrcPath, lang)
 		sentries, err := os.ReadDir(smartphoneDir)
 		if err == nil {
 			for _, e := range sentries {

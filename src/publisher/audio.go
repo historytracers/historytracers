@@ -986,10 +986,13 @@ func htBuildSMGameAudioText(textBlocks []HTText) string {
 }
 
 func htConvertSMGameToAudio() {
-	subDirs := []string{"smGame", "smartphone"}
 	for _, lang := range htLangPaths {
-		for _, subDir := range subDirs {
-			smGameDir := fmt.Sprintf("%slang/%s/%s", CFG.SrcPath, lang, subDir)
+		smGameDirs := []string{
+			fmt.Sprintf("%slang/%s/smGame", CFG.SrcPath, lang),
+			fmt.Sprintf("%ssrc/common/src/smartphone/%s", CFG.SrcPath, lang),
+		}
+		for _, smGameDir := range smGameDirs {
+			isSmartphone := strings.Contains(smGameDir, "smartphone")
 
 			files, err := os.ReadDir(smGameDir)
 			if err != nil {
@@ -1021,7 +1024,7 @@ func htConvertSMGameToAudio() {
 				baseName := strings.TrimSuffix(fileName, ".json")
 				audioWritten := false
 
-				if subDir == "smartphone" {
+				if isSmartphone {
 					for _, block := range smGame.Content {
 						audioContent := htBuildSMGameAudioText(block.Text)
 						if len(audioContent) == 0 {
@@ -1058,7 +1061,7 @@ func htConvertSMGameToAudio() {
 					audioWritten = true
 				}
 
-				if !audioWritten || subDir == "smartphone" {
+				if !audioWritten || isSmartphone {
 					continue
 				}
 
