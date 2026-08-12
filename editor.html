@@ -237,17 +237,15 @@ select#langSelect option{color:#000;background:#fff}
 <div id="insertPanel">
 <h3><span id="insPanelTitle">Insert</span></h3>
 <div id="insertList"></div>
-</div>
-<div id="findPanel">
-<h3><span id="findPanelTitle">Find</span></h3>
-<div id="findList">
-<div class="find-option" onclick="openFindSource()" id="findSrcBtn"><span id="findSrcLabel">Source</span></div>
 <div id="findSourceArea" style="display:none">
 <input type="text" id="findSourceInput" placeholder="Enter UUID or text..." onkeydown="if(event.key==='Enter')findSource()">
 <button onclick="findSource()" id="findSourceSearchBtn">Search</button>
 <div id="findSourceResults"></div>
 </div>
 </div>
+<div id="findPanel">
+<h3><span id="findPanelTitle">Find</span></h3>
+<div id="findList"></div>
 </div>
 </div>
 </div>
@@ -299,7 +297,6 @@ function setLang(loc){
 	document.getElementById('histBtn').textContent=tr('history');
 	document.getElementById('histPanelTitle').textContent=tr('history');
 	document.getElementById('findPanelTitle').textContent=tr('find');
-	document.getElementById('findSrcLabel').textContent=tr('findSource');
 	document.getElementById('findSourceInput').placeholder=tr('findPlaceholder');
 	document.getElementById('findSourceSearchBtn').textContent=tr('findSearch');
 	document.getElementById('viewBtn').title=tr('view');
@@ -1318,7 +1315,7 @@ function buildInsertList(){
 		appendInsertSep(el);
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
-		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertItem(el,'Source',function(){openFindSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'UUID',function(){insertUUID()});
 		appendInsertItem(el,'Smile',function(){openSmilePicker()});
@@ -1327,7 +1324,7 @@ function buildInsertList(){
 	if(currentFileIsClass()){
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
-		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertItem(el,'Source',function(){openFindSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'ClassContent',function(){insertTemplate('ClassContent')});
 		appendInsertSep(el);
@@ -1338,7 +1335,7 @@ function buildInsertList(){
 	if(currentFileIsGenealogy()){
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
-		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertItem(el,'Source',function(){openFindSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'Events',function(){insertTemplate('Event')});
 		appendInsertItem(el,'Parents',function(){insertTemplate('Parents')});
@@ -1362,7 +1359,13 @@ function buildInsertList(){
 			lb.className='ins-label';
 			lb.textContent=tr('insLbl_'+name);
 			d.appendChild(lb);
-			d.onclick=function(){insertTemplate(name)};
+			d.onclick=function(){
+				if(name==='Source'){
+					openFindSource();
+				}else{
+					insertTemplate(name);
+				}
+			};
 		el.appendChild(d);
 		if(name==='Source'){
 			var sep=document.createElement('div');
@@ -1432,7 +1435,10 @@ function toggleInsert(){
 	var p=document.getElementById('insertPanel');
 	var opening=!p.classList.contains('open');
 	p.classList.toggle('open');
-	if(opening)buildInsertList();
+	if(opening){
+		document.getElementById('findSourceArea').style.display='none';
+		buildInsertList();
+	}
 }
 
 function jsonDepthIndent(val,pos){
@@ -1708,13 +1714,18 @@ function openFindPanel(){
 	if(dp)dp.style.display='none';
 	var p=document.getElementById('findPanel');
 	p.classList.toggle('open');
-	document.getElementById('findSourceArea').style.display='none';
-	document.getElementById('findSourceResults').innerHTML='';
-	document.getElementById('findSourceInput').value='';
 }
 
 function openFindSource(){
-	document.getElementById('findSourceArea').style.display='flex';
+	var area=document.getElementById('findSourceArea');
+	var ip=document.getElementById('insertPanel');
+	if(!ip.classList.contains('open')){
+		document.getElementById('newPanel').classList.remove('open');
+		document.getElementById('findPanel').classList.remove('open');
+		document.getElementById('historyPanel').classList.remove('open');
+		ip.classList.add('open');
+	}
+	area.style.display='flex';
 	document.getElementById('findSourceResults').innerHTML='';
 	document.getElementById('findSourceInput').focus();
 }
