@@ -498,6 +498,36 @@
   -webkit-text-stroke: 2px white;
 }
 
+.mngCell {
+  cursor: default;
+}
+
+.mngEmpty {
+  cursor: pointer;
+  background: #ffffcc;
+  border: 2px dashed #d9b64c;
+}
+
+.mngEmpty:hover {
+  background: #fff3b0;
+}
+
+.mngQuestion {
+  font-size: 2em;
+  color: #8a6d3b;
+  font-weight: bold;
+}
+
+.mngRevealed {
+  background: #d4edda;
+}
+
+.mngCongrats {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #155724;
+}
+
 
 /* Small screens (600px) */
 @media screen and (max-width: 600px) {
