@@ -373,6 +373,11 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if err := validateSMGameSmile(content); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -381,6 +386,33 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 	rotateToken()
 	w.Header().Set("X-HT-Next-Token", viewerToken)
 	w.WriteHeader(http.StatusNoContent)
+}
+
+// validateSMGameSmile rejects sm_game files that contain a content block with
+// an empty "smile" field, so the save is never persisted for invalid content.
+func validateSMGameSmile(content string) error {
+	var data struct {
+		Type    string `json:"type"`
+		Content []struct {
+			Smile string `json:"smile"`
+		} `json:"content"`
+	}
+	if err := json.Unmarshal([]byte(content), &data); err != nil {
+		return nil
+	}
+	if data.Type != "sm_game" {
+		return nil
+	}
+	var missing []string
+	for i, block := range data.Content {
+		if strings.TrimSpace(block.Smile) == "" {
+			missing = append(missing, strconv.Itoa(i+1))
+		}
+	}
+	if len(missing) > 0 {
+		return fmt.Errorf("sm_game content blocks with empty smile: %s", strings.Join(missing, ", "))
+	}
+	return nil
 }
 
 func editorUnlockHandler(w http.ResponseWriter, r *http.Request) {
