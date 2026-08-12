@@ -167,6 +167,14 @@ func htFindContentFilePath(lang string, uid string) string {
 	return ""
 }
 
+// htIsCommonContentPath reports whether the given path points inside the
+// src/common submodule, whose contents are maintained in another repository
+// and therefore must never be rewritten by the publisher.
+func htIsCommonContentPath(path string) bool {
+	commonPath := CFG.SrcPath + "src" + string(os.PathSeparator) + "common"
+	return strings.HasPrefix(path, commonPath)
+}
+
 func htCheckSources() {
 	initPlaceholderSourceUUIDs()
 
@@ -255,8 +263,10 @@ func htCheckSources() {
 				}
 			}
 
-			if len(actualFixes) > 0 {
-				// Surgical byte replacement — preserves all formatting and key order
+			if len(actualFixes) > 0 && !htIsCommonContentPath(fpath) {
+				// Surgical byte replacement — preserves all formatting and key order.
+				// Files under src/common live in another repository, so they are
+				// reported but never modified here.
 				if err := fixDatesSurgically(fpath, actualFixes); err != nil {
 					fmt.Fprintf(os.Stderr, "ERROR fixing file %s: %s\n", fpath, err)
 				} else {

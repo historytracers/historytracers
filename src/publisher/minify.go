@@ -297,13 +297,15 @@ func htParseJSON(fileName string) bool {
 	return true
 }
 
-func htRewriteAndMinifySMSubDir(lang string, srcDir string, outDir string) {
+func htRewriteAndMinifySMSubDir(lang string, srcDir string, outDir string, rewriteSource bool) {
 	entries, err := os.ReadDir(srcDir)
 	if err != nil {
 		return
 	}
 
 	// Rewrites mutate global source maps, so they must run sequentially.
+	var jobs []htMinifyJob
+	var tmpFiles []string
 	for _, entry := range entries {
 		if entry.IsDir() {
 			continue
@@ -313,25 +315,29 @@ func htRewriteAndMinifySMSubDir(lang string, srcDir string, outDir string) {
 		}
 
 		smGameFile := srcDir + entry.Name()
+		inFile := smGameFile
 
-		err = htRewriteSMGame(lang, smGameFile)
-		if err != nil {
-			fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
-		}
-	}
-
-	var jobs []htMinifyJob
-	for _, entry := range entries {
-		if entry.IsDir() {
-			continue
-		}
-		if !strings.HasSuffix(entry.Name(), ".json") {
-			continue
+		if rewriteSource {
+			err = htRewriteSMGame(lang, smGameFile)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
+			}
+		} else {
+			// Content lives in another repository (src/common). Transform it
+			// into a temporary file without modifying the source, and use that
+			// temporary file as the minification input.
+			tmpFile, err := htTransformSMGame(lang, smGameFile)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, "ERROR transforming SMGame:", err)
+				continue
+			}
+			inFile = tmpFile
+			tmpFiles = append(tmpFiles, tmpFile)
 		}
 
 		jobs = append(jobs, htMinifyJob{
 			MinifyType: "application/json",
-			InFile:     srcDir + entry.Name(),
+			InFile:     inFile,
 			OutFile:    outDir + entry.Name(),
 		})
 	}
@@ -340,18 +346,26 @@ func htRewriteAndMinifySMSubDir(lang string, srcDir string, outDir string) {
 	if err != nil {
 		panic(err)
 	}
+
+	for _, tmpFile := range tmpFiles {
+		err = os.Remove(tmpFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR removing tmp %s: %v\n", tmpFile, err)
+		}
+	}
 }
 
 func htRewriteAndMinifySMGame(lang string) {
 	// smGame content stays in lang/<lang>/smGame/
 	htRewriteAndMinifySMSubDir(lang,
 		fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, lang),
-		fmt.Sprintf("%slang/%s/smGame/", CFG.ContentPath, lang))
+		fmt.Sprintf("%slang/%s/smGame/", CFG.ContentPath, lang), true)
 	// smartphone content moved to src/common/src/smartphone/<lang>/ but the
 	// published output keeps the historical lang/<lang>/smartphone/ location.
+	// The source lives in another repository, so it must never be rewritten.
 	htRewriteAndMinifySMSubDir(lang,
 		fmt.Sprintf("%ssrc/common/src/smartphone/%s/", CFG.SrcPath, lang),
-		fmt.Sprintf("%slang/%s/smartphone/", CFG.ContentPath, lang))
+		fmt.Sprintf("%slang/%s/smartphone/", CFG.ContentPath, lang), false)
 }
 
 func htMinifyJSON() {
