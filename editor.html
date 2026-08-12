@@ -237,16 +237,16 @@ select#langSelect option{color:#000;background:#fff}
 <div id="insertPanel">
 <h3><span id="insPanelTitle">Insert</span></h3>
 <div id="insertList"></div>
-</div>
-<div id="findPanel">
-<h3><span id="findPanelTitle">Find</span></h3>
-<div id="findList">
-<div class="find-option" onclick="openFindSource()" id="findSrcBtn"><span id="findSrcLabel">Source</span></div>
 <div id="findSourceArea" style="display:none">
 <input type="text" id="findSourceInput" placeholder="Enter UUID or text..." onkeydown="if(event.key==='Enter')findSource()">
 <button onclick="findSource()" id="findSourceSearchBtn">Search</button>
 <div id="findSourceResults"></div>
 </div>
+</div>
+<div id="findPanel">
+<h3><span id="findPanelTitle">Find</span></h3>
+<div id="findList">
+<div class="find-option" onclick="openSearch()" id="findTextBtn"><span id="findTextLabel">Text</span></div>
 </div>
 </div>
 </div>
@@ -259,10 +259,10 @@ var currentTab=-1;
 var tabIdSeq=0;
 
 var L={
-'en-US':{files:'Files',git:'Git',selectFile:'Select a file to edit',save:'<u>S</u>ave',view:'View',revert:'Revert',undo:'Undo',saved:'Saved',unsaved:'Unsaved',saveSuccess:'File saved',saveError:'Failed to save file',readError:'Failed to read file',treeError:'Failed to load file tree',newT:'New',insert:'Insert',insertTitle:'Insert',insDone:'Template inserted',fileLocked:'File is already being edited by ',dev:'Dev',config:'Config',find:'Find',history:'History',noHistory:'(none)',findSource:'Source',findSearch:'Search',findPlaceholder:'Enter UUID or text...',confirmRevert:'Discard unsaved changes?',confirmClose:' has unsaved changes.',confirmCloseSave:' has unsaved changes. Save before closing?',sdSave:'Save',sdDiscard:'Discard',sdCancel:'Cancel',goToLinePrompt:'Go to line number:',loading:'Loading...',newFamily:'Family',familyCreated:'Family file created',newError:'Failed to create family',classCreated:'Class file created',newClass:'New Class',class_history:'History',class_indigenous_who:'Indigenous Who',class_first_steps:'First Steps',class_first_steps_volume2:'First Steps V2',class_literature:'Literature',class_biology:'Biology',class_chemistry:'Chemistry',class_physics:'Physics',class_historical_events:'Historical Events',class_philosophy:'Philosophy',class_first_steps_menu:'First Steps Menu',class_myths_believes:'Myths & Beliefs',class_math_games:'Math Games',class_atlas:'Atlas',inm_Date:'Date',inm_Text:'Paragraph',inm_Source:'Source',inm_Event:'Event',inm_Parents:'Parents',inm_Marriage:'Marriage',inm_Child:'Child',inm_Haplogroup:'Haplogroup',inm_Person:'Person',inm_ClassContent:'Class Content',insLbl_Date:'date/time',insLbl_Text:'paragraph content',insLbl_Source:'source entry',insLbl_Event:'person event',insLbl_Parents:'person parents',insLbl_Marriage:'person marriage',insLbl_Child:'person child',insLbl_Haplogroup:'person haplogroup',insLbl_Person:'person',insLbl_ClassContent:'class content section',format:'Format',jsonError:'Invalid JSON',jsError:'Invalid JavaScript',newSmartphone:'Smartphone',smartphoneCreated:'Smartphone file created',
-inm_SMGameContent:'Game Content',insLbl_SMGameContent:'game content section',inm_UUID:'UUID',insLbl_UUID:'universally unique identifier',inm_Smile:'Smile',insLbl_Smile:'smile emoji',inm_Events:'Events',insLbl_Events:'person event',inm_Children:'Children',insLbl_Children:'person child'},
-'pt-BR':{files:'Arquivos',git:'Git',selectFile:'Selecione um arquivo para editar',save:'<u>S</u>alvar',view:'Visualizar',revert:'Reverter',undo:'Desfazer',saved:'Salvo',unsaved:'N\u00e3o salvo',saveSuccess:'Arquivo salvo',saveError:'Erro ao salvar arquivo',readError:'Erro ao ler arquivo',treeError:'Erro ao carregar \u00e1rvore',newT:'Novo',insert:'Inserir',insertTitle:'Inserir',insDone:'Modelo inserido',fileLocked:'Arquivo j\u00e1 est\u00e1 sendo editado por ',dev:'Dev',config:'Config',find:'Localizar',history:'Hist\u00f3rico',noHistory:'(nenhum)',findSource:'Fonte',findSearch:'Pesquisar',findPlaceholder:'Digite UUID ou texto...',confirmRevert:'Descartar altera\u00e7\u00f5es n\u00e3o salvas?',confirmClose:' tem altera\u00e7\u00f5es n\u00e3o salvas.',confirmCloseSave:' tem altera\u00e7\u00f5es n\u00e3o salvas. Salvar antes de fechar?',sdSave:'Salvar',sdDiscard:'Descartar',sdCancel:'Cancelar',goToLinePrompt:'Ir para a linha:',loading:'Carregando...',newFamily:'Fam\u00edlia',familyCreated:'Arquivo de fam\u00edlia criado',newError:'Erro ao criar fam\u00edlia',classCreated:'Arquivo de aula criado',newClass:'Nova Aula',class_history:'Hist\u00f3ria',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeiros Passos',class_first_steps_volume2:'Primeiros Passos V2',class_literature:'Literatura',class_biology:'Biologia',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosofia',class_first_steps_menu:'Menu Inicial',class_myths_believes:'Mitos e Cren\u00e7as',class_math_games:'Jogos de Matem\u00e1tica',class_atlas:'Atlas',inm_Date:'Data',inm_Text:'Par\u00e1grafo',inm_Source:'Fonte',inm_Event:'Evento',inm_Parents:'Pais',inm_Marriage:'Casamento',inm_Child:'Filho(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Pessoa',inm_ClassContent:'Conte\u00fado de Aula',insLbl_Date:'data/hora',insLbl_Text:'conte\u00fado do par\u00e1grafo',insLbl_Source:'entrada de fonte',insLbl_Event:'evento de pessoa',insLbl_Parents:'pais da pessoa',insLbl_Marriage:'casamento',insLbl_Child:'filho(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'pessoa',insLbl_ClassContent:'se\u00e7\u00e3o de conte\u00fado da aula',format:'Formatar',jsonError:'JSON inv\u00e1lido',jsError:'JavaScript inv\u00e1lido',newSmartphone:'Smartphone',smartphoneCreated:'Arquivo de smartphone criado',inm_SMGameContent:'Conte\u00fado de Jogo',insLbl_SMGameContent:'se\u00e7\u00e3o de conte\u00fado de jogo',inm_UUID:'UUID',insLbl_UUID:'identificador universal exclusivo',inm_Smile:'Sorriso',insLbl_Smile:'emoji de sorriso',inm_Events:'Eventos',insLbl_Events:'evento de pessoa',inm_Children:'Filhos(as)',insLbl_Children:'filho(a) de pessoa'},
-'es-ES':{files:'Archivos',git:'Git',selectFile:'Seleccione un archivo para editar',save:'Guardar (Ctrl+<u>S</u>)',view:'Ver',revert:'Revertir',undo:'Deshacer',saved:'Guardado',unsaved:'No guardado',saveSuccess:'Archivo guardado',saveError:'Error al guardar archivo',readError:'Error al leer archivo',treeError:'Error al cargar \u00e1rbol',newT:'Nuevo',insert:'Insertar',insertTitle:'Insertar',insDone:'Plantilla insertada',fileLocked:'El archivo ya est\u00e1 siendo editado por ',dev:'Dev',config:'Config',find:'Buscar',history:'Historial',noHistory:'(ninguno)',findSource:'Fuente',findSearch:'Buscar',findPlaceholder:'Ingrese UUID o texto...',confirmRevert:'\u00bfDescartar cambios no guardados?',confirmClose:' tiene cambios no guardados.',confirmCloseSave:' tiene cambios no guardados. \u00bfGuardar antes de cerrar?',sdSave:'Guardar',sdDiscard:'Descartar',sdCancel:'Cancelar',goToLinePrompt:'Ir a la l\u00ednea:',loading:'Cargando...',newFamily:'Familia',familyCreated:'Archivo de familia creado',newError:'Error al crear familia',classCreated:'Archivo de clase creado',newClass:'Nueva Clase',class_history:'Historia',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeros Pasos',class_first_steps_volume2:'Primeros Pasos V2',class_literature:'Literatura',class_biology:'Biolog\u00eda',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosof\u00eda',class_first_steps_menu:'Men\u00fa Inicial',class_myths_believes:'Mitos y Creencias',class_math_games:'Juegos de Matem\u00e1ticas',class_atlas:'Atlas',inm_Date:'Fecha',inm_Text:'P\u00e1rrafo',inm_Source:'Fuente',inm_Event:'Evento',inm_Parents:'Padres',inm_Marriage:'Matrimonio',inm_Child:'Hijo(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Persona',inm_ClassContent:'Contenido de Clase',insLbl_Date:'fecha/hora',insLbl_Text:'contenido del p\u00e1rrafo',insLbl_Source:'entrada de fuente',insLbl_Event:'evento de persona',insLbl_Parents:'padres',insLbl_Marriage:'matrimonio',insLbl_Child:'hijo(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'persona',insLbl_ClassContent:'secci\u00f3n de contenido de clase',format:'Formato',jsonError:'JSON inv\u00e1lido',jsError:'JavaScript inv\u00e1lido',newSmartphone:'Tel\u00e9fono inteligente',smartphoneCreated:'Archivo de smartphone creado',inm_SMGameContent:'Contenido de Juego',insLbl_SMGameContent:'secci\u00f3n de contenido de juego',inm_UUID:'UUID',insLbl_UUID:'identificador universal \u00fanico',inm_Smile:'Sonrisa',insLbl_Smile:'emoji de sonrisa',inm_Events:'Eventos',insLbl_Events:'evento de persona',inm_Children:'Hijos(as)',insLbl_Children:'hijo(a) de persona'}
+'en-US':{files:'Files',git:'Git',selectFile:'Select a file to edit',save:'<u>S</u>ave',view:'View',revert:'Revert',undo:'Undo',saved:'Saved',unsaved:'Unsaved',saveSuccess:'File saved',saveError:'Failed to save file',readError:'Failed to read file',treeError:'Failed to load file tree',newT:'New',insert:'Insert',insertTitle:'Insert',insDone:'Template inserted',fileLocked:'File is already being edited by ',dev:'Dev',config:'Config',find:'Find',history:'History',noHistory:'(none)',findSource:'Source',findText:'Text',findSearch:'Search',findPlaceholder:'Enter UUID or text...',confirmRevert:'Discard unsaved changes?',confirmClose:' has unsaved changes.',confirmCloseSave:' has unsaved changes. Save before closing?',sdSave:'Save',sdDiscard:'Discard',sdCancel:'Cancel',goToLinePrompt:'Go to line number:',loading:'Loading...',newFamily:'Family',familyCreated:'Family file created',newError:'Failed to create family',classCreated:'Class file created',newClass:'New Class',class_history:'History',class_indigenous_who:'Indigenous Who',class_first_steps:'First Steps',class_first_steps_volume2:'First Steps V2',class_literature:'Literature',class_biology:'Biology',class_chemistry:'Chemistry',class_physics:'Physics',class_historical_events:'Historical Events',class_philosophy:'Philosophy',class_first_steps_menu:'First Steps Menu',class_myths_believes:'Myths & Beliefs',class_math_games:'Math Games',class_atlas:'Atlas',inm_Date:'Date',inm_Text:'Paragraph',inm_Source:'Source',inm_Event:'Event',inm_Parents:'Parents',inm_Marriage:'Marriage',inm_Child:'Child',inm_Haplogroup:'Haplogroup',inm_Person:'Person',inm_ClassContent:'Class Content',insLbl_Date:'date/time',insLbl_Text:'paragraph content',insLbl_Source:'source entry',insLbl_Event:'person event',insLbl_Parents:'person parents',insLbl_Marriage:'person marriage',insLbl_Child:'person child',insLbl_Haplogroup:'person haplogroup',insLbl_Person:'person',insLbl_ClassContent:'class content section',format:'Format',jsonError:'Invalid JSON',jsError:'Invalid JavaScript',smileError:'All game content blocks must have a "smile" value',smileErrorBlocks:'Blocks with empty smile',newSmartphone:'Smartphone',smartphoneCreated:'Smartphone file created',
+inm_SMGameContent:'Game Content',insLbl_SMGameContent:'game content section',inm_NewSource:'New Source',insLbl_NewSource:'new source entry',nsSfo:'Source format',nsCitation:'Citation',nsDate:'Date',nsPublishDate:'Publish date',nsUrl:'URL',nsCreate:'Create',nsCreated:'Source created',nsCitationRequired:'Citation is required',inm_UUID:'UUID',insLbl_UUID:'universally unique identifier',inm_Smile:'Smile',insLbl_Smile:'smile emoji',inm_Events:'Events',insLbl_Events:'person event',inm_Children:'Children',insLbl_Children:'person child'},
+'pt-BR':{files:'Arquivos',git:'Git',selectFile:'Selecione um arquivo para editar',save:'<u>S</u>alvar',view:'Visualizar',revert:'Reverter',undo:'Desfazer',saved:'Salvo',unsaved:'N\u00e3o salvo',saveSuccess:'Arquivo salvo',saveError:'Erro ao salvar arquivo',readError:'Erro ao ler arquivo',treeError:'Erro ao carregar \u00e1rvore',newT:'Novo',insert:'Inserir',insertTitle:'Inserir',insDone:'Modelo inserido',fileLocked:'Arquivo j\u00e1 est\u00e1 sendo editado por ',dev:'Dev',config:'Config',find:'Localizar',history:'Hist\u00f3rico',noHistory:'(nenhum)',findSource:'Fonte',findText:'Texto',findSearch:'Pesquisar',findPlaceholder:'Digite UUID ou texto...',confirmRevert:'Descartar altera\u00e7\u00f5es n\u00e3o salvas?',confirmClose:' tem altera\u00e7\u00f5es n\u00e3o salvas.',confirmCloseSave:' tem altera\u00e7\u00f5es n\u00e3o salvas. Salvar antes de fechar?',sdSave:'Salvar',sdDiscard:'Descartar',sdCancel:'Cancelar',goToLinePrompt:'Ir para a linha:',loading:'Carregando...',newFamily:'Fam\u00edlia',familyCreated:'Arquivo de fam\u00edlia criado',newError:'Erro ao criar fam\u00edlia',classCreated:'Arquivo de aula criado',newClass:'Nova Aula',class_history:'Hist\u00f3ria',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeiros Passos',class_first_steps_volume2:'Primeiros Passos V2',class_literature:'Literatura',class_biology:'Biologia',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosofia',class_first_steps_menu:'Menu Inicial',class_myths_believes:'Mitos e Cren\u00e7as',class_math_games:'Jogos de Matem\u00e1tica',class_atlas:'Atlas',inm_Date:'Data',inm_Text:'Par\u00e1grafo',inm_Source:'Fonte',inm_Event:'Evento',inm_Parents:'Pais',inm_Marriage:'Casamento',inm_Child:'Filho(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Pessoa',inm_ClassContent:'Conte\u00fado de Aula',insLbl_Date:'data/hora',insLbl_Text:'conte\u00fado do par\u00e1grafo',insLbl_Source:'entrada de fonte',insLbl_Event:'evento de pessoa',insLbl_Parents:'pais da pessoa',insLbl_Marriage:'casamento',insLbl_Child:'filho(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'pessoa',insLbl_ClassContent:'se\u00e7\u00e3o de conte\u00fado da aula',format:'Formatar',jsonError:'JSON inv\u00e1lido',jsError:'JavaScript inv\u00e1lido',smileError:'Todos os blocos de conte\u00fado do jogo devem ter um valor de "smile"',smileErrorBlocks:'Blocos com smile vazio',newSmartphone:'Smartphone',smartphoneCreated:'Arquivo de smartphone criado',inm_SMGameContent:'Conte\u00fado de Jogo',insLbl_SMGameContent:'se\u00e7\u00e3o de conte\u00fado de jogo',inm_NewSource:'Nova Fonte',insLbl_NewSource:'nova entrada de fonte',nsSfo:'Formato da fonte',nsCitation:'Cita\u00e7\u00e3o',nsDate:'Data',nsPublishDate:'Data de publica\u00e7\u00e3o',nsUrl:'URL',nsCreate:'Criar',nsCreated:'Fonte criada',nsCitationRequired:'Cita\u00e7\u00e3o \u00e9 obrigat\u00f3ria',inm_UUID:'UUID',insLbl_UUID:'identificador universal exclusivo',inm_Smile:'Sorriso',insLbl_Smile:'emoji de sorriso',inm_Events:'Eventos',insLbl_Events:'evento de pessoa',inm_Children:'Filhos(as)',insLbl_Children:'filho(a) de pessoa'},
+'es-ES':{files:'Archivos',git:'Git',selectFile:'Seleccione un archivo para editar',save:'Guardar (Ctrl+<u>S</u>)',view:'Ver',revert:'Revertir',undo:'Deshacer',saved:'Guardado',unsaved:'No guardado',saveSuccess:'Archivo guardado',saveError:'Error al guardar archivo',readError:'Error al leer archivo',treeError:'Error al cargar \u00e1rbol',newT:'Nuevo',insert:'Insertar',insertTitle:'Insertar',insDone:'Plantilla insertada',fileLocked:'El archivo ya est\u00e1 siendo editado por ',dev:'Dev',config:'Config',find:'Buscar',history:'Historial',noHistory:'(ninguno)',findSource:'Fuente',findText:'Texto',findSearch:'Buscar',findPlaceholder:'Ingrese UUID o texto...',confirmRevert:'\u00bfDescartar cambios no guardados?',confirmClose:' tiene cambios no guardados.',confirmCloseSave:' tiene cambios no guardados. \u00bfGuardar antes de cerrar?',sdSave:'Guardar',sdDiscard:'Descartar',sdCancel:'Cancelar',goToLinePrompt:'Ir a la l\u00ednea:',loading:'Cargando...',newFamily:'Familia',familyCreated:'Archivo de familia creado',newError:'Error al crear familia',classCreated:'Archivo de clase creado',newClass:'Nueva Clase',class_history:'Historia',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeros Pasos',class_first_steps_volume2:'Primeros Pasos V2',class_literature:'Literatura',class_biology:'Biolog\u00eda',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosof\u00eda',class_first_steps_menu:'Men\u00fa Inicial',class_myths_believes:'Mitos y Creencias',class_math_games:'Juegos de Matem\u00e1ticas',class_atlas:'Atlas',inm_Date:'Fecha',inm_Text:'P\u00e1rrafo',inm_Source:'Fuente',inm_Event:'Evento',inm_Parents:'Padres',inm_Marriage:'Matrimonio',inm_Child:'Hijo(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Persona',inm_ClassContent:'Contenido de Clase',insLbl_Date:'fecha/hora',insLbl_Text:'contenido del p\u00e1rrafo',insLbl_Source:'entrada de fuente',insLbl_Event:'evento de persona',insLbl_Parents:'padres',insLbl_Marriage:'matrimonio',insLbl_Child:'hijo(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'persona',insLbl_ClassContent:'secci\u00f3n de contenido de clase',format:'Formato',jsonError:'JSON inv\u00e1lido',jsError:'JavaScript inv\u00e1lido',smileError:'Todos los bloques de contenido del juego deben tener un valor de "smile"',smileErrorBlocks:'Bloques con smile vac\u00edo',newSmartphone:'Tel\u00e9fono inteligente',smartphoneCreated:'Archivo de smartphone creado',inm_SMGameContent:'Contenido de Juego',insLbl_SMGameContent:'secci\u00f3n de contenido de juego',inm_NewSource:'Nueva Fuente',insLbl_NewSource:'nueva entrada de fuente',nsSfo:'Formato de la fuente',nsCitation:'Cita',nsDate:'Fecha',nsPublishDate:'Fecha de publicaci\u00f3n',nsUrl:'URL',nsCreate:'Crear',nsCreated:'Fuente creada',nsCitationRequired:'La cita es obligatoria',inm_UUID:'UUID',insLbl_UUID:'identificador universal \u00fanico',inm_Smile:'Sonrisa',insLbl_Smile:'emoji de sonrisa',inm_Events:'Eventos',insLbl_Events:'evento de persona',inm_Children:'Hijos(as)',insLbl_Children:'hijo(a) de persona'}
 };
 
 function tr(key){var l=L[LOC]||L['en-US'];return l[key]||L['en-US'][key]||key}
@@ -299,7 +299,7 @@ function setLang(loc){
 	document.getElementById('histBtn').textContent=tr('history');
 	document.getElementById('histPanelTitle').textContent=tr('history');
 	document.getElementById('findPanelTitle').textContent=tr('find');
-	document.getElementById('findSrcLabel').textContent=tr('findSource');
+	document.getElementById('findTextLabel').textContent=tr('findText');
 	document.getElementById('findSourceInput').placeholder=tr('findPlaceholder');
 	document.getElementById('findSourceSearchBtn').textContent=tr('findSearch');
 	document.getElementById('viewBtn').title=tr('view');
@@ -894,8 +894,9 @@ function saveFile(){
 	var content=area.value;
 	var path=tabs[currentTab].path;
 	if(path.endsWith('.json')){
+		var parsed=null;
 		try{
-			JSON.parse(content);
+			parsed=JSON.parse(content);
 		}catch(e){
 			var msg=e.message;
 			var m=e.message.match(/position\s+(\d+)/i);
@@ -906,6 +907,17 @@ function saveFile(){
 			}
 			toast(tr('jsonError')+'\n'+msg,'error');
 			return Promise.resolve(false)
+		}
+		if(parsed&&parsed.type==='sm_game'&&Array.isArray(parsed.content)){
+			var missing=[];
+			for(var bi=0;bi<parsed.content.length;bi++){
+				var blk=parsed.content[bi];
+				if(!blk||!String(blk.smile||'').trim())missing.push(bi+1);
+			}
+			if(missing.length>0){
+				toast(tr('smileError')+'\n'+tr('smileErrorBlocks')+': '+missing.join(', '),'error',true);
+				return Promise.resolve(false)
+			}
 		}
 	}else if(path.endsWith('.js')){
 		try{
@@ -1306,27 +1318,31 @@ function buildInsertList(){
 		appendInsertSep(el);
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
-		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertItem(el,'Source',function(){openFindSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'UUID',function(){insertUUID()});
 		appendInsertItem(el,'Smile',function(){openSmilePicker()});
+		appendInsertSep(el);
+		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		return
 	}
 	if(currentFileIsClass()){
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
-		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertItem(el,'Source',function(){openFindSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'ClassContent',function(){insertTemplate('ClassContent')});
 		appendInsertSep(el);
 		appendInsertItem(el,'UUID',function(){insertUUID()});
 		appendInsertItem(el,'Smile',function(){openSmilePicker()});
+		appendInsertSep(el);
+		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		return
 	}
 	if(currentFileIsGenealogy()){
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
-		appendInsertItem(el,'Source',function(){insertTemplate('Source')});
+		appendInsertItem(el,'Source',function(){openFindSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'Events',function(){insertTemplate('Event')});
 		appendInsertItem(el,'Parents',function(){insertTemplate('Parents')});
@@ -1337,6 +1353,8 @@ function buildInsertList(){
 		appendInsertSep(el);
 		appendInsertItem(el,'UUID',function(){insertUUID()});
 		appendInsertItem(el,'Smile',function(){openSmilePicker()});
+		appendInsertSep(el);
+		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		return
 	}
 	var keys=Object.keys(templates);
@@ -1350,7 +1368,13 @@ function buildInsertList(){
 			lb.className='ins-label';
 			lb.textContent=tr('insLbl_'+name);
 			d.appendChild(lb);
-			d.onclick=function(){insertTemplate(name)};
+			d.onclick=function(){
+				if(name==='Source'){
+					openFindSource();
+				}else{
+					insertTemplate(name);
+				}
+			};
 		el.appendChild(d);
 		if(name==='Source'){
 			var sep=document.createElement('div');
@@ -1409,6 +1433,18 @@ function buildInsertList(){
 	smItem.appendChild(smLb);
 	smItem.onclick=function(){openSmilePicker()};
 	el.appendChild(smItem);
+	var nsSep=document.createElement('div');
+	nsSep.style.cssText='height:1px;background:#455a64;margin:4px 10px';
+	el.appendChild(nsSep);
+	var nsItem=document.createElement('div');
+	nsItem.className='ins-item';
+	nsItem.textContent=tr('inm_NewSource');
+	var nsLb=document.createElement('span');
+	nsLb.className='ins-label';
+	nsLb.textContent=tr('insLbl_NewSource');
+	nsItem.appendChild(nsLb);
+	nsItem.onclick=function(){openNewSource()};
+	el.appendChild(nsItem);
 }
 
 function toggleInsert(){
@@ -1420,7 +1456,10 @@ function toggleInsert(){
 	var p=document.getElementById('insertPanel');
 	var opening=!p.classList.contains('open');
 	p.classList.toggle('open');
-	if(opening)buildInsertList();
+	if(opening){
+		document.getElementById('findSourceArea').style.display='none';
+		buildInsertList();
+	}
 }
 
 function jsonDepthIndent(val,pos){
@@ -1522,6 +1561,70 @@ function openSmilePicker(){
 			insertSmile(this.getAttribute('data-val'));
 		};
 	}
+	ov.addEventListener('click',function(e){if(e.target===ov)document.body.removeChild(ov)});
+}
+
+function openNewSource(){
+	var ov=document.createElement('div');
+	ov.style.cssText='position:fixed;z-index:9999;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center';
+	var html='<div style="background:#37474f;padding:16px 24px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.4);text-align:left;max-width:560px;width:100%;max-height:90vh;overflow:auto">';
+	html+='<div style="color:#eceff1;font-size:15px;font-weight:bold;margin-bottom:14px">'+tr('inm_NewSource')+'</div>';
+	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsSfo')+'</label>';
+	html+='<select id="nsSfo" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif"></select>';
+	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsCitation')+' *</label>';
+	html+='<input type="text" id="nsCitation" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />';
+	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsDate')+'</label>';
+	html+='<input type="text" id="nsDate" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />';
+	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsPublishDate')+'</label>';
+	html+='<input type="text" id="nsPublishDate" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />';
+	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsUrl')+'</label>';
+	html+='<input type="text" id="nsUrl" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />';
+	html+='<div style="margin-top:16px;text-align:right">';
+	html+='<button id="nsCancel" style="padding:6px 16px;background:#455a64;color:#eceff1;border:none;border-radius:3px;cursor:pointer;font:13px sans-serif;margin:0 4px">'+tr('sdCancel')+'</button>';
+	html+='<button id="nsCreate" style="padding:6px 16px;background:#00897b;color:#fff;border:none;border-radius:3px;cursor:pointer;font:13px sans-serif;margin:0 4px">'+tr('nsCreate')+'</button>';
+	html+='</div></div>';
+	ov.innerHTML=html;
+	document.body.appendChild(ov);
+
+	fetch('/api/editor/source-formats').then(function(r){return r.json()}).then(function(formats){
+		var sel=document.getElementById('nsSfo');
+		if(!sel)return;
+		if(formats&&formats.length){
+			for(var i=0;i<formats.length;i++){
+				var op=document.createElement('option');
+				op.value=formats[i].sfo_id;
+				op.textContent=formats[i].sfo_name;
+				sel.appendChild(op);
+			}
+		}
+	}).catch(function(){});
+
+	document.getElementById('nsCancel').onclick=function(){document.body.removeChild(ov)};
+	document.getElementById('nsCreate').onclick=function(){
+		var citation=document.getElementById('nsCitation').value.trim();
+		if(!citation){
+			toast(tr('nsCitationRequired'),'error');
+			return
+		}
+		var body='sfo_id='+encodeURIComponent(document.getElementById('nsSfo').value)+
+			'&src_citation='+encodeURIComponent(citation)+
+			'&src_date='+encodeURIComponent(document.getElementById('nsDate').value)+
+			'&src_publish_date='+encodeURIComponent(document.getElementById('nsPublishDate').value)+
+			'&src_url='+encodeURIComponent(document.getElementById('nsUrl').value);
+		fetch('/api/editor/create-source',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(r){
+			window.__ht_next_token=r.headers.get('X-HT-Next-Token');
+			return r.json().then(function(data){return {ok:r.ok,data:data}});
+		}).then(function(res){
+			if(!res.ok){
+				toast((res.data&&res.data.error)||tr('saveError'),'error');
+				return
+			}
+			toast(tr('nsCreated')+': '+res.data.src_id,'success',true);
+			document.body.removeChild(ov);
+		}).catch(function(e){
+			toast(tr('saveError')+': '+e.message,'error');
+		});
+	};
 	ov.addEventListener('click',function(e){if(e.target===ov)document.body.removeChild(ov)});
 }
 
@@ -1696,13 +1799,18 @@ function openFindPanel(){
 	if(dp)dp.style.display='none';
 	var p=document.getElementById('findPanel');
 	p.classList.toggle('open');
-	document.getElementById('findSourceArea').style.display='none';
-	document.getElementById('findSourceResults').innerHTML='';
-	document.getElementById('findSourceInput').value='';
 }
 
 function openFindSource(){
-	document.getElementById('findSourceArea').style.display='flex';
+	var area=document.getElementById('findSourceArea');
+	var ip=document.getElementById('insertPanel');
+	if(!ip.classList.contains('open')){
+		document.getElementById('newPanel').classList.remove('open');
+		document.getElementById('findPanel').classList.remove('open');
+		document.getElementById('historyPanel').classList.remove('open');
+		ip.classList.add('open');
+	}
+	area.style.display='flex';
 	document.getElementById('findSourceResults').innerHTML='';
 	document.getElementById('findSourceInput').focus();
 }

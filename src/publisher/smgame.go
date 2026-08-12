@@ -17,16 +17,38 @@ func htRewriteSMGame(lang string, smGameFile string) error {
 		fmt.Println("Adjusting file", smGameFile)
 	}
 
-	byteValue, err := htOpenFileReadClose(smGameFile)
+	newFile, err := htTransformSMGame(lang, smGameFile)
 	if err != nil {
 		return err
+	}
+
+	equal, err := HTAreFilesEqual(newFile, smGameFile)
+	if !equal && err == nil || updateDateFlag == true {
+		err = os.Rename(newFile, smGameFile)
+		if err != nil {
+			return err
+		}
+		return nil
+	}
+	return os.Remove(newFile)
+}
+
+// htTransformSMGame reads the SM game (or smartphone) file, applies the same
+// content transformations used by htRewriteSMGame, and writes the result to a
+// temporary file. It never modifies the source file, so it is safe to use for
+// content that lives in another repository (src/common). The returned path is
+// the temporary file to use as the minification input.
+func htTransformSMGame(lang string, smGameFile string) (string, error) {
+	byteValue, err := htOpenFileReadClose(smGameFile)
+	if err != nil {
+		return "", err
 	}
 
 	var localSMGameFile SMGameFile
 	err = json.Unmarshal(byteValue, &localSMGameFile)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
-		return err
+		return "", err
 	}
 
 	if localSMGameFile.Sources != nil {
@@ -57,20 +79,7 @@ func htRewriteSMGame(lang string, smGameFile string) error {
 		localSMGameFile.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
-	newFile, err := htWriteTmpFile(lang, &localSMGameFile)
-	if err != nil {
-		return err
-	}
-
-	equal, err := HTAreFilesEqual(newFile, smGameFile)
-	if !equal && err == nil || updateDateFlag == true {
-		err = os.Rename(newFile, smGameFile)
-		if err != nil {
-			return err
-		}
-		return nil
-	}
-	return os.Remove(newFile)
+	return htWriteTmpFile(lang, &localSMGameFile)
 }
 
 func htValidateSMGameIDs(smGameFile string) error {

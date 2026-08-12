@@ -1,0 +1,174 @@
+{
+   "title": "Missing numbers",
+   "header": "Missing numbers",
+   "sources": [
+      "e0380670-cd02-46e8-abb8-cf950201ddfc"
+   ],
+   "scripts": [
+      "e0380670-cd02-46e8-abb8-cf950201ddfc"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/e0380670-cd02-46e8-abb8-cf950201ddfc_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5KS1e1UQDU4N6qdTnuqIVO?si=mk6E6PAkRjmR8I8QpAxYWQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1786560114"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Prerequisites</h3>The game on this page aims to reinforce the order of the numbers from 0 to 99. Before starting, we suggest studying the following previous pages:</p><p><ul><li><b>Our sides are equal</b>: we learn that our body has two equal sides (<htcite0>).</li> <li><b>Counting</b>: we learn how to count using our body (<htcite1>).</li> <li><b>Beyond fingers</b>: we see the limits of counting with our body and why we need new tools (<htcite2>).</li> <li><b>Numerical families (Part I)</b>: we learn the order of numbers as generations of a family (<htcite3>).</li></ul></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "20b14681-88c0-438a-a273-a0902ae5db38",
+                     "text": "History Tracers Team",
+                     "page": "Our sides are equal",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3874d1e8-0f76-4432-9ee2-d8c8c9dccf53",
+                     "text": "History Tracers Team",
+                     "page": "Counting",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cc8c1467-a6af-4f9c-ba60-ab6df35aba05",
+                     "text": "History Tracers Team",
+                     "page": "Beyond fingers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "23"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Numerical families (Part I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>General rules</h3>The table below shows the numbers from 0 to 99 arranged in 10 columns and 10 lines. In each line, one number is missing. Your goal is to click on the empty space of each line to see the number that should be there. When you reveal all the missing numbers, you will receive a congratulations message.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Missing numbers</h3>Click on the empty spaces to reveal the missing numbers. When you finish, you can start again by clicking the button <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🎲 New exercise</button>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"missingNum\" class=\"tableTen tableTenBgBlue\"><tr><th colspan=\"10\"><i>Number sequence</i></th></tr> </table></p><p id=\"missingCongrats\" class=\"desc\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! You revealed all the missing numbers!</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">The table is based on the number sequence presented in <i>Numerical families (Part I)</i> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Numerical families (Part I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
