@@ -44,10 +44,9 @@ function htMissingNumReveal(num) {
 }
 
 function htLoadContent() {
-    $("#playButton").val(mathKeywords[10]);
     htMissingNumFillTable();
 
-    $("#playButton").on("click", function() {
+    $("#resetTutorBtn").on("click", function() {
         htMissingNumFillTable();
     });
 
