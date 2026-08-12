@@ -373,6 +373,11 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if err := validateSMGameSmile(content); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -381,6 +386,33 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 	rotateToken()
 	w.Header().Set("X-HT-Next-Token", viewerToken)
 	w.WriteHeader(http.StatusNoContent)
+}
+
+// validateSMGameSmile rejects sm_game files that contain a content block with
+// an empty "smile" field, so the save is never persisted for invalid content.
+func validateSMGameSmile(content string) error {
+	var data struct {
+		Type    string `json:"type"`
+		Content []struct {
+			Smile string `json:"smile"`
+		} `json:"content"`
+	}
+	if err := json.Unmarshal([]byte(content), &data); err != nil {
+		return nil
+	}
+	if data.Type != "sm_game" {
+		return nil
+	}
+	var missing []string
+	for i, block := range data.Content {
+		if strings.TrimSpace(block.Smile) == "" {
+			missing = append(missing, strconv.Itoa(i+1))
+		}
+	}
+	if len(missing) > 0 {
+		return fmt.Errorf("sm_game content blocks with empty smile: %s", strings.Join(missing, ", "))
+	}
+	return nil
 }
 
 func editorUnlockHandler(w http.ResponseWriter, r *http.Request) {
@@ -1489,6 +1521,8 @@ func main() {
 	mux.HandleFunc("/api/editor/lang-index-files", langIndexFilesHandler)
 	mux.HandleFunc("/api/editor/find-source", findSourceHandler)
 	mux.HandleFunc("/api/editor/link-source", linkSourceHandler)
+	mux.HandleFunc("/api/editor/source-formats", sourceFormatsHandler)
+	mux.HandleFunc("/api/editor/create-source", createSourceHandler)
 	mux.HandleFunc("/api/editor/history", historyHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
@@ -2046,6 +2080,90 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
+}
+
+// sourceFormatsHandler returns the available source formats from the
+// source_format table so the editor can build the "sfo_id" selector.
+func sourceFormatsHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	defer db.Close()
+
+	rows, err := db.Query("SELECT sfo_id, sfo_name FROM source_format ORDER BY sfo_name")
+	if err != nil {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	defer rows.Close()
+
+	result := make([]map[string]string, 0)
+	for rows.Next() {
+		var sfoID, sfoName string
+		if err := rows.Scan(&sfoID, &sfoName); err != nil {
+			continue
+		}
+		result = append(result, map[string]string{"sfo_id": sfoID, "sfo_name": sfoName})
+	}
+	json.NewEncoder(w).Encode(result)
+}
+
+// createSourceHandler inserts a new row into the sources table. The src_id is
+// generated here (UUID); all other fields come from the editor form.
+func createSourceHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	sfoID := r.FormValue("sfo_id")
+	srcCitation := strings.TrimSpace(r.FormValue("src_citation"))
+	srcDate := r.FormValue("src_date")
+	srcPublishDate := r.FormValue("src_publish_date")
+	srcURL := r.FormValue("src_url")
+
+	if srcCitation == "" {
+		json.NewEncoder(w).Encode(map[string]string{"error": "src_citation is required"})
+		return
+	}
+
+	// Default to the APA format when none was selected.
+	if sfoID == "" {
+		sfoID = "a1b2c3d4-0000-4000-8000-000000000001"
+	}
+
+	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		json.NewEncoder(w).Encode(map[string]string{"error": "database not found"})
+		return
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to open database"})
+		return
+	}
+	defer db.Close()
+
+	srcID := uuid.New().String()
+	_, err = db.Exec(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
+		srcID, sfoID, srcCitation, srcDate, srcPublishDate, srcURL)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to insert source"})
+		return
+	}
+
+	rotateToken()
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("X-HT-Next-Token", viewerToken)
+	json.NewEncoder(w).Encode(map[string]string{"status": "ok", "src_id": srcID})
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
