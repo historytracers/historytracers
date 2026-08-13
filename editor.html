@@ -1319,30 +1319,29 @@ function buildInsertList(){
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
 		appendInsertItem(el,'Source',function(){openFindSource()});
+		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'UUID',function(){insertUUID()});
 		appendInsertItem(el,'Smile',function(){openSmilePicker()});
-		appendInsertSep(el);
-		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		return
 	}
 	if(currentFileIsClass()){
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
 		appendInsertItem(el,'Source',function(){openFindSource()});
+		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'ClassContent',function(){insertTemplate('ClassContent')});
 		appendInsertSep(el);
 		appendInsertItem(el,'UUID',function(){insertUUID()});
 		appendInsertItem(el,'Smile',function(){openSmilePicker()});
-		appendInsertSep(el);
-		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		return
 	}
 	if(currentFileIsGenealogy()){
 		appendInsertItem(el,'Date',function(){insertTemplate('Date')});
 		appendInsertItem(el,'Text',function(){insertTemplate('Text')});
 		appendInsertItem(el,'Source',function(){openFindSource()});
+		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		appendInsertSep(el);
 		appendInsertItem(el,'Events',function(){insertTemplate('Event')});
 		appendInsertItem(el,'Parents',function(){insertTemplate('Parents')});
@@ -1353,8 +1352,6 @@ function buildInsertList(){
 		appendInsertSep(el);
 		appendInsertItem(el,'UUID',function(){insertUUID()});
 		appendInsertItem(el,'Smile',function(){openSmilePicker()});
-		appendInsertSep(el);
-		appendInsertItem(el,'NewSource',function(){openNewSource()});
 		return
 	}
 	var keys=Object.keys(templates);
@@ -1377,6 +1374,15 @@ function buildInsertList(){
 			};
 		el.appendChild(d);
 		if(name==='Source'){
+			var ns=document.createElement('div');
+			ns.className='ins-item';
+			ns.textContent=tr('inm_NewSource');
+			var nsLb=document.createElement('span');
+			nsLb.className='ins-label';
+			nsLb.textContent=tr('insLbl_NewSource');
+			ns.appendChild(nsLb);
+			ns.onclick=function(){openNewSource()};
+			el.appendChild(ns);
 			var sep=document.createElement('div');
 			sep.style.cssText='height:1px;background:#455a64;margin:4px 10px';
 			el.appendChild(sep);
@@ -1433,18 +1439,6 @@ function buildInsertList(){
 	smItem.appendChild(smLb);
 	smItem.onclick=function(){openSmilePicker()};
 	el.appendChild(smItem);
-	var nsSep=document.createElement('div');
-	nsSep.style.cssText='height:1px;background:#455a64;margin:4px 10px';
-	el.appendChild(nsSep);
-	var nsItem=document.createElement('div');
-	nsItem.className='ins-item';
-	nsItem.textContent=tr('inm_NewSource');
-	var nsLb=document.createElement('span');
-	nsLb.className='ins-label';
-	nsLb.textContent=tr('insLbl_NewSource');
-	nsItem.appendChild(nsLb);
-	nsItem.onclick=function(){openNewSource()};
-	el.appendChild(nsItem);
 }
 
 function toggleInsert(){
