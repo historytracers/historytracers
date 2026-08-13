@@ -1924,6 +1924,10 @@ func langIndexFilesHandler(w http.ResponseWriter, r *http.Request) {
 func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	q := r.URL.Query().Get("q")
+	if q == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
 	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
 	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
 		json.NewEncoder(w).Encode([]map[string]string{})
@@ -1936,15 +1940,11 @@ func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 	var rows *sql.Rows
-	if q == "" {
-		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s ORDER BY s.src_citation LIMIT 500")
+	likeQ := "%" + q + "%"
+	if _, err := uuid.Parse(q); err == nil {
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
 	} else {
-		likeQ := "%" + q + "%"
-		if _, err := uuid.Parse(q); err == nil {
-			rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
-		} else {
-			rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? ORDER BY s.src_id", likeQ)
-		}
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? ORDER BY s.src_id", likeQ)
 	}
 	if err != nil {
 		json.NewEncoder(w).Encode([]map[string]string{})

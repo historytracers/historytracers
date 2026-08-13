@@ -1815,8 +1815,10 @@ function openFindSource(){
 	window.__fsSelOrder=[];
 	ov.style.display='flex';
 	fsUpdate();
-	fsRender([]);
-	fsSearch();
+	var box=document.getElementById('fsResults');
+	var info=document.getElementById('fsInfo');
+	box.innerHTML='';
+	info.textContent='';
 	setTimeout(function(){inp.focus()},50);
 }
 
@@ -1878,6 +1880,7 @@ function fsRender(items){
 async function fsSearch(){
 	var input=document.getElementById('fsInput');
 	var q=input.value.trim();
+	if(!q)return;
 	window.__fsQ=q;
 	var box=document.getElementById('fsResults');
 	var info=document.getElementById('fsInfo');
