@@ -18,6 +18,7 @@ import (
 	"os/exec"
 	"path"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"strconv"
 	"strings"
@@ -2116,6 +2117,18 @@ func sourceFormatsHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(result)
 }
 
+// dateRE matches the YYYY-MM-DD date format used by the sources table.
+var dateRE = regexp.MustCompile(`^[0-9]{4}-[0-9]{2}-[0-9]{2}$`)
+
+// validSourceDate reports whether the given date is empty or uses the
+// YYYY-MM-DD format expected by the sources table.
+func validSourceDate(value string) bool {
+	if value == "" {
+		return true
+	}
+	return dateRE.MatchString(value)
+}
+
 // createSourceHandler inserts a new row into the sources table. The src_id is
 // generated here (UUID); all other fields come from the editor form.
 func createSourceHandler(w http.ResponseWriter, r *http.Request) {
@@ -2131,6 +2144,16 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 
 	if srcCitation == "" {
 		json.NewEncoder(w).Encode(map[string]string{"error": "src_citation is required"})
+		return
+	}
+
+	if !validSourceDate(srcDate) {
+		json.NewEncoder(w).Encode(map[string]string{"error": "src_date must use the YYYY-MM-DD format"})
+		return
+	}
+
+	if !validSourceDate(srcPublishDate) {
+		json.NewEncoder(w).Encode(map[string]string{"error": "src_publish_date must use the YYYY-MM-DD format"})
 		return
 	}
 
