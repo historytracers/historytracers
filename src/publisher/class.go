@@ -12,6 +12,7 @@ import (
 )
 
 var localClassIDXUpdate bool
+var additionalIndexes []string
 
 func htWriteTemplateFile(lang string, newFile string, template *ClassTemplateFile) error {
 	pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, newFile)
@@ -48,6 +49,10 @@ func htAddNewClassTemplateToDirectory(newFile string, lang string) error {
 
 	HTSetDefaultClassTemplateValues(&localTemplateFile, newFile, classTemplate)
 
+	if len(additionalIndexes) > 0 {
+		localTemplateFile.Index = append(localTemplateFile.Index, additionalIndexes...)
+	}
+
 	err = htWriteTemplateFile(lang, newFile, &localTemplateFile)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
@@ -57,7 +62,7 @@ func htAddNewClassTemplateToDirectory(newFile string, lang string) error {
 	return nil
 }
 
-func htOpenClassIdx(fileName string, newFile string, lang string) error {
+func htAddNewFileToIdx(fileName string, newFile string, lang string) error {
 	localClassIDXUpdate = len(newFile) > 0
 	if verboseFlag && localClassIDXUpdate {
 		fmt.Println("Adjusting file", fileName)
@@ -96,6 +101,15 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 		return err
 	}
 
+	return nil
+}
+
+func htOpenClassIdx(fileName string, newFile string, lang string) error {
+	err := htAddNewFileToIdx(fileName, newFile, lang)
+	if err != nil {
+		return err
+	}
+
 	err = htAddNewClassTemplateToDirectory(newFile, lang)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
@@ -115,8 +129,23 @@ func htCreateOrTestClass(fileName string) {
 			panic(err)
 		}
 	}
+	htAddToAdditionalIndexes(fileName)
 	htAddNewJSToDirectory(fileName)
 	htAddNewSourceToDirectory(fileName)
+}
+
+func htAddToAdditionalIndexes(fileName string) {
+	for _, idxName := range additionalIndexes {
+		for _, dir := range htLangPaths {
+			localClassIDXUpdate = false
+			idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, idxName)
+			fmt.Println("Working with", idxPath)
+			err := htAddNewFileToIdx(idxPath, fileName, dir)
+			if err != nil {
+				panic(err)
+			}
+		}
+	}
 }
 
 func htRewriteClassFileTemplate() {

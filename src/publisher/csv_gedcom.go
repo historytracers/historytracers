@@ -952,6 +952,7 @@ func htNewFamily() {
 
 	htCreateNewFamily(strID, &family)
 	htUpdateIndexes(strID)
+	htAddToAdditionalIndexes(strID)
 	htUpdateFeedInAllLangs("tree", strID, strID)
 	fmt.Printf("Family %s created\n", strID)
 }
