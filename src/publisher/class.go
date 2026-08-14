@@ -81,7 +81,7 @@ func htAddNewFileToIdx(fileName string, newFile string, lang string) error {
 	}
 
 	if localClassIDXUpdate {
-		HTAddNewClassToIdx(&index, newFile)
+		HTAddNewClassToIdxAfter(&index, newFile, insertAfterID)
 	}
 
 	_, fileWasModified := htGitModifiedMap[fileName]

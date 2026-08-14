@@ -28,12 +28,12 @@ func htCreateDirectory(name string) {
 }
 
 func htParseAdditionalIndexes() {
-	if len(additionalIndexesFlag) == 0 {
+	if len(additionalIndexesFlag) == 0 && len(insertAfterID) == 0 {
 		return
 	}
 
 	if len(classTemplate) == 0 && !FamilyFlag {
-		panic("--additional-indexes can only be used together with -class or -family")
+		panic("--additional-indexes and --insert-after can only be used together with -class or -family")
 	}
 
 	for _, idx := range strings.Split(additionalIndexesFlag, ",") {

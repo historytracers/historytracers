@@ -917,7 +917,7 @@ func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
 		return err
 	}
 
-	HTAddNewFamilyToIdx(&index, newFile, lang)
+	HTAddNewFamilyToIdxAfter(&index, newFile, lang, insertAfterID)
 	tmpName, err := htWriteFamilyIndexFile(lang, &index)
 	if err != nil {
 		return err
