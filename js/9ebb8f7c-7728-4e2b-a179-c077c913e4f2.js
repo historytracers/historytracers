@@ -558,8 +558,8 @@ window.localSelect9ebb.drawChart = function() {
         ymax = 4.0;
     }
 
-    var marginX = w * 0.12;
-    if (marginX < 50) marginX = 50;
+    var marginX = w * 0.16;
+    if (marginX < 64) marginX = 64;
     var marginY = h * 0.18;
     if (marginY < 40) marginY = 40;
 
@@ -617,7 +617,7 @@ window.localSelect9ebb.drawChart = function() {
     }
     ctx.textAlign = 'center';
     ctx.save();
-    ctx.translate(x0 - marginX * 0.45, y0 - plotH / 2);
+    ctx.translate(x0 - marginX * 0.68, y0 - plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText("value", 0, 0);
     ctx.restore();
