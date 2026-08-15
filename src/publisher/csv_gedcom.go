@@ -917,7 +917,7 @@ func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
 		return err
 	}
 
-	HTAddNewFamilyToIdx(&index, newFile, lang)
+	HTAddNewFamilyToIdxAfter(&index, newFile, lang, insertAfterID)
 	tmpName, err := htWriteFamilyIndexFile(lang, &index)
 	if err != nil {
 		return err
@@ -952,6 +952,7 @@ func htNewFamily() {
 
 	htCreateNewFamily(strID, &family)
 	htUpdateIndexes(strID)
+	htAddToAdditionalIndexes(strID)
 	htUpdateFeedInAllLangs("tree", strID, strID)
 	fmt.Printf("Family %s created\n", strID)
 }
