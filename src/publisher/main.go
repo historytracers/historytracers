@@ -9,6 +9,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/historytracers/common"
 )
@@ -23,6 +24,23 @@ func htCreateDirectory(name string) {
 		}
 	} else if stat.IsDir() == false {
 		panic("This is not a directory")
+	}
+}
+
+func htParseAdditionalIndexes() {
+	if len(additionalIndexesFlag) == 0 && len(insertAfterID) == 0 {
+		return
+	}
+
+	if len(classTemplate) == 0 && !FamilyFlag {
+		panic("--additional-indexes and --insert-after can only be used together with -class or -family")
+	}
+
+	for _, idx := range strings.Split(additionalIndexesFlag, ",") {
+		idx = strings.TrimSpace(idx)
+		if len(idx) > 0 {
+			additionalIndexes = append(additionalIndexes, idx)
+		}
 	}
 }
 
@@ -133,6 +151,7 @@ func main() {
 		CFG.SrcPath = srcVal
 	}
 
+	htParseAdditionalIndexes()
 	htRunStopFlags()
 
 	fmt.Println("No action specified. Use --help to see available options.")
