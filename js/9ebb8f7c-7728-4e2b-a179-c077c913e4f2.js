@@ -138,10 +138,10 @@ window.localSelect9ebb.drawCircle = function() {
 
     var o = window.localSelect9ebb;
     var container = o.circleCanvas.parentElement;
-    var maxWidth = 560;
-    if (container.clientWidth - 20 < maxWidth) maxWidth = container.clientWidth - 20;
-    if (maxWidth < 320) maxWidth = 320;
-    var targetWidth = maxWidth;
+    var avail = container.clientWidth - 12;
+    if (avail < 200) avail = 200;
+    if (avail > 560) avail = 560;
+    var targetWidth = avail;
     var targetHeight = targetWidth * 0.68;
     if (targetHeight > 380) targetHeight = 380;
 
@@ -518,10 +518,10 @@ window.localSelect9ebb.drawChart = function() {
 
     var o = window.localSelect9ebb;
     var container = o.chartCanvas.parentElement;
-    var maxWidth = 560;
-    if (container.clientWidth - 20 < maxWidth) maxWidth = container.clientWidth - 20;
-    if (maxWidth < 320) maxWidth = 320;
-    var targetWidth = maxWidth;
+    var avail = container.clientWidth - 12;
+    if (avail < 200) avail = 200;
+    if (avail > 560) avail = 560;
+    var targetWidth = avail;
     var targetHeight = targetWidth * 0.5;
     if (targetHeight > 280) targetHeight = 280;
 
