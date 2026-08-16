@@ -25,3 +25,16 @@ A "group of files" is identified by a single UUID, e.g. `e0380670-cd02-46e8-abb8
    - `build/historytracers-publisher -globalangtest` — checks all UUID files.
    - `build/historytracers-publisher -checksources` — checks citation year/published consistency.
 8. Regenerate the compiled outputs: `build/historytracers-publisher -minify`. This updates `css/ht_math.css`, `index.html` (cache-busting version stamps), and `www/`. It may also rewrite unrelated files in the `src/common` submodule — revert those with `git checkout` in `src/common` if they are unrelated to the change.
+
+## Adding a new entry to the main menu
+
+A "main menu entry" is an item in the sidebar navigation shown on every page (e.g. the `Documentation` entry added next to `Gallery`). Steps to add one:
+
+1. Edit `index.html`: insert an `<li class="menu">` inside the desired `ul.sidebar-all` block, next to a related entry (e.g. `sbGallery`). The link must point to `index.html?page=<page>` with `onclick="htLoadPage('<page>','html', '', false); return false;"` and a unique `id` (e.g. `id="sbDocumentation"`). Reuse the `li.menu` class so the responsive sidebar keeps working.
+2. Edit `js/index.js`: in `htParseIndexRequest()`, add `case '<page>':` to the switch branch that ends in `htLoadPage(page, 'html', '', false);` (next to e.g. `case 'gallery':`) so `index.html?page=<page>` loads the page.
+3. Register the menu label in **all three languages** in `lang/<lang>/index.json` (en-US, es-ES, pt-BR): add an object `{ "id": "<menu-id>", "value": "<Localized label>" }` matching the `id` from step 1. Keep each file's existing indentation (6 spaces for `{` / `},`, 9 spaces for keys) and the three files structurally identical.
+4. Create the page's initial index JSON in **all three languages**: `lang/<lang>/<page>.json`, modeled on `src/json/index_template.json` (`type: "index"`, `version: 2`). Keep the three files structurally identical (same line count) — the language test enforces this.
+5. Validate the JSON files parse correctly (e.g. `ConvertFrom-Json`/`jq`) and, if available, run the prebuilt publisher checks (`build/historytracers-publisher -langtest en-US:<page>` / `-globalangtest`).
+6. Regenerate the compiled outputs when ready: `build/historytracers-publisher -minify`. This updates `www/` and cache-busting version stamps in `index.html`.
+
+Note: if the desktop viewer must track navigation to the new page, add it to the `allowedPage` list in `src/viewer/main.go` (e.g. `"documentation"`) and rebuild the viewer.
