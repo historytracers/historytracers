@@ -2706,7 +2706,7 @@ function htFillStringOnPage(data, idx, page)
         "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry",
-        "philosophy", "atlas", "gallery", "shapes"
+        "philosophy", "atlas", "gallery", "shapes", "documentation"
     ];
 
     if (allowedPages.includes(page) && item.target) {
