@@ -176,7 +176,7 @@ func htFillAddrKey(extKey *string, place string, placeType string, date string, 
 				familyUpdated = true
 			}
 
-			ret = []string{"[" + *extKey + "]", place, place, placeType, "", PC, enclosed, date}
+			ret = []string{"[" + *extKey + "]", place, place, placeType, "", "", PC, enclosed, date}
 			addrMap[key] = ret
 			addrMapLang[key] = ret
 			htFamiliesPlaceCSV = append(htFamiliesPlaceCSV, ret)
@@ -617,7 +617,7 @@ func htWriteCSVtoFile(fileName string, in [][]string) error {
 	return nil
 }
 
-func htParseFamily(fileName string, lang string, rewrite bool) (error, string, string) {
+func htParseFamily(fileName string, lang string, rewrite bool) (string, string, error) {
 	htFamilyPlaceCSV = htInitializeCSVPlace()
 	htFamilyPeopleCSV = htInitializeCSVPeople()
 	htFamilyMarriageCSV = htInitializeCSVMarriage()
@@ -631,20 +631,20 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 
 	byteValue, err := htOpenFileReadClose(localPath)
 	if err != nil {
-		return err, "", ""
+		return "", "", err
 	}
 
 	var family Family
 	err = json.Unmarshal(byteValue, &family)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
-		return err, "", ""
+		return "", "", err
 	}
 
 	htLoadSourceFromFile(family.Sources)
 
 	if rewrite == false {
-		return nil, "", ""
+		return "", "", nil
 	}
 
 	htParseFamilySetGEDCOM(&family, fileName, lang)
@@ -658,14 +658,14 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 
 	newFile, err := htWriteTmpFile(lang, &family)
 	if err != nil {
-		return err, "", ""
+		return "", "", err
 	}
 
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
-		return err, "", ""
+		return "", "", err
 	}
 
 	htFamilyMarriageCSV = append(htFamilyMarriageCSV, htFamilyFamilyCSV...)
@@ -674,10 +674,10 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 
 	err = htWriteCSVtoFile(family.CSV, htFamilyPlaceCSV)
 	if err != nil {
-		return err, "", ""
+		return "", "", err
 	}
 
-	return nil, family.GEDCOM, family.CSV
+	return family.GEDCOM, family.CSV, nil
 }
 
 func htRewriteFamilyFileTemplate() Family {
@@ -778,7 +778,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 		value := content.Value
 		for j := 0; j < len(value); j++ {
 
-			err, gedcom, csv := htParseFamily(value[j].ID, lang, rewrite)
+			gedcom, csv, err := htParseFamily(value[j].ID, lang, rewrite)
 			if err != nil {
 				return err
 			}
