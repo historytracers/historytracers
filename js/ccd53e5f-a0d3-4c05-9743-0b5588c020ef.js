@@ -14,7 +14,7 @@ function htPlusDivs(n) {
 function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc("imgHer", "images/DonsMaps/1590b.jpg");
-    htSetImageSrc("imgHer", "images/DonsMaps/1594.jpg");
+    htSetImageSrc("imgHer1", "images/DonsMaps/1594.jpg");
     htSetImageSrc("imgFlore", "images/DonsMaps/dsc03345flores.jpg");
     htSetImageSrc("imgDon", "images/DonsMaps/img_6463willendorf.jpg");
     htSetImageSrc("imgHr0", "images/DonsMaps/img_6647rudolfensis.jpg");

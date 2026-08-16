@@ -9,6 +9,23 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    return false;
+}
+
+function htCheckAnswers()
+{
+    if (localAnswerVector != undefined) {
+        for (let i = 0; i < localAnswerVector.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, localAnswerVector[i], "#answer"+i, "#explanation"+i);
+        }
+    }
+}
+
+function htLoadContent() {
+    htWriteNavigation();
+    htAddTreeReflection("#myFirstReflection", 55);
+    $("#htChinaZhongguo").html(keywords[137]);
+
     htSetImageSrc("catsCirusUrraca", "images/HistoryTracers/CatsCirusUrraca.jpg");
     htSetImageSrc("dogFadinha", "images/HistoryTracers/CadelaOwner.jpg");
     htSetImageSrc("img1", "images/Copan/Temple16Copan.png");
@@ -37,24 +54,6 @@ function htLoadExercise() {
     htSetImageSrc("imgNean", "images/DonsMaps/img_6801ferrassie.jpg");
     htSetImageSrc("imgPb", "images/DonsMaps/img_6709boisei406.jpg");
     htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
-    return false;
-}
-
-function htCheckAnswers()
-{
-    if (localAnswerVector != undefined) {
-        for (let i = 0; i < localAnswerVector.length; i++) {
-            htCheckExerciseAnswer("exercise"+i, localAnswerVector[i], "#answer"+i, "#explanation"+i);
-        }
-    }
-}
-
-function htLoadContent() {
-    htWriteNavigation();
-    htAddTreeReflection("#myFirstReflection", 55);
-    $("#htChinaZhongguo").html(keywords[137]);
-
-
     
     htSetImageSrc("imgHer", "images/DonsMaps/1594.jpg")
     return false;
