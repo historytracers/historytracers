@@ -109,11 +109,10 @@ func checkToken(r *http.Request) bool {
 
 func rotateToken() string {
 	buf := make([]byte, 32)
-	if _, err := rand.Read(buf); err == nil {
-		viewerToken = hex.EncodeToString(buf)
-	} else {
-		viewerToken = "insecure-fallback-token"
+	if _, err := rand.Read(buf); err != nil {
+		log.Fatalf("Cannot generate secure token: %v", err)
 	}
+	viewerToken = hex.EncodeToString(buf)
 	return viewerToken
 }
 
@@ -121,6 +120,11 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 	target := r.URL.Query().Get("url")
 	if target == "" {
 		http.Error(w, "missing url", http.StatusBadRequest)
+		return
+	}
+	parsed, err := url.Parse(target)
+	if err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") {
+		http.Error(w, "invalid url scheme", http.StatusBadRequest)
 		return
 	}
 	var cmd string
@@ -213,7 +217,20 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 
 func devPageHandler(w http.ResponseWriter, r *http.Request) {
 	lang := r.URL.Query().Get("lang")
+	if !validLangs[lang] {
+		// Accept partial match (e.g. "pt" -> "pt-BR")
+		for k := range validLangs {
+			if strings.HasPrefix(k, lang) {
+				lang = k
+				break
+			}
+		}
+		if !validLangs[lang] {
+			lang = ""
+		}
+	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	langJSON, _ := json.Marshal(lang)
 	fmt.Fprint(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>DevTools</title>
 <style>
@@ -235,7 +252,7 @@ body{font:13px/1.4 sans-serif;background:#1e1e1e;color:#ccc;height:100vh;display
 .btn{float:right;padding:4px 10px;margin:4px;cursor:pointer;background:#444;border:none;color:#ccc;border-radius:3px}
 .btn:hover{background:#555}
 </style></head><body><script>
-var loc="`+lang+`";
+var loc=`+string(langJSON)+`;
 var l={};
 l['pt-BR']={console:'Console',network:'Rede',noErrors:'Nenhum erro encontrado.',noNetwork:'Nenhuma requisi\u00e7\u00e3o de rede capturada.',clear:'Limpar',title:'Ferramentas de Desenvolvedor'};
 l['pt']=l['pt-BR'];
@@ -369,12 +386,12 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		if v := r.FormValue("tls_cert"); v != "" {
 			data.TLSCert = v
-		} else {
+		} else if _, ok := r.Form["tls_cert"]; ok {
 			data.TLSCert = ""
 		}
 		if v := r.FormValue("tls_key"); v != "" {
 			data.TLSKey = v
-		} else {
+		} else if _, ok := r.Form["tls_key"]; ok {
 			data.TLSKey = ""
 		}
 		if v := r.FormValue("my_name"); v != "" {
@@ -396,6 +413,12 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	lang := r.URL.Query().Get("lang")
 	cal := r.URL.Query().Get("cal")
+	if !validLangs[lang] {
+		lang = ""
+	}
+	if !validCals[cal] {
+		cal = ""
+	}
 
 	optionsMu.Lock()
 	data := readOptions()
@@ -433,9 +456,9 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(w, "<script>window.__ht_token='"+viewerToken+"';</script>\n")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
+<script>window.__ht_token='%s';</script>
 <style>
 *{box-sizing:border-box}
 body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5;color:#333}
@@ -526,7 +549,7 @@ document.getElementById('opt_apply').onclick=function(){
 	});
 };
 </script>
-</body></html>`, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir)
+</body></html>`, viewerToken, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir)
 }
 
 func validateOptions(data *optionsData) {
@@ -566,7 +589,9 @@ func readOptions() optionsData {
 		return data
 	}
 	defer f.Close()
-	gob.NewDecoder(f).Decode(&data)
+	if err := gob.NewDecoder(f).Decode(&data); err != nil {
+		log.Printf("Warning: cannot decode options: %v", err)
+	}
 	validateOptions(&data)
 	return data
 }
@@ -581,8 +606,9 @@ func writeOptionsLocked(data optionsData) {
 		return
 	}
 	defer f.Close()
-	enc := gob.NewEncoder(f)
-	enc.Encode(data)
+	if err := gob.NewEncoder(f).Encode(data); err != nil {
+		log.Printf("Warning: cannot encode options: %v", err)
+	}
 }
 
 func allowedPage(name string) bool {
@@ -651,25 +677,18 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 	})
 
 	w.Header().Set("Content-Type", "application/json")
-	fmt.Fprint(w, "[")
-	for i, e := range entries {
-		if i > 0 {
-			fmt.Fprint(w, ",")
-		}
-		argEsc := strings.ReplaceAll(e.ArgUUID, `"`, `\"`)
-		peopleEsc := strings.ReplaceAll(e.People, `"`, `\"`)
-		titleEsc := strings.ReplaceAll(e.Title, `"`, `\"`)
-		langEsc := strings.ReplaceAll(e.Lang, `"`, `\"`)
-		calEsc := strings.ReplaceAll(e.Cal, `"`, `\"`)
-		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d,"title":"%s","lang":"%s","cal":"%s"}`,
-			e.Page, argEsc, peopleEsc, e.Time, titleEsc, langEsc, calEsc)
-	}
-	fmt.Fprint(w, "]")
+	json.NewEncoder(w).Encode(entries)
 }
 
 func historyPageHandler(w http.ResponseWriter, r *http.Request) {
 	lang := r.URL.Query().Get("lang")
 	cal := r.URL.Query().Get("cal")
+	if !validLangs[lang] {
+		lang = ""
+	}
+	if !validCals[cal] {
+		cal = ""
+	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
@@ -787,25 +806,18 @@ func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
 	})
 
 	w.Header().Set("Content-Type", "application/json")
-	fmt.Fprint(w, "[")
-	for i, e := range entries {
-		if i > 0 {
-			fmt.Fprint(w, ",")
-		}
-		argEsc := strings.ReplaceAll(e.ArgUUID, `"`, `\"`)
-		peopleEsc := strings.ReplaceAll(e.People, `"`, `\"`)
-		titleEsc := strings.ReplaceAll(e.Title, `"`, `\"`)
-		langEsc := strings.ReplaceAll(e.Lang, `"`, `\"`)
-		calEsc := strings.ReplaceAll(e.Cal, `"`, `\"`)
-		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d,"title":"%s","lang":"%s","cal":"%s"}`,
-			e.Page, argEsc, peopleEsc, e.Time, titleEsc, langEsc, calEsc)
-	}
-	fmt.Fprint(w, "]")
+	json.NewEncoder(w).Encode(entries)
 }
 
 func favoritesPageHandler(w http.ResponseWriter, r *http.Request) {
 	lang := r.URL.Query().Get("lang")
 	cal := r.URL.Query().Get("cal")
+	if !validLangs[lang] {
+		lang = ""
+	}
+	if !validCals[cal] {
+		cal = ""
+	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
@@ -1149,11 +1161,10 @@ func main() {
 	}
 	{
 		buf := make([]byte, 32)
-		if _, err := rand.Read(buf); err == nil {
-			viewerToken = hex.EncodeToString(buf)
-		} else {
-			viewerToken = "insecure-fallback-token"
+		if _, err := rand.Read(buf); err != nil {
+			log.Fatalf("Cannot generate secure token: %v", err)
 		}
+		viewerToken = hex.EncodeToString(buf)
 		tokenJS := "window.__ht_token='" + viewerToken + "';"
 		welcomePage = tokenJS + welcomePage
 		addressBarJS = tokenJS + addressBarJS

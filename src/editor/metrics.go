@@ -34,7 +34,10 @@ var (
 	metricsDurationBuckets = []float64{0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10}
 	metricsDurationCounts  = map[string]int64{}
 
-	metricsPathCounts = map[string]int64{}
+	metricsPathCounts    = map[string]int64{}
+	metricsReqBytesTotal int64
+	metricsResBytesTotal int64
+	metricsDurationSumNs int64
 )
 
 func statusClass(code int) string {
@@ -113,6 +116,9 @@ func metricsRecord(method, path string, status int, dur time.Duration, reqSize, 
 	}
 	metricsDurationCounts[bucketKey]++
 	metricsPathCounts[normPath]++
+	metricsReqBytesTotal += reqSize
+	metricsResBytesTotal += resSize
+	metricsDurationSumNs += dur.Nanoseconds()
 	metricsMu.Unlock()
 }
 
@@ -173,6 +179,9 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 	for k, v := range metricsPathCounts {
 		pathCounts[k] = v
 	}
+	snapshotReqBytes := metricsReqBytesTotal
+	snapshotResBytes := metricsResBytesTotal
+	snapshotDurationSumNs := metricsDurationSumNs
 	metricsMu.Unlock()
 
 	active := atomic.LoadInt64(&metricsActive)
@@ -181,7 +190,9 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 		totalReq += v
 	}
 
+	optionsMu.Lock()
 	myName := savedOptions.MyName
+	optionsMu.Unlock()
 	if myName == "" {
 		myName = "empty"
 	}
@@ -237,17 +248,17 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(b, "%s_bucket{le=%q,my_name=%q} %d\n", metricsReqDuration, fmt.Sprintf("%.3f", metricsDurationBuckets[i]), myName, bucketTotal)
 	}
 	fmt.Fprintf(b, "%s_count{my_name=%q} %d\n", metricsReqDuration, myName, totalReq)
-	fmt.Fprintf(b, "%s_sum{my_name=%q} %s\n", metricsReqDuration, myName, "0")
+	fmt.Fprintf(b, "%s_sum{my_name=%q} %.6f\n", metricsReqDuration, myName, float64(snapshotDurationSumNs)/1e9)
 
 	fmt.Fprintln(b)
-	fmt.Fprintln(b, "# HELP", metricsReqBytes, "HTTP request size in bytes")
-	fmt.Fprintln(b, "# TYPE", metricsReqBytes, "gauge")
-	fmt.Fprintf(b, "%s{my_name=%q} %d\n", metricsReqBytes, myName, 0)
+	fmt.Fprintln(b, "# HELP", metricsReqBytes, "Total HTTP request body bytes received")
+	fmt.Fprintln(b, "# TYPE", metricsReqBytes, "counter")
+	fmt.Fprintf(b, "%s{my_name=%q} %d\n", metricsReqBytes, myName, snapshotReqBytes)
 
 	fmt.Fprintln(b)
-	fmt.Fprintln(b, "# HELP", metricsResBytes, "HTTP response size in bytes")
-	fmt.Fprintln(b, "# TYPE", metricsResBytes, "gauge")
-	fmt.Fprintf(b, "%s{my_name=%q} %d\n", metricsResBytes, myName, 0)
+	fmt.Fprintln(b, "# HELP", metricsResBytes, "Total HTTP response body bytes sent")
+	fmt.Fprintln(b, "# TYPE", metricsResBytes, "counter")
+	fmt.Fprintf(b, "%s{my_name=%q} %d\n", metricsResBytes, myName, snapshotResBytes)
 
 	fmt.Fprintln(b)
 	fmt.Fprintln(b, "# HELP historytracers_http_requests_by_path Total requests by normalised path")

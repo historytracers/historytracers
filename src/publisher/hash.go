@@ -15,24 +15,23 @@ func HTAreFilesEqual(fFile string, sFile string) (bool, error) {
 	if err != nil {
 		return false, err
 	}
+	defer f.Close()
 
 	hf := sha256.New()
 	if _, err := io.Copy(hf, f); err != nil {
 		return false, err
 	}
 
-	f.Close()
-
 	s, err := os.Open(sFile)
 	if err != nil {
 		return false, err
 	}
+	defer s.Close()
 
 	hs := sha256.New()
 	if _, err := io.Copy(hs, s); err != nil {
 		return false, err
 	}
-	s.Close()
 
 	fstr := hex.EncodeToString(hf.Sum(nil))
 	sstr := hex.EncodeToString(hs.Sum(nil))

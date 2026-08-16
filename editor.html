@@ -934,7 +934,7 @@ function saveFile(){
 		}
 	}else if(path.endsWith('.js')){
 		try{
-			eval('void function(){'+content+'}');
+			new Function(content);
 			// heuristic: flag bare identifier on its own line (likely a typo)
 			var lines=content.split('\n');
 			for(var i=0;i<lines.length;i++){
@@ -2132,7 +2132,7 @@ function openConfig(){
 		}
 	}
 	saveEditorState();
-	tabs.push({id:createTabId(),type:'config',path:tr('config'),configUrl:window.location.origin+'/api/editor/options/page?lang='+encodeURIComponent(LOC)+'&token='+encodeURIComponent(window.__ht_token||'')});
+	tabs.push({id:createTabId(),type:'config',path:tr('config'),configUrl:window.location.origin+'/api/editor/options/page?lang='+encodeURIComponent(LOC)});
 	currentTab=tabs.length-1;
 	loadEditorState(currentTab);
 	refreshTabBar();
@@ -2175,7 +2175,7 @@ function openConfig(){
 		});
 	});
 	window.__ht_editor=true;
-	window.__ht_session='s'+Math.random().toString(36).substr(2)+Date.now().toString(36);
+	window.__ht_session='s'+Array.from(crypto.getRandomValues(new Uint8Array(16)),function(b){return b.toString(16).padStart(2,'0')}).join('');
 	window.addEventListener('beforeunload',function(){
 		for(var i=0;i<tabs.length;i++){
 			if(tabs[i].type!=='config'&&tabs[i].type!=='view')unlockFile(tabs[i].path);
