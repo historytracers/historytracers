@@ -89,6 +89,7 @@ var editorBarJS = `
 	function addBar(){
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
+		if(document.getElementById('toolbar'))return;
 		var ADDR_H=32;
 		var loc='';
 		try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||''}catch(e){}
@@ -127,7 +128,6 @@ L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'De
 		menuBtn.textContent='\u22EE';
 		menuBtn.title=l.menuTitle;
 		menuBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 20px/1 monospace;padding:0 8px;color:#eceff1;margin-left:4px;';
-		_el.push(menuBtn);
 		b.appendChild(menuBtn);
 		var _el=[menuBtn];
 		var menuDrop=document.createElement('div');

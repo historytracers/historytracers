@@ -48,11 +48,10 @@ func checkToken(r *http.Request) bool {
 
 func rotateToken() string {
 	buf := make([]byte, 32)
-	if _, err := rand.Read(buf); err == nil {
-		viewerToken = hex.EncodeToString(buf)
-	} else {
-		viewerToken = "insecure-fallback-token"
+	if _, err := rand.Read(buf); err != nil {
+		log.Fatalf("Cannot generate secure token: %v", err)
 	}
+	viewerToken = hex.EncodeToString(buf)
 	return viewerToken
 }
 
@@ -60,6 +59,11 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 	target := r.URL.Query().Get("url")
 	if target == "" {
 		http.Error(w, "missing url", http.StatusBadRequest)
+		return
+	}
+	parsed, err := url.Parse(target)
+	if err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") {
+		http.Error(w, "invalid url scheme", http.StatusBadRequest)
 		return
 	}
 	var cmd string
@@ -885,6 +889,7 @@ func gitStatusHandler(w http.ResponseWriter, r *http.Request) {
 
 var (
 	sessionMu    sync.Mutex
+	optionsMu    sync.Mutex
 	sessionFile  string
 	dataDir      string
 	optionsFile  string
@@ -1195,12 +1200,12 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		if v := r.FormValue("tls_cert"); v != "" {
 			data.TLSCert = v
-		} else {
+		} else if _, ok := r.Form["tls_cert"]; ok {
 			data.TLSCert = ""
 		}
 		if v := r.FormValue("tls_key"); v != "" {
 			data.TLSKey = v
-		} else {
+		} else if _, ok := r.Form["tls_key"]; ok {
 			data.TLSKey = ""
 		}
 		if v := r.FormValue("open_new_files"); v != "" {
@@ -1220,7 +1225,9 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			data.SmartphonePrefix = ""
 		}
 		writeEditorOptions(data)
+		optionsMu.Lock()
 		savedOptions = data
+		optionsMu.Unlock()
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
 		w.WriteHeader(http.StatusNoContent)
@@ -1268,11 +1275,11 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	if runtime.GOOS == "windows" {
 		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
 	}
-	token := r.URL.Query().Get("token")
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>HistoryTracers Editor Config</title>
+<script>window.__ht_token='%s';</script>
 <style>
 *{box-sizing:border-box}
 body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5;color:#333}
@@ -1295,7 +1302,7 @@ var portVal=%q;
 var tlsCertVal=%q;
 var tlsKeyVal=%q;
 var certDir=%q;
-var token=%q;
+var token=window.__ht_token||'';
 var openNewFiles=%q;
 var curDesign=%q;
 var smartphonePrefixVal=%q;
@@ -1362,7 +1369,7 @@ document.getElementById('opt_import').onclick=function(){
 	});
 };
 </script>
-</body></html>`, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, token, fmt.Sprint(openNewFiles), curDesign, curSmartphonePrefix)
+</body></html>`, viewerToken, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, fmt.Sprint(openNewFiles), curDesign, curSmartphonePrefix)
 }
 
 func init() {
@@ -1462,7 +1469,9 @@ func main() {
 	useTLS = tlsCertFile != "" && tlsKeyFile != ""
 	initDataDir()
 	initProjectFiles()
+	optionsMu.Lock()
 	savedOptions = readEditorOptions()
+	optionsMu.Unlock()
 	// Apply saved TLS options if not overridden by CLI
 	if tlsCertFile == "" && savedOptions.TLSCert != "" {
 		tlsCertFile = savedOptions.TLSCert
@@ -1488,11 +1497,10 @@ func main() {
 
 	{
 		buf := make([]byte, 32)
-		if _, err := rand.Read(buf); err == nil {
-			viewerToken = hex.EncodeToString(buf)
-		} else {
-			viewerToken = "insecure-fallback-token"
+		if _, err := rand.Read(buf); err != nil {
+			log.Fatalf("Cannot generate secure token: %v", err)
 		}
+		viewerToken = hex.EncodeToString(buf)
 	}
 
 	if *listen == -1 && savedOptions.Port != "" && *port == 0 {
