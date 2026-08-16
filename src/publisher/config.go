@@ -126,7 +126,7 @@ func htPrintOptions() {
 func HTLoadConfig() {
 	_, err := os.Stat(confPath)
 	if err != nil {
-		fmt.Println("Config not found. Runnin with default options.")
+		fmt.Println("Config not found. Running with default options.")
 		return
 	}
 

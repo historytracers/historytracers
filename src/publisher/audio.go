@@ -117,14 +117,14 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 	}
 
 	if lang == "pt-BR" {
-		if sex == "masculine" || sex == "masculino" {
+		if sex == "masculino" {
 			intro = "Filho de "
 		} else {
 			intro = "Filha de "
 		}
 		return intro + parent1 + " e " + parent2 + ".\n"
 	} else if lang == "es-ES" {
-		if sex == "masculine" || sex == "masculino" {
+		if sex == "masculino" {
 			intro = "Hijo de "
 		} else {
 			intro = "Hija de "
@@ -132,7 +132,7 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 		return intro + parent1 + " y " + parent2 + ".\n"
 	}
 
-	if sex == "masculine" || sex == "masculino" {
+	if sex == "male" {
 		intro = "Son of "
 	} else {
 		intro = "Daughter of "

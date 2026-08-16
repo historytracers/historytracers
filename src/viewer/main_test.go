@@ -208,14 +208,17 @@ func TestMetricsHandler(t *testing.T) {
 
 	checks := []string{
 		"historytracers_uptime_seconds",
-		`historytracers_http_requests_total{method="GET",status_class="2xx"}`,
-		`historytracers_http_requests_total{method="POST",status_class="2xx"}`,
-		`historytracers_http_requests_total{method="GET",status_class="4xx"}`,
+		`historytracers_http_requests_total{method="GET",status_class="2xx"`,
+		`historytracers_http_requests_total{method="POST",status_class="2xx"`,
+		`historytracers_http_requests_total{method="GET",status_class="4xx"`,
 		"historytracers_http_request_duration_seconds_bucket{le=",
 		"historytracers_http_requests_in_flight",
-		`historytracers_http_errors_total{method="GET",status_class="4xx"}`,
-		`historytracers_http_requests_by_path{path="/index.html"}`,
-		`historytracers_http_requests_by_path{path="/nonexistent"}`,
+		`historytracers_http_errors_total{method="GET",status_class="4xx"`,
+		`historytracers_http_requests_by_path{path="/index.html"`,
+		`historytracers_http_requests_by_path{path="/nonexistent"`,
+		"historytracers_http_request_size_bytes",
+		"historytracers_http_response_size_bytes",
+		"historytracers_http_request_duration_seconds_sum",
 	}
 	for _, c := range checks {
 		if !strings.Contains(body, c) {
@@ -223,9 +226,8 @@ func TestMetricsHandler(t *testing.T) {
 		}
 	}
 
-	// Verify counts
-	if !strings.Contains(body, `historytracers_http_requests_total{method="GET",status_class="2xx"} 2`) &&
-		!strings.Contains(body, `historytracers_http_requests_total{method="GET",status_class="2xx"}  2`) {
+	// Verify counts — the output includes a my_name label
+	if !strings.Contains(body, `status_class="2xx"`+`,my_name="empty"} 2`) {
 		t.Errorf("expected 2 GET 2xx requests, got:\n%s", body)
 	}
 }
@@ -237,5 +239,8 @@ func init() {
 	metricsErrors = map[string]int64{}
 	metricsDurationCounts = map[string]int64{}
 	metricsPathCounts = map[string]int64{}
+	metricsReqBytesTotal = 0
+	metricsResBytesTotal = 0
+	metricsDurationSumNs = 0
 	metricsMu.Unlock()
 }

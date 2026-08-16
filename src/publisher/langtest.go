@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"sort"
 	"strings"
 
 	. "github.com/historytracers/common"
@@ -99,13 +100,7 @@ func isExceptedUUID(uid string) bool {
 }
 
 func sortStrings(s []string) {
-	for i := 0; i < len(s); i++ {
-		for j := i + 1; j < len(s); j++ {
-			if s[i] > s[j] {
-				s[i], s[j] = s[j], s[i]
-			}
-		}
-	}
+	sort.Strings(s)
 }
 
 type langLines struct {

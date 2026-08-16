@@ -29,8 +29,8 @@ var commonKeywords []string
 var mathKeywords []string
 
 var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julio", "agosto", "setembro", "outubro", "novembro", "dezembro"}
-var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "deciembre"}
-var htMonthCalendarEN []string = []string{"January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
+var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"}
+var htMonthCalendarEN []string = []string{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
 var htAbbrMonthCalendarEN []string = []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
 
 var sourceMap map[string]HTSourceElement
@@ -41,6 +41,7 @@ func htCountLines(filePath string) (int, error) {
 	if err != nil {
 		return 0, err
 	}
+	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
 	lineCount := 0
@@ -49,11 +50,9 @@ func htCountLines(filePath string) (int, error) {
 	}
 
 	if err := scanner.Err(); err != nil {
-		file.Close()
 		return 0, err
 	}
 
-	file.Close()
 	return lineCount, nil
 }
 
@@ -149,6 +148,10 @@ func htCommonJSONError(byteValue []byte, err error) {
 }
 
 func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
+	if dt == nil || dt.DateType != "gregory" {
+		return ""
+	}
+
 	year, _ := strconv.Atoi(dt.Year)
 	suffix := ""
 	if year < 0 {
@@ -160,10 +163,6 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 		}
 	} else if dt.Year == "now" {
 		year, _, _ = time.Now().Date()
-	}
-
-	if dt == nil || dt.DateType != "gregory" {
-		return ""
 	}
 
 	if dt.Month == "-1" || dt.Day == "-1" || dt.Month == "" || dt.Day == "" {
@@ -387,6 +386,8 @@ func htConvertDateStringToHTDate(dtStr string) HTDate {
 		year = values[0]
 		if len(values) > 1 {
 			month = values[1]
+		}
+		if len(values) > 2 {
 			day = values[2]
 		}
 	}
