@@ -55,6 +55,6 @@ function htLoadContent() {
     htSetImageSrc("imgPb", "images/DonsMaps/img_6709boisei406.jpg");
     htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
     
-    htSetImageSrc("imgHer", "images/DonsMaps/1594.jpg")
+    htSetImageSrc("imgHer", "images/DonsMaps/1590b.jpg")
     return false;
 }
