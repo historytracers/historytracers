@@ -46,6 +46,7 @@ var htPhysicsIdx = new Map();
 var htPhilosophyIdx = new Map();
 var htFamilyIdx = new Map();
 var htGalleryIdx = new Map();
+var htDocumentationIdx = new Map();
 
 var extLatexIdx = 0;
 
@@ -165,7 +166,8 @@ function htResetAllIndexes()
         htPhysicsIdx,
         htPhilosophyIdx,
         htAtlasIdx,
-        htGalleryIdx
+        htGalleryIdx,
+        htDocumentationIdx
     ];
 
     indexMaps.forEach(map => {
@@ -1705,7 +1707,8 @@ function htSelectIndexMap(index)
         chemistry: htChemicalIdx,
         biology: htBiologyIdx,
         atlas: htAtlasIdx,
-        gallery: htGalleryIdx
+        gallery: htGalleryIdx,
+        documentation: htDocumentationIdx
     };
 
     return map[index];
@@ -1729,6 +1732,7 @@ function htSelectIndexName(index) {
         historical_events: keywords[130],
         philosophy: keywords[138],
         gallery: keywords[143],
+        documentation: keywords[144],
     };
 
     return map[index] || "Undefined";
@@ -3107,7 +3111,8 @@ function htLoadIndex(data, arg, page)
         philosophy: htPhilosophyIdx,
         atlas: htAtlasIdx,
         shapes: htShapesIdx,
-        gallery: htGalleryIdx
+        gallery: htGalleryIdx,
+        documentation: htDocumentationIdx
     };
 
     if (page && pageConfig[page] && !pageConfig[page].has(page)) {
