@@ -13,7 +13,8 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- Remove img_options.json component from images harvest -->
+  <!-- Remove img_options.json and README files from images harvest -->
   <xsl:template match="wix:Component[wix:File/@Source[contains(., 'img_options.json')]]" />
+  <xsl:template match="wix:Component[wix:File/@Source[contains(., 'README')]]" />
 
 </xsl:stylesheet>
