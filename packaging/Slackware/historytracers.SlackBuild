@@ -22,14 +22,7 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Set source directory
-SRCDIR=$CWD
-
-# Check for source
-if [ ! -d "$SRCDIR" ]; then
-  echo "Source directory $SRCDIR not found"
-  exit 1
-fi
+NUMJOBS=${NUMJOBS:-"-j$(nproc 2>/dev/null || echo 1)"}
 
 set -e
 
@@ -42,38 +35,39 @@ rm -rf $PRGNAM-$VERSION
 tar xf $CWD/$PRGNAM-$VERSION.tar.xz
 cd $PRGNAM-$VERSION
 
+# Build using autotools
+autoreconf -f -i
+
+LOCALPATH=$(pwd)
+LOGPATH="/var/log/historytracers"
+CONF_PATH="/etc/historytracers/historytracers.conf"
+SRC_PATH="/usr/share/historytracers"
+CONTENT_PATH="/usr/share/historytracers/www"
+
+./configure \
+  --prefix=/usr \
+  --disable-editor \
+  --with-conf-path="$CONF_PATH" \
+  --with-src-path="$SRC_PATH/" \
+  --with-content-path="$CONTENT_PATH/" \
+  --with-log-path="$LOGPATH/"
+
+make $NUMJOBS all
+
 # Create package directory structure
 mkdir -p $PKG/usr/bin
-mkdir -p $PKG/usr/share/$PRGNAM/www
 mkdir -p $PKG/usr/share/$PRGNAM/www/images
 mkdir -p $PKG/usr/doc/$PRGNAM
-mkdir -p $PKG/install
-cp packaging/Slackware/doinst.sh $PKG/install/doinst.sh
 mkdir -p $PKG/etc/$PRGNAM
-mkdir -p $PKG/var/lib/$PRGNAM
+mkdir -p $PKG/var/log/$PRGNAM
+mkdir -p $PKG/install
 
-# Build the project
-chmod +x historytracers-installer.sh
-./historytracers-installer.sh
-
-# Install the binaries
+# Install binaries
 install -m 755 build/historytracers $PKG/usr/bin/historytracers
-#if [ -f build/historytracers-editor ]; then
-#  install -m 755 build/historytracers-editor $PKG/usr/bin/historytracers-editor
-#fi
 
-# Install web content from www/ (images handled separately)
+# Install web content from www/
 if [ -d "www/" ]; then
-  for item in www/*; do
-    base=$(basename "$item")
-    [ "$base" = "images" ] && continue
-    cp -R "$item" $PKG/usr/share/$PRGNAM/www/
-  done
-fi
-
-# Install image options config
-if [ -f www/images/img_options.json ]; then
-  install -m 644 www/images/img_options.json $PKG/usr/share/$PRGNAM/www/images/
+  cp -R www/* $PKG/usr/share/$PRGNAM/www/
 fi
 
 # Install editor.html alongside web content
@@ -88,6 +82,9 @@ if [ -f $CWD/historytracers-images-${VERSION}.tar.gz ]; then
   cp -R $TMP/historytracers-images/images/* $PKG/usr/share/$PRGNAM/www/images/
 fi
 
+# Install configuration file as .new (preserve user modifications on upgrade)
+install -m 644 packaging/conf/historytracers.conf $PKG/etc/$PRGNAM/historytracers.conf.new
+
 # Install documentation
 if [ -f LICENSE ]; then
   install -m 644 LICENSE $PKG/usr/doc/$PRGNAM/
@@ -96,21 +93,15 @@ if [ -f README.md ]; then
   install -m 644 README.md $PKG/usr/doc/$PRGNAM/
 fi
 
-# Install source code (devel): everything except www/ and .git/
-mkdir -p $PKG/usr/src/$PRGNAM
-for item in * .[!.]*; do
-  [ -e "$item" ] || continue
-  case "$(basename "$item")" in www|.git) continue;; esac
-  cp -R "$item" $PKG/usr/src/$PRGNAM/
-done
-
+# Install doinst.sh
+cp packaging/Slackware/doinst.sh $PKG/install/doinst.sh
 chmod 755 $PKG/install/doinst.sh
 
 # Fix permissions
 find $PKG -type d -exec chmod 755 {} \;
-# Ownership is handled by makepkg at package creation time
-find $PKG -type f -perm 755 -exec chmod 755 {} \;
-find $PKG -type f -perm 644 -exec chmod 644 {} \;
+find $PKG -type f -exec chmod 644 {} \;
+chmod 755 $PKG/usr/bin/historytracers
+chmod 755 $PKG/install/doinst.sh
 
 # Build the package
 cd $PKG
