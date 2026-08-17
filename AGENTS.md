@@ -50,3 +50,19 @@ A "main menu entry" is an item in the sidebar navigation shown on every page (e.
 10. Regenerate the compiled outputs when ready: `build/historytracers-publisher -minify`. This updates `www/` (including `bodies/<page>.html`, `js/<page>.js`, and `js/ht_common.js`) and cache-busting version stamps in `index.html`.
 
 Note: if the desktop viewer must track navigation to the new page, add it to the `allowedPage` list in `src/viewer/main.go` (e.g. `"documentation"`) and rebuild the viewer.
+
+## Rebasing/merging the sources DB (binary conflicts)
+
+`lang/sources/history_tracers.db` is a SQLite file and cannot be auto-merged. During `git merge`/`rebase` it appears as `both modified` (or deleted/modified). To resolve, union the two datasets:
+
+1. Extract both versions to temp files:
+   - `git show <ours>:lang/sources/history_tracers.db > /tmp/ours.db` (during rebase, ours = upstream/base; during merge, ours = `HEAD`)
+   - `git show <theirs>:lang/sources/history_tracers.db > /tmp/theirs.db` (e.g. `origin/main`)
+2. Diff the tables row-by-row to find what each side adds. Export sorted rows with `sqlite3 <db> "SELECT * FROM <table> ORDER BY 1;"` for `files`, `sources`, `citation`, `source_format` and `diff` them. Each table has its own columns, so compare per table (a flat row diff across tables is meaningless).
+3. Build the union: start from one version and `INSERT OR IGNORE` the other side's unique rows:
+   - `sqlite3 /tmp/merged.db "ATTACH '/tmp/theirs.db' AS mdb; INSERT OR IGNORE INTO files ... SELECT ... FROM mdb.files; ..."`
+   - Note: `main` is a reserved schema name in SQLite — use a different attach alias like `mdb`.
+   - Check for unexpected changes too: rows the merge would drop (e.g. a file/citation present in ours but not in theirs) are deliberate branch content and must be kept.
+4. Verify the union: re-diff each table against both original versions; the merged DB should be a strict superset of each side (no rows lost from either).
+5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db`, then commit.
+6. The `src/common` submodule pointer is also often updated by the merge — stage and commit it too (its working tree should be clean and detached).
