@@ -1,18 +1,20 @@
 Name: historytracers
 Version: 1.0.0
 Release: 1%{?dist}
-Summary: A free and open-source teaching tool.
-License: GPLv3
-URL: https://github.com/historytracers/historytracers
+Summary: A free and open-source teaching tool
+License: GPL-3.0-or-later
+URL: https://historytracers.org/
 
-BuildArch: x86_64
-BuildRequires: systemd
+BuildRequires: systemd-rpm-macros
+BuildRequires: golang
+BuildRequires: autoconf
+BuildRequires: automake
+BuildRequires: git
 
 %package images
 Summary: Images for History Tracers
-Group: Applications/Education
-Requires: historytracers = %{version}-%{release}
 BuildArch: noarch
+Requires: historytracers = %{version}-%{release}
 
 %description images
 Additional images for the History Tracers teaching tool.
@@ -21,7 +23,6 @@ excluding the options configuration file.
 
 %package devel
 Summary: Development files for History Tracers
-Group: Development/Libraries
 BuildArch: noarch
 
 %description devel
@@ -35,97 +36,109 @@ teachers, each for different reasons. Our goal is to support
 both sides of the learning process by providing diverse tools.
 
 %prep
-# No setup needed
+%setup -q -n %{name}-%{version}
 
 %build
-# Nothing to do - compilation done by ht2pkg.sh
+autoreconf -f -i
+%configure \
+  --disable-editor \
+  --with-conf-path=%{_sysconfdir}/%{name}/historytracers.conf \
+  --with-src-path=%{_datadir}/%{name}/ \
+  --with-content-path=%{_datadir}/%{name}/www/ \
+  --with-log-path=%{_localstatedir}/log/%{name}/
+%make_build
 
 %install
 rm -rf %{buildroot}
 
 # Create directory structure
 mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_datadir}/historytracers/
-mkdir -p %{buildroot}%{_sysconfdir}/historytracers
-mkdir -p %{buildroot}%{_unitdir}/
-mkdir -p %{buildroot}%{_localstatedir}/lib/historytracers
-mkdir -p %{buildroot}%{_datadir}/historytracers/www/images
-mkdir -p %{buildroot}/usr/src/historytracers
+mkdir -p %{buildroot}%{_datadir}/%{name}/www/images
+mkdir -p %{buildroot}%{_sysconfdir}/%{name}
+mkdir -p %{buildroot}%{_unitdir}
+mkdir -p %{buildroot}%{_localstatedir}/log/%{name}
 
 # Install the systemd service file
-install -m 644 %{_sourcedir}/packaging/service/historytracers.service %{buildroot}%{_unitdir}/historytracers.service
+install -m 644 packaging/service/historytracers.service %{buildroot}%{_unitdir}/historytracers.service
 
-# Install the binary from build/ directory
-install -m 755 %{_sourcedir}/build/historytracers %{buildroot}%{_bindir}/historytracers
+# Install the binary
+install -m 755 build/historytracers %{buildroot}%{_bindir}/historytracers
 
-# Install configuration file if it exists
-[ -f %{_sourcedir}/packaging/conf/historytracers.conf ] && \
-  install -m 600 %{_sourcedir}/packaging/conf/historytracers.conf %{buildroot}%{_sysconfdir}/historytracers/historytracers.conf
+# Install configuration file as .new (preserve user modifications on upgrade)
+install -m 644 packaging/conf/historytracers.conf %{buildroot}%{_sysconfdir}/%{name}/historytracers.conf
 
 # ===== MAIN PACKAGE: web content =====
 
 # Install everything from www/ except the images/ directory
-find %{_sourcedir}/www -mindepth 1 -maxdepth 1 ! -name "images" -exec cp -r {} %{buildroot}%{_datadir}/historytracers/www/ \;
+for item in www/*; do
+  base=$(basename "$item")
+  [ "$base" = "images" ] && continue
+  cp -r "$item" %{buildroot}%{_datadir}/%{name}/www/
+done
 
 # Install only img_options.json from the images/ directory
-install -m 644 %{_sourcedir}/www/images/img_options.json %{buildroot}%{_datadir}/historytracers/www/images/
+install -m 644 www/images/img_options.json %{buildroot}%{_datadir}/%{name}/www/images/
 
 # ===== IMAGES SUBPACKAGE: image files =====
 
-# Install all image files except img_options.json
-find %{_sourcedir}/www/images -type f ! -name "img_options.json" -exec cp -t %{buildroot}%{_datadir}/historytracers/www/images/ {} +
+# Install all image files/dirs except img_options.json and READMEs
+for item in www/images/*; do
+  base=$(basename "$item")
+  case "$base" in img_options.json|README*|*.md) continue;; esac
+  cp -r "$item" %{buildroot}%{_datadir}/%{name}/www/images/
+done
 
 # ===== DEVEL SUBPACKAGE: source files =====
 
-# Copy everything from the source tree except the www/ directory
-cd %{_sourcedir}
-find . -maxdepth 1 ! -name "." ! -name "www" -exec cp -r {} %{buildroot}/usr/src/historytracers/ \;
+mkdir -p %{buildroot}%{_prefix}/src/%{name}
+for item in * .[!.]*; do
+  [ -e "$item" ] || continue
+  base=$(basename "$item")
+  case "$base" in www|.git|build|packaging|debian) continue;; esac
+  cp -r "$item" %{buildroot}%{_prefix}/src/%{name}/
+done
 
 %pre
-getent group historytracers >/dev/null || groupadd -r historytracers
-getent passwd historytracers >/dev/null || useradd -r -g historytracers -s /sbin/nologin \
-    -d /usr/share/historytracers -c "A teaching tool" historytracers
+# Only run user creation for the main package (not subpackages)
+if [ $1 -eq 1 ]; then
+  getent group historytracers >/dev/null || groupadd -r historytracers
+  getent passwd historytracers >/dev/null || useradd -r -g historytracers -s /sbin/nologin \
+      -d %{_datadir}/%{name} -c "History Tracers" historytracers
+fi
 
 %post
-chown -R historytracers:historytracers %{_datadir}/historytracers 2>/dev/null || true
-chown historytracers:historytracers %{_bindir}/historytracers 2>/dev/null || true
-#chown historytracers:historytracers %{_bindir}/historytracers-editor 2>/dev/null || true
-chown -R historytracers:historytracers %{_sysconfdir}/historytracers 2>/dev/null || true
-chown historytracers:historytracers %{_localstatedir}/lib/historytracers 2>/dev/null || true
-[ -d %{_localstatedir}/log/historytracers ] && chown historytracers:historytracers %{_localstatedir}/log/historytracers 2>/dev/null || true
-[ -d /usr/src/historytracers ] && chown -R historytracers:historytracers /usr/src/historytracers 2>/dev/null || true
 %systemd_post historytracers.service
 
 %preun
 %systemd_preun historytracers.service
 
 %postun
-%systemd_postun_with_restart historytracers.service
+%systemd_postun historytracers.service
 
 %files
 %license LICENSE
 %doc README.md
 %{_bindir}/historytracers
 %{_unitdir}/historytracers.service
-%config(noreplace) %{_sysconfdir}/historytracers/historytracers.conf
-%dir %{_sysconfdir}/historytracers
-%dir %{_localstatedir}/lib/historytracers
-%dir %{_datadir}/historytracers
-%dir %{_datadir}/historytracers/www
-%{_datadir}/historytracers/www/*
-%exclude %{_datadir}/historytracers/www/images/*
-%{_datadir}/historytracers/www/images/img_options.json
+%dir %{_sysconfdir}/%{name}
+%config(noreplace) %{_sysconfdir}/%{name}/historytracers.conf
+%dir %{_localstatedir}/log/%{name}
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/www
+%{_datadir}/%{name}/www/*
+%exclude %{_datadir}/%{name}/www/images
+%{_datadir}/%{name}/www/images/img_options.json
 
 %files images
-%dir %{_datadir}/historytracers
-%dir %{_datadir}/historytracers/www
-%dir %{_datadir}/historytracers/www/images
-%{_datadir}/historytracers/www/images/*
-%exclude %{_datadir}/historytracers/www/images/img_options.json
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/www
+%dir %{_datadir}/%{name}/www/images
+%{_datadir}/%{name}/www/images/*
+%exclude %{_datadir}/%{name}/www/images/img_options.json
 
 %files devel
-%dir /usr/src/historytracers
-/usr/src/historytracers/*
+%dir %{_prefix}/src/%{name}
+%{_prefix}/src/%{name}/*
 
 %changelog
 * Sun Nov 02 2025 Thiago Marques <historytracers@gmail.com> - 1.0.0-1
