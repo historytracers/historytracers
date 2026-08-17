@@ -2,10 +2,24 @@
 set -e
 
 case "$1" in
-    purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-        # Reload systemd and reset failed state
+    purge)
+        # Remove log files
+        rm -rf /var/log/historytracers
+
+        # Remove configuration
+        rm -rf /etc/historytracers
+
+        # Remove user and group
+        if getent passwd historytracers >/dev/null; then
+            deluser --system historytracers >/dev/null 2>&1 || true
+        fi
+        if getent group historytracers >/dev/null; then
+            delgroup --system historytracers >/dev/null 2>&1 || true
+        fi
+    ;;
+    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+        # Reload systemd on non-purge actions
         systemctl daemon-reload >/dev/null 2>&1 || true
-        systemctl reset-failed historytracers.service >/dev/null 2>&1 || true
     ;;
 esac
 

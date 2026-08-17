@@ -28,7 +28,7 @@ override_dh_install:
 	# Binary, service, config
 	install -D -m 755 $(CURDIR)/build/historytracers debian/historytracers/usr/bin/historytracers
 	install -D -m 644 $(CURDIR)/packaging/service/historytracers.service debian/historytracers/lib/systemd/system/historytracers.service
-	-install -D -m 600 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf
+	install -D -m 644 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf.new
 
 	# Web content: everything from www/ except images/
 	install -d debian/historytracers/usr/share/historytracers/www
@@ -41,24 +41,26 @@ override_dh_install:
 	install -D -m 644 $(CURDIR)/www/images/img_options.json \
 		debian/historytracers/usr/share/historytracers/www/images/img_options.json
 
+	# Log directory
+	install -d -m 755 debian/historytracers/var/log/historytracers
+
 	# ===== IMAGES SUBPACKAGE (historytracers-images) =====
 
 	install -d debian/historytracers-images/usr/share/historytracers/www/images
 	for f in $(CURDIR)/www/images/*; do \
-		[ -f "$$f" ] || continue; \
 		base=$$(basename "$$f"); \
-		[ "$$base" = "img_options.json" ] && continue; \
-		cp "$$f" debian/historytracers-images/usr/share/historytracers/www/images/; \
+		case "$$base" in img_options.json|README*|*.md) continue;; esac; \
+		cp -r "$$f" debian/historytracers-images/usr/share/historytracers/www/images/; \
 	done
 
 	# ===== DEVEL SUBPACKAGE (historytracers-devel) =====
 
-	# Copy everything from source root except www/ and .git/
+	# Copy source tree excluding www/, .git/, build/, packaging/, debian/
 	dest=debian/historytracers-devel/usr/src/historytracers; \
 	install -d "$$dest"; \
 	for f in $(CURDIR)/* $(CURDIR)/.[!.]*; do \
 		[ -e "$$f" ] || continue; \
 		base=$$(basename "$$f"); \
-		case "$$base" in www|.git) continue;; esac; \
+		case "$$base" in www|.git|build|packaging|debian) continue;; esac; \
 		cp -r "$$f" "$$dest"/; \
 	done

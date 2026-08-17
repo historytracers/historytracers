@@ -2,10 +2,14 @@
 set -e
 
 case "$1" in
-    remove|upgrade)
-        # Stop service before removal or upgrade
+    remove)
+        # Stop and disable service on package removal
         systemctl stop historytracers.service >/dev/null 2>&1 || true
         systemctl disable historytracers.service >/dev/null 2>&1 || true
+    ;;
+    upgrade)
+        # Stop service before upgrade; do not disable
+        systemctl stop historytracers.service >/dev/null 2>&1 || true
     ;;
 esac
 
