@@ -53,7 +53,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text explores the concept of addition in greater depth. Therefore, we recommend reviewing the previous chapters along with their respective prerequisites",
+               "text": "### Prerequisites\n\nThis text builds on the concept of addition by exploring a powerful shortcut. We recommend reviewing the previous chapters along with their prerequisites, as they provide the foundation for what we will discover here.",
                "source": [
                   {
                      "type": 1,
@@ -80,7 +80,7 @@
          "id": "introduction2",
          "text": [
             {
-               "text": "### Introduction\n\nIn previous chapters, we focused on counting by raising our fingers, which led us to add numbers one by one. Let’s take another look at the hands in Figure 1 and reflect",
+               "text": "### Introduction\n\nIn previous chapters, we learned to count by raising our fingers one at a time. This led us to add numbers step by step. But what happens when we have many things to count? Let's look at the hands in Figure 1 and think about a challenge:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -118,7 +118,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Group Summation</b><br /><br />Imagine this scenario: three people are gathered, and we want to determine the total number of fingers on their hands. Knowing that each person has five fingers per hand, how many fingers are there in total?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Counting in Groups</b><br /><br />Imagine three people standing together. We want to count all the fingers on their hands. Each person has 10 fingers (5 on each hand). How many fingers are there in total?<br /><br />Think about it before reading on.</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -132,7 +132,7 @@
          "id": "grouping2",
          "text": [
             {
-               "text": "### Grouping\n\n### A General Vision\n\nTo help us understand this more easily, let’s create a table showing the hands of the individuals involved",
+               "text": "### Grouping\n\n### A General Vision\n\nTo solve this problem, let's organize what we know in a table. This will help us see the big picture:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -150,7 +150,7 @@
                "PostMention": ""
             },
             {
-               "text": "From Table 1, we could count all the fingers one by one to get the result",
+               "text": "We could count every finger one by one—that would work, but it would take a long time. Let's see how that would look:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -168,7 +168,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Is Life Too Complicated?</b><br /><br />At first glance, Calculation 1 seems long because it involves writing the number one thirty times before summing them.<br /><br />Can we simplify this?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Is There a Better Way?</b><br /><br />Calculation 1 looks very long because we have to write the number one thirty times! That is a lot of work.<br /><br />Can we find a shorter way to say the same thing?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -177,7 +177,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Simplifying the Notation\n\nTo express such operations more concisely, mathematicians introduced the concept of summation, represented by the Greek letter sigma (Σ)",
+               "text": "### Simplifying the Notation\n\nMathematicians faced this same problem centuries ago. Their solution was elegant: they created a special symbol called sigma (Σ) that means \"add the same number many times\"",
                "source": [
                   {
                      "type": 1,
@@ -208,7 +208,7 @@
                "PostMention": ""
             },
             {
-               "text": "Comparing Calculation 2 with Calculation 1, we see that the sigma symbol (Σ) functions as a shorthand for repeated addition. The lower bound (n = 1) indicates where we start, and the upper bound (30) where we end. The value next to the sigma (in this case, 1) is what is being repeatedly added. The final result shows this repeated value being multiplied by the number of times it appears",
+               "text": "Let's compare Calculation 1 and Calculation 2. The sigma symbol (Σ) replaces all those plus signs. The number at the bottom (n = 1) tells us where to start counting. The number at the top (30) tells us where to stop. The number to the right (1) is what we are adding each time. And the result? It is simply 30 times 1, which equals 30.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -217,7 +217,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Can We Simplify It Even More?</b><br /><br />While the sigma notation makes the expression shorter, it doesn't necessarily make the calculation itself easier. Is there an even simpler way?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Can We Do Even Better?</b><br /><br />The sigma notation is shorter to write, but we still need to calculate 30 × 1. Is there an even simpler approach?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -226,7 +226,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Grouping by Hands\n\nDescribing things individually—like counting each finger—can add unnecessary complexity. Observing nature, we can find ways to group data to simplify operations, just like in Calculation 2.\n\nFor example, each hand has five fingers. Instead of counting fingers one by one, we can count in groups of five. That means we only need to count five fingers six times",
+               "text": "### Grouping by Hands\n\nHere is a key insight: instead of counting fingers one by one, we can count by groups. Each hand has exactly 5 fingers. So instead of counting 30 individual fingers, we can count 5 fingers — six times (once for each hand). That is much faster!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -244,7 +244,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Grouping by Person\n\nGrouping by hands is not the only approach. We can simplify the count even further by considering ten fingers per person. That way, we only need to perform three additions",
+               "text": "### Grouping by Person\n\nBut we can go even further! Instead of counting by hands, what if we count by person? Each person has 10 fingers (two hands of 5). Now we only need to add three times:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -267,7 +267,7 @@
          "id": "nature",
          "text": [
             {
-               "text": "### Our Repetitions\n\nHumans constantly learn from nature and create repetitive patterns. In fact, we previously presented an altar that depicts several generations of *ajawob* (kings) from Copán",
+               "text": "### Our Repetitions\n\nHumans are not the only ones who group things—nature does it too. And throughout history, people have created patterns based on repetition. Remember the Altar Q from Copán, Honduras? It shows generations of <i>ajawob</i> (kings), and we can use it to practice grouping.",
                "source": [
                   {
                      "type": 1,
@@ -357,7 +357,7 @@
                "PostMention": ""
             },
             {
-               "text": "On Altar Q in Copán, we can observe four *ajawob* (kings) on each side. Rather than count them individually, we can calculate the total by grouping them in fours",
+               "text": "On Altar Q, each of the four sides has exactly 4 kings carved into it. Instead of counting each king one by one, we can group them: 4 kings × 4 sides. Let's calculate the total:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -375,7 +375,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1</b><br /><br />Beyond fingers, look around and identify objects that can be grouped for counting.</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Finding Groups Around You</b><br /><br />Look around you right now. Can you find objects that come in equal groups? Think about: egg cartons, windows on a building, tiles on a floor, or even the keys on a keyboard.<br /><br />How would you count them using groups instead of counting one by one?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -389,7 +389,7 @@
          "id": "multiplication2",
          "text": [
             {
-               "text": "### Multiplication\n\nThe simplifications we've explored are examples of multiplication, which is defined as",
+               "text": "### Multiplication\n\nEvery shortcut we have explored in this chapter—counting by hands, by person, or by groups of kings—is an example of multiplication. Mathematicians define it as",
                "source": [
                   {
                      "type": 1,
@@ -420,7 +420,7 @@
                "PostMention": ""
             },
             {
-               "text": "Although this definition doesn’t explicitly mention addition, as we've seen, there's an intrinsic connection between the two operations. This is to be expected, as new knowledge builds on what we already know",
+               "text": "Notice that this definition does not mention addition directly. But as we have seen throughout this chapter, multiplication and addition are deeply connected. In fact, multiplication was invented precisely because adding the same number over and over becomes tedious. New mathematical tools are born from the need to solve problems more efficiently.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -434,7 +434,7 @@
          "id": "final",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this chapter, we introduced a new way of counting: multiplication—a fundamental mathematical operation that is deeply connected to addition.\n\nIn upcoming texts, we will continue expanding our understanding of multiplication, always relating it to addition",
+               "text": "### Conclusion\n\nIn this chapter, we discovered that when we add the same number many times, there is a faster way: multiplication. We learned that grouping—by hands, by people, or by any equal set—turns a long addition problem into a simple multiplication.\n\nWe also saw that this idea is not new. Ancient civilizations used grouping and repetition in their art, architecture, and counting systems.\n\nIn the next chapter, we will continue exploring multiplication and see how it connects to the patterns we find in the world around us.",
                "source": null,
                "date_time": null,
                "isTable": false,

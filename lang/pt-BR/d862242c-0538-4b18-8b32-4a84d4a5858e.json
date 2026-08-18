@@ -53,7 +53,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nEste texto expande o conceito de adição. Por isso, recomendamos o estudo dos capítulos anteriores e de seus respectivos pré-requisitos",
+               "text": "### Pré-requisitos\n\nEste texto constrói sobre o conceito de adição, explorando um atalho poderoso. Recomendamos revisar os capítulos anteriores e seus pré-requisitos, pois eles fornecem a base para o que vamos descobrir aqui.",
                "source": [
                   {
                      "type": 1,
@@ -80,7 +80,7 @@
          "id": "introduction",
          "text": [
             {
-               "text": "### Introdução\n\nNos capítulos anteriores, focamos na contagem utilizando os dedos, adicionando números um a um. Vamos observar novamente duas mãos na Figura 1 e, em seguida, refletir",
+               "text": "### Introdução\n\nNos capítulos anteriores, aprendemos a contar levantando os dedos um por vez. Isso nos levou a somar números passo a passo. Mas e quando temos muitas coisas para contar? Vamos olhar as mãos na Figura 1 e pensar em um desafio:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -118,7 +118,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Somando em grupos?</b><br /><br />Imagine a seguinte situação: temos três pessoas reunidas e queremos saber o número total de dedos das mãos delas. Sabendo que cada pessoa tem cinco dedos em cada mão, qual é o total de dedos presentes?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Somando em grupos?</b><br /><br />Imagine três pessoas juntas. Queremos contar todos os dedos das mãos delas. Cada pessoa tem 10 dedos (5 em cada mão). Quantos dedos há no total?<br /><br />Pense nisso antes de continuar.</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -132,7 +132,7 @@
          "id": "grouping",
          "text": [
             {
-               "text": "### Agrupando\n\n### Uma visão geral\n\nPara facilitar o entendimento, montaremos uma tabela com as mãos das pessoas envolvidas",
+               "text": "### Agrupando\n\n### Uma visão geral\n\nPara resolver esse problema, vamos organizar o que sabemos em uma tabela. Isso nos ajudará a ver o panorama completo:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -150,7 +150,7 @@
                "PostMention": ""
             },
             {
-               "text": "A partir da Tabela 1, poderíamos somar todos os dedos, um a um",
+               "text": "Poderíamos contar cada dedo individualmente—isso funcionaria, mas levaria muito tempo. Veja como ficaria:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -168,7 +168,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: A vida é tão complicada?</b><br /><br />O Cálculo 1 parece longo à primeira vista, afinal, são trinta repetições do número 1.<br /><br />Não seria melhor simplificá-lo?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: A vida é tão complicada?</b><br /><br />O Cálculo 1 parece muito longo, pois precisamos escrever o número um trinta vezes! Isso é muito trabalho.<br /><br />Nós podemos encontrar um caminho mais curto para dizer a mesma coisa?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -177,7 +177,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Simplificando a Escrita\n\nPara representar operações como essa de forma mais simples, os matemáticos introduziram o conceito de somatório, utilizando a letra grega sigma (Σ)",
+               "text": "### Simplificando a Escrita\n\nOs matemáticos enfrentaram esse mesmo problema há séculos. A solução deles foi elegante: criaram um símbolo especial chamado sigma (Σ) que significa \"somar o mesmo número muitas vezes\"",
                "source": [
                   {
                      "type": 1,
@@ -208,7 +208,7 @@
                "PostMention": ""
             },
             {
-               "text": "Comparando o Cálculo 1 com o Cálculo 2, vemos que o símbolo sigma (∑) substitui os vários sinais de adição (+). Abaixo do sigma, colocamos o valor inicial da soma (n = 1); acima, o valor final (30); e à frente, o número que está sendo somado (neste caso, 1). O termo 30 × 1 indica que o número 1 foi repetido 30 vezes",
+               "text": "Vamos comparar o Cálculo 1 e o Cálculo 2. O símbolo sigma (Σ) substitui todos aqueles sinais de adição. O número embaixo (n = 1) nos diz por onde começar a contar. O número no topo (30) nos diz onde parar. O número ao lado (1) é o que estamos somando cada vez. E o resultado? É simplesmente 30 vezes 1, que é igual a 30.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -217,7 +217,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Podemos simplificar mais?</b><br /><br />Apesar de escrevermos menos, a quantidade de cálculos não foi reduzida. Seria possível simplificar ainda mais?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Podemos simplificar mais?</b><br /><br />A notação sigma é mais curta, mas ainda precisamos calcular 30 × 1. Será que existe uma abordagem ainda mais simples?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -226,7 +226,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Agrupando com as Mãos\n\nDescrever elementos individualmente, como os dedos, pode gerar trabalho adicional. Ao observar a natureza, aprendemos a agrupar dados, o que torna os cálculos mais fáceis.\n\nPor exemplo, neste caso, cada mão tem cinco dedos. Assim, em vez de contar de um em um, podemos contar de cinco em cinco, somando cinco dedos seis vezes",
+               "text": "### Agrupando com as Mãos\n\nAqui vai uma ideia fundamental: em vez de contar dedos um por um, podemos contar por grupos. Cada mão tem exatamente 5 dedos. Assim, em vez de contar 30 dedos individuais, podemos contar 5 dedos — seis vezes (uma vez para cada mão). Isso é muito mais rápido!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -244,7 +244,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Agrupando por Pessoa\n\nTambém podemos simplificar a contagem considerando que cada pessoa tem dez dedos (duas mãos). Assim, realizamos apenas três somas",
+               "text": "### Agrupando por Pessoa\n\nMas podemos ir ainda mais longe! Em vez de contar por mãos, e se contássemos por pessoa? Cada pessoa tem 10 dedos (duas mãos com 5). Agora precisamos somar apenas três vezes:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -267,7 +267,7 @@
          "id": "nature",
          "text": [
             {
-               "text": "### Nossas Repetições\n\nOs seres humanos aprendem com a natureza e criam padrões repetitivos. Por exemplo, já mostramos um altar que apresenta gerações de *ajawob* (reis) de Copán",
+               "text": "### Nossas Repetições\n\nNós não somos os únicos que agrupam coisas—a natureza faz isso também. E ao longo da história, as pessoas criaram padrões baseados em repetição. Lembra do Altar Q de Copán, Honduras? Ele mostra gerações de <i>ajawob</i> (reis), e podemos usá-lo para praticar agrupamento.",
                "source": [
                   {
                      "type": 1,
@@ -357,7 +357,7 @@
                "PostMention": ""
             },
             {
-               "text": "No Altar Q de Copán, há quatro *ajawob* (reis) em cada lado. Em vez de contá-los individualmente, podemos agrupá-los de quatro em quatro",
+               "text": "No Altar Q, cada um dos quatro lados tem exatamente 4 reis esculpidos. Em vez de contar cada rei individualmente, podemos agrupá-los: 4 reis × 4 lados. Vamos calcular o total:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -375,7 +375,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1</b><br /><br />Além de usar os dedos, observe ao seu redor e identifique objetos que possam ser contados em grupos.</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Encontrando grupos ao seu redor</b><br /><br />Olhe ao seu redor agora mesmo. Você consegue encontrar objetos que vêm em grupos iguais? Pense em: caixas de ovos, janelas de um prédio, azulejos do chão, ou até as teclas de um teclado.<br /><br />Como você os contaria usando grupos em vez de contar um por um?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -389,7 +389,7 @@
          "id": "multiplication",
          "text": [
             {
-               "text": "### Multiplicação\n\nEssas simplificações que fizemos são exemplos de multiplicação, definida como",
+               "text": "### Multiplicação\n\nTodo atalho que exploramos neste capítulo—contar por mãos, por pessoa ou por grupos de reis—é um exemplo de multiplicação. Os matemáticos a definem como",
                "source": [
                   {
                      "type": 1,
@@ -420,7 +420,7 @@
                "PostMention": ""
             },
             {
-               "text": "Embora a definição não mencione explicitamente a adição, como vimos, existe uma relação intrínseca entre essas duas operações. Isso é esperado, pois novos conhecimentos se constroem sobre os anteriores",
+               "text": "Note que essa definição não menciona adição diretamente. Mas, como vimos ao longo deste capítulo, multiplicação e adiçã0 estão profundamente conectadas. Na verdade, a multiplicação foi inventada precisamente porque somar o mesmo número várias vezes se torna tedioso. Novas ferramentas matemáticas nascem da necessidade de resolver problemas de forma mais eficiente.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -434,7 +434,7 @@
          "id": "final",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste capítulo, introduzimos uma nova forma de contar: a multiplicação — uma operação matemática fundamental, intimamente relacionada à adição.\n\nNos próximos textos, continuaremos expandindo nosso conhecimento sobre a multiplicação, sempre relacionando-a com a operação anterior",
+               "text": "### Conclusão\n\nNeste capítulo, descobrimos que quando somamos o mesmo número muitas vezes, existe um caminho mais rápido: a multiplicação. Aprendemos que agrupar—por mãos, por pessoas ou por qualquer conjunto igual—transforma um problema longo de adição em uma multiplicação simples.\n\nTambém vimos que essa ideia não é nova. Civilizações antigas usavam agrupamento e repetição em sua arte, arquitetura e sistemas de contagem.\n\nNo próximo capítulo, continuaremos explorando a multiplicação e veremos como ela se conecta com os padrões que encontramos no mundo ao nosso redor.",
                "source": null,
                "date_time": null,
                "isTable": false,
