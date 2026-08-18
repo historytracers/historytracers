@@ -112,7 +112,7 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart3Options);
 
-    htFillMultiplicationTable("chart4", 1, 1, false, true);
+    htFillBoxesMultiplicationChart("chart4");
 
     
     htSetImageSrc("imgTeotihuacanGeneral", "images/Teotihuacan/TeotihuacanGeneral.jpg")
@@ -129,4 +129,72 @@ function htCheckAnswers()
         }
     }
 }
+
+function htFillBoxesMultiplicationChart(target)
+{
+    if ($("#"+target).length == 0) {
+        return;
+    }
+
+    var labels = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+    var datasets = [];
+    for (var unit = 1; unit <= 10; unit++) {
+        var values = [];
+        for (var i = 0; i < labels.length; i++) {
+            values.push(labels[i] >= unit ? 1 : 0);
+        }
+        datasets.push({
+            data : values,
+            label : mathKeywords[16]+unit,
+            backgroundColor : "#E67E22",
+            borderColor : "#A85B1E",
+            borderWidth : 1
+        });
+    }
+
+    var canvas = document.getElementById(target);
+    var existing = Chart.getChart(canvas);
+    if (existing) {
+        existing.destroy();
+    }
+
+    new Chart(canvas.getContext("2d"), {
+        type : "bar",
+        data : {
+            labels : labels,
+            datasets : datasets
+        },
+        options : {
+            responsive : false,
+            maintainAspectRatio : false,
+            scales : {
+                y : {
+                    stacked : true,
+                    min : 0,
+                    max : 10,
+                    ticks : {
+                        stepSize : 1
+                    },
+                    title : {
+                        display : true,
+                        text : mathKeywords[14]
+                    }
+                },
+                x : {
+                    stacked : true,
+                    title : {
+                        display : true,
+                        text : mathKeywords[15]
+                    }
+                }
+            },
+            plugins : {
+                legend : {
+                    display : false
+                }
+            }
+        }
+    });
+}
+
 
