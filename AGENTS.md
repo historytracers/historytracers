@@ -51,6 +51,59 @@ A "main menu entry" is an item in the sidebar navigation shown on every page (e.
 
 Note: if the desktop viewer must track navigation to the new page, add it to the `allowedPage` list in `src/viewer/main.go` (e.g. `"documentation"`) and rebuild the viewer.
 
+## Converting class files to smartphone files
+
+Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `common/src/smartphone/XX-YY/<sm-uuid>.json`. The smartphone version is a condensed, screen-by-screen adaptation. Steps to add or update a smartphone file:
+
+1. **Understand the structure difference**:
+   - Class file: `type: "class"`, `version: 2`, sections in `content[].text[]` with HTML, citations (`<htcite0>`), and `<htcite>` tags.
+   - Smartphone file: `type: "sm_game"`, `version: 1`, `index: "FirstStepsScreen"`, screens in `content[]` with `id`, `smile`, `source_menu`, `text[]`, `next`/`prev` navigation, `answer`, `score`.
+
+2. **Each class section becomes one smartphone screen**. Screens are linked in a singly-linked list via `next` (and optionally `prev`) UUIDs. Generate UUIDs for new screens: `cat /proc/sys/kernel/random/uuid`.
+
+3. **Convert the text**:
+   - Strip all `<htcite0>`, `<htcite1>`, etc. citation tags from the text.
+   - Replace HTML with markdown where possible (e.g. `<h3>` → `####`, `<b>` → `**`, `<i>` → `*`).
+   - Simplify long paragraphs for mobile readability.
+   - Remove `<p class="desc">` wrappers; keep image tags and captions as separate text entries.
+
+4. **Convert images**:
+   - Class files use `<img id="imgXyz" onclick="htImageZoom(...)" src="" .../>` (URL loaded dynamically by JS).
+   - Smartphone files use direct URLs: `<img src="https://www.historytracers.org/images/..." />`.
+   - Find the actual image URL by checking the JS file for `htSetImageSrc("imgXyz", ...)` or by inspecting the built `www/` output.
+
+5. **Populate `source_menu`** for each screen:
+   - Move the relevant sources from the class section's `source[]` array.
+   - Convert type 0/1 entries as-is, using full URLs for `page` (not relative paths).
+   - Add an "Original Text" / "Texto Original" entry linking to the class content:
+     ```json
+     {
+        "type": 1,
+        "uuid": "<class-uuid>",
+        "text": "Original Text",
+        "page": "https://www.historytracers.org/index.html?page=class_content&arg=<class-uuid>",
+        "date_time": { "type": "gregory", "year": "", "month": "", "day": "" }
+     }
+     ```
+   - For `pt-BR` use `"Texto Original"`, for `es-ES` use `"Texto Original"`, for `en-US` use `"Original Text"`.
+
+6. **Set `smile` per screen** (visual tone indicator):
+   - `"nerd"` for introductory/explanatory screens.
+   - `"happy"` for positive/factual screens.
+   - `"shocking"` for surprising/mind-blowing content.
+   - `"thinking"` for reflection questions.
+   - `"inlove"` for beautiful/awe-inspiring content.
+   - `"party"` for conclusion/celebration screens.
+
+7. **Wire up navigation**: Set `next` on each screen to the following screen's UUID. The last screen has `next: ""`. Set `prev` to `""` (not used by the app, but kept for symmetry).
+
+8. **Keep all three language files structurally identical** (same number of screens, same UUIDs, same `next`/`prev` chain). The `text[]` content is translated, but structure must match.
+
+9. **Validate**:
+   - `python3 -c "import json; json.load(open('<file>'))"` for each language.
+   - `wc -l` all three files must match.
+   - Verify the `next` chain: each screen's `next` must point to a valid screen UUID (or `""` for the last).
+
 ## Rebasing/merging the sources DB (binary conflicts)
 
 `lang/sources/history_tracers.db` is a SQLite file and cannot be auto-merged. During `git merge`/`rebase` it appears as `both modified` (or deleted/modified). To resolve, union the two datasets:
