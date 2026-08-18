@@ -654,6 +654,14 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	defer historyMu.Unlock()
 
 	entries := readHistoryLocked()
+	// Remove existing entry with the same page+arg+people to avoid duplicates
+	key := page + "|" + arg + "|" + people
+	for i, e := range entries {
+		if e.Page+"|"+e.ArgUUID+"|"+e.People == key {
+			entries = append(entries[:i], entries[i+1:]...)
+			break
+		}
+	}
 	entries = append(entries, historyEntry{Page: page, ArgUUID: arg, People: people, Time: now, Title: title, Lang: lang, Cal: cal})
 	if len(entries) > 256 {
 		entries = entries[len(entries)-256:]
@@ -706,6 +714,7 @@ a:hover{text-decoration:underline}
 <h2 id="title"></h2>
 <div id="hist"></div>
 <script>
+window.__ht_token=`+"`"+`%s`+"`"+`;
 var loc=`+"`"+`%s`+"`"+`||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
 var cal=`+"`"+`%s`+"`"+`||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
 var L={};
@@ -735,14 +744,17 @@ fetch('/api/history/list').then(function(r){return r.json()}).then(function(entr
 		}
 		var dt='';
 		try{dt=parent.htConvertDate(cal,loc,e.time)}catch(ex){try{dt=new Date(e.time*1000).toLocaleString(loc)}catch(ex2){dt=''}}
-		t+='<tr><td>'+(i+1)+'</td><td>'+escapeHtml(e.page)+'</td><td><a href="'+escapeHtml(href)+'" onclick="event.preventDefault();(parent.open||window.open)(this.href)">'+escapeHtml(label)+'</a></td><td>'+(e.lang||'-')+'</td><td>'+escapeHtml(dt)+'</td></tr>';
+		t+='<tr><td>'+(i+1)+'</td><td>'+escapeHtml(e.page)+'</td><td><a href="'+escapeHtml(href)+'" data-title="'+escapeHtml(label)+'" onclick="event.preventDefault();recordHistory(this.getAttribute(\'href\'),this.dataset.title);(parent.open||window.open)(this.href)">'+escapeHtml(label)+'</a></td><td>'+(e.lang||'-')+'</td><td>'+escapeHtml(dt)+'</td></tr>';
 	}
 	t+='</table>';
 	h.innerHTML=t;
 }).catch(function(){document.getElementById('hist').innerHTML='<p class="empty">'+l.err+'</p>'});
+function recordHistory(url,title){
+	try{var u=new URL(url);var p=u.searchParams.get('page');if(!p)return;var a=u.searchParams.get('arg')||'';var pp=u.searchParams.get('people')||'';var tk=window.__ht_token||'';try{if(!tk)tk=sessionStorage.__ht_token}catch(ex){}fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':tk},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(title||'')+'&lang='+encodeURIComponent(u.searchParams.get('lang')||'')+'&cal='+encodeURIComponent(u.searchParams.get('cal')||'')})}catch(e){}
+}
 function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 </script>
-</body></html>`, lang, cal)
+</body></html>`, viewerToken, lang, cal)
 }
 
 func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
