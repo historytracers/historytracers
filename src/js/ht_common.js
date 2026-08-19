@@ -1847,31 +1847,56 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 }
 
 var htPendingIndexes = [];
+var htNavigationWaiter = null;
 
 function htWriteNavigation()
 {
-    if (htPendingIndexes.length > 0) {
-        htIndexesOrder = htPendingIndexes.slice();
-        var checkCount = 0;
-        var maxChecks = 50;
-        var expectedCount = htPendingIndexes.length;
-        var checkInterval = setInterval(function() {
-            var allLoaded = loadedIdx.length >= expectedCount &&
-                htPendingIndexes.every(function(idx) {
-                    return loadedIdx.includes(idx);
-                });
-            checkCount++;
-            if (allLoaded || checkCount >= maxChecks) {
-                clearInterval(checkInterval);
-                htPendingIndexes = [];
-                htIndexesOrder = [];
-                htWriteNavigationInternal();
-            }
-        }, 50);
+    if (htPendingIndexes.length == 0) {
+        htWriteNavigationInternal();
         return;
     }
 
-    htWriteNavigationInternal();
+    // A single waiter is enough, even when htWriteNavigation() is invoked
+    // more than once for the same page (page script + htFillWebPage).
+    if (htNavigationWaiter != null) {
+        return;
+    }
+
+    htNavigationWaiter = { "pending" : htPendingIndexes.slice(), "checks" : 0, "arg" : new URLSearchParams(window.location.search).get('arg') };
+    htIndexesOrder = htNavigationWaiter.pending.slice();
+
+    htNavigationWaiter.interval = setInterval(function() {
+        var waiter = htNavigationWaiter;
+        var allLoaded = waiter.pending.every(function(idx) {
+            return loadedIdx.includes(idx);
+        });
+        waiter.checks++;
+
+        // Keep waiting while the indexes are still being fetched. The safety
+        // window is generous; a missing/erroring index is removed by the AJAX
+        // error handler so the waiter is not held forever.
+        if (allLoaded || waiter.checks >= 400) {
+            clearInterval(waiter.interval);
+            htNavigationWaiter = null;
+
+            htPendingIndexes = htPendingIndexes.filter(function(idx) {
+                return waiter.pending.indexOf(idx) < 0;
+            });
+
+            // The user may have navigated to another page while we waited;
+            // do not overwrite its navigation with a stale one.
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('arg') == waiter.arg) {
+                htWriteNavigationInternal();
+            }
+
+            // Indexes requested while we were waiting (new navigation): write
+            // those too.
+            if (htPendingIndexes.length > 0) {
+                htWriteNavigation();
+            }
+        }
+    }, 50);
 }
 
 function htWriteNavigationInternal()
@@ -1879,12 +1904,16 @@ function htWriteNavigationInternal()
     if (loadedIdx.length == 0) {
         return;
     }
-    var sortedIdx = loadedIdx.slice();
+
+    var sortedIdx;
     if (htIndexesOrder.length > 0) {
-        sortedIdx.sort(function(a, b) {
-            return htIndexesOrder.indexOf(a) - htIndexesOrder.indexOf(b);
+        sortedIdx = htIndexesOrder.filter(function(idx) {
+            return loadedIdx.includes(idx);
         });
+    } else {
+        sortedIdx = loadedIdx.slice();
     }
+
     var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in sortedIdx) {
         var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
@@ -3085,7 +3114,7 @@ function htLoadIndex(data, arg, page)
             }
             return;
         } else {
-            if (!htPendingIndexes.includes(data.index)) {
+            if (data.index.length > 0 && !htPendingIndexes.includes(data.index)) {
                 htPendingIndexes.push(data.index);
             }
         }
@@ -3131,6 +3160,10 @@ function htLoadIndex(data, arg, page)
         dataType: 'json',
         success: function(d) {
             if (d.length == 0) {
+                htPendingIndexes = htPendingIndexes.filter(function(idx) {
+                    return idx != indexName;
+                });
+                htWriteNavigation();
                 return false;
             }
 
@@ -3138,7 +3171,17 @@ function htLoadIndex(data, arg, page)
                 htLoadIndex(d, arg, indexName);
             }
 
+            // A late index arrival must re-trigger the navigation write so a
+            // previously written table is completed with all expected indexes.
+            htWriteNavigation();
+
             return false;
+        },
+        error: function() {
+            htPendingIndexes = htPendingIndexes.filter(function(idx) {
+                return idx != indexName;
+            });
+            htWriteNavigation();
         },
     });
 }
