@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1787159417"
+      "1787161086"
    ],
    "authors": null,
    "reviewers": null,
@@ -94,7 +94,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nWe already know how to multiply numbers in many ways: with our hands, with the Yupana, and with the abacuses. We also learned that multiplication is a **repeated sum**—adding the same number over and over. But did you know that we can also *draw* a multiplication table?\n\nIn this text, we will learn a simple recipe with three steps:\n1. First, we create a **formula** that describes the multiplication table.\n2. Then, we **plot points** for that formula.\n3. Finally, we **connect the points**.\n\nWhen we connect the points, beautiful shapes appear—straight lines and even triangles!",
+               "text": "### Introduction\n\nWe already know how to multiply numbers in many ways: with our hands, with the Yupana, and with the abacuses. We also learned that multiplication is a **repeated sum**—adding the same number over and over.\n\nBut here is something surprising: we can *draw* a multiplication table! When we do, straight lines and even triangles appear on the paper. This connection between numbers and shapes is one of the most beautiful ideas in mathematics.\n\nIn this text, we will learn a simple recipe with three steps:\n1. First, we create a **formula** that describes the multiplication table.\n2. Then, we **plot points** for that formula on a squared paper.\n3. Finally, we **connect the points** with straight strokes.\n\nLet us begin!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -108,7 +108,7 @@
          "id": "SECTION_formula",
          "text": [
             {
-               "text": "### First Step: Creating a Formula\n\nA formula is a short way of writing a rule with numbers. Instead of writing many sums, we use a letter to represent the numbers that can change.\n\nIn the text *Adding the same numbers*, we learned that multiplication is a **repeated sum** (<htcite0>): when we add the same number many times, we can write it in a shorter way. For example, instead of writing 10 + 10 + 10, we can write 3 × 10.\n\nWe can write this idea with a single formula that works for any multiplication (<htcite1>)",
+               "text": "### First Step: Creating a Formula\n\nA formula is a short way of writing a rule with numbers. We use formulas every day without realizing it. For example, imagine you walk 3 blocks to school every morning. After two days, you have walked 3 + 3 = 6 blocks. After five days, 3 + 3 + 3 + 3 + 3 = 15 blocks. Instead of writing long sums each time, we can write a short rule: *total blocks = 3 × number of days*.\n\nIn the text *Adding the same numbers*, we learned that multiplication is a **repeated sum** (<htcite0>): when we add the same number many times, we can write it in a shorter way. For example, instead of writing 10 + 10 + 10, we can write 3 × 10.\n\nWe can write this idea with a single formula that works for any multiplication (<htcite1>)",
                "source": [
                   {
                      "type": 1,
@@ -151,7 +151,7 @@
                "PostMention": ""
             },
             {
-               "text": "In this formula:\n- **r**: is the result of the multiplication (the product).\n- **N**: is the number of times we repeat the same number (the factor).\n- **a**: is the number we repeat—the table itself. It is also called the **angular coefficient** (or **slope**).\n\nWhen **a** is small, the results stay close to the horizontal line. When **a** grows, the results climb higher and higher.",
+               "text": "In this formula, each letter represents a quantity that can change:\n- **r**: is the **result** of the multiplication (also called the **product**). It is the answer we get.\n- **N**: is the **number of times** we repeat the same number (also called the **factor**). It counts how many groups we have.\n- **a**: is the number we repeat—the table itself. Mathematicians call it the **angular coefficient** (or **slope**) because, as we will soon see, it controls how steeply the line rises.\n\nThink of it this way: if **a** is small (like 1), the results grow slowly. If **a** is big (like 10), the results grow quickly. Let us see this in action!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -160,7 +160,7 @@
                "PostMention": ""
             },
             {
-               "text": "Now let's see the formula in action with the simplest values of **a**:\n- When **a = 0**, we repeat the number zero: 0 + 0 + 0 + ... + 0 = 0 × **N**. Every result is zero.\n- When **a = 1**, we repeat the number one: 1 + 1 + 1 + ... + 1 = 1 × **N**. Every result is the number **N** itself.\n\nMove the pointer over each result to see how it is formed",
+               "text": "Now let us see the formula in action with the simplest values of **a**. Try to work out each result yourself before moving the pointer over the tables below:\n- When **a = 0**, we repeat the number zero: 0 + 0 + 0 + ... + 0 = 0 × **N**. No matter how many times we add zero, the result is always zero.\n- When **a = 1**, we repeat the number one: 1 + 1 + 1 + ... + 1 = 1 × **N**. The result is always the number **N** itself—nothing changes!\n\nMove the pointer over each result to see how it is formed",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -192,7 +192,7 @@
          "id": "SECTION_points",
          "text": [
             {
-               "text": "### Second Step: Plotting the Points\n\nA formula gives us numbers, but numbers alone do not show us the shape of a multiplication table. To see its shape, we need to draw.\n\nWe use two lines, called **axes**:\n- The **horizontal axis** shows the values of **N** (the numbers we count).\n- The **vertical axis** shows the results **r** (the products).\n\nFor each value of **N**, we place a single point: we find the value of **N** on the horizontal axis, then the result on the vertical axis, and we mark the meeting place with a dot.",
+               "text": "### Second Step: Plotting the Points\n\nA formula gives us numbers, but numbers alone do not show us the shape of a multiplication table. To see its shape, we need to draw.\n\nWe use two perpendicular lines, called **axes**, that cross at a point called the **origin**:\n- The **horizontal axis** (going left to right) shows the values of **N** (the numbers we count: 1, 2, 3, ...).\n- The **vertical axis** (going bottom to top) shows the results **r** (the products).\n\nFor each value of **N**, we place a single point. Here is how:\n1. Start at the origin.\n2. Move **right** along the horizontal axis until you reach the value of **N**.\n3. From there, move **up** until you reach the result **r**.\n4. Mark that spot with a dot.\n\nFor example, in the table of 1 (where **a = 1**), when **N = 3** the result is **r = 1 × 3 = 3**. So we go right to 3 on the horizontal axis, then up to 3 on the vertical axis, and place our dot there.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -201,7 +201,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Making a Prediction</b><br /><br />When <b>a = 0</b>, every result is zero.<br /><br />Where do you expect the points to be on the chart?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Making a Prediction</b><br /><br />When <b>a = 0</b>, every result is zero. Remember: to plot each point, we go right to <b>N</b>, then up to the result.<br /><br />If the result is always zero, how high do we go? Where do you expect the points to be on the chart?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -272,7 +272,7 @@
                "PostMention": ""
             },
             {
-               "text": "The points for **a = 1** step upward, one unit at a time, forming a **diagonal** path across the squared paper.",
+               "text": "The points for **a = 1** step upward, one unit at a time, forming a **diagonal** path across the squared paper. This is very different from the flat line of the table of zero!\n\nNow that we have seen individual points for both tables, let us connect them and discover the shapes they form.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -393,7 +393,7 @@
          "id": "SECTION_triangle",
          "text": [
             {
-               "text": "### Triangle\n\nBefore proceeding, to reinforce the concepts we have learned in this text and to introduce what we will explore next, we have filled the lower triangle formed by the connected points of the multiplication table of one",
+               "text": "### Triangle\n\nWe have seen that the table of zero makes a flat line and the table of one makes a rising line. Now let us do something interesting: we will fill in the space below the rising line of the table of one, between the line and the horizontal axis.\n\nThis exercise reinforces what we have learned and introduces an important shape that we will explore in depth in the next texts",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -424,7 +424,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Defining the Triangle</b><br /><br />Looking at Chart 6, where the triangular area is highlighted, how would you describe this shape?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Defining the Triangle</b><br /><br />Looking at Chart 6, where the triangular area is highlighted, count the sides. How many straight edges form the boundary of this shape? How would you describe it in your own words?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -521,7 +521,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we learned a recipe with three steps that works for any multiplication table:\n1. Create a **formula**.\n2. **Plot the points**.\n3. **Connect the points**.\n\nWith this recipe, the table of zero became a flat line, and the table of one became a rising line. When we filled the space between the line of the table of one and the axes, we discovered a very important shape: the **triangle**.\n\nIn the next texts, we will use this recipe with other tables and discover new shapes.",
+               "text": "### Conclusion\n\nIn this text, we learned a recipe with three steps that works for any multiplication table:\n1. Create a **formula** (r = a × N).\n2. **Plot the points** on squared paper.\n3. **Connect the points** with straight strokes.\n\nWith this recipe, we discovered something beautiful: the table of zero became a flat, horizontal line, and the table of one became a rising, diagonal line. When we filled the space between the rising line and the axes, we found a very important shape: the **triangle**—a closed figure with three sides and three angles.\n\nThis is only the beginning. In the next texts, we will use this same recipe with other multiplication tables (2, 3, 5, ...) and discover new shapes and patterns. What do you think will happen when **a = 2**? Try to imagine it before reading on!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -547,6 +547,11 @@
          "question": "In the multiplication table of one, do the connected points form a flat, horizontal line?",
          "yesNoAnswer": "No",
          "additionalInfo": "The points of the multiplication table of one grow one unit at a time, so when we connect them they form a rising diagonal line. Only the table of zero produces a flat line."
+      },
+      {
+         "question": "Using the recipe from this text, if we draw the multiplication table of two (a = 2), do you expect the line to rise faster or slower than the line of the table of one?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Since a = 2 is larger than a = 1, the results grow twice as fast: 2, 4, 6, 8, ... So the line will rise more steeply. The larger the value of a, the steeper the line."
       }
    ],
    "game_v2": null,

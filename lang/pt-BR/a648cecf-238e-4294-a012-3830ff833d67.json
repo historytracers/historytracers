@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1787159435"
+      "1787161138"
    ],
    "authors": null,
    "reviewers": null,
@@ -94,7 +94,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nJá sabemos multiplicar números de muitas maneiras: com as mãos, com a Yupana e com os ábacos. Também aprendemos que a multiplicação é uma **soma repetida**: somar o mesmo número várias vezes. Mas você sabia que também podemos *desenhar* uma tabuada?\n\nNeste texto, vamos aprender uma receita simples com três passos:\n1. Primeiro, criamos uma **fórmula** que descreve a tabuada.\n2. Depois, **marcamos os pontos** dessa fórmula.\n3. Por fim, **unimos os pontos**.\n\nQuando unimos os pontos, formas lindas aparecem—retas e até triângulos!",
+               "text": "### Introdução\n\nJá sabemos multiplicar números de muitas maneiras: com as mãos, com a Yupana e com os ábacos. Também aprendemos que a multiplicação é uma **soma repetida**: somar o mesmo número várias vezes.\n\nMas há algo surpreendente: também podemos *desenhar* uma tabuada! Quando fazemos isso, retas e até triângulos aparecem no papel. Essa conexão entre números e formas é uma das ideias mais bonitas da matemática.\n\nNeste texto, vamos aprender uma receita simples com três passos:\n1. Primeiro, criamos uma **fórmula** que descreve a tabuada.\n2. Depois, **marcamos os pontos** dessa fórmula em um papel quadriculado.\n3. Por fim, **unimos os pontos** com traços retos.\n\nVamos começar!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -108,7 +108,7 @@
          "id": "SECTION_formula",
          "text": [
             {
-               "text": "### Primeiro Passo: Criar uma Fórmula\n\nUma fórmula é uma forma curta de escrever uma regra com números. Em vez de escrever muitas somas, usamos uma letra para representar os números que podem mudar.\n\nNo texto *Somando o mesmo número*, aprendemos que a multiplicação é uma **soma repetida** (<htcite0>): quando somamos o mesmo número várias vezes, podemos escrevê-la de uma forma mais curta. Por exemplo, em vez de escrever 10 + 10 + 10, podemos escrever 3 × 10.\n\nPodemos escrever essa ideia com uma única fórmula que funciona para qualquer multiplicação (<htcite1>)",
+               "text": "### Primeiro Passo: Criar uma Fórmula\n\nUma fórmula é uma forma curta de escrever uma regra com números. Usamos fórmulas todos os dias sem perceber. Por exemplo, imagine que você caminha 3 quarteirões até a escola toda manhã. Depois de dois dias, você caminhou 3 + 3 = 6 quarteirões. Depois de cinco dias, 3 + 3 + 3 + 3 + 3 = 15 quarteirões. Em vez de escrever somas longas toda hora, podemos escrever uma regra curta: *total de quarteirões = 3 × número de dias*.\n\nNo texto *Somando o mesmo número*, aprendemos que a multiplicação é uma **soma repetida** (<htcite0>): quando somamos o mesmo número várias vezes, podemos escrevê-la de uma forma mais curta. Por exemplo, em vez de escrever 10 + 10 + 10, podemos escrever 3 × 10.\n\nPodemos escrever essa ideia com uma única fórmula que funciona para qualquer multiplicação (<htcite1>)",
                "source": [
                   {
                      "type": 1,
@@ -151,7 +151,7 @@
                "PostMention": ""
             },
             {
-               "text": "Nessa fórmula:\n- **r**: é o resultado da multiplicação (o produto).\n- **N**: é o número de vezes que repetimos o mesmo número (o fator).\n- **a**: é o número que repetimos—a própria tabuada. Ele também é chamado de **coeficiente angular** (ou **inclinação**).\n\nQuando **a** é pequeno, os resultados ficam próximos da linha horizontal. Quando **a** cresce, os resultados sobem cada vez mais alto.",
+               "text": "Nessa fórmula, cada letra representa uma quantidade que pode mudar:\n- **r**: é o **resultado** da multiplicação (também chamado de **produto**). É a resposta que obtemos.\n- **N**: é o **número de vezes** que repetimos o mesmo número (também chamado de **fator**). Conta quantos grupos temos.\n- **a**: é o número que repetimos—a própria tabuada. Os matemáticos o chamam de **coeficiente angular** (ou **inclinação**) porque, como veremos em breve, controla quão íngreme a reta sobe.\n\nPense assim: se **a** é pequeno (como 1), os resultados crescem devagar. Se **a** é grande (como 10), os resultados crescem rápido. Vamos ver isso na prática!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -160,7 +160,7 @@
                "PostMention": ""
             },
             {
-               "text": "Agora vamos ver a fórmula em ação com os valores mais simples de **a**:\n- Quando **a = 0**, repetimos o número zero: 0 + 0 + 0 + ... + 0 = 0 × **N**. Todo resultado é zero.\n- Quando **a = 1**, repetimos o número um: 1 + 1 + 1 + ... + 1 = 1 × **N**. Todo resultado é o próprio número **N**.\n\nMova o ponteiro sobre cada resultado para ver como ele é formado",
+               "text": "Agora vamos ver a fórmula em ação com os valores mais simples de **a**. Tente calcular cada resultado você mesmo antes de mover o ponteiro sobre as tabelas abaixo:\n- Quando **a = 0**, repetimos o número zero: 0 + 0 + 0 + ... + 0 = 0 × **N**. Não importa quantas vezes somemos zero, o resultado é sempre zero.\n- Quando **a = 1**, repetimos o número um: 1 + 1 + 1 + ... + 1 = 1 × **N**. O resultado é sempre o próprio número **N**—nada muda!\n\nMova o ponteiro sobre cada resultado para ver como ele é formado",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -192,7 +192,7 @@
          "id": "SECTION_points",
          "text": [
             {
-               "text": "### Segundo Passo: Marcar os Pontos\n\nUma fórmula nos dá números, mas os números sozinhos não mostram a forma de uma tabuada. Para ver a forma, precisamos desenhar.\n\nUsamos duas linhas, chamadas **eixos**:\n- O **eixo horizontal** mostra os valores de **N** (os números que contamos).\n- O **eixo vertical** mostra os resultados **r** (os produtos).\n\nPara cada valor de **N**, colocamos um único ponto: encontramos o valor de **N** no eixo horizontal, depois o resultado no eixo vertical, e marcamos o encontro dos dois com um ponto.",
+               "text": "### Segundo Passo: Marcar os Pontos\n\nUma fórmula nos dá números, mas os números sozinhos não mostram a forma de uma tabuada. Para ver a forma, precisamos desenhar.\n\nUsamos duas linhas perpendiculares, chamadas **eixos**, que se cruzam em um ponto chamado **origem**:\n- O **eixo horizontal** (da esquerda para a direita) mostra os valores de **N** (os números que contamos: 1, 2, 3, ...).\n- O **eixo vertical** (de baixo para cima) mostra os resultados **r** (os produtos).\n\nPara cada valor de **N**, colocamos um único ponto. Veja como fazemos:\n1. Começamos na origem.\n2. Nos movemos **para a direita** pelo eixo horizontal até chegar ao valor de **N**.\n3. De lá, nos movemos **para cima** até chegar ao resultado **r**.\n4. Marcamos esse lugar com um ponto.\n\nPor exemplo, na tabuada do 1 (onde **a = 1**), quando **N = 3** o resultado é **r = 1 × 3 = 3**. Então vamos para a direita até 3 no eixo horizontal, depois subimos até 3 no eixo vertical, e colocamos nosso ponto lá.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -201,7 +201,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Fazer uma previsão</b><br /><br />Quando <b>a = 0</b>, todo resultado é zero.<br /><br />Onde você espera que os pontos estejam no gráfico?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Fazer uma previsão</b><br /><br />Quando <b>a = 0</b>, todo resultado é zero. Lembre-se: para marcar cada ponto, vamos para a direita até <b>N</b>, depois subimos até o resultado.<br /><br />Se o resultado é sempre zero, quão alto subimos? Onde você espera que os pontos estejam no gráfico?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -272,7 +272,7 @@
                "PostMention": ""
             },
             {
-               "text": "Os pontos para **a = 1** sobem um de cada vez, formando um caminho em **diagonal** pelo papel quadriculado.",
+               "text": "Os pontos para **a = 1** sobem um de cada vez, formando um caminho em **diagonal** pelo papel quadriculado. Isso é muito diferente da linha plana da tabuada do zero!\n\nAgora que vimos os pontos individuais de ambas as tabuadas, vamos uni-los e descobrir as formas que aparecem.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -393,7 +393,7 @@
          "id": "SECTION_triangle",
          "text": [
             {
-               "text": "### Triângulo\n\nPara reforçar o que aprendemos neste texto e introduzir o que veremos a seguir, conectaremos os pontos da tabuada do um (1) e preencheremos o triângulo formado",
+               "text": "### Triângulo\n\nVimos que a tabuada do zero forma uma linha plana e a tabuada do um forma uma linha ascendente. Agora vamos fazer algo interessante: preencheremos o espaço abaixo da linha ascendente da tabuada do um, entre a linha e o eixo horizontal.\n\nEsse exercício reforça o que aprendemos e introduz uma forma importante que exploraremos em profundidade nos próximos textos",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -424,7 +424,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O que é um triângulo?</b><br /><br />Observando o Gráfico 6, com a área do triângulo inferior destacada, como você descreveria essa figura?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O que é um triângulo?</b><br /><br />Observando o Gráfico 6, com a área do triângulo inferior destacada, conte os lados. Quantas retas formam o contorno dessa figura? Como você a descreveria com suas próprias palavras?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -521,7 +521,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, aprendemos uma receita com três passos que funciona para qualquer tabuada:\n1. Criar uma **fórmula**.\n2. **Marcar os pontos**.\n3. **Unir os pontos**.\n\nCom essa receita, a tabuada do zero virou uma linha plana, e a tabuada do um virou uma linha ascendente. Ao preencher o espaço entre a reta da tabuada do um e os eixos, descobrimos uma forma muito importante: o **triângulo**.\n\nNos próximos textos, usaremos essa receita com outras tabuadas e descobriremos novas formas.",
+               "text": "### Conclusão\n\nNeste texto, aprendemos uma receita com três passos que funciona para qualquer tabuada:\n1. Criar uma **fórmula** (r = a × N).\n2. **Marcar os pontos** em um papel quadriculado.\n3. **Unir os pontos** com traços retos.\n\nCom essa receita, descobrimos algo bonito: a tabuada do zero virou uma linha horizontal e plana, e a tabuada do um virou uma linha diagonal ascendente. Ao preencher o espaço entre a reta ascendente e os eixos, encontramos uma forma muito importante: o **triângulo**—uma figura fechada com três lados e três ângulos.\n\nIsso é só o começo. Nos próximos textos, usaremos essa mesma receita com outras tabuadas (2, 3, 5, ...) e descobriremos novas formas e padrões. O que você acha que acontecerá quando **a = 2**? Tente imaginar antes de continuar lendo!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -547,6 +547,11 @@
          "question": "Na tabuada do um, os pontos conectados formam uma linha horizontal e plana?",
          "yesNoAnswer": "No",
          "additionalInfo": "Os pontos da tabuada do um crescem um de cada vez, então, ao uni-los, eles formam uma reta diagonal ascendente. Somente a tabuada do zero produz uma linha plana."
+      },
+      {
+         "question": "Usando a receita deste texto, se desenharmos a tabuada do dois (a = 2), você espera que a reta suba mais rápido ou mais devagar do que a reta da tabuada do um?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como a = 2 é maior que a = 1, os resultados crescem duas vezes mais rápido: 2, 4, 6, 8, ... Então a reta subirá mais íngreme. Quanto maior o valor de a, mais íngreme é a reta."
       }
    ],
    "game_v2": null,

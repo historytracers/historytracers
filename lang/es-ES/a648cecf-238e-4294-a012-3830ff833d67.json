@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1787159426"
+      "1787161116"
    ],
    "authors": null,
    "reviewers": null,
@@ -94,7 +94,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nYa sabemos multiplicar números de muchas maneras: con las manos, con la Yupana y con los ábacos. También aprendimos que la multiplicación es una **suma repetida**: sumar el mismo número una y otra vez. ¿Pero sabías que también podemos *dibujar* una tabla de multiplicar?\n\nEn este texto, aprenderemos una receta sencilla con tres pasos:\n1. Primero, creamos una **fórmula** que describe la tabla de multiplicar.\n2. Después, **marcamos los puntos** de esa fórmula.\n3. Finalmente, **unimos los puntos**.\n\nCuando unimos los puntos, aparecen formas hermosas: ¡líneas rectas e incluso triángulos!",
+               "text": "### Introducción\n\nYa sabemos multiplicar números de muchas maneras: con las manos, con la Yupana y con los ábacos. También aprendimos que la multiplicación es una **suma repetida**: sumar el mismo número una y otra vez.\n\nPero aquí hay algo sorprendente: ¡también podemos *dibujar* una tabla de multiplicar! Cuando lo hacemos, aparecen líneas rectas e incluso triángulos en el papel. Esta conexión entre números y formas es una de las ideas más bellas de las matemáticas.\n\nEn este texto, aprenderemos una receta sencilla con tres pasos:\n1. Primero, creamos una **fórmula** que describe la tabla de multiplicar.\n2. Después, **marcamos los puntos** de esa fórmula en un papel cuadriculado.\n3. Finalmente, **unimos los puntos** con trazos rectos.\n\n¡Comencemos!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -108,7 +108,7 @@
          "id": "SECTION_formula",
          "text": [
             {
-               "text": "### Primer Paso: Crear una Fórmula\n\nUna fórmula es una forma corta de escribir una regla con números. En lugar de escribir muchas sumas, usamos una letra para representar los números que pueden cambiar.\n\nEn el texto *Sumando el mismo número*, aprendimos que la multiplicación es una **suma repetida** (<htcite0>): cuando sumamos el mismo número muchas veces, podemos escribirlo de una manera más corta. Por ejemplo, en lugar de escribir 10 + 10 + 10, podemos escribir 3 × 10.\n\nPodemos escribir esta idea con una sola fórmula que funciona para cualquier multiplicación (<htcite1>)",
+               "text": "### Primer Paso: Crear una Fórmula\n\nUna fórmula es una forma corta de escribir una regla con números. Usamos fórmulas todos los días sin darnos cuenta. Por ejemplo, imagina que caminas 3 cuadras hasta la escuela cada mañana. Después de dos días, has caminado 3 + 3 = 6 cuadras. Después de cinco días, 3 + 3 + 3 + 3 + 3 = 15 cuadras. En lugar de escribir sumas largas cada vez, podemos escribir una regla corta: *total de cuadras = 3 × número de días*.\n\nEn el texto *Sumando el mismo número*, aprendimos que la multiplicación es una **suma repetida** (<htcite0>): cuando sumamos el mismo número muchas veces, podemos escribirlo de una manera más corta. Por ejemplo, en lugar de escribir 10 + 10 + 10, podemos escribir 3 × 10.\n\nPodemos escribir esta idea con una sola fórmula que funciona para cualquier multiplicación (<htcite1>)",
                "source": [
                   {
                      "type": 1,
@@ -151,7 +151,7 @@
                "PostMention": ""
             },
             {
-               "text": "En esta fórmula:\n- **r**: es el resultado de la multiplicación (el producto).\n- **N**: es el número de veces que repetimos el mismo número (el factor).\n- **a**: es el número que repetimos—la tabla misma. También se llama **coeficiente angular** (o **pendiente**).\n\nCuando **a** es pequeño, los resultados se mantienen cerca de la línea horizontal. Cuando **a** crece, los resultados suben cada vez más alto.",
+               "text": "En esta fórmula, cada letra representa una cantidad que puede cambiar:\n- **r**: es el **resultado** de la multiplicación (también llamado **producto**). Es la respuesta que obtenemos.\n- **N**: es el **número de veces** que repetimos el mismo número (también llamado **factor**). Cuenta cuántos grupos tenemos.\n- **a**: es el número que repetimos—la tabla misma. Los matemáticos lo llaman **coeficiente angular** (o **pendiente**) porque, como veremos pronto, controla qué tan empinada sube la línea.\n\nPiénsalo así: si **a** es pequeño (como 1), los resultados crecen lentamente. Si **a** es grande (como 10), los resultados crecen rápidamente. ¡Veámoslo en acción!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -160,7 +160,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ahora veamos la fórmula en acción con los valores más simples de **a**:\n- Cuando **a = 0**, repetimos el número cero: 0 + 0 + 0 + ... + 0 = 0 × **N**. Todo resultado es cero.\n- Cuando **a = 1**, repetimos el número uno: 1 + 1 + 1 + ... + 1 = 1 × **N**. Todo resultado es el propio número **N**.\n\nMueva el puntero sobre cada resultado para ver cómo se forma",
+               "text": "Ahora veamos la fórmula en acción con los valores más simples de **a**. Intenta calcular cada resultado tú mismo antes de mover el puntero sobre las tablas de abajo:\n- Cuando **a = 0**, repetimos el número cero: 0 + 0 + 0 + ... + 0 = 0 × **N**. No importa cuántas veces sumemos cero, el resultado siempre es cero.\n- Cuando **a = 1**, repetimos el número uno: 1 + 1 + 1 + ... + 1 = 1 × **N**. El resultado siempre es el propio número **N**—¡no cambia nada!\n\nMueva el puntero sobre cada resultado para ver cómo se forma",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -192,7 +192,7 @@
          "id": "SECTION_points",
          "text": [
             {
-               "text": "### Segundo Paso: Marcar los Puntos\n\nUna fórmula nos da números, pero los números por sí solos no nos muestran la forma de una tabla de multiplicar. Para ver su forma, necesitamos dibujar.\n\nUsamos dos líneas, llamadas **ejes**:\n- El **eje horizontal** muestra los valores de **N** (los números que contamos).\n- El **eje vertical** muestra los resultados **r** (los productos).\n\nPara cada valor de **N**, colocamos un solo punto: buscamos el valor de **N** en el eje horizontal, luego el resultado en el eje vertical, y marcamos el lugar donde se encuentran con un punto.",
+               "text": "### Segundo Paso: Marcar los Puntos\n\nUna fórmula nos da números, pero los números por sí solos no nos muestran la forma de una tabla de multiplicar. Para ver su forma, necesitamos dibujar.\n\nUsamos dos líneas perpendiculares, llamadas **ejes**, que se cruzan en un punto llamado **origen**:\n- El **eje horizontal** (de izquierda a derecha) muestra los valores de **N** (los números que contamos: 1, 2, 3, ...).\n- El **eje vertical** (de abajo hacia arriba) muestra los resultados **r** (los productos).\n\nPara cada valor de **N**, colocamos un solo punto. Así es como lo hacemos:\n1. Comenzamos en el origen.\n2. Nos movemos **a la derecha** por el eje horizontal hasta llegar al valor de **N**.\n3. Desde allí, nos movemos **hacia arriba** hasta llegar al resultado **r**.\n4. Marcamos ese lugar con un punto.\n\nPor ejemplo, en la tabla del 1 (donde **a = 1**), cuando **N = 3** el resultado es **r = 1 × 3 = 3**. Así que vamos a la derecha hasta 3 en el eje horizontal, luego subimos hasta 3 en el eje vertical, y colocamos nuestro punto allí.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -201,7 +201,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Hacer una predicción</b><br /><br />Cuando <b>a = 0</b>, todo resultado es cero.<br /><br />¿Dónde espera usted que estén los puntos en el gráfico?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Hacer una predicción</b><br /><br />Cuando <b>a = 0</b>, todo resultado es cero. Recuerda: para marcar cada punto, vamos a la derecha hasta <b>N</b>, luego subimos hasta el resultado.<br /><br />Si el resultado siempre es cero, ¿qué tan alto subimos? ¿Dónde espera usted que estén los puntos en el gráfico?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -272,7 +272,7 @@
                "PostMention": ""
             },
             {
-               "text": "Los puntos para **a = 1** suben de uno en uno, formando un camino en **diagonal** a través del papel cuadriculado.",
+               "text": "Los puntos para **a = 1** suben de uno en uno, formando un camino en **diagonal** a través del papel cuadriculado. ¡Esto es muy diferente de la línea plana de la tabla del cero!\n\nAhora que hemos visto los puntos individuales de ambas tablas, vamos a unirlos y descubrir las formas que aparecen.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -393,7 +393,7 @@
          "id": "SECTION_triangle",
          "text": [
             {
-               "text": "### Triángulo\n\nAntes de continuar, para reforzar los conceptos que hemos aprendido en este texto e introducir lo que abordaremos a continuación, completaremos el triángulo inferior formado al conectar los puntos de la tabla de multiplicar del uno",
+               "text": "### Triángulo\n\nHemos visto que la tabla del cero forma una línea plana y la tabla del uno forma una línea ascendente. Ahora hagamos algo interesante: rellenaremos el espacio debajo de la línea ascendente de la tabla del uno, entre la línea y el eje horizontal.\n\nEste ejercicio refuerza lo que hemos aprendido e introduce una forma importante que exploraremos en profundidad en los próximos textos",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -424,7 +424,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Defina el triángulo</b><br /><br />Observando el Gráfico 6, donde el área del triángulo inferior está resaltada, ¿cómo describiría usted esta figura?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Defina el triángulo</b><br /><br />Observando el Gráfico 6, donde el área del triángulo inferior está resaltada, cuente los lados. ¿Cuántas rectas forman el borde de esta figura? ¿Cómo la describiría con sus propias palabras?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -521,7 +521,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, aprendimos una receta con tres pasos que funciona para cualquier tabla de multiplicar:\n1. Crear una **fórmula**.\n2. **Marcar los puntos**.\n3. **Unir los puntos**.\n\nCon esta receta, la tabla del cero se convirtió en una línea plana, y la tabla del uno en una línea ascendente. Al completar el espacio entre la línea de la tabla del uno y los ejes, descubrimos una forma muy importante: el **triángulo**.\n\nEn los próximos textos, usaremos esta receta con otras tablas y descubriremos nuevas formas.",
+               "text": "### Conclusión\n\nEn este texto, aprendimos una receta con tres pasos que funciona para cualquier tabla de multiplicar:\n1. Crear una **fórmula** (r = a × N).\n2. **Marcar los puntos** en un papel cuadriculado.\n3. **Unir los puntos** con trazos rectos.\n\nCon esta receta, descubrimos algo hermoso: la tabla del cero se convirtió en una línea horizontal y plana, y la tabla del uno se convirtió en una línea diagonal ascendente. Al rellenar el espacio entre la línea ascendente y los ejes, encontramos una forma muy importante: el **triángulo**—una figura cerrada con tres lados y tres ángulos.\n\nEsto es solo el comienzo. En los próximos textos, usaremos esta misma receta con otras tablas de multiplicar (2, 3, 5, ...) y descubriremos nuevas formas y patrones. ¿Qué crees que pasará cuando **a = 2**? ¡Intenta imaginarlo antes de seguir leyendo!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -547,6 +547,11 @@
          "question": "En la tabla de multiplicar del uno, ¿los puntos conectados forman una línea horizontal y plana?",
          "yesNoAnswer": "No",
          "additionalInfo": "Los puntos de la tabla de multiplicar del uno crecen de uno en uno, así que al unirlos forman una línea diagonal ascendente. Solo la tabla del cero produce una línea plana."
+      },
+      {
+         "question": "Usando la receta de este texto, si dibujamos la tabla de multiplicar del dos (a = 2), ¿esperas que la línea suba más rápido o más lento que la línea de la tabla del uno?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como a = 2 es mayor que a = 1, los resultados crecen el doble de rápido: 2, 4, 6, 8, ... Así que la línea subirá más empinada. Cuanto mayor sea el valor de a, más empinada será la línea."
       }
    ],
    "game_v2": null,
