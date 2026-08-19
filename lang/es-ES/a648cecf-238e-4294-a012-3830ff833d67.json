@@ -1,0 +1,567 @@
+{
+   "title": "De la tabla al gráfico",
+   "header": "De la tabla al gráfico",
+   "sources": [
+      "a648cecf-238e-4294-a012-3830ff833d67"
+   ],
+   "scripts": [
+      "a648cecf-238e-4294-a012-3830ff833d67"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/a648cecf-238e-4294-a012-3830ff833d67_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1787141436"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nRecomendamos estudiar los textos anteriores de esta sección antes de continuar, especialmente aquel en el que aprendimos que la multiplicación es una **suma repetida**, y aquellos en los que aprendimos a multiplicar con los ábacos y la Yupana. Le ayudarán a comprender las bases sobre las que construimos aquí.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando el mismo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando con Soroban, Suanpan (算盤) y Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4c2c00d-7878-42da-9cc4-060cd7f8d225",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (multiplicación)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nYa sabemos multiplicar números de muchas maneras: con las manos, con la Yupana y con los ábacos. También aprendimos que la multiplicación es una **suma repetida**: sumar el mismo número una y otra vez. ¿Pero sabías que también podemos *dibujar* una tabla de multiplicar?\n\nEn este texto, aprenderemos una receta sencilla con tres pasos:\n1. Primero, creamos una **fórmula** que describe la tabla de multiplicar.\n2. Después, **marcamos los puntos** de esa fórmula.\n3. Finalmente, **unimos los puntos**.\n\nCuando unimos los puntos, aparecen formas hermosas: ¡líneas rectas e incluso triángulos!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_formula",
+         "text": [
+            {
+               "text": "### Primer Paso: Crear una Fórmula\n\nUna fórmula es una forma corta de escribir una regla con números. En lugar de escribir muchas sumas, usamos una letra para representar los números que pueden cambiar.\n\nEn el texto *Sumando el mismo número*, aprendimos que la multiplicación es una **suma repetida** (<htcite0>): cuando sumamos el mismo número muchas veces, podemos escribirlo de una manera más corta. Por ejemplo, en lugar de escribir 10 + 10 + 10, podemos escribir 3 × 10.\n\nPodemos escribir esta idea con una sola fórmula que funciona para cualquier multiplicación (<htcite1>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando el mismo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>r</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>a</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 1</b>: Fórmula general de las tablas de multiplicar.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En esta fórmula:\n- **r**: es el resultado de la multiplicación (el producto).\n- **N**: es el número de veces que repetimos el mismo número (el factor).\n- **a**: es el número que repetimos—la tabla misma. También se llama **coeficiente angular** (o **pendiente**).\n\nCuando **a** es pequeño, los resultados se mantienen cerca de la línea horizontal. Cuando **a** crece, los resultados suben cada vez más alto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora veamos la fórmula en acción con los valores más simples de **a**:\n- Cuando **a = 0**, repetimos el número cero: 0 + 0 + 0 + ... + 0 = 0 × **N**. Todo resultado es cero.\n- Cuando **a = 1**, repetimos el número uno: 1 + 1 + 1 + ... + 1 = 1 × **N**. Todo resultado es el propio número **N**.\n\nMueva el puntero sobre cada resultado para ver cómo se forma",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p>Aplicando la fórmula con **a = 0**, obtenemos la tabla de multiplicar del cero (<b>Tabla 1</b>):</p><p><div id=\"mParent0\"  style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Aplicando la fórmula con **a = 1**, obtenemos la tabla de multiplicar del uno (<b>Tabla 2</b>):</p><p><div id=\"mParent1\"  style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_points",
+         "text": [
+            {
+               "text": "### Segundo Paso: Marcar los Puntos\n\nUna fórmula nos da números, pero los números por sí solos no nos muestran la forma de una tabla de multiplicar. Para ver su forma, necesitamos dibujar.\n\nUsamos dos líneas, llamadas **ejes**:\n- El **eje horizontal** muestra los valores de **N** (los números que contamos).\n- El **eje vertical** muestra los resultados **r** (los productos).\n\nPara cada valor de **N**, colocamos un solo punto: buscamos el valor de **N** en el eje horizontal, luego el resultado en el eje vertical, y marcamos el lugar donde se encuentran con un punto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Hacer una predicción</b><br /><br />Cuando **a = 0**, todo resultado es cero.<br /><br />¿Dónde espera usted que estén los puntos en el gráfico?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Vamos a marcar los puntos para **a = 0**, siguiendo nuestra receta:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de la tabla de multiplicar del cero. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como predijimos, todos los puntos están sobre el eje horizontal, porque todo resultado es cero. Ahora marquemos los puntos para **a = 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Puntos de la tabla de multiplicar del uno. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Los puntos para **a = 1** suben de uno en uno, formando un camino en **diagonal** a través del papel cuadriculado.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_connect",
+         "text": [
+            {
+               "text": "### Tercer Paso: Unir los Puntos\n\nFinalmente, unimos los puntos vecinos con un trazo recto. ¡Aquí es donde aparecen las formas!\n\nPara **a = 0**, todos los puntos están a la misma altura, así que al unirlos obtenemos una línea horizontal y plana:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Puntos conectados de la tabla de multiplicar del cero, formando una línea plana. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para **a = 1**, la unión sigue el camino diagonal de los puntos y nos da una línea recta ascendente. Esta línea divide el papel cuadriculado en dos partes iguales:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Puntos conectados de la tabla de multiplicar del uno, formando una línea ascendente. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "También podemos mostrar el caso **a = 1** con cajas. Cada columna tiene tantas cajas como su producto:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 5</b>: Cajas del mismo color que muestran la tabla de multiplicar del uno. Cada columna de cajas representa un resultado: 1 × 1 es una caja, 2 × 1 son dos cajas, y así sucesivamente. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Plana o ascendente?</b><br /><br />Al unir los puntos para **a = 0**, obtenemos una línea plana. Al unir los puntos para **a = 1**, obtenemos una línea ascendente.<br /><br />¿Por qué son tan diferentes estas dos líneas?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_triangle",
+         "text": [
+            {
+               "text": "### Triángulo\n\nAntes de continuar, para clarificar aún más los conceptos iniciados en el texto anterior y lo que se abordará a continuación, completaremos el triángulo inferior formado al conectar los puntos de la tabla de multiplicar del uno",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando el mismo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart6\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Puntos de la tabla de multiplicar del uno conectados, formando una línea recta. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Defina el triángulo</b><br /><br />Observando el Gráfico 6, donde el área del triángulo inferior está resaltada, ¿cómo describiría usted esta figura?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora, compare su definición con una versión simplificada de la definición presentada por Eric W. Weisstein",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triángulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>\"Los triángulos son figuras cerradas con tres lados y tres ángulos (formados por la unión de los lados)...\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Además de esta definición, Weisstein menciona que el triángulo rectángulo mostrado en el gráfico tiene componentes con nombres específicos. En el Gráfico 7, se identifican y etiquetan estas partes, en la secuencia, las nombramos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triangulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W., Triangulo Retangulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:green;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"green\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\"><b>Gráfico 7</b>: Triángulo rectángulo con sus componentes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **a**, **b** e **c**: Son los lados del triángulo. Los lados **a** y **b** se denominan **catetos**, mientras que **c** es la **hipotenusa**.\n- **α**, **β**, y <i class=\"fa-regular fa-square\"></i>: Son los ángulos formados por la unión de los lados. El símbolo de cuadrado ( <i class=\"fa-regular fa-square\"></i> ) que marca el ángulo entre el lado horizontal y el vertical se llama **ángulo recto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, aprendimos una receta con tres pasos que funciona para cualquier tabla de multiplicar:\n1. Crear una **fórmula**.\n2. **Marcar los puntos**.\n3. **Unir los puntos**.\n\nCon esta receta, la tabla del cero se convirtió en una línea plana, y la tabla del uno en una línea ascendente. Al completar el espacio entre la línea de la tabla del uno y los ejes, descubrimos una forma muy importante: el **triángulo**.\n\nEn los próximos textos, usaremos esta receta con otras tablas y descubriremos nuevas formas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Un triángulo es una figura cerrada con tres lados y tres ángulos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Esta es la definición básica de triángulo que estamos utilizando en este capítulo, pero existen más aspectos que complementarán este concepto y que serán presentados posteriormente."
+      },
+      {
+         "question": "En la tabla de multiplicar del cero, ¿todos los puntos están sobre el eje horizontal?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Multiplicar cualquier número por cero siempre da cero. Por lo tanto, cada punto que marcamos está a la altura cero, alineado con el eje horizontal."
+      },
+      {
+         "question": "En la tabla de multiplicar del uno, ¿los puntos conectados forman una línea horizontal y plana?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Los puntos de la tabla de multiplicar del uno crecen de uno en uno, así que al unirlos forman una línea diagonal ascendente. Solo la tabla del cero produce una línea plana."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
