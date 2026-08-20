@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1787094503"
+      "1787251576"
    ],
    "authors": null,
    "reviewers": null,
@@ -48,7 +48,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nWe recommend studying the previous texts in this section before continuing. They will help you understand the foundations we build upon here.",
+               "text": "### Prerequisites\n\nWe recommend studying the previous texts in this section before continuing, especially *Drawing the multiplication* (<htcite1>), where we learned how to turn multiplication tables into visual shapes. They will help you understand the foundations we build upon here.",
                "source": [
                   {
                      "type": 1,
@@ -60,6 +60,18 @@
                         "year": "2024",
                         "month": "-1",
                         "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Drawing the multiplication",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -241,7 +253,7 @@
                "PostMention": ""
             },
             {
-               "text": "Great observation! In both cases—families and forests—we are counting living things. The counting method is the same, even though the objects are different. This is a key insight: multiplication works the same way regardless of what we are counting. With this idea in mind, we are ready to build our first results table.",
+               "text": "In both cases—families and forests—we are counting living things. The counting method is the same, even though the objects are different. This is a key insight: multiplication works the same way regardless of what we are counting. With this idea in mind, we are ready to build our first results table.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -436,36 +448,18 @@
                "PostMention": ""
             },
             {
-               "text": "#### Graphical Representation of the Table\n\nWe can also visualize these results on a graph. Let's think about what we expect to see:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: What does this suggest to you?</b><br /><br />When observing the values in the Multiplication Table of 0, what image comes to mind?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "To graph these values, we use a number line—like the one we learned about before",
+               "text": "#### Seeing the Shape\n\nWe have just built the multiplication table of zero using numbers. But what does this table look like when we draw it? In the text *Drawing the multiplication* (<htcite0>), we learned how to plot these results on a graph. When we do, all the points fall on the horizontal axis, forming a flat, straight line. If you have not read that text yet, we encourage you to do so—it will help you see the shape behind the numbers.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
                      "text": "History Tracers Team",
-                     "page": "Walking Among the Numbers",
+                     "page": "Drawing the multiplication",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -473,72 +467,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ":"
-            },
-            {
-               "text": "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\"><b>Chart 1</b>: Numerical Axis. The numbers are arranged below a line, with an arrow at the end indicating the direction of increasing values. The CSS code used for this image is available on <htcite0>.</p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "c7edc93c-0a41-4753-8f89-9e52904ff003",
-                     "text": "W3 Schools",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "07",
-                        "day": "25"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
                "PostMention": ""
             },
             {
-               "text": "The line with an arrow in Chart 1 is called an axis. We will use two axes to plot our results:\n- The **vertical axis** (Product) shows the results.\n- The **horizontal axis** (Factors) shows the values of N.\n\nOur goal is to place a point for each N on the graph. Here is how it looks:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Points from the Multiplication Table of cero. Chart created using <htcite0>.</div></p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
-                     "text": "Chart JS",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "05",
-                        "day": "30"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Now let's connect the dots. Since every result is zero, all points sit on the horizontal line at height zero. When we connect them, we get a flat, straight line:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 3</b>: Connected Points Forming a Straight Line. Chart created using <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 1</b>: Points of the multiplication table of zero connected, forming a flat line. Chart created using <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -632,8 +564,21 @@
                "PostMention": ""
             },
             {
-               "text": "#### Graphical Representation\n\nBefore we draw the graph, let's make a prediction:",
-               "source": null,
+               "text": "#### Seeing the Shape\n\nWe have built the multiplication table of one. Unlike the table of zero, where every result was zero, here each result grows by one. In the text *Drawing the multiplication* (<htcite0>), we saw that when we plot these results on a graph, the points form a rising diagonal line. We also visualized this growth using boxes, where each column has exactly as many boxes as the product. If you have not explored the graphical side yet, we invite you to read that text.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Drawing the multiplication",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -641,25 +586,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: Building Understanding</b><br /><br />Compare the multiplication tables of zero and one.<br /><br />What similarities do you expect between the charts we've drawn and those we're about to create?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Good thinking! Now let's plot the points, following the same steps we used for the table of zero:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 4</b>: Point representation of the multiplication-by-one table. Created using <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Boxes of the same color showing the multiplication table of one. Each column of boxes represents a result: 1 × 1 is one box, 2 × 1 are two boxes, and so on. Chart created using <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -678,46 +605,6 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Before we answer Reflection 4, let's create a different kind of visualization. We will represent multiplication using boxes:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 5</b>: Boxes of the same color showing the multiplication table of one. Each column of boxes represents a result: 1 × 1 is one box, 2 × 1 is two boxes, and so on. Created using <htcite0>.</div></p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
-                     "text": "Chart JS",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "05",
-                        "day": "30"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Now we can clearly see the difference. In the multiplication table of zero, every result is zero, so no boxes appear at all. In the multiplication table of one, each result gets its own group of boxes: 1 × 1 is one box, 2 × 1 is two boxes, and so on. The boxes grow step by step, one at a time.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": ""
             }
          ]
@@ -726,8 +613,21 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we discovered the building blocks of multiplication. We learned what factors and products are, and we explored how the multiplication tables of zero and one work.\n\nThe table of zero teaches us that multiplying by emptiness always gives emptiness. The table of one teaches us that multiplying by one leaves a number unchanged.\n\nIn the next texts, we will generalize these ideas to all numbers and deepen our understanding of how multiplication tables work.",
-               "source": null,
+               "text": "### Conclusion\n\nIn this text, we explored the multiplication tables of zero and one through hands-on experiments and real-world examples.\n\nWe discovered that multiplying by zero always gives zero—whether we count people in empty rooms at Caral or any other quantity. Multiplying by one, on the other hand, leaves the number unchanged, as we saw when counting on our fingers.\n\nIn the previous text, *Drawing the multiplication* (<htcite0>), we learned how to turn these tables into visual shapes on a graph. Here, we focused on understanding *why* these tables work the way they do. Together, these two texts give us both the intuition and the visual tools to master the tables of zero and one.\n\nIn the next texts, we will apply the same ideas to larger numbers and discover new patterns.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Drawing the multiplication",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -749,9 +649,9 @@
          "additionalInfo": "Don't worry if you made a mistake here—it's common to hear that \"any number multiplied by one equals itself.\" However, this statement is only true if we exclude zero, because multiplying zero by one still results in zero."
       },
       {
-         "question": "When we plot the results of multiplying by zero and one on a chart, are the lines connecting the points different for each chart?",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "In the charts:<ul><li>Table of 0: All points are aligned with zero on the horizontal axis.</li><li>Table of 1: The points form an increasing diagonal line.</li></ul>"
+         "question": "Can the multiplication table of zero help us count objects? For example, if a farmer has 7 fields and each field produces 0 bags of grain, can the table tell us how many different totals are possible?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "The multiplication table of zero always gives zero, no matter how many groups we have. Whether the farmer has 7 fields or 700, the total is always zero. This is why the table of zero cannot help us distinguish between different quantities—it collapses every count to the same result."
       }
    ],
    "game_v2": null,
