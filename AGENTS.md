@@ -51,6 +51,16 @@ A "main menu entry" is an item in the sidebar navigation shown on every page (e.
 
 Note: if the desktop viewer must track navigation to the new page, add it to the `allowedPage` list in `src/viewer/main.go` (e.g. `"documentation"`) and rebuild the viewer.
 
+## Adding new video content (inside `videos/??-??/`)
+
+Video files live under `videos/<locale>/` where `<locale>` is the language code (e.g. `en-US`, `es-ES`, `pt-BR`). Each video file follows the naming pattern `UUID_<locale>` where `<locale>` matches the directory name. Steps to add one:
+
+1. Generate a UUID: `cat /proc/sys/kernel/random/uuid`.
+2. Create the video file at `videos/<locale>/<uuid>_<locale>`. Repeat for all three languages, using the same UUID but changing the locale suffix (e.g. `videos/en-US/<uuid>_en-US`, `videos/es-ES/<uuid>_es-ES`, `videos/pt-BR/<uuid>_pt-BR`).
+3. Ensure the files are structurally identical across languages (same line count / structure), only the translated content differs.
+4. Validate the files are parseable (e.g. `python3 -c "import json; json.load(open('<file>'))"` if JSON, or the appropriate validator for the file format).
+5. Register the content in the index files for each language as needed, following the same pattern as other content (see "Adding new content" above).
+
 ## Converting class files to smartphone files
 
 Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `common/src/smartphone/XX-YY/<sm-uuid>.json`. The smartphone version is a condensed, screen-by-screen adaptation. Steps to add or update a smartphone file:
