@@ -48,4 +48,4 @@ The narration is plain text. No markdown, no HTML, no timing markers. It is mean
 2. Create the script file `videos/en-US/<uuid>.txt` with the narration text
 3. Create the same file in `videos/es-ES/<uuid>.txt` and `videos/pt-BR/<uuid>.txt` with translated content
 4. Keep all three files structurally identical (same number of paragraphs, same meaning)
-5. Verify the word count stays within the50-second limit
+5. Verify the word count stays within the 50-second limit

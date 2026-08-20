@@ -48,4 +48,4 @@ A narração é texto simples. Sem markdown, sem HTML, sem marcadores de tempo. 
 2. Criar o arquivo de roteiro `videos/pt-BR/<uuid>.txt` com o texto de narração
 3. Criar o mesmo arquivo em `videos/en-US/<uuid>.txt` e `videos/es-ES/<uuid>.txt` com conteúdo traduzido
 4. Manter os três arquivos estruturalmente idênticos (mesmo número de parágrafos, mesmo significado)
-5. Verificar que a contagem de palavras se mantenha dentro do limite de50 segundos
+5. Verificar que a contagem de palavras se mantenha dentro do limite de 50 segundos

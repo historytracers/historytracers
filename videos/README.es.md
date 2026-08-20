@@ -48,4 +48,4 @@ La narración es texto sin formato. Sin markdown, sin HTML, sin marcadores de ti
 2. Crear el archivo de guion `videos/es-ES/<uuid>.txt` con el texto de narración
 3. Crear el mismo archivo en `videos/en-US/<uuid>.txt` y `videos/pt-BR/<uuid>.txt` con contenido traducido
 4. Mantener los tres archivos estructuralmente idénticos (mismo número de párrafos, mismo significado)
-5. Verificar que el conteo de palabras se mantenga dentro del límite de50 segundos
+5. Verificar que el conteo de palabras se mantenga dentro del límite de 50 segundos
