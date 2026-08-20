@@ -6,13 +6,13 @@ Este diretório contém arquivos de roteiros de vídeo para o idioma português.
 
 Cada idioma suportado tem seu próprio subdiretório seguindo o padrão:
 
-```
+```text
 videos/<locale>/<uuid>.txt
 ```
 
 Por exemplo:
 
-```
+```text
 videos/pt-BR/bbf4bee1-3436-4368-b669-9b9fc89455a3.txt
 ```
 

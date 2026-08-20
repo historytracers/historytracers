@@ -6,13 +6,13 @@ This directory contains video script files for the English language.
 
 Each supported language has its own subdirectory following the pattern:
 
-```
+```text
 videos/<locale>/<uuid>.txt
 ```
 
 For example:
 
-```
+```text
 videos/en-US/bbf4bee1-3436-4368-b669-9b9fc89455a3.txt
 ```
 

@@ -6,13 +6,13 @@ Este directorio contiene archivos de guiones de video para el idioma español.
 
 Cada idioma soportado tiene su propio subdirectorio siguiendo el patrón:
 
-```
+```text
 videos/<locale>/<uuid>.txt
 ```
 
 Por ejemplo:
 
-```
+```text
 videos/es-ES/bbf4bee1-3436-4368-b669-9b9fc89455a3.txt
 ```
 
