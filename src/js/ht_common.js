@@ -148,6 +148,13 @@ function htResetAllIndexes()
     htCurrentPage = "";
     htCurrentArg = "";
     htAllowJsonLoad = false;
+
+    // A retry loop from a previous page may still be running; stop it so a
+    // fresh navigation is not re-rendered by stale state.
+    if (htNavigationRetry != null) {
+        clearInterval(htNavigationRetry);
+        htNavigationRetry = null;
+    }
     const indexMaps = [
         htHistoryIdx,
         htLiteratureIdx,
@@ -1847,56 +1854,40 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 }
 
 var htPendingIndexes = [];
-var htNavigationWaiter = null;
+var htNavigationRetry = null;
+var htNavigationRetryChecks = 0;
 
 function htWriteNavigation()
 {
-    if (htPendingIndexes.length == 0) {
-        htWriteNavigationInternal();
-        return;
-    }
+    // Write the navigation with whatever indexes have already been received.
+    // htWriteNavigationInternal() only renders rows whose index maps are
+    // populated, so this is safe to call before, during, and after the index
+    // fetches complete. Each index arrival (see htLoadIndex) re-invokes this
+    // function, completing the table incrementally as the server delivers the
+    // indexes.
+    htWriteNavigationInternal();
 
-    // A single waiter is enough, even when htWriteNavigation() is invoked
-    // more than once for the same page (page script + htFillWebPage).
-    if (htNavigationWaiter != null) {
-        return;
-    }
-
-    htNavigationWaiter = { "pending" : htPendingIndexes.slice(), "checks" : 0, "arg" : new URLSearchParams(window.location.search).get('arg') };
-    htIndexesOrder = htNavigationWaiter.pending.slice();
-
-    htNavigationWaiter.interval = setInterval(function() {
-        var waiter = htNavigationWaiter;
-        var allLoaded = waiter.pending.every(function(idx) {
-            return loadedIdx.includes(idx);
-        });
-        waiter.checks++;
-
-        // Keep waiting while the indexes are still being fetched. The safety
-        // window is generous; a missing/erroring index is removed by the AJAX
-        // error handler so the waiter is not held forever.
-        if (allLoaded || waiter.checks >= 400) {
-            clearInterval(waiter.interval);
-            htNavigationWaiter = null;
-
-            htPendingIndexes = htPendingIndexes.filter(function(idx) {
-                return waiter.pending.indexOf(idx) < 0;
-            });
-
-            // The user may have navigated to another page while we waited;
-            // do not overwrite its navigation with a stale one.
-            var urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('arg') == waiter.arg) {
+    // Indexes are still arriving from the server. Keep a lightweight re-write
+    // loop active while any index is still pending so a late arrival is
+    // reflected even if a code path missed the completion callback. The loop
+    // stops as soon as every requested index has been received.
+    if (htPendingIndexes.length > 0) {
+        if (htNavigationRetry == null) {
+            htNavigationRetryChecks = 0;
+            htNavigationRetry = setInterval(function() {
+                htNavigationRetryChecks++;
+                if (htPendingIndexes.length == 0 || htNavigationRetryChecks >= 100) {
+                    clearInterval(htNavigationRetry);
+                    htNavigationRetry = null;
+                    return;
+                }
                 htWriteNavigationInternal();
-            }
-
-            // Indexes requested while we were waiting (new navigation): write
-            // those too.
-            if (htPendingIndexes.length > 0) {
-                htWriteNavigation();
-            }
+            }, 150);
         }
-    }, 50);
+    } else if (htNavigationRetry != null) {
+        clearInterval(htNavigationRetry);
+        htNavigationRetry = null;
+    }
 }
 
 function htWriteNavigationInternal()
@@ -3104,10 +3095,20 @@ function htFillTopIdx(idx, data, first)
     }
 }
 
+function htRemovePendingIndex(indexName)
+{
+    htPendingIndexes = htPendingIndexes.filter(function(idx) {
+        return idx != indexName;
+    });
+}
+
 function htLoadIndex(data, arg, page)
 {
     if (data != undefined && data.index != undefined) {
         if (data.index.constructor === vectorConstructor) {
+            // Preserve the order in which the page declares its indexes so the
+            // navigation table rows follow the declared sequence.
+            htIndexesOrder = data.index.slice();
             for (const i in data.index) {
                 var newData = { "index" : data.index[i] };
                 htLoadIndex(newData, arg, page);
@@ -3160,9 +3161,7 @@ function htLoadIndex(data, arg, page)
         dataType: 'json',
         success: function(d) {
             if (d.length == 0) {
-                htPendingIndexes = htPendingIndexes.filter(function(idx) {
-                    return idx != indexName;
-                });
+                htRemovePendingIndex(indexName);
                 htWriteNavigation();
                 return false;
             }
@@ -3171,6 +3170,10 @@ function htLoadIndex(data, arg, page)
                 htLoadIndex(d, arg, indexName);
             }
 
+            // This index has now been received and processed; stop tracking it
+            // so the navigation retry loop terminates.
+            htRemovePendingIndex(indexName);
+
             // A late index arrival must re-trigger the navigation write so a
             // previously written table is completed with all expected indexes.
             htWriteNavigation();
@@ -3178,9 +3181,7 @@ function htLoadIndex(data, arg, page)
             return false;
         },
         error: function() {
-            htPendingIndexes = htPendingIndexes.filter(function(idx) {
-                return idx != indexName;
-            });
+            htRemovePendingIndex(indexName);
             htWriteNavigation();
         },
     });
