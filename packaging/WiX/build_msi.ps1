@@ -138,7 +138,8 @@ function Get-FileId {
     $hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)
     $hash = [System.BitConverter]::ToString($hashBytes).Replace('-','').Substring(0,8)
     $raw = $prefix + ($rel -replace '[^a-zA-Z0-9]','_')
-    if ($raw.Length -gt 63) { $raw = $raw.Substring(0, 63) }
+    # Cap so that 'fil_' + raw + '_' + 8-char hash <= 72 (WiX identifier limit)
+    if ($raw.Length -gt 59) { $raw = $raw.Substring(0, 59) }
     return @{ cid = ($raw + '_' + $hash); fid = ('fil_' + $raw + '_' + $hash) }
 }
 

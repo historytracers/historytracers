@@ -432,7 +432,7 @@ PSEOF
             \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
             \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
             \$raw = 'cmp_bin_' + (\$rel -replace '[^a-zA-Z0-9]','_');
-            if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+            if (\$raw.Length -gt 59) { \$raw = \$raw.Substring(0, 59) };
             \$cid = \$raw + '_' + \$hash;
             \$fid = 'fil_' + \$raw + '_' + \$hash;
             \$wixSrc = '\$(var.BuildDir)\' + \$rel;
@@ -445,7 +445,7 @@ PSEOF
             \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
             \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
             \$raw = 'cmp_bin_' + (\$rel -replace '[^a-zA-Z0-9]','_');
-            if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+            if (\$raw.Length -gt 59) { \$raw = \$raw.Substring(0, 59) };
             \$cid = \$raw + '_' + \$hash;
             \$fid = 'fil_' + \$raw + '_' + \$hash;
             \$wixSrc = '\$(var.BuildDir)\' + \$rel;
@@ -471,7 +471,7 @@ PSEOF
         \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
         \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
         \$raw = 'cmp_opt_' + (\$rel -replace '[^a-zA-Z0-9]','_');
-        if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+        if (\$raw.Length -gt 59) { \$raw = \$raw.Substring(0, 59) };
         \$cid = \$raw + '_' + \$hash;
         \$fid = 'fil_' + \$raw + '_' + \$hash;
         \$wixSrc = '\$(var.WwwDir)\images\img_options.json';
