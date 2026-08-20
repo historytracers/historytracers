@@ -2784,6 +2784,8 @@ function htFillWebPage(page, data)
     if (data?.authors != null && data.authors.length > 0) page_authors = data.authors;
     if (data?.reviewers != null && data.reviewers.length > 0) page_reviewers = data.reviewers;
 
+    if (page_reviewers == "CodeRabbit") page_reviewers = keywords[144];
+
     if ($("#extpaper").length && page_last_update > 0) {
         htFillDivAuthorsContent("#extpaper", page_last_update, page_authors, page_reviewers);
     }
