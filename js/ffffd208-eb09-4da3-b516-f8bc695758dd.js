@@ -24,5 +24,37 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc('imgGeo14', 'images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica2.jpg');
+    htSetImageSrc("img0", "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg");
+    htSetImageSrc("img1", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
+
+    const shape = document.getElementById('shape');
+    const radiusSlider = document.getElementById('radiusSlider');
+    
+    // Update shape when slider moves
+    radiusSlider.addEventListener('input', function() {
+        const radius = this.value;
+        shape.style.borderRadius = `${radius}%`;
+    });
+    
+    function morphToCircle() {
+        shape.style.borderRadius = '50%';
+        radiusSlider.value = 50;
+    }
+    
+    function morphToSquare() {
+        shape.style.borderRadius = '0%';
+        radiusSlider.value = 0;
+    }
+    
+    function toggleShape() {
+        const currentRadius = parseInt(radiusSlider.value);
+        if (currentRadius === 0) {
+            morphToCircle();
+        } else {
+            morphToSquare();
+        }
+    }
+
     return false;
 }

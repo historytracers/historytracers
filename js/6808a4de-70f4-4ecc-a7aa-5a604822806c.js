@@ -56,7 +56,5 @@ function htLoadContent() {
         }
     }
 
-
-
     return false;
 }

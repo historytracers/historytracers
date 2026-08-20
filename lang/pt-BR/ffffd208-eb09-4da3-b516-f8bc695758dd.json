@@ -92,7 +92,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nApenas dizer que algo é exatamente igual a outro pode não ser suficiente quando desejamos comparar algo. Como visto no texto anterior, um círculo não é exatamente igual quando mudamos sua cor de preenchimento, mesmo assim, o fato que trocamos de cor não altera a idéia central que ele é um círculo com suas bordas tendo a mesma distância do centro (<htcite0>; <htcite1>).\n\nEste cenário do círculo nos permite ir além, e por isso começamos com uma reflexão:",
+               "text": "### Introdução\n\nApenas dizer que algo é exatamente igual a outro pode não ser suficiente quando desejamos compara. Como visto no texto anterior, um círculo não é exatamente igual quando mudamos sua cor de preenchimento, mesmo assim, o fato que trocamos de cor não altera a idéia central que ele é uma figura com suas bordas tendo a mesma distância do centro (<htcite0>; <htcite1>).\n\nEste cenário do círculo nos permite ir além, e por isso começamos com uma reflexão:",
                "source": [
                   {
                      "type": 1,
@@ -137,16 +137,74 @@
          ]
       },
       {
-         "id": "SECTION_history",
+         "id": "SECTION_perspective",
          "text": [
             {
-               "text": "<p><h3>Comparações na História</h3>As comparações desempenham um papel fundamental na ciência, ajudando-nos a compreender melhor a natureza. No campo da história, comparar objetos nos permite identificar suas origens e traçar conexões entre diferentes culturas.</p><p><h4>Mesoamérica</h4>Vamos examinar um exemplo prático. Os metates representados na <b>Figura 1</b> possuem cores distintas e foram expostos em museus diferentes durante visitas a esses locais. No entanto, por compartilharem características semelhantes e serem datados do mesmo período, é possível determinar que ambos tiveram sua origem na Costa Rica, onde essas peças eram tradicionalmente fabricadas (<htcite0>).</p><p><table class=\"book_navigation\"><tr><td>Costa Rica</td><td>El Salvador</td></tr><tr><td><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\"  class=\"imgcenter\"/></td><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\"  class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\"><b>Figura 1</b>: Metates em formato de jaguar. À esquerda, fotografia tirada em <htdate0></span>, durante uma visita ao Museu de Antropologia de San José, Costa Rica. À direita, fotografia tirada em <htdate1></span>, durante uma visita ao Museu de Antropologia de San Salvador, El Salvador.</td></tr></table></p>",
+               "text": "### Uma outra prespectiva\n\nAo estudarmos nosso dia a dia, e com isso a natureza, muitas vezes definimos objetos como complemtamente diferentes. Por exemplo, um círculo e um quadrado à seguir:",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htSquare htColorSoftYellow\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\"></div></div> </div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A primeira vista, eles realmente são. Entreanto, como o conhecimento evoluí com o tempo, foi observado por pesquisadores que existe uma relação entre quadrados e círculos, que pode ser observada através de **Homeomorfismo**, ou seja, através de uma transformação contínua entre os pontos de uma figura (<htcite0>).\n\nNa sequência, temos um aplicativo onde um quadrado é convertido em um círculo e vice-versa de acordo com a movimentação do ponto sobre uma barra.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "3fb52297-2d42-46f2-8ef1-b8a2c8f4052a",
-                     "text": "HOOPES, J. W.",
-                     "page": "pp. 459",
+                     "uuid": "5495e930-b686-42f2-b56c-30531524a3cd",
+                     "text": "Weisstein, Eric W",
+                     "page": "Homeomorfismo",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div id=\"shape\" style=\"width: 200px; height: 200px; background-color: lightblue; margin: 30px; transition: all 0.1s ease;\"></div> <div class=\"controls\" style=\"margin: 20px;\"> <div class=\"slider-container\" style=\"margin: 15px 0;\"><br /> Quadrado <input type=\"range\" id=\"radiusSlider\" min=\"0\" max=\"50\" value=\"0\" style=\"width: 200px;\" /> Círculo </div> </div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Graças ao fato que foi possível expandir nosso conhecimento. Hoje podemos dizer que um quadrado e um círculo não são figuras completamente isoladas. Estas duas figuras são conhecidas como figuras homeomórficas, pois uma pode ser convertida na outra.",
+               "source": [],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Agrupando objetos</b><br /><br />Vimos que quadrados e círculos foram inicialmente classificados como diferentes. Após estudos aprofundados, vimos que eles podem ser agrupados.<br /><br />Seria possível fazer o mesmo com diferentes objetos?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1aae32d7-8b8a-49d9-b136-f859e24a53e6",
+                     "text": "Weisstein",
+                     "page": "Eric W. Pirámide",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -155,6 +213,73 @@
                      }
                   }
                ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_history",
+         "text": [
+            {
+               "text": "### Comparações na história humana\n\nAo estudarmos o passado da humanidade, necessitamos fazer comparações para saber se algo foi feito pelo mesmo povo, ou mesmo que povos diferentes chegaram a conclusões distintas em diferentes períodos de tempo.\n\nNo primeeiro capítulo da seção *Primeiros Passos*, por exemplo, nós observamos que a humanidade criou diferentes sistemas numéricos de maneira independentes. A partir de agora, veremos outros exemplos.\n\n#### O mesmo objeto\n\nEm mesoamérica, região definida na **Figura 1** (<htcite0>), podemos encontrar diferentes metates - ferramentas usaddas para moer o milho - os quais foram feitos por diferentes povos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
+                     "text": "Creamer, W.",
+                     "page": "pp. 37–55",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1987",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgGeo14\" onclick=\"htImageZoom('imgGeo14', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: Neste mapa, o continente está destacado © Mapswire (<htcite0>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para descobrir quem foram os criadores de um metate específico, necessitamos realizar comparações, primeiro para saber se são o mesmo tipo de metate, e na sequência, podemos realizar comparações de idades para identificar origem e como o mesmo metate pode ser encontado em diferentes locais de mesoamérica.\n\nFaçamos um exemplo prático. Observe a **Figura 2** metates expostos em El Salvador e Costa Rica.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Costa Rica</td><td>El Salvador</td></tr><tr><td><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\"  class=\"imgcenter\"/></td><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\"  class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\"><b>Figura 1</b>: Metates em formato de jaguar. À esquerda, fotografia tirada em <htdate0></span>, durante uma visita ao Museu de Antropologia de San José, Costa Rica. À direita, fotografia tirada em <htdate1></span>, durante uma visita ao Museu de Antropologia de San Salvador, El Salvador.</td></tr></table></p>",
+               "source": null,
                "date_time": [
                   {
                      "type": "gregory",
@@ -170,12 +295,34 @@
                   }
                ],
                "isTable": false,
-               "imgdesc": "Nestas figuras, vemos mesas em formato de jaguar. As costas do jaguar apresenta uma superfície plana.",
-               "format": "html",
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             },
             {
-               "text": "<p><h4>Pirâmides</h4>Não é apenas o formato ou as características visíveis que devemos considerar na história. Muitas vezes, civilizações distintas constroem estruturas que se assemelham, mas que servem a propósitos diferentes. Estruturas em formato de pirâmides, por exemplo, são encontradas em diversas regiões do planeta, construídas por povos que não tinham qualquer contato entre si (<htcite0>).</p>",
+               "text": "Os metates representados na **Figura 1** possuem cores distintas e foram expostos em museus diferentes durante visitas a esses locais. No entanto, por compartilharem características semelhantes e serem datados do mesmo período, é possível determinar que ambos tiveram sua origem em Costa Rica, onde essas peças eram tradicionalmente fabricadas (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3fb52297-2d42-46f2-8ef1-b8a2c8f4052a",
+                     "text": "HOOPES, J. W.",
+                     "page": "pp. 459",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+							 "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Objetos diferentes, mas parecidos\n\nNão é apenas o formato ou as características visíveis que devemos considerar na história. Muitas vezes, civilizações distintas constroem estruturas que se assemelham, mas que não são iguais, por exemplo, estruturas em formato de pirâmides que são encontradas em diversas regiões do planeta, construídas por povos que não tinham qualquer contato entre si (<htcite0>).\n\nAntes de prosseguirmos, devemos refletir sobre o que estamos estudando",
                "source": [
                   {
                      "type": 1,
@@ -193,11 +340,47 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre pirâmides</b><br /><br />O que é uma pirâmide?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
                "format": "html",
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre pirâmides</b><br /><br />O que é uma pirâmide?</div></div></center></p><p>Um dos motivos que leva as pessoas a acreditarem que as pirâmides ao redor do mundo compartilham uma única origem é o desconhecimento do que define, de fato, uma pirâmide. Vamos simplificar a definição proposta por Eric W. Weisstein (<htcite0>), mantendo sua essência:</p><p><table class=\"book_navigation\"><tr><td>Pirâmide de Base Quadrangular</td><td>Pirâmide de Base Pentagonal</td></tr><tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\"  class=\"imgcenter\"/></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\"  class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\"><b>Figura 2</b>: Exemplos de pirâmides que ilustram a definição matemática.</td></tr></table></p><p><ul class=\"citation\"> <li>\"<i>Uma pirâmide é uma figura geométrica com uma base fechada e cujas faces laterais são triângulos que se encontram em um ponto comum no topo, chamado ápice.</i>\"</li></ul></p><p>A partir dessa definição, podemos explorar as diferentes construções piramidais ao redor do mundo.</p>",
+               "text": "Neste texto, iremos simplficiar a definição proposta por Eric W. Weisstein, mantendo sua essência. De acordo com Eric W. Weisstein, pirâmides são *uma figura geométrica com uma base fechada e cujas faces laterais são triângulos que se encontram em um ponto comum no topo, chamado ápice* (<htcite0>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1aae32d7-8b8a-49d9-b136-f859e24a53e6",
+                     "text": "Weisstein",
+                     "page": "Eric W. Pirámide",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_old_history",
+         "text": [
+            {
+               "text": ":</p><p><table class=\"book_navigation\"><tr><td>Pirâmide de Base Quadrangular</td><td>Pirâmide de Base Pentagonal</td></tr><tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\"  class=\"imgcenter\"/></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\"  class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\"><b>Figura 2</b>: Exemplos de pirâmides que ilustram a definição matemática.</td></tr></table></p><p><ul class=\"citation\"> <li>\"<i>Uma pirâmide é </i>\"</li></ul></p><p>A partir dessa definição, podemos explorar as diferentes construções piramidais ao redor do mundo.</p>",
                "source": [
                   {
                      "type": 1,
