@@ -365,8 +365,8 @@ $componentLines = @()
 Get-ChildItem -Recurse -File $dir | Where-Object {
     $rel = $_.FullName.Substring($dir.Length+1).Replace('\','/')
     if ($excludeList.Count -gt 0) {
-        $top = ($rel -split '/')[0]
-        -not ($excludeList | Where-Object { $top -like $_ })
+        $base = Split-Path -Leaf $rel
+        -not ($excludeList | Where-Object { $base -like $_ })
     } else { $true }
 } | ForEach-Object {
     $rel = $_.FullName.Substring($dir.Length+1).Replace('\','/')
