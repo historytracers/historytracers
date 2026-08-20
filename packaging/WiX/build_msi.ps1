@@ -166,7 +166,7 @@ if ($pubFile) {
 }
 $lines += "  </Fragment>"
 $lines += '</Wix>'
-$lines -join "`r`n" | Set-Content $buildHarvest -Encoding UTF8 -NoNewline
+[System.IO.File]::WriteAllText($buildHarvest, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 if (-not (Test-Path $buildHarvest)) {
     Write-Error "Failed to generate build-fragment.wxs"
     exit 1
@@ -189,7 +189,7 @@ if (Test-Path $optionsFile) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $optionsHarvest -Encoding UTF8 -NoNewline
+    [System.IO.File]::WriteAllText($optionsHarvest, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 }
 if (-not (Test-Path $optionsHarvest)) {
     Write-Error "Failed to generate options-fragment.wxs"
@@ -252,7 +252,7 @@ if ($hasHarvest) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $wwwHarvest -Encoding UTF8 -NoNewline
+    [System.IO.File]::WriteAllText($wwwHarvest, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 }
 if (-not (Test-Path $wwwHarvest)) {
     Write-Error "Failed to generate www-fragment.wxs"
@@ -302,7 +302,7 @@ if ($hasHarvest) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $imgHarvest -Encoding UTF8 -NoNewline
+    [System.IO.File]::WriteAllText($imgHarvest, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 }
 if (-not (Test-Path $imgHarvest)) {
     Write-Error "Failed to generate images-fragment.wxs"

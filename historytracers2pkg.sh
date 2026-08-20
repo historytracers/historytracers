@@ -401,7 +401,7 @@ $lines += $componentLines -join "`r`n"
 $lines += "    </ComponentGroup>"
 $lines += "  </Fragment>"
 $lines += '</Wix>'
-$lines -join "`r`n" | Set-Content $out -Encoding UTF8 -NoNewline
+[System.IO.File]::WriteAllText($out, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 PSEOF
 
     # Convert MSYS paths to Windows paths for PowerShell
@@ -455,7 +455,7 @@ PSEOF
         }
         \$lines += '  </Fragment>';
         \$lines += '</Wix>';
-        \$lines -join \"\`r\`n\" | Set-Content '$WIXDIR_WIN\\build-fragment.wxs' -Encoding UTF8 -NoNewline
+        [System.IO.File]::WriteAllText('$WIXDIR_WIN\\build-fragment.wxs', (\$lines -join \"\`r\`n\"), [System.Text.UTF8Encoding]::new(\$false))
     "
     if [ ! -f "${WIXDIR}/build-fragment.wxs" ]; then
         echo "ERROR: Failed to generate build-fragment.wxs"
@@ -484,7 +484,7 @@ PSEOF
         \$lines += '    </ComponentGroup>';
         \$lines += '  </Fragment>';
         \$lines += '</Wix>';
-        \$lines -join \"\`r\`n\" | Set-Content '$WIXDIR_WIN\\options-fragment.wxs' -Encoding UTF8 -NoNewline
+        [System.IO.File]::WriteAllText('$WIXDIR_WIN\\options-fragment.wxs', (\$lines -join \"\`r\`n\"), [System.Text.UTF8Encoding]::new(\$false))
     "
     if [ ! -f "${WIXDIR}/options-fragment.wxs" ]; then
         echo "ERROR: Failed to generate options-fragment.wxs"
