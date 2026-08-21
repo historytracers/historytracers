@@ -2175,9 +2175,16 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 
 	citType := 0
 	if citTypeStr != "" {
-		if v, err := strconv.Atoi(citTypeStr); err == nil {
-			citType = v
+		v, err := strconv.Atoi(citTypeStr)
+		if err != nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "cit_type must be an integer"})
+			return
 		}
+		if v < 0 || v > 3 {
+			json.NewEncoder(w).Encode(map[string]string{"error": "cit_type must be between 0 and 3"})
+			return
+		}
+		citType = v
 	}
 
 	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
