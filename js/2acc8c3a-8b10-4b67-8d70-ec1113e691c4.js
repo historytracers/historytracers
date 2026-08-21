@@ -48,27 +48,6 @@ function htLoadExercise() {
 
     htSetImageForMembers('#lefthand', 'Left_Hand_Small.png', '#righthand', 'Right_Hand_Small.png', localCounter2acc8c3a);
 
-    var xVector1 = [ 0, 0.5,  1,  1.5, 2,  2.5, 3,  3.5, 4,  4.5, 5,  5.5, 6,  6.5, 7,  7.5, 8,  8.5, 9,  9.5, 10];
-    var yVector1 = [ 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0];
-
-    var chart1Options = {
-        "datasets": [
-                    {
-                        data : yVector1,
-                        label : mathKeywords[16]+"0",
-                        fill : false
-                    }],
-        "chartId" : "chart1",
-        "yType" : "linear",
-        "xVector" : xVector1,
-        "xLable": mathKeywords[15],
-        "xType" : "linear",
-        "ymin": 0,
-        "ymax": 10,
-        "useCallBack": false
-    };
-    htPlotConstantContinuousChart(chart1Options);
-
     var xVector00 = [ 0, 0.5,  1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8,  8.5, 9,  9.5, 10];
     var yVector00 = [ 0, 0.0,  0, 0.0, 0, 0.0, 0, 0.0, 0, 0.0, 0, 0.0, 0, 0.0, 0, 0.0, 0,  0.0, 0,  0.0, 0];
     var chart0Options = {
@@ -78,7 +57,7 @@ function htLoadExercise() {
                         label : mathKeywords[16]+"0",
                         fill : false
                     }],
-        "chartId" : "chart2",
+        "chartId" : "chart3",
         "yType" : "linear",
         "xVector" : xVector00,
         "xLable": mathKeywords[15],
@@ -91,26 +70,6 @@ function htLoadExercise() {
 
     htWriteMultiplicationTable("#mParent0", 0);
     htWriteMultiplicationTable("#mParent1", 1);
-
-    var yVector3 = [ 0, null, 1, null, 2, null, 3, null, 4, null, 5, null, 6, null, 7, null, 8, null, 9, null, 10];
-
-    var chart3Options = {
-        "datasets": [
-                    {
-                        data : yVector3,
-                        label : mathKeywords[16]+"1",
-                        fill : false
-                    }],
-        "chartId" : "chart3",
-        "yType" : "linear",
-        "xVector" : xVector1,
-        "xLable": mathKeywords[15],
-        "xType" : "linear",
-        "ymin": 0,
-        "ymax": 10,
-        "useCallBack": false
-    };
-    htPlotConstantContinuousChart(chart3Options);
 
     htFillBoxesMultiplicationChart("chart4");
 

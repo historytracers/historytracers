@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/R1TUUI50UUb",
+         "url": "https://open.spotify.com/episode/411DLQRcSW9CMOMukwmG0d?si=izCA4mkoSAS8tJGeX6Mdjw",
          "external": true,
          "spotify": true
       }
@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1787094531"
+      "1787253800"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -48,7 +50,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nSe recomienda estudiar los textos anteriores de esta sección antes de continuar. Te ayudarán a comprender los cimientos sobre los que construimos aquí.",
+               "text": "### Prerrequisitos\n\nSe recomienda estudiar los textos anteriores de esta sección antes de continuar, especialmente *Dibujando la multiplicación* (<htcite1>), donde aprendimos a transformar las tablas de multiplicar en formas visuales. Te ayudarán a comprender los cimientos sobre los que construimos aquí.",
                "source": [
                   {
                      "type": 1,
@@ -60,6 +62,18 @@
                         "year": "2024",
                         "month": "-1",
                         "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Dibujando la multiplicación",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -241,7 +255,7 @@
                "PostMention": ""
             },
             {
-               "text": "¡Buena observación! En ambos casos—familias y bosques—estamos contando seres vivos. El método de conteo es el mismo, aunque los objetos sean diferentes. Esta es una idea clave: la multiplicación funciona de la misma manera sin importar qué estemos contando. Con esta idea en mente, estamos listos para construir nuestra primera tabla de resultados.",
+               "text": "En ambos casos—familias y bosques—estamos contando seres vivos. El método de conteo es el mismo, aunque los objetos sean diferentes. Esta es una idea clave: la multiplicación funciona de la misma manera sin importar qué estemos contando. Con esta idea en mente, estamos listos para construir nuestra primera tabla de resultados.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -436,36 +450,18 @@
                "PostMention": ""
             },
             {
-               "text": "#### Dibujando la Tabla\n\nTambién podemos visualizar estos resultados en un gráfico. Pensemos en qué esperamos ver:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Qué te sugiere esto?</b><br /><br />Al observar los valores de la Tabla del 0, ¿qué imagen se te viene a la mente?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Para graficarlos, recordemos la relación entre los números y una recta numérica",
+               "text": "#### Viendo la Forma\n\nAcabamos de construir la tabla de multiplicar del cero usando números. Pero, ¿cómo se ve esta tabla cuando la dibujamos? En el texto *Dibujando la multiplicación* (<htcite0>), aprendimos a representar estos resultados en un gráfico. Cuando lo hacemos, todos los puntos caen sobre el eje horizontal, formando una línea recta y plana. Si aún no has leído aquel texto, te animamos a hacerlo—te ayudará a ver la forma detrás de los números.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
                      "text": "History Tracers Team",
-                     "page": "Caminando entre los números",
+                     "page": "Dibujando la multiplicación",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -473,72 +469,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ":"
-            },
-            {
-               "text": "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\"><b>Gráfico 1</b>: Eje numérico. Los números están dispuestos debajo de una línea, y una flecha al final indica la dirección en la que aumentan los valores. El código CSS utilizado para esta imagen está disponible en  <htcite0>.</p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "c7edc93c-0a41-4753-8f89-9e52904ff003",
-                     "text": "W3 Schools",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "07",
-                        "day": "25"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
                "PostMention": ""
             },
             {
-               "text": "Esta línea con una flecha, mostrada en el Gráfico 1, se conoce en matemáticas como un eje. Usaremos dos ejes para graficar nuestros resultados:\n- El **eje vertical** (Producto) muestra los resultados.\n- El **eje horizontal** (Factores) muestra los valores de N.\n\nNuestro objetivo es colocar un punto para cada valor de N en el gráfico. Veámoslo:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Puntos de la tabla del cero. Gráfico generado con <htcite0>.</div></p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
-                     "text": "Chart JS",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "05",
-                        "day": "30"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Ahora conectemos los puntos. Como todos los resultados son cero, todos los puntos se encuentran en la línea horizontal a la altura cero. Al conectarlos, obtenemos una línea recta y plana:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Puntos conectados formando una recta. Gráfico creado con <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de la tabla de multiplicar del cero conectados, formando una línea plana. Gráfico creado con la biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -632,8 +566,21 @@
                "PostMention": ""
             },
             {
-               "text": "#### Dibujando la Tabla\n\nAntes de graficar los puntos, hagamos una predicción:",
-               "source": null,
+               "text": "#### Viendo la Forma\n\nHemos construido la tabla de multiplicar del uno. A diferencia de la tabla del cero, donde todo resultado era cero, aquí cada resultado crece de uno en uno. En el texto *Dibujando la multiplicación* (<htcite0>), vimos que al representar estos resultados en un gráfico, los puntos forman una línea diagonal ascendente. También visualizamos este crecimiento usando cajas, donde cada columna tiene exactamente tantas cajas como el producto. Si aún no has explorado el lado gráfico, te invitamos a leer aquel texto.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Dibujando la multiplicación",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -641,25 +588,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: Construyendo el conocimiento</b><br /><br />Compara la tabla del cero con la del uno.<br /><br />¿Cree que hay algo en común entre los gráficos que hemos dibujado y los que dibujaremos?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "¡Buen pensamiento! Ahora marquemos los puntos, siguiendo los mismos pasos que usamos para la tabla del cero:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Representación de los puntos de la tabla del uno. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Cajas del mismo color que muestran la tabla de multiplicar del uno. Cada columna de cajas representa un resultado: 1 × 1 es una caja, 2 × 1 son dos cajas, y así sucesivamente. Gráfico creado con la biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -678,46 +607,6 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Antes de responder a la Reflexión 4, vamos a crear un tipo diferente de visualización. Representaremos la multiplicación usando cajas:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 5</b>: Cajas del mismo color que muestran la tabla de multiplicar del uno. Cada columna de cajas representa un resultado: 1 × 1 es una caja, 2 × 1 son dos cajas, y así sucesivamente. Gráfico creado con la biblioteca <htcite0>.</div></p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
-                     "text": "Chart JS",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "05",
-                        "day": "30"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Ahora podemos ver claramente la diferencia. En la tabla de multiplicar del cero, todos los resultados son cero, por lo que no aparece ninguna caja. En la tabla del uno, cada resultado tiene su propio grupo de cajas: 1 × 1 es una caja, 2 × 1 son dos cajas, y así sucesivamente. Las cajas crecen paso a paso, una a una.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": ""
             }
          ]
@@ -726,8 +615,21 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, descubrimos los componentes básicos de la multiplicación. Aprendimos qué son factores y productos, y exploramos cómo funcionan las tablas de multiplicar del cero y del uno.\n\nLa tabla del cero nos enseña que multiplicar por vacío siempre da vacío. La tabla del uno nos enseña que multiplicar por uno no cambia el número.\n\nEn los próximos textos, generalizaremos estas ideas a todos los números y profundizaremos nuestra comprensión de cómo funcionan las tablas de multiplicar.",
-               "source": null,
+               "text": "### Conclusión\n\nEn este texto, exploramos las tablas de multiplicar del cero y del uno a través de experimentos prácticos y ejemplos del mundo real.\n\nDescubrimos que multiplicar por cero siempre da cero—ya contemos personas en habitaciones vacías en Caral o cualquier otra cantidad. Multiplicar por uno, por otro lado, no cambia el número, como vimos al contar con los dedos.\n\nEn el texto anterior, *Dibujando la multiplicación* (<htcite0>), aprendimos a convertir estas tablas en formas visuales en un gráfico. Aquí, nos enfocamos en entender *por qué* estas tablas funcionan como funcionan. Juntos, estos dos textos nos dan tanto la intuición como las herramientas visuales para dominar las tablas del cero y del uno.\n\nEn los próximos textos, aplicaremos las mismas ideas a números más grandes y descubriremos nuevos patrones.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Dibujando la multiplicación",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -749,9 +651,9 @@
          "additionalInfo": "No te preocupes si te equivocaste, pues es común escuchar que 'todo número multiplicado por uno da como resultado el mismo número'. Sin embargo, esta afirmación solo es cierta si excluimos el cero, dado que cero multiplicado por uno sigue siendo cero."
       },
       {
-         "question": "Al representar los resultados de las tablas del cero y del uno en un gráfico, ¿las líneas formadas por la conexión de los puntos serán siempre diferentes?",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "En el gráfico de las tablas:<ul><li>Tabla del 0: Todos los puntos permanecen alineados en la línea del cero.</li><li>Tabla del 1: Los puntos forman una línea diagonal creciente.</li></ul>"
+         "question": "¿Puede la tabla de multiplicar del cero ayudarnos a contar objetos? Por ejemplo, si un granjero tiene 7 campos y cada campo produce 0 sacos de grano, ¿puede la tabla decirnos cuántos totales diferentes son posibles?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "La tabla de multiplicar del cero siempre da cero, sin importar cuántos grupos tengamos. Ya sea que el granjero tenga 7 campos o 700, el total siempre es cero. Por eso, la tabla del cero no puede ayudarnos a distinguir entre diferentes cantidades—reduce todo conteo al mismo resultado."
       }
    ],
    "game_v2": null,

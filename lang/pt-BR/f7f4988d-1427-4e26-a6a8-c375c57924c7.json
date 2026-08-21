@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/AoqNZDkRUUb",
+         "url": "https://open.spotify.com/episode/6KYb7S6eVwRW74Gbbymu7F?si=mXSL20u1Qi-7n8dPRGb4Sw",
          "external": true,
          "spotify": true
       }
@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765775"
+      "1787192348"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -97,148 +99,7 @@
                "PostMention": "."
             },
             {
-               "text": "Neste texto, vamos aprofundar os conhecimentos sobre triângulos, explorando sua relação com as tabuadas.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_triangle",
-         "text": [
-            {
-               "text": "### Triângulo\n\nPara reforçar o que vimos no texto anterior e introduzir o conteúdo novo, conectaremos os pontos da tabuada do um (1) e preencheremos o triângulo formado",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
-                     "text": "History Tracers Team",
-                     "page": "Entendendo a tabuada (0 e 1)",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ":"
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos da tabuada de um (1) conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
-                     "text": "Chart JS",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "05",
-                        "day": "30"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: O que é um triângulo?</b><br /><br />Observando o Gráfico 1, com a área do triângulo inferior destacada, como você descreveria essa figura?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Agora, compare sua definição com uma versão simplificada da definição apresentada por Eric W. Weisstein",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
-                     "text": "Weisstein, Eric W., Triângulo",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ":"
-            },
-            {
-               "text": "<ul class=\"citation\"><li><i>\"Triângulos são figuras fechadas com três lados e três ângulos (formados pela conexão entre os lados)...\"</i></li> </ul>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Além dessa definição, no texto de Weisstein há também uma menção que o triângulo retângulo formado no gráfico possui componentes com nomes específicos. No Gráfico 2, destacamos essas partes e as nomeamos na sequência",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
-                     "text": "Weisstein, Eric W., Triângulo",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
-                     "text": "Weisstein, Eric W., Triângulo Retângulo",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ":"
-            },
-            {
-               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"lightgreen\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Triângulo retângulo com suas componentes.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "- **a**, **b** e **c**: são os lados do triângulo. Os lados **a** e **b** são chamados **catetos**, enquanto **c** é o nome da **hipotenusa**.\n- **α**, **β**, e <i class=\"fa-regular fa-square\"></i>: são os ângulos formatos pela união dos lados do triângulo. O quadrado ( <i class=\"fa-regular fa-square\"></i> ) que representa a conexão entre as linhas horizontal e vertical é chamado **ângulo reto**.",
+               "text": "Neste texto, vamos explorar mais duas tabuadas: a do dois e a do três.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -452,7 +313,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Pontos da tabuada de dois conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos da tabuada de dois conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -474,7 +335,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ao compararmos o **Gráfico 3** com o **Gráfico 1**, as figuras parecem idênticas. No entanto, as diferenças tornam-se evidentes quando desenhamos as tabuadas de um (1) e de dois (2) em um único gráfico:",
+               "text": "Ao compararmos o **Gráfico 1** com o gráfico da tabuada do um do texto anterior, as figuras parecem idênticas. No entanto, as diferenças tornam-se evidentes quando desenhamos as tabuadas de um (1) e de dois (2) em um único gráfico:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -483,7 +344,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Pontos das tabuadas de um e dois conectados, formando duas retas. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Pontos das tabuadas de um e dois conectados, formando duas retas. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -505,7 +366,7 @@
                "PostMention": ""
             },
             {
-               "text": "No **Gráfico 4**, observamos que, além de dividir a folha quadriculada ao meio, os valores do eixo vertical são maiores devido aos produtos gerados pela multiplicação por dois. Além disto, há um aumento no afastamento da linha horizontal, resultando em um ângulo maior.",
+               "text": "No **Gráfico 2**, observamos que, além de dividir a folha quadriculada ao meio, os valores do eixo vertical são maiores devido aos produtos gerados pela multiplicação por dois. Além disto, há um aumento no afastamento da linha horizontal, resultando em um ângulo maior.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -519,7 +380,7 @@
          "id": "SECTION_three",
          "text": [
             {
-               "text": "### Multiplicando por Três (3)\n\nAlém do triângulo retângulo, utilizaremos também, neste e nos próximos textos, o triângulo isósceles, que possui pelo menos dois lados iguais. Como consequência, se traçarmos uma linha do vértice onde os lados se encontram até o lado oposto, obtemos lados simétricos, conforme ilustrado no **Gráfico 5**",
+               "text": "### Multiplicando por Três (3)\n\nAlém do triângulo retângulo, utilizaremos também, neste e nos próximos textos, o triângulo isósceles, que possui pelo menos dois lados iguais. Como consequência, se traçarmos uma linha do vértice onde os lados se encontram até o lado oposto, obtemos lados simétricos, conforme ilustrado no **Gráfico 3**",
                "source": [
                   {
                      "type": 1,
@@ -541,7 +402,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"imgcenterresponsive\"><svg width=\"450\" height=\"300\"><polygon points=\"265,10 125,280 405,280\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><text x=\"140\" y=\"270\" font-size=\"1.5em\">α</text><text x=\"370\" y=\"270\" font-size=\"1.5em\">α</text><g fill=\"none\" stroke=\"black\" stroke-width=\"1\"><path stroke-dasharray=\"5,5\" d=\"M265 14 l0 270\" /></g></svg></p><p class=\"desc\"><b>Gráfico 5</b>: Triângulo isósceles contendo ângulos e lados iguais.</p>",
+               "text": "<p class=\"imgcenterresponsive\"><svg width=\"450\" height=\"300\"><polygon points=\"265,10 125,280 405,280\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><text x=\"140\" y=\"270\" font-size=\"1.5em\">α</text><text x=\"370\" y=\"270\" font-size=\"1.5em\">α</text><g fill=\"none\" stroke=\"black\" stroke-width=\"1\"><path stroke-dasharray=\"5,5\" d=\"M265 14 l0 270\" /></g></svg></p><p class=\"desc\"><b>Gráfico 3</b>: Triângulo isósceles contendo ângulos e lados iguais.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -630,7 +491,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Desenhando a Tabuada\n\nO **Gráfico 6** mostra os valores da tabuada de 3:",
+               "text": "#### Desenhando a Tabuada\n\nO **Gráfico 4** mostra os valores da tabuada de 3:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -639,7 +500,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Pontos da tabuada de três conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Pontos da tabuada de três conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -679,7 +540,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 7</b>: Pontos das tabuadas um, dois e três conectados, formando três retas. Gráfico criado com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 5</b>: Pontos das tabuadas um, dois e três conectados, formando três retas. Gráfico criado com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -701,7 +562,7 @@
                "PostMention": ""
             },
             {
-               "text": "O **Gráfico 7** mostra as três tabuadas com seus respectivos pontos plotados e interligados. A partir dele, podemos concluir:\n- À medida que aumentamos o fator **a** (coeficiente angular), espera-se que o afastamento (e o ângulo) também aumente.\n- O valor seis (6) aparece na tabuada de dois (2) quando **N = 3**, enquanto o mesmo valor (6) surge na tabuada de três (3) quando **N = 2**. Isso ilustra que a ordem dos fatores não altera o produto.",
+               "text": "O **Gráfico 5** mostra as três tabuadas com seus respectivos pontos plotados e interligados. A partir dele, podemos concluir:\n- À medida que aumentamos o fator **a** (coeficiente angular), espera-se que o afastamento (e o ângulo) também aumente.\n- O valor seis (6) aparece na tabuada de dois (2) quando **N = 3**, enquanto o mesmo valor (6) surge na tabuada de três (3) quando **N = 2**. Isso ilustra que a ordem dos fatores não altera o produto.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -715,8 +576,21 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, expandimos nosso conhecimento sobre a tabuada ao analisar a relação entre o produto de dois fatores e o afastamento dos pontos em relação à reta. Além disso, aprofundamos nosso entendimento sobre triângulos e suas propriedades.\n\nNo próximo texto, exploraremos como a tabuada e os triângulos podem ser aplicados na natureza.",
-               "source": null,
+               "text": "### Conclusão\n\nNeste texto, expandimos nosso conhecimento sobre a tabuada ao analisar a relação entre o produto de dois fatores e o afastamento dos pontos em relação à reta.\n\nNo próximo texto, *Multiplicando com o corpo (Fase 1)*, aprenderemos a multiplicar usando nosso próprio corpo (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "59648475-3d23-45fe-8d6e-f3def1a2729b",
+                     "text": "Multiplicando com o corpo (Fase 1)",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -727,11 +601,6 @@
       }
    ],
    "exercise_v2": [
-      {
-         "question": "Um triângulo é uma figura fechada com três lados e três ângulos?",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "Esta é a definição básica de triângulo que estamos utilizando neste capítulo, mas ainda há mais informações que complementarão esse conceito e serão apresentadas posteriormente."
-      },
       {
          "question": "Ao multiplicarmos três por um número <b>N</b>, o resultado (produto) será sempre maior do que quando usamos números menores que ele por <b>N</b>?",
          "yesNoAnswer": "No",
