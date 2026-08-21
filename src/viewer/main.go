@@ -625,12 +625,22 @@ func allowedPage(name string) bool {
 	return false
 }
 
+func safeContentKey(key string) bool {
+	if key == "" || key == "." || key == ".." {
+		return false
+	}
+	if strings.ContainsAny(key, "/\\") {
+		return false
+	}
+	return true
+}
+
 func resolveContentTitle(page, arg, lang string) string {
 	key := arg
 	if key == "" {
 		key = page
 	}
-	if key == "" {
+	if !safeContentKey(key) {
 		return ""
 	}
 	langs := []string{"en-US", "pt-BR", "es-ES"}
