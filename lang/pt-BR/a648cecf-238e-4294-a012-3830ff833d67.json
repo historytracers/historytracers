@@ -1,0 +1,566 @@
+{
+   "title": "Desenhando a multiplicação",
+   "header": "Desenhando a multiplicação",
+   "sources": [
+      "a648cecf-238e-4294-a012-3830ff833d67"
+   ],
+   "scripts": [
+      "a648cecf-238e-4294-a012-3830ff833d67"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/a648cecf-238e-4294-a012-3830ff833d67_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0NpBPLrcNTpLt9YdUEwzgC?si=a6Dy6sDGS2W911Mk6Zo9ag",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1787192347"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos estudar os textos anteriores desta seção antes de continuar, especialmente aquele em que aprendemos que a multiplicação é uma **soma repetida**, e aqueles em que aprendemos a multiplicar com os ábacos e a Yupana. Eles ajudarão você a compreender as bases sobre as quais construímos aqui.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Somando o mesmo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando com Soroban, Suanpan (算盤) e Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4c2c00d-7878-42da-9cc4-060cd7f8d225",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (multiplicação)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nJá sabemos multiplicar números de muitas maneiras: com as mãos, com a Yupana e com os ábacos. Também aprendemos que a multiplicação é uma **soma repetida**: somar o mesmo número várias vezes.\n\nMas há algo surpreendente: também podemos *desenhar* uma tabuada! Quando fazemos isso, retas e até triângulos aparecem no papel. Essa conexão entre números e formas é uma das ideias mais bonitas da matemática.\n\nNeste texto, vamos aprender uma receita simples com três passos:\n1. Primeiro, criamos uma **fórmula** que descreve a tabuada.\n2. Depois, **marcamos os pontos** dessa fórmula em um papel quadriculado.\n3. Por fim, **unimos os pontos** com traços retos.\n\nVamos começar!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_formula",
+         "text": [
+            {
+               "text": "### Primeiro Passo: Criar uma Fórmula\n\nUma fórmula é uma forma curta de escrever uma regra com números. Usamos fórmulas todos os dias sem perceber. Por exemplo, imagine que você caminha 3 quarteirões até a escola toda manhã. Depois de dois dias, você caminhou 3 + 3 = 6 quarteirões. Depois de cinco dias, 3 + 3 + 3 + 3 + 3 = 15 quarteirões. Em vez de escrever somas longas toda hora, podemos escrever uma regra curta: *total de quarteirões = 3 × número de dias*.\n\nNo texto *Somando o mesmo número*, aprendemos que a multiplicação é uma **soma repetida** (<htcite0>): quando somamos o mesmo número várias vezes, podemos escrevê-la de uma forma mais curta. Por exemplo, em vez de escrever 10 + 10 + 10, podemos escrever 3 × 10.\n\nPodemos escrever essa ideia com uma única fórmula que funciona para qualquer multiplicação (<htcite1>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Somando o mesmo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>r</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>a</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 1</b>: Fórmula geral das tabuadas.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nessa fórmula, cada letra representa uma quantidade que pode mudar:\n- **r**: é o **resultado** da multiplicação (também chamado de **produto**). É a resposta que obtemos.\n- **N**: é o **número de vezes** que repetimos o mesmo número (também chamado de **fator**). Conta quantos grupos temos.\n- **a**: é o número que repetimos—a própria tabuada. Os matemáticos o chamam de **coeficiente angular** (ou **inclinação**) porque, como veremos em breve, controla quão íngreme a reta sobe.\n\nPense assim: se **a** é pequeno (como 1), os resultados crescem devagar. Se **a** é grande (como 10), os resultados crescem rápido. Vamos ver isso na prática!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora vamos ver a fórmula em ação com os valores mais simples de **a**. Tente calcular cada resultado você mesmo antes de mover o ponteiro sobre as tabelas abaixo:\n- Quando **a = 0**, repetimos o número zero: 0 + 0 + 0 + ... + 0 = 0 × **N**. Não importa quantas vezes somemos zero, o resultado é sempre zero.\n- Quando **a = 1**, repetimos o número um: 1 + 1 + 1 + ... + 1 = 1 × **N**. O resultado é sempre o próprio número **N**—nada muda!\n\nMova o ponteiro sobre cada resultado para ver como ele é formado",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p>Aplicando a fórmula com <b>a = 0</b>, obtemos a tabuada do zero (<b>Tabela 1</b>):</p><p><div id=\"mParent0\"  style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Aplicando a fórmula com <b>a = 1</b>, obtemos a tabuada do um (<b>Tabela 2</b>):</p><p><div id=\"mParent1\"  style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_points",
+         "text": [
+            {
+               "text": "### Segundo Passo: Marcar os Pontos\n\nUma fórmula nos dá números, mas os números sozinhos não mostram a forma de uma tabuada. Para ver a forma, precisamos desenhar.\n\nUsamos duas linhas perpendiculares, chamadas **eixos**, que se cruzam em um ponto chamado **origem**:\n- O **eixo horizontal** (da esquerda para a direita) mostra os valores de **N** (os números que contamos: 1, 2, 3, ...).\n- O **eixo vertical** (de baixo para cima) mostra os resultados **r** (os produtos).\n\nPara cada valor de **N**, colocamos um único ponto. Veja como fazemos:\n1. Começamos na origem.\n2. Nos movemos **para a direita** pelo eixo horizontal até chegar ao valor de **N**.\n3. De lá, nos movemos **para cima** até chegar ao resultado **r**.\n4. Marcamos esse lugar com um ponto.\n\nPor exemplo, na tabuada do 1 (onde **a = 1**), quando **N = 3** o resultado é **r = 1 × 3 = 3**. Então vamos para a direita até 3 no eixo horizontal, depois subimos até 3 no eixo vertical, e colocamos nosso ponto lá.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Fazer uma previsão</b><br /><br />Quando <b>a = 0</b>, todo resultado é zero. Lembre-se: para marcar cada ponto, vamos para a direita até <b>N</b>, depois subimos até o resultado.<br /><br />Se o resultado é sempre zero, quão alto subimos? Onde você espera que os pontos estejam no gráfico?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Vamos marcar os pontos para **a = 0**, seguindo a nossa receita:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos da tabuada do zero. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como previmos, todos os pontos estão sobre o eixo horizontal, porque todo resultado é zero. Agora vamos marcar os pontos para **a = 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Pontos da tabuada do um. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Os pontos para **a = 1** sobem um de cada vez, formando um caminho em **diagonal** pelo papel quadriculado. Isso é muito diferente da linha plana da tabuada do zero!\n\nAgora que vimos os pontos individuais de ambas as tabuadas, vamos uni-los e descobrir as formas que aparecem.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_connect",
+         "text": [
+            {
+               "text": "### Terceiro Passo: Unir os Pontos\n\nFinalmente, unimos os pontos vizinhos com um traço reto. É aqui que as formas aparecem!\n\nPara **a = 0**, todos os pontos estão na mesma altura, então, ao uni-los, obtemos uma linha horizontal e plana:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Pontos conectados da tabuada do zero, formando uma linha plana. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para **a = 1**, a união segue o caminho diagonal dos pontos e nos dá uma reta ascendente. Essa reta divide o papel quadriculado em duas partes iguais:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Pontos conectados da tabuada do um, formando uma linha ascendente. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Também podemos mostrar o caso **a = 1** com caixas. Cada coluna tem tantas caixas quanto o seu produto:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 5</b>: Caixas da mesma cor mostrando a tabuada do um. Cada coluna de caixas representa um resultado: 1 × 1 é uma caixa, 2 × 1 são duas caixas, e assim por diante. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Plana ou ascendente?</b><br /><br />Ao unir os pontos para <b>a = 0</b>, obtemos uma linha plana. Ao unir os pontos para <b>a = 1</b>, obtemos uma linha ascendente.<br /><br />Por que essas duas linhas são tão diferentes?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_triangle",
+         "text": [
+            {
+               "text": "### Triângulo\n\nVimos que a tabuada do zero forma uma linha plana e a tabuada do um forma uma linha ascendente. Agora vamos fazer algo interessante: preencheremos o espaço abaixo da linha ascendente da tabuada do um, entre a linha e o eixo horizontal.\n\nEsse exercício reforça o que aprendemos e introduz uma forma importante que exploraremos em profundidade nos próximos textos",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart6\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Pontos da tabuada de um (1) conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O que é um triângulo?</b><br /><br />Observando o Gráfico 6, com a área do triângulo inferior destacada, conte os lados. Quantas retas formam o contorno dessa figura? Como você a descreveria com suas próprias palavras?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora, compare sua definição com uma versão simplificada da definição apresentada por Eric W. Weisstein",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>\"Triângulos são figuras fechadas com três lados e três ângulos (formados pela conexão entre os lados)...\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Além dessa definição, no texto de Weisstein há também uma menção que o triângulo retângulo formado no gráfico possui componentes com nomes específicos. No Gráfico 7, destacamos essas partes e as nomeamos na sequência",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W., Triângulo Retângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"lightgreen\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\"><b>Gráfico 7</b>: Triângulo retângulo com suas componentes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **a**, **b** e **c**: são os lados do triângulo. Os lados **a** e **b** são chamados **catetos**, enquanto **c** é o nome da **hipotenusa**.\n- **α**, **β**, e <i class=\"fa-regular fa-square\"></i>: são os ângulos formatos pela união dos lados do triângulo. O quadrado ( <i class=\"fa-regular fa-square\"></i> ) que representa a conexão entre as linhas horizontal e vertical é chamado **ângulo reto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, aprendemos uma receita com três passos que funciona para qualquer tabuada:\n1. Criar uma **fórmula** (r = a × N).\n2. **Marcar os pontos** em um papel quadriculado.\n3. **Unir os pontos** com traços retos.\n\nCom essa receita, descobrimos algo bonito: a tabuada do zero virou uma linha horizontal e plana, e a tabuada do um virou uma linha diagonal ascendente. Ao preencher o espaço entre a reta ascendente e os eixos, encontramos uma forma muito importante: o **triângulo**—uma figura fechada com três lados e três ângulos.\n\nIsso é só o começo. Nos próximos textos, usaremos essa mesma receita com outras tabuadas (2, 3, 5, ...) e descobriremos novas formas e padrões. O que você acha que acontecerá quando **a = 2**? Tente imaginar antes de continuar lendo!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Um triângulo é uma figura fechada com três lados e três ângulos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Esta é a definição básica de triângulo que estamos utilizando neste capítulo, mas ainda há mais informações que complementarão esse conceito e serão apresentadas posteriormente."
+      },
+      {
+         "question": "Na tabuada do zero, todos os pontos estão sobre o eixo horizontal?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Multiplicar qualquer número por zero sempre resulta em zero. Portanto, cada ponto que marcamos está na altura zero, alinhado com o eixo horizontal."
+      },
+      {
+         "question": "Na tabuada do um, os pontos conectados formam uma linha horizontal e plana?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Os pontos da tabuada do um crescem um de cada vez, então, ao uni-los, eles formam uma reta diagonal ascendente. Somente a tabuada do zero produz uma linha plana."
+      },
+      {
+         "question": "Usando a receita deste texto, se desenharmos a tabuada do dois (a = 2), você espera que a reta suba mais rápido do que a reta da tabuada do um?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como a = 2 é maior que a = 1, os resultados crescem duas vezes mais rápido: 2, 4, 6, 8, ... Então a reta subirá mais íngreme. Quanto maior o valor de a, mais íngreme é a reta."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
