@@ -1624,6 +1624,25 @@ function insertNewSourceToContent(item){
 	return true
 }
 
+function nsWireDate(textId,pickId,calId){
+	var text=document.getElementById(textId);
+	var pick=document.getElementById(pickId);
+	var cal=document.getElementById(calId);
+	function syncToPick(){
+		var v=text.value.trim();
+		if(/^\d{4}-\d{2}-\d{2}$/.test(v))pick.value=v;
+	}
+	function syncToText(){
+		if(pick.value)text.value=pick.value;
+	}
+	text.addEventListener('input',syncToPick);
+	pick.addEventListener('change',syncToText);
+	cal.addEventListener('click',function(){
+		syncToPick();
+		if(pick.showPicker)pick.showPicker();
+	});
+}
+
 function openNewSource(){
 	var ov=document.createElement('div');
 	ov.style.cssText='position:fixed;z-index:9999;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center';
@@ -1641,9 +1660,21 @@ function openNewSource(){
 	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsCitation')+' *</label>';
 	html+='<input type="text" id="nsCitation" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />';
 	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsDate')+'</label>';
-	html+='<input type="date" id="nsDate" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />';
+	html+='<div style="display:flex;gap:6px;align-items:center;position:relative">'
+		+'<input type="text" id="nsDate" placeholder="YYYY-MM-DD" style="flex:1;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />'
+		+'<button type="button" id="nsDateCal" title="Calendar" style="padding:6px 10px;background:#455a64;color:#eceff1;border:none;border-radius:4px;cursor:pointer;font:13px sans-serif;line-height:1">'
+		+'<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>'
+		+'</button>'
+		+'<input type="date" id="nsDatePick" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" />'
+		+'</div>';
 	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsPublishDate')+'</label>';
-	html+='<input type="date" id="nsPublishDate" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />';
+	html+='<div style="display:flex;gap:6px;align-items:center;position:relative">'
+		+'<input type="text" id="nsPublishDate" placeholder="YYYY-MM-DD" style="flex:1;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />'
+		+'<button type="button" id="nsPublishDateCal" title="Calendar" style="padding:6px 10px;background:#455a64;color:#eceff1;border:none;border-radius:4px;cursor:pointer;font:13px sans-serif;line-height:1">'
+		+'<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>'
+		+'</button>'
+		+'<input type="date" id="nsPublishDatePick" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" />'
+		+'</div>';
 	html+='<label style="display:block;color:#b0bec5;font-size:12px;margin:8px 0 2px">'+tr('nsUrl')+'</label>';
 	html+='<input type="text" id="nsUrl" style="width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #455a64;border-radius:4px;background:#1e2e36;color:#eceff1;font:13px/1.4 sans-serif" />';
 	html+='<div style="margin-top:16px;text-align:right">';
@@ -1652,6 +1683,9 @@ function openNewSource(){
 	html+='</div></div>';
 	ov.innerHTML=html;
 	document.body.appendChild(ov);
+
+	nsWireDate('nsDate','nsDatePick','nsDateCal');
+	nsWireDate('nsPublishDate','nsPublishDatePick','nsPublishDateCal');
 
 	fetch('/api/editor/source-formats').then(function(r){return r.json()}).then(function(formats){
 		var sel=document.getElementById('nsSfo');
