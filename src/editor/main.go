@@ -2137,18 +2137,21 @@ func validSourceDate(value string) bool {
 	return dateRE.MatchString(value)
 }
 
-// createSourceHandler inserts a new row into the sources table. The src_id is
-// generated here (UUID); all other fields come from the editor form.
+// createSourceHandler inserts a new row into the sources table and links it to
+// the current file in the citation table. The src_id is generated here (UUID);
+// all other fields come from the editor form.
 func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
+	fileUUID := r.FormValue("file_uuid")
 	sfoID := r.FormValue("sfo_id")
 	srcCitation := strings.TrimSpace(r.FormValue("src_citation"))
 	srcDate := r.FormValue("src_date")
 	srcPublishDate := r.FormValue("src_publish_date")
 	srcURL := r.FormValue("src_url")
+	citTypeStr := r.FormValue("cit_type")
 
 	if srcCitation == "" {
 		json.NewEncoder(w).Encode(map[string]string{"error": "src_citation is required"})
@@ -2170,6 +2173,20 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 		sfoID = "a1b2c3d4-0000-4000-8000-000000000001"
 	}
 
+	citType := 0
+	if citTypeStr != "" {
+		v, err := strconv.Atoi(citTypeStr)
+		if err != nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "cit_type must be an integer"})
+			return
+		}
+		if v < 0 || v > 3 {
+			json.NewEncoder(w).Encode(map[string]string{"error": "cit_type must be between 0 and 3"})
+			return
+		}
+		citType = v
+	}
+
 	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
 	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
 		json.NewEncoder(w).Encode(map[string]string{"error": "database not found"})
@@ -2183,11 +2200,35 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
+	tx, err := db.Begin()
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to begin transaction"})
+		return
+	}
+	defer tx.Rollback()
+
 	srcID := uuid.New().String()
-	_, err = db.Exec(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
+	_, err = tx.Exec(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
 		srcID, sfoID, srcCitation, srcDate, srcPublishDate, srcURL)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"error": "failed to insert source"})
+		return
+	}
+
+	if fileUUID != "" {
+		if _, err := tx.Exec(`INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)`, fileUUID, ""); err != nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "failed to insert file"})
+			return
+		}
+		if _, err := tx.Exec(`INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (?, ?, ?)`,
+			fileUUID, srcID, citType); err != nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "failed to link source to file"})
+			return
+		}
+	}
+
+	if err := tx.Commit(); err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to commit transaction"})
 		return
 	}
 
