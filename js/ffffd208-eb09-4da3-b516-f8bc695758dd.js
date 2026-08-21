@@ -26,6 +26,7 @@ function htLoadContent() {
 
     htSetImageSrc('imgGeo14', 'images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica2.jpg');
 		htSetImageSrc('imgGiza', 'images/BritishMuseum/mid_00539475_001.jpg');
+		htSetImageSrc('imgSaqqara', 'images/BritishMuseum/mid_EPF1915.jpg');
     htSetImageSrc("img0", "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg");
     htSetImageSrc("img1", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
     htSetImageSrc("img2", "images/HistoryTracers/pyramid.jpg");
