@@ -27,6 +27,9 @@ function htLoadContent() {
     htSetImageSrc('imgGeo14', 'images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica2.jpg');
     htSetImageSrc("img0", "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg");
     htSetImageSrc("img1", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
+    htSetImageSrc("img2", "images/HistoryTracers/pyramid.jpg");
+    htSetImageSrc("img3", "images/HistoryTracers/pentagonal_pyramid.jpg");
+    htSetImageSrc("img4", "images/Xunantunich/WitzXunantunich.jpg");
 
     const shape = document.getElementById('shape');
     const radiusSlider = document.getElementById('radiusSlider');
