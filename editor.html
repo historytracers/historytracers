@@ -1707,7 +1707,12 @@ function openNewSource(){
 	document.getElementById('nsCancel').onclick=function(){document.body.removeChild(ov)};
 	function nsValidDate(v){
 		if(!v)return true;
-		return /^\d{4}-\d{2}-\d{2}$/.test(v)
+		var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
+		if(!m)return false;
+		var y=+m[1],mo=+m[2],d=+m[3];
+		if(mo<1||mo>12)return false;
+		var dim=[31,((y%4===0&&y%100!==0)||y%400===0)?29:28,31,30,31,30,31,31,30,31,30,31];
+		return d>=1&&d<=dim[mo-1]
 	}
 	document.getElementById('nsCreate').onclick=function(){
 		var citation=document.getElementById('nsCitation').value.trim();
