@@ -633,13 +633,15 @@ func resolveContentTitle(page, arg, lang string) string {
 	if key == "" {
 		return ""
 	}
-	var langs []string
+	langs := []string{"en-US", "pt-BR", "es-ES"}
 	if validLangs[lang] {
-		langs = append(langs, lang)
-	} else {
-		for l := range validLangs {
-			langs = append(langs, l)
+		withLang := []string{lang}
+		for _, l := range langs {
+			if l != lang {
+				withLang = append(withLang, l)
+			}
 		}
+		langs = withLang
 	}
 	for _, l := range langs {
 		b, err := os.ReadFile(filepath.Join(contentDir, "lang", l, key+".json"))
@@ -660,7 +662,6 @@ func resolveContentTitle(page, arg, lang string) string {
 				return s
 			}
 		}
-		break
 	}
 	return ""
 }
