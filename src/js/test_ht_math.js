@@ -4,6 +4,7 @@
 //
 // Run with:
 //   node --test src/js/test_ht_math.js
+//   make test
 //
 // ht_math.js is a browser-only script. It is evaluated inside a Node.js `vm`
 // sandbox with a recording stub for $ and stubs for the external helpers it

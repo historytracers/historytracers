@@ -80,6 +80,7 @@ test:
 if BUILD_EDITOR
 	cd $(EDITORSRC_DIR) && $(GO_RUN) test ./...
 endif
+	node --test src/js/test_ht_math.js
 
 fmt:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) fmt ./...
