@@ -74,13 +74,28 @@ if BUILD_EDITOR
 	cd $(EDITORSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
 endif
 
+# Node.js is required to run the JavaScript unit tests (src/js/test_ht_math.js).
+# The built-in test runner (`node --test`) is stable since Node.js 20.
+NODE ?= node
+NODE_MIN_MAJOR = 20
+
 test:
+	@if ! command -v $(NODE) >/dev/null 2>&1; then \
+		echo "ERROR: Node.js >= $(NODE_MIN_MAJOR) is required to run the JavaScript unit tests." >&2; \
+		echo "       Install Node.js (see README.md, 'Testing') and rerun 'make test'." >&2; \
+		exit 1; \
+	fi; \
+	ver=$$($(NODE) --version | sed 's/^v//; s/\..*//'); \
+	if [ "$$ver" -lt $(NODE_MIN_MAJOR) ]; then \
+		echo "ERROR: Node.js >= $(NODE_MIN_MAJOR) is required to run the JavaScript unit tests (found $$($(NODE) --version))." >&2; \
+		exit 1; \
+	fi
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) test ./...
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) test ./...
 if BUILD_EDITOR
 	cd $(EDITORSRC_DIR) && $(GO_RUN) test ./...
 endif
-	node --test src/js/test_ht_math.js
+	$(NODE) --test src/js/test_ht_math.js
 
 fmt:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) fmt ./...
