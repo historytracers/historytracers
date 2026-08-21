@@ -1687,11 +1687,21 @@ function openNewSource(){
 			toast(tr('nsPublishDateError'),'error');
 			return
 		}
-		var body='sfo_id='+encodeURIComponent(document.getElementById('nsSfo').value)+
+		var citType=parseInt(document.getElementById('nsType').value)||0;
+		var fileUUID='';
+		var parts=tabs[currentTab].path.split('/');
+		var name=parts[parts.length-1];
+		var base=name.replace(/\.(json|js)$/,'');
+		if(/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(base)){
+			fileUUID=base;
+		}
+		var body='file_uuid='+encodeURIComponent(fileUUID)+
+			'&sfo_id='+encodeURIComponent(document.getElementById('nsSfo').value)+
 			'&src_citation='+encodeURIComponent(citation)+
 			'&src_date='+encodeURIComponent(nsDate)+
 			'&src_publish_date='+encodeURIComponent(nsPublishDate)+
-			'&src_url='+encodeURIComponent(document.getElementById('nsUrl').value);
+			'&src_url='+encodeURIComponent(document.getElementById('nsUrl').value)+
+			'&cit_type='+encodeURIComponent(citType);
 		fetch('/api/editor/create-source',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(r){
 			window.__ht_next_token=r.headers.get('X-HT-Next-Token');
 			return r.json().then(function(data){return {ok:r.ok,data:data}});
@@ -1700,7 +1710,6 @@ function openNewSource(){
 				toast((res.data&&res.data.error)||tr('saveError'),'error');
 				return
 			}
-			var citType=parseInt(document.getElementById('nsType').value)||0;
 			var newSrc={
 				src_id:res.data.src_id||"",
 				src_citation:citation,
