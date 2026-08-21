@@ -626,7 +626,11 @@ func allowedPage(name string) bool {
 }
 
 func resolveContentTitle(page, arg, lang string) string {
-	if arg == "" {
+	key := arg
+	if key == "" {
+		key = page
+	}
+	if key == "" {
 		return ""
 	}
 	var langs []string
@@ -638,7 +642,7 @@ func resolveContentTitle(page, arg, lang string) string {
 		}
 	}
 	for _, l := range langs {
-		b, err := os.ReadFile(filepath.Join(contentDir, "lang", l, arg+".json"))
+		b, err := os.ReadFile(filepath.Join(contentDir, "lang", l, key+".json"))
 		if err != nil {
 			continue
 		}
