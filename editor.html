@@ -443,6 +443,10 @@ function switchSidebarTab(tab){
 	if(!isFiles)fetchGitStatus();
 }
 
+function isEditableElement(el){
+	return !!(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT'||el.isContentEditable));
+}
+
 function navKeydown(e,container,clickSelector){
 	var items=container.querySelectorAll(clickSelector);
 	if(items.length===0)return;
@@ -2267,7 +2271,7 @@ function openConfig(){
 		}else if(e.key==='Tab'&&document.activeElement===document.getElementById('editorArea')){
 			e.preventDefault();
 			document.execCommand('insertText',false,'\t');
-		}else if(document.activeElement!==document.getElementById('editorArea')){
+		}else if(document.activeElement!==document.getElementById('editorArea')&&!isEditableElement(document.activeElement)){
 			// sidebar keyboard navigation (only when textarea is NOT focused)
 			var sideEl=treeEl.style.display!=='none'?treeEl:(gitEl.style.display!=='none'?gitEl:null);
 			if(sideEl)navKeydown(e,sideEl,sideEl===treeEl?'.tree-item':'.git-item');
