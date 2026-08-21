@@ -1,0 +1,566 @@
+{
+   "title": "Drawing the multiplication",
+   "header": "Drawing the multiplication",
+   "sources": [
+      "a648cecf-238e-4294-a012-3830ff833d67"
+   ],
+   "scripts": [
+      "a648cecf-238e-4294-a012-3830ff833d67"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/a648cecf-238e-4294-a012-3830ff833d67_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5l9nMhVxqZhliRtyzTEQDN?si=izX-KG_2SPW0gRNN4tOH0A",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1787192329"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nWe recommend studying the previous texts in this section before continuing, especially the one in which we learned that multiplication is a **repeated sum**, and the ones in which we learned to multiply with the abacuses and the Yupana. They will help you understand the foundations we build upon here.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same number",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a1da73b2-5d6a-4343-98e9-2d9be753b123",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with Soroban, Suanpan (算盤) and Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4c2c00d-7878-42da-9cc4-060cd7f8d225",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (multiplication)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nWe already know how to multiply numbers in many ways: with our hands, with the Yupana, and with the abacuses. We also learned that multiplication is a **repeated sum**—adding the same number over and over.\n\nBut here is something surprising: we can *draw* a multiplication table! When we do, straight lines and even triangles appear on the paper. This connection between numbers and shapes is one of the most beautiful ideas in mathematics.\n\nIn this text, we will learn a simple recipe with three steps:\n1. First, we create a **formula** that describes the multiplication table.\n2. Then, we **plot points** for that formula on a squared paper.\n3. Finally, we **connect the points** with straight strokes.\n\nLet us begin!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_formula",
+         "text": [
+            {
+               "text": "### First Step: Creating a Formula\n\nA formula is a short way of writing a rule with numbers. We use formulas every day without realizing it. For example, imagine you walk 3 blocks to school every morning. After two days, you have walked 3 + 3 = 6 blocks. After five days, 3 + 3 + 3 + 3 + 3 = 15 blocks. Instead of writing long sums each time, we can write a short rule: *total blocks = 3 × number of days*.\n\nIn the text *Adding the same numbers*, we learned that multiplication is a **repeated sum** (<htcite0>): when we add the same number many times, we can write it in a shorter way. For example, instead of writing 10 + 10 + 10, we can write 3 × 10.\n\nWe can write this idea with a single formula that works for any multiplication (<htcite1>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same number",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>r</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>a</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi></math></p><p class=\"desc\"><b>Formula 1</b>: General formula for multiplication tables.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In this formula, each letter represents a quantity that can change:\n- **r**: is the **result** of the multiplication (also called the **product**). It is the answer we get.\n- **N**: is the **number of times** we repeat the same number (also called the **factor**). It counts how many groups we have.\n- **a**: is the number we repeat—the table itself. Mathematicians call it the **angular coefficient** (or **slope**) because, as we will soon see, it controls how steeply the line rises.\n\nThink of it this way: if **a** is small (like 1), the results grow slowly. If **a** is big (like 10), the results grow quickly. Let us see this in action!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Now let us see the formula in action with the simplest values of **a**. Try to work out each result yourself before moving the pointer over the tables below:\n- When **a = 0**, we repeat the number zero: 0 + 0 + 0 + ... + 0 = 0 × **N**. No matter how many times we add zero, the result is always zero.\n- When **a = 1**, we repeat the number one: 1 + 1 + 1 + ... + 1 = 1 × **N**. The result is always the number **N** itself—nothing changes!\n\nMove the pointer over each result to see how it is formed",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p>Applying the formula with <b>a = 0</b>, we get the multiplication table of zero (<b>Table 1</b>):</p><p><div id=\"mParent0\"  style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Applying the formula with <b>a = 1</b>, we get the multiplication table of one (<b>Table 2</b>):</p><p><div id=\"mParent1\"  style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_points",
+         "text": [
+            {
+               "text": "### Second Step: Plotting the Points\n\nA formula gives us numbers, but numbers alone do not show us the shape of a multiplication table. To see its shape, we need to draw.\n\nWe use two perpendicular lines, called **axes**, that cross at a point called the **origin**:\n- The **horizontal axis** (going left to right) shows the values of **N** (the numbers we count: 1, 2, 3, ...).\n- The **vertical axis** (going bottom to top) shows the results **r** (the products).\n\nFor each value of **N**, we place a single point. Here is how:\n1. Start at the origin.\n2. Move **right** along the horizontal axis until you reach the value of **N**.\n3. From there, move **up** until you reach the result **r**.\n4. Mark that spot with a dot.\n\nFor example, in the table of 1 (where **a = 1**), when **N = 3** the result is **r = 1 × 3 = 3**. So we go right to 3 on the horizontal axis, then up to 3 on the vertical axis, and place our dot there.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Making a Prediction</b><br /><br />When <b>a = 0</b>, every result is zero. Remember: to plot each point, we go right to <b>N</b>, then up to the result.<br /><br />If the result is always zero, how high do we go? Where do you expect the points to be on the chart?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Let's plot the points for **a = 0**, following our recipe:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 1</b>: Points from the multiplication table of zero. Chart created using <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As we predicted, every point sits on the horizontal axis, because every result is zero. Now let's plot the points for **a = 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Points from the multiplication table of one. Chart created using <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The points for **a = 1** step upward, one unit at a time, forming a **diagonal** path across the squared paper. This is very different from the flat line of the table of zero!\n\nNow that we have seen individual points for both tables, let us connect them and discover the shapes they form.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_connect",
+         "text": [
+            {
+               "text": "### Third Step: Connecting the Points\n\nFinally, we connect neighboring points with a straight stroke. This is where the shapes appear!\n\nFor **a = 0**, all the points are at the same height, so connecting them gives us a flat, horizontal line:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 3</b>: Connected points of the multiplication table of zero, forming a flat line. Chart created using <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "For **a = 1**, the connection follows the diagonal path of the points and gives us a rising straight line. This line divides the squared paper into two equal parts:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 4</b>: Connected points of the multiplication table of one, forming a rising line. Chart created using <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "We can also show the case **a = 1** with boxes. Each column has as many boxes as its product:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 5</b>: Boxes of the same color showing the multiplication table of one. Each column of boxes represents a result: 1 × 1 is one box, 2 × 1 is two boxes, and so on. Chart created using <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Flat or Rising?</b><br /><br />When we connect the points for <b>a = 0</b>, we obtain a flat line. When we connect the points for <b>a = 1</b>, we obtain a rising line.<br /><br />Why are these two lines so different?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_triangle",
+         "text": [
+            {
+               "text": "### Triangle\n\nWe have seen that the table of zero makes a flat line and the table of one makes a rising line. Now let us do something interesting: we will fill in the space below the rising line of the table of one, between the line and the horizontal axis.\n\nThis exercise reinforces what we have learned and introduces an important shape that we will explore in depth in the next texts",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart6\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 6</b>: Points of the multiplication table connected, forming a straight line <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Defining the Triangle</b><br /><br />Looking at Chart 6, where the triangular area is highlighted, count the sides. How many straight edges form the boundary of this shape? How would you describe it in your own words?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Compare your definition with a simplified version of the one provided by Eric W. Weisstein",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triangle",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>\"A triangle is a closed shape with three sides and three angles (formed by the intersection of its sides)...\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Beyond this general definition, Weisstein notes that the right triangle shown in the chart has specific components with distinct names. In Chart 7, we identify these elements and label them",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triangle",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W., Right Triangle",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:green;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"green\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\"><b>Chart 7</b>: Right triangle with its components labeled.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **a**, **b** and **c**: The sides of the triangle. Sides **a** and **b** are called **legs**, while **c** is the **hypotenuse**.\n- **α**, **β**, and <i class=\"fa-regular fa-square\"></i>: The angles formed by the intersection of the sides. The square symbol ( <i class=\"fa-regular fa-square\"></i> ) marking the angle between the horizontal and vertical sides is called the **right angle**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we learned a recipe with three steps that works for any multiplication table:\n1. Create a **formula** (r = a × N).\n2. **Plot the points** on squared paper.\n3. **Connect the points** with straight strokes.\n\nWith this recipe, we discovered something beautiful: the table of zero became a flat, horizontal line, and the table of one became a rising, diagonal line. When we filled the space between the rising line and the axes, we found a very important shape: the **triangle**—a closed figure with three sides and three angles.\n\nThis is only the beginning. In the next texts, we will use this same recipe with other multiplication tables (2, 3, 5, ...) and discover new shapes and patterns. What do you think will happen when **a = 2**? Try to imagine it before reading on!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Is a triangle a closed shape with three sides and three angles?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "This is the basic definition of a triangle that we are using in this chapter, but there are additional aspects that will further develop this concept in subsequent texts."
+      },
+      {
+         "question": "In the multiplication table of zero, do all the points lie on the horizontal axis?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Multiplying any number by zero always gives zero. Therefore, every point we plot is at height zero, aligned with the horizontal axis."
+      },
+      {
+         "question": "In the multiplication table of one, do the connected points form a flat, horizontal line?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "The points of the multiplication table of one grow one unit at a time, so when we connect them they form a rising diagonal line. Only the table of zero produces a flat line."
+      },
+      {
+         "question": "Using the recipe from this text, if we draw the multiplication table of two (a = 2), do you expect the line to rise faster than the line of the table of one?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Since a = 2 is larger than a = 1, the results grow twice as fast: 2, 4, 6, 8, ... So the line will rise more steeply. The larger the value of a, the steeper the line."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
