@@ -173,8 +173,13 @@ The publisher CLI tool processes content generation tasks (minify, audio, GEDCOM
 ### Testing
 
 ```sh
-$ make test               # Run all tests in src/publisher and src/editor
+make test                 # Run all tests in src/publisher, src/viewer and the JavaScript unit tests; src/editor tests run only when BUILD_EDITOR is enabled
 ```
+
+The `test` target also runs the JavaScript unit tests (`src/js/test_ht_math.js`) with
+Node.js's built-in test runner (`node --test`). Node.js >= 20 is required; install it
+before running `make test` (e.g. `dnf install nodejs` on Fedora, `apt install nodejs`
+on Debian/Ubuntu, or see `packaging/historytracers-install-requirements.sh`).
 
 To run a single test:
 

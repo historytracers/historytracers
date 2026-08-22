@@ -625,6 +625,67 @@ func allowedPage(name string) bool {
 	return false
 }
 
+func safeContentKey(key string) bool {
+	if key == "" || key == "." || key == ".." {
+		return false
+	}
+	if strings.ContainsAny(key, "/\\") {
+		return false
+	}
+	return true
+}
+
+func resolveContentTitle(page, arg, lang string) string {
+	key := arg
+	if key == "" {
+		key = page
+	}
+	if !safeContentKey(key) {
+		return ""
+	}
+	langs := []string{"en-US", "pt-BR", "es-ES"}
+	if validLangs[lang] {
+		withLang := []string{lang}
+		for _, l := range langs {
+			if l != lang {
+				withLang = append(withLang, l)
+			}
+		}
+		langs = withLang
+	}
+	for _, l := range langs {
+		b, err := os.ReadFile(filepath.Join(contentDir, "lang", l, key+".json"))
+		if err != nil {
+			continue
+		}
+		var data map[string]interface{}
+		if err := json.Unmarshal(b, &data); err != nil {
+			continue
+		}
+		if header, ok := data["header"]; ok {
+			if s, ok := header.(string); ok && s != "" {
+				return s
+			}
+		}
+		if title, ok := data["title"]; ok {
+			if s, ok := title.(string); ok && s != "" {
+				return s
+			}
+		}
+	}
+	return ""
+}
+
+func contentTitle(page, arg, lang, stored string) string {
+	if stored != "" && stored != "History Tracers" {
+		return stored
+	}
+	if t := resolveContentTitle(page, arg, lang); t != "" {
+		return t
+	}
+	return stored
+}
+
 func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", 405)
@@ -645,8 +706,8 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	arg := r.FormValue("arg")
 	people := r.FormValue("people")
-	title := r.FormValue("title")
 	lang := r.FormValue("lang")
+	title := contentTitle(page, arg, lang, r.FormValue("title"))
 	cal := r.FormValue("cal")
 	now := time.Now().Unix()
 
@@ -683,6 +744,10 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 	sort.Slice(entries, func(i, j int) bool {
 		return entries[i].Time > entries[j].Time
 	})
+
+	for i := range entries {
+		entries[i].Title = contentTitle(entries[i].Page, entries[i].ArgUUID, entries[i].Lang, entries[i].Title)
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(entries)
@@ -773,8 +838,8 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 	page := r.FormValue("page")
 	arg := r.FormValue("arg")
 	people := r.FormValue("people")
-	title := r.FormValue("title")
 	lang := r.FormValue("lang")
+	title := contentTitle(page, arg, lang, r.FormValue("title"))
 	cal := r.FormValue("cal")
 
 	favoritesMu.Lock()
@@ -816,6 +881,10 @@ func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
 	sort.Slice(entries, func(i, j int) bool {
 		return entries[i].Time > entries[j].Time
 	})
+
+	for i := range entries {
+		entries[i].Title = contentTitle(entries[i].Page, entries[i].ArgUUID, entries[i].Lang, entries[i].Title)
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(entries)
