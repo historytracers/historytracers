@@ -25,5 +25,7 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: Development files for History Tracers
  Source code and development files for the History Tracers
- teaching tool.  Contains the complete repository source tree
- excluding the pre-built www/ directory.
+ teaching tool.  Contains the repository source tree excluding
+ generated and packaging content: the pre-built www/ and build/
+ directories, the packaging/ and debian/ directories, and VCS
+ metadata (.git/).
