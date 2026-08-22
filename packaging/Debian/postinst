@@ -14,11 +14,11 @@ case "$1" in
                     --gecos "History Tracers User" historytracers
         fi
 
-        # Set ownership on runtime directories
-        chown historytracers:historytracers /usr/share/historytracers
-        chown -R historytracers:historytracers /usr/share/historytracers/www
-        chown historytracers:historytracers /usr/bin/historytracers
-        chown historytracers:historytracers /etc/historytracers
+        # Keep package-owned paths root:root; only mutable log dir is service-owned
+        chown root:root /usr/share/historytracers
+        chown -R root:root /usr/share/historytracers/www
+        chown root:root /usr/bin/historytracers
+        chown root:root /etc/historytracers
         chown historytracers:historytracers /var/log/historytracers
 
         # Set directory permissions
