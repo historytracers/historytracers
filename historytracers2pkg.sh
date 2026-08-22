@@ -366,7 +366,8 @@ Get-ChildItem -Recurse -File $dir | Where-Object {
     $rel = $_.FullName.Substring($dir.Length+1).Replace('\','/')
     if ($excludeList.Count -gt 0) {
         $base = Split-Path -Leaf $rel
-        -not ($excludeList | Where-Object { $base -like $_ })
+        $topDir = ($rel -split '[/\\]')[0]
+        -not ($excludeList | Where-Object { $base -like $_ -or $topDir -like $_ })
     } else { $true }
 } | ForEach-Object {
     $rel = $_.FullName.Substring($dir.Length+1).Replace('\','/')
