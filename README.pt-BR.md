@@ -180,7 +180,7 @@ A ferramenta de linha de comando do publisher processa tarefas de geração de c
 ### Testes
 
 ```sh
-$ make test               # Executar todos os testes em src/publisher, src/viewer, src/editor e os testes unitários de JavaScript
+$ make test               # Executar todos os testes em src/publisher, src/viewer e os testes unitários de JavaScript; os testes de src/editor são executados apenas quando BUILD_EDITOR está habilitado
 ```
 
 O alvo `test` também executa os testes unitários de JavaScript (`src/js/test_ht_math.js`) com o executor de testes integrado do Node.js (`node --test`). É necessário Node.js >= 20; instale-o antes de executar `make test` (por exemplo, `dnf install nodejs` no Fedora, `apt install nodejs` no Debian/Ubuntu, ou consulte `packaging/historytracers-install-requirements.sh`).
