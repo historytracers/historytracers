@@ -46,6 +46,7 @@ var htPhysicsIdx = new Map();
 var htPhilosophyIdx = new Map();
 var htFamilyIdx = new Map();
 var htGalleryIdx = new Map();
+var htDocumentationIdx = new Map();
 
 var extLatexIdx = 0;
 
@@ -172,7 +173,8 @@ function htResetAllIndexes()
         htPhysicsIdx,
         htPhilosophyIdx,
         htAtlasIdx,
-        htGalleryIdx
+        htGalleryIdx,
+        htDocumentationIdx
     ];
 
     indexMaps.forEach(map => {
@@ -1712,7 +1714,8 @@ function htSelectIndexMap(index)
         chemistry: htChemicalIdx,
         biology: htBiologyIdx,
         atlas: htAtlasIdx,
-        gallery: htGalleryIdx
+        gallery: htGalleryIdx,
+        documentation: htDocumentationIdx
     };
 
     return map[index];
@@ -1736,6 +1739,7 @@ function htSelectIndexName(index) {
         historical_events: keywords[130],
         philosophy: keywords[138],
         gallery: keywords[143],
+        documentation: keywords[144],
     };
 
     return map[index] || "Undefined";
@@ -2726,7 +2730,7 @@ function htFillStringOnPage(data, idx, page)
         "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry",
-        "philosophy", "atlas", "gallery", "shapes"
+        "philosophy", "atlas", "gallery", "shapes", "documentation"
     ];
 
     if (allowedPages.includes(page) && item.target) {
@@ -2787,10 +2791,10 @@ function htFillWebPage(page, data)
     if (Array.isArray(page_reviewers)) {
         const reviewersText = page_reviewers.join(", ");
         page_reviewers = reviewersText.indexOf("CodeRabbit") >= 0
-            ? reviewersText.replace(/CodeRabbit/g, keywords[144])
+            ? reviewersText.replace(/CodeRabbit/g, keywords[145])
             : reviewersText;
     } else if (String(page_reviewers).indexOf("CodeRabbit") >= 0) {
-        page_reviewers = String(page_reviewers).replace(/CodeRabbit/g, keywords[144]);
+        page_reviewers = String(page_reviewers).replace(/CodeRabbit/g, keywords[145]);
     }
 
     if ($("#extpaper").length && page_last_update > 0) {
@@ -3146,7 +3150,8 @@ function htLoadIndex(data, arg, page)
         philosophy: htPhilosophyIdx,
         atlas: htAtlasIdx,
         shapes: htShapesIdx,
-        gallery: htGalleryIdx
+        gallery: htGalleryIdx,
+        documentation: htDocumentationIdx
     };
 
     if (page && pageConfig[page] && !pageConfig[page].has(page)) {

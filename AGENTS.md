@@ -26,6 +26,41 @@ A "group of files" is identified by a single UUID, e.g. `e0380670-cd02-46e8-abb8
    - `build/historytracers-publisher -checksources` — checks citation year/published consistency.
 8. Regenerate the compiled outputs: `build/historytracers-publisher -minify`. This updates `css/ht_math.css`, `index.html` (cache-busting version stamps), and `www/`. It may also rewrite unrelated files in the `src/common` submodule — revert those with `git checkout` in `src/common` if they are unrelated to the change.
 
+## Adding a new entry to the main menu
+
+A "main menu entry" is an item in the sidebar navigation shown on every page (e.g. the `Documentation` entry added next to `Gallery`). Steps to add one:
+
+1. Edit `index.html`: insert an `<li class="menu">` inside the desired `ul.sidebar-all` block, next to a related entry (e.g. `sbGallery`). The link must point to `index.html?page=<page>` with `onclick="htLoadPage('<page>','html', '', false); return false;"` and a unique `id` (e.g. `id="sbDocumentation"`). Reuse the `li.menu` class so the responsive sidebar keeps working.
+2. Edit `js/index.js`: in `htParseIndexRequest()`, add `case '<page>':` to the switch branch that ends in `htLoadPage(page, 'html', '', false);` (next to e.g. `case 'gallery':`) so `index.html?page=<page>` loads the page.
+3. Register the menu label in **all three languages** in `lang/<lang>/index.json` (en-US, es-ES, pt-BR): add an object `{ "id": "<menu-id>", "value": "<Localized label>" }` matching the `id` from step 1. Keep each file's existing indentation (6 spaces for `{` / `},`, 9 spaces for keys) and the three files structurally identical.
+4. Create the page's initial index JSON in **all three languages**: `lang/<lang>/<page>.json`, modeled on `src/json/index_template.json` (`type: "index"`, `version: 2`). Keep the three files structurally identical (same line count) — the language test enforces this. Every `group-list` entry `id` must be a real UUID with a matching content file `lang/<lang>/<uuid>.json`; placeholder IDs (e.g. `"Unique identifier (UUID)..."`) break `-audiofiles` and the page.
+5. Create the page shell and its loader (required, otherwise loading the page returns 404):
+   - `bodies/<page>.html` — modeled on `bodies/gallery.html`: a `<script>` that injects `js/<page>.js` plus the `#extpaper`, `#htaudio`, `#introduction`, and `#group-map` containers. `htOnlyLoadHtml()` in `ht_common.js` loads `bodies/<page>.html` for every page.
+   - `js/<page>.js` — calls `htLoadPage('<page>','json', '', false);` inside `$(document).ready(...)` (see `js/gallery.js`).
+6. Edit `src/js/ht_common.js`: add `'<page>'` to the `allowedPages` array in `htFillStringOnPage()` (next to e.g. `"gallery"`, `"shapes"`). Without it the index `group-list` entries are never rendered, because the `<ol id="<target>">` container is only created for pages in that list. Keep the compiled `js/ht_common.js` in sync (regenerate with `-minify`).
+7. Register the page in the navigation index infrastructure in `src/js/ht_common.js` so content pages display the index/prev-next block at the top (the "indexes" never load otherwise). Use `ht<Page>Idx` and `<page>` as placeholders (e.g. `htDocumentationIdx` / `"documentation"`):
+   - declare `var ht<Page>Idx = new Map();` next to the other index map declarations (e.g. `var htGalleryIdx = new Map();`);
+   - add `ht<Page>Idx` to the `indexMaps` array that `htResetAllIndexes()` clears;
+   - add `'<page>': ht<Page>Idx` to `htSelectIndexMap()`;
+   - add `'<page>': keywords[<N>]` to `htSelectIndexName()`, where `<N>` is the index of a new localized keyword added to the end of `lang/<lang>/common_keywords.json` in **all three languages** (e.g. `keywords[144]` = "Documentation"/"Documentación"/"Documentação");
+   - add `'<page>': ht<Page>Idx` to the `pageConfig` map in `htLoadIndex()` — this is what makes `htFillTopIdx()` build the prev/next index and register the page in `loadedIdx`, so `htWriteNavigation()` fills the index block at the top of content pages.
+   Keep the compiled `js/ht_common.js` in sync (regenerate with `-minify`).
+8. If the page/content has no citation files under `lang/sources/`, set `"sources": null` in the index and content JSON. Otherwise `htLoadSources()` (in `ht_common.js`) fetches `lang/sources/<id>.json` and logs a 404.
+9. Validate the JSON files parse correctly (e.g. `ConvertFrom-Json`/`jq`) and, if available, run the prebuilt publisher checks (`build/historytracers-publisher -langtest en-US:<page>` / `-globalangtest`).
+10. Regenerate the compiled outputs when ready: `build/historytracers-publisher -minify`. This updates `www/` (including `bodies/<page>.html`, `js/<page>.js`, and `js/ht_common.js`) and cache-busting version stamps in `index.html`.
+
+Note: if the desktop viewer must track navigation to the new page, add it to the `allowedPage` list in `src/viewer/main.go` (e.g. `"documentation"`) and rebuild the viewer.
+
+## Adding new video content (inside `videos/??-??/`)
+
+Video files live under `videos/<locale>/` where `<locale>` is the language code (e.g. `en-US`, `es-ES`, `pt-BR`). Each video file follows the naming pattern `UUID_<locale>` where `<locale>` matches the directory name. Steps to add one:
+
+1. Generate a UUID: `cat /proc/sys/kernel/random/uuid`.
+2. Create the video file at `videos/<locale>/<uuid>_<locale>`. Repeat for all three languages, using the same UUID but changing the locale suffix (e.g. `videos/en-US/<uuid>_en-US`, `videos/es-ES/<uuid>_es-ES`, `videos/pt-BR/<uuid>_pt-BR`).
+3. Ensure the files are structurally identical across languages (same line count / structure), only the translated content differs.
+4. Validate the files are parseable (e.g. `python3 -c "import json; json.load(open('<file>'))"` if JSON, or the appropriate validator for the file format).
+5. Register the content in the index files for each language as needed, following the same pattern as other content (see "Adding new content" above).
+
 ## Converting class files to smartphone files
 
 Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `common/src/smartphone/XX-YY/<sm-uuid>.json`. The smartphone version is a condensed, screen-by-screen adaptation. Steps to add or update a smartphone file:

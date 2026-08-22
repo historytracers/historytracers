@@ -6,11 +6,9 @@ set -eo pipefail
 case "$(uname -s)" in
     Linux)
         PLATFORM="linux"
-        PUBLISHER_BIN="historytracers-publisher"
         ;;
     CYGWIN*|MINGW*|MSYS*)
         PLATFORM="msys2"
-        PUBLISHER_BIN="historytracers-publisher.exe"
         # Set GOROOT if not set and Go is in a known location
         if [ -z "$GOROOT" ]; then
             for cand in "/c/Program Files/Go" "/c/Go" "/mingw64/lib/go"; do
@@ -36,6 +34,11 @@ update_submodules() {
 compile() {
     echo "=== Platform: $PLATFORM ==="
 
+    if [ ! -f configure.ac ]; then
+        echo "ERROR: configure.ac not found. Run this script from the project root."
+        exit 1
+    fi
+
     autoreconf -f -i
     echo "=== autoreconf done ==="
 
@@ -48,13 +51,15 @@ compile() {
     ./configure --with-conf-path="packaging/conf/dev.conf" \
                 --with-src-path="${LOCALPATH}/" \
                 --with-content-path="${LOCALPATH}/www/" \
-                --with-log-path="${LOGPATH}"
+                --with-log-path="${LOGPATH}" \
+                --disable-editor
     echo "=== configure done ==="
 
-    make clean
-    make all
+    make clean || true
+    make -j"$(nproc 2>/dev/null || echo 1)" all
     echo "=== build done ==="
 
+    # Detect publisher binary
     if [ -f "./build/historytracers-publisher.exe" ]; then
         PUBLISHER_BIN="historytracers-publisher.exe"
     elif [ -f "./build/historytracers-publisher" ]; then
@@ -64,15 +69,13 @@ compile() {
         ls -la build/
         exit 1
     fi
+
     # Pre-validation: check source dates before running publisher pipeline
     echo "=== pre-validating source dates ==="
     ./build/$PUBLISHER_BIN -checksources -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: checksources found issues"
 
     echo "=== pre-validating UUID files across languages ==="
     ./build/$PUBLISHER_BIN -globalangtest -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: globalangtest found issues"
-
-#    echo "=== generating gallery index ==="
-#    ./build/$PUBLISHER_BIN -gallery -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: gallery generation found issues"
 
     ./build/$PUBLISHER_BIN -minify -audiofiles -gedcom -verbose >> historytracers.log 2> >(tee -a historytracers.log >&2)
     echo "=== publisher run complete (see historytracers.log) ==="
