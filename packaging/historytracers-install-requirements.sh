@@ -87,6 +87,7 @@ install_debian() {
         gcc \
         g++ \
         golang-go \
+        nodejs \
         pkg-config \
         libgtk-3-dev \
         libwebkit2gtk-4.1-dev \
@@ -115,6 +116,7 @@ install_fedora() {
         gcc \
         gcc-c++ \
         golang \
+        nodejs \
         pkgconfig \
         gtk3-devel \
         webkit2gtk4.1-devel \
@@ -140,6 +142,7 @@ install_opensuse() {
         gcc \
         gcc-c++ \
         go \
+        nodejs \
         pkg-config \
         gtk3-devel \
         webkit2gtk-4_1-devel \
@@ -164,6 +167,7 @@ install_arch() {
         make \
         gcc \
         go \
+        nodejs \
         pkg-config \
         gtk3 \
         webkit2gtk-4.1 \
@@ -189,6 +193,7 @@ install_alpine() {
         gcc \
         g++ \
         go \
+        nodejs \
         pkgconfig \
         gtk+3.0-dev \
         webkit2gtk-4.1-dev \
@@ -213,6 +218,7 @@ install_void() {
         gcc \
         g++ \
         go \
+        nodejs \
         pkg-config \
         gtk+3-devel \
         webkit2gtk-4.1-devel \
@@ -237,6 +243,7 @@ install_gentoo() {
         make \
         gcc \
         dev-lang/go \
+        net-libs/nodejs \
         pkg-config \
         x11-libs/gtk+:3 \
         net-libs/webkit-gtk:4.1 \
@@ -257,7 +264,7 @@ install_slackware() {
     echo "Detected Slackware ($DISTRO_ID $DISTRO_VERSION)"
     if ! command -v slackpkg >/dev/null 2>&1; then
         echo "slackpkg not found. Please install required packages manually:"
-        echo "  autoconf automake make gcc gcc-g++ go pkg-config gtk+3"
+        echo "  autoconf automake make gcc gcc-g++ go nodejs pkg-config gtk+3"
         echo "  mesa libX11 libXrandr libXinerama libXcursor libXi libXxf86vm"
         echo "  cairo pango gdk-pixbuf2"
         echo ""
@@ -278,6 +285,7 @@ install_slackware() {
         gcc \
         gcc-g++ \
         go \
+        nodejs \
         pkg-config \
         gtk+3 \
         mesa \
@@ -345,6 +353,7 @@ install_solus() {
         gcc \
         g++ \
         go \
+        nodejs \
         pkg-config \
         libgtk-3-devel \
         webkit2gtk-4.1-devel \
@@ -374,6 +383,7 @@ install_freebsd() {
         gmake \
         gcc \
         go \
+        node \
         pkgconf \
         gtk3 \
         webkit2gtk41 \
