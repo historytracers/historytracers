@@ -123,7 +123,7 @@ fi
 %{_unitdir}/historytracers.service
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/historytracers.conf
-%dir %{_localstatedir}/log/%{name}
+%attr(0750,historytracers,historytracers) %dir %{_localstatedir}/log/%{name}
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/www
 %{_datadir}/%{name}/www/*
