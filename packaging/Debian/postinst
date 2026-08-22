@@ -24,14 +24,14 @@ case "$1" in
         # Set directory permissions
         chmod 755 /usr/share/historytracers
 
-        # Reload systemd and enable/start service
-        systemctl daemon-reload >/dev/null 2>&1 || true
+        # Reload systemd and enable/start service via Debian helpers
+        deb-systemd-invoke daemon-reload >/dev/null 2>&1 || true
 
-        if systemctl is-enabled historytracers.service >/dev/null 2>&1; then
-            systemctl restart historytracers.service || true
+        if deb-systemd-helper is-enabled historytracers.service >/dev/null 2>&1; then
+            deb-systemd-invoke restart historytracers.service >/dev/null 2>&1 || true
         else
-            systemctl enable historytracers.service >/dev/null 2>&1 || true
-            systemctl start historytracers.service >/dev/null 2>&1 || true
+            deb-systemd-helper enable historytracers.service >/dev/null 2>&1 || true
+            deb-systemd-invoke start historytracers.service >/dev/null 2>&1 || true
         fi
     ;;
 
