@@ -173,7 +173,7 @@ The publisher CLI tool processes content generation tasks (minify, audio, GEDCOM
 ### Testing
 
 ```sh
-$ make test               # Run all tests in src/publisher, src/viewer and the JavaScript unit tests; src/editor tests run only when BUILD_EDITOR is enabled
+make test                 # Run all tests in src/publisher, src/viewer and the JavaScript unit tests; src/editor tests run only when BUILD_EDITOR is enabled
 ```
 
 The `test` target also runs the JavaScript unit tests (`src/js/test_ht_math.js`) with
