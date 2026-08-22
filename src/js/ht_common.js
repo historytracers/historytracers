@@ -149,6 +149,13 @@ function htResetAllIndexes()
     htCurrentPage = "";
     htCurrentArg = "";
     htAllowJsonLoad = false;
+
+    // A retry loop from a previous page may still be running; stop it so a
+    // fresh navigation is not re-rendered by stale state.
+    if (htNavigationRetry != null) {
+        clearInterval(htNavigationRetry);
+        htNavigationRetry = null;
+    }
     const indexMaps = [
         htHistoryIdx,
         htLiteratureIdx,
@@ -1851,31 +1858,40 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 }
 
 var htPendingIndexes = [];
+var htNavigationRetry = null;
+var htNavigationRetryChecks = 0;
 
 function htWriteNavigation()
 {
-    if (htPendingIndexes.length > 0) {
-        htIndexesOrder = htPendingIndexes.slice();
-        var checkCount = 0;
-        var maxChecks = 50;
-        var expectedCount = htPendingIndexes.length;
-        var checkInterval = setInterval(function() {
-            var allLoaded = loadedIdx.length >= expectedCount &&
-                htPendingIndexes.every(function(idx) {
-                    return loadedIdx.includes(idx);
-                });
-            checkCount++;
-            if (allLoaded || checkCount >= maxChecks) {
-                clearInterval(checkInterval);
-                htPendingIndexes = [];
-                htIndexesOrder = [];
-                htWriteNavigationInternal();
-            }
-        }, 50);
-        return;
-    }
-
+    // Write the navigation with whatever indexes have already been received.
+    // htWriteNavigationInternal() only renders rows whose index maps are
+    // populated, so this is safe to call before, during, and after the index
+    // fetches complete. Each index arrival (see htLoadIndex) re-invokes this
+    // function, completing the table incrementally as the server delivers the
+    // indexes.
     htWriteNavigationInternal();
+
+    // Indexes are still arriving from the server. Keep a lightweight re-write
+    // loop active while any index is still pending so a late arrival is
+    // reflected even if a code path missed the completion callback. The loop
+    // stops as soon as every requested index has been received.
+    if (htPendingIndexes.length > 0) {
+        if (htNavigationRetry == null) {
+            htNavigationRetryChecks = 0;
+            htNavigationRetry = setInterval(function() {
+                htNavigationRetryChecks++;
+                if (htPendingIndexes.length == 0 || htNavigationRetryChecks >= 100) {
+                    clearInterval(htNavigationRetry);
+                    htNavigationRetry = null;
+                    return;
+                }
+                htWriteNavigationInternal();
+            }, 150);
+        }
+    } else if (htNavigationRetry != null) {
+        clearInterval(htNavigationRetry);
+        htNavigationRetry = null;
+    }
 }
 
 function htWriteNavigationInternal()
@@ -1883,12 +1899,16 @@ function htWriteNavigationInternal()
     if (loadedIdx.length == 0) {
         return;
     }
-    var sortedIdx = loadedIdx.slice();
+
+    var sortedIdx;
     if (htIndexesOrder.length > 0) {
-        sortedIdx.sort(function(a, b) {
-            return htIndexesOrder.indexOf(a) - htIndexesOrder.indexOf(b);
+        sortedIdx = htIndexesOrder.filter(function(idx) {
+            return loadedIdx.includes(idx);
         });
+    } else {
+        sortedIdx = loadedIdx.slice();
     }
+
     var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in sortedIdx) {
         var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
@@ -2768,6 +2788,15 @@ function htFillWebPage(page, data)
     if (data?.authors != null && data.authors.length > 0) page_authors = data.authors;
     if (data?.reviewers != null && data.reviewers.length > 0) page_reviewers = data.reviewers;
 
+    if (Array.isArray(page_reviewers)) {
+        const reviewersText = page_reviewers.join(", ");
+        page_reviewers = reviewersText.indexOf("CodeRabbit") >= 0
+            ? reviewersText.replace(/CodeRabbit/g, keywords[145])
+            : reviewersText;
+    } else if (String(page_reviewers).indexOf("CodeRabbit") >= 0) {
+        page_reviewers = String(page_reviewers).replace(/CodeRabbit/g, keywords[145]);
+    }
+
     if ($("#extpaper").length && page_last_update > 0) {
         htFillDivAuthorsContent("#extpaper", page_last_update, page_authors, page_reviewers);
     }
@@ -3079,17 +3108,27 @@ function htFillTopIdx(idx, data, first)
     }
 }
 
+function htRemovePendingIndex(indexName)
+{
+    htPendingIndexes = htPendingIndexes.filter(function(idx) {
+        return idx != indexName;
+    });
+}
+
 function htLoadIndex(data, arg, page)
 {
     if (data != undefined && data.index != undefined) {
         if (data.index.constructor === vectorConstructor) {
+            // Preserve the order in which the page declares its indexes so the
+            // navigation table rows follow the declared sequence.
+            htIndexesOrder = data.index.slice();
             for (const i in data.index) {
                 var newData = { "index" : data.index[i] };
                 htLoadIndex(newData, arg, page);
             }
             return;
         } else {
-            if (!htPendingIndexes.includes(data.index)) {
+            if (data.index.length > 0 && !htPendingIndexes.includes(data.index)) {
                 htPendingIndexes.push(data.index);
             }
         }
@@ -3136,6 +3175,8 @@ function htLoadIndex(data, arg, page)
         dataType: 'json',
         success: function(d) {
             if (d.length == 0) {
+                htRemovePendingIndex(indexName);
+                htWriteNavigation();
                 return false;
             }
 
@@ -3143,7 +3184,19 @@ function htLoadIndex(data, arg, page)
                 htLoadIndex(d, arg, indexName);
             }
 
+            // This index has now been received and processed; stop tracking it
+            // so the navigation retry loop terminates.
+            htRemovePendingIndex(indexName);
+
+            // A late index arrival must re-trigger the navigation write so a
+            // previously written table is completed with all expected indexes.
+            htWriteNavigation();
+
             return false;
+        },
+        error: function() {
+            htRemovePendingIndex(indexName);
+            htWriteNavigation();
         },
     });
 }

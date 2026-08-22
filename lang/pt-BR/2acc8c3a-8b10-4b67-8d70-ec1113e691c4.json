@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/LNaNOH50UUb",
+         "url": "https://open.spotify.com/episode/3lMEHqLgxfhckFDiHZNmyU?si=IdVUTGA2SkmCShLw9mlBWQ",
          "external": true,
          "spotify": true
       }
@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1787094546"
+      "1787253823"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -48,7 +50,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nRecomendamos o estudo dos textos anteriores desta seção antes de continuar. Eles ajudarão você a entender as bases sobre as quais construímos aqui.",
+               "text": "### Pré-requisitos\n\nRecomendamos o estudo dos textos anteriores desta seção antes de continuar, especialmente *Desenhando a multiplicação* (<htcite1>), no qual aprendemos a transformar tabuadas em formas visuais. Eles ajudarão você a entender as bases sobre as quais construímos aqui.",
                "source": [
                   {
                      "type": 1,
@@ -60,6 +62,18 @@
                         "year": "2024",
                         "month": "-1",
                         "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Desenhando a multiplicação",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -97,7 +111,7 @@
                "PostMention": "."
             },
             {
-               "text": "As tabelas sóúteis porque permitem consultar resultados rapidamente. Mas há um ponto importante: uma tabela só faz sentido quando compreendemos como ela foi construída. Neste texto—e nos próximos—vamos explorar o que são as tabuadas e o que elas nos revelam, em vez de apenas decorar números.",
+               "text": "As tabelas são úteis porque permitem consultar resultados rapidamente. Mas há um ponto importante: uma tabela só faz sentido quando compreendemos como ela foi construída. Neste texto—e nos próximos—vamos explorar o que são as tabuadas e o que elas nos revelam, em vez de apenas decorar números.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -241,7 +255,7 @@
                "PostMention": ""
             },
             {
-               "text": "Excelente observação! Nos dois casos—famílias e florestas—estamos contando seres vivos. O método de contagem é o mesmo, embora os objetos sejam diferentes. Essa é uma ideia fundamental: a multiplicação funciona da mesma maneira, independentemente do que estamos contando. Com essa ideia em mente, estamos prontos para construir nossa primeira tabela de resultados.",
+               "text": "Nos dois casos—famílias e florestas—estamos contando seres vivos. O método de contagem é o mesmo, embora os objetos sejam diferentes. Essa é uma ideia fundamental: a multiplicação funciona da mesma maneira, independentemente do que estamos contando. Com essa ideia em mente, estamos prontos para construir nossa primeira tabela de resultados.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -436,36 +450,18 @@
                "PostMention": ""
             },
             {
-               "text": "#### Desenhando a Tabuada\n\nTambém podemos visualizar esses resultados em um gráfico. Vamos pensar no que esperamos ver:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O que isso lhe lembra?</b><br /><br />Ao observar a tabuada de 0, alguma imagem lhe vem à mente?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Para representar graficamente os valores, vamos relembrar a relação que estabelecemos entre números e um caminho",
+               "text": "#### Visualizando a Forma\n\nAcabamos de construir a tabuada do zero usando números. Mas como essa tabuada fica quando a desenhamos? No texto *Desenhando a multiplicação* (<htcite0>), aprendemos a plotar esses resultados em um gráfico. Quando fazemos isso, todos os pontos caem sobre o eixo horizontal, formando uma linha reta e plana. Se você ainda não leu aquele texto, incentivamos a fazê-lo—ele ajudará você a ver a forma por trás dos números.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
                      "text": "History Tracers Team",
-                     "page": "Caminhando entre os números",
+                     "page": "Desenhando a multiplicação",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -473,72 +469,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ":"
-            },
-            {
-               "text": "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\"><b>Gráfico 1</b>: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Os códigos-fontes usados para montar a imagem CSS estão em <htcite0>.</p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "c7edc93c-0a41-4753-8f89-9e52904ff003",
-                     "text": "W3 Schools",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "07",
-                        "day": "25"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
                "PostMention": ""
             },
             {
-               "text": "Esse caminho com uma seta, mostrado no Gráfico 1, é conhecido na matemática como um eixo. Usaremos dois eixos para desenhar nossos resultados:\n- O **eixo vertical** (Produto) mostra os resultados.\n- O **eixo horizontal** (Fatores) mostra os valores de N.\n\nNosso objetivo é colocar um ponto para cada valor de N no gráfico. Veja como fica:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Representação dos pontos da tabuada do zero. Gráfico feito com a biblioteca <htcite0>.</div></p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
-                     "text": "Chart JS",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "05",
-                        "day": "30"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Agora vamos conectar os pontos. Como todos os resultados são zero, todos os pontos ficam na linha horizontal na altura zero. Ao conectá-los, obtemos uma linha reta e plana:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Pontos da tabuada do zero conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos da tabuada do zero conectados, formando uma linha plana. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -632,8 +566,21 @@
                "PostMention": ""
             },
             {
-               "text": "#### Desenhando a Tabuada\n\nAntes de desenharmos o gráfico, vamos fazer uma previsão:",
-               "source": null,
+               "text": "#### Visualizando a Forma\n\nConstruímos a tabuada do um. Diferente da tabuada do zero, onde todo resultado era zero, aqui cada resultado cresce de um em um. No texto *Desenhando a multiplicação* (<htcite0>), vimos que, ao plotar esses resultados em um gráfico, os pontos formam uma linha diagonal ascendente. Também visualizamos esse crescimento usando caixas, em que cada coluna tem exatamente o mesmo número de caixas que o produto. Se você ainda não explorou o lado gráfico, convidamos a ler aquele texto.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Desenhando a multiplicação",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -641,25 +588,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Construindo o Conhecimento</b><br /><br />Compare as tabuadas de 0 e 1:<br /><br />Você acredita que há algo em comum entre os gráficos que desenharemos e os que já desenhamos?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Bom pensamento! Agora vamos marcar os pontos, seguindo os mesmos passos que usamos para a tabuada do zero:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Representação dos pontos da tabuada de um. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Caixas da mesma cor mostrando a tabuada do um. Cada coluna de caixas representa um resultado: 1 × 1 é uma caixa, 2 × 1 são duas caixas, e assim por diante. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -678,46 +607,6 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Antes de respondermos à Reflexão 4, vamos criar um tipo diferente de visualização. Vamos representar a multiplicação usando caixas:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 5</b>: Caixas da mesma cor que mostram a tabuada do um. Cada coluna de caixas representa um resultado: 1 × 1 é uma caixa, 2 × 1 são duas caixas, e assim por diante. Gráfico feito com a biblioteca <htcite0>.</div></p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
-                     "text": "Chart JS",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "05",
-                        "day": "30"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Agora podemos ver claramente a diferença. Na tabuada do zero, todos os resultados são zero, por isso nenhuma caixa aparece. Na tabuada do um, cada resultado tem seu próprio grupo de caixas: 1 × 1 é uma caixa, 2 × 1 são duas caixas, e assim por diante. As caixas crescem passo a passo, uma a uma.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": ""
             }
          ]
@@ -726,8 +615,21 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, descobrimos os elementos básicos da multiplicação. Aprendemos o que são fatores e produtos, e exploramos como funcionam as tabuadas do zero e do um.\n\nA tabuada do zero nos ensina que multiplicar por vazio sempre dá vazio. A tabuada do um nos ensina que multiplicar por um não altera o número.\n\nNos próximos textos, vamos generalizar essas ideias para todos os números e aprofundar nossa compreensão de como as tabuadas funcionam.",
-               "source": null,
+               "text": "### Conclusão\n\nNeste texto, exploramos as tabuadas do zero e do um por meio de experimentos práticos e exemplos do mundo real.\n\nDescobrimos que multiplicar por zero sempre resulta em zero—contemos pessoas em salas vazias em Caral ou qualquer outra quantidade. Multiplicar por um, por outro lado, não altera o número, como vimos ao contar nos dedos.\n\nNo texto anterior, *Desenhando a multiplicação* (<htcite0>), aprendemos a transformar essas tabuadas em formas visuais em um gráfico. Aqui, nos concentramos em entender *por que* essas tabuadas funcionam como funcionam. Juntos, esses dois textos nos dão tanto a intuição quanto as ferramentas visuais para dominar as tabuadas do zero e do um.\n\nNos próximos textos, aplicaremos as mesmas ideias a números maiores e descobriremos novos padrões.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Desenhando a multiplicação",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -749,9 +651,9 @@
          "additionalInfo": "Não se preocupe se você errou, pois é comum ouvirmos que \"todo número multiplicado por um resulta no próprio número\". Essa afirmação é verdadeira apenas se excluirmos o zero, já que zero multiplicado por um ainda é zero."
       },
       {
-         "question": "Ao representar os resultados das tabuadas do zero e do um em um gráfico, as linhas formadas pela conexão dos pontos serão sempre diferentes?",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "No gráfico das tabuadas:<ul><li>Na tabuada do 0: Todos os pontos permanecem alinhados na linha do zero.</li><li>Tabuada do 1: Os pontos formam uma linha diagonal crescente.</li></ul>"
+         "question": "A tabuada do zero pode ajudar a contar objetos? Por exemplo, se um fazendeiro tem 7 campos e cada campo produz 0 sacos de grão, a tabuada pode nos dizer quantos totais diferentes são possíveis?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "A tabuada do zero sempre resulta em zero, não importa quantos grupos tenhamos. Se o fazendeiro tem 7 campos ou 700, o total é sempre zero. Por isso, a tabuada do zero não pode nos ajudar a distinguir entre diferentes quantidades—ela reduz toda contagem ao mesmo resultado."
       }
    ],
    "game_v2": null,
