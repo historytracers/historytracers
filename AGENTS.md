@@ -110,14 +110,19 @@ work_dir = tempfile.mkdtemp(prefix="ht_merge_")
 def extract_git_blob(ref_path, output_path):
     result = subprocess.run(['git', 'show', ref_path], capture_output=True)
     if result.returncode != 0:
+        stderr = result.stderr.decode(errors='replace')
+        if 'does not exist in' not in stderr and 'exists at' not in stderr:
+            raise RuntimeError(f"git show failed for {ref_path}: {stderr}")
         # File was deleted in this ref — create an empty schema-compatible DB
         import sqlite3 as _sqlite3
         conn = _sqlite3.connect(output_path)
-        conn.execute("CREATE TABLE IF NOT EXISTS source_format (sf_id TEXT, sf_desc TEXT)")
-        conn.execute("CREATE TABLE IF NOT EXISTS sources (src_id TEXT, src_alt TEXT, src_desc TEXT, src_url TEXT, src_year TEXT, src_link TEXT)")
-        conn.execute("CREATE TABLE IF NOT EXISTS files (fil_id TEXT, fil_desc TEXT)")
-        conn.execute("CREATE TABLE IF NOT EXISTS citation (fil_id TEXT, src_id TEXT, cit_type INTEGER)")
-        conn.commit(); conn.close()
+        conn.executescript("""
+            CREATE TABLE source_format (sfo_id TEXT NOT NULL PRIMARY KEY, sfo_name TEXT NOT NULL, sfo_description TEXT NOT NULL);
+            CREATE TABLE sources (src_id TEXT NOT NULL PRIMARY KEY, sfo_id TEXT NOT NULL, src_citation TEXT NOT NULL, src_date TEXT NOT NULL, src_publish_date TEXT NOT NULL, src_url TEXT NOT NULL);
+            CREATE TABLE files (fil_id TEXT NOT NULL PRIMARY KEY, fil_desc TEXT NOT NULL);
+            CREATE TABLE citation (fil_id TEXT NOT NULL, src_id TEXT NOT NULL, cit_type TINYINT NOT NULL, PRIMARY KEY (fil_id, src_id, cit_type));
+        """)
+        conn.close()
         print(f"Warning: {ref_path} not found (deleted); created empty DB at {output_path}")
         return
     with open(output_path, 'wb') as f:
