@@ -1,0 +1,639 @@
+{
+   "title": "Clasificando la igualdad",
+   "header": "Clasificando la igualdad",
+   "sources": [
+      "ffffd208-eb09-4da3-b516-f8bc695758dd"
+   ],
+   "scripts": [
+      "ffffd208-eb09-4da3-b516-f8bc695758dd"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/ffffd208-eb09-4da3-b516-f8bc695758dd_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1mWMsK1gK4t0Used3EBdIS?si=GiSsb4vOQuSPpndH3qLxhw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1787443588"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto es una continuación del texto anterior, donde presentamos qué es una igualdad (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "Explorando a igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nSolo decir que algo es exactamente igual a otro puede no ser suficiente cuando deseamos comparar. Como vimos en el texto anterior, un círculo no es exactamente igual cuando cambiamos su color de relleno. Sin embargo, el hecho de haber cambiado de color no altera la idea central de que sigue siendo una figura cuyos bordes mantienen la misma distancia del centro (<htcite0>; <htcite1>).\n\nEste escenario del círculo nos permite ir más allá. Por eso, comenzamos con una reflexión:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f3cee656-d0ed-4885-a059-91ce6e50b17a",
+                     "text": "Weisstein",
+                     "page": "Eric W. Círculo",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "Explorando a igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Y si</b><br /><br />¿Sería posible aproximar figuras geométricas de las construcciones que hacemos? </div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_perspective",
+         "text": [
+            {
+               "text": "### Otra perspectiva\n\nAl estudiar nuestro día a día y, con ello, la naturaleza, muchas veces definimos objetos como completamente diferentes. Por ejemplo, observe un círculo y un cuadrado a continuación:",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htTwoGeometricalRectangle\" style=\"width: 30vh;\"> <div class=\"htFirstGeometrical\" style=\"width: 14vh;\"><div class=\"htSquare htColorSoftYellow\" style=\"width: 14vh; height: 14vh; background-color: lightblue;\"></div></div> <div class=\"htSecondGeometrical\" style=\"width: 14vh; height: 14vh; margin-left: 16vh;\"><div class=\"htCircle\" style=\"width: 14vh; height: 14vh; background-color: lightblue;\"></div></div> </div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A primera vista, realmente son diferentes. Sin embargo, a medida que el conocimiento evolucionó a lo largo del tiempo, investigadores observaron que existe una relación entre cuadrados y círculos. Esa relación puede observarse por medio del **Homeomorfismo**, es decir, por medio de una transformación continua y biyectiva, cuya función inversa también es continua, entre los puntos de una figura (<htcite0>).\n\nA continuación, tenemos una aplicación interactiva donde un cuadrado se convierte en un círculo y viceversa, de acuerdo con el movimiento del punto sobre una barra.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5495e930-b686-42f2-b56c-30531524a3cd",
+                     "text": "Weisstein, Eric W",
+                     "page": "Homeomorfismo",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div id=\"shape\" style=\"width: 200px; height: 200px; background-color: lightblue; margin: 30px; transition: all 0.1s ease;\"></div> <div class=\"controls\" style=\"margin: 20px;\"> <div class=\"slider-container\" style=\"margin: 15px 0;\"><br /> Cuadrado <input type=\"range\" id=\"radiusSlider\" min=\"0\" max=\"50\" value=\"0\" style=\"width: 200px;\" /> Círculo </div> </div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Gracias a ello, fue posible expandir nuestro conocimiento. Hoy sabemos que un cuadrado y un círculo no son figuras completamente aisladas. Estas dos figuras se conocen como **figuras homeomórficas**, pues una puede transformarse en la otra por medio de una deformación continua.",
+               "source": [],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Agrupando objetos</b><br /><br />Vimos que cuadrados y círculos fueron inicialmente clasificados como diferentes. Tras estudios profundos, descubrimos que pueden agruparse.<br /><br />¿Sería posible hacer lo mismo con otros tipos de objetos?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1aae32d7-8b8a-49d9-b136-f859e24a53e6",
+                     "text": "Weisstein",
+                     "page": "Eric W. Pirámide",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_history",
+         "text": [
+            {
+               "text": "### Comparaciones en la historia humana\n\nAl estudiar el pasado de la humanidad, necesitamos hacer comparaciones para saber si algo fue creado por el mismo pueblo o si pueblos diferentes llegaron a conclusiones distintas en diferentes períodos.\n\nEn el primer capítulo de la sección *Primeros Pasos*, por ejemplo, observamos que la humanidad creó diferentes sistemas numéricos de manera independiente. A partir de ahora, veremos otros ejemplos.\n\n#### El mismo objeto\n\nEn Mesoamérica, región destacada en la **Figura 1** (<htcite0>), podemos encontrar diferentes **metates** — herramientas usadas para moler el maíz — que fueron creados por diferentes pueblos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
+                     "text": "Creamer, W.",
+                     "page": "pp. 37–55",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1987",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgGeo14\" onclick=\"htImageZoom('imgGeo14', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: En este mapa, el continente está resaltado © Mapswire (<htcite0>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para descubrir quiénes fueron los creadores de un metate específico, necesitamos realizar comparaciones. Primero, debemos verificar si se trata del mismo tipo de metate. Luego, podemos comparar las edades para identificar el origen y entender cómo el mismo tipo de metate puede encontrarse en diferentes lugares de Mesoamérica.\n\nHagamos un ejemplo práctico. Observe en la **Figura 2** dos metates expuestos en El Salvador y Costa Rica.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Costa Rica</td><td>El Salvador</td></tr><tr><td><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\"  class=\"imgcenter\"/></td><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\"  class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\"><b>Figura 2</b>: Metates en forma de jaguar. A la izquierda, fotografía tomada el <htdate0></span>, durante una visita al Museo de Antropología de San José, Costa Rica. A la derecha, fotografía tomada el <htdate1></span>, durante una visita al Museo de Antropología de San Salvador, El Salvador.</td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "17"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "25"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Los metates representados en la **Figura 2** tienen colores distintos y fueron expuestos en museos diferentes durante visitas a esos lugares. Sin embargo, por compartir características similares y estar datados del mismo período, es posible determinar que ambos tuvieron su origen en Costa Rica, donde estas piezas se fabricaban tradicionalmente (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3fb52297-2d42-46f2-8ef1-b8a2c8f4052a",
+                     "text": "HOOPES, J. W.",
+                     "page": "pp. 459",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Objetos diferentes, pero parecidos\n\nNo solo debemos considerar el formato y las características visibles en la historia. Muchas veces, civilizaciones distintas construyen estructuras que se parecen, pero que no son iguales, por ejemplo, estructuras en forma de pirámides que se encuentran en diversas regiones del planeta, construidas por pueblos que no tenían contacto alguno entre sí (<htcite0>).\n\nAntes de continuar, debemos reflexionar sobre lo que estamos estudiando",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7561d65f-e3f0-4593-8bba-2c76cda1a32f",
+                     "text": "Mark, J. J.",
+                     "page": "Pyramid",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2009",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre pirámides</b><br /><br />¿Qué es una pirámide?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En este texto, simplificaremos la definición propuesta por Eric W. Weisstein, manteniendo su esencia. Según Eric W. Weisstein, las pirámides son *una figura geométrica con una base cerrada y cuyas caras laterales son triángulos que se encuentran en un punto común en la parte superior, llamado ápice* (<htcite0>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1aae32d7-8b8a-49d9-b136-f859e24a53e6",
+                     "text": "Weisstein",
+                     "page": "Eric W. Pirámide",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": ":</p><p><table class=\"book_navigation\"><tr><td>Pirámide de Base Cuadrangular</td><td>Pirámide de Base Pentagonal</td></tr><tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\"  class=\"imgcenter\"/></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\"  class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\"><b>Figura 3</b>: Ejemplos de pirámides que ilustran la definición matemática.</td></tr></table></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora que conocemos una pirámide, podemos estudiar lo que los humanos han clasificado como pirámides.\n\n#### Egipto\n\nEn Egipto, las pirámides más conocidas son las de Guiza (**Figura 4**), erigidas durante la Cuarta Dinastía (<htcite0> ; <htcite1>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "920578b1-b37d-4c0d-8aef-58e24136bdca",
+                     "text": "Britannica, T. Editors of Encyclopaedia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2c355fb7-ca61-46b1-8993-43db7aea59ca",
+                     "text": "Cy",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgGiza\" onclick=\"htImageZoom('imgGiza', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 4</b>: Imágenes de las pirámides de Guiza, Egipto. © Trustees of the British Museum (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "927e61c0-bbcb-4cc5-bb22-1b54ce0f0b3e",
+                     "text": "The British Museum",
+                     "page": "Três pirâmides",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1920",
+                        "month": "01",
+                        "day": "01"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Las pirámides de Guiza no fueron las primeras construcciones hechas por Egipto. Antes de ellas, los egipcios construyeron lo que llamamos pirámide escalonada (**Figura 5**). Es decir, hubo un proceso evolutivo: desde las tumbas en Abidos, pasando por pirámides en forma de escalón, hasta llegar a una pirámide como la definida matemáticamente (<htcite0>; <htcite1>; <htcite2>; <htcite3>; <htcite4>; <htcite5>; <htcite6>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2867db47-20a6-4e5e-be47-e21d490d3cf4",
+                     "text": "Vafea F.",
+                     "page": "pp. 111 - 114",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2002",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a09c822f-fd5e-4e38-a229-30081a723c3b",
+                     "text": "Bestock, L.",
+                     "page": "pp. 48 - 58",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2008",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "dcbeb1d2-ef7d-49bc-b584-b557269f8570",
+                     "text": "Cy",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "055fe64b-e59e-4926-9966-2d34267900ff",
+                     "text": "Bussmann, R.",
+                     "page": "pp. 179",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2c355fb7-ca61-46b1-8993-43db7aea59ca",
+                     "text": "Cy",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "92b3b013-aaef-4b93-90f9-298dffa6d70f",
+                     "text": "Sparavigna, A. C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2c355fb7-ca61-46b1-8993-43db7aea59ca",
+                     "text": "Cy",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgSaqqara\" onclick=\"htImageZoom('imgSaqqara', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 5</b>: Imágenes de una pirámide escalonada en Saqqara, Egipto. © Trustees of the British Museum (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a9b855a0-9931-4fe1-92fb-7eedbc4672b0",
+                     "text": "The British Museum. View of a stepped pyramid. Wall and stone bricks in foreground. Museum Number Af,A21.67",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1935",
+                        "month": "03",
+                        "day": "12"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Objetos que se parecen\n\nComo ya vimos, una pirámide necesita tener caras triangulares que se encuentran en la cúspide (llamada ápice). Observe la **Figura 6**:",
+               "source": [],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\"  class=\"imgcenter\"/><b>Figura 6</b>: Montaña sagrada en Xunantunich, Belice. Fotografía tomada el <htdate0></span>, durante una visita al sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "7",
+                     "day": "22"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En esta montaña sagrada, vemos una escalinata en la cara frontal, que conduce a una estructura piramidal con tres niveles. En la parte superior de esa estructura, hay ventanas de un cuarto. Finalmente, en la parte alta, hay un área abierta para celebraciones.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: Observemos bien...</b><br /><br />Los mayas no reconocían sus montañas sagradas — llamadas **Witz** — como pirámides (<htcite0>).<br /><br />La <b>Figura 6</b> no tiene un punto en la cúspide donde las caras se encuentren. En su lugar, tenemos una construcción amplia y plana en la parte superior, donde posiblemente personas hablaban al pueblo.<br /><br />Ante este escenario, ¿colocarías la construcción maya en el mismo grupo que las pirámides egipcias?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "960e3a8e-3a60-4ee4-9df4-e2187489e3b9",
+                     "text": "García Capistrán, H.",
+                     "page": "pp. 144",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_comparison",
+         "text": [
+            {
+               "text": "### Depende de nosotros\n\nAl comparar la definición de pirámide con las Figuras 4, 5 y 6, es posible concluir:\n- La **Figura 4** contiene estructuras muy cercanas a la pirámide. Por lo tanto, no sería inusual llamarla así.\n- La **Figura 5**, llamada *pirámide escalonada*, fue una etapa arquitectónica (<htcite0>) que posee formatos cercanos a los de pirámides.\n- La **Figura 6** muestra una montaña sagrada que no posee caras triangulares. No tiene un punto de encuentro en la cúspide, pues la parte superior es totalmente plana. Además, vemos claramente escaleras de acceso en dirección a ella, lo que refuerza la indicación de que sería un lugar utilizado habitualmente.\n\nSi fuéramos extremadamente rigurosos, la **Figura 6** no sería una pirámide. Sin embargo, muchas veces realizamos simplificaciones y, en esas simplificaciones, acabamos por englobar todo como si fuera algo único. Algunos aceptarán todas como pirámides, a pesar de que la última no fue pensada y construida para serlo.\n\nSi esto te pareció complejo, no te preocupes, pues las contradicciones y las dudas forman parte del aprendizaje.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2867db47-20a6-4e5e-be47-e21d490d3cf4",
+                     "text": "Vafea F. (2002)",
+                     "page": "pp. 111 - 114",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2002",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, aprendimos que las comparaciones no se limitan a determinar si algo es exactamente igual o no. A medida que el conocimiento avanzó, pasamos a ver que círculos y cuadrados no son figuras completamente aisladas.\n\nTambién vimos que, cuando comparamos objetos en diferentes regiones — como los metates —, no siempre eso significa que personas de diferentes regiones crearon el mismo objeto. Los objetos pueden haber sido llevados de un lugar a otro.\n\nFinalmente, vimos un caso más amplio: construcciones monumentales, como pirámides y montañas sagradas (llamadas **Witz**). Aunque, con una flexibilización de ideas, algunas personas puedan considerarlas pirámides, al mirar la definición de pirámides, vemos que las montañas sagradas no necesariamente encajan en esa categoría.",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
