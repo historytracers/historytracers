@@ -77,31 +77,30 @@ function htCompMakeMixedItem(t) {
 }
 
 function htCompBuildMixedPair(answer) {
-    var types = ["number", "circle", "square"];
     var figures = ["circle", "square"];
 
     if (answer == "neither") {
-        var t1 = types[htGetRandomArbitrary(0, types.length)];
-        var t2;
-        do {
-            t2 = types[htGetRandomArbitrary(0, types.length)];
-        } while (t2 === t1);
-        return { "left": htCompMakeMixedItem(t1), "right": htCompMakeMixedItem(t2) };
+        var fig = figures[htGetRandomArbitrary(0, figures.length)];
+        return { "left": htCompMakeMixedItem("number"), "right": htCompMakeMixedItem(fig) };
     }
 
-    var figure = figures[htGetRandomArbitrary(0, figures.length)];
-    var lg = htCompMakeMixedItem(figure);
-    var rg;
-    if (answer == "equal") {
-        rg = JSON.parse(JSON.stringify(lg));
-    } else {
+    if (answer == "group") {
+        if (htGetRandomArbitrary(0, 3) == 2) {
+            var homeColor = htCompRandomColor();
+            return { "left": htCompCircleItem(homeColor), "right": htCompSquareItem(homeColor) };
+        }
+        var figure = figures[htGetRandomArbitrary(0, figures.length)];
+        var lg = htCompMakeMixedItem(figure);
         var c;
         do {
             c = htCompRandomColor();
         } while (c === lg.color);
-        rg = (figure == "circle") ? htCompCircleItem(c) : htCompSquareItem(c);
+        return { "left": lg, "right": (figure == "circle") ? htCompCircleItem(c) : htCompSquareItem(c) };
     }
-    return { "left": lg, "right": rg };
+
+    var figure2 = figures[htGetRandomArbitrary(0, figures.length)];
+    var le = htCompMakeMixedItem(figure2);
+    return { "left": le, "right": JSON.parse(JSON.stringify(le)) };
 }
 
 function htCompBuildPyramidPair(answer) {
