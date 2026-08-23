@@ -383,6 +383,11 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if err := validateHTTextFormat(content); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -416,6 +421,41 @@ func validateSMGameSmile(content string) error {
 	}
 	if len(missing) > 0 {
 		return fmt.Errorf("sm_game content blocks with empty smile: %s", strings.Join(missing, ", "))
+	}
+	return nil
+}
+
+// validateHTTextFormat checks that every object with a "format" field
+// (i.e. HTText objects) has a value of "html", "text", or "markdown".
+func validateHTTextFormat(content string) error {
+	var parsed interface{}
+	if err := json.Unmarshal([]byte(content), &parsed); err != nil {
+		return nil
+	}
+	var invalid []string
+	var walk func(obj interface{}, path string)
+	walk = func(obj interface{}, path string) {
+		switch v := obj.(type) {
+		case map[string]interface{}:
+			if fmt, ok := v["format"].(string); ok {
+				if fmt != "html" && fmt != "text" && fmt != "markdown" {
+					invalid = append(invalid, path+": \""+fmt+"\"")
+				}
+			}
+			for k, child := range v {
+				if k != "format" {
+					walk(child, path+"."+k)
+				}
+			}
+		case []interface{}:
+			for i, child := range v {
+				walk(child, path+"["+strconv.Itoa(i)+"]")
+			}
+		}
+	}
+	walk(parsed, "")
+	if len(invalid) > 0 {
+		return fmt.Errorf("invalid format value in HTText object (allowed: html, text, markdown): %s", strings.Join(invalid, ", "))
 	}
 	return nil
 }
