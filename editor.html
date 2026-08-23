@@ -1575,6 +1575,14 @@ function insertTemplate(name){
 	document.getElementById('insertPanel').classList.remove('open');
 }
 
+function cursorInSMGameNextField(area){
+	if(!currentFileIsSMGame())return false;
+	var pos=area.selectionStart;
+	var before=area.value.substring(0,pos);
+	var m=before.match(/"next"\s*:\s*"([^"]*)$/);
+	if(!m)return false;
+	return true;
+}
 function insertUUID(){
 	var area=document.getElementById('editorArea');
 	if(area.style.display==='none'||currentTab<0){
@@ -1585,10 +1593,25 @@ function insertUUID(){
 		var r=Math.random()*16|0,v=c==='x'?r:(r&0x3|0x8);
 		return v.toString(16)
 	});
+	var inNextField=cursorInSMGameNextField(area);
 	area.focus();
 	document.execCommand('insertText',false,uuid);
 	toast(tr('insDone'),'success');
 	document.getElementById('insertPanel').classList.remove('open');
+	if(inNextField){
+		fetch('/api/editor/create-smartphone',{method:'POST','Content-Type':'application/x-www-form-urlencoded',body:'uuid='+encodeURIComponent(uuid)}).then(function(resp){
+			if(!resp.ok)throw new Error('HTTP '+resp.status);
+			var token=resp.headers.get('X-HT-Next-Token');
+			if(token)window.__ht_next_token=token;
+			return resp.json();
+		}).then(function(data){
+			toast(tr('smartphoneCreated')+': '+data.uuid,'success');
+			refreshTree();
+			if(window.__ht_editor_opts.open_new_files!==false)openFile((window.__ht_editor_opts.smartphone_prefix?window.__ht_editor_opts.smartphone_prefix+'/':'')+'src/smartphone/'+LOC+'/'+data.uuid+'.json');
+		}).catch(function(e){
+			toast(tr('newError')+': '+e.message,'error');
+		});
+	}
 }
 
 function insertSmile(value){

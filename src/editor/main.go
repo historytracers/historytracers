@@ -808,8 +808,16 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	id := uuid.New()
-	strID := id.String()
+	strID := r.FormValue("uuid")
+	if strID == "" {
+		id := uuid.New()
+		strID = id.String()
+	} else {
+		if _, err := uuid.Parse(strID); err != nil {
+			http.Error(w, "invalid uuid", http.StatusBadRequest)
+			return
+		}
+	}
 
 	tplPath := filepath.Join(rootDir, "src", "json", "scientific_method_game_template.json")
 	data, err := os.ReadFile(tplPath)
