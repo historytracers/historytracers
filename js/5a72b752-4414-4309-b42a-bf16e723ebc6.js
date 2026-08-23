@@ -14,7 +14,7 @@ function htPlusDivs(n) {
 function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc("imgTohoku", "images/Tohoku/MatteoRicci.png");
-    htSetImageSrc("imgTohoku", "images/Tohoku/Soroban.png");
+    htSetImageSrc("imgSoroban", "images/Tohoku/Soroban.png");
     htPlusDivs(0);
 
     return false;
