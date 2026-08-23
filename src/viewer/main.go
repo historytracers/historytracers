@@ -635,6 +635,8 @@ func safeContentKey(key string) bool {
 	return true
 }
 
+var contentTitleCache sync.Map // "lang|key" -> resolved title (may be "")
+
 func resolveContentTitle(page, arg, lang string) string {
 	key := arg
 	if key == "" {
@@ -643,6 +645,16 @@ func resolveContentTitle(page, arg, lang string) string {
 	if !safeContentKey(key) {
 		return ""
 	}
+	cacheKey := lang + "|" + key
+	if v, ok := contentTitleCache.Load(cacheKey); ok {
+		return v.(string)
+	}
+	title := resolveContentTitleUncached(key, lang)
+	contentTitleCache.Store(cacheKey, title)
+	return title
+}
+
+func resolveContentTitleUncached(key, lang string) string {
 	langs := []string{"en-US", "pt-BR", "es-ES"}
 	if validLangs[lang] {
 		withLang := []string{lang}
@@ -662,13 +674,13 @@ func resolveContentTitle(page, arg, lang string) string {
 		if err := json.Unmarshal(b, &data); err != nil {
 			continue
 		}
-		if header, ok := data["header"]; ok {
-			if s, ok := header.(string); ok && s != "" {
+		if title, ok := data["title"]; ok {
+			if s, ok := title.(string); ok && s != "" {
 				return s
 			}
 		}
-		if title, ok := data["title"]; ok {
-			if s, ok := title.(string); ok && s != "" {
+		if header, ok := data["header"]; ok {
+			if s, ok := header.(string); ok && s != "" {
 				return s
 			}
 		}
@@ -677,9 +689,6 @@ func resolveContentTitle(page, arg, lang string) string {
 }
 
 func contentTitle(page, arg, lang, stored string) string {
-	if stored != "" && stored != "History Tracers" {
-		return stored
-	}
 	if t := resolveContentTitle(page, arg, lang); t != "" {
 		return t
 	}
