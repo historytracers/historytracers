@@ -842,10 +842,12 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		id := uuid.New()
 		strID = id.String()
 	} else {
-		if _, err := uuid.Parse(strID); err != nil {
+		parsedID, err := uuid.Parse(strID)
+		if err != nil {
 			http.Error(w, "invalid uuid", http.StatusBadRequest)
 			return
 		}
+		strID = parsedID.String()
 		for _, lang := range editorLangs {
 			candidate := filepath.Join(smartphoneDirForLang(lang), strID+".json")
 			if _, err := os.Stat(candidate); err == nil {
@@ -882,17 +884,31 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 	tpl.Levels = []common.SMGameLevel{}
 	tpl.DateTime = []common.HTDate{}
 
+	var createdFiles []string
 	for _, lang := range editorLangs {
 		smartphoneDir := smartphoneDirForLang(lang)
 		if err := os.MkdirAll(smartphoneDir, 0755); err != nil {
 			log.Printf("ERROR createSmartphone: mkdir %s: %v", smartphoneDir, err)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		tplFile := filepath.Join(smartphoneDir, strID+".json")
 		fp, err := os.OpenFile(tplFile, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0644)
 		if err != nil {
+			if os.IsExist(err) {
+				for _, f := range createdFiles {
+					os.Remove(f)
+				}
+				http.Error(w, "uuid already exists", http.StatusConflict)
+				return
+			}
 			log.Printf("ERROR createSmartphone: create %s: %v", tplFile, err)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -902,15 +918,22 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		if err := e.Encode(tpl); err != nil {
 			fp.Close()
 			os.Remove(tplFile)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			log.Printf("ERROR createSmartphone: encode %s: %v", tplFile, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		fp.Close()
+		createdFiles = append(createdFiles, tplFile)
 	}
 
 	if err := htInsertSourceFileEntry(strID, strID); err != nil {
 		log.Printf("ERROR createSmartphone: insert source entry: %v", err)
+		for _, f := range createdFiles {
+			os.Remove(f)
+		}
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
