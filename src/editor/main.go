@@ -383,6 +383,13 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if err := validateHTTextFormat(content); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	content = adjustSMGameScores(content)
+
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -416,6 +423,68 @@ func validateSMGameSmile(content string) error {
 	}
 	if len(missing) > 0 {
 		return fmt.Errorf("sm_game content blocks with empty smile: %s", strings.Join(missing, ", "))
+	}
+	return nil
+}
+
+// adjustSMGameScores sets score to 2 for any sm_game content block whose
+// answer is non-null but score is still 1.
+func adjustSMGameScores(content string) string {
+	var data common.SMGameFile
+	if err := json.Unmarshal([]byte(content), &data); err != nil {
+		return content
+	}
+	if data.Type != "sm_game" {
+		return content
+	}
+	changed := false
+	for i, block := range data.Content {
+		if block.Answer != nil && block.Score == 1 {
+			data.Content[i].Score = 2
+			changed = true
+		}
+	}
+	if !changed {
+		return content
+	}
+	out, err := json.MarshalIndent(data, "", "   ")
+	if err != nil {
+		return content
+	}
+	return string(out) + "\n"
+}
+
+// validateHTTextFormat checks that every object with a "format" field
+// (i.e. HTText objects) has a value of "html", "text", or "markdown".
+func validateHTTextFormat(content string) error {
+	var parsed interface{}
+	if err := json.Unmarshal([]byte(content), &parsed); err != nil {
+		return nil
+	}
+	var invalid []string
+	var walk func(obj interface{}, path string)
+	walk = func(obj interface{}, path string) {
+		switch v := obj.(type) {
+		case map[string]interface{}:
+			if fmt, ok := v["format"].(string); ok {
+				if fmt != "html" && fmt != "text" && fmt != "markdown" {
+					invalid = append(invalid, path+": \""+fmt+"\"")
+				}
+			}
+			for k, child := range v {
+				if k != "format" {
+					walk(child, path+"."+k)
+				}
+			}
+		case []interface{}:
+			for i, child := range v {
+				walk(child, path+"["+strconv.Itoa(i)+"]")
+			}
+		}
+	}
+	walk(parsed, "")
+	if len(invalid) > 0 {
+		return fmt.Errorf("invalid format value in HTText object (allowed: html, text, markdown): %s", strings.Join(invalid, ", "))
 	}
 	return nil
 }
@@ -768,8 +837,25 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	id := uuid.New()
-	strID := id.String()
+	strID := r.FormValue("uuid")
+	if strID == "" {
+		id := uuid.New()
+		strID = id.String()
+	} else {
+		parsedID, err := uuid.Parse(strID)
+		if err != nil {
+			http.Error(w, "invalid uuid", http.StatusBadRequest)
+			return
+		}
+		strID = parsedID.String()
+		for _, lang := range editorLangs {
+			candidate := filepath.Join(smartphoneDirForLang(lang), strID+".json")
+			if _, err := os.Stat(candidate); err == nil {
+				http.Error(w, "uuid already exists", http.StatusConflict)
+				return
+			}
+		}
+	}
 
 	tplPath := filepath.Join(rootDir, "src", "json", "scientific_method_game_template.json")
 	data, err := os.ReadFile(tplPath)
@@ -798,17 +884,31 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 	tpl.Levels = []common.SMGameLevel{}
 	tpl.DateTime = []common.HTDate{}
 
+	var createdFiles []string
 	for _, lang := range editorLangs {
 		smartphoneDir := smartphoneDirForLang(lang)
 		if err := os.MkdirAll(smartphoneDir, 0755); err != nil {
 			log.Printf("ERROR createSmartphone: mkdir %s: %v", smartphoneDir, err)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		tplFile := filepath.Join(smartphoneDir, strID+".json")
-		fp, err := os.Create(tplFile)
+		fp, err := os.OpenFile(tplFile, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0644)
 		if err != nil {
+			if os.IsExist(err) {
+				for _, f := range createdFiles {
+					os.Remove(f)
+				}
+				http.Error(w, "uuid already exists", http.StatusConflict)
+				return
+			}
 			log.Printf("ERROR createSmartphone: create %s: %v", tplFile, err)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -818,15 +918,30 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		if err := e.Encode(tpl); err != nil {
 			fp.Close()
 			os.Remove(tplFile)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			log.Printf("ERROR createSmartphone: encode %s: %v", tplFile, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		fp.Close()
+		if err := fp.Close(); err != nil {
+			os.Remove(tplFile)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
+			log.Printf("ERROR createSmartphone: close %s: %v", tplFile, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		createdFiles = append(createdFiles, tplFile)
 	}
 
 	if err := htInsertSourceFileEntry(strID, strID); err != nil {
 		log.Printf("ERROR createSmartphone: insert source entry: %v", err)
+		for _, f := range createdFiles {
+			os.Remove(f)
+		}
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -1783,7 +1898,12 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			// smartphone files live under <prefix>/src/smartphone/<lang>/
 			smartCandidate := filepath.Join(smartphoneDirForLang(langName), uuidStr+".json")
 			if info, err := os.Stat(smartCandidate); err == nil && !info.IsDir() {
-				if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
+				if absPrefix := smartphonePrefixAbs(); absPrefix != "" {
+					result = append(result, map[string]string{
+						"path":  filepath.ToSlash(smartCandidate),
+						"label": langName,
+					})
+				} else if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
 					result = append(result, map[string]string{
 						"path":  filepath.ToSlash(rel),
 						"label": langName,
