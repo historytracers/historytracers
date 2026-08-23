@@ -234,15 +234,19 @@ function htCompRenderItem(item, slot) {
             html = "<img id=\"compImg" + slot + "\" class=\"compFigureImg\" onclick=\"htImageZoom('compImg" + slot + "', '0%')\" src=\"" + prefix + "images/HistoryTracers/Maya_" + item.value + ".png\" alt=\"Maya " + item.value + "\"/>";
             break;
         case "circle":
-            html = "<div class=\"compFigure compShape\" style=\"background-color: " + item.color + "; border-radius: 50%;\"></div>";
+            html = "<div class=\"compFigure compShape\" role=\"img\" aria-label=\"Circle, " + item.color + "\" style=\"background-color: " + item.color + "; border-radius: 50%;\"></div>";
             break;
         case "square":
-            html = "<div class=\"compFigure compShape\" style=\"background-color: " + item.color + ";\"></div>";
+            html = "<div class=\"compFigure compShape\" role=\"img\" aria-label=\"Square, " + item.color + "\" style=\"background-color: " + item.color + ";\"></div>";
             break;
         case "egypt":
+            html = "<img id=\"compImg" + slot + "\" class=\"compFigureImg\" onclick=\"htImageZoom('compImg" + slot + "', '0%')\" src=\"" + prefix + item.path + "\" alt=\"Egyptian artifact\"/>";
+            break;
         case "meso":
+            html = "<img id=\"compImg" + slot + "\" class=\"compFigureImg\" onclick=\"htImageZoom('compImg" + slot + "', '0%')\" src=\"" + prefix + item.path + "\" alt=\"Mesoamerican artifact\"/>";
+            break;
         case "pyramid":
-            html = "<img id=\"compImg" + slot + "\" class=\"compFigureImg\" onclick=\"htImageZoom('compImg" + slot + "', '0%')\" src=\"" + prefix + item.path + "\"/>";
+            html = "<img id=\"compImg" + slot + "\" class=\"compFigureImg\" onclick=\"htImageZoom('compImg" + slot + "', '0%')\" src=\"" + prefix + item.path + "\" alt=\"Pyramid\"/>";
             break;
     }
     $("#compItem" + slot).html(html);
@@ -252,15 +256,10 @@ function htCompShowLevel() {
     var desc = $("#compWordLevel" + local.level).text();
     $("#compLevelTitle").html($("#compWordLevel").text() + " " + local.level + ": " + desc);
 
-    if (local.level <= 3) {
-        $("#compBtnGroup").hide();
-        $("#compBtnEqual").show();
-        $("#compBtnNeither").show();
-    } else {
-        $("#compBtnEqual").show();
-        $("#compBtnGroup").show();
-        $("#compBtnNeither").show();
-    }
+    var options = htCompAnswerOptions(local.level);
+    $("#compBtnEqual").toggle(options.indexOf("equal") !== -1);
+    $("#compBtnGroup").toggle(options.indexOf("group") !== -1);
+    $("#compBtnNeither").toggle(options.indexOf("neither") !== -1);
 
     $("#compMsgCorrect").hide();
     $("#compMsgWrong").hide();
@@ -288,6 +287,10 @@ function htCompShowLevel() {
 }
 
 function htCompLoadLevel() {
+    if (local._nextTimer) {
+        clearTimeout(local._nextTimer);
+        local._nextTimer = null;
+    }
     local.questions = htCompBuildLevelQuestions(local.level);
     local.qIndex = 0;
     local.score = 0;
@@ -330,7 +333,7 @@ function htCompAnswer(value) {
         $("#compBtnGroup").prop("disabled", true);
         $("#compBtnNeither").prop("disabled", true);
         $("#compMsgCorrect").show();
-        setTimeout(function() {
+        local._nextTimer = setTimeout(function() {
             local.answering = false;
             htCompNextQuestion();
         }, 1200);

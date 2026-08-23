@@ -103,16 +103,24 @@ On Windows, `sqlite3` CLI is typically not installed and PowerShell corrupts bin
 
 ```python
 # extract_db.py
-import subprocess
+import subprocess, tempfile, os
+
+tmp = tempfile.gettempdir()
 
 def extract_git_blob(ref_path, output_path):
-    result = subprocess.run(['git', 'show', ref_path], capture_output=True)
+    result = subprocess.run(['git', 'show', ref_path], capture_output=True, check=True)
     with open(output_path, 'wb') as f:
         f.write(result.stdout)
     print(f"Extracted {ref_path} -> {output_path} ({len(result.stdout)} bytes)")
 
-extract_git_blob("HEAD:lang/sources/history_tracers.db", "C:/tmp/ours.db")
-extract_git_blob("origin/main:lang/sources/history_tracers.db", "C:/tmp/theirs.db")
+# ours_ref: HEAD during merge, upstream/base during rebase
+# theirs_ref: the incoming branch (e.g. origin/main)
+ours_ref = "HEAD"
+theirs_ref = "origin/main"
+db_path = "lang/sources/history_tracers.db"
+
+extract_git_blob(f"{ours_ref}:{db_path}", os.path.join(tmp, "ours.db"))
+extract_git_blob(f"{theirs_ref}:{db_path}", os.path.join(tmp, "theirs.db"))
 ```
 
 Run: `python extract_db.py`
@@ -121,7 +129,9 @@ Run: `python extract_db.py`
 
 ```python
 # merge_db.py
-import sqlite3, shutil
+import sqlite3, shutil, tempfile, os
+
+tmp = tempfile.gettempdir()
 
 def get_tables(db_path):
     conn = sqlite3.connect(db_path)
@@ -135,7 +145,9 @@ def dump_table(db_path, table):
     conn.close()
     return rows
 
-ours, theirs, merged = "C:/tmp/ours.db", "C:/tmp/theirs.db", "C:/tmp/merged.db"
+ours = os.path.join(tmp, "ours.db")
+theirs = os.path.join(tmp, "theirs.db")
+merged = os.path.join(tmp, "merged.db")
 
 # Diff each table
 for t in get_tables(ours):
@@ -163,8 +175,12 @@ conn.commit(); conn.close()
 # Verify superset
 for t in get_tables(merged):
     merged_set = set(dump_table(merged, t))
-    assert set(dump_table(ours, t)) <= merged_set, f"{t} missing ours rows"
-    assert set(dump_table(theirs, t)) <= merged_set, f"{t} missing theirs rows"
+    missing_ours = set(dump_table(ours, t)) - merged_set
+    missing_theirs = set(dump_table(theirs, t)) - merged_set
+    if missing_ours:
+        raise RuntimeError(f"{t}: missing {len(missing_ours)} rows from ours")
+    if missing_theirs:
+        raise RuntimeError(f"{t}: missing {len(missing_theirs)} rows from theirs")
     print(f"{t}: OK")
 ```
 
@@ -173,9 +189,13 @@ Run: `python merge_db.py`
 **Step 3 — Copy and stage** (PowerShell):
 
 ```powershell
-Copy-Item -Path "C:\tmp\merged.db" -Destination "lang\sources\history_tracers.db" -Force
+$ErrorActionPreference = "Stop"
+$tmp = [System.IO.Path]::GetTempPath()
+Copy-Item -Path "$tmp\merged.db" -Destination "lang\sources\history_tracers.db" -Force
 git add lang/sources/history_tracers.db
+if ($LASTEXITCODE -ne 0) { throw "git add failed with exit code $LASTEXITCODE" }
 git commit -m "Merge main: union-merge SQLite DB (history_tracers.db)"
+if ($LASTEXITCODE -ne 0) { throw "git commit failed with exit code $LASTEXITCODE" }
 ```
 
 **Step 4 — Clean up** temp scripts: `Remove-Item extract_db.py, merge_db.py`
