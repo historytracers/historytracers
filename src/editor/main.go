@@ -925,7 +925,15 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		fp.Close()
+		if err := fp.Close(); err != nil {
+			os.Remove(tplFile)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
+			log.Printf("ERROR createSmartphone: close %s: %v", tplFile, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		createdFiles = append(createdFiles, tplFile)
 	}
 
