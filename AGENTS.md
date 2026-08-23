@@ -121,6 +121,7 @@ def extract_git_blob(ref_path, output_path):
             CREATE TABLE sources (src_id TEXT NOT NULL PRIMARY KEY, sfo_id TEXT NOT NULL, src_citation TEXT NOT NULL, src_date TEXT NOT NULL, src_publish_date TEXT NOT NULL, src_url TEXT NOT NULL);
             CREATE TABLE files (fil_id TEXT NOT NULL PRIMARY KEY, fil_desc TEXT NOT NULL);
             CREATE TABLE citation (fil_id TEXT NOT NULL, src_id TEXT NOT NULL, cit_type TINYINT NOT NULL, PRIMARY KEY (fil_id, src_id, cit_type));
+            CREATE INDEX idx_sources_src_citation ON sources (src_citation);
         """)
         conn.close()
         print(f"Warning: {ref_path} not found (deleted); created empty DB at {output_path}")
