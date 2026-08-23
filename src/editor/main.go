@@ -1823,7 +1823,12 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			// smartphone files live under <prefix>/src/smartphone/<lang>/
 			smartCandidate := filepath.Join(smartphoneDirForLang(langName), uuidStr+".json")
 			if info, err := os.Stat(smartCandidate); err == nil && !info.IsDir() {
-				if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
+				if absPrefix := smartphonePrefixAbs(); absPrefix != "" {
+					result = append(result, map[string]string{
+						"path":  filepath.ToSlash(smartCandidate),
+						"label": langName,
+					})
+				} else if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
 					result = append(result, map[string]string{
 						"path":  filepath.ToSlash(rel),
 						"label": langName,
