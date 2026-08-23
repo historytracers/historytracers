@@ -13,7 +13,7 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("img9", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");
+    htSetImageSrc("imgBoneRG", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");
     htPlusDivs(0);
 
     return false;
