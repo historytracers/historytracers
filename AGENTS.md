@@ -94,3 +94,88 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
 4. Verify the union: re-diff each table against both original versions; the merged DB should be a strict superset of each side (no rows lost from either).
 5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db`, then commit.
 6. The `src/common` submodule pointer is also often updated by the merge — stage and commit it too (its working tree should be clean and detached).
+
+### Windows-specific steps
+
+On Windows, `sqlite3` CLI is typically not installed and PowerShell corrupts binary data when piping `git show` output. Use Python instead (Python's `sqlite3` module is built-in).
+
+**Step 1 — Extract both DB versions** (PowerShell cannot pipe binary from `git show`; use a Python helper):
+
+```python
+# extract_db.py
+import subprocess
+
+def extract_git_blob(ref_path, output_path):
+    result = subprocess.run(['git', 'show', ref_path], capture_output=True)
+    with open(output_path, 'wb') as f:
+        f.write(result.stdout)
+    print(f"Extracted {ref_path} -> {output_path} ({len(result.stdout)} bytes)")
+
+extract_git_blob("HEAD:lang/sources/history_tracers.db", "C:/tmp/ours.db")
+extract_git_blob("origin/main:lang/sources/history_tracers.db", "C:/tmp/theirs.db")
+```
+
+Run: `python extract_db.py`
+
+**Step 2 — Diff, merge, and verify** (use Python's `sqlite3` module):
+
+```python
+# merge_db.py
+import sqlite3, shutil
+
+def get_tables(db_path):
+    conn = sqlite3.connect(db_path)
+    tables = [t[0] for t in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
+    conn.close()
+    return tables
+
+def dump_table(db_path, table):
+    conn = sqlite3.connect(db_path)
+    rows = conn.execute(f"SELECT * FROM [{table}] ORDER BY 1").fetchall()
+    conn.close()
+    return rows
+
+ours, theirs, merged = "C:/tmp/ours.db", "C:/tmp/theirs.db", "C:/tmp/merged.db"
+
+# Diff each table
+for t in get_tables(ours):
+    ours_set = set(dump_table(ours, t))
+    theirs_set = set(dump_table(theirs, t))
+    only_ours = ours_set - theirs_set
+    only_theirs = theirs_set - ours_set
+    if only_ours or only_theirs:
+        print(f"{t}: only-in-ours={len(only_ours)}, only-in-theirs={len(only_theirs)}")
+        for r in only_ours: print(f"  ours:   {r}")
+        for r in only_theirs: print(f"  theirs: {r}")
+
+# Build union: copy ours, INSERT OR IGNORE from theirs
+shutil.copy2(ours, merged)
+conn = sqlite3.connect(merged)
+for t in get_tables(theirs):
+    cols = len(conn.execute(f"PRAGMA table_info([{t}])").fetchall())
+    theirs_rows = sqlite3.connect(theirs).execute(f"SELECT * FROM [{t}]").fetchall()
+    ours_rows = set(conn.execute(f"SELECT * FROM [{t}]").fetchall())
+    inserted = sum(1 for r in theirs_rows if r not in ours_rows
+                   and conn.execute(f"INSERT OR IGNORE INTO [{t}] VALUES ({','.join('?'*cols)})", r))
+    if inserted: print(f"{t}: inserted {inserted} rows from theirs")
+conn.commit(); conn.close()
+
+# Verify superset
+for t in get_tables(merged):
+    merged_set = set(dump_table(merged, t))
+    assert set(dump_table(ours, t)) <= merged_set, f"{t} missing ours rows"
+    assert set(dump_table(theirs, t)) <= merged_set, f"{t} missing theirs rows"
+    print(f"{t}: OK")
+```
+
+Run: `python merge_db.py`
+
+**Step 3 — Copy and stage** (PowerShell):
+
+```powershell
+Copy-Item -Path "C:\tmp\merged.db" -Destination "lang\sources\history_tracers.db" -Force
+git add lang/sources/history_tracers.db
+git commit -m "Merge main: union-merge SQLite DB (history_tracers.db)"
+```
+
+**Step 4 — Clean up** temp scripts: `Remove-Item extract_db.py, merge_db.py`
