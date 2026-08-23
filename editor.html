@@ -1599,7 +1599,7 @@ function insertUUID(){
 	toast(tr('insDone'),'success');
 	document.getElementById('insertPanel').classList.remove('open');
 	if(inNextField){
-		fetch('/api/editor/create-smartphone',{method:'POST','Content-Type':'application/x-www-form-urlencoded',body:'uuid='+encodeURIComponent(uuid)}).then(function(resp){
+		fetch('/api/editor/create-smartphone',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'uuid='+encodeURIComponent(uuid)}).then(function(resp){
 			if(!resp.ok)throw new Error('HTTP '+resp.status);
 			var token=resp.headers.get('X-HT-Next-Token');
 			if(token)window.__ht_next_token=token;

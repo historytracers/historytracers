@@ -430,13 +430,7 @@ func validateSMGameSmile(content string) error {
 // adjustSMGameScores sets score to 2 for any sm_game content block whose
 // answer is non-null but score is still 1.
 func adjustSMGameScores(content string) string {
-	var data struct {
-		Type    string `json:"type"`
-		Content []struct {
-			Answer interface{} `json:"answer"`
-			Score  int         `json:"score"`
-		} `json:"content"`
-	}
+	var data common.SMGameFile
 	if err := json.Unmarshal([]byte(content), &data); err != nil {
 		return content
 	}
@@ -852,6 +846,13 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "invalid uuid", http.StatusBadRequest)
 			return
 		}
+		for _, lang := range editorLangs {
+			candidate := filepath.Join(smartphoneDirForLang(lang), strID+".json")
+			if _, err := os.Stat(candidate); err == nil {
+				http.Error(w, "uuid already exists", http.StatusConflict)
+				return
+			}
+		}
 	}
 
 	tplPath := filepath.Join(rootDir, "src", "json", "scientific_method_game_template.json")
@@ -889,7 +890,7 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		tplFile := filepath.Join(smartphoneDir, strID+".json")
-		fp, err := os.Create(tplFile)
+		fp, err := os.OpenFile(tplFile, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0644)
 		if err != nil {
 			log.Printf("ERROR createSmartphone: create %s: %v", tplFile, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
