@@ -200,9 +200,10 @@ L['en']=L['en-US'];
 				var a=u.searchParams.get('arg')||'';
 				var pp=u.searchParams.get('people')||'';
 				var cl=u.searchParams.get('cal')||getCal()||'';
-				var t=title||document.title||'';
+				var t=title||'';
 				setTimeout(function(){
-					try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(t)+'&lang='+encodeURIComponent(getLang())+'&cal='+encodeURIComponent(cl)})}catch(e2){}
+					var tt=t||document.title||'';
+					try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(tt)+'&lang='+encodeURIComponent(getLang())+'&cal='+encodeURIComponent(cl)})}catch(e2){}
 				},800);
 			}catch(e){}
 		}

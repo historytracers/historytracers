@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"strings"
+	"sync"
 	"testing"
 	"time"
 )
@@ -243,4 +244,76 @@ func init() {
 	metricsResBytesTotal = 0
 	metricsDurationSumNs = 0
 	metricsMu.Unlock()
+}
+
+func TestContentTitlePrefersJSONTitle(t *testing.T) {
+	contentDir = "../../www"
+	contentTitleCache = sync.Map{}
+	defer func() {
+		contentDir = ""
+		contentTitleCache = sync.Map{}
+	}()
+
+	tests := []struct {
+		name   string
+		page   string
+		arg    string
+		lang   string
+		stored string
+		want   string
+	}{
+		{
+			name:   "index page resolves title over project name",
+			page:   "physics",
+			stored: "History Tracers",
+			want:   "Universe",
+		},
+		{
+			name:   "class content resolves by arg",
+			page:   "class_content",
+			arg:    "acknowledgement",
+			stored: "History Tracers",
+			want:   "Acknowledgement",
+		},
+		{
+			name:   "family tree resolves by arg uuid",
+			page:   "tree",
+			arg:    "33c83383-b9b5-43ec-987d-68f027f342b2",
+			stored: "History Tracers",
+			want:   "Humans",
+		},
+		{
+			name:   "stale stored title is overridden by JSON title",
+			page:   "math_games",
+			stored: "Universe",
+			want:   "Mathematical Games",
+		},
+		{
+			name:   "title field preferred over header field",
+			page:   "families",
+			stored: "History Tracers",
+			want:   "Families",
+		},
+		{
+			name:   "unresolvable page falls back to stored",
+			page:   "license",
+			stored: "History Tracers",
+			want:   "History Tracers",
+		},
+		{
+			name:   "unsafe key falls back to stored",
+			page:   "class_content",
+			arg:    "../evil",
+			stored: "History Tracers",
+			want:   "History Tracers",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := contentTitle(tt.page, tt.arg, tt.lang, tt.stored)
+			if got != tt.want {
+				t.Errorf("contentTitle(%q, %q, %q, %q) = %q, want %q", tt.page, tt.arg, tt.lang, tt.stored, got, tt.want)
+			}
+		})
+	}
 }
