@@ -1,0 +1,123 @@
+{
+   "title": "¿Iguales, mismo grupo o diferentes?",
+   "header": "¿Iguales, mismo grupo o diferentes?",
+   "sources": [
+      "00513774-3f13-422c-8d4a-de9001df335f"
+   ],
+   "scripts": [
+      "00513774-3f13-422c-8d4a-de9001df335f"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/00513774-3f13-422c-8d4a-de9001df335f_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1787503926"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Requisitos previos\n\nEl juego de esta página ayuda a reforzar las comparaciones estudiadas en los textos anteriores. Al comparar dos cosas, pueden ser exactamente **iguales**, pertenecer al **mismo grupo** sin ser exactamente iguales, o ser completamente **diferentes**. Antes de comenzar, recomendamos leer los siguientes textos:\n\n- **Acerca de la igualdad**: el concepto de igualdad (<htcite0>).\n- **Clasificando la igualdad**: cuando las cosas pertenecen al mismo grupo pero no son exactamente iguales.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "Acerca de la igualdad",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Cómo jugar\n\nEl juego muestra dos elementos: números, figuras (círculos y cuadrados) o imágenes. Debes decidir cómo se relacionan eligiendo uno de los tres botones:\n\n- **Iguales** (botón verde claro): los dos elementos son exactamente iguales.\n- **Mismo grupo** (botón amarillo claro): los dos elementos no son exactamente iguales, pero pertenecen al mismo grupo.\n- **Diferentes** (botón rojo claro): los dos elementos no son iguales ni del mismo grupo.\n\nEl juego tiene siete niveles. En los tres primeros niveles, comparas números y solo dos respuestas son posibles: **Iguales** o **Diferentes**. A partir del cuarto nivel, aparecen figuras e imágenes, y se usan las tres respuestas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><center><div class=\"compGame\"><p id=\"compLevelTitle\" class=\"compLevel\"></p><div class=\"compItems\"><div id=\"compItem1\" class=\"compFigureSlot\"></div><div id=\"compItem2\" class=\"compFigureSlot\"></div></div><div class=\"compButtons\"><button type=\"button\" id=\"compBtnEqual\" class=\"compButton compEqual\"><i class=\"fa-solid fa-equals\"></i> <span>Iguales</span></button><button type=\"button\" id=\"compBtnGroup\" class=\"compButton compGroup\"><i class=\"fa-solid fa-object-group\"></i> <span>Mismo grupo</span></button><button type=\"button\" id=\"compBtnNeither\" class=\"compButton compNeither\"><i class=\"fa-solid fa-ban\"></i> <span>Diferentes</span></button></div><div class=\"compFeedback\"><p id=\"compMsgCorrect\" class=\"compMsg compMsgCorrect\" style=\"display: none;\"><i class=\"fa-solid fa-check\"></i> ¡Correcto!</p><p id=\"compMsgWrong\" class=\"compMsg compMsgWrong\" style=\"display: none;\"><i class=\"fa-solid fa-xmark\"></i> Casi, inténtalo de nuevo.</p><p id=\"compMsgLevelComplete\" class=\"compMsg compMsgFinish\" style=\"display: none;\"><i class=\"fa-solid fa-medal\"></i> ¡Nivel completado!</p><p id=\"compMsgGameComplete\" class=\"compMsg compMsgFinish\" style=\"display: none;\"><i class=\"fa-solid fa-medal\"></i> ¡Juego completado! ¡Felicidades!</p></div><p id=\"compProgress\" class=\"compProgress\"></p><p id=\"compScoreText\" class=\"compScore\"></p><p><button type=\"button\" id=\"compNextLevel\" class=\"compNext\" style=\"display: none;\"></button> <button type=\"button\" id=\"compRestart\" class=\"compNext\"></button></p><div style=\"display: none;\"><span id=\"compWordLevel\">Nivel</span><span id=\"compWordQuestion\">Pregunta</span><span id=\"compWordOf\">de</span><span id=\"compWordScore\">Puntuación</span><span id=\"compWordNextLevel\">Siguiente nivel</span><span id=\"compWordRestart\">Reiniciar</span><span id=\"compWordPlayAgain\">Jugar de nuevo</span><span id=\"compWordLevel1\">Números del 0 al 9</span><span id=\"compWordLevel2\">Números del 10 al 1.000.000</span><span id=\"compWordLevel3\">Números mayas</span><span id=\"compWordLevel4\">Números, círculos y cuadrados</span><span id=\"compWordLevel5\">Números, círculos y cuadrados</span><span id=\"compWordLevel6\">Números, círculos y cuadrados</span><span id=\"compWordLevel7\">Egipto, Mesoamérica y pirámides</span></div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">La comparación de números se presenta en <i>Acerca de la igualdad</i> (<htcite0>), y la idea del mismo grupo en <i>Clasificando la igualdad</i>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "Acerca de la igualdad",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
