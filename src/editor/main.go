@@ -388,6 +388,8 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	content = adjustSMGameScores(content)
+
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -423,6 +425,39 @@ func validateSMGameSmile(content string) error {
 		return fmt.Errorf("sm_game content blocks with empty smile: %s", strings.Join(missing, ", "))
 	}
 	return nil
+}
+
+// adjustSMGameScores sets score to 2 for any sm_game content block whose
+// answer is non-null but score is still 1.
+func adjustSMGameScores(content string) string {
+	var data struct {
+		Type    string `json:"type"`
+		Content []struct {
+			Answer interface{} `json:"answer"`
+			Score  int         `json:"score"`
+		} `json:"content"`
+	}
+	if err := json.Unmarshal([]byte(content), &data); err != nil {
+		return content
+	}
+	if data.Type != "sm_game" {
+		return content
+	}
+	changed := false
+	for i, block := range data.Content {
+		if block.Answer != nil && block.Score == 1 {
+			data.Content[i].Score = 2
+			changed = true
+		}
+	}
+	if !changed {
+		return content
+	}
+	out, err := json.MarshalIndent(data, "", "   ")
+	if err != nil {
+		return content
+	}
+	return string(out) + "\n"
 }
 
 // validateHTTextFormat checks that every object with a "format" field
