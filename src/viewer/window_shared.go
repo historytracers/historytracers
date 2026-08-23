@@ -99,11 +99,11 @@ var addressBarJS = `
 		try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||''}catch(e){}
 		if(!loc)loc=window.__ht_lang||navigator.language||'en-US';
 		var L={};
-L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',setHomeTitle:'Definir como P\u00e1gina Inicial',homeSaved:'P\u00e1gina inicial definida!',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',err:'Erro',cal_gregory:'Gregoriano',cal_hebrew:'Hebraico',cal_hispanic:'Hisp\u00e2nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (Dias)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Est.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chin\u00eas',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00eas',cal_japanese:'Japon\u00eas',optionsApply:'Aplicar'};
+L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',setHomeTitle:'Definir como P\u00e1gina Inicial',homeSaved:'P\u00e1gina inicial definida!',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',err:'Erro',cal_gregory:'Gregoriano',cal_hebrew:'Hebraico',cal_hispanic:'Hisp\u00e2nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (Dias)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Est.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chin\u00eas',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00eas',cal_japanese:'Japon\u00eas',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
 L['pt']=L['pt-BR'];
-L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',setHomeTitle:'Establecer como P\u00e1gina de Inicio',homeSaved:'\u00a1P\u00e1gina de inicio establecida!',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',err:'Error',cal_gregory:'Gregoriano',cal_hebrew:'Hebreo',cal_hispanic:'Hisp\u00e1nico',cal_islamic:'Isl\u00e1mico',cal_julian:'Juliano (D\u00edas)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Ext.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chino',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00e9s',cal_japanese:'Japon\u00e9s',optionsApply:'Aplicar'};
+L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',setHomeTitle:'Establecer como P\u00e1gina de Inicio',homeSaved:'\u00a1P\u00e1gina de inicio establecida!',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',err:'Error',cal_gregory:'Gregoriano',cal_hebrew:'Hebreo',cal_hispanic:'Hisp\u00e1nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (D\u00edas)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Ext.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chino',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00e9s',cal_japanese:'Japon\u00e9s',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
 L['es']=L['es-ES'];
-L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',setHomeTitle:'Set as Home Page',homeSaved:'Home page set!',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',err:'Error',cal_gregory:'Gregorian',cal_hebrew:'Hebrew',cal_hispanic:'Hispanic',cal_islamic:'Islamic',cal_julian:'Julian (Days)',cal_mesoamerican:'Mesoamerican',cal_emesoamerican:'Mesoamerican (Ext.)',cal_persian:'Persian',cal_french:'French Rev.',cal_shaka:'Shaka',cal_chinese:'Chinese',cal_aymara:'Aymara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javanese',cal_japanese:'Japanese',optionsApply:'Apply'};
+L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',setHomeTitle:'Set as Home Page',homeSaved:'Home page set!',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',err:'Error',cal_gregory:'Gregorian',cal_hebrew:'Hebrew',cal_hispanic:'Hispanic',cal_islamic:'Islamic',cal_julian:'Julian (Days)',cal_mesoamerican:'Mesoamerican',cal_emesoamerican:'Mesoamerican (Ext.)',cal_persian:'Persian',cal_french:'French Rev.',cal_shaka:'Shaka',cal_chinese:'Chinese',cal_aymara:'Aymara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javanese',cal_japanese:'Japanese',optionsApply:'Apply',printTitle:'Print page'};
 L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var _lang='';
@@ -152,6 +152,7 @@ L['en']=L['en-US'];
 				else if(e.id==='__ht_family')e.title=l.familyTitle;
 				else if(e.id==='__ht_menu_btn')e.title=l.menuTitle;
 				else if(e.id==='__ht_fav_btn')e.title=l.favBtnTitle;
+				else if(e.id==='__ht_print_btn')e.title=l.printTitle||'Print';
 				else if(e.id==='__ht_history_item'){if(e.firstChild)e.firstChild.textContent=l.historyTitle+'\u25B6'}
 				else if(e.id==='__ht_fav_item'){if(e.firstChild)e.firstChild.textContent=l.favTitle+'\u25B6'}
 				else if(e.id==='__ht_exit_item')e.textContent=l.exitTitle;
@@ -263,6 +264,67 @@ L['en']=L['en-US'];
 		u.value=window.location.href;
 		u.style.cssText='flex:1;min-width:0;border:none;padding:0 4px;font:14px/1 monospace;background:transparent;color:#333;outline:none;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;';
 		b.appendChild(u);
+		// Direct print button for viewer top bar - prints current page the user is viewing.
+		// This bypasses the page's own window.open/window.print which is unreliable in webview.
+		function viewerPrintCurrentPage(){
+			try{
+				var isIframe = active!==0 && tabs[active] && tabs[active].iframe;
+				var doc = isIframe ? tabs[active].iframe.contentDocument : document;
+				var win = isIframe ? tabs[active].iframe.contentWindow : window;
+				if(!doc) doc=document;
+				if(!win) win=window;
+				// First try to delegate to the page's own htPrintContent if available (best fidelity)
+				try{
+					if(win.htPrintContent && typeof win.htPrintContent==='function'){
+						win.htPrintContent('#header', '#page_data');
+						return;
+					}
+				}catch(e){}
+				// Fallback: build printable HTML from visible elements
+				var header='', body='', sources='';
+				try{ var h=doc.querySelector('#header'); if(h) header=h.innerHTML; else header=doc.title||''; }catch(e){}
+				try{ var bEl=doc.querySelector('#page_data'); if(!bEl) bEl=doc.querySelector('#main_page_data'); if(bEl) body=bEl.innerHTML; }catch(e){}
+				if(!body){
+					try{ body=doc.body.innerHTML; }catch(e){}
+				}
+				try{ var sEl=doc.querySelector('.right-sources'); if(sEl) sources=sEl.innerHTML; }catch(e){}
+				// Also try to capture sources from maps if page has them - include as fallback
+				if(!sources){
+					try{ var rs=doc.querySelector('#tree-source'); if(rs) sources+='<div>'+rs.innerHTML+'</div>'; }catch(e){}
+					try{ var rr=doc.querySelector('#tree-ref'); if(rr) sources+='<div>'+rr.innerHTML+'</div>'; }catch(e){}
+				}
+				var printDoc='<!DOCTYPE html><html><head><meta charset="utf-8"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}@media print{body{margin:0}}</style></head><body><h1>'+header+'</h1><div>'+body+'</div><div class="cited-text">'+sources+'</div><script>setTimeout(function(){try{window.print()}catch(e){}},400);</scr'+'ipt></body></html>';
+				// For viewer, use server-side print store + system browser (reliable) + tab preview
+				var tk=_htToken();
+				var hdr={'Content-Type':'text/html'};
+				if(tk) hdr['X-HT-Token']=tk;
+				fetch('/api/print/store',{method:'POST',headers:hdr,body:printDoc}).then(function(r){
+					if(!r.ok) throw new Error('store failed '+r.status);
+					return r.text();
+				}).then(function(p){
+					var fullUrl=window.location.origin+p;
+					// Open in system browser - this will show native print dialog (browser print works)
+					fetch('/api/open/external?url='+encodeURIComponent(fullUrl)).catch(function(){});
+					// Also open as viewer tab preview
+					try{ openTab(fullUrl); }catch(e){}
+				}).catch(function(err){
+					console.error('Viewer print failed',err);
+					// Last resort: try native window.print
+					try{ if(isIframe) win.print(); else window.print(); }catch(e2){}
+				});
+			}catch(err){
+				console.error('viewerPrintCurrentPage error',err);
+				try{ window.print(); }catch(e){}
+			}
+		}
+		var printBtn=document.createElement('button');
+		printBtn.id='__ht_print_btn';
+		printBtn.textContent='\uD83D\uDDA8';
+		printBtn.title=l.printTitle||'Print';
+		printBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:16px/1 monospace;padding:0 6px;color:#555;';
+		printBtn.onclick=function(){ viewerPrintCurrentPage(); };
+		_el.push(printBtn);
+		b.appendChild(printBtn);
 		var favBtn=document.createElement('button');
 		favBtn.id='__ht_fav_btn';
 		favBtn.textContent='\u2606';
@@ -746,6 +808,10 @@ L['en']=L['en-US'];
 					return;
 				}
 				var p=u.pathname;
+				if(p.indexOf('/api/print/view')===0){
+					openTab(url);
+					return;
+				}
 				if(p.indexOf('/index.html')!==0&&p.indexOf('index.html')!==0&&p.indexOf('/csv/')!==0&&p.indexOf('/gedcom/')!==0){
 					fetch('/api/open/external?url='+encodeURIComponent(url));
 					return;
@@ -761,27 +827,126 @@ L['en']=L['en-US'];
 			setTimeout(function(){b.style.opacity='0';setTimeout(function(){b.remove()},300)},2500);
 		}
 		window.open=function(url,name,features){
-			if(!url||url==='about:blank'){
+			var isPrintWindow = (!url||url==='about:blank'||url===''||name==='PRINT');
+			if(isPrintWindow){
+				// Create a visible print preview instead of hidden 1x1 iframe.
+				// Previous hidden iframe (left:-9999px, 1x1) prevented window.print() from showing dialog in some webviews.
+				var oldF=document.getElementById('__ht_print_frame');
+				if(oldF) oldF.remove();
+				var oldBg=document.getElementById('__ht_print_bg');
+				if(oldBg) oldBg.remove();
+				var bg=document.createElement('div');
+				bg.id='__ht_print_bg';
+				bg.style.cssText='position:fixed;top:0;left:0;right:0;height:'+BAR_H+'px;background:#f5f5f5;border-bottom:1px solid #999;z-index:2147483647;display:flex;align-items:center;padding:0 8px;font:13px sans-serif;';
+				var msg=document.createElement('span');
+				msg.textContent='Print preview';
+				msg.style.cssText='flex:1;color:#333;font-weight:bold;';
+				var closeBtn=document.createElement('button');
+				closeBtn.textContent='\u00D7 Close';
+				closeBtn.style.cssText='padding:4px 12px;cursor:pointer;border:1px solid #999;background:#e8e8e8;border-radius:3px;';
+				closeBtn.onclick=function(){ try{document.getElementById('__ht_print_frame').remove()}catch(e){}; try{bg.remove()}catch(e){}; };
+				var printBtn=document.createElement('button');
+				printBtn.textContent='Print';
+				printBtn.style.cssText='padding:4px 12px;cursor:pointer;border:1px solid #555;background:#555;color:#fff;border-radius:3px;margin-right:6px;';
+				printBtn.onclick=function(){
+					try{
+						var fr=document.getElementById('__ht_print_frame');
+						if(fr&&fr.contentWindow){ fr.contentWindow.focus(); fr.contentWindow.print(); }
+						else window.print();
+					}catch(e){
+						try{window.print()}catch(e2){}
+					}
+				};
+				var extBtn=document.createElement('button');
+				extBtn.textContent='Open in browser';
+				extBtn.title='Open printable page in system browser for printing';
+				extBtn.style.cssText='padding:4px 10px;cursor:pointer;border:1px solid #999;background:#fff;color:#333;border-radius:3px;margin-right:6px;';
+				extBtn.onclick=function(){
+					try{
+						var htmlVal='';
+						try{ var fr2=document.getElementById('__ht_print_frame'); if(fr2&&fr2.contentDocument) htmlVal=fr2.contentDocument.documentElement.outerHTML; }catch(e){}
+						if(!htmlVal) htmlVal=_html;
+						if(!htmlVal) return;
+						var tk='';
+						try{tk=window.__ht_token||sessionStorage.__ht_token||''}catch(e){}
+						var hdr={'Content-Type':'text/html'};
+						if(tk) hdr['X-HT-Token']=tk;
+						fetch('/api/print/store',{method:'POST',headers:hdr,body:htmlVal}).then(function(r){return r.text()}).then(function(p){
+							fetch('/api/open/external?url='+encodeURIComponent(window.location.origin+p));
+						}).catch(function(){});
+					}catch(e){}
+				};
+				bg.appendChild(msg);
+				bg.appendChild(extBtn);
+				bg.appendChild(printBtn);
+				bg.appendChild(closeBtn);
+				document.documentElement.appendChild(bg);
 				var f=document.createElement('iframe');
-				f.style.cssText='position:absolute;left:-9999px;top:0;width:1px;height:1px;border:none;';
+				f.id='__ht_print_frame';
+				f.style.cssText='position:fixed;top:'+BAR_H+'px;left:0;right:0;bottom:0;width:100%;height:calc(100vh - '+BAR_H+'px);border:none;z-index:2147483646;background:#fff;';
 				document.documentElement.appendChild(f);
-				var iw=f.contentWindow,idoc=iw.document;
-				idoc.open();
+				var iw=f.contentWindow;
+				var _html='';
 				var _onload=null;
+				var _closed=false;
+				// Ensure we have a usable document; contentWindow may be null until appended, poll if needed
+				if(!iw){
+					// Fallback: use data URL navigation (will trigger openOrExternal path)
+					return {document:{write:function(){},close:function(){}},focus:function(){},close:function(){},print:function(){},set onload(cb){},get onload(){return null},closed:false};
+				}
+				var idoc=iw.document;
 				return {
-					document: idoc,
-					focus: function(){try{iw.focus()}catch(e){}},
-					close: function(){try{f.remove()}catch(e){}},
-					print: function(){setTimeout(function(){try{iw.print()}catch(e){};try{f.remove()}catch(e){}},200)},
+					get document(){
+						var self=this;
+						return {
+							write: function(s){ _html+=s; },
+							close: function(){
+								try{
+									idoc.open();
+									idoc.write(_html);
+									idoc.close();
+									// Ensure the printed page self-prints even if opener fails
+									setTimeout(function(){
+										try{
+											if(idoc.body && !idoc.querySelector('script[data-ht-print]')){
+												// If the document already contains its own print script, don't duplicate
+												var hasPrintScript = _html.indexOf('window.print')>=0;
+												if(!hasPrintScript){
+													var sc=idoc.createElement('script');
+													sc.setAttribute('data-ht-print','1');
+													sc.textContent='setTimeout(function(){try{window.print();}catch(e){}},350);';
+													idoc.body.appendChild(sc);
+												}
+											}
+										}catch(e){}
+									},120);
+								}catch(e){}
+							},
+							get documentElement(){ try{return idoc.documentElement}catch(e){return null} }
+						};
+					},
+					focus: function(){try{iw.focus()}catch(e){} try{f.focus()}catch(e){}},
+					close: function(){ if(_closed) return; _closed=true; try{f.remove()}catch(e){}; try{bg.remove()}catch(e){}; },
+					print: function(){
+						setTimeout(function(){
+							try{iw.focus();}catch(e){}
+							try{ iw.print(); }catch(e){ try{ window.print(); }catch(e2){} }
+						},360);
+					},
 					setTimeout: function(fn,ms){return setTimeout(fn,ms)},
 					get onload(){return _onload},
 					set onload(cb){
 						_onload=cb;
 						if(typeof cb==='function'){
 							var self=this;
-							setTimeout(function(){cb.call(self)},80);
+							setTimeout(function(){
+								try{cb.call(self)}catch(e){}
+								// Ensure print is triggered even if caller forgets or print was blocked
+								setTimeout(function(){ try{self.print()}catch(e){}},650);
+							},180);
 						}
-					}
+					},
+					get closed(){ return _closed; }
 				};
 			}
 			openOrExternal(url);

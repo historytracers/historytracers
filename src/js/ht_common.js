@@ -345,28 +345,67 @@ function htPrintContent(header, body)
     <h1>${pageHeader}</h1>
     <div>${pageBody}</div>
     <div class="cited-text">${pageCitation}</div>
+    <script>
+        // Auto-print for viewer/webview environments where opener may be a fake window
+        window.addEventListener('load', function(){ setTimeout(function(){ try{ window.focus(); }catch(e){} try{ window.print(); }catch(e){} }, 500); });
+        // Fallback if load already fired
+        setTimeout(function(){ if(document.readyState==='complete'){ try{ window.print(); }catch(e){} } }, 900);
+    </script>
 </body>
 </html>`;
 
-        // Open print window
-        const printWindow = window.open('', 'PRINT', 'height=600,width=800');
-
-        if (!printWindow) {
-            throw new Error('Popup blocked. Please allow popups for this site.');
+        // Viewer (src/viewer) does not support window.print reliably.
+        // Use system browser via /api/print/store + /api/open/external as primary path.
+        var isViewer = false;
+        try {
+            isViewer = (typeof window.__ht_token !== 'undefined' && !!window.__ht_token) || typeof closeWindow === 'function' || (window.external && typeof window.external.invoke === 'function');
+        } catch(e) {}
+        if (isViewer) {
+            try {
+                var tk = window.__ht_token || '';
+                try { if(!tk) tk = sessionStorage.__ht_token || ''; } catch(e2) {}
+                var headers = {'Content-Type': 'text/html'};
+                if(tk) headers['X-HT-Token'] = tk;
+                fetch('/api/print/store', {method:'POST', headers: headers, body: printDocument})
+                    .then(function(r){ if(!r.ok) throw new Error('store failed '+r.status); return r.text(); })
+                    .then(function(p){
+                        var fullUrl = window.location.origin + p;
+                        // Open in system browser - this triggers native print dialog there (browser print works)
+                        fetch('/api/open/external?url='+encodeURIComponent(fullUrl)).catch(function(){});
+                        // Also open as viewer tab preview so user sees content inside viewer
+                        try { 
+                            var w = window.open(fullUrl, '_blank');
+                            // If viewer overrides window.open to tabs, this will create a new tab
+                            if(w && w.document) {
+                                // Tab preview will auto-print via script tag in printDocument
+                            }
+                        } catch(e) {}
+                    })
+                    .catch(function(err){
+                        console.error('Viewer print fallback failed', err);
+                        fallbackWindowPrint();
+                    });
+                return;
+            } catch(e) {
+                console.error('Viewer print setup failed', e);
+                // fall through to fallback
+            }
         }
-
-        printWindow.document.write(printDocument);
-        printWindow.document.close();
-
-        // Wait for content to load before printing
-        printWindow.onload = function() {
-            printWindow.focus();
-
-            // Add slight delay to ensure content is rendered
-            setTimeout(() => {
-                printWindow.print();
-            }, 250);
-        };
+        function fallbackWindowPrint(){
+            const printWindow = window.open('', 'PRINT', 'height=600,width=800');
+            if (!printWindow) {
+                throw new Error('Popup blocked. Please allow popups for this site.');
+            }
+            printWindow.document.write(printDocument);
+            printWindow.document.close();
+            printWindow.onload = function() {
+                printWindow.focus();
+                setTimeout(() => {
+                    printWindow.print();
+                }, 250);
+            };
+        }
+        fallbackWindowPrint();
 
     } catch (error) {
         console.error('Printing failed:', error);
