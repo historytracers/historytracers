@@ -105,10 +105,21 @@ On Windows, `sqlite3` CLI is typically not installed and PowerShell corrupts bin
 # extract_db.py
 import subprocess, tempfile, os
 
-tmp = tempfile.gettempdir()
+work_dir = tempfile.mkdtemp(prefix="ht_merge_")
 
 def extract_git_blob(ref_path, output_path):
-    result = subprocess.run(['git', 'show', ref_path], capture_output=True, check=True)
+    result = subprocess.run(['git', 'show', ref_path], capture_output=True)
+    if result.returncode != 0:
+        # File was deleted in this ref — create an empty schema-compatible DB
+        import sqlite3 as _sqlite3
+        conn = _sqlite3.connect(output_path)
+        conn.execute("CREATE TABLE IF NOT EXISTS source_format (sf_id TEXT, sf_desc TEXT)")
+        conn.execute("CREATE TABLE IF NOT EXISTS sources (src_id TEXT, src_alt TEXT, src_desc TEXT, src_url TEXT, src_year TEXT, src_link TEXT)")
+        conn.execute("CREATE TABLE IF NOT EXISTS files (fil_id TEXT, fil_desc TEXT)")
+        conn.execute("CREATE TABLE IF NOT EXISTS citation (fil_id TEXT, src_id TEXT, cit_type INTEGER)")
+        conn.commit(); conn.close()
+        print(f"Warning: {ref_path} not found (deleted); created empty DB at {output_path}")
+        return
     with open(output_path, 'wb') as f:
         f.write(result.stdout)
     print(f"Extracted {ref_path} -> {output_path} ({len(result.stdout)} bytes)")
@@ -119,8 +130,9 @@ ours_ref = "HEAD"
 theirs_ref = "origin/main"
 db_path = "lang/sources/history_tracers.db"
 
-extract_git_blob(f"{ours_ref}:{db_path}", os.path.join(tmp, "ours.db"))
-extract_git_blob(f"{theirs_ref}:{db_path}", os.path.join(tmp, "theirs.db"))
+extract_git_blob(f"{ours_ref}:{db_path}", os.path.join(work_dir, "ours.db"))
+extract_git_blob(f"{theirs_ref}:{db_path}", os.path.join(work_dir, "theirs.db"))
+print(f"Work directory: {work_dir}")
 ```
 
 Run: `python extract_db.py`
@@ -129,9 +141,10 @@ Run: `python extract_db.py`
 
 ```python
 # merge_db.py
-import sqlite3, shutil, tempfile, os
+import sqlite3, shutil, sys, os
 
-tmp = tempfile.gettempdir()
+# Pass work_dir as argument, or set it here from extract_db.py output
+work_dir = sys.argv[1] if len(sys.argv) > 1 else input("Work directory from extract_db.py: ").strip()
 
 def get_tables(db_path):
     conn = sqlite3.connect(db_path)
@@ -145,9 +158,9 @@ def dump_table(db_path, table):
     conn.close()
     return rows
 
-ours = os.path.join(tmp, "ours.db")
-theirs = os.path.join(tmp, "theirs.db")
-merged = os.path.join(tmp, "merged.db")
+ours = os.path.join(work_dir, "ours.db")
+theirs = os.path.join(work_dir, "theirs.db")
+merged = os.path.join(work_dir, "merged.db")
 
 # Diff each table
 for t in get_tables(ours):
@@ -186,16 +199,21 @@ for t in get_tables(merged):
 
 Run: `python merge_db.py`
 
-**Step 3 — Copy and stage** (PowerShell):
+**Step 3 — Copy and stage** (PowerShell, replace `$workDir` with the path printed by extract_db.py):
 
 ```powershell
 $ErrorActionPreference = "Stop"
-$tmp = [System.IO.Path]::GetTempPath()
-Copy-Item -Path "$tmp\merged.db" -Destination "lang\sources\history_tracers.db" -Force
+$workDir = "C:\Users\<user>\AppData\Local\Temp\ht_merge_<random>"
+Copy-Item -Path "$workDir\merged.db" -Destination "lang\sources\history_tracers.db" -Force
 git add lang/sources/history_tracers.db
 if ($LASTEXITCODE -ne 0) { throw "git add failed with exit code $LASTEXITCODE" }
 git commit -m "Merge main: union-merge SQLite DB (history_tracers.db)"
 if ($LASTEXITCODE -ne 0) { throw "git commit failed with exit code $LASTEXITCODE" }
 ```
 
-**Step 4 — Clean up** temp scripts: `Remove-Item extract_db.py, merge_db.py`
+**Step 4 — Clean up** temp scripts and work directory:
+
+```powershell
+Remove-Item extract_db.py, merge_db.py
+Remove-Item -Recurse -Force $workDir
+```
