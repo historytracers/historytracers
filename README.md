@@ -5,37 +5,47 @@
 
 This project is free software distributed under the `GPL 3 or later` license. All content on the project is licensed under [CC BY-NC 4.0 DEED](https://creativecommons.org/licenses/by-nc/4.0/), unless otherwise indicated.
 
+**History Tracers** is more than an educational website — it is a learning ecosystem built for everyone. Whether you are a student eager to understand, a teacher looking for new ways to explain, or simply a curious mind, this project was made for you. All content is free, available in multiple languages, and designed so that **when you understand *why* something works, you never forget *how* it works.**
+
+<p align="center">
+  <img src="images/HistoryTracers/EditorViewer.jpg" alt="History Tracers Viewer and Editor" width="700" />
+  <br />
+  <em>The History Tracers Viewer and Editor — free software tools built so that everyone can learn and teach.</em>
+</p>
+
+The image above shows the two software applications at the heart of this project: the **Viewer** and the **Editor**. The Viewer is your gateway to knowledge — it lets you browse lessons, view images, listen to audio narrations, and explore interactive content. The Editor is your gateway to contribution — it provides a simple interface to write new texts, add sources, and publish educational content in multiple languages. Together, they form a complete learning ecosystem: **one side teaches, the other learns, and both are free for everyone.**
+
 ## Why Another Educational Project?
 
-Teaching is often a daily challenge for both students and teachers, each for different reasons. Our goal is to support both sides of the learning process by providing diverse tools.
+Teaching is often a daily challenge for both students and teachers, each for different reasons. Our goal is to support both sides of the learning process by providing diverse tools that make knowledge accessible, engaging, and personal.
 
 ### The Main Tool
 
-Unsurprisingly, the main teaching tool in *History Tracers* is **YOU**. Through our own body, we study different sciences.
+Unsurprisingly, the main teaching tool in *History Tracers* is **YOU**. Through our own body, we study different sciences. Your hands, your fingers, your steps — they are all instruments of learning.
 
 ### Texts with Audio
 
-With the exception of two sections that will soon receive audio (*General History* and *Historical Events*), all project texts already include narration. This way, in addition to reading and practicing, you can also listen to the content whenever you like.
+With the exception of two sections that will soon receive audio (*General History* and *Historical Events*), all project texts already include narration. This way, in addition to reading and practicing, you can also listen to the content whenever you like — on the bus, during a walk, or before sleep.
 
 ### Images
 
-Purely written texts may be challenging for some people. For this reason, we present illustrated content whenever necessary.
+Purely written texts may be challenging for some people. For this reason, we present illustrated content whenever necessary. A single image can replace a thousand words of explanation.
 
 ### Genealogy
 
-Family relationships play an important role in education, as they make knowledge literally become part of our lives. For this reason, we use genealogy in different types of content.
+Family relationships play an important role in education, as they make knowledge literally become part of our lives. When you see your own family tree connected to the history of numbers, mathematics stops being abstract — it becomes personal.
 
 ### Practices
 
-Theoretical teaching is important, but science without practice is not science. For this reason, most texts include, at the end, questions with answers so you can check whether you understood the content. In addition, some texts include practices that can be carried out at home.
+Theoretical teaching is important, but science without practice is not science. For this reason, most texts include, at the end, questions with answers so you can check whether you understood the content. In addition, some texts include practices that can be carried out at home. **Try it now — learning by doing is the deepest kind of learning.**
 
 ### Multidisciplinarity
 
-The word that names this section is long and equally deep. It highlights the need for content from different disciplines to be presented together. For this reason, the same text from *History Tracers* may appear in different sections.
+The word that names this section is long and equally deep. It highlights the need for content from different disciplines to be presented together. For this reason, the same text from *History Tracers* may appear in different sections. **Knowledge does not live in isolated boxes — it connects, just like the branches of a tree.**
 
 ### Videos
 
-In some texts, we also present videos to further illustrate the content.
+In some texts, we also present videos to further illustrate the content, bringing history and science to life through sight and sound.
 
 ## Why Can't I Access the Site Locally?
 

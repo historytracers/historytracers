@@ -5,37 +5,47 @@
 
 Este proyecto es software libre distribuido bajo la licencia `GPL 3 o posterior`. Todo el contenido del proyecto está licenciado bajo [CC BY-NC 4.0 DEED](https://creativecommons.org/licenses/by-nc/4.0/), a menos que se indique lo contrario.
 
+**History Tracers** es más que un sitio educativo — es un ecosistema de aprendizaje construido para todos. Ya seas un estudiante ansioso por comprender, un docente que busca nuevas formas de explicar, o simplemente una mente curiosa, este proyecto fue hecho para ti. Todo el contenido es gratuito, disponible en varios idiomas, y está pensado para que **cuando entiendes *por qué* algo funciona, nunca olvidas *cómo* funciona.**
+
+<p align="center">
+  <img src="images/HistoryTracers/EditorViewer.jpg" alt="Visor y Editor de History Tracers" width="700" />
+  <br />
+  <em>El Visor y el Editor de History Tracers — herramientas de software libre creadas para que todos puedan aprender y enseñar.</em>
+</p>
+
+La imagen anterior muestra las dos aplicaciones de software en el corazón de este proyecto: el **Visor** y el **Editor**. El Visor es tu puerta de entrada al conocimiento — permite navegar por las lecciones, ver imágenes, escuchar narraciones de audio y explorar contenido interactivo. El Editor es tu puerta de entrada a la contribución — ofrece una interfaz sencilla para escribir nuevos textos, agregar fuentes y publicar contenido educativo en varios idiomas. Juntos, forman un ecosistema de aprendizaje completo: **un lado enseña, el otro aprende, y ambos son gratuitos para todos.**
+
 ## ¿Por qué otro proyecto de educación?
 
-La enseñanza suele ser un desafío diario tanto para estudiantes como para docentes, cada uno por distintas razones. Nuestro objetivo es apoyar a ambos lados del proceso de aprendizaje proporcionando diversas herramientas.
+La enseñanza suele ser un desafío diario tanto para estudiantes como para docentes, cada uno por distintas razones. Nuestro objetivo es apoyar a ambos lados del proceso de aprendizaje proporcionando diversas herramientas que hagan el conocimiento accesible, atractivo y personal.
 
 ### La Herramienta Principal
 
-No es de sorprender que la principal herramienta de enseñanza en *History Tracers* seas **TÚ**. A través de nuestro propio cuerpo y experiencias, exploramos diferentes ciencias.
+No es de sorprender que la principal herramienta de enseñanza en *History Tracers* seas **TÚ**. A través de nuestro propio cuerpo y experiencias, exploramos diferentes ciencias. Tus manos, tus dedos, tus pasos — todo son instrumentos de aprendizaje.
 
 ### Textos con Audio
 
-Con la excepción de dos secciones que pronto recibirán audio (*Historia General* y *Acontecimientos Históricos*), todos los textos del proyecto ya incluyen narración. De esta manera, además de leer y practicar, también puedes escuchar el contenido cuando lo desees.
+Con la excepción de dos secciones que pronto recibirán audio (*Historia General* y *Acontecimientos Históricos*), todos los textos del proyecto ya incluyen narración. De esta manera, además de leer y practicar, también puedes escuchar el contenido cuando lo desees — en el autobús, durante un paseo o antes de dormir.
 
 ### Imágenes
 
-Los textos puramente escritos pueden resultar difíciles para algunos estudiantes. Por esta razón, ofrecemos contenido ilustrado siempre que sea necesario.
+Los textos puramente escritos pueden resultar difíciles para algunas personas. Por esta razón, presentamos contenido ilustrado siempre que sea necesario. Una sola imagen puede reemplazar mil palabras de explicación.
 
 ### Genealogía
 
-Las relaciones familiares desempeñan un papel importante en la educación, ya que hacen que el conocimiento se convierta literalmente en parte de nuestras vidas. Por esta razón, incorporamos la genealogía en diferentes tipos de contenido.
+Las relaciones familiares desempeñan un papel importante en la educación, ya que hacen que el conocimiento se convierta literalmente en parte de nuestras vidas. Cuando ves tu propio árbol genealógico conectado a la historia de los números, las matemáticas dejan de ser abstractas — se vuelven personales.
 
 ### Prácticas
 
-La enseñanza teórica es importante, pero la ciencia sin práctica no es ciencia. Por ello, la mayoría de los textos incluyen al final preguntas con respuestas para que puedas comprobar tu comprensión. Además, algunos textos presentan prácticas que pueden realizarse en casa.
+La enseñanza teórica es importante, pero la ciencia sin práctica no es ciencia. Por ello, la mayoría de los textos incluyen al final preguntas con respuestas para que puedas comprobar tu comprensión. Además, algunos textos presentan prácticas que pueden realizarse en casa. **Pruébalo ahora — aprender haciendo es el tipo más profundo de aprendizaje.**
 
 ### Multidisciplinariedad
 
-La palabra que da nombre a esta sección es larga y significativa. Resalta la importancia de presentar juntos contenidos de diferentes disciplinas. Por esta razón, un mismo texto de *History Tracers* puede aparecer en varias secciones.
+La palabra que da nombre a esta sección es larga y profunda. Resalta la importancia de presentar juntos contenidos de diferentes disciplinas. Por esta razón, un mismo texto de *History Tracers* puede aparecer en varias secciones. **El conocimiento no vive en cajas aisladas — se conecta, como las ramas de un árbol.**
 
 ### Videos
 
-En algunos textos, también ofrecemos videos para ilustrar aún más el contenido.
+En algunos textos, también presentamos videos para ilustrar aún más el contenido, trayendo la historia y la ciencia a la vida a través de la imagen y el sonido.
 
 
 ## ¿Por qué la necesidad de más proyectos de genealogía?
