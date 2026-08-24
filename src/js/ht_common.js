@@ -320,6 +320,7 @@ function htFixImagesForPrint(html){
             isViewerHidden=true;
         }
         if(isViewerHidden){
+            img.setAttribute('data-ht-viewer-hidden','1');
             if(img.style.visibility==='hidden') img.style.visibility='visible';
             if(img.style.display==='none' && !img.hasAttribute('hidden')) img.style.display='';
         }
@@ -327,10 +328,11 @@ function htFixImagesForPrint(html){
     return tmp.innerHTML;
 }
 function htBuildPrintDocument(header, body, sources, headerStyle){
+    function escapeHtmlAttr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     let fh=htFixImagesForPrint(header);
     let fb=htFixImagesForPrint(body);
     let fs=htFixImagesForPrint(sources);
-    let headerHtml = headerStyle ? `<div class="print-header" style="${headerStyle}text-align:center;margin-bottom:20px;">${fh}</div>` : `<h1>${fh}</h1>`;
+    let headerHtml = headerStyle ? `<div class="print-header" style="${escapeHtmlAttr(headerStyle)}text-align:center;margin-bottom:20px;">${fh}</div>` : `<h1>${fh}</h1>`;
     return `<!DOCTYPE html>
 <html>
 <head>
@@ -377,10 +379,12 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
             print-color-adjust: exact !important;
         }
         img {
-            visibility: visible !important;
             height: auto;
             max-width: 100%;
             break-inside: avoid;
+        }
+        img[data-ht-viewer-hidden] {
+            visibility: visible !important;
         }
         /* Ensure QR code size is preserved over general img rule */
         #htPixQRCode img, #htPixSideQRCode img { break-inside: avoid; }
@@ -451,7 +455,16 @@ function htPrintContent(header, body)
             isViewer = (typeof window.__ht_token !== 'undefined' && !!window.__ht_token) || typeof closeWindow === 'function' || (window.external && typeof window.external.invoke === 'function');
         } catch(e) {}
         if (isViewer) {
+            var printWindow = null;
             try {
+                try{ printWindow = window.open('about:blank', '_blank'); }catch(e){ printWindow=null; }
+                if(printWindow && typeof printWindow.location === 'undefined'){
+                    try{ if(!printWindow.closed) printWindow.close(); }catch(e){}
+                    printWindow = null;
+                }
+                if(!printWindow){
+                    throw new Error('Popup blocked. Please allow popups for this site.');
+                }
                 var tk = window.__ht_token || '';
                 try { if(!tk) tk = sessionStorage.__ht_token || ''; } catch(e2) {}
                 var headers = {'Content-Type': 'text/html'};
@@ -460,16 +473,26 @@ function htPrintContent(header, body)
                     .then(function(r){ if(!r.ok) throw new Error('store failed '+r.status); return r.text(); })
                     .then(function(p){
                         var fullUrl = window.location.origin + p;
-                        // Open as viewer tab preview (viewer screen printing, no external browser)
-                        try{ window.open(fullUrl, '_blank'); }catch(e){}
+                        if(printWindow && typeof printWindow.location !== 'undefined' && printWindow.location){
+                            try{ printWindow.location.href = fullUrl; return; }catch(e){}
+                        }
+                        try{ if(printWindow && !printWindow.closed) printWindow.close(); }catch(e){}
+                        try{ window.open(fullUrl, '_blank'); }catch(e2){}
                     })
                     .catch(function(err){
                         console.error('Viewer print fallback failed', err);
+                        try{ if(printWindow && !printWindow.closed) printWindow.close(); }catch(e){}
                         try{ fallbackWindowPrint(); }catch(e){ console.error('Printing failed:', e); alert('Printing failed: '+e.message); }
                     });
                 return;
             } catch(e) {
+                try{ if(printWindow && !printWindow.closed) printWindow.close(); }catch(e2){}
                 console.error('Viewer print setup failed', e);
+                if(String(e.message).indexOf('Popup blocked')>=0){
+                    console.error('Printing failed:', e);
+                    alert('Printing failed: '+e.message);
+                    return;
+                }
                 // fall through to fallback
             }
         }
