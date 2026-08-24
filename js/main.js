@@ -2,6 +2,7 @@
 
 function htLoadContent() {
     htSetImageSrc("originmigration", "images/Mapswire/mapswire-world-political-white-equal_earth_journey.png");
+    htSetImageSrc("editorviewer", "images/HistoryTracers/EditorViewer.jpg");
 
     var divRadius = parseInt($(".htCircle[name='fig1']").width());
 
