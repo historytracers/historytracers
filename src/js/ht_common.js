@@ -458,6 +458,10 @@ function htPrintContent(header, body)
             var printWindow = null;
             try {
                 try{ printWindow = window.open('about:blank', '_blank'); }catch(e){ printWindow=null; }
+                if(printWindow && typeof printWindow.location === 'undefined'){
+                    try{ if(!printWindow.closed) printWindow.close(); }catch(e){}
+                    printWindow = null;
+                }
                 if(!printWindow){
                     throw new Error('Popup blocked. Please allow popups for this site.');
                 }
@@ -469,7 +473,11 @@ function htPrintContent(header, body)
                     .then(function(r){ if(!r.ok) throw new Error('store failed '+r.status); return r.text(); })
                     .then(function(p){
                         var fullUrl = window.location.origin + p;
-                        try{ printWindow.location.href = fullUrl; }catch(e){ try{ window.open(fullUrl, '_blank'); }catch(e2){} }
+                        if(printWindow && typeof printWindow.location !== 'undefined' && printWindow.location){
+                            try{ printWindow.location.href = fullUrl; return; }catch(e){}
+                        }
+                        try{ if(printWindow && !printWindow.closed) printWindow.close(); }catch(e){}
+                        try{ window.open(fullUrl, '_blank'); }catch(e2){}
                     })
                     .catch(function(err){
                         console.error('Viewer print fallback failed', err);
