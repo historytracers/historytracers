@@ -2904,7 +2904,13 @@ function htFillWebPage(page, data)
     let page_authors = (keywords.length > 34 && keywords[35] && keywords[35].length > 0) ? keywords[35] : "Editors of History Tracers";
     let page_reviewers = (keywords.length > 36 && keywords[37] && keywords[37].length > 0) ? keywords[37] : "Reviewers of History Tracers";
 
-    if (data?.authors != null && data.authors.length > 0) page_authors = data.authors;
+    if (data?.authors != null && String(data.authors).trim().length > 0) {
+        if (Array.isArray(data.authors)) {
+            if (data.authors.some(a => String(a).trim().length > 0)) page_authors = data.authors;
+        } else {
+            page_authors = data.authors;
+        }
+    }
     if (data?.reviewers != null && data.reviewers.length > 0) page_reviewers = data.reviewers;
 
     if (Array.isArray(page_reviewers)) {
