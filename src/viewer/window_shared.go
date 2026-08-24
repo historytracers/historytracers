@@ -90,8 +90,23 @@ var addressBarJS = `
 			return x;
 		};
 	})();
-	if(window!==window.top)return;
+	try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
+	function __htViewerFixCSS(BAR_H){return '.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';}
+	if(window!==window.top){
+		// Inside iframe (new tab): ensure viewer-local image handling and layout fix for broken format/images.
+		try{window.htLocalImgSrc=true;}catch(e){}
+		try{
+			var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
+			var s=document.createElement('style');
+			s.textContent=__htViewerFixCSS(BAR_H);
+			if(document.documentElement) document.documentElement.appendChild(s);
+			else document.addEventListener('DOMContentLoaded',function(){try{document.documentElement.appendChild(s);}catch(e){}});
+		}catch(e){}
+		try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
+		return;
+	}
 	function addBar(){
+		try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
 		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
@@ -99,11 +114,11 @@ var addressBarJS = `
 		try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||''}catch(e){}
 		if(!loc)loc=window.__ht_lang||navigator.language||'en-US';
 		var L={};
-L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',setHomeTitle:'Definir como P\u00e1gina Inicial',homeSaved:'P\u00e1gina inicial definida!',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',err:'Erro',cal_gregory:'Gregoriano',cal_hebrew:'Hebraico',cal_hispanic:'Hisp\u00e2nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (Dias)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Est.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chin\u00eas',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00eas',cal_japanese:'Japon\u00eas',optionsApply:'Aplicar'};
+L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',setHomeTitle:'Definir como P\u00e1gina Inicial',homeSaved:'P\u00e1gina inicial definida!',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',err:'Erro',cal_gregory:'Gregoriano',cal_hebrew:'Hebraico',cal_hispanic:'Hisp\u00e2nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (Dias)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Est.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chin\u00eas',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00eas',cal_japanese:'Japon\u00eas',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
 L['pt']=L['pt-BR'];
-L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',setHomeTitle:'Establecer como P\u00e1gina de Inicio',homeSaved:'\u00a1P\u00e1gina de inicio establecida!',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',err:'Error',cal_gregory:'Gregoriano',cal_hebrew:'Hebreo',cal_hispanic:'Hisp\u00e1nico',cal_islamic:'Isl\u00e1mico',cal_julian:'Juliano (D\u00edas)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Ext.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chino',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00e9s',cal_japanese:'Japon\u00e9s',optionsApply:'Aplicar'};
+L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',setHomeTitle:'Establecer como P\u00e1gina de Inicio',homeSaved:'\u00a1P\u00e1gina de inicio establecida!',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',err:'Error',cal_gregory:'Gregoriano',cal_hebrew:'Hebreo',cal_hispanic:'Hisp\u00e1nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (D\u00edas)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Ext.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chino',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00e9s',cal_japanese:'Japon\u00e9s',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
 L['es']=L['es-ES'];
-L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',setHomeTitle:'Set as Home Page',homeSaved:'Home page set!',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',err:'Error',cal_gregory:'Gregorian',cal_hebrew:'Hebrew',cal_hispanic:'Hispanic',cal_islamic:'Islamic',cal_julian:'Julian (Days)',cal_mesoamerican:'Mesoamerican',cal_emesoamerican:'Mesoamerican (Ext.)',cal_persian:'Persian',cal_french:'French Rev.',cal_shaka:'Shaka',cal_chinese:'Chinese',cal_aymara:'Aymara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javanese',cal_japanese:'Japanese',optionsApply:'Apply'};
+L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',setHomeTitle:'Set as Home Page',homeSaved:'Home page set!',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',err:'Error',cal_gregory:'Gregorian',cal_hebrew:'Hebrew',cal_hispanic:'Hispanic',cal_islamic:'Islamic',cal_julian:'Julian (Days)',cal_mesoamerican:'Mesoamerican',cal_emesoamerican:'Mesoamerican (Ext.)',cal_persian:'Persian',cal_french:'French Rev.',cal_shaka:'Shaka',cal_chinese:'Chinese',cal_aymara:'Aymara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javanese',cal_japanese:'Japanese',optionsApply:'Apply',printTitle:'Print page'};
 L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var _lang='';
@@ -152,6 +167,7 @@ L['en']=L['en-US'];
 				else if(e.id==='__ht_family')e.title=l.familyTitle;
 				else if(e.id==='__ht_menu_btn')e.title=l.menuTitle;
 				else if(e.id==='__ht_fav_btn')e.title=l.favBtnTitle;
+				else if(e.id==='__ht_print_btn')e.title=l.printTitle||'Print';
 				else if(e.id==='__ht_history_item'){if(e.firstChild)e.firstChild.textContent=l.historyTitle+'\u25B6'}
 				else if(e.id==='__ht_fav_item'){if(e.firstChild)e.firstChild.textContent=l.favTitle+'\u25B6'}
 				else if(e.id==='__ht_exit_item')e.textContent=l.exitTitle;
@@ -215,7 +231,7 @@ L['en']=L['en-US'];
 		}
 		var s=document.createElement('style');
 		s.id='__ht_style';
-		s.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+		s.textContent=__htViewerFixCSS(BAR_H);
 		document.documentElement.appendChild(s);
 		var b=document.createElement('div');
 		b.id='__ht_addr';
@@ -253,6 +269,132 @@ L['en']=L['en-US'];
 		navBtn('__ht_game','\uD83C\uDFAE',l.gameTitle,'index.html?page=math_games');
 		navBtn('__ht_atlas','\uD83C\uDF0D',l.atlasTitle,'index.html?page=atlas');
 		navBtn('__ht_family','\uD83C\uDF33',l.familyTitle,'index.html?page=families');
+		var sepPrint=document.createElement('div');
+		sepPrint.style.cssText='width:1px;height:16px;background:#999;margin:0 4px;flex-shrink:0;';
+		b.appendChild(sepPrint);
+		// Direct print button for viewer top bar - prints current page the user is viewing.
+		// This bypasses the page's own window.open/window.print which is unreliable in webview.
+		function viewerPrintCurrentPage(){
+			try{
+				var isIframe = active!==0 && tabs[active] && tabs[active].iframe;
+				var doc = isIframe ? tabs[active].iframe.contentDocument : document;
+				var win = isIframe ? tabs[active].iframe.contentWindow : window;
+				if(!doc) doc=document;
+				if(!win) win=window;
+				// First try to delegate to the page's own htPrintContent if available (best fidelity)
+				try{
+					// Propagate viewer marker to iframe so it uses viewer print path instead of popup fallback
+					try{ if(window.__ht_token) win.__ht_token=window.__ht_token; }catch(e){}
+					try{ win.htLocalImgSrc=true; win.__ht_localImgSrc=true; }catch(e){}
+					try{ if(window.external && !win.external) win.external=window.external; }catch(e){}
+					try{ if(sessionStorage.__ht_token) win.sessionStorage.__ht_token=sessionStorage.__ht_token; }catch(e){}
+					if(win.htPrintContent && typeof win.htPrintContent==='function'){
+						win.htPrintContent('#header', '#page_data');
+						return;
+					}
+				}catch(e){}
+				// Fallback: build printable HTML from visible elements
+				var header='', body='', sources='', headerStyle='';
+				try{
+					var h=doc.querySelector('#header');
+					if(h){
+						header=h.innerHTML;
+						try{
+							var cs=(win||window).getComputedStyle(h);
+							headerStyle='font-size:'+cs.fontSize+';font-weight:'+cs.fontWeight+';font-family:'+cs.fontFamily+';';
+						}catch(e){}
+					} else header=doc.title||'';
+				}catch(e){}
+				try{ var bEl=doc.querySelector('#page_data'); if(!bEl) bEl=doc.querySelector('#main_page_data'); if(bEl) body=bEl.innerHTML; }catch(e){}
+				if(!body){
+					try{ body=doc.body.innerHTML; }catch(e){}
+				}
+				try{ var sEl=doc.querySelector('.right-sources'); if(sEl) sources=sEl.innerHTML; }catch(e){}
+				// Also try to capture sources from maps if page has them - include as fallback
+				if(!sources){
+					try{ var rs=doc.querySelector('#tree-source'); if(rs) sources+='<div>'+rs.innerHTML+'</div>'; }catch(e){}
+					try{ var rr=doc.querySelector('#tree-ref'); if(rr) sources+='<div>'+rr.innerHTML+'</div>'; }catch(e){}
+				}
+				// Use shared builder from ht_common.js when available, fallback to inline template
+				var printDoc;
+				try{
+					if(win.htBuildPrintDocument && typeof win.htBuildPrintDocument==='function'){
+						printDoc = win.htBuildPrintDocument(header, body, sources, headerStyle);
+					} else if(window.htBuildPrintDocument && typeof window.htBuildPrintDocument==='function'){
+						printDoc = window.htBuildPrintDocument(header, body, sources, headerStyle);
+					} else throw new Error('no builder');
+				}catch(e){
+					var fix=function(html){
+						try{
+							var tmp=document.createElement('div');
+							tmp.innerHTML=html;
+							// Keep QR code in print with same size as screen (10% for #htPixQRCode, 25% for side), remove other right-side content
+							tmp.querySelectorAll('.top-bar-right, #top-bar-right, [class*="top-bar-right"]').forEach(function(el){
+								var qrSide=el.querySelector('#htPixSideQRCode');
+								if(qrSide){
+									Array.from(el.children).forEach(function(child){
+										if(child!==qrSide && !child.contains(qrSide) && !child.querySelector('#htPixSideQRCode')) child.remove();
+									});
+									var qrImg=qrSide.querySelector('img');
+									if(qrImg){ qrImg.setAttribute('width','25%'); qrImg.style.width='25%'; qrImg.style.maxWidth='25%'; }
+								} else el.remove();
+							});
+							tmp.querySelectorAll('#htPixQRCode img').forEach(function(img){ img.setAttribute('width','10%'); img.style.width='10%'; img.style.maxWidth='10%'; });
+							var imgs=tmp.querySelectorAll('img');
+							for(var i=0;i<imgs.length;i++){
+								var img=imgs[i];
+								var src=img.getAttribute('src')||'';
+								var isViewerHidden=false;
+								if(src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('blob:')){
+									if(src.startsWith('/')) src=window.location.origin+src;
+									else src=window.location.origin+'/'+src.replace(/^\//,'');
+									img.setAttribute('src',src);
+								}else if(src && src.indexOf('https://www.historytracers.org/')===0){
+									img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin+'/'));
+									isViewerHidden=true;
+								}
+								if(isViewerHidden){
+									try{ if(img.style.visibility==='hidden') img.style.visibility='visible'; if(img.style.display==='none' && !img.hasAttribute('hidden')) img.style.display=''; }catch(e){}
+								}
+							}
+							return tmp.innerHTML;
+						}catch(e){return html;}
+					};
+					var fh=fix(header);
+					var fb=fix(body);
+					var fs=fix(sources);
+					var headerHtml = headerStyle ? '<div class="print-header" style="'+headerStyle+'text-align:center;margin-bottom:20px;">'+fh+'</div>' : '<h1>'+fh+'</h1>';
+					printDoc = '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><link rel="stylesheet" href="'+window.location.origin+'/css/fa_6_5_2.min.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}.print-header{text-align:center;margin-bottom:20px;}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}#htPixQRCode,#htPixSideQRCode{display:block!important;visibility:visible!important;text-align:center;}#htPixQRCode img{width:10%!important;max-width:10%!important;height:auto!important;}#htPixSideQRCode img{width:25%!important;max-width:25%!important;height:auto!important;}.top-bar-right > *:not(#htPixSideQRCode):not(:has(#htPixSideQRCode)),#top-bar-right > *:not(#htPixSideQRCode){display:none!important;}i[class*="fa-"],span[class*="fa-"],i.fa-brands,i.fa-solid,span.fa-brands{visibility:visible!important;display:inline-block!important;font-style:normal!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}#htPixQRCode img,#htPixSideQRCode img{break-inside:avoid;}@media print{body{margin:0}}</style></head><body>'+headerHtml+'<div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>window.__ht_printGuard=false;function __ht_doPrint(){if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{window.focus();}catch(e){} try{window.print();}catch(e){}}window.addEventListener(\'load\',function(){setTimeout(__ht_doPrint,500);});setTimeout(function(){if(document.readyState===\'complete\'){__ht_doPrint();}},900);</scr'+'ipt></body></html>';
+				}
+				// For viewer, use server-side print store + system browser (reliable) + tab preview
+				var tk=_htToken();
+				var hdr={'Content-Type':'text/html'};
+				if(tk) hdr['X-HT-Token']=tk;
+				fetch('/api/print/store',{method:'POST',headers:hdr,body:printDoc}).then(function(r){
+					if(!r.ok) throw new Error('store failed '+r.status);
+					return r.text();
+				}).then(function(p){
+					var fullUrl=window.location.origin+p;
+					// Open as viewer tab preview (viewer screen printing, no external browser)
+					try{ openTab(fullUrl); }catch(e){}
+				}).catch(function(err){
+					console.error('Viewer print failed',err);
+					// Last resort: try native window.print
+					try{ if(isIframe) win.print(); else window.print(); }catch(e2){}
+				});
+			}catch(err){
+				console.error('viewerPrintCurrentPage error',err);
+				try{ window.print(); }catch(e){}
+			}
+		}
+		var printBtn=document.createElement('button');
+		printBtn.id='__ht_print_btn';
+		printBtn.textContent='\uD83D\uDDA8';
+		printBtn.title=l.printTitle||'Print';
+		printBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:16px/1 monospace;padding:0 6px;color:#555;';
+		printBtn.onclick=function(){ viewerPrintCurrentPage(); };
+		_el.push(printBtn);
+		b.appendChild(printBtn);
 		var sep2=document.createElement('div');
 		sep2.style.cssText='width:1px;height:16px;background:#999;margin:0 4px;flex-shrink:0;';
 		b.appendChild(sep2);
@@ -644,6 +786,11 @@ L['en']=L['en-US'];
 		}
 		function closeTab(idx){
 			if(idx==0||!tabs[idx])return;
+			try{
+				var rec=tabs[idx];
+				if(rec._viewerFixInterval) clearInterval(rec._viewerFixInterval);
+				if(rec._viewerFixTimeout) clearTimeout(rec._viewerFixTimeout);
+			}catch(e){}
 			if(tabs[idx].iframe)tabs[idx].iframe.remove();
 			if(tabs[idx].el)tabs[idx].el.remove();
 			delete tabs[idx];
@@ -668,11 +815,57 @@ L['en']=L['en-US'];
 			f.style.display='none';
 			document.documentElement.appendChild(f);
 			tabs[idx]={type:'iframe',el:t,iframe:f,url:url};
+			// Early viewer fix for new window: poll to set htLocalImgSrc and inject style before page JS runs (fixes images not visible).
+			var _viewerFixInterval=setInterval(function(){
+				try{
+					var _iw=f.contentWindow;
+					if(_iw){_iw.htLocalImgSrc=true;_iw.__ht_localImgSrc=true;}
+					var _idoc=f.contentDocument;
+					if(_idoc && _idoc.documentElement && !_idoc.getElementById('__ht_viewer_fix')){
+						var _s=_idoc.createElement('style');
+						_s.id='__ht_viewer_fix';
+						_s.textContent=__htViewerFixCSS(BAR_H);
+						_idoc.documentElement.appendChild(_s);
+					}
+				}catch(e){}
+			},10);
+			tabs[idx]._viewerFixInterval=_viewerFixInterval;
+			var _viewerFixTimeout=setTimeout(function(){try{clearInterval(_viewerFixInterval);}catch(e){}}, 10000);
+			tabs[idx]._viewerFixTimeout=_viewerFixTimeout;
 			f.addEventListener('load',function(){
+				try{clearInterval(_viewerFixInterval);}catch(e){}
+				try{clearTimeout(_viewerFixTimeout);}catch(e){}
 				try{
 					var idoc=f.contentDocument||f.contentWindow.document;
 					if(!idoc)return;
 					var iw=f.contentWindow;
+					// Fix broken format/images in new window (iframe): inject viewer style and local image flag.
+					try{iw.htLocalImgSrc=true;iw.__ht_localImgSrc=true;}catch(e){}
+					try{
+						var _style=idoc.createElement('style');
+						if(!idoc.getElementById('__ht_viewer_fix')){
+							_style.id='__ht_viewer_fix';
+							_style.textContent=__htViewerFixCSS(BAR_H);
+							if(idoc.documentElement) idoc.documentElement.appendChild(_style);
+						}
+					}catch(e){}
+					// Fix images not visible in new window: convert external https:// URLs to local (preserve root-relative)
+					try{
+						var imgs=idoc.querySelectorAll('img');
+						for(var _i=0;_i<imgs.length;_i++){
+							var _img=imgs[_i];
+							var _src=_img.getAttribute('src')||'';
+							if(_src.indexOf('https://www.historytracers.org/')===0){
+								var _local=_src.replace('https://www.historytracers.org/', window.location.origin+'/');
+								_img.setAttribute('src', _local);
+								// Only reset visibility for viewer-hidden images (those we just fixed)
+								try{
+									if(_img.style.visibility==='hidden') _img.style.visibility='';
+									if(_img.style.display==='none' && !_img.hasAttribute('hidden')) _img.style.display='';
+								}catch(e){}
+							}
+						}
+					}catch(e){}
 					tabs[idx].url=iw.location.href;
 					_favGen++;
 					recordHistory(iw.location.href, idoc.title);
@@ -746,6 +939,10 @@ L['en']=L['en-US'];
 					return;
 				}
 				var p=u.pathname;
+				if(p.indexOf('/api/print/view')===0){
+					openTab(url);
+					return;
+				}
 				if(p.indexOf('/index.html')!==0&&p.indexOf('index.html')!==0&&p.indexOf('/csv/')!==0&&p.indexOf('/gedcom/')!==0){
 					fetch('/api/open/external?url='+encodeURIComponent(url));
 					return;
@@ -761,27 +958,134 @@ L['en']=L['en-US'];
 			setTimeout(function(){b.style.opacity='0';setTimeout(function(){b.remove()},300)},2500);
 		}
 		window.open=function(url,name,features){
-			if(!url||url==='about:blank'){
+			var isPrintWindow = (!url||url==='about:blank'||url===''||name==='PRINT');
+			if(isPrintWindow){
+				// Create a visible print preview instead of hidden 1x1 iframe.
+				// Previous hidden iframe (left:-9999px, 1x1) prevented window.print() from showing dialog in some webviews.
+				var oldF=document.getElementById('__ht_print_frame');
+				if(oldF) oldF.remove();
+				var oldBg=document.getElementById('__ht_print_bg');
+				if(oldBg) oldBg.remove();
+				var bg=document.createElement('div');
+				bg.id='__ht_print_bg';
+				bg.style.cssText='position:fixed;top:0;left:0;right:0;height:'+BAR_H+'px;background:#f5f5f5;border-bottom:1px solid #999;z-index:2147483647;display:flex;align-items:center;padding:0 8px;font:13px sans-serif;';
+				var msg=document.createElement('span');
+				msg.textContent='Print preview';
+				msg.style.cssText='flex:1;color:#333;font-weight:bold;';
+				var _closed=false; var _printed=false;
+				var closeBtn=document.createElement('button');
+				closeBtn.textContent='\u00D7 Close';
+				closeBtn.style.cssText='padding:4px 12px;cursor:pointer;border:1px solid #999;background:#e8e8e8;border-radius:3px;';
+				closeBtn.onclick=function(){ _closed=true; try{document.getElementById('__ht_print_frame').remove()}catch(e){}; try{bg.remove()}catch(e){}; };
+				var printBtn=document.createElement('button');
+				printBtn.textContent='Print';
+				printBtn.style.cssText='padding:4px 12px;cursor:pointer;border:1px solid #555;background:#555;color:#fff;border-radius:3px;margin-right:6px;';
+				printBtn.onclick=function(){
+					if(_closed || _printed) return;
+					_printed=true;
+					try{
+						var fr=document.getElementById('__ht_print_frame');
+						if(fr&&fr.contentWindow){ fr.contentWindow.focus(); fr.contentWindow.print(); }
+						else window.print();
+					}catch(e){
+						try{window.print()}catch(e2){}
+					}
+				};
+				var extBtn=document.createElement('button');
+				extBtn.textContent='Open in browser';
+				extBtn.title='Open printable page in system browser for printing';
+				extBtn.style.cssText='padding:4px 10px;cursor:pointer;border:1px solid #999;background:#fff;color:#333;border-radius:3px;margin-right:6px;';
+				extBtn.onclick=function(){
+					try{
+						var htmlVal='';
+						try{ var fr2=document.getElementById('__ht_print_frame'); if(fr2&&fr2.contentDocument) htmlVal=fr2.contentDocument.documentElement.outerHTML; }catch(e){}
+						if(!htmlVal) htmlVal=_html;
+						if(!htmlVal) return;
+						var tk='';
+						try{tk=window.__ht_token||sessionStorage.__ht_token||''}catch(e){}
+						var hdr={'Content-Type':'text/html'};
+						if(tk) hdr['X-HT-Token']=tk;
+						fetch('/api/print/store',{method:'POST',headers:hdr,body:htmlVal}).then(function(r){return r.text()}).then(function(p){
+							fetch('/api/open/external?url='+encodeURIComponent(window.location.origin+p));
+						}).catch(function(e){ try{showBanner(l.err+': '+(e&&e.message||''));}catch(ex){} });
+					}catch(e){}
+				};
+				bg.appendChild(msg);
+				bg.appendChild(extBtn);
+				bg.appendChild(printBtn);
+				bg.appendChild(closeBtn);
+				document.documentElement.appendChild(bg);
 				var f=document.createElement('iframe');
-				f.style.cssText='position:absolute;left:-9999px;top:0;width:1px;height:1px;border:none;';
+				f.id='__ht_print_frame';
+				f.style.cssText='position:fixed;top:'+BAR_H+'px;left:0;right:0;bottom:0;width:100%;height:calc(100vh - '+BAR_H+'px);border:none;z-index:2147483646;background:#fff;';
 				document.documentElement.appendChild(f);
-				var iw=f.contentWindow,idoc=iw.document;
-				idoc.open();
+				var iw=f.contentWindow;
+				var _html='';
 				var _onload=null;
+				// Ensure we have a usable document; contentWindow may be null until appended, poll if needed
+				if(!iw){
+					// Fallback: use data URL navigation (will trigger openOrExternal path)
+					return {document:{write:function(){},close:function(){}},focus:function(){},close:function(){},print:function(){},set onload(cb){},get onload(){return null},closed:false};
+				}
+				var idoc=iw.document;
 				return {
-					document: idoc,
-					focus: function(){try{iw.focus()}catch(e){}},
-					close: function(){try{f.remove()}catch(e){}},
-					print: function(){setTimeout(function(){try{iw.print()}catch(e){};try{f.remove()}catch(e){}},200)},
+					get document(){
+						var self=this;
+						return {
+							write: function(s){ _html+=s; },
+							close: function(){
+								try{
+									idoc.open();
+									idoc.write(_html);
+									idoc.close();
+									// Ensure the printed page self-prints even if opener fails
+									setTimeout(function(){
+										if(_closed || _printed) return;
+										_printed=true;
+										try{
+											if(idoc.body && !idoc.querySelector('script[data-ht-print]')){
+												// If the document already contains its own print script, don't duplicate
+												var hasPrintScript = _html.indexOf('window.print')>=0;
+												if(!hasPrintScript){
+													var sc=idoc.createElement('script');
+													sc.setAttribute('data-ht-print','1');
+													sc.textContent='setTimeout(function(){if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{window.print();}catch(e){}},350);';
+													idoc.body.appendChild(sc);
+												}
+											}
+										}catch(e){}
+									},120);
+								}catch(e){}
+							},
+							get documentElement(){ try{return idoc.documentElement}catch(e){return null} }
+						};
+					},
+					focus: function(){try{iw.focus()}catch(e){} try{f.focus()}catch(e){}},
+					close: function(){ if(_closed) return; _closed=true; try{f.remove()}catch(e){}; try{bg.remove()}catch(e){}; },
+					print: function(){
+						if(_closed || _printed) return;
+						_printed=true;
+						setTimeout(function(){
+							if(_closed) return;
+							try{iw.focus();}catch(e){}
+							try{ if(!_closed) iw.print(); }catch(e){ if(!_closed) try{ window.print(); }catch(e2){} }
+						},360);
+					},
 					setTimeout: function(fn,ms){return setTimeout(fn,ms)},
 					get onload(){return _onload},
 					set onload(cb){
 						_onload=cb;
 						if(typeof cb==='function'){
 							var self=this;
-							setTimeout(function(){cb.call(self)},80);
+							setTimeout(function(){
+								if(_closed) return;
+								try{cb.call(self)}catch(e){}
+								// Ensure print is triggered even if caller forgets or print was blocked
+								setTimeout(function(){ if(_closed || _printed) return; try{self.print()}catch(e){}},650);
+							},180);
 						}
-					}
+					},
+					get closed(){ return _closed; }
 				};
 			}
 			openOrExternal(url);
