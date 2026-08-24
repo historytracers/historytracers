@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"strings"
 	"sync"
 	"testing"
@@ -244,6 +245,43 @@ func init() {
 	metricsResBytesTotal = 0
 	metricsDurationSumNs = 0
 	metricsMu.Unlock()
+}
+
+func TestViewerWindowOpenOverride(t *testing.T) {
+	js := addressBarJS
+	if !strings.Contains(js, "isPrintWindow") {
+		t.Errorf("expected isPrintWindow check in addressBarJS")
+	}
+	// Regression: window.open shim should handle print preview and normal tabs
+	if !strings.Contains(js, "openTab") {
+		t.Errorf("expected openTab in window.open override")
+	}
+	// Check that print preview handles _closed guard
+	if !strings.Contains(js, "_closed") {
+		t.Errorf("expected _closed guard in print preview")
+	}
+}
+
+func TestViewerPrintWindowNavigable(t *testing.T) {
+	// Regression for viewer print: window.open('about:blank') may return shim without location
+	data, err := os.ReadFile("../../src/js/ht_common.js")
+	if err != nil {
+		t.Fatalf("failed to read ht_common.js: %v", err)
+	}
+	content := string(data)
+	if !strings.Contains(content, "typeof printWindow.location") {
+		t.Errorf("expected location check for printWindow in ht_common.js")
+	}
+	if !strings.Contains(content, "printWindow.close()") {
+		t.Errorf("expected close handling for non-navigable printWindow")
+	}
+	if !strings.Contains(content, "htBuildPrintDocument") {
+		t.Errorf("expected htBuildPrintDocument usage")
+	}
+	// Ensure viewer print does not leave empty preview
+	if !strings.Contains(content, "window.open('about:blank'") {
+		t.Errorf("expected placeholder window.open for viewer print")
+	}
 }
 
 func TestContentTitlePrefersJSONTitle(t *testing.T) {
