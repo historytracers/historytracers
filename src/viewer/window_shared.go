@@ -300,7 +300,33 @@ L['en']=L['en-US'];
 					try{ var rs=doc.querySelector('#tree-source'); if(rs) sources+='<div>'+rs.innerHTML+'</div>'; }catch(e){}
 					try{ var rr=doc.querySelector('#tree-ref'); if(rr) sources+='<div>'+rr.innerHTML+'</div>'; }catch(e){}
 				}
-				var printDoc='<!DOCTYPE html><html><head><meta charset="utf-8"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}@media print{body{margin:0}}</style></head><body><h1>'+header+'</h1><div>'+body+'</div><div class="cited-text">'+sources+'</div><script>setTimeout(function(){try{window.print()}catch(e){}},400);</scr'+'ipt></body></html>';
+				// Fix images not visible when printing first page (index.html + main.json): ensure absolute local URLs and visible style
+				var printDoc=(function(){
+					var fix=function(html){
+						try{
+							var tmp=document.createElement('div');
+							tmp.innerHTML=html;
+							var imgs=tmp.querySelectorAll('img');
+							for(var i=0;i<imgs.length;i++){
+								var img=imgs[i];
+								var src=img.getAttribute('src')||'';
+								if(src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('blob:')){
+									if(src.startsWith('/')) src=window.location.origin+src;
+									else src=window.location.origin+'/'+src.replace(/^\//,'');
+									img.setAttribute('src',src);
+								}else if(src && src.indexOf('https://www.historytracers.org/')===0){
+									img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin+'/'));
+								}
+								try{img.style.maxWidth='100%';img.style.height='auto';img.style.visibility='visible';img.style.display='block';img.style.margin='10px auto';}catch(e){}
+							}
+							return tmp.innerHTML;
+						}catch(e){return html;}
+					};
+					var fh=fix(header);
+					var fb=fix(body);
+					var fs=fix(sources);
+					return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}img{max-width:100%;height:auto;visibility:visible!important;display:block;margin:10px auto;}@media print{body{margin:0}img{break-inside:avoid;}}</style></head><body><h1>'+fh+'</h1><div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>setTimeout(function(){try{window.print()}catch(e){}},400);</scr'+'ipt></body></html>';
+				})();
 				// For viewer, use server-side print store + system browser (reliable) + tab preview
 				var tk=_htToken();
 				var hdr={'Content-Type':'text/html'};
@@ -745,7 +771,22 @@ L['en']=L['en-US'];
 			f.style.display='none';
 			document.documentElement.appendChild(f);
 			tabs[idx]={type:'iframe',el:t,iframe:f,url:url};
+			// Early viewer fix for new window: poll to set htLocalImgSrc and inject style before page JS runs (fixes images not visible).
+			var _viewerFixInterval=setInterval(function(){
+				try{
+					var _iw=f.contentWindow;
+					if(_iw){_iw.htLocalImgSrc=true;_iw.__ht_localImgSrc=true;}
+					var _idoc=f.contentDocument;
+					if(_idoc && _idoc.documentElement && !_idoc.getElementById('__ht_viewer_fix')){
+						var _s=_idoc.createElement('style');
+						_s.id='__ht_viewer_fix';
+						_s.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+						_idoc.documentElement.appendChild(_s);
+					}
+				}catch(e){}
+			},10);
 			f.addEventListener('load',function(){
+				try{clearInterval(_viewerFixInterval);}catch(e){}
 				try{
 					var idoc=f.contentDocument||f.contentWindow.document;
 					if(!idoc)return;
@@ -754,8 +795,25 @@ L['en']=L['en-US'];
 					try{iw.htLocalImgSrc=true;iw.__ht_localImgSrc=true;}catch(e){}
 					try{
 						var _style=idoc.createElement('style');
-						_style.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
-						if(idoc.documentElement) idoc.documentElement.appendChild(_style);
+						if(!idoc.getElementById('__ht_viewer_fix')){
+							_style.id='__ht_viewer_fix';
+							_style.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+							if(idoc.documentElement) idoc.documentElement.appendChild(_style);
+						}
+					}catch(e){}
+					// Fix images not visible in new window: convert external https:// URLs to local and ensure visibility
+					try{
+						var imgs=idoc.querySelectorAll('img');
+						for(var _i=0;_i<imgs.length;_i++){
+							var _img=imgs[_i];
+							var _src=_img.getAttribute('src')||'';
+							if(_src.indexOf('https://www.historytracers.org/')===0){
+								var _local=_src.replace('https://www.historytracers.org/','');
+								_img.setAttribute('src', _local);
+							}
+							// Ensure hidden images due to broken format are visible
+							try{_img.style.visibility='';_img.style.display='';}catch(e){}
+						}
 					}catch(e){}
 					tabs[idx].url=iw.location.href;
 					_favGen++;

@@ -4,6 +4,7 @@
 - When asked to refactor or move code, only perform the specific changes requested. Do not create new files (games, content, etc.) unless explicitly asked.
 - Verify existing functionality is preserved after changes.
 - Always edit source files under `src/css/` and `src/js/` (e.g., `src/css/ht_math.css`, `src/js/ht_yupana.js`) instead of their minified/compiled counterparts in `css/` and `js/`. The compiled versions are generated during the build process.
+- No AI is allowed to do direct commits. All AI-generated changes must be submitted via pull request / branch and receive review and approval from human developers before merging. Do not run `git commit`, `git push`, or `gh pr merge` directly.
 
 ## Adding new content (a new UUID group of files)
 

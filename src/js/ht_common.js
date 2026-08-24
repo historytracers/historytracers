@@ -314,6 +314,46 @@ function htPrintContent(header, body)
             pageCitation = htFillSourceContentToPrint(pageCitation, map, id);
         });
 
+        // Fix images not visible when printing first page (index.html + main.json): ensure absolute URLs and visible style
+        let fixedHeader = pageHeader;
+        let fixedBody = pageBody;
+        let fixedCitation = pageCitation;
+        try {
+            const fixImages = (html) => {
+                const tmp = document.createElement('div');
+                tmp.innerHTML = html;
+                tmp.querySelectorAll('img').forEach(img => {
+                    let src = img.getAttribute('src') || '';
+                    // Handle empty src that was set via htSetImageSrc (may have been external)
+                    if (!src) {
+                        const id = img.getAttribute('id') || '';
+                        if (id && window.htLocalImgSrc) {
+                            // Try to find original path from data attribute or leave as is
+                        }
+                    }
+                    if (src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('blob:')) {
+                        let base = window.location.origin + '/';
+                        if (src.startsWith('/')) src = window.location.origin + src;
+                        else src = base + src.replace(/^\//, '');
+                        img.setAttribute('src', src);
+                    } else if (src && src.startsWith('https://www.historytracers.org/') && window.htLocalImgSrc) {
+                        // Viewer: convert external to local for offline print
+                        img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin + '/'));
+                    }
+                    // Ensure print-visible style
+                    img.style.maxWidth = '100%';
+                    img.style.height = 'auto';
+                    img.style.visibility = 'visible';
+                    img.style.display = img.style.display || 'block';
+                    img.style.margin = img.style.margin || '10px auto';
+                });
+                return tmp.innerHTML;
+            };
+            fixedHeader = fixImages(pageHeader);
+            fixedBody = fixImages(pageBody);
+            fixedCitation = fixImages(pageCitation);
+        } catch(e) {}
+
         // Create print document with proper HTML structure
         const printDocument = `
 <!DOCTYPE html>
@@ -321,6 +361,7 @@ function htPrintContent(header, body)
 <head>
     <title>Print Document</title>
     <meta charset="UTF-8">
+    <base href="${window.location.origin}/">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -336,15 +377,23 @@ function htPrintContent(header, body)
             border-top: 1px solid #ccc;
             padding-top: 15px;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+            visibility: visible !important;
+            display: block;
+            margin: 10px auto;
+        }
         @media print {
             body { margin: 0; }
+            img { break-inside: avoid; }
         }
     </style>
 </head>
 <body>
-    <h1>${pageHeader}</h1>
-    <div>${pageBody}</div>
-    <div class="cited-text">${pageCitation}</div>
+    <h1>${fixedHeader}</h1>
+    <div>${fixedBody}</div>
+    <div class="cited-text">${fixedCitation}</div>
     <script>
         // Auto-print for viewer/webview environments where opener may be a fake window
         window.addEventListener('load', function(){ setTimeout(function(){ try{ window.focus(); }catch(e){} try{ window.print(); }catch(e){} }, 500); });
