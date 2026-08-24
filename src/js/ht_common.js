@@ -474,20 +474,12 @@ function htPrintContent(header, body)
             }
         }
         function fallbackWindowPrint(){
-            let _printed=false;
-            function _doPrint(win){ if(_printed) return; _printed=true; try{win.focus();}catch(e){} try{win.print();}catch(e){} }
             const printWindow = window.open('', 'PRINT', 'height=600,width=800');
             if (!printWindow) {
                 throw new Error('Popup blocked. Please allow popups for this site.');
             }
             printWindow.document.write(printDocument);
             printWindow.document.close();
-            printWindow.onload = function() {
-                if(_printed) return;
-                setTimeout(() => { _doPrint(printWindow); }, 250);
-            };
-            // Fallback if onload never fires (injected script in printDocument also has guard)
-            setTimeout(function(){ _doPrint(printWindow); }, 900);
         }
         fallbackWindowPrint();
 
@@ -2904,10 +2896,11 @@ function htFillWebPage(page, data)
     let page_authors = (keywords.length > 34 && keywords[35] && keywords[35].length > 0) ? keywords[35] : "Editors of History Tracers";
     let page_reviewers = (keywords.length > 36 && keywords[37] && keywords[37].length > 0) ? keywords[37] : "Reviewers of History Tracers";
 
-    if (data?.authors != null && String(data.authors).trim().length > 0) {
+    if (data?.authors != null) {
         if (Array.isArray(data.authors)) {
-            if (data.authors.some(a => String(a).trim().length > 0)) page_authors = data.authors;
-        } else {
+            const filtered = data.authors.filter(a => String(a).trim().length > 0);
+            if (filtered.length > 0) page_authors = filtered.join(", ");
+        } else if (String(data.authors).trim().length > 0) {
             page_authors = data.authors;
         }
     }

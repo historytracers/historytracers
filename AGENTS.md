@@ -214,10 +214,10 @@ $workDir = "C:\Users\<user>\AppData\Local\Temp\ht_merge_<random>"
 Copy-Item -Path "$workDir\merged.db" -Destination "lang\sources\history_tracers.db" -Force
 git add lang/sources/history_tracers.db
 if ($LASTEXITCODE -ne 0) { throw "git add failed with exit code $LASTEXITCODE" }
-# Stop here for AI — human maintainer must review git status/diff and commit
+# Stop here for AI — human maintainer must review git status/diff, create the commit, and then run Step 4
 ```
 
-**Step 4 — Clean up** temp scripts and work directory:
+**Step 4 — Clean up (human, after commit)** temp scripts and work directory:
 
 ```powershell
 Remove-Item extract_db.py, merge_db.py
