@@ -328,6 +328,18 @@ L['en']=L['en-US'];
 						try{
 							var tmp=document.createElement('div');
 							tmp.innerHTML=html;
+							// Keep QR code in print with same size as screen (10% for #htPixQRCode, 25% for side), remove other right-side content
+							tmp.querySelectorAll('.top-bar-right, #top-bar-right, [class*="top-bar-right"]').forEach(function(el){
+								var qrSide=el.querySelector('#htPixSideQRCode');
+								if(qrSide){
+									Array.from(el.children).forEach(function(child){
+										if(child!==qrSide && !child.contains(qrSide) && !child.querySelector('#htPixSideQRCode')) child.remove();
+									});
+									var qrImg=qrSide.querySelector('img');
+									if(qrImg){ qrImg.setAttribute('width','25%'); qrImg.style.width='25%'; qrImg.style.maxWidth='25%'; }
+								} else el.remove();
+							});
+							tmp.querySelectorAll('#htPixQRCode img').forEach(function(img){ img.setAttribute('width','10%'); img.style.width='10%'; img.style.maxWidth='10%'; });
 							var imgs=tmp.querySelectorAll('img');
 							for(var i=0;i<imgs.length;i++){
 								var img=imgs[i];
@@ -352,7 +364,7 @@ L['en']=L['en-US'];
 					var fb=fix(body);
 					var fs=fix(sources);
 					var headerHtml = headerStyle ? '<div class="print-header" style="'+headerStyle+'text-align:center;margin-bottom:20px;">'+fh+'</div>' : '<h1>'+fh+'</h1>';
-					printDoc = '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}.print-header{text-align:center;margin-bottom:20px;}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}@media print{body{margin:0}}</style></head><body>'+headerHtml+'<div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>window.__ht_printGuard=false;function __ht_doPrint(){if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{window.focus();}catch(e){} try{window.print();}catch(e){}}window.addEventListener(\'load\',function(){setTimeout(__ht_doPrint,500);});setTimeout(function(){if(document.readyState===\'complete\'){__ht_doPrint();}},900);</scr'+'ipt></body></html>';
+					printDoc = '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><link rel="stylesheet" href="'+window.location.origin+'/css/fa_6_5_2.min.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}.print-header{text-align:center;margin-bottom:20px;}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}#htPixQRCode,#htPixSideQRCode{display:block!important;visibility:visible!important;text-align:center;}#htPixQRCode img{width:10%!important;max-width:10%!important;height:auto!important;}#htPixSideQRCode img{width:25%!important;max-width:25%!important;height:auto!important;}.top-bar-right > *:not(#htPixSideQRCode):not(:has(#htPixSideQRCode)),#top-bar-right > *:not(#htPixSideQRCode){display:none!important;}i[class*="fa-"],span[class*="fa-"],i.fa-brands,i.fa-solid,span.fa-brands{visibility:visible!important;display:inline-block!important;font-style:normal!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}#htPixQRCode img,#htPixSideQRCode img{break-inside:avoid;}@media print{body{margin:0}}</style></head><body>'+headerHtml+'<div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>window.__ht_printGuard=false;function __ht_doPrint(){if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{window.focus();}catch(e){} try{window.print();}catch(e){}}window.addEventListener(\'load\',function(){setTimeout(__ht_doPrint,500);});setTimeout(function(){if(document.readyState===\'complete\'){__ht_doPrint();}},900);</scr'+'ipt></body></html>';
 				}
 				// For viewer, use server-side print store + system browser (reliable) + tab preview
 				var tk=_htToken();

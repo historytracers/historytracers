@@ -286,6 +286,27 @@ function htFillSourceContentToPrint(text, map, id)
 function htFixImagesForPrint(html){
     const tmp=document.createElement('div');
     tmp.innerHTML=html;
+    // Keep QR code in print with correct size (same as screen: 10% for #htPixQRCode, 25% for #htPixSideQRCode), remove other right-side bar content
+    tmp.querySelectorAll('.top-bar-right, #top-bar-right, [class*="top-bar-right"]').forEach(el=>{
+        const qrSide = el.querySelector('#htPixSideQRCode');
+        if(qrSide){
+            // Keep only QR code, remove other children of top-bar-right
+            Array.from(el.children).forEach(child=>{
+                if(child !== qrSide && !child.contains(qrSide) && !child.querySelector('#htPixSideQRCode')){
+                    child.remove();
+                }
+            });
+            // Ensure QR code image has correct size as on screen (25%)
+            const qrImg = qrSide.querySelector('img');
+            if(qrImg){ qrImg.setAttribute('width','25%'); qrImg.style.width='25%'; qrImg.style.maxWidth='25%'; qrImg.style.height='auto'; }
+        } else {
+            el.remove();
+        }
+    });
+    // Ensure main content QR code (#htPixQRCode) also has correct size (10% as on screen)
+    tmp.querySelectorAll('#htPixQRCode img').forEach(img=>{
+        img.setAttribute('width','10%'); img.style.width='10%'; img.style.maxWidth='10%'; img.style.height='auto';
+    });
     tmp.querySelectorAll('img').forEach(img=>{
         let src=img.getAttribute('src')||'';
         let isViewerHidden=false;
@@ -318,6 +339,7 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
     <base href="${window.location.origin}/">
     <link rel="stylesheet" href="${window.location.origin}/css/ht_common.css">
     <link rel="stylesheet" href="${window.location.origin}/css/ht_math.css">
+    <link rel="stylesheet" href="${window.location.origin}/css/fa_6_5_2.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -337,12 +359,31 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
             border-top: 1px solid #ccc;
             padding-top: 15px;
         }
+        /* Keep QR code visible in print with same size as screen (10% for #htPixQRCode, 25% for #htPixSideQRCode) */
+        #htPixQRCode, #htPixSideQRCode { display:block !important; visibility:visible !important; text-align:center; }
+        #htPixQRCode img { width:10% !important; max-width:10% !important; height:auto !important; }
+        #htPixSideQRCode img { width:25% !important; max-width:25% !important; height:auto !important; }
+        /* Hide other right-side bar content (date, latest link) but keep QR */
+        .top-bar-right > *:not(#htPixSideQRCode):not(:has(#htPixSideQRCode)),
+        #top-bar-right > *:not(#htPixSideQRCode) {
+            display:none !important;
+        }
+        /* Ensure FontAwesome social symbols are visible in print */
+        i[class*="fa-"], span[class*="fa-"], i.fa-brands, i.fa-solid, span.fa-brands {
+            visibility: visible !important;
+            display: inline-block !important;
+            font-style: normal !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
         img {
             visibility: visible !important;
             height: auto;
             max-width: 100%;
             break-inside: avoid;
         }
+        /* Ensure QR code size is preserved over general img rule */
+        #htPixQRCode img, #htPixSideQRCode img { break-inside: avoid; }
         @media print {
             body { margin: 0; }
         }
