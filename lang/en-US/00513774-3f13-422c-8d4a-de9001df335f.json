@@ -1,0 +1,142 @@
+{
+   "title": "Equal, same group, or different?",
+   "header": "Equal, same group, or different?",
+   "sources": [
+      "00513774-3f13-422c-8d4a-de9001df335f"
+   ],
+   "scripts": [
+      "00513774-3f13-422c-8d4a-de9001df335f"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/00513774-3f13-422c-8d4a-de9001df335f_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0b91RTtgt0zxqgZQ1IwNuy?si=W1LAMII3RMqLuxOqTT7pLQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1787523433"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThe game on this page helps reinforce the comparisons studied in the previous texts. When we compare two things, they can be exactly **equal**, belong to the **same group** without being exactly equal, or be completely **different**. Before starting, we recommend reading the following texts:\n\n- **On Equality**: the concept of equality (<htcite0>).\n- **Classifying equality**: when things belong to the same group but are not exactly equal (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "On Equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ffffd208-eb09-4da3-b516-f8bc695758dd",
+                     "text": "History Tracers Team",
+                     "page": "Classifying equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### How to play\n\nThe game shows two elements: numbers, figures (circles and squares), or images. You must decide how they relate by choosing one of the three buttons:\n\n- **Equal** (light green button): the two elements are exactly the same.\n- **Same group** (light yellow button): the two elements are not exactly the same, but they belong to the same group.\n- **Neither** (light red button): the two elements are neither equal nor in the same group.\n\nThe game has seven levels. In the first three levels, you compare numbers and only two answers are possible: **Equal** or **Neither**. From the fourth level onward, figures and images appear, and the three answers are used.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><center><div class=\"compGame\"><p id=\"compLevelTitle\" class=\"compLevel\"></p><div class=\"compItems\"><div id=\"compItem1\" class=\"compFigureSlot\"></div><div id=\"compItem2\" class=\"compFigureSlot\"></div></div><div class=\"compButtons\"><button type=\"button\" id=\"compBtnEqual\" class=\"compButton compEqual\"><i class=\"fa-solid fa-equals\"></i> <span>Equal</span></button><button type=\"button\" id=\"compBtnGroup\" class=\"compButton compGroup\"><i class=\"fa-solid fa-object-group\"></i> <span>Same group</span></button><button type=\"button\" id=\"compBtnNeither\" class=\"compButton compNeither\"><i class=\"fa-solid fa-ban\"></i> <span>Neither</span></button></div><div class=\"compFeedback\"><p id=\"compMsgCorrect\" class=\"compMsg compMsgCorrect\" style=\"display: none;\"><i class=\"fa-solid fa-check\"></i> Correct!</p><p id=\"compMsgWrong\" class=\"compMsg compMsgWrong\" style=\"display: none;\"><i class=\"fa-solid fa-xmark\"></i> Not quite, try again.</p><p id=\"compMsgLevelComplete\" class=\"compMsg compMsgFinish\" style=\"display: none;\"><i class=\"fa-solid fa-medal\"></i> Level complete!</p><p id=\"compMsgGameComplete\" class=\"compMsg compMsgFinish\" style=\"display: none;\"><i class=\"fa-solid fa-medal\"></i> Game complete! Congratulations!</p></div><p id=\"compProgress\" class=\"compProgress\"></p><p id=\"compScoreText\" class=\"compScore\"></p><p><button type=\"button\" id=\"compNextLevel\" class=\"compNext\" style=\"display: none;\"></button> <button type=\"button\" id=\"compRestart\" class=\"compNext\"></button></p><div style=\"display: none;\"><span id=\"compWordLevel\">Level</span><span id=\"compWordQuestion\">Question</span><span id=\"compWordOf\">of</span><span id=\"compWordScore\">Score</span><span id=\"compWordNextLevel\">Next level</span><span id=\"compWordRestart\">Restart</span><span id=\"compWordPlayAgain\">Play again</span><span id=\"compWordLevel1\">Numbers from 0 to 9</span><span id=\"compWordLevel2\">Numbers from 10 to 1,000,000</span><span id=\"compWordLevel3\">Maya numbers</span><span id=\"compWordLevel4\">Numbers, circles and squares</span><span id=\"compWordLevel5\">Numbers, circles and squares</span><span id=\"compWordLevel6\">Numbers, circles and squares</span><span id=\"compWordLevel7\">Egypt, Mesoamerica and pyramids</span></div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">The comparison of numbers is presented in <i>On Equality</i> (<htcite0>), and the idea of the same group in <i>Classifying equality</i>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "On Equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
