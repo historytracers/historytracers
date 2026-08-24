@@ -315,6 +315,15 @@ function htPrintContent(header, body)
         });
 
         // Fix images not visible when printing first page (index.html + main.json): ensure absolute URLs and preserve original size
+        // Capture header's computed style to preserve title size in print (fix title not same size as main page)
+        let headerStyle = '';
+        try {
+            const headerEl = $header[0];
+            if (headerEl) {
+                const cs = window.getComputedStyle(headerEl);
+                headerStyle = `font-size:${cs.fontSize};font-weight:${cs.fontWeight};font-family:${cs.fontFamily};`;
+            }
+        } catch(e) {}
         let fixedHeader = pageHeader;
         let fixedBody = pageBody;
         let fixedCitation = pageCitation;
@@ -345,6 +354,7 @@ function htPrintContent(header, body)
         } catch(e) {}
 
         // Create print document with proper HTML structure - include original CSS to preserve image sizes
+        const headerHtml = headerStyle ? `<div class="print-header" style="${headerStyle}text-align:center;margin-bottom:20px;">${fixedHeader}</div>` : `<h1>${fixedHeader}</h1>`;
         const printDocument = `
 <!DOCTYPE html>
 <html>
@@ -359,6 +369,10 @@ function htPrintContent(header, body)
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
+        }
+        .print-header {
+            text-align: center;
+            margin-bottom: 20px;
         }
         h1 {
             text-align: center;
@@ -382,7 +396,7 @@ function htPrintContent(header, body)
     </style>
 </head>
 <body>
-    <h1>${fixedHeader}</h1>
+    ${headerHtml}
     <div>${fixedBody}</div>
     <div class="cited-text">${fixedCitation}</div>
     <script>

@@ -288,8 +288,17 @@ L['en']=L['en-US'];
 					}
 				}catch(e){}
 				// Fallback: build printable HTML from visible elements
-				var header='', body='', sources='';
-				try{ var h=doc.querySelector('#header'); if(h) header=h.innerHTML; else header=doc.title||''; }catch(e){}
+				var header='', body='', sources='', headerStyle='';
+				try{
+					var h=doc.querySelector('#header');
+					if(h){
+						header=h.innerHTML;
+						try{
+							var cs=(win||window).getComputedStyle(h);
+							headerStyle='font-size:'+cs.fontSize+';font-weight:'+cs.fontWeight+';font-family:'+cs.fontFamily+';';
+						}catch(e){}
+					} else header=doc.title||'';
+				}catch(e){}
 				try{ var bEl=doc.querySelector('#page_data'); if(!bEl) bEl=doc.querySelector('#main_page_data'); if(bEl) body=bEl.innerHTML; }catch(e){}
 				if(!body){
 					try{ body=doc.body.innerHTML; }catch(e){}
@@ -325,7 +334,8 @@ L['en']=L['en-US'];
 					var fh=fix(header);
 					var fb=fix(body);
 					var fs=fix(sources);
-					return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}@media print{body{margin:0}}</style></head><body><h1>'+fh+'</h1><div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>setTimeout(function(){try{window.print()}catch(e){}},400);</scr'+'ipt></body></html>';
+					var headerHtml = headerStyle ? '<div class="print-header" style="'+headerStyle+'text-align:center;margin-bottom:20px;">'+fh+'</div>' : '<h1>'+fh+'</h1>';
+					return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}.print-header{text-align:center;margin-bottom:20px;}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}@media print{body{margin:0}}</style></head><body>'+headerHtml+'<div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>setTimeout(function(){try{window.print()}catch(e){}},400);</scr'+'ipt></body></html>';
 				})();
 				// For viewer, use server-side print store + system browser (reliable) + tab preview
 				var tk=_htToken();
