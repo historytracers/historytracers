@@ -300,7 +300,7 @@ L['en']=L['en-US'];
 					try{ var rs=doc.querySelector('#tree-source'); if(rs) sources+='<div>'+rs.innerHTML+'</div>'; }catch(e){}
 					try{ var rr=doc.querySelector('#tree-ref'); if(rr) sources+='<div>'+rr.innerHTML+'</div>'; }catch(e){}
 				}
-				// Fix images not visible when printing first page (index.html + main.json): ensure absolute local URLs and visible style
+				// Fix images not visible when printing first page: preserve original size, ensure local URLs
 				var printDoc=(function(){
 					var fix=function(html){
 						try{
@@ -317,7 +317,7 @@ L['en']=L['en-US'];
 								}else if(src && src.indexOf('https://www.historytracers.org/')===0){
 									img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin+'/'));
 								}
-								try{img.style.maxWidth='100%';img.style.height='auto';img.style.visibility='visible';img.style.display='block';img.style.margin='10px auto';}catch(e){}
+								try{img.style.visibility='visible'; if(img.style.display==='none') img.style.display='';}catch(e){}
 							}
 							return tmp.innerHTML;
 						}catch(e){return html;}
@@ -325,7 +325,7 @@ L['en']=L['en-US'];
 					var fh=fix(header);
 					var fb=fix(body);
 					var fs=fix(sources);
-					return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}img{max-width:100%;height:auto;visibility:visible!important;display:block;margin:10px auto;}@media print{body{margin:0}img{break-inside:avoid;}}</style></head><body><h1>'+fh+'</h1><div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>setTimeout(function(){try{window.print()}catch(e){}},400);</scr'+'ipt></body></html>';
+					return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}@media print{body{margin:0}}</style></head><body><h1>'+fh+'</h1><div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>setTimeout(function(){try{window.print()}catch(e){}},400);</scr'+'ipt></body></html>';
 				})();
 				// For viewer, use server-side print store + system browser (reliable) + tab preview
 				var tk=_htToken();

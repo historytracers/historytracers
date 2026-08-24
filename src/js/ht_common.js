@@ -314,7 +314,7 @@ function htPrintContent(header, body)
             pageCitation = htFillSourceContentToPrint(pageCitation, map, id);
         });
 
-        // Fix images not visible when printing first page (index.html + main.json): ensure absolute URLs and visible style
+        // Fix images not visible when printing first page (index.html + main.json): ensure absolute URLs and preserve original size
         let fixedHeader = pageHeader;
         let fixedBody = pageBody;
         let fixedCitation = pageCitation;
@@ -324,28 +324,18 @@ function htPrintContent(header, body)
                 tmp.innerHTML = html;
                 tmp.querySelectorAll('img').forEach(img => {
                     let src = img.getAttribute('src') || '';
-                    // Handle empty src that was set via htSetImageSrc (may have been external)
-                    if (!src) {
-                        const id = img.getAttribute('id') || '';
-                        if (id && window.htLocalImgSrc) {
-                            // Try to find original path from data attribute or leave as is
-                        }
-                    }
                     if (src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('blob:')) {
                         let base = window.location.origin + '/';
                         if (src.startsWith('/')) src = window.location.origin + src;
                         else src = base + src.replace(/^\//, '');
                         img.setAttribute('src', src);
                     } else if (src && src.startsWith('https://www.historytracers.org/') && window.htLocalImgSrc) {
-                        // Viewer: convert external to local for offline print
                         img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin + '/'));
                     }
-                    // Ensure print-visible style
-                    img.style.maxWidth = '100%';
-                    img.style.height = 'auto';
+                    // Preserve original size - only ensure visibility, don't force dimensions
                     img.style.visibility = 'visible';
-                    img.style.display = img.style.display || 'block';
-                    img.style.margin = img.style.margin || '10px auto';
+                    if (img.style.display === 'none') img.style.display = '';
+                    // Keep original width/height/maxWidth as is; only prevent overflow in print
                 });
                 return tmp.innerHTML;
             };
@@ -354,7 +344,7 @@ function htPrintContent(header, body)
             fixedCitation = fixImages(pageCitation);
         } catch(e) {}
 
-        // Create print document with proper HTML structure
+        // Create print document with proper HTML structure - include original CSS to preserve image sizes
         const printDocument = `
 <!DOCTYPE html>
 <html>
@@ -362,6 +352,8 @@ function htPrintContent(header, body)
     <title>Print Document</title>
     <meta charset="UTF-8">
     <base href="${window.location.origin}/">
+    <link rel="stylesheet" href="${window.location.origin}/css/ht_common.css">
+    <link rel="stylesheet" href="${window.location.origin}/css/ht_math.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -378,15 +370,14 @@ function htPrintContent(header, body)
             padding-top: 15px;
         }
         img {
-            max-width: 100%;
-            height: auto;
             visibility: visible !important;
-            display: block;
-            margin: 10px auto;
+            height: auto;
+            /* Preserve original size; only constrain if larger than print width */
+            max-width: 100%;
+            break-inside: avoid;
         }
         @media print {
             body { margin: 0; }
-            img { break-inside: avoid; }
         }
     </style>
 </head>
