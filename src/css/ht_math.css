@@ -1073,3 +1073,150 @@ canvas {
     font-size: 1rem;
   }
 }
+
+/* Equal, group or different? game */
+.compGame {
+  text-align: center;
+  margin: 1vh auto;
+}
+
+.compLevel {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #5a3f2c;
+}
+
+.compItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4vh;
+  margin: 2vh 0;
+  flex-wrap: wrap;
+}
+
+.compFigureSlot {
+  width: 18vh;
+  height: 18vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compFigure {
+  width: 14vh;
+  height: 14vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.35vh solid #444;
+  border-radius: 1vh;
+  background-color: #fff;
+}
+
+.compShape {
+  border: none;
+  width: 12vh;
+  height: 12vh;
+}
+
+.compFigureImg {
+  max-width: 17vh;
+  max-height: 17vh;
+}
+
+.compNumber {
+  font-size: 4.4vh;
+  font-weight: bold;
+  color: #5a3f2c;
+  white-space: nowrap;
+}
+
+.compNumberSmall {
+  font-size: 2.6vh;
+}
+
+.compButtons {
+  margin: 1.5vh 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1vh;
+}
+
+.compButton {
+  border: 0.35vh solid #444;
+  border-radius: 1.2vh;
+  font-size: 1.05rem;
+  font-weight: bold;
+  padding: 1.2vh 2vh;
+  cursor: pointer;
+  color: #2e241f;
+  transition: 0.08s linear;
+}
+
+.compButton:active {
+  transform: translateY(1px);
+}
+
+.compButton:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.compEqual {
+  background-color: #b9f6ca;
+}
+
+.compGroup {
+  background-color: #fff9c4;
+}
+
+.compNeither {
+  background-color: #ffcdd2;
+}
+
+.compFeedback {
+  min-height: 3.5vh;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.compMsgCorrect {
+  color: #2e7d32;
+}
+
+.compMsgWrong {
+  color: #c62828;
+}
+
+.compMsgFinish {
+  color: #b8860b;
+  font-size: 1.3rem;
+}
+
+.compProgress {
+  font-weight: bold;
+  color: #5a3f2c;
+}
+
+.compScore {
+  font-weight: bold;
+  color: #5a3f2c;
+}
+
+.compNext {
+  background: #5a3f2c;
+  border: none;
+  color: #ffefcf;
+  padding: 4px 12px;
+  border-radius: 35px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85rem;
+  transition: 0.08s linear;
+}
+
+.compNext:active {
+  transform: translateY(1px);
+}

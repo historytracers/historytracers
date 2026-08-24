@@ -94,3 +94,132 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
 4. Verify the union: re-diff each table against both original versions; the merged DB should be a strict superset of each side (no rows lost from either).
 5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db`, then commit.
 6. The `src/common` submodule pointer is also often updated by the merge — stage and commit it too (its working tree should be clean and detached).
+
+### Windows-specific steps
+
+On Windows, `sqlite3` CLI is typically not installed and PowerShell corrupts binary data when piping `git show` output. Use Python instead (Python's `sqlite3` module is built-in).
+
+**Step 1 — Extract both DB versions** (PowerShell cannot pipe binary from `git show`; use a Python helper):
+
+```python
+# extract_db.py
+import subprocess, tempfile, os
+
+work_dir = tempfile.mkdtemp(prefix="ht_merge_")
+
+def extract_git_blob(ref_path, output_path):
+    result = subprocess.run(['git', 'show', ref_path], capture_output=True)
+    if result.returncode != 0:
+        stderr = result.stderr.decode(errors='replace')
+        if 'does not exist in' not in stderr and 'exists at' not in stderr:
+            raise RuntimeError(f"git show failed for {ref_path}: {stderr}")
+        # File was deleted in this ref — create an empty schema-compatible DB
+        import sqlite3 as _sqlite3
+        conn = _sqlite3.connect(output_path)
+        conn.executescript("""
+            CREATE TABLE source_format (sfo_id TEXT NOT NULL PRIMARY KEY, sfo_name TEXT NOT NULL, sfo_description TEXT NOT NULL);
+            CREATE TABLE sources (src_id TEXT NOT NULL PRIMARY KEY, sfo_id TEXT NOT NULL, src_citation TEXT NOT NULL, src_date TEXT NOT NULL, src_publish_date TEXT NOT NULL, src_url TEXT NOT NULL);
+            CREATE TABLE files (fil_id TEXT NOT NULL PRIMARY KEY, fil_desc TEXT NOT NULL);
+            CREATE TABLE citation (fil_id TEXT NOT NULL, src_id TEXT NOT NULL, cit_type TINYINT NOT NULL, PRIMARY KEY (fil_id, src_id, cit_type));
+            CREATE INDEX idx_sources_src_citation ON sources (src_citation);
+        """)
+        conn.close()
+        print(f"Warning: {ref_path} not found (deleted); created empty DB at {output_path}")
+        return
+    with open(output_path, 'wb') as f:
+        f.write(result.stdout)
+    print(f"Extracted {ref_path} -> {output_path} ({len(result.stdout)} bytes)")
+
+# ours_ref: HEAD during merge, upstream/base during rebase
+# theirs_ref: the incoming branch (e.g. origin/main)
+ours_ref = "HEAD"
+theirs_ref = "origin/main"
+db_path = "lang/sources/history_tracers.db"
+
+extract_git_blob(f"{ours_ref}:{db_path}", os.path.join(work_dir, "ours.db"))
+extract_git_blob(f"{theirs_ref}:{db_path}", os.path.join(work_dir, "theirs.db"))
+print(f"Work directory: {work_dir}")
+```
+
+Run: `python extract_db.py`
+
+**Step 2 — Diff, merge, and verify** (use Python's `sqlite3` module):
+
+```python
+# merge_db.py
+import sqlite3, shutil, sys, os
+
+# Pass work_dir as argument, or set it here from extract_db.py output
+work_dir = sys.argv[1] if len(sys.argv) > 1 else input("Work directory from extract_db.py: ").strip()
+
+def get_tables(db_path):
+    conn = sqlite3.connect(db_path)
+    tables = [t[0] for t in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
+    conn.close()
+    return tables
+
+def dump_table(db_path, table):
+    conn = sqlite3.connect(db_path)
+    rows = conn.execute(f"SELECT * FROM [{table}] ORDER BY 1").fetchall()
+    conn.close()
+    return rows
+
+ours = os.path.join(work_dir, "ours.db")
+theirs = os.path.join(work_dir, "theirs.db")
+merged = os.path.join(work_dir, "merged.db")
+
+# Diff each table
+for t in get_tables(ours):
+    ours_set = set(dump_table(ours, t))
+    theirs_set = set(dump_table(theirs, t))
+    only_ours = ours_set - theirs_set
+    only_theirs = theirs_set - ours_set
+    if only_ours or only_theirs:
+        print(f"{t}: only-in-ours={len(only_ours)}, only-in-theirs={len(only_theirs)}")
+        for r in only_ours: print(f"  ours:   {r}")
+        for r in only_theirs: print(f"  theirs: {r}")
+
+# Build union: copy ours, INSERT OR IGNORE from theirs
+shutil.copy2(ours, merged)
+conn = sqlite3.connect(merged)
+for t in get_tables(theirs):
+    cols = len(conn.execute(f"PRAGMA table_info([{t}])").fetchall())
+    theirs_rows = sqlite3.connect(theirs).execute(f"SELECT * FROM [{t}]").fetchall()
+    ours_rows = set(conn.execute(f"SELECT * FROM [{t}]").fetchall())
+    inserted = sum(1 for r in theirs_rows if r not in ours_rows
+                   and conn.execute(f"INSERT OR IGNORE INTO [{t}] VALUES ({','.join('?'*cols)})", r))
+    if inserted: print(f"{t}: inserted {inserted} rows from theirs")
+conn.commit(); conn.close()
+
+# Verify superset
+for t in get_tables(merged):
+    merged_set = set(dump_table(merged, t))
+    missing_ours = set(dump_table(ours, t)) - merged_set
+    missing_theirs = set(dump_table(theirs, t)) - merged_set
+    if missing_ours:
+        raise RuntimeError(f"{t}: missing {len(missing_ours)} rows from ours")
+    if missing_theirs:
+        raise RuntimeError(f"{t}: missing {len(missing_theirs)} rows from theirs")
+    print(f"{t}: OK")
+```
+
+Run: `python merge_db.py`
+
+**Step 3 — Copy and stage** (PowerShell, replace `$workDir` with the path printed by extract_db.py):
+
+```powershell
+$ErrorActionPreference = "Stop"
+$workDir = "C:\Users\<user>\AppData\Local\Temp\ht_merge_<random>"
+Copy-Item -Path "$workDir\merged.db" -Destination "lang\sources\history_tracers.db" -Force
+git add lang/sources/history_tracers.db
+if ($LASTEXITCODE -ne 0) { throw "git add failed with exit code $LASTEXITCODE" }
+git commit -m "Merge main: union-merge SQLite DB (history_tracers.db)"
+if ($LASTEXITCODE -ne 0) { throw "git commit failed with exit code $LASTEXITCODE" }
+```
+
+**Step 4 — Clean up** temp scripts and work directory:
+
+```powershell
+Remove-Item extract_db.py, merge_db.py
+Remove-Item -Recurse -Force $workDir
+```
