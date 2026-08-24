@@ -90,8 +90,22 @@ var addressBarJS = `
 			return x;
 		};
 	})();
-	if(window!==window.top)return;
+	try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
+	if(window!==window.top){
+		// Inside iframe (new tab): ensure viewer-local image handling and layout fix for broken format/images.
+		try{window.htLocalImgSrc=true;}catch(e){}
+		try{
+			var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
+			var s=document.createElement('style');
+			s.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+			if(document.documentElement) document.documentElement.appendChild(s);
+			else document.addEventListener('DOMContentLoaded',function(){try{document.documentElement.appendChild(s);}catch(e){}});
+		}catch(e){}
+		try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
+		return;
+	}
 	function addBar(){
+		try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
 		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
@@ -736,6 +750,13 @@ L['en']=L['en-US'];
 					var idoc=f.contentDocument||f.contentWindow.document;
 					if(!idoc)return;
 					var iw=f.contentWindow;
+					// Fix broken format/images in new window (iframe): inject viewer style and local image flag.
+					try{iw.htLocalImgSrc=true;iw.__ht_localImgSrc=true;}catch(e){}
+					try{
+						var _style=idoc.createElement('style');
+						_style.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+						if(idoc.documentElement) idoc.documentElement.appendChild(_style);
+					}catch(e){}
 					tabs[idx].url=iw.location.href;
 					_favGen++;
 					recordHistory(iw.location.href, idoc.title);
