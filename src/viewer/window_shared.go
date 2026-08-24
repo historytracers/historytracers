@@ -254,16 +254,9 @@ L['en']=L['en-US'];
 		navBtn('__ht_game','\uD83C\uDFAE',l.gameTitle,'index.html?page=math_games');
 		navBtn('__ht_atlas','\uD83C\uDF0D',l.atlasTitle,'index.html?page=atlas');
 		navBtn('__ht_family','\uD83C\uDF33',l.familyTitle,'index.html?page=families');
-		var sep2=document.createElement('div');
-		sep2.style.cssText='width:1px;height:16px;background:#999;margin:0 4px;flex-shrink:0;';
-		b.appendChild(sep2);
-		var u=document.createElement('input');
-		u.id='__ht_url';
-		u.type='text';
-		u.readOnly=true;
-		u.value=window.location.href;
-		u.style.cssText='flex:1;min-width:0;border:none;padding:0 4px;font:14px/1 monospace;background:transparent;color:#333;outline:none;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;';
-		b.appendChild(u);
+		var sepPrint=document.createElement('div');
+		sepPrint.style.cssText='width:1px;height:16px;background:#999;margin:0 4px;flex-shrink:0;';
+		b.appendChild(sepPrint);
 		// Direct print button for viewer top bar - prints current page the user is viewing.
 		// This bypasses the page's own window.open/window.print which is unreliable in webview.
 		function viewerPrintCurrentPage(){
@@ -325,6 +318,16 @@ L['en']=L['en-US'];
 		printBtn.onclick=function(){ viewerPrintCurrentPage(); };
 		_el.push(printBtn);
 		b.appendChild(printBtn);
+		var sep2=document.createElement('div');
+		sep2.style.cssText='width:1px;height:16px;background:#999;margin:0 4px;flex-shrink:0;';
+		b.appendChild(sep2);
+		var u=document.createElement('input');
+		u.id='__ht_url';
+		u.type='text';
+		u.readOnly=true;
+		u.value=window.location.href;
+		u.style.cssText='flex:1;min-width:0;border:none;padding:0 4px;font:14px/1 monospace;background:transparent;color:#333;outline:none;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;';
+		b.appendChild(u);
 		var favBtn=document.createElement('button');
 		favBtn.id='__ht_fav_btn';
 		favBtn.textContent='\u2606';
