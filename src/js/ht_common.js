@@ -283,6 +283,125 @@ function htFillSourceContentToPrint(text, map, id)
     return text.replace(`<div id="${id}" class="cited-text"></div>`, replacement);
 }
 
+function htFixImagesForPrint(html){
+    const tmp=document.createElement('div');
+    tmp.innerHTML=html;
+    // Keep QR code in print with correct size (same as screen: 10% for #htPixQRCode, 25% for #htPixSideQRCode), remove other right-side bar content
+    tmp.querySelectorAll('.top-bar-right, #top-bar-right, [class*="top-bar-right"]').forEach(el=>{
+        const qrSide = el.querySelector('#htPixSideQRCode');
+        if(qrSide){
+            // Keep only QR code, remove other children of top-bar-right
+            Array.from(el.children).forEach(child=>{
+                if(child !== qrSide && !child.contains(qrSide) && !child.querySelector('#htPixSideQRCode')){
+                    child.remove();
+                }
+            });
+            // Ensure QR code image has correct size as on screen (25%)
+            const qrImg = qrSide.querySelector('img');
+            if(qrImg){ qrImg.setAttribute('width','25%'); qrImg.style.width='25%'; qrImg.style.maxWidth='25%'; qrImg.style.height='auto'; }
+        } else {
+            el.remove();
+        }
+    });
+    // Ensure main content QR code (#htPixQRCode) also has correct size (10% as on screen)
+    tmp.querySelectorAll('#htPixQRCode img').forEach(img=>{
+        img.setAttribute('width','10%'); img.style.width='10%'; img.style.maxWidth='10%'; img.style.height='auto';
+    });
+    tmp.querySelectorAll('img').forEach(img=>{
+        let src=img.getAttribute('src')||'';
+        let isViewerHidden=false;
+        if(src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('blob:')){
+            let base=window.location.origin+'/';
+            if(src.startsWith('/')) src=window.location.origin+src;
+            else src=base+src.replace(/^\//,'');
+            img.setAttribute('src',src);
+        } else if(src && src.startsWith('https://www.historytracers.org/') && window.htLocalImgSrc){
+            img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin+'/'));
+            isViewerHidden=true;
+        }
+        if(isViewerHidden){
+            if(img.style.visibility==='hidden') img.style.visibility='visible';
+            if(img.style.display==='none' && !img.hasAttribute('hidden')) img.style.display='';
+        }
+    });
+    return tmp.innerHTML;
+}
+function htBuildPrintDocument(header, body, sources, headerStyle){
+    let fh=htFixImagesForPrint(header);
+    let fb=htFixImagesForPrint(body);
+    let fs=htFixImagesForPrint(sources);
+    let headerHtml = headerStyle ? `<div class="print-header" style="${headerStyle}text-align:center;margin-bottom:20px;">${fh}</div>` : `<h1>${fh}</h1>`;
+    return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Document</title>
+    <meta charset="UTF-8">
+    <base href="${window.location.origin}/">
+    <link rel="stylesheet" href="${window.location.origin}/css/ht_common.css">
+    <link rel="stylesheet" href="${window.location.origin}/css/ht_math.css">
+    <link rel="stylesheet" href="${window.location.origin}/css/fa_6_5_2.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .print-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cited-text {
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+        /* Keep QR code visible in print with same size as screen (10% for #htPixQRCode, 25% for #htPixSideQRCode) */
+        #htPixQRCode, #htPixSideQRCode { display:block !important; visibility:visible !important; text-align:center; }
+        #htPixQRCode img { width:10% !important; max-width:10% !important; height:auto !important; }
+        #htPixSideQRCode img { width:25% !important; max-width:25% !important; height:auto !important; }
+        /* Hide other right-side bar content (date, latest link) but keep QR */
+        .top-bar-right > *:not(#htPixSideQRCode):not(:has(#htPixSideQRCode)),
+        #top-bar-right > *:not(#htPixSideQRCode) {
+            display:none !important;
+        }
+        /* Ensure FontAwesome social symbols are visible in print */
+        i[class*="fa-"], span[class*="fa-"], i.fa-brands, i.fa-solid, span.fa-brands {
+            visibility: visible !important;
+            display: inline-block !important;
+            font-style: normal !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        img {
+            visibility: visible !important;
+            height: auto;
+            max-width: 100%;
+            break-inside: avoid;
+        }
+        /* Ensure QR code size is preserved over general img rule */
+        #htPixQRCode img, #htPixSideQRCode img { break-inside: avoid; }
+        @media print {
+            body { margin: 0; }
+        }
+    </style>
+</head>
+<body>
+    ${headerHtml}
+    <div>${fb}</div>
+    <div class="cited-text">${fs}</div>
+    <script>
+        window.__ht_printGuard=false;
+        function __ht_doPrint(){ if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{ window.focus(); }catch(e){} try{ window.print(); }catch(e){} }
+        window.addEventListener('load', function(){ setTimeout(__ht_doPrint, 500); });
+        setTimeout(function(){ if(document.readyState==='complete'){ __ht_doPrint(); } }, 900);
+    </script>
+</body>
+</html>`;
+}
 function htPrintContent(header, body)
 {
     try {
@@ -314,59 +433,55 @@ function htPrintContent(header, body)
             pageCitation = htFillSourceContentToPrint(pageCitation, map, id);
         });
 
-        // Create print document with proper HTML structure
-        const printDocument = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Print Document</title>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .cited-text {
-            margin-top: 30px;
-            border-top: 1px solid #ccc;
-            padding-top: 15px;
-        }
-        @media print {
-            body { margin: 0; }
-        }
-    </style>
-</head>
-<body>
-    <h1>${pageHeader}</h1>
-    <div>${pageBody}</div>
-    <div class="cited-text">${pageCitation}</div>
-</body>
-</html>`;
+        // Fix images not visible when printing first page (index.html + main.json): ensure absolute URLs and preserve original size
+        // Capture header's computed style to preserve title size in print (fix title not same size as main page)
+        let headerStyle = '';
+        try {
+            const headerEl = $header[0];
+            if (headerEl) {
+                const cs = window.getComputedStyle(headerEl);
+                headerStyle = `font-size:${cs.fontSize};font-weight:${cs.fontWeight};font-family:${cs.fontFamily};`;
+            }
+        } catch(e) {}
+        const printDocument = htBuildPrintDocument(pageHeader, pageBody, pageCitation, headerStyle);
 
-        // Open print window
-        const printWindow = window.open('', 'PRINT', 'height=600,width=800');
-
-        if (!printWindow) {
-            throw new Error('Popup blocked. Please allow popups for this site.');
+        // Viewer (src/viewer): print using viewer screen (no external browser).
+        var isViewer = false;
+        try {
+            isViewer = (typeof window.__ht_token !== 'undefined' && !!window.__ht_token) || typeof closeWindow === 'function' || (window.external && typeof window.external.invoke === 'function');
+        } catch(e) {}
+        if (isViewer) {
+            try {
+                var tk = window.__ht_token || '';
+                try { if(!tk) tk = sessionStorage.__ht_token || ''; } catch(e2) {}
+                var headers = {'Content-Type': 'text/html'};
+                if(tk) headers['X-HT-Token'] = tk;
+                fetch('/api/print/store', {method:'POST', headers: headers, body: printDocument})
+                    .then(function(r){ if(!r.ok) throw new Error('store failed '+r.status); return r.text(); })
+                    .then(function(p){
+                        var fullUrl = window.location.origin + p;
+                        // Open as viewer tab preview (viewer screen printing, no external browser)
+                        try{ window.open(fullUrl, '_blank'); }catch(e){}
+                    })
+                    .catch(function(err){
+                        console.error('Viewer print fallback failed', err);
+                        try{ fallbackWindowPrint(); }catch(e){ console.error('Printing failed:', e); alert('Printing failed: '+e.message); }
+                    });
+                return;
+            } catch(e) {
+                console.error('Viewer print setup failed', e);
+                // fall through to fallback
+            }
         }
-
-        printWindow.document.write(printDocument);
-        printWindow.document.close();
-
-        // Wait for content to load before printing
-        printWindow.onload = function() {
-            printWindow.focus();
-
-            // Add slight delay to ensure content is rendered
-            setTimeout(() => {
-                printWindow.print();
-            }, 250);
-        };
+        function fallbackWindowPrint(){
+            const printWindow = window.open('', 'PRINT', 'height=600,width=800');
+            if (!printWindow) {
+                throw new Error('Popup blocked. Please allow popups for this site.');
+            }
+            printWindow.document.write(printDocument);
+            printWindow.document.close();
+        }
+        fallbackWindowPrint();
 
     } catch (error) {
         console.error('Printing failed:', error);
@@ -2781,7 +2896,14 @@ function htFillWebPage(page, data)
     let page_authors = (keywords.length > 34 && keywords[35] && keywords[35].length > 0) ? keywords[35] : "Editors of History Tracers";
     let page_reviewers = (keywords.length > 36 && keywords[37] && keywords[37].length > 0) ? keywords[37] : "Reviewers of History Tracers";
 
-    if (data?.authors != null && data.authors.length > 0) page_authors = data.authors;
+    if (data?.authors != null) {
+        if (Array.isArray(data.authors)) {
+            const filtered = data.authors.filter(a => String(a).trim().length > 0);
+            if (filtered.length > 0) page_authors = filtered.join(", ");
+        } else if (String(data.authors).trim().length > 0) {
+            page_authors = data.authors;
+        }
+    }
     if (data?.reviewers != null && data.reviewers.length > 0) page_reviewers = data.reviewers;
 
     if (Array.isArray(page_reviewers)) {

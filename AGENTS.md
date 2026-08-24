@@ -4,6 +4,7 @@
 - When asked to refactor or move code, only perform the specific changes requested. Do not create new files (games, content, etc.) unless explicitly asked.
 - Verify existing functionality is preserved after changes.
 - Always edit source files under `src/css/` and `src/js/` (e.g., `src/css/ht_math.css`, `src/js/ht_yupana.js`) instead of their minified/compiled counterparts in `css/` and `js/`. The compiled versions are generated during the build process.
+- No AI is allowed to do direct commits. All AI-generated changes must be submitted via pull request / branch and receive review and approval from human developers before merging. Do not run `git commit`, `git push`, or `gh pr merge` directly.
 
 ## Adding new content (a new UUID group of files)
 
@@ -92,8 +93,8 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
    - Note: `main` is a reserved schema name in SQLite — use a different attach alias like `mdb`.
    - Check for unexpected changes too: rows the merge would drop (e.g. a file/citation present in ours but not in theirs) are deliberate branch content and must be kept.
 4. Verify the union: re-diff each table against both original versions; the merged DB should be a strict superset of each side (no rows lost from either).
-5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db`, then commit.
-6. The `src/common` submodule pointer is also often updated by the merge — stage and commit it too (its working tree should be clean and detached).
+5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db` — **stop here for AI**. A human maintainer must review `git status`/`git diff --stat` and commit the staged changes.
+6. The `src/common` submodule pointer is also often updated by the merge — stage it (`git add src/common`); a human maintainer must commit it (working tree should be clean and detached).
 
 ### Windows-specific steps
 
@@ -213,11 +214,10 @@ $workDir = "C:\Users\<user>\AppData\Local\Temp\ht_merge_<random>"
 Copy-Item -Path "$workDir\merged.db" -Destination "lang\sources\history_tracers.db" -Force
 git add lang/sources/history_tracers.db
 if ($LASTEXITCODE -ne 0) { throw "git add failed with exit code $LASTEXITCODE" }
-git commit -m "Merge main: union-merge SQLite DB (history_tracers.db)"
-if ($LASTEXITCODE -ne 0) { throw "git commit failed with exit code $LASTEXITCODE" }
+# Stop here for AI — human maintainer must review git status/diff, create the commit, and then run Step 4
 ```
 
-**Step 4 — Clean up** temp scripts and work directory:
+**Step 4 — Clean up (human, after commit)** temp scripts and work directory:
 
 ```powershell
 Remove-Item extract_db.py, merge_db.py
