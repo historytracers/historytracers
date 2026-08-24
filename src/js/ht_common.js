@@ -283,6 +283,84 @@ function htFillSourceContentToPrint(text, map, id)
     return text.replace(`<div id="${id}" class="cited-text"></div>`, replacement);
 }
 
+function htFixImagesForPrint(html){
+    const tmp=document.createElement('div');
+    tmp.innerHTML=html;
+    tmp.querySelectorAll('img').forEach(img=>{
+        let src=img.getAttribute('src')||'';
+        let isViewerHidden=false;
+        if(src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('blob:')){
+            let base=window.location.origin+'/';
+            if(src.startsWith('/')) src=window.location.origin+src;
+            else src=base+src.replace(/^\//,'');
+            img.setAttribute('src',src);
+        } else if(src && src.startsWith('https://www.historytracers.org/') && window.htLocalImgSrc){
+            img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin+'/'));
+            isViewerHidden=true;
+        }
+        if(isViewerHidden){
+            if(img.style.visibility==='hidden') img.style.visibility='visible';
+            if(img.style.display==='none' && !img.hasAttribute('hidden')) img.style.display='';
+        }
+    });
+    return tmp.innerHTML;
+}
+function htBuildPrintDocument(header, body, sources, headerStyle){
+    let fh=htFixImagesForPrint(header);
+    let fb=htFixImagesForPrint(body);
+    let fs=htFixImagesForPrint(sources);
+    let headerHtml = headerStyle ? `<div class="print-header" style="${headerStyle}text-align:center;margin-bottom:20px;">${fh}</div>` : `<h1>${fh}</h1>`;
+    return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Document</title>
+    <meta charset="UTF-8">
+    <base href="${window.location.origin}/">
+    <link rel="stylesheet" href="${window.location.origin}/css/ht_common.css">
+    <link rel="stylesheet" href="${window.location.origin}/css/ht_math.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .print-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cited-text {
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+        img {
+            visibility: visible !important;
+            height: auto;
+            max-width: 100%;
+            break-inside: avoid;
+        }
+        @media print {
+            body { margin: 0; }
+        }
+    </style>
+</head>
+<body>
+    ${headerHtml}
+    <div>${fb}</div>
+    <div class="cited-text">${fs}</div>
+    <script>
+        window.__ht_printGuard=false;
+        function __ht_doPrint(){ if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{ window.focus(); }catch(e){} try{ window.print(); }catch(e){} }
+        window.addEventListener('load', function(){ setTimeout(__ht_doPrint, 500); });
+        setTimeout(function(){ if(document.readyState==='complete'){ __ht_doPrint(); } }, 900);
+    </script>
+</body>
+</html>`;
+}
 function htPrintContent(header, body)
 {
     try {
@@ -324,89 +402,7 @@ function htPrintContent(header, body)
                 headerStyle = `font-size:${cs.fontSize};font-weight:${cs.fontWeight};font-family:${cs.fontFamily};`;
             }
         } catch(e) {}
-        let fixedHeader = pageHeader;
-        let fixedBody = pageBody;
-        let fixedCitation = pageCitation;
-        try {
-            const fixImages = (html) => {
-                const tmp = document.createElement('div');
-                tmp.innerHTML = html;
-                tmp.querySelectorAll('img').forEach(img => {
-                    let src = img.getAttribute('src') || '';
-                    if (src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('blob:')) {
-                        let base = window.location.origin + '/';
-                        if (src.startsWith('/')) src = window.location.origin + src;
-                        else src = base + src.replace(/^\//, '');
-                        img.setAttribute('src', src);
-                    } else if (src && src.startsWith('https://www.historytracers.org/') && window.htLocalImgSrc) {
-                        img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin + '/'));
-                    }
-                    // Preserve original size - only ensure visibility, don't force dimensions
-                    img.style.visibility = 'visible';
-                    if (img.style.display === 'none') img.style.display = '';
-                    // Keep original width/height/maxWidth as is; only prevent overflow in print
-                });
-                return tmp.innerHTML;
-            };
-            fixedHeader = fixImages(pageHeader);
-            fixedBody = fixImages(pageBody);
-            fixedCitation = fixImages(pageCitation);
-        } catch(e) {}
-
-        // Create print document with proper HTML structure - include original CSS to preserve image sizes
-        const headerHtml = headerStyle ? `<div class="print-header" style="${headerStyle}text-align:center;margin-bottom:20px;">${fixedHeader}</div>` : `<h1>${fixedHeader}</h1>`;
-        const printDocument = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Print Document</title>
-    <meta charset="UTF-8">
-    <base href="${window.location.origin}/">
-    <link rel="stylesheet" href="${window.location.origin}/css/ht_common.css">
-    <link rel="stylesheet" href="${window.location.origin}/css/ht_math.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        .print-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .cited-text {
-            margin-top: 30px;
-            border-top: 1px solid #ccc;
-            padding-top: 15px;
-        }
-        img {
-            visibility: visible !important;
-            height: auto;
-            /* Preserve original size; only constrain if larger than print width */
-            max-width: 100%;
-            break-inside: avoid;
-        }
-        @media print {
-            body { margin: 0; }
-        }
-    </style>
-</head>
-<body>
-    ${headerHtml}
-    <div>${fixedBody}</div>
-    <div class="cited-text">${fixedCitation}</div>
-    <script>
-        // Auto-print for viewer/webview environments where opener may be a fake window
-        window.addEventListener('load', function(){ setTimeout(function(){ try{ window.focus(); }catch(e){} try{ window.print(); }catch(e){} }, 500); });
-        // Fallback if load already fired
-        setTimeout(function(){ if(document.readyState==='complete'){ try{ window.print(); }catch(e){} } }, 900);
-    </script>
-</body>
-</html>`;
+        const printDocument = htBuildPrintDocument(pageHeader, pageBody, pageCitation, headerStyle);
 
         // Viewer (src/viewer): print using viewer screen (no external browser).
         var isViewer = false;
@@ -424,16 +420,11 @@ function htPrintContent(header, body)
                     .then(function(p){
                         var fullUrl = window.location.origin + p;
                         // Open as viewer tab preview (viewer screen printing, no external browser)
-                        try { 
-                            var w = window.open(fullUrl, '_blank');
-                            if(w && w.document) {
-                                // Tab preview will auto-print via script tag in printDocument
-                            }
-                        } catch(e) {}
+                        try{ window.open(fullUrl, '_blank'); }catch(e){}
                     })
                     .catch(function(err){
                         console.error('Viewer print fallback failed', err);
-                        fallbackWindowPrint();
+                        try{ fallbackWindowPrint(); }catch(e){ console.error('Printing failed:', e); alert('Printing failed: '+e.message); }
                     });
                 return;
             } catch(e) {
@@ -442,6 +433,8 @@ function htPrintContent(header, body)
             }
         }
         function fallbackWindowPrint(){
+            let _printed=false;
+            function _doPrint(win){ if(_printed) return; _printed=true; try{win.focus();}catch(e){} try{win.print();}catch(e){} }
             const printWindow = window.open('', 'PRINT', 'height=600,width=800');
             if (!printWindow) {
                 throw new Error('Popup blocked. Please allow popups for this site.');
@@ -449,11 +442,11 @@ function htPrintContent(header, body)
             printWindow.document.write(printDocument);
             printWindow.document.close();
             printWindow.onload = function() {
-                printWindow.focus();
-                setTimeout(() => {
-                    printWindow.print();
-                }, 250);
+                if(_printed) return;
+                setTimeout(() => { _doPrint(printWindow); }, 250);
             };
+            // Fallback if onload never fires (injected script in printDocument also has guard)
+            setTimeout(function(){ _doPrint(printWindow); }, 900);
         }
         fallbackWindowPrint();
 

@@ -91,13 +91,14 @@ var addressBarJS = `
 		};
 	})();
 	try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
+	function __htViewerFixCSS(BAR_H){return '.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';}
 	if(window!==window.top){
 		// Inside iframe (new tab): ensure viewer-local image handling and layout fix for broken format/images.
 		try{window.htLocalImgSrc=true;}catch(e){}
 		try{
 			var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
 			var s=document.createElement('style');
-			s.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+			s.textContent=__htViewerFixCSS(BAR_H);
 			if(document.documentElement) document.documentElement.appendChild(s);
 			else document.addEventListener('DOMContentLoaded',function(){try{document.documentElement.appendChild(s);}catch(e){}});
 		}catch(e){}
@@ -230,7 +231,7 @@ L['en']=L['en-US'];
 		}
 		var s=document.createElement('style');
 		s.id='__ht_style';
-		s.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+		s.textContent=__htViewerFixCSS(BAR_H);
 		document.documentElement.appendChild(s);
 		var b=document.createElement('div');
 		b.id='__ht_addr';
@@ -282,6 +283,11 @@ L['en']=L['en-US'];
 				if(!win) win=window;
 				// First try to delegate to the page's own htPrintContent if available (best fidelity)
 				try{
+					// Propagate viewer marker to iframe so it uses viewer print path instead of popup fallback
+					try{ if(window.__ht_token) win.__ht_token=window.__ht_token; }catch(e){}
+					try{ win.htLocalImgSrc=true; win.__ht_localImgSrc=true; }catch(e){}
+					try{ if(window.external && !win.external) win.external=window.external; }catch(e){}
+					try{ if(sessionStorage.__ht_token) win.sessionStorage.__ht_token=sessionStorage.__ht_token; }catch(e){}
 					if(win.htPrintContent && typeof win.htPrintContent==='function'){
 						win.htPrintContent('#header', '#page_data');
 						return;
@@ -309,8 +315,15 @@ L['en']=L['en-US'];
 					try{ var rs=doc.querySelector('#tree-source'); if(rs) sources+='<div>'+rs.innerHTML+'</div>'; }catch(e){}
 					try{ var rr=doc.querySelector('#tree-ref'); if(rr) sources+='<div>'+rr.innerHTML+'</div>'; }catch(e){}
 				}
-				// Fix images not visible when printing first page: preserve original size, ensure local URLs
-				var printDoc=(function(){
+				// Use shared builder from ht_common.js when available, fallback to inline template
+				var printDoc;
+				try{
+					if(win.htBuildPrintDocument && typeof win.htBuildPrintDocument==='function'){
+						printDoc = win.htBuildPrintDocument(header, body, sources, headerStyle);
+					} else if(window.htBuildPrintDocument && typeof window.htBuildPrintDocument==='function'){
+						printDoc = window.htBuildPrintDocument(header, body, sources, headerStyle);
+					} else throw new Error('no builder');
+				}catch(e){
 					var fix=function(html){
 						try{
 							var tmp=document.createElement('div');
@@ -319,14 +332,18 @@ L['en']=L['en-US'];
 							for(var i=0;i<imgs.length;i++){
 								var img=imgs[i];
 								var src=img.getAttribute('src')||'';
+								var isViewerHidden=false;
 								if(src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('blob:')){
 									if(src.startsWith('/')) src=window.location.origin+src;
 									else src=window.location.origin+'/'+src.replace(/^\//,'');
 									img.setAttribute('src',src);
 								}else if(src && src.indexOf('https://www.historytracers.org/')===0){
 									img.setAttribute('src', src.replace('https://www.historytracers.org/', window.location.origin+'/'));
+									isViewerHidden=true;
 								}
-								try{img.style.visibility='visible'; if(img.style.display==='none') img.style.display='';}catch(e){}
+								if(isViewerHidden){
+									try{ if(img.style.visibility==='hidden') img.style.visibility='visible'; if(img.style.display==='none' && !img.hasAttribute('hidden')) img.style.display=''; }catch(e){}
+								}
 							}
 							return tmp.innerHTML;
 						}catch(e){return html;}
@@ -335,8 +352,8 @@ L['en']=L['en-US'];
 					var fb=fix(body);
 					var fs=fix(sources);
 					var headerHtml = headerStyle ? '<div class="print-header" style="'+headerStyle+'text-align:center;margin-bottom:20px;">'+fh+'</div>' : '<h1>'+fh+'</h1>';
-					return '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}.print-header{text-align:center;margin-bottom:20px;}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}@media print{body{margin:0}}</style></head><body>'+headerHtml+'<div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>setTimeout(function(){try{window.print()}catch(e){}},400);</scr'+'ipt></body></html>';
-				})();
+					printDoc = '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}.print-header{text-align:center;margin-bottom:20px;}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}@media print{body{margin:0}}</style></head><body>'+headerHtml+'<div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>window.__ht_printGuard=false;function __ht_doPrint(){if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{window.focus();}catch(e){} try{window.print();}catch(e){}}window.addEventListener(\'load\',function(){setTimeout(__ht_doPrint,500);});setTimeout(function(){if(document.readyState===\'complete\'){__ht_doPrint();}},900);</scr'+'ipt></body></html>';
+				}
 				// For viewer, use server-side print store + system browser (reliable) + tab preview
 				var tk=_htToken();
 				var hdr={'Content-Type':'text/html'};
@@ -757,6 +774,11 @@ L['en']=L['en-US'];
 		}
 		function closeTab(idx){
 			if(idx==0||!tabs[idx])return;
+			try{
+				var rec=tabs[idx];
+				if(rec._viewerFixInterval) clearInterval(rec._viewerFixInterval);
+				if(rec._viewerFixTimeout) clearTimeout(rec._viewerFixTimeout);
+			}catch(e){}
 			if(tabs[idx].iframe)tabs[idx].iframe.remove();
 			if(tabs[idx].el)tabs[idx].el.remove();
 			delete tabs[idx];
@@ -790,13 +812,17 @@ L['en']=L['en-US'];
 					if(_idoc && _idoc.documentElement && !_idoc.getElementById('__ht_viewer_fix')){
 						var _s=_idoc.createElement('style');
 						_s.id='__ht_viewer_fix';
-						_s.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+						_s.textContent=__htViewerFixCSS(BAR_H);
 						_idoc.documentElement.appendChild(_s);
 					}
 				}catch(e){}
 			},10);
+			tabs[idx]._viewerFixInterval=_viewerFixInterval;
+			var _viewerFixTimeout=setTimeout(function(){try{clearInterval(_viewerFixInterval);}catch(e){}}, 10000);
+			tabs[idx]._viewerFixTimeout=_viewerFixTimeout;
 			f.addEventListener('load',function(){
 				try{clearInterval(_viewerFixInterval);}catch(e){}
+				try{clearTimeout(_viewerFixTimeout);}catch(e){}
 				try{
 					var idoc=f.contentDocument||f.contentWindow.document;
 					if(!idoc)return;
@@ -807,22 +833,25 @@ L['en']=L['en-US'];
 						var _style=idoc.createElement('style');
 						if(!idoc.getElementById('__ht_viewer_fix')){
 							_style.id='__ht_viewer_fix';
-							_style.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
+							_style.textContent=__htViewerFixCSS(BAR_H);
 							if(idoc.documentElement) idoc.documentElement.appendChild(_style);
 						}
 					}catch(e){}
-					// Fix images not visible in new window: convert external https:// URLs to local and ensure visibility
+					// Fix images not visible in new window: convert external https:// URLs to local (preserve root-relative)
 					try{
 						var imgs=idoc.querySelectorAll('img');
 						for(var _i=0;_i<imgs.length;_i++){
 							var _img=imgs[_i];
 							var _src=_img.getAttribute('src')||'';
 							if(_src.indexOf('https://www.historytracers.org/')===0){
-								var _local=_src.replace('https://www.historytracers.org/','');
+								var _local=_src.replace('https://www.historytracers.org/', window.location.origin+'/');
 								_img.setAttribute('src', _local);
+								// Only reset visibility for viewer-hidden images (those we just fixed)
+								try{
+									if(_img.style.visibility==='hidden') _img.style.visibility='';
+									if(_img.style.display==='none' && !_img.hasAttribute('hidden')) _img.style.display='';
+								}catch(e){}
 							}
-							// Ensure hidden images due to broken format are visible
-							try{_img.style.visibility='';_img.style.display='';}catch(e){}
 						}
 					}catch(e){}
 					tabs[idx].url=iw.location.href;
@@ -931,14 +960,17 @@ L['en']=L['en-US'];
 				var msg=document.createElement('span');
 				msg.textContent='Print preview';
 				msg.style.cssText='flex:1;color:#333;font-weight:bold;';
+				var _closed=false; var _printed=false;
 				var closeBtn=document.createElement('button');
 				closeBtn.textContent='\u00D7 Close';
 				closeBtn.style.cssText='padding:4px 12px;cursor:pointer;border:1px solid #999;background:#e8e8e8;border-radius:3px;';
-				closeBtn.onclick=function(){ try{document.getElementById('__ht_print_frame').remove()}catch(e){}; try{bg.remove()}catch(e){}; };
+				closeBtn.onclick=function(){ _closed=true; try{document.getElementById('__ht_print_frame').remove()}catch(e){}; try{bg.remove()}catch(e){}; };
 				var printBtn=document.createElement('button');
 				printBtn.textContent='Print';
 				printBtn.style.cssText='padding:4px 12px;cursor:pointer;border:1px solid #555;background:#555;color:#fff;border-radius:3px;margin-right:6px;';
 				printBtn.onclick=function(){
+					if(_closed || _printed) return;
+					_printed=true;
 					try{
 						var fr=document.getElementById('__ht_print_frame');
 						if(fr&&fr.contentWindow){ fr.contentWindow.focus(); fr.contentWindow.print(); }
@@ -963,7 +995,7 @@ L['en']=L['en-US'];
 						if(tk) hdr['X-HT-Token']=tk;
 						fetch('/api/print/store',{method:'POST',headers:hdr,body:htmlVal}).then(function(r){return r.text()}).then(function(p){
 							fetch('/api/open/external?url='+encodeURIComponent(window.location.origin+p));
-						}).catch(function(){});
+						}).catch(function(e){ try{showBanner(l.err+': '+(e&&e.message||''));}catch(ex){} });
 					}catch(e){}
 				};
 				bg.appendChild(msg);
@@ -978,7 +1010,6 @@ L['en']=L['en-US'];
 				var iw=f.contentWindow;
 				var _html='';
 				var _onload=null;
-				var _closed=false;
 				// Ensure we have a usable document; contentWindow may be null until appended, poll if needed
 				if(!iw){
 					// Fallback: use data URL navigation (will trigger openOrExternal path)
@@ -997,6 +1028,8 @@ L['en']=L['en-US'];
 									idoc.close();
 									// Ensure the printed page self-prints even if opener fails
 									setTimeout(function(){
+										if(_closed || _printed) return;
+										_printed=true;
 										try{
 											if(idoc.body && !idoc.querySelector('script[data-ht-print]')){
 												// If the document already contains its own print script, don't duplicate
@@ -1004,7 +1037,7 @@ L['en']=L['en-US'];
 												if(!hasPrintScript){
 													var sc=idoc.createElement('script');
 													sc.setAttribute('data-ht-print','1');
-													sc.textContent='setTimeout(function(){try{window.print();}catch(e){}},350);';
+													sc.textContent='setTimeout(function(){if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{window.print();}catch(e){}},350);';
 													idoc.body.appendChild(sc);
 												}
 											}
@@ -1018,9 +1051,12 @@ L['en']=L['en-US'];
 					focus: function(){try{iw.focus()}catch(e){} try{f.focus()}catch(e){}},
 					close: function(){ if(_closed) return; _closed=true; try{f.remove()}catch(e){}; try{bg.remove()}catch(e){}; },
 					print: function(){
+						if(_closed || _printed) return;
+						_printed=true;
 						setTimeout(function(){
+							if(_closed) return;
 							try{iw.focus();}catch(e){}
-							try{ iw.print(); }catch(e){ try{ window.print(); }catch(e2){} }
+							try{ if(!_closed) iw.print(); }catch(e){ if(!_closed) try{ window.print(); }catch(e2){} }
 						},360);
 					},
 					setTimeout: function(fn,ms){return setTimeout(fn,ms)},
@@ -1030,9 +1066,10 @@ L['en']=L['en-US'];
 						if(typeof cb==='function'){
 							var self=this;
 							setTimeout(function(){
+								if(_closed) return;
 								try{cb.call(self)}catch(e){}
 								// Ensure print is triggered even if caller forgets or print was blocked
-								setTimeout(function(){ try{self.print()}catch(e){}},650);
+								setTimeout(function(){ if(_closed || _printed) return; try{self.print()}catch(e){}},650);
 							},180);
 						}
 					},

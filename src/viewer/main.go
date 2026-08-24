@@ -216,8 +216,11 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 var (
-	printMu    sync.Mutex
-	printStore = map[string]string{}
+	printMu         sync.Mutex
+	printStore      = map[string]string{}
+	printOrder      = map[string]int64{}
+	printSeq        int64
+	printTotalBytes int
 )
 
 func printStoreHandler(w http.ResponseWriter, r *http.Request) {
@@ -229,8 +232,13 @@ func printStoreHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Forbidden", http.StatusForbidden)
 		return
 	}
+	r.Body = http.MaxBytesReader(w, r.Body, 5*1024*1024+1024)
 	body, err := io.ReadAll(r.Body)
-	if err != nil || len(body) == 0 {
+	if err != nil {
+		http.Error(w, "bad request", http.StatusBadRequest)
+		return
+	}
+	if len(body) == 0 {
 		http.Error(w, "missing body", http.StatusBadRequest)
 		return
 	}
@@ -245,15 +253,31 @@ func printStoreHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	id := hex.EncodeToString(buf)
 	printMu.Lock()
+	printSeq++
 	printStore[id] = string(body)
-	// Trim old entries to avoid unbounded growth
-	if len(printStore) > 20 {
-		// Remove arbitrary old entry
-		for k := range printStore {
-			if k != id {
-				delete(printStore, k)
-				break
+	printOrder[id] = printSeq
+	printTotalBytes += len(body)
+	const maxEntries = 20
+	const maxTotalBytes = 20 * 5 * 1024 * 1024
+	for len(printStore) > maxEntries || printTotalBytes > maxTotalBytes {
+		var oldest string
+		var oldestSeq int64 = 1<<62 - 1
+		for k, seq := range printOrder {
+			if seq < oldestSeq {
+				oldestSeq = seq
+				oldest = k
 			}
+		}
+		if oldest == "" {
+			break
+		}
+		if s, ok := printStore[oldest]; ok {
+			printTotalBytes -= len(s)
+			delete(printStore, oldest)
+		}
+		delete(printOrder, oldest)
+		if oldest == id {
+			break
 		}
 	}
 	printMu.Unlock()
