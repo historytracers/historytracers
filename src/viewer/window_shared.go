@@ -296,9 +296,7 @@ L['en']=L['en-US'];
 					return r.text();
 				}).then(function(p){
 					var fullUrl=window.location.origin+p;
-					// Open in system browser - this will show native print dialog (browser print works)
-					fetch('/api/open/external?url='+encodeURIComponent(fullUrl)).catch(function(){});
-					// Also open as viewer tab preview
+					// Open as viewer tab preview (viewer screen printing, no external browser)
 					try{ openTab(fullUrl); }catch(e){}
 				}).catch(function(err){
 					console.error('Viewer print failed',err);

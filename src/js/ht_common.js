@@ -354,8 +354,7 @@ function htPrintContent(header, body)
 </body>
 </html>`;
 
-        // Viewer (src/viewer) does not support window.print reliably.
-        // Use system browser via /api/print/store + /api/open/external as primary path.
+        // Viewer (src/viewer): print using viewer screen (no external browser).
         var isViewer = false;
         try {
             isViewer = (typeof window.__ht_token !== 'undefined' && !!window.__ht_token) || typeof closeWindow === 'function' || (window.external && typeof window.external.invoke === 'function');
@@ -370,12 +369,9 @@ function htPrintContent(header, body)
                     .then(function(r){ if(!r.ok) throw new Error('store failed '+r.status); return r.text(); })
                     .then(function(p){
                         var fullUrl = window.location.origin + p;
-                        // Open in system browser - this triggers native print dialog there (browser print works)
-                        fetch('/api/open/external?url='+encodeURIComponent(fullUrl)).catch(function(){});
-                        // Also open as viewer tab preview so user sees content inside viewer
+                        // Open as viewer tab preview (viewer screen printing, no external browser)
                         try { 
                             var w = window.open(fullUrl, '_blank');
-                            // If viewer overrides window.open to tabs, this will create a new tab
                             if(w && w.document) {
                                 // Tab preview will auto-print via script tag in printDocument
                             }
