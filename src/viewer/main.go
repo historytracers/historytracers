@@ -215,6 +215,101 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+var (
+	printMu         sync.Mutex
+	printStore      = map[string]string{}
+	printOrder      = map[string]int64{}
+	printSeq        int64
+	printTotalBytes int
+)
+
+func printStoreHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	if !checkToken(r) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 5*1024*1024+1024)
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "bad request", http.StatusBadRequest)
+		return
+	}
+	if len(body) == 0 {
+		http.Error(w, "missing body", http.StatusBadRequest)
+		return
+	}
+	if len(body) > 5*1024*1024 {
+		http.Error(w, "body too large", http.StatusRequestEntityTooLarge)
+		return
+	}
+	buf := make([]byte, 8)
+	if _, err := rand.Read(buf); err != nil {
+		http.Error(w, "cannot generate id", 500)
+		return
+	}
+	id := hex.EncodeToString(buf)
+	printMu.Lock()
+	printSeq++
+	printStore[id] = string(body)
+	printOrder[id] = printSeq
+	printTotalBytes += len(body)
+	const maxEntries = 20
+	const maxTotalBytes = 20 * 5 * 1024 * 1024
+	for len(printStore) > maxEntries || printTotalBytes > maxTotalBytes {
+		var oldest string
+		var oldestSeq int64 = 1<<62 - 1
+		for k, seq := range printOrder {
+			if seq < oldestSeq {
+				oldestSeq = seq
+				oldest = k
+			}
+		}
+		if oldest == "" {
+			break
+		}
+		if s, ok := printStore[oldest]; ok {
+			printTotalBytes -= len(s)
+			delete(printStore, oldest)
+		}
+		delete(printOrder, oldest)
+		if oldest == id {
+			break
+		}
+	}
+	printMu.Unlock()
+	w.Header().Set("Content-Type", "text/plain")
+	fmt.Fprint(w, "/api/print/view?id="+url.QueryEscape(id))
+}
+
+func printViewHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	id := r.URL.Query().Get("id")
+	if id == "" {
+		http.Error(w, "missing id", 400)
+		return
+	}
+	printMu.Lock()
+	html, ok := printStore[id]
+	printMu.Unlock()
+	if !ok {
+		http.Error(w, "not found", 404)
+		return
+	}
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	// Ensure self-print script is present even if caller omitted it
+	if !strings.Contains(html, "window.print") {
+		html = strings.Replace(html, "</body>", "<script>setTimeout(function(){try{window.print();}catch(e){}},400);</script></body>", 1)
+	}
+	fmt.Fprint(w, html)
+}
+
 func devPageHandler(w http.ResponseWriter, r *http.Request) {
 	lang := r.URL.Query().Get("lang")
 	if !validLangs[lang] {
@@ -1271,6 +1366,8 @@ func main() {
 	mux.HandleFunc("/api/favorites/list", favoritesListHandler)
 	mux.HandleFunc("/api/favorites/page", favoritesPageHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
+	mux.HandleFunc("/api/print/store", printStoreHandler)
+	mux.HandleFunc("/api/print/view", printViewHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.HandleFunc("/api/options/page", optionsPageHandler)
