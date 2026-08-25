@@ -25,7 +25,7 @@ Unsurprisingly, the main teaching tool in *History Tracers* is **YOU**. Through 
 
 ### Texts with Audio
 
-With the exception of two sections that will soon receive audio (*General History* and *Historical Events*), all project texts already include narration. This way, in addition to reading and practicing, you can also listen to the content whenever you like — on the bus, during a walk, or before sleep.
+All project texts already include narration. This way, in addition to reading and practicing, you can also listen to the content whenever you like — on the bus, during a walk, or before sleep.
 
 ### Images
 

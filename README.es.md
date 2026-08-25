@@ -25,7 +25,7 @@ No es de sorprender que la principal herramienta de enseñanza en *History Trace
 
 ### Textos con Audio
 
-Con la excepción de dos secciones que pronto recibirán audio (*Historia General* y *Acontecimientos Históricos*), todos los textos del proyecto ya incluyen narración. De esta manera, además de leer y practicar, también puedes escuchar el contenido cuando lo desees — en el autobús, durante un paseo o antes de dormir.
+Todos los textos del proyecto ya cuentan con narración. De esta manera, además de leer y practicar, también puedes escuchar el contenido cuando lo desees — en el autobús, durante un paseo o antes de dormir.
 
 ### Imágenes
 
