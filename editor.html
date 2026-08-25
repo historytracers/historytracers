@@ -1792,6 +1792,12 @@ function smGameNextKeyIndex(area){
 	if(!m)return -1;
 	return m.index;
 }
+function countPrecedingBackslashes(s,i){
+	var n=0;
+	var k=i-1;
+	while(k>=0&&s[k]==='\\'){n++;k--}
+	return n;
+}
 function findEnclosingObjectBounds(val,startPos){
 	var i=startPos-1;
 	var depth=0;
@@ -1800,11 +1806,11 @@ function findEnclosingObjectBounds(val,startPos){
 	while(i>=0){
 		var ch=val[i];
 		if(inStr){
-			if(ch==='"'&&(i===0||val[i-1]!=='\\'))inStr=false;
+			if(ch==='"'&&countPrecedingBackslashes(val,i)%2===0)inStr=false;
 			i--;
 			continue;
 		}
-		if(ch==='"'&&(i===0||val[i-1]!=='\\')){inStr=true;i--;continue}
+		if(ch==='"'&&countPrecedingBackslashes(val,i)%2===0){inStr=true;i--;continue}
 		if(ch==='}')depth++;
 		else if(ch==='{'){if(depth===0){start=i;break}else depth--}
 		i--;
@@ -1816,10 +1822,10 @@ function findEnclosingObjectBounds(val,startPos){
 	for(var j=start;j<val.length;j++){
 		var ch=val[j];
 		if(inStr2){
-			if(ch==='"'&&(j===0||val[j-1]!=='\\'))inStr2=false;
+			if(ch==='"'&&countPrecedingBackslashes(val,j)%2===0)inStr2=false;
 			continue;
 		}
-		if(ch==='"'&&(j===0||val[j-1]!=='\\')){inStr2=true;continue}
+		if(ch==='"'&&countPrecedingBackslashes(val,j)%2===0){inStr2=true;continue}
 		if(ch==='{')depth2++;
 		else if(ch==='}'){depth2--;if(depth2===0){end=j;break}}
 	}
