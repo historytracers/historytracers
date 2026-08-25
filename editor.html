@@ -587,21 +587,40 @@ function clearErrorLines(){
 }
 
 function getJsonErrorLine(content,msg){
+	var lines=content.split('\n');
+	function isMissingCommaCase(repLine){
+		if(repLine<=1||repLine>lines.length) return false;
+		var prev=(lines[repLine-2]||'').trim();
+		var cur=(lines[repLine-1]||'').trim();
+		if(!prev||!cur) return false;
+		// next line starts a new property/string and prev should have ended with comma
+		if(cur.charAt(0)==='"' && prev.slice(-1)!==',' && prev.slice(-1)!=='[' && prev.slice(-1)!=='{' && prev.slice(-1)!==':' ){
+			// prev is likely missing comma, e.g. line 67: "key": "val"  (no comma) ; line 68: "next": ...
+			// but avoid false positive when cur is a closing brace and prev is opening
+			if(prev.slice(-1)==='}'||prev.slice(-1)===']') return false;
+			return true;
+		}
+		// trailing comma: prev ends with , and cur is } or ]
+		if((cur.charAt(0)==='}'||cur.charAt(0)===']') && prev.slice(-1)===','){
+			return true;
+		}
+		return false;
+	}
 	var m=msg.match(/line\s+(\d+)\s+column\s+(\d+)/i);
 	if(m){
 		var line=parseInt(m[1],10);
-		var col=parseInt(m[2],10);
-		if(col<=4&&line>1) return line-1;
+		if(line>lines.length) line=lines.length;
+		if(isMissingCommaCase(line)) return line-1;
 		return line;
 	}
 	m=msg.match(/position\s+(\d+)/i);
 	if(m){
 		var pos=parseInt(m[1],10);
+		if(pos<0) pos=0;
+		if(pos>content.length) pos=content.length;
 		var line=content.substring(0,pos).split('\n').length;
-		var before=content.substring(0,pos);
-		var lastNl=before.lastIndexOf('\n');
-		var col=pos-lastNl;
-		if(col<=4&&line>1) return line-1;
+		if(line>lines.length) line=lines.length;
+		if(isMissingCommaCase(line)) return line-1;
 		return line;
 	}
 	m=msg.match(/line\s+(\d+)/i);
@@ -628,25 +647,35 @@ function findSmileErrorLines(content,parsed){
 	}
 	if(err.length>0) return err;
 	if(parsed&&parsed.content){
+		// collect block start lines by n-th occurrence of "id" (each sm_game block has an id)
+		var blockStarts=[];
+		for(var li=0;li<lines.length;li++){
+			if(/"id"\s*:/.test(lines[li])) blockStarts.push(li+1);
+		}
 		for(var bi=0;bi<parsed.content.length;bi++){
 			if(!parsed.content[bi]||!String(parsed.content[bi].smile||'').trim()){
 				var bid=parsed.content[bi]&&parsed.content[bi].id;
+				var found=false;
 				if(bid){
 					for(var li=0;li<lines.length;li++){
 						if(lines[li].indexOf(bid)>=0){
 							if(err.indexOf(li+1)<0) err.push(li+1);
+							found=true;
 							break;
 						}
 					}
 				}
+				if(!found){
+					// fallback: use n-th id occurrence as block position
+					if(bi<blockStarts.length){
+						if(err.indexOf(blockStarts[bi])<0) err.push(blockStarts[bi]);
+					}else if(blockStarts.length>0){
+						// no id at this index, estimate near block
+						var est=blockStarts[Math.min(bi,blockStarts.length-1)];
+						if(err.indexOf(est)<0) err.push(est);
+					}
+				}
 			}
-		}
-		if(err.length>0) return err;
-		// fallback: estimate block positions by counting content openings
-		var blockIdx=-1;
-		for(var li=0;li<lines.length;li++){
-			if(/"smile"\s*:/.test(lines[li])) blockIdx++;
-			// also count blocks without smile by detecting '"id"'
 		}
 	}
 	return err;
@@ -1053,18 +1082,7 @@ function saveFile(){
 			if(missing.length>0){
 				var smileLines=findSmileErrorLines(content,parsed);
 				if(smileLines.length>0) setErrorLines(smileLines);
-				else if(missing.length>0){
-					// fallback: estimate line by position in raw content
-					var rawLines=content.split('\n');
-					var fb=[];
-					for(var mi=0;mi<missing.length;mi++){
-						var approx=Math.floor(rawLines.length*missing[mi]/(parsed.content.length+1));
-						if(approx<1) approx=1;
-						if(approx>rawLines.length) approx=rawLines.length;
-						fb.push(approx);
-					}
-					setErrorLines(fb);
-				}
+				else setErrorLines(missing.map(function(n){ return Math.min(n, content.split('\n').length); }));
 				toast(tr('smileError')+'\n'+tr('smileErrorBlocks')+': '+missing.join(', '),'error',true);
 				return Promise.resolve(false)
 			}
@@ -1086,12 +1104,24 @@ function saveFile(){
 			var msg=e.message;
 			var errLine=0;
 			var st=e.stack||'';
+			var linesArr=content.split('\n');
+			function isJsMissingSep(repLine){
+				if(repLine<=1||repLine>linesArr.length) return false;
+				var prev=(linesArr[repLine-2]||'').trim();
+				var cur=(linesArr[repLine-1]||'').trim();
+				if(!prev||!cur) return false;
+				if((cur.charAt(0)==='}'||cur.charAt(0)===']') && prev.slice(-1)===',') return true;
+				if(/^["'`a-zA-Z_$]/.test(cur)){
+					var last=prev.slice(-1);
+					if(last!==',' && last!==';' && last!=='{' && last!=='[' && last!==':' && last!==',') return true;
+				}
+				return false;
+			}
 			var m=st.match(/anonymous:(\d+):(\d+)/);
 			if(m){
 				var ln=parseInt(m[1],10);
-				var col=parseInt(m[2],10);
 				ln=ln-1;
-				if(col<=4&&ln>1) ln=ln-1;
+				if(ln>1 && isJsMissingSep(ln)) ln=ln-1;
 				if(ln<1)ln=1;
 				errLine=ln;
 				msg='line '+ln+': '+e.message;
@@ -1099,14 +1129,10 @@ function saveFile(){
 				m=st.match(/:(\d+):(\d+)/);
 				if(m){
 					var ln2=parseInt(m[1],10);
-					var col2=parseInt(m[2],10);
-					// generic fallback: try to distinguish wrapper offset by testing content length
-					// heuristic: if anonymous not found, subtract 1 and also apply column check
 					ln2=ln2-1;
-					if(col2<=4&&ln2>1) ln2=ln2-1;
+					if(ln2>1 && isJsMissingSep(ln2)) ln2=ln2-1;
 					if(ln2<1)ln2=1;
-					// verify ln is within content; if not, fallback to 1
-					var totalLines=content.split('\n').length;
+					var totalLines=linesArr.length;
 					if(ln2>totalLines) ln2=totalLines;
 					errLine=ln2;
 					msg='line '+ln2+': '+e.message;
