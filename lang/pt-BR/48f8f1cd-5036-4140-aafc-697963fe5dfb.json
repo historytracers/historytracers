@@ -28,13 +28,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765776"
+      "1787679669"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -80,12 +80,12 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nEntre as características de nossa espécie, *Homo sapiens*, está a capacidade de caminhar e realizar trabalhos manuais. Essas características não surgiram do nada; são mudanças que ocorreram ao longo de milhões de anos e chegaram até nós graças ao DNA e a diferentes processos de especiação — processo pelo qual novas espécies surgem a partir de outras que já existiam (<htcite0>; <htcite1>).\n\nDiante desse cenário, façamos a seguinte reflexão:",
+               "text": "### Introdução\n\nNo texto anterior (<htcite2>), aprendemos que a adição é como caminhar de um número para o próximo. Agora, usaremos o nosso próprio corpo para vivenciar isso.\n\nEntre as características de nossa espécie, *Homo sapiens*, está a capacidade de caminhar e realizar trabalhos manuais. Essas características não surgiram do nada; são mudanças que ocorreram ao longo de milhões de anos e chegaram até nós graças ao DNA e a diferentes processos de especiação — processo pelo qual novas espécies surgem a partir de outras que já existiam (<htcite0>; <htcite1>). Isso significa que nossa capacidade de contar com os dedos é resultado de milhões de anos de evolução.\n\nDiante desse cenário, façamos a seguinte reflexão:",
                "source": [
                   {
                      "type": 1,
                      "uuid": "b2067355-8f41-470b-a270-1de259627fc2",
-                     "text": "National Geographics",
+                     "text": "National Geographic",
                      "page": "Especiação",
                      "date_time": {
                         "type": "gregory",
@@ -105,6 +105,18 @@
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "page": "Caminhando entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -114,7 +126,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Eu sou o princípio...</b><br /><br />Diante dessa explicação inicial, qual espécie teria sido a primeira a fabricar instrumentos manuais?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Eu sou o princípio...</b><br /><br />Diante dessa explicação inicial, qual espécie teria sido a primeira a fabricar instrumentos manuais? <i>Dica: Pense em qual parte do corpo é necessária para fazer ferramentas com as mãos.</i></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -218,7 +230,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgHS\" onclick=\"htImageZoom('imgHS', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 2</b>:  Cartaz do esqueleto humano descrevendo o <i>Homo sapiens</i>. No Museu Nacional de Antrologia no México (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgHS\" onclick=\"htImageZoom('imgHS', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 2</b>:  Cartaz do esqueleto humano descrevendo o <i>Homo sapiens</i>. No Museu Nacional de Antropologia no México (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -318,6 +330,15 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": ""
+            },
+            {
+               "text": "Essas mãos que criaram as primeiras ferramentas há milhões de anos são as mesmas mãos que usaremos agora para contar e somar números. Vamos colocá-las para trabalhar!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       },
@@ -325,7 +346,7 @@
          "id": "SECTION_instructions",
          "text": [
             {
-               "text": "#### O jogo\n\nNeste jogo, iremos somar números com o nosso corpo. Começaremos batendo palmas para o número escrito na parte superior; ou seja, se tivermos o número 5, bateremos palmas cinco vezes. Em seguida, abaixaremos as mãos, realizando batidas de palmas correspondentes aos números inferiores.\n\nO resultado da soma será representado com os pés. Daremos passos de acordo com o total da soma dos dois números. Se o número for maior que nove, ao chegarmos a 10, daremos um pulo e não um passo para lembrar que devemos representar o número um nas dezenas no topo. Depois do 10, continuaremos contando com os passos.\n\n#### Regras\n\nO jogo apresenta um cálculo a ser realizado com o seu corpo. Para iniciar o cálculo, clique no link (<i class=\"fa-solid fa-play\" style=\"font-size:1em;color:#0f0;\" ></i>). Caso queira refazê-lo para fixação, clique novamente.\n\nPara realizar um novo cálculo, clique em (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "text": "#### O jogo\n\nNeste jogo, iremos somar números com o nosso corpo. Veja como funciona:\n\n**Passo 1 - Bata palmas para o número de cima:** Olhe para o número na parte superior do cálculo. Bata palmas essa quantidade de vezes. Por exemplo, se o número de cima for 5, bata palmas cinco vezes.\n\n**Passo 2 - Bata palmas para o número de baixo:** Abaixe as mãos e depois bata palmas o número de vezes indicado embaixo.\n\n**Passo 3 - Caminhe o resultado:** Agora, dê passos iguais ao total da soma. Caminhe um passo para cada número contado.\n\n**Importante - O pulo no 10:** Se o total for 10 ou mais, ao chegar em 10, dê um **pulo** em vez de um passo. Esse pulo nos lembra que completamos um grupo de dez. Depois do pulo, continue contando com passos para os números restantes.\n\n**Exemplo:** Se o cálculo for 7 + 5 = 12:\n- Bata palmas 7 vezes (número de cima)\n- Bata palmas 5 vezes (número de baixo)\n- Caminhe 9 passos, depois dê um pulo, e caminhe mais 2 passos\n\n#### Regras\n\nO jogo apresenta um cálculo a ser realizado com o seu corpo. Para iniciar o cálculo, clique no link (<i class=\"fa-solid fa-play\" style=\"font-size:1em;color:#0f0;\" ></i>). Caso queira refazê-lo para fixação, clique novamente.\n\nPara realizar um novo cálculo, clique em (<i class=\"fa-solid fa-chevron-right\"></i>).",
                "source": null,
                "date_time": null,
                "isTable": false,
