@@ -430,8 +430,56 @@ async function refreshTree(){
 		var r=await fetch('/api/editor/tree');
 		var items=await r.json();
 		renderTree(items,'');
+		await updateTreeSelection();
 	}catch(e){
 		el.innerHTML='<div class="tree-item" style="color:#f48771;padding:8px 10px">'+tr('treeError')+'</div>';
+	}
+}
+
+function escCss(s){
+	try{ return CSS.escape(s); }catch(e){ return s.replace(/["\\]/g,'\\$&'); }
+}
+
+async function ensureTreePathVisible(targetPath){
+	var parts=targetPath.split('/');
+	// build cumulative dir paths for all parent directories (exclude the file itself if it's a file)
+	// we need to expand each parent dir in order
+	var cum='';
+	for(var i=0;i<parts.length-1;i++){
+		cum=cum ? cum+'/'+parts[i] : parts[i];
+		var dirEl=document.querySelector('#tree .tree-item[data-path="'+escCss(cum)+'"][data-dir="1"]');
+		if(!dirEl) continue;
+		if(dirEl.classList.contains('expanded')) continue;
+		// expand directory and load its children
+		dirEl.classList.add('expanded');
+		var ic=dirEl.querySelector('.icon');
+		if(ic) ic.textContent='\u25BC';
+		await loadSubdir(cum, dirEl);
+	}
+}
+
+async function updateTreeSelection(){
+	var path='';
+	if(currentTab>=0 && currentTab<tabs.length && tabs[currentTab] && tabs[currentTab].path){
+		path=tabs[currentTab].path;
+		// don't highlight config/view tabs
+		if(tabs[currentTab].type==='config' || tabs[currentTab].type==='view') path='';
+	}
+	// clear previous
+	document.querySelectorAll('#tree .tree-item.selected').forEach(function(el){el.classList.remove('selected')});
+	if(!path) return;
+	var sel=document.querySelector('#tree .tree-item[data-path="'+escCss(path)+'"]');
+	if(sel){
+		sel.classList.add('selected');
+		try{ sel.scrollIntoView({block:'nearest'});}catch(e){}
+		return;
+	}
+	// not found - try to expand parents then retry
+	await ensureTreePathVisible(path);
+	sel=document.querySelector('#tree .tree-item[data-path="'+escCss(path)+'"]');
+	if(sel){
+		sel.classList.add('selected');
+		try{ sel.scrollIntoView({block:'nearest'});}catch(e){}
 	}
 }
 
@@ -586,6 +634,119 @@ function clearErrorLines(){
 	updateLineNumbers();
 }
 
+function getJsonErrorLine(content,msg){
+	var lines=content.split('\n');
+	function isMissingCommaCase(repLine){
+		if(repLine<=1||repLine>lines.length) return false;
+		var prev=(lines[repLine-2]||'').trim();
+		var cur=(lines[repLine-1]||'').trim();
+		if(!prev||!cur) return false;
+		// next line starts a new property/string and prev should have ended with comma
+		if(cur.charAt(0)==='"' && prev.slice(-1)!==',' && prev.slice(-1)!=='[' && prev.slice(-1)!=='{' && prev.slice(-1)!==':' ){
+			// prev is likely missing comma, e.g. line 67: "key": "val"  (no comma) ; line 68: "next": ...
+			// but avoid false positive when cur is a closing brace and prev is opening
+			if(prev.slice(-1)==='}'||prev.slice(-1)===']') return false;
+			return true;
+		}
+		// trailing comma: prev ends with , and cur is } or ]
+		if((cur.charAt(0)==='}'||cur.charAt(0)===']') && prev.slice(-1)===','){
+			return true;
+		}
+		return false;
+	}
+	var m=msg.match(/line\s+(\d+)\s+column\s+(\d+)/i);
+	if(m){
+		var line=parseInt(m[1],10);
+		if(line>lines.length) line=lines.length;
+		if(isMissingCommaCase(line)) return line-1;
+		return line;
+	}
+	m=msg.match(/position\s+(\d+)/i);
+	if(m){
+		var pos=parseInt(m[1],10);
+		if(pos<0) pos=0;
+		if(pos>content.length) pos=content.length;
+		var line=content.substring(0,pos).split('\n').length;
+		if(line>lines.length) line=lines.length;
+		if(isMissingCommaCase(line)) return line-1;
+		return line;
+	}
+	m=msg.match(/line\s+(\d+)/i);
+	if(m){
+		var line=parseInt(m[1],10);
+		if(line>lines.length) line=lines.length;
+		return line;
+	}
+	return 0;
+}
+
+function findFormatErrorLines(content){
+	var lines=content.split('\n');
+	var valid={'html':1,'text':1,'markdown':1};
+	var err=[];
+	for(var i=0;i<lines.length;i++){
+		var mm=lines[i].match(/"format"\s*:\s*"([^"]*)"/);
+		if(mm&&!(mm[1] in valid)) err.push(i+1);
+	}
+	return err;
+}
+
+function findSmileErrorLines(content,parsed){
+	var lines=content.split('\n');
+	var err=[];
+	for(var i=0;i<lines.length;i++){
+		if(/"smile"\s*:\s*""\s*,?/.test(lines[i])) err.push(i+1);
+	}
+	if(err.length>0) return err;
+	if(parsed&&parsed.content){
+		// collect block start lines by n-th occurrence of "id" (each sm_game block has an id)
+		var blockStarts=[];
+		for(var li=0;li<lines.length;li++){
+			if(/"id"\s*:/.test(lines[li])) blockStarts.push(li+1);
+		}
+		for(var bi=0;bi<parsed.content.length;bi++){
+			if(!parsed.content[bi]||!String(parsed.content[bi].smile||'').trim()){
+				var bid=parsed.content[bi]&&parsed.content[bi].id;
+				var found=false;
+				if(bid){
+					for(var li=0;li<lines.length;li++){
+						if(lines[li].indexOf(bid)>=0){
+							if(err.indexOf(li+1)<0) err.push(li+1);
+							found=true;
+							break;
+						}
+					}
+				}
+				if(!found){
+					// fallback: use n-th id occurrence as block position
+					if(bi<blockStarts.length){
+						if(err.indexOf(blockStarts[bi])<0) err.push(blockStarts[bi]);
+					}else if(blockStarts.length>0){
+						// no id at this index, estimate near block
+						var est=blockStarts[Math.min(bi,blockStarts.length-1)];
+						if(err.indexOf(est)<0) err.push(est);
+					}
+				}
+			}
+		}
+	}
+	return err;
+}
+
+function setErrorLinesFromServer(content,parsed,msg){
+	if(/invalid\s+"?format"?/i.test(msg)){
+		var fl=findFormatErrorLines(content);
+		if(fl.length>0){setErrorLines(fl);return true}
+	}
+	if(/smile/i.test(msg)){
+		var sl=findSmileErrorLines(content,parsed);
+		if(sl.length>0){setErrorLines(sl);return true}
+	}
+	var jl=getJsonErrorLine(content,msg);
+	if(jl>0){setErrorLines([jl]);return true}
+	return false;
+}
+
 function updateInsertBtn(){
 	var btn=document.getElementById('insBtn');
 	btn.style.display='';
@@ -601,6 +762,7 @@ function loadEditorState(index){
 		document.getElementById('noFileMsg').style.display='flex';
 		updateInsertBtn();
 		updateRelatedFiles();
+		updateTreeSelection();
 		return
 	}
 	closeSearch();
@@ -621,6 +783,7 @@ function loadEditorState(index){
 		updateStatus(index);
 		updateInsertBtn();
 		updateRelatedFiles();
+		updateTreeSelection();
 		return
 	}
 	if(t.type==='view'){
@@ -640,6 +803,7 @@ function loadEditorState(index){
 		document.getElementById('fileStatus').textContent='URL: '+t.url;
 		updateInsertBtn();
 		updateRelatedFiles();
+		updateTreeSelection();
 		return
 	}
 	document.getElementById('configFrame').style.display='none';
@@ -658,6 +822,7 @@ function loadEditorState(index){
 	area.selectionStart=area.selectionEnd=t.cursorPos||0;
 	area.scrollTop=t.scrollPos||0;
 	updateInsertBtn();
+	updateTreeSelection();
 }
 
 function refreshTabBar(){
@@ -695,6 +860,7 @@ function switchTab(index){
 	loadEditorState(index);
 	refreshTabBar();
 	saveSession();
+	updateTreeSelection();
 }
 
 async function updateRelatedFiles(){
@@ -882,11 +1048,7 @@ async function openFile(path){
 		if(data.locked)toast(tr('fileLocked')+data.lockedBy,'error',true);
 		// record in history
 		fetch('/api/editor/history',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'file='+encodeURIComponent(path)});
-		// highlight in tree
-		document.querySelectorAll('#tree .tree-item.selected').forEach(function(el){el.classList.remove('selected')});
-		document.querySelectorAll('#tree .tree-item').forEach(function(el){
-			if(el.dataset.path===path)el.classList.add('selected');
-		});
+		await updateTreeSelection();
 	}catch(e){
 		toast(tr('readError'),'error');
 	}
@@ -934,14 +1096,8 @@ function saveFile(){
 			parsed=JSON.parse(content);
 		}catch(e){
 			var msg=e.message;
-			var errLine=0;
-			var m=e.message.match(/position\s+(\d+)/i);
-			if(m){
-				var pos=parseInt(m[1]);
-				var lines=content.substring(0,pos).split('\n');
-				errLine=lines.length;
-				msg='line '+lines.length+': '+e.message;
-			}
+			var errLine=getJsonErrorLine(content,e.message);
+			if(errLine>0) msg='line '+errLine+': '+e.message;
 			toast(tr('jsonError')+'\n'+msg,'error');
 			if(errLine>0)setErrorLines([errLine]);
 			return Promise.resolve(false)
@@ -964,6 +1120,8 @@ function saveFile(){
 			}
 			checkHTText(parsed,'');
 			if(invalidItems.length>0){
+				var fmtLines=findFormatErrorLines(content);
+				if(fmtLines.length>0) setErrorLines(fmtLines);
 				toast(tr('httextFormatError')+'\n'+invalidItems.join('\n'),'error',true);
 				return Promise.resolve(false)
 			}
@@ -975,6 +1133,9 @@ function saveFile(){
 				if(!blk||!String(blk.smile||'').trim())missing.push(bi+1);
 			}
 			if(missing.length>0){
+				var smileLines=findSmileErrorLines(content,parsed);
+				if(smileLines.length>0) setErrorLines(smileLines);
+				else setErrorLines(missing.map(function(n){ return Math.min(n, content.split('\n').length); }));
 				toast(tr('smileError')+'\n'+tr('smileErrorBlocks')+': '+missing.join(', '),'error',true);
 				return Promise.resolve(false)
 			}
@@ -996,12 +1157,40 @@ function saveFile(){
 			var msg=e.message;
 			var errLine=0;
 			var st=e.stack||'';
-			var m=st.match(/:(\d+):\d+/);
+			var linesArr=content.split('\n');
+			function isJsMissingSep(repLine){
+				if(repLine<=1||repLine>linesArr.length) return false;
+				var prev=(linesArr[repLine-2]||'').trim();
+				var cur=(linesArr[repLine-1]||'').trim();
+				if(!prev||!cur) return false;
+				if((cur.charAt(0)==='}'||cur.charAt(0)===']') && prev.slice(-1)===',') return true;
+				if(/^["'`a-zA-Z_$]/.test(cur)){
+					var last=prev.slice(-1);
+					if(last!==',' && last!==';' && last!=='{' && last!=='[' && last!==':') return true;
+				}
+				return false;
+			}
+			var m=st.match(/anonymous:(\d+):(\d+)/);
 			if(m){
-				var ln=parseInt(m[1])-1;
+				var ln=parseInt(m[1],10);
+				ln=ln-1;
+				if(ln>1 && isJsMissingSep(ln)) ln=ln-1;
 				if(ln<1)ln=1;
+				if(ln>linesArr.length) ln=linesArr.length;
 				errLine=ln;
 				msg='line '+ln+': '+e.message;
+			}else{
+				m=st.match(/:(\d+):(\d+)/);
+				if(m){
+					var ln2=parseInt(m[1],10);
+					ln2=ln2-1;
+					if(ln2>1 && isJsMissingSep(ln2)) ln2=ln2-1;
+					if(ln2<1)ln2=1;
+					var totalLines=linesArr.length;
+					if(ln2>totalLines) ln2=totalLines;
+					errLine=ln2;
+					msg='line '+ln2+': '+e.message;
+				}
 			}
 			toast(tr('jsError')+'\n'+msg,'error');
 			if(errLine>0)setErrorLines([errLine]);
@@ -1009,7 +1198,12 @@ function saveFile(){
 		}
 	}
 	return fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)+'&content='+encodeURIComponent(content)}).then(function(r){
-		if(!r.ok)throw new Error('HTTP '+r.status);
+		if(!r.ok) return r.text().then(function(txt){
+			var msg=txt||('HTTP '+r.status);
+			// try to highlight line based on server message
+			setErrorLinesFromServer(content,parsed,msg);
+			throw new Error(msg);
+		});
 		tabs[currentTab].originalContent=content;
 		tabs[currentTab].content=content;
 		tabs[currentTab].modified=false;
@@ -1019,7 +1213,12 @@ function saveFile(){
 		toast(tr('saveSuccess'),'success');
 		return true
 	}).catch(function(e){
-		toast(tr('saveError')+': '+e.message,'error');
+		var msg=e.message||'';
+		if(!setErrorLinesFromServer(content,parsed,msg)){
+			var jl=getJsonErrorLine(content,msg);
+			if(jl>0) setErrorLines([jl]);
+		}
+		toast(tr('saveError')+': '+msg,'error');
 		return false
 	});
 }
@@ -1088,7 +1287,10 @@ function formatFile(){
 			var obj=JSON.parse(content);
 			formatted=JSON.stringify(obj,null,3);
 		}catch(e){
-			toast(tr('jsonError')+'\n'+e.message,'error');
+			var jl=getJsonErrorLine(content,e.message);
+			var msg=e.message;
+			if(jl>0){ msg='line '+jl+': '+e.message; setErrorLines([jl]); }
+			toast(tr('jsonError')+'\n'+msg,'error');
 			return;
 		}
 	}else if(path.endsWith('.js')){
