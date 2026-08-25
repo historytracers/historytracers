@@ -25,7 +25,7 @@ Não é surpresa que a principal ferramenta de ensino em *History Tracers* seja 
 
 ### Textos com Áudio
 
-Todos os textos do projeto já contam com narração. Assim, além de ler e praticar, você também pode ouvir o conteúdo sempre que quiser — no ônibus, durante uma caminhada ou antes de dormir.
+Com exceção de duas seções que em breve receberão áudio (*História Geral* e *Acontecimentos Históricos*), todos os textos do projeto já contam com narração. Assim, além de ler e praticar, você também pode ouvir o conteúdo sempre que quiser — no ônibus, durante uma caminhada ou antes de dormir.
 
 ### Imagens
 
