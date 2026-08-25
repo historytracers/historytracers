@@ -672,7 +672,11 @@ function getJsonErrorLine(content,msg){
 		return line;
 	}
 	m=msg.match(/line\s+(\d+)/i);
-	if(m) return parseInt(m[1],10);
+	if(m){
+		var line=parseInt(m[1],10);
+		if(line>lines.length) line=lines.length;
+		return line;
+	}
 	return 0;
 }
 
@@ -1162,7 +1166,7 @@ function saveFile(){
 				if((cur.charAt(0)==='}'||cur.charAt(0)===']') && prev.slice(-1)===',') return true;
 				if(/^["'`a-zA-Z_$]/.test(cur)){
 					var last=prev.slice(-1);
-					if(last!==',' && last!==';' && last!=='{' && last!=='[' && last!==':' && last!==',') return true;
+					if(last!==',' && last!==';' && last!=='{' && last!=='[' && last!==':') return true;
 				}
 				return false;
 			}
@@ -1172,6 +1176,7 @@ function saveFile(){
 				ln=ln-1;
 				if(ln>1 && isJsMissingSep(ln)) ln=ln-1;
 				if(ln<1)ln=1;
+				if(ln>linesArr.length) ln=linesArr.length;
 				errLine=ln;
 				msg='line '+ln+': '+e.message;
 			}else{
