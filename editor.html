@@ -586,6 +586,74 @@ function clearErrorLines(){
 	updateLineNumbers();
 }
 
+function getJsonErrorLine(content,msg){
+	var m=msg.match(/position\s+(\d+)/i);
+	if(m){
+		var pos=parseInt(m[1],10);
+		return content.substring(0,pos).split('\n').length;
+	}
+	m=msg.match(/line\s+(\d+)/i);
+	if(m) return parseInt(m[1],10);
+	return 0;
+}
+
+function findFormatErrorLines(content){
+	var lines=content.split('\n');
+	var valid={'html':1,'text':1,'markdown':1};
+	var err=[];
+	for(var i=0;i<lines.length;i++){
+		var mm=lines[i].match(/"format"\s*:\s*"([^"]*)"/);
+		if(mm&&!(mm[1] in valid)) err.push(i+1);
+	}
+	return err;
+}
+
+function findSmileErrorLines(content,parsed){
+	var lines=content.split('\n');
+	var err=[];
+	for(var i=0;i<lines.length;i++){
+		if(/"smile"\s*:\s*""\s*,?/.test(lines[i])) err.push(i+1);
+	}
+	if(err.length>0) return err;
+	if(parsed&&parsed.content){
+		for(var bi=0;bi<parsed.content.length;bi++){
+			if(!parsed.content[bi]||!String(parsed.content[bi].smile||'').trim()){
+				var bid=parsed.content[bi]&&parsed.content[bi].id;
+				if(bid){
+					for(var li=0;li<lines.length;li++){
+						if(lines[li].indexOf(bid)>=0){
+							if(err.indexOf(li+1)<0) err.push(li+1);
+							break;
+						}
+					}
+				}
+			}
+		}
+		if(err.length>0) return err;
+		// fallback: estimate block positions by counting content openings
+		var blockIdx=-1;
+		for(var li=0;li<lines.length;li++){
+			if(/"smile"\s*:/.test(lines[li])) blockIdx++;
+			// also count blocks without smile by detecting '"id"'
+		}
+	}
+	return err;
+}
+
+function setErrorLinesFromServer(content,parsed,msg){
+	if(/invalid\s+"?format"?/i.test(msg)){
+		var fl=findFormatErrorLines(content);
+		if(fl.length>0){setErrorLines(fl);return true}
+	}
+	if(/smile/i.test(msg)){
+		var sl=findSmileErrorLines(content,parsed);
+		if(sl.length>0){setErrorLines(sl);return true}
+	}
+	var jl=getJsonErrorLine(content,msg);
+	if(jl>0){setErrorLines([jl]);return true}
+	return false;
+}
+
 function updateInsertBtn(){
 	var btn=document.getElementById('insBtn');
 	btn.style.display='';
@@ -934,14 +1002,8 @@ function saveFile(){
 			parsed=JSON.parse(content);
 		}catch(e){
 			var msg=e.message;
-			var errLine=0;
-			var m=e.message.match(/position\s+(\d+)/i);
-			if(m){
-				var pos=parseInt(m[1]);
-				var lines=content.substring(0,pos).split('\n');
-				errLine=lines.length;
-				msg='line '+lines.length+': '+e.message;
-			}
+			var errLine=getJsonErrorLine(content,e.message);
+			if(errLine>0) msg='line '+errLine+': '+e.message;
 			toast(tr('jsonError')+'\n'+msg,'error');
 			if(errLine>0)setErrorLines([errLine]);
 			return Promise.resolve(false)
@@ -964,6 +1026,8 @@ function saveFile(){
 			}
 			checkHTText(parsed,'');
 			if(invalidItems.length>0){
+				var fmtLines=findFormatErrorLines(content);
+				if(fmtLines.length>0) setErrorLines(fmtLines);
 				toast(tr('httextFormatError')+'\n'+invalidItems.join('\n'),'error',true);
 				return Promise.resolve(false)
 			}
@@ -975,6 +1039,20 @@ function saveFile(){
 				if(!blk||!String(blk.smile||'').trim())missing.push(bi+1);
 			}
 			if(missing.length>0){
+				var smileLines=findSmileErrorLines(content,parsed);
+				if(smileLines.length>0) setErrorLines(smileLines);
+				else if(missing.length>0){
+					// fallback: estimate line by position in raw content
+					var rawLines=content.split('\n');
+					var fb=[];
+					for(var mi=0;mi<missing.length;mi++){
+						var approx=Math.floor(rawLines.length*missing[mi]/(parsed.content.length+1));
+						if(approx<1) approx=1;
+						if(approx>rawLines.length) approx=rawLines.length;
+						fb.push(approx);
+					}
+					setErrorLines(fb);
+				}
 				toast(tr('smileError')+'\n'+tr('smileErrorBlocks')+': '+missing.join(', '),'error',true);
 				return Promise.resolve(false)
 			}
@@ -1009,7 +1087,12 @@ function saveFile(){
 		}
 	}
 	return fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)+'&content='+encodeURIComponent(content)}).then(function(r){
-		if(!r.ok)throw new Error('HTTP '+r.status);
+		if(!r.ok) return r.text().then(function(txt){
+			var msg=txt||('HTTP '+r.status);
+			// try to highlight line based on server message
+			setErrorLinesFromServer(content,parsed,msg);
+			throw new Error(msg);
+		});
 		tabs[currentTab].originalContent=content;
 		tabs[currentTab].content=content;
 		tabs[currentTab].modified=false;
@@ -1019,7 +1102,12 @@ function saveFile(){
 		toast(tr('saveSuccess'),'success');
 		return true
 	}).catch(function(e){
-		toast(tr('saveError')+': '+e.message,'error');
+		var msg=e.message||'';
+		if(!setErrorLinesFromServer(content,parsed,msg)){
+			var jl=getJsonErrorLine(content,msg);
+			if(jl>0) setErrorLines([jl]);
+		}
+		toast(tr('saveError')+': '+msg,'error');
 		return false
 	});
 }
@@ -1088,7 +1176,10 @@ function formatFile(){
 			var obj=JSON.parse(content);
 			formatted=JSON.stringify(obj,null,3);
 		}catch(e){
-			toast(tr('jsonError')+'\n'+e.message,'error');
+			var jl=getJsonErrorLine(content,e.message);
+			var msg=e.message;
+			if(jl>0){ msg='line '+jl+': '+e.message; setErrorLines([jl]); }
+			toast(tr('jsonError')+'\n'+msg,'error');
 			return;
 		}
 	}else if(path.endsWith('.js')){
