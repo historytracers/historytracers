@@ -837,25 +837,8 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	strID := r.FormValue("uuid")
-	if strID == "" {
-		id := uuid.New()
-		strID = id.String()
-	} else {
-		parsedID, err := uuid.Parse(strID)
-		if err != nil {
-			http.Error(w, "invalid uuid", http.StatusBadRequest)
-			return
-		}
-		strID = parsedID.String()
-		for _, lang := range editorLangs {
-			candidate := filepath.Join(smartphoneDirForLang(lang), strID+".json")
-			if _, err := os.Stat(candidate); err == nil {
-				http.Error(w, "uuid already exists", http.StatusConflict)
-				return
-			}
-		}
-	}
+	id := uuid.New()
+	strID := id.String()
 
 	tplPath := filepath.Join(rootDir, "src", "json", "scientific_method_game_template.json")
 	data, err := os.ReadFile(tplPath)

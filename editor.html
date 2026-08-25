@@ -1785,6 +1785,72 @@ function cursorInSMGameNextField(area){
 	if(!m)return false;
 	return true;
 }
+function smGameNextKeyIndex(area){
+	var pos=area.selectionStart;
+	var before=area.value.substring(0,pos);
+	var m=before.match(/"next"\s*:\s*"([^"]*)$/);
+	if(!m)return -1;
+	return m.index;
+}
+function countPrecedingBackslashes(s,i){
+	var n=0;
+	var k=i-1;
+	while(k>=0&&s[k]==='\\'){n++;k--}
+	return n;
+}
+function findEnclosingObjectBounds(val,startPos){
+	var i=startPos-1;
+	var depth=0;
+	var inStr=false;
+	var start=-1;
+	while(i>=0){
+		var ch=val[i];
+		if(inStr){
+			if(ch==='"'&&countPrecedingBackslashes(val,i)%2===0)inStr=false;
+			i--;
+			continue;
+		}
+		if(ch==='"'&&countPrecedingBackslashes(val,i)%2===0){inStr=true;i--;continue}
+		if(ch==='}')depth++;
+		else if(ch==='{'){if(depth===0){start=i;break}else depth--}
+		i--;
+	}
+	if(start<0)return null;
+	var inStr2=false;
+	var depth2=0;
+	var end=-1;
+	for(var j=start;j<val.length;j++){
+		var ch=val[j];
+		if(inStr2){
+			if(ch==='"'&&countPrecedingBackslashes(val,j)%2===0)inStr2=false;
+			continue;
+		}
+		if(ch==='"'&&countPrecedingBackslashes(val,j)%2===0){inStr2=true;continue}
+		if(ch==='{')depth2++;
+		else if(ch==='}'){depth2--;if(depth2===0){end=j;break}}
+	}
+	if(end<0)return null;
+	return {start:start,end:end};
+}
+function insertSMGameContentBlock(uuid){
+	var area=document.getElementById('editorArea');
+	var val=area.value;
+	var keyIdx=smGameNextKeyIndex(area);
+	if(keyIdx<0)return;
+	var bounds=findEnclosingObjectBounds(val,keyIdx);
+	if(!bounds)return;
+	var insertPos=bounds.end+1;
+	var indent=jsonDepthIndent(val,insertPos);
+	var tpl=templates.SMGameContent;
+	tpl=tpl.replace('"id": ""','"id": "'+uuid+'"');
+	if(indent){
+		tpl=indent+tpl.replace(/\n/g,'\n'+indent);
+	}
+	var ins=',\n'+tpl+'\n';
+	area.focus();
+	area.setSelectionRange(insertPos,insertPos);
+	document.execCommand('insertText',false,ins);
+}
 function insertUUID(){
 	var area=document.getElementById('editorArea');
 	if(area.style.display==='none'||currentTab<0){
@@ -1801,18 +1867,7 @@ function insertUUID(){
 	toast(tr('insDone'),'success');
 	document.getElementById('insertPanel').classList.remove('open');
 	if(inNextField){
-		fetch('/api/editor/create-smartphone',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'uuid='+encodeURIComponent(uuid)}).then(function(resp){
-			if(!resp.ok)throw new Error('HTTP '+resp.status);
-			var token=resp.headers.get('X-HT-Next-Token');
-			if(token)window.__ht_next_token=token;
-			return resp.json();
-		}).then(function(data){
-			toast(tr('smartphoneCreated')+': '+data.uuid,'success');
-			refreshTree();
-			if(window.__ht_editor_opts.open_new_files!==false)openFile((window.__ht_editor_opts.smartphone_prefix?window.__ht_editor_opts.smartphone_prefix+'/':'')+'src/smartphone/'+LOC+'/'+data.uuid+'.json');
-		}).catch(function(e){
-			toast(tr('newError')+': '+e.message,'error');
-		});
+		insertSMGameContentBlock(uuid);
 	}
 }
 
