@@ -587,10 +587,22 @@ function clearErrorLines(){
 }
 
 function getJsonErrorLine(content,msg){
-	var m=msg.match(/position\s+(\d+)/i);
+	var m=msg.match(/line\s+(\d+)\s+column\s+(\d+)/i);
+	if(m){
+		var line=parseInt(m[1],10);
+		var col=parseInt(m[2],10);
+		if(col<=4&&line>1) return line-1;
+		return line;
+	}
+	m=msg.match(/position\s+(\d+)/i);
 	if(m){
 		var pos=parseInt(m[1],10);
-		return content.substring(0,pos).split('\n').length;
+		var line=content.substring(0,pos).split('\n').length;
+		var before=content.substring(0,pos);
+		var lastNl=before.lastIndexOf('\n');
+		var col=pos-lastNl;
+		if(col<=4&&line>1) return line-1;
+		return line;
 	}
 	m=msg.match(/line\s+(\d+)/i);
 	if(m) return parseInt(m[1],10);
@@ -1074,12 +1086,31 @@ function saveFile(){
 			var msg=e.message;
 			var errLine=0;
 			var st=e.stack||'';
-			var m=st.match(/:(\d+):\d+/);
+			var m=st.match(/anonymous:(\d+):(\d+)/);
 			if(m){
-				var ln=parseInt(m[1])-1;
+				var ln=parseInt(m[1],10);
+				var col=parseInt(m[2],10);
+				ln=ln-1;
+				if(col<=4&&ln>1) ln=ln-1;
 				if(ln<1)ln=1;
 				errLine=ln;
 				msg='line '+ln+': '+e.message;
+			}else{
+				m=st.match(/:(\d+):(\d+)/);
+				if(m){
+					var ln2=parseInt(m[1],10);
+					var col2=parseInt(m[2],10);
+					// generic fallback: try to distinguish wrapper offset by testing content length
+					// heuristic: if anonymous not found, subtract 1 and also apply column check
+					ln2=ln2-1;
+					if(col2<=4&&ln2>1) ln2=ln2-1;
+					if(ln2<1)ln2=1;
+					// verify ln is within content; if not, fallback to 1
+					var totalLines=content.split('\n').length;
+					if(ln2>totalLines) ln2=totalLines;
+					errLine=ln2;
+					msg='line '+ln2+': '+e.message;
+				}
 			}
 			toast(tr('jsError')+'\n'+msg,'error');
 			if(errLine>0)setErrorLines([errLine]);
