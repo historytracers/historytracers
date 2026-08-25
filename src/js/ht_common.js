@@ -476,12 +476,16 @@ function htPrintContent(header, body)
                         if(printWindow && typeof printWindow.location !== 'undefined' && printWindow.location){
                             try{ printWindow.location.href = fullUrl; return; }catch(e){}
                         }
-                        try{ if(printWindow && !printWindow.closed) printWindow.close(); }catch(e){}
+                        if(printWindow && !printWindow.closed){
+                            try{ printWindow.document.write(printDocument); printWindow.document.close(); return; }catch(e){}
+                        }
                         try{ window.open(fullUrl, '_blank'); }catch(e2){}
                     })
                     .catch(function(err){
                         console.error('Viewer print fallback failed', err);
-                        try{ if(printWindow && !printWindow.closed) printWindow.close(); }catch(e){}
+                        if(printWindow && !printWindow.closed){
+                            try{ printWindow.document.write(printDocument); printWindow.document.close(); return; }catch(e){}
+                        }
                         try{ fallbackWindowPrint(); }catch(e){ console.error('Printing failed:', e); alert('Printing failed: '+e.message); }
                     });
                 return;
