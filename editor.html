@@ -430,8 +430,56 @@ async function refreshTree(){
 		var r=await fetch('/api/editor/tree');
 		var items=await r.json();
 		renderTree(items,'');
+		await updateTreeSelection();
 	}catch(e){
 		el.innerHTML='<div class="tree-item" style="color:#f48771;padding:8px 10px">'+tr('treeError')+'</div>';
+	}
+}
+
+function escCss(s){
+	try{ return CSS.escape(s); }catch(e){ return s.replace(/["\\]/g,'\\$&'); }
+}
+
+async function ensureTreePathVisible(targetPath){
+	var parts=targetPath.split('/');
+	// build cumulative dir paths for all parent directories (exclude the file itself if it's a file)
+	// we need to expand each parent dir in order
+	var cum='';
+	for(var i=0;i<parts.length-1;i++){
+		cum=cum ? cum+'/'+parts[i] : parts[i];
+		var dirEl=document.querySelector('#tree .tree-item[data-path="'+escCss(cum)+'"][data-dir="1"]');
+		if(!dirEl) continue;
+		if(dirEl.classList.contains('expanded')) continue;
+		// expand directory and load its children
+		dirEl.classList.add('expanded');
+		var ic=dirEl.querySelector('.icon');
+		if(ic) ic.textContent='\u25BC';
+		await loadSubdir(cum, dirEl);
+	}
+}
+
+async function updateTreeSelection(){
+	var path='';
+	if(currentTab>=0 && currentTab<tabs.length && tabs[currentTab] && tabs[currentTab].path){
+		path=tabs[currentTab].path;
+		// don't highlight config/view tabs
+		if(tabs[currentTab].type==='config' || tabs[currentTab].type==='view') path='';
+	}
+	// clear previous
+	document.querySelectorAll('#tree .tree-item.selected').forEach(function(el){el.classList.remove('selected')});
+	if(!path) return;
+	var sel=document.querySelector('#tree .tree-item[data-path="'+escCss(path)+'"]');
+	if(sel){
+		sel.classList.add('selected');
+		try{ sel.scrollIntoView({block:'nearest'});}catch(e){}
+		return;
+	}
+	// not found - try to expand parents then retry
+	await ensureTreePathVisible(path);
+	sel=document.querySelector('#tree .tree-item[data-path="'+escCss(path)+'"]');
+	if(sel){
+		sel.classList.add('selected');
+		try{ sel.scrollIntoView({block:'nearest'});}catch(e){}
 	}
 }
 
@@ -710,6 +758,7 @@ function loadEditorState(index){
 		document.getElementById('noFileMsg').style.display='flex';
 		updateInsertBtn();
 		updateRelatedFiles();
+		updateTreeSelection();
 		return
 	}
 	closeSearch();
@@ -730,6 +779,7 @@ function loadEditorState(index){
 		updateStatus(index);
 		updateInsertBtn();
 		updateRelatedFiles();
+		updateTreeSelection();
 		return
 	}
 	if(t.type==='view'){
@@ -749,6 +799,7 @@ function loadEditorState(index){
 		document.getElementById('fileStatus').textContent='URL: '+t.url;
 		updateInsertBtn();
 		updateRelatedFiles();
+		updateTreeSelection();
 		return
 	}
 	document.getElementById('configFrame').style.display='none';
@@ -767,6 +818,7 @@ function loadEditorState(index){
 	area.selectionStart=area.selectionEnd=t.cursorPos||0;
 	area.scrollTop=t.scrollPos||0;
 	updateInsertBtn();
+	updateTreeSelection();
 }
 
 function refreshTabBar(){
@@ -804,6 +856,7 @@ function switchTab(index){
 	loadEditorState(index);
 	refreshTabBar();
 	saveSession();
+	updateTreeSelection();
 }
 
 async function updateRelatedFiles(){
@@ -991,11 +1044,7 @@ async function openFile(path){
 		if(data.locked)toast(tr('fileLocked')+data.lockedBy,'error',true);
 		// record in history
 		fetch('/api/editor/history',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'file='+encodeURIComponent(path)});
-		// highlight in tree
-		document.querySelectorAll('#tree .tree-item.selected').forEach(function(el){el.classList.remove('selected')});
-		document.querySelectorAll('#tree .tree-item').forEach(function(el){
-			if(el.dataset.path===path)el.classList.add('selected');
-		});
+		await updateTreeSelection();
 	}catch(e){
 		toast(tr('readError'),'error');
 	}
