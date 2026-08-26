@@ -307,9 +307,28 @@ MANIFEST_FILE="\${MANIFEST_DIR}/.install-manifest"
 if [ "\$UNINSTALL" = "1" ]; then
     echo "Uninstalling HistoryTracers ${VERSION} from \${DESTDIR}\${PREFIX} ..."
     if [ -f "\$MANIFEST_FILE" ]; then
+        # Validate stored version before removing
+        _stored_version=""
+        if head -n1 "\$MANIFEST_FILE" | grep -q "^#VERSION="; then
+            _stored_version=\$(head -n1 "\$MANIFEST_FILE" | cut -d= -f2)
+            if [ "\${_stored_version}" != "\${VERSION}" ]; then
+                echo "ERROR: manifest version \${_stored_version} != installer version \${VERSION}, refusing uninstall" >&2
+                echo "To force, remove \$MANIFEST_FILE manually" >&2
+                exit 1
+            fi
+        fi
         echo "Removing files listed in \$MANIFEST_FILE"
-        tac "\$MANIFEST_FILE" 2>/dev/null | while read -r f; do
+        # Use manifest without version header
+        _manifest_tmp=\$(mktemp)
+        if head -n1 "\$MANIFEST_FILE" | grep -q "^#VERSION="; then
+            tail -n +2 "\$MANIFEST_FILE" > "\$_manifest_tmp"
+        else
+            cat "\$MANIFEST_FILE" > "\$_manifest_tmp"
+        fi
+        tac "\$_manifest_tmp" 2>/dev/null | while read -r f; do
             [ -z "\$f" ] && continue
+            # Skip version header if ever present in content
+            case "\$f" in \#VERSION=*) continue;; esac
             target="\${DESTDIR}\${f}"
             if [ -f "\$target" ] || [ -L "\$target" ]; then
                 rm -f "\$target" && echo "  rm \$target"
@@ -317,6 +336,7 @@ if [ "\$UNINSTALL" = "1" ]; then
                 rm -rf "\$target" && echo "  rm -rf \$target"
             fi
         done
+        rm -f "\$_manifest_tmp"
         # Remove empty dirs
         for d in "\${DESTDIR}\${PREFIX}/share/historytracers/www" "\${DESTDIR}\${PREFIX}/share/historytracers" "\${DESTDIR}\${PREFIX}/share/doc/historytracers" "\${DESTDIR}\${PREFIX}/bin" "\${DESTDIR}\${SYSCONFDIR}/historytracers" "\${DESTDIR}/lib/systemd/system" "\${DESTDIR}\${PREFIX}/lib/systemd/system"; do
             [ -d "\$d" ] && rmdir --ignore-fail-on-non-empty "\$d" 2>/dev/null || true
@@ -350,6 +370,7 @@ else
 fi
 
 # Install binaries
+INSTALLED_EXE=""
 mkdir -p "\${DESTDIR}\${PREFIX}/bin"
 for bin in historytracers historytracers-publisher historytracers-editor; do
     if [ -f "\$SRC/bin/\$bin" ]; then
@@ -362,6 +383,7 @@ for f in "\$SRC/bin/"*.exe; do
     [ -e "\$f" ] || continue
     install -m 755 "\$f" "\${DESTDIR}\${PREFIX}/bin/"
     echo "  installed \${PREFIX}/bin/\$(basename "\$f")"
+    INSTALLED_EXE="\${INSTALLED_EXE} \${PREFIX}/bin/\$(basename "\$f")"
 done
 
 # Install web content
@@ -382,7 +404,15 @@ for doc in README.md README.es.md README.pt-BR.md LICENSE CODE_OF_CONDUCT.md REA
     [ -f "\$SRC/share/doc/historytracers/\$doc" ] && install -m 644 "\$SRC/share/doc/historytracers/\$doc" "\${DESTDIR}\${PREFIX}/share/doc/historytracers/\$doc" 2>/dev/null || true
 done
 
+# Ensure system group/user for chown (before config/service)
+if [ -z "\${DESTDIR}" ] && [ "\$(id -u 2>/dev/null || echo 0)" = "0" ]; then
+    getent group historytracers >/dev/null 2>&1 || groupadd -r historytracers 2>/dev/null || true
+    # useradd: try Debian style first, then Slackware/RHEL style
+    getent passwd historytracers >/dev/null 2>&1 || useradd -r -g historytracers -s /usr/sbin/nologin -d "\${PREFIX}/share/historytracers" -c "HistoryTracers" historytracers 2>/dev/null || useradd -r -g historytracers -s /sbin/nologin -d "\${PREFIX}/share/historytracers" -c "HistoryTracers" historytracers 2>/dev/null || true
+fi
+
 # Install config (do not overwrite existing)
+CONFIG_INSTALLED=0
 mkdir -p "\${DESTDIR}\${SYSCONFDIR}/historytracers"
 if [ -f "\$SRC/etc/historytracers/historytracers.conf" ]; then
     if [ -f "\${DESTDIR}\${SYSCONFDIR}/historytracers/historytracers.conf" ]; then
@@ -393,10 +423,12 @@ if [ -f "\$SRC/etc/historytracers/historytracers.conf" ]; then
         chown historytracers:historytracers "\${DESTDIR}\${SYSCONFDIR}/historytracers/historytracers.conf" 2>/dev/null || true
         chmod 600 "\${DESTDIR}\${SYSCONFDIR}/historytracers/historytracers.conf" 2>/dev/null || true
         echo "  installed \${SYSCONFDIR}/historytracers/historytracers.conf"
+        CONFIG_INSTALLED=1
     fi
 fi
 
 # Install systemd service (adjust paths for PREFIX) – non-fatal if no permission
+SYSTEMD_INSTALLED=0
 if [ -f "\$SRC/lib/systemd/system/historytracers.service" ]; then
     SYSTEMD_DEST=""
     if [ -n "\$DESTDIR" ]; then
@@ -435,6 +467,7 @@ if [ -f "\$SRC/lib/systemd/system/historytracers.service" ]; then
             sed -i "s|ExecStart=/usr/bin/historytracers|ExecStart=\${PREFIX}/bin/historytracers|g" "\$SYSTEMD_DEST" 2>/dev/null || true
             sed -i "s|ExecStart=/usr/local/bin/historytracers|ExecStart=\${PREFIX}/bin/historytracers|g" "\$SYSTEMD_DEST" 2>/dev/null || true
             echo "  installed \$SYSTEMD_DEST"
+            SYSTEMD_INSTALLED=1
             if [ -z "\$DESTDIR" ] && [ "\$(id -u 2>/dev/null || echo 0)" = "0" ] && command -v systemctl >/dev/null 2>&1; then
                 systemctl daemon-reload 2>/dev/null || true
                 echo "  (run 'systemctl enable --now historytracers' to start service)"
@@ -442,29 +475,34 @@ if [ -f "\$SRC/lib/systemd/system/historytracers.service" ]; then
         else
             echo "  WARNING: cannot install systemd service to \$SYSTEMD_DEST (permission denied), skipping" >&2
             SYSTEMD_DEST=""
+            SYSTEMD_INSTALLED=0
         fi
     fi
 fi
 
-# Write manifest for uninstall – record actual installed paths
+# Write manifest for uninstall – record only files successfully installed this run
 mkdir -p "\${MANIFEST_DIR}"
 {
+    echo "#VERSION=\${VERSION}"
     echo "\${PREFIX}/bin/historytracers"
     echo "\${PREFIX}/bin/historytracers-publisher"
     [ -f "\$SRC/bin/historytracers-editor" ] && echo "\${PREFIX}/bin/historytracers-editor"
+    # installed exe files
+    for _exe in \${INSTALLED_EXE:-}; do
+        [ -n "\${_exe}" ] && echo "\${_exe}"
+    done
     echo "\${PREFIX}/share/historytracers/www"
     [ -f "\$SRC/share/historytracers/editor.html" ] && echo "\${PREFIX}/share/historytracers/editor.html"
     echo "\${PREFIX}/share/doc/historytracers"
-    echo "\${SYSCONFDIR}/historytracers/historytracers.conf"
-    if [ -n "\${SYSTEMD_DEST:-}" ]; then
-        # Strip DESTDIR prefix if present to store canonical path
+    if [ "\${CONFIG_INSTALLED:-0}" = "1" ]; then
+        echo "\${SYSCONFDIR}/historytracers/historytracers.conf"
+    fi
+    if [ "\${SYSTEMD_INSTALLED:-0}" = "1" ] && [ -n "\${SYSTEMD_DEST:-}" ]; then
         _sd="\${SYSTEMD_DEST}"
         if [ -n "\${DESTDIR}" ] && [ "\${_sd#\${DESTDIR}}" != "\${_sd}" ]; then
             _sd="\${_sd#\${DESTDIR}}"
         fi
         echo "\${_sd}"
-    else
-        echo "/lib/systemd/system/historytracers.service"
     fi
 } > "\$MANIFEST_FILE"
 echo "  wrote manifest \$MANIFEST_FILE"

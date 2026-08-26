@@ -114,7 +114,7 @@ if [ -f ./historytracers2pkg.sh ]; then
         # Simpler: directly invoke the static builder via bash -c sourcing.
         set +e
         # shellcheck disable=SC1091
-        source <(grep -A 500 '^ht_get_version()' ./historytracers2pkg.sh | sed -n '1,/^ht_usage()/p' | head -n -1)
+        source <(sed -n '/^ht_get_version()/,/^ht_usage()/p' ./historytracers2pkg.sh | head -n -1)
         rc1=$?
         source <(sed -n '/^ht_build_static()/,/^ht_usage()/p' ./historytracers2pkg.sh | head -n -1)
         rc2=$?
