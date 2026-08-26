@@ -30,7 +30,9 @@
       "1782765768"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -399,7 +401,7 @@
                "PostMention": ""
             },
             {
-               "text": "En este cálculo, puedes posicionar el mouse sobre cada columna para visualizar los números involucrados en la suma. A continuación, algunos puntos clave:\n\n- **Identidad aditiva**: En la primera columna, sumamos 0 y 1. Como cualquier número sumado a cero permanece inalterado, el resultado es 1.\n- **Conmutatividad**: El orden de los números en la suma no altera el resultado. Podríamos colocar 543210 arriba y 654321 abajo, y la suma seguiría siendo la misma.\n- **Límite de suma sin transporte**: Si la suma de dos dígitos en una columna es menor o igual a 9, no se necesita transporte.\n- **Transporte**: Cuando la suma en una columna es mayor que 9, llevamos 1 a la siguiente columna y escribimos el dígito restante en el resultado.",
+               "text": "En este cálculo, puedes posicionar el mouse sobre cada columna para visualizar los números involucrados en la suma. A continuación, algunos puntos clave:\n\n- **Identidad aditiva**: En la primera columna, sumamos 0 y 1. Como cualquier número sumado a cero permanece inalterado, el resultado es 1.\n- **Conmutatividad**: El orden de los números en la suma no altera el resultado. Podríamos colocar 543210 arriba y 654321 abajo, y la suma seguiría siendo la misma.\n- **Límite de suma sin transporte**: No se necesita transporte solo cuando los dos dígitos de la columna más cualquier acarreo de entrada suman 9 o menos.\n- **Transporte**: Cuando la suma en una columna es mayor que 9, llevamos 1 a la siguiente columna y escribimos el dígito restante en el resultado.",
                "source": null,
                "date_time": null,
                "isTable": false,

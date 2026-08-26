@@ -30,7 +30,9 @@
       "1782765763"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -399,7 +401,7 @@
                "PostMention": ""
             },
             {
-               "text": "In this calculation, you can hover your mouse over each column to see the numbers being added. Below are some key points to note:\n\n- **Additive Identity**: In the first column, we add 0 and 1. Since any number added to zero remains unchanged, the result is 1.\n- **Commutativity**: The order of the numbers does not affect the result. For example, if we were to write 543,210 on top and 654,321 below, the result would still be the same.\n- **Sum Limit Without Carrying**: If the sum of two digits in a column is 9 or less, no carrying is needed.\n- **Carrying**: When the sum of a column exceeds 9, we carry over 1 to the next column and write the remaining digit in the result.",
+               "text": "In this calculation, you can hover your mouse over each column to see the numbers being added. Below are some key points to note:\n\n- **Additive Identity**: In the first column, we add 0 and 1. Since any number added to zero remains unchanged, the result is 1.\n- **Commutativity**: The order of the numbers does not affect the result. For example, if we were to write 543,210 on top and 654,321 below, the result would still be the same.\n- **Sum Limit Without Carrying**: No carry is needed only when the two column digits plus any incoming carry total 9 or less.\n- **Carrying**: When the sum of a column exceeds 9, we carry over 1 to the next column and write the remaining digit in the result.",
                "source": null,
                "date_time": null,
                "isTable": false,

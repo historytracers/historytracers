@@ -30,7 +30,9 @@
       "1782765774"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -399,7 +401,7 @@
                "PostMention": ""
             },
             {
-               "text": "Neste cálculo, você pode posicionar o mouse sobre cada coluna para visualizar os números envolvidos na soma. Aqui estão alguns pontos importantes:\n\n- **Identidade aditiva**: Na primeira coluna, somamos 0 e 1. Como qualquer número somado a zero permanece inalterado, o resultado é 1.\n- **Comutatividade**: A ordem dos números na soma não altera o resultado. Poderíamos ter colocado 543210 em cima e 654321 embaixo, e a soma permaneceria a mesma.\n- **Limite de soma sem transporte**: Se a soma de dois dígitos em uma coluna for menor ou igual a 9, não é necessário transporte.\n- **Transporte**: Quando a soma em uma coluna for maior que 9, transportamos 1 para a próxima coluna e escrevemos o dígito resultante (o resto da divisão por 10) no resultado.",
+               "text": "Neste cálculo, você pode posicionar o mouse sobre cada coluna para visualizar os números envolvidos na soma. Aqui estão alguns pontos importantes:\n\n- **Identidade aditiva**: Na primeira coluna, somamos 0 e 1. Como qualquer número somado a zero permanece inalterado, o resultado é 1.\n- **Comutatividade**: A ordem dos números na soma não altera o resultado. Poderíamos ter colocado 543210 em cima e 654321 embaixo, e a soma permaneceria a mesma.\n- **Limite de soma sem transporte**: Não é necessário transporte apenas quando os dois dígitos da coluna mais qualquer transporte de entrada somam 9 ou menos.\n- **Transporte**: Quando a soma em uma coluna for maior que 9, transportamos 1 para a próxima coluna e escrevemos o dígito resultante (o resto da divisão por 10) no resultado.",
                "source": null,
                "date_time": null,
                "isTable": false,
