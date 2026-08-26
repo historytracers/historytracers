@@ -46,9 +46,9 @@ ht_validate_myself() {
 
 ht_get_version() {
     if [ -f packaging/Slackware/historytracers.info ]; then
+        # subshell prevents VERSION leak into caller
         # shellcheck disable=SC1091
-        source packaging/Slackware/historytracers.info
-        echo "${VERSION:-1.0.0}"
+        ( source packaging/Slackware/historytracers.info; echo "${VERSION:-1.0.0}" )
     else
         ver=$(grep -E '^AC_INIT' configure.ac 2>/dev/null | sed -E 's/.*\[([0-9.]+)\].*/\1/')
         echo "${ver:-1.0.0}"
@@ -56,8 +56,10 @@ ht_get_version() {
 }
 
 ht_static_cleanup() {
-    rm -rf /tmp/ht_static_XXXXXX 2>/dev/null || true
-    # remove staging if exists (handled by caller)
+    # Remove actual staging dir tracked via STAGING; handle unset/empty safely
+    if [ -n "${STAGING:-}" ] && [ -d "${STAGING}" ]; then
+        rm -rf "${STAGING}" 2>/dev/null || true
+    fi
 }
 
 ht_build_static() {
@@ -388,6 +390,8 @@ if [ -f "\$SRC/etc/historytracers/historytracers.conf" ]; then
         install -m 644 "\$SRC/etc/historytracers/historytracers.conf" "\${DESTDIR}\${SYSCONFDIR}/historytracers/historytracers.conf.new" 2>/dev/null || true
     else
         install -m 600 "\$SRC/etc/historytracers/historytracers.conf" "\${DESTDIR}\${SYSCONFDIR}/historytracers/historytracers.conf"
+        chown historytracers:historytracers "\${DESTDIR}\${SYSCONFDIR}/historytracers/historytracers.conf" 2>/dev/null || true
+        chmod 600 "\${DESTDIR}\${SYSCONFDIR}/historytracers/historytracers.conf" 2>/dev/null || true
         echo "  installed \${SYSCONFDIR}/historytracers/historytracers.conf"
     fi
 fi
@@ -478,8 +482,14 @@ exit 0
 __ARCHIVE_BELOW__
 HTSTATIC_HEADER
 
-    # Append base64-encoded tarball
-    base64 -w 76 "${TARBALL}" >> "${INSTALLER}"
+    # Append base64-encoded tarball (macOS-compatible: -w GNU, -b BSD/macOS, else fold)
+    if base64 -w 76 /dev/null >/dev/null 2>&1; then
+        base64 -w 76 "${TARBALL}" >> "${INSTALLER}"
+    elif base64 -b 76 /dev/null >/dev/null 2>&1; then
+        base64 -b 76 "${TARBALL}" >> "${INSTALLER}"
+    else
+        base64 "${TARBALL}" | fold -w 76 >> "${INSTALLER}"
+    fi
     chmod +x "${INSTALLER}"
     echo "Static installer created: ${INSTALLER} ($(du -h "${INSTALLER}" | cut -f1))"
 
@@ -487,17 +497,23 @@ HTSTATIC_HEADER
     rm -rf "${STAGING}"
 
     # Verify installer is valid
-    if ! grep -q "__ARCHIVE_BELOW__" "${INSTALLER}"; then
+    if ! grep -q "^__ARCHIVE_BELOW__$" "${INSTALLER}"; then
         echo "ERROR: installer marker missing"
         exit 1
     fi
     echo "Verifying installer contents..."
-    # Quick verify: extract to temp and list
-    VERIFY_TMP="$(mktemp -d /tmp/ht_verify_XXXXXX)"
-    ARCHIVE_LINE=$(awk '/^__ARCHIVE_BELOW__/ {print NR + 1; exit 0; }' "${INSTALLER}")
+    ARCHIVE_LINE=$(awk '/^__ARCHIVE_BELOW__$/ {print NR + 1; exit 0; }' "${INSTALLER}")
+    if [ -z "${ARCHIVE_LINE}" ]; then
+        echo "ERROR: cannot locate archive payload boundary"
+        exit 1
+    fi
+    # Validate full archive (fail on tail/base64/tar errors) before showing sample
+    if ! tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | base64 -d | tar -tz >/dev/null; then
+        echo "ERROR: verification failed (tail/base64/tar)"
+        exit 1
+    fi
     tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | base64 -d | tar -tz | head -n 20
     echo "Verification OK (showing first 20 files)"
-    rm -rf "${VERIFY_TMP}"
 
     trap - ERR
 }

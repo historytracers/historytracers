@@ -96,7 +96,11 @@ if [ -f ./historytracers2pkg.sh ]; then
     for arg in "$@"; do
         case "$arg" in
             --no-compile) SKIP_COMPILE="1" ;;
-            *) ;;
+            *)
+                echo "Unknown option: $arg" >&2
+                ht_usage >&2
+                exit 1
+                ;;
         esac
     done
 
@@ -111,7 +115,14 @@ if [ -f ./historytracers2pkg.sh ]; then
         set +e
         # shellcheck disable=SC1091
         source <(grep -A 500 '^ht_get_version()' ./historytracers2pkg.sh | sed -n '1,/^ht_usage()/p' | head -n -1)
+        rc1=$?
         source <(sed -n '/^ht_build_static()/,/^ht_usage()/p' ./historytracers2pkg.sh | head -n -1)
+        rc2=$?
+        set -e
+        if [ $rc1 -ne 0 ] || [ $rc2 -ne 0 ]; then
+            echo "ERROR: failed to source builder functions from historytracers2pkg.sh" >&2
+            exit 1
+        fi
         # Call builder (needs VERSION etc.)
         ht_build_static
         exit $?
@@ -156,8 +167,81 @@ ht_build_static_fallback() {
     [ -f packaging/service/historytracers.service ] && install -m 644 packaging/service/historytracers.service "${PKGROOT}/lib/systemd/system/historytracers.service"
     for doc in README.md LICENSE; do [ -f "$doc" ] && install -m 644 "$doc" "${PKGROOT}/share/doc/historytracers/" 2>/dev/null || true; done
     tar -czf "${TARBALL}" -C "${STAGING}" "historytracers-${VERSION}"
-    echo "Tarball: ${TARBALL}"
-    # For fallback we do not generate self-extracting installer (use pkg script for that)
+    echo "Tarball: ${TARBALL} ($(du -h "${TARBALL}" | cut -f1))"
+
+    # Generate self-extracting installer (fallback standalone)
+    # If historytracers2pkg.sh is unavailable we still produce INSTALLER; fail clearly on error
+    echo "Generating fallback installer: ${INSTALLER}"
+    cat > "${INSTALLER}" <<'FALLBACK_HEADER'
+#!/bin/bash
+# SPDX-License-Identifier: GPL-3.0-or-later
+# HistoryTracers static installer (fallback)
+set -e
+VERSION="__VERSION__"
+PREFIX="/usr/local"
+DESTDIR=""
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then echo "Usage: bash $0 [--prefix PATH] [--destdir PATH] [--uninstall]"; exit 0; fi
+if [ "$1" = "--version" ]; then echo "HistoryTracers $VERSION"; exit 0; fi
+# Minimal arg handling for fallback
+while [ $# -gt 0 ]; do case "$1" in --prefix) PREFIX="$2"; shift 2;; --prefix=*) PREFIX="${1#*=}"; shift;; --destdir) DESTDIR="$2"; shift 2;; --destdir=*) DESTDIR="${1#*=}"; shift;; --uninstall) echo "fallback uninstall not implemented, use main installer"; exit 1;; *) echo "Unknown option: $1" >&2; exit 1;; esac; done
+ARCHIVE_LINE=$(awk '/^__ARCHIVE_BELOW__$/ {print NR + 1; exit 0; }' "$0")
+if [ -z "$ARCHIVE_LINE" ]; then echo "ERROR: marker not found" >&2; exit 1; fi
+TMPDIR=$(mktemp -d /tmp/ht_fallback_XXXXXX)
+trap 'rm -rf "$TMPDIR"' EXIT
+# decode
+if command -v base64 >/dev/null 2>&1; then
+  if base64 -d </dev/null >/dev/null 2>&1; then B64="base64 -d"; elif base64 --decode </dev/null >/dev/null 2>&1; then B64="base64 --decode"; else B64="base64 -D"; fi
+else echo "base64 not found" >&2; exit 1; fi
+tail -n +"$ARCHIVE_LINE" "$0" | $B64 | tar -xz -C "$TMPDIR"
+SRC="$TMPDIR/historytracers-$VERSION"
+if [ ! -d "$SRC" ]; then echo "Extraction failed" >&2; exit 1; fi
+mkdir -p "${DESTDIR}${PREFIX}/bin" "${DESTDIR}${PREFIX}/share/historytracers"
+cp -a "$SRC/bin/"* "${DESTDIR}${PREFIX}/bin/" 2>/dev/null || true
+rm -rf "${DESTDIR}${PREFIX}/share/historytracers/www"
+cp -a "$SRC/share/historytracers/www" "${DESTDIR}${PREFIX}/share/historytracers/" 2>/dev/null || true
+[ -f "$SRC/share/historytracers/editor.html" ] && install -m 644 "$SRC/share/historytracers/editor.html" "${DESTDIR}${PREFIX}/share/historytracers/" 2>/dev/null || true
+mkdir -p "${DESTDIR}${PREFIX}/share/doc/historytracers"
+for d in README.md LICENSE; do [ -f "$SRC/share/doc/historytracers/$d" ] && install -m 644 "$SRC/share/doc/historytracers/$d" "${DESTDIR}${PREFIX}/share/doc/historytracers/" 2>/dev/null || true; done
+mkdir -p "${DESTDIR}/etc/historytracers" 2>/dev/null || mkdir -p "${DESTDIR}${PREFIX}/etc/historytracers"
+if [ -f "$SRC/etc/historytracers/historytracers.conf" ]; then
+  if [ ! -f "${DESTDIR}/etc/historytracers/historytracers.conf" ] && [ ! -f "${DESTDIR}${PREFIX}/etc/historytracers/historytracers.conf" ]; then
+    if [ -d "${DESTDIR}/etc" ]; then install -m 600 "$SRC/etc/historytracers/historytracers.conf" "${DESTDIR}/etc/historytracers/historytracers.conf" 2>/dev/null || install -m 600 "$SRC/etc/historytracers/historytracers.conf" "${DESTDIR}${PREFIX}/etc/historytracers/historytracers.conf"; else install -m 600 "$SRC/etc/historytracers/historytracers.conf" "${DESTDIR}${PREFIX}/etc/historytracers/historytracers.conf"; fi
+    chown historytracers:historytracers "${DESTDIR}/etc/historytracers/historytracers.conf" 2>/dev/null || chown historytracers:historytracers "${DESTDIR}${PREFIX}/etc/historytracers/historytracers.conf" 2>/dev/null || true
+  fi
+fi
+echo "Fallback install to ${DESTDIR}${PREFIX} complete"
+exit 0
+__ARCHIVE_BELOW__
+FALLBACK_HEADER
+    # Inject actual version
+    sed -i "s/__VERSION__/${VERSION}/g" "${INSTALLER}"
+    # Append payload with portable base64 wrapping
+    if base64 -w 76 /dev/null >/dev/null 2>&1; then
+        base64 -w 76 "${TARBALL}" >> "${INSTALLER}"
+    elif base64 -b 76 /dev/null >/dev/null 2>&1; then
+        base64 -b 76 "${TARBALL}" >> "${INSTALLER}"
+    else
+        base64 "${TARBALL}" | fold -w 76 >> "${INSTALLER}"
+    fi
+    chmod +x "${INSTALLER}"
+    echo "Installer: ${INSTALLER} ($(du -h "${INSTALLER}" | cut -f1))"
+    if ! grep -q "^__ARCHIVE_BELOW__$" "${INSTALLER}"; then
+        echo "ERROR: installer marker missing" >&2
+        rm -rf "${STAGING}"
+        exit 1
+    fi
+    ARCHIVE_LINE=$(awk '/^__ARCHIVE_BELOW__$/ {print NR + 1; exit 0; }' "${INSTALLER}")
+    if [ -z "${ARCHIVE_LINE}" ]; then
+        echo "ERROR: cannot locate archive payload boundary" >&2
+        rm -rf "${STAGING}"
+        exit 1
+    fi
+    if ! tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | base64 -d | tar -tz >/dev/null; then
+        echo "ERROR: fallback verification failed" >&2
+        rm -rf "${STAGING}"
+        exit 1
+    fi
+    echo "Verification OK"
     rm -rf "${STAGING}"
 }
 
