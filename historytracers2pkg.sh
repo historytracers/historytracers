@@ -507,12 +507,24 @@ HTSTATIC_HEADER
         echo "ERROR: cannot locate archive payload boundary"
         exit 1
     fi
+    # Detect base64 decode (portable: GNU -d, BSD -D, --decode)
+    B64_DECODE=""
+    if base64 -d </dev/null >/dev/null 2>&1; then
+        B64_DECODE="base64 -d"
+    elif base64 --decode </dev/null >/dev/null 2>&1; then
+        B64_DECODE="base64 --decode"
+    elif base64 -D </dev/null >/dev/null 2>&1; then
+        B64_DECODE="base64 -D"
+    else
+        echo "ERROR: base64 decode not available" >&2
+        exit 1
+    fi
     # Validate full archive (fail on tail/base64/tar errors) before showing sample
-    if ! tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | base64 -d | tar -tz >/dev/null; then
+    if ! tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | $B64_DECODE | tar -tz >/dev/null; then
         echo "ERROR: verification failed (tail/base64/tar)"
         exit 1
     fi
-    tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | base64 -d | tar -tz | head -n 20
+    tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | $B64_DECODE | tar -tz | head -n 20
     echo "Verification OK (showing first 20 files)"
 
     trap - ERR

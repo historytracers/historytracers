@@ -123,6 +123,10 @@ if [ -f ./historytracers2pkg.sh ]; then
             echo "ERROR: failed to source builder functions from historytracers2pkg.sh" >&2
             exit 1
         fi
+        if ! declare -F ht_build_static >/dev/null 2>&1; then
+            echo "ERROR: failed to source builder functions from historytracers2pkg.sh" >&2
+            exit 1
+        fi
         # Call builder (needs VERSION etc.)
         ht_build_static
         exit $?
@@ -196,9 +200,9 @@ tail -n +"$ARCHIVE_LINE" "$0" | $B64 | tar -xz -C "$TMPDIR"
 SRC="$TMPDIR/historytracers-$VERSION"
 if [ ! -d "$SRC" ]; then echo "Extraction failed" >&2; exit 1; fi
 mkdir -p "${DESTDIR}${PREFIX}/bin" "${DESTDIR}${PREFIX}/share/historytracers"
-cp -a "$SRC/bin/"* "${DESTDIR}${PREFIX}/bin/" 2>/dev/null || true
+cp -a "$SRC/bin/"* "${DESTDIR}${PREFIX}/bin/"
 rm -rf "${DESTDIR}${PREFIX}/share/historytracers/www"
-cp -a "$SRC/share/historytracers/www" "${DESTDIR}${PREFIX}/share/historytracers/" 2>/dev/null || true
+cp -a "$SRC/share/historytracers/www" "${DESTDIR}${PREFIX}/share/historytracers/"
 [ -f "$SRC/share/historytracers/editor.html" ] && install -m 644 "$SRC/share/historytracers/editor.html" "${DESTDIR}${PREFIX}/share/historytracers/" 2>/dev/null || true
 mkdir -p "${DESTDIR}${PREFIX}/share/doc/historytracers"
 for d in README.md LICENSE; do [ -f "$SRC/share/doc/historytracers/$d" ] && install -m 644 "$SRC/share/doc/historytracers/$d" "${DESTDIR}${PREFIX}/share/doc/historytracers/" 2>/dev/null || true; done
@@ -236,7 +240,20 @@ FALLBACK_HEADER
         rm -rf "${STAGING}"
         exit 1
     fi
-    if ! tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | base64 -d | tar -tz >/dev/null; then
+    # Detect base64 decode for verification (portable)
+    B64_DECODE=""
+    if base64 -d </dev/null >/dev/null 2>&1; then
+        B64_DECODE="base64 -d"
+    elif base64 --decode </dev/null >/dev/null 2>&1; then
+        B64_DECODE="base64 --decode"
+    elif base64 -D </dev/null >/dev/null 2>&1; then
+        B64_DECODE="base64 -D"
+    else
+        echo "ERROR: base64 decode not available" >&2
+        rm -rf "${STAGING}"
+        exit 1
+    fi
+    if ! tail -n +"${ARCHIVE_LINE}" "${INSTALLER}" | $B64_DECODE | tar -tz >/dev/null; then
         echo "ERROR: fallback verification failed" >&2
         rm -rf "${STAGING}"
         exit 1
