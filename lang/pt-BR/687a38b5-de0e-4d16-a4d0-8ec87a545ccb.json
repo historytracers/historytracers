@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/C41HeMkRUUb",
+         "url": "https://open.spotify.com/episode/7JcXtEVIaWXFVHE5zlMD73?si=UC0JzHRWThKo5z9ZwL1aGA",
          "external": true,
          "spotify": true
       }
@@ -30,7 +30,9 @@
       "1782765774"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -75,7 +77,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nNo texto anterior, aprendemos um axioma que afirma que qualquer valor adicionando a 0 é igual a ele mesmo (Identidade Aditiva). Além disso, vimos que ao passar de um número para o próximo em sequência, estamos adicionando 1 ao número anterior",
+               "text": "### Introdução\n\nNo texto anterior, aprendemos um axioma que afirma que qualquer valor adicionado a 0 é igual a ele mesmo (Identidade Aditiva). Além disso, vimos que ao passar de um número para o próximo em sequência, estamos adicionando 1 ao número anterior",
                "source": [
                   {
                      "type": 1,
@@ -185,7 +187,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p class=\"desc\"><i><b><b>Cálculo 1</b>:</b> Adição de 0 e 5.</i></p></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre a inversão</b><br /><br />Será que teríamos um resultado diferente se, em vez de adicionarmos <b>5 + 0</b>, fizéssemos <b>0 + 5</b>?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p class=\"desc\"><i><b><b>Cálculo 1</b>:</b> Adição de 0 e 5.</i></p></div></div></center><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre a inversão</b><br /><br />Será que teríamos um resultado diferente se, em vez de adicionarmos <b>5 + 0</b>, fizéssemos <b>0 + 5</b>?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -399,7 +401,7 @@
                "PostMention": ""
             },
             {
-               "text": "Neste cálculo, você pode posicionar o mouse sobre cada coluna para visualizar os números envolvidos na soma. Aqui estão alguns pontos importantes:\n\n- **Identidade aditiva**: Na primeira coluna, somamos 0 e 1. Como qualquer número somado a zero permanece inalterado, o resultado é 1.\n- **Comutatividade**: A ordem dos números na soma não altera o resultado. Poderíamos ter colocado 543210 em cima e 654321 embaixo, e a soma permaneceria a mesma.\n- **Limite de soma sem transporte**: Se ambos os números somados em uma coluna forem menores que 5, o resultado nunca ultrapassará 9.\n- **Transporte**: Quando a soma em uma coluna for maior que 9, transportamos 1 para a próxima coluna e escrevemos o valor maior que 9 no resultado.",
+               "text": "Neste cálculo, você pode posicionar o mouse sobre cada coluna para visualizar os números envolvidos na soma. Aqui estão alguns pontos importantes:\n\n- **Identidade aditiva**: Na primeira coluna, somamos 0 e 1. Como qualquer número somado a zero permanece inalterado, o resultado é 1.\n- **Comutatividade**: A ordem dos números na soma não altera o resultado. Poderíamos ter colocado 543210 em cima e 654321 embaixo, e a soma permaneceria a mesma.\n- **Limite de soma sem transporte**: Não é necessário transporte apenas quando os dois dígitos da coluna mais qualquer transporte de entrada somam 9 ou menos.\n- **Transporte**: Quando a soma em uma coluna for maior que 9, transportamos 1 para a próxima coluna e escrevemos o dígito resultante (o resto da divisão por 10) no resultado.",
                "source": null,
                "date_time": null,
                "isTable": false,
