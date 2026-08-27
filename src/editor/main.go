@@ -415,8 +415,11 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 			log.Printf("ERROR writing cache file: %v", err)
 		}
 		rotateToken()
+		h := sha256.Sum256([]byte(content))
+		hash := hex.EncodeToString(h[:])
+		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("X-HT-Next-Token", viewerToken)
-		w.WriteHeader(http.StatusNoContent)
+		json.NewEncoder(w).Encode(map[string]string{"hash": hash})
 		return
 	}
 
@@ -438,8 +441,11 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	addHistory(fileParam)
 	rotateToken()
+	h := sha256.Sum256([]byte(content))
+	hash := hex.EncodeToString(h[:])
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
-	w.WriteHeader(http.StatusNoContent)
+	json.NewEncoder(w).Encode(map[string]string{"hash": hash})
 }
 
 // validateSMGameSmile rejects sm_game files that contain a content block with

@@ -1197,6 +1197,7 @@ function saveFile(){
 			return Promise.resolve(false)
 		}
 	}
+	var savedTab=tabs[currentTab]; var savedTabPath=path; var savedContent=content;
 	return fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)+'&content='+encodeURIComponent(content)}).then(function(r){
 		if(!r.ok) return r.text().then(function(txt){
 			var msg=txt||('HTTP '+r.status);
@@ -1204,16 +1205,38 @@ function saveFile(){
 			setErrorLinesFromServer(content,parsed,msg);
 			throw new Error(msg);
 		});
-		tabs[currentTab].originalContent=content;
-		tabs[currentTab].content=content;
-		tabs[currentTab].modified=false;
-		clearErrorLines();
-		updateStatus(currentTab);
-		refreshTabBar();
-		toast(tr('saveSuccess'),'success');
-		var savedTab=tabs[currentTab]; var savedTabPath=path;
-		fetch('/api/editor/file-stat?file='+encodeURIComponent(savedTabPath)).then(function(r){return r.ok?r.json():null}).then(function(d){if(d&&d.hash){if(savedTab && tabs.indexOf(savedTab)!==-1 && savedTab.path===savedTabPath){savedTab.hash=d.hash; savedTab.originalHash=d.hash; savedTab.lastExternalHash=d.hash;}}}).catch(function(){});
-		return true
+		return r.text().then(function(txt){
+			var saveHash=null;
+			try{ var j=JSON.parse(txt); if(j && j.hash) saveHash=j.hash; }catch(e){}
+			if(savedTab && tabs.indexOf(savedTab)!==-1 && savedTab.path===savedTabPath){
+				savedTab.originalContent=savedContent;
+				savedTab.content=savedContent;
+				savedTab.modified=false;
+				if(saveHash){
+					savedTab.hash=saveHash; savedTab.originalHash=saveHash; savedTab.lastExternalHash=saveHash;
+				}
+			}
+			clearErrorLines();
+			var _idx=savedTab ? tabs.indexOf(savedTab) : -1;
+			if(_idx!==-1 && _idx===currentTab){
+				updateStatus(_idx);
+				updateLineNumbers();
+			} else if(_idx!==-1){
+				// saved tab not current, refresh bar only
+			} else {
+				updateStatus(currentTab);
+			}
+			refreshTabBar();
+			toast(tr('saveSuccess'),'success');
+			if(!saveHash && savedTab && tabs.indexOf(savedTab)!==-1 && savedTab.path===savedTabPath){
+				fetch('/api/editor/file-stat?file='+encodeURIComponent(savedTabPath)).then(function(rr){return rr.ok?rr.json():null}).then(function(d){
+					if(d&&d.hash){
+						setTimeout(checkExternalChanges, 200);
+					}
+				}).catch(function(){});
+			}
+			return true;
+		});
 	}).catch(function(e){
 		var msg=e.message||'';
 		if(!setErrorLinesFromServer(content,parsed,msg)){
