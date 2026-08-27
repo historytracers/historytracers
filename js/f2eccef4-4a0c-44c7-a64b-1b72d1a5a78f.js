@@ -25,7 +25,6 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
 
     return false;
 }

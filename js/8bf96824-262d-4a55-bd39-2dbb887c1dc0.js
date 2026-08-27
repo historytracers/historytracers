@@ -2,8 +2,6 @@
 
 function htLoadContent() {
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
-    $("#htJapanNipponNihonKoku").html(keywords[139]);
 
     for (let i = 1 ; i< 9; i++) {
         $('#repeatNumbers').append($('<option>', {
