@@ -19,10 +19,7 @@ function htAddElementTo687ee328Table(tableID, rowID, rows)
 }
 
 function htLoadContent() {
-
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
-    $("#htJapanNipponNihonKoku").html(keywords[139]);
 
     htSetImageSrc("imgTohoku", "images/Tohoku/Soroban.png");
 

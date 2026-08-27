@@ -23,7 +23,6 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
 
     
     htSetImageSrc("img2", "images/HistoryTracers/pyramid.jpg")
