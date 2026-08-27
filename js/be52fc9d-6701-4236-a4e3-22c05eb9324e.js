@@ -25,6 +25,7 @@ function htLoadContent() {
     htWriteNavigation();
 
 		htSetImageSrc("mp", "images/MachuPicchu/MachuPicchu2.jpg");
+		htSetImageSrc("qp", "images/Caral/QuipuPanel.png");
 
     return false;
 }
