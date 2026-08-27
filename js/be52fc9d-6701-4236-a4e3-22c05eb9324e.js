@@ -26,6 +26,7 @@ function htLoadContent() {
 
 		htSetImageSrc("mp", "images/MachuPicchu/MachuPicchu2.jpg");
 		htSetImageSrc("qp", "images/Caral/QuipuPanel.png");
+		htSetImageSrc("imgCW", "images/UNESCO/site_0438_0002.jpg");
 
     return false;
 }
