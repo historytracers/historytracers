@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/wCRDoQy0UUb",
+         "url": "https://open.spotify.com/episode/5xAmTZE5ImLtXRqbGISx4Q?si=jza-AeUXRrCxGWnuFvUS-g",
          "external": true,
          "spotify": true
       }
@@ -30,7 +30,9 @@
       "1782765763"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -185,7 +187,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p><p class=\"desc\"><i><b><b>Calculation 1</b>:</b> Adding 0 and 5.</i></p></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: On Inversion</b><br /><br />Would the result be the same if, instead of calculating <b>5 + 0</b>, we calculated <b>0 + 5</b>?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p class=\"desc\"><i><b><b>Calculation 1</b>:</b> Adding 0 and 5.</i></p></div></div></center><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: On Inversion</b><br /><br />Would the result be the same if, instead of calculating <b>5 + 0</b>, we calculated <b>0 + 5</b>?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -194,7 +196,7 @@
                "PostMention": ""
             },
             {
-               "text": "From the axiom we learned earlier, we know that adding zero to any number results in the same number. Therefore, both **0 + 5** and **5 + 0**, yield the same result, as we are simply adding 0 to the number 5 in both cases.\n\nThis principle applies to other numbers as well. For example, if we add 4 and 1, and then reverse the order by adding 1 and 4, the result remains the same:",
+               "text": "From the axiom we learned earlier, we know that adding zero to any number results in the same number. Therefore, both **0 + 5** and **5 + 0** yield the same result, as we are simply adding 0 to the number 5 in both cases.\n\nThis principle applies to other numbers as well. For example, if we add 4 and 1, and then reverse the order by adding 1 and 4, the result remains the same:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -221,7 +223,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><<ul class=\"citation\"><li><i><b>Commutative Axiom:</b> For any numbers <b>a</b> and <b>b</b>, the order of addition does not change the result:<br /> a + b = b + a</i></li></ul></p>",
+               "text": "<p><ul class=\"citation\"><li><i><b>Commutative Axiom:</b> For any numbers <b>a</b> and <b>b</b>, the order of addition does not change the result:<br /> a + b = b + a</i></li></ul></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -399,7 +401,7 @@
                "PostMention": ""
             },
             {
-               "text": "In this calculation, you can hover your mouse over each column to see the numbers being added. Below are some key points to note:\n\n- **Additive Identity**: In the first column, we add 0 and 1. Since any number added to zero remains unchanged, the result is 1.\n- **Commutativity**: The order of the numbers does not affect the result. For example, if we were to write 543,210 on top and 654,321 below, the result would still be the same.\n- **Sum Limit Without Carrying**: If both digits in a column are less than 5, their sum will never exceed 9, so no carrying is needed.\n- **Carrying**: When the sum of a column exceeds 9, we carry over 1 to the next column and write the remaining digit in the result.",
+               "text": "In this calculation, you can hover your mouse over each column to see the numbers being added. Below are some key points to note:\n\n- **Additive Identity**: In the first column, we add 0 and 1. Since any number added to zero remains unchanged, the result is 1.\n- **Commutativity**: The order of the numbers does not affect the result. For example, if we were to write 543,210 on top and 654,321 below, the result would still be the same.\n- **Sum Limit Without Carrying**: No carry is needed only when the two column digits plus any incoming carry total 9 or less.\n- **Carrying**: When the sum of a column exceeds 9, we carry over 1 to the next column and write the remaining digit in the result.",
                "source": null,
                "date_time": null,
                "isTable": false,

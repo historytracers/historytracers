@@ -3,6 +3,7 @@ package main
 
 import (
 	"crypto/rand"
+	"crypto/sha256"
 	"database/sql"
 	"encoding/gob"
 	"encoding/hex"
@@ -335,11 +336,52 @@ func editorReadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	h := sha256.Sum256(data)
+	hash := hex.EncodeToString(h[:])
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"content": string(data),
 		"path":    fileParam,
 		"locked":  false,
+		"hash":    hash,
+	})
+}
+
+func fileStatHandler(w http.ResponseWriter, r *http.Request) {
+	fileParam := r.URL.Query().Get("file")
+	if fileParam == "" {
+		http.Error(w, "missing file", http.StatusBadRequest)
+		return
+	}
+	var absPath string
+	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
+		absPath = filepath.Join(getCacheDir(), filepath.Base(fileParam))
+	} else {
+		var err error
+		absPath, err = validateEditPath(fileParam)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+	}
+	data, err := os.ReadFile(absPath)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusNotFound)
+		return
+	}
+	h := sha256.Sum256(data)
+	hash := hex.EncodeToString(h[:])
+	info, _ := os.Stat(absPath)
+	var mtime int64
+	if info != nil {
+		mtime = info.ModTime().UnixMilli()
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"path":  fileParam,
+		"hash":  hash,
+		"mtime": mtime,
+		"size":  len(data),
 	})
 }
 
@@ -373,8 +415,11 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 			log.Printf("ERROR writing cache file: %v", err)
 		}
 		rotateToken()
+		h := sha256.Sum256([]byte(content))
+		hash := hex.EncodeToString(h[:])
+		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("X-HT-Next-Token", viewerToken)
-		w.WriteHeader(http.StatusNoContent)
+		json.NewEncoder(w).Encode(map[string]string{"hash": hash})
 		return
 	}
 
@@ -396,8 +441,11 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	addHistory(fileParam)
 	rotateToken()
+	h := sha256.Sum256([]byte(content))
+	hash := hex.EncodeToString(h[:])
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
-	w.WriteHeader(http.StatusNoContent)
+	json.NewEncoder(w).Encode(map[string]string{"hash": hash})
 }
 
 // validateSMGameSmile rejects sm_game files that contain a content block with
@@ -1615,6 +1663,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/editor/tree", editorTreeHandler)
 	mux.HandleFunc("/api/editor/read", editorReadHandler)
+	mux.HandleFunc("/api/editor/file-stat", fileStatHandler)
 	mux.HandleFunc("/api/editor/save", editorSaveHandler)
 	mux.HandleFunc("/api/editor/unlock", editorUnlockHandler)
 	mux.HandleFunc("/api/editor/create-class", createClassHandler)

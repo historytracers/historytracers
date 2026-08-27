@@ -80,6 +80,10 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
    - `wc -l` all three files must match.
    - Verify the `next` chain: each screen's `next` must point to a valid screen UUID (or `""` for the last).
 
+## Content JSON conventions
+
+- `exercise_v2[].yesNoAnswer` must always be the literal string `"Yes"` or `"No"` (English). These values are used by the application algorithm, not displayed to the user. Never translate them to `"Sí"`, `"Sim"`, or any other language.
+
 ## Rebasing/merging the sources DB (binary conflicts)
 
 `lang/sources/history_tracers.db` is a SQLite file and cannot be auto-merged. During `git merge`/`rebase` it appears as `both modified` (or deleted/modified). To resolve, union the two datasets:

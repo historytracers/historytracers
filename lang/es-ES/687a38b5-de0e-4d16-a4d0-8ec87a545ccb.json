@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/FRFhqOy0UUb",
+         "url": "https://open.spotify.com/episode/3DiLiWyelGWu6YussZNoay?si=ep3h2DiaTt2QTE4XD_B_hA",
          "external": true,
          "spotify": true
       }
@@ -30,7 +30,9 @@
       "1782765768"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -75,7 +77,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nEn el texto anterior, aprendimos un axioma que establece que cualquier valor adicionando a 0 es igual a sí mismo (Identidad Aditiva). Además, vimos que al avanzar de un número al siguiente en la secuencia, estamos adicionando 1 al número anterior",
+               "text": "### Introducción\n\nEn el texto anterior, aprendimos un axioma que establece que cualquier valor adicionado a 0 es igual a sí mismo (Identidad Aditiva). Además, vimos que al avanzar de un número al siguiente en la secuencia, estamos adicionando 1 al número anterior",
                "source": [
                   {
                      "type": 1,
@@ -185,7 +187,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p><p class=\"desc\"><i><b><b>Cálculo 1</b>:</b> Adición de 0 y 5.</i></p></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre la inversión</b><br /><br />¿Obtenemos un resultado diferente si, en lugar de adicionar <b>5 + 0</b>, adicionamos <b>0 + 5</b>?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p class=\"desc\"><i><b><b>Cálculo 1</b>:</b> Adición de 0 y 5.</i></p></div></div></center><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre la inversión</b><br /><br />¿Obtenemos un resultado diferente si, en lugar de adicionar <b>5 + 0</b>, adicionamos <b>0 + 5</b>?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -194,7 +196,7 @@
                "PostMention": ""
             },
             {
-               "text": "A partir del axioma aprendido anteriormente, sabemos que adicionar cero a cualquier número da como resultado el propio número. Por lo tanto, tanto **0 + 5** o **5 + 0**, nos llevan al mismo resultado, ya que en ambas operaciones simplemente estamos añadiendo 0 al número 5.\n\nEl mismo principio se aplica a otros números. Por ejemplo, si adicionamos 4 y 1, y luego invertimos el orden, adicionando 1 y 4, el resultado sigue siendo el mismo:",
+               "text": "A partir del axioma aprendido anteriormente, sabemos que adicionar cero a cualquier número da como resultado el propio número. Por lo tanto, tanto **0 + 5** como **5 + 0** nos llevan al mismo resultado, ya que en ambas operaciones simplemente estamos añadiendo 0 al número 5.\n\nEl mismo principio se aplica a otros números. Por ejemplo, si adicionamos 4 y 1, y luego invertimos el orden, adicionando 1 y 4, el resultado sigue siendo el mismo:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -253,7 +255,7 @@
          "id": "SECTION_growing",
          "text": [
             {
-               "text": "### Adiciones como Reconstrucciones\n\nLas construcciones humanas siguen patrones que también pueden observarse en las adicioness numéricas. Recordemos el **Templo 16 de Copán**, que, tras varias etapas de reconstrucción, hoy alcanza más de 30 metros de altura. Sin embargo, en sus primeras fases de construcción, su estructura era significativamente más pequeña",
+               "text": "### Adiciones como Reconstrucciones\n\nLas construcciones humanas siguen patrones que también pueden observarse en las adiciones numéricas. Recordemos el **Templo 16 de Copán**, que, tras varias etapas de reconstrucción, hoy alcanza más de 30 metros de altura. Sin embargo, en sus primeras fases de construcción, su estructura era significativamente más pequeña",
                "source": [
                   {
                      "type": 1,
@@ -399,7 +401,7 @@
                "PostMention": ""
             },
             {
-               "text": "En este cálculo, puedes posicionar el mouse sobre cada columna para visualizar los números involucrados en la suma. A continuación, algunos puntos clave:\n\n- **Identidad aditiva**: En la primera columna, sumamos 0 y 1. Como cualquier número sumado a cero permanece inalterado, el resultado es 1.\n- **Conmutatividad**: El orden de los números en la suma no altera el resultado. Podríamos colocar 543210 arriba y 654321 abajo, y la suma seguiría siendo la misma.\n- **Límite de suma sin transporte**: Si ambos números en una columna son menores que 5, el resultado jamás superará 9.\n- **Transporte**: Cuando la suma en una columna es mayor que 9, llevamos 1 a la siguiente columna y escribimos el dígito restante en el resultado.",
+               "text": "En este cálculo, puedes posicionar el mouse sobre cada columna para visualizar los números involucrados en la suma. A continuación, algunos puntos clave:\n\n- **Identidad aditiva**: En la primera columna, sumamos 0 y 1. Como cualquier número sumado a cero permanece inalterado, el resultado es 1.\n- **Conmutatividad**: El orden de los números en la suma no altera el resultado. Podríamos colocar 543210 arriba y 654321 abajo, y la suma seguiría siendo la misma.\n- **Límite de suma sin transporte**: No se necesita transporte solo cuando los dos dígitos de la columna más cualquier acarreo de entrada suman 9 o menos.\n- **Transporte**: Cuando la suma en una columna es mayor que 9, llevamos 1 a la siguiente columna y escribimos el dígito restante en el resultado.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -428,7 +430,7 @@
       {
          "question": "Si sumo <b>5 + 4</b>, ¿el resultado será diferente de sumar <b>4 + 5</b>?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Como se menciona en el <b>Axioma de la Comutatividad</b>, el orden en que sumamos los números no altera el resultado."
+         "additionalInfo": "Como se menciona en el <b>Axioma de la Conmutatividad</b>, el orden en que sumamos los números no altera el resultado."
       },
       {
          "question": "¿La mayor diferencia entre sumar dos números de <b>un dígito</b> y dos números de <b>diez dígitos</b> es el <b>tiempo</b> necesario para realizar la operación?",
