@@ -3,8 +3,6 @@
 function htLoadContent() {
     htWriteNavigation();
     htSorobanLoadContent();
-		$("#htChinaZhongguo").html(keywords[137]);
-    $("#htJapanNipponNihonKoku").html(keywords[139]);
 
     return false;
 }

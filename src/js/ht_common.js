@@ -3136,7 +3136,9 @@ function htFillWebPage(page, data)
         "#htChartMsg": 112,
         "#htAmericaAbyaYalaMsg": 85,
         "#htAgeMsg": 131,
-        "#htImgCopyright": 83
+        "#htImgCopyright": 83,
+        "#htChinaZhongguo": 137,
+        "#htJapanNipponNihonKoku": 139
     };
 
     for (const [selector, code] of Object.entries(reflections)) {
