@@ -14,12 +14,19 @@ var iconPNG []byte
 var iconICO []byte
 
 func writeTempIcon() (string, string) {
-	dir := os.TempDir()
-	pngPath := filepath.Join(dir, "historytracers-viewer-icon.png")
-	icoPath := filepath.Join(dir, "historytracers-viewer-icon.ico")
-	// Write PNG (used on Linux/macOS)
-	_ = os.WriteFile(pngPath, iconPNG, 0644)
-	// Write ICO (used on Windows)
-	_ = os.WriteFile(icoPath, iconICO, 0644)
+	dir, err := os.MkdirTemp("", "historytracers-viewer-*")
+	if err != nil {
+		return "", ""
+	}
+	pngPath := filepath.Join(dir, "icon.png")
+	icoPath := filepath.Join(dir, "icon.ico")
+	if err := os.WriteFile(pngPath, iconPNG, 0600); err != nil {
+		_ = os.RemoveAll(dir)
+		return "", ""
+	}
+	if err := os.WriteFile(icoPath, iconICO, 0600); err != nil {
+		_ = os.RemoveAll(dir)
+		return "", ""
+	}
 	return pngPath, icoPath
 }

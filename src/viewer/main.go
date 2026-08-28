@@ -872,9 +872,8 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	writeHistoryLocked(entries)
 	rotateToken()
 	nextToken := viewerToken
-	historyMu.Unlock()
 
-	// Persist last visited page for startup restore
+	// Persist last visited page for startup restore (keep within historyMu critical section)
 	optionsMu.Lock()
 	data := readOptions()
 	last := "/index.html?page=" + url.QueryEscape(page)
@@ -894,6 +893,8 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	writeOptionsLocked(data)
 	savedOptions = data
 	optionsMu.Unlock()
+
+	historyMu.Unlock()
 
 	w.Header().Set("X-HT-Next-Token", nextToken)
 	return
