@@ -252,6 +252,8 @@ L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'De
 	}
 	addBar();
 	try{
+		try{ if(sessionStorage.getItem('__ht_splashShown')) return; }catch(e){}
+		try{ sessionStorage.setItem('__ht_splashShown','1'); }catch(e){}
 		var _splash=document.createElement('div');
 		_splash.id='__ht_splash';
 		_splash.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:2147483647;transition:opacity 0.5s;';
