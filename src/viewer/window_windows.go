@@ -87,7 +87,10 @@ func runWindow() {
 	defer w.Destroy()
 
 	_, icoPath := writeTempIcon()
-	setWindowIcon(w.Window(), icoPath)
+	if icoPath != "" {
+		setWindowIcon(w.Window(), icoPath)
+		_ = os.RemoveAll(filepath.Dir(icoPath))
+	}
 
 	w.Init(addressBarJS)
 	w.Bind("closeWindow", func() {

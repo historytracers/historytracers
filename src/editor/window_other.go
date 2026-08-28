@@ -57,6 +57,7 @@ func runWindow() {
 		cpath := C.CString(pngPath)
 		C.setWindowIcon(w.Window(), cpath)
 		C.free(unsafe.Pointer(cpath))
+		_ = os.RemoveAll(filepath.Dir(pngPath))
 	}
 
 	w.Init(editorBarJS)

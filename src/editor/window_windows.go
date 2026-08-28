@@ -97,7 +97,10 @@ func runWindow() {
 	theView = w
 
 	_, icoPath := writeTempIcon()
-	setWindowIcon(w.Window(), icoPath)
+	if icoPath != "" {
+		setWindowIcon(w.Window(), icoPath)
+		_ = os.RemoveAll(filepath.Dir(icoPath))
+	}
 
 	w.Init(editorBarJS)
 	w.Bind("closeWindow", func() {

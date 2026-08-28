@@ -449,7 +449,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 	case http.MethodGet:
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
-		data := readOptions()
+		data, err := readOptions()
+		if err != nil {
+			log.Printf("Warning: cannot read options: %v", err)
+			data = savedOptions
+		}
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(data)
 
@@ -460,7 +464,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
-		data := readOptions()
+		data, err := readOptions()
+		if err != nil {
+			log.Printf("Warning: cannot read options: %v", err)
+			data = savedOptions
+		}
 		if home := r.FormValue("home"); home != "" {
 			trimmed := strings.TrimLeft(home, "/")
 			if !strings.HasPrefix(trimmed, "index.html") {
@@ -502,7 +510,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		} else if _, ok := r.Form["my_name"]; ok {
 			data.MyName = ""
 		}
-		writeOptionsLocked(data)
+		if err := writeOptionsLocked(data); err != nil {
+			log.Printf("Warning: cannot write options: %v", err)
+			http.Error(w, "Failed to save options", http.StatusInternalServerError)
+			return
+		}
 		savedOptions = data
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -524,7 +536,11 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	optionsMu.Lock()
-	data := readOptions()
+	data, err := readOptions()
+	if err != nil {
+		log.Printf("Warning: cannot read options: %v", err)
+		data = savedOptions
+	}
 	optionsMu.Unlock()
 
 	var curLang, curCal, curRecreio, curPort, curHome string
@@ -713,36 +729,52 @@ func validateOptions(data *optionsData) {
 	}
 }
 
-func readOptions() optionsData {
+func readOptions() (optionsData, error) {
 	var data optionsData
 	if optionsFile == "" {
-		return data
+		validateOptions(&data)
+		return data, nil
 	}
 	f, err := os.Open(optionsFile)
 	if err != nil {
-		return data
+		if os.IsNotExist(err) {
+			validateOptions(&data)
+			return data, nil
+		}
+		return data, err
 	}
 	defer f.Close()
 	if err := gob.NewDecoder(f).Decode(&data); err != nil {
-		log.Printf("Warning: cannot decode options: %v", err)
+		return data, err
 	}
 	validateOptions(&data)
-	return data
+	return data, nil
 }
 
-func writeOptionsLocked(data optionsData) {
+func writeOptionsLocked(data optionsData) error {
 	if optionsFile == "" {
-		return
+		return fmt.Errorf("no options file")
 	}
-	f, err := os.Create(optionsFile)
+	dir := filepath.Dir(optionsFile)
+	tmp, err := os.CreateTemp(dir, "options-*.tmp")
 	if err != nil {
-		log.Printf("Warning: cannot write options: %v", err)
-		return
+		return err
 	}
-	defer f.Close()
-	if err := gob.NewEncoder(f).Encode(data); err != nil {
-		log.Printf("Warning: cannot encode options: %v", err)
+	tmpName := tmp.Name()
+	if err := gob.NewEncoder(tmp).Encode(data); err != nil {
+		tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
 	}
+	if err := tmp.Close(); err != nil {
+		_ = os.Remove(tmpName)
+		return err
+	}
+	if err := os.Rename(tmpName, optionsFile); err != nil {
+		_ = os.Remove(tmpName)
+		return err
+	}
+	return nil
 }
 
 func allowedPage(name string) bool {
@@ -875,7 +907,11 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Persist last visited page for startup restore (keep within historyMu critical section)
 	optionsMu.Lock()
-	data := readOptions()
+	data, err := readOptions()
+	if err != nil {
+		log.Printf("Warning: cannot read options: %v", err)
+		data = savedOptions
+	}
 	last := "/index.html?page=" + url.QueryEscape(page)
 	if arg != "" {
 		last += "&arg=" + url.QueryEscape(arg)
@@ -890,8 +926,11 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 		last += "&cal=" + url.QueryEscape(cal)
 	}
 	data.LastPage = last
-	writeOptionsLocked(data)
-	savedOptions = data
+	if err := writeOptionsLocked(data); err != nil {
+		log.Printf("Warning: cannot write options: %v", err)
+	} else {
+		savedOptions = data
+	}
 	optionsMu.Unlock()
 
 	historyMu.Unlock()
@@ -1340,7 +1379,13 @@ func main() {
 	initDataDir()
 	initUUID()
 	initOptions()
-	savedOptions = readOptions()
+	if data, err := readOptions(); err != nil {
+		log.Printf("Warning: cannot read options: %v", err)
+		validateOptions(&data)
+		savedOptions = data
+	} else {
+		savedOptions = data
+	}
 
 	// Apply saved TLS options if not overridden by CLI
 	if tlsCertFile == "" && savedOptions.TLSCert != "" {
