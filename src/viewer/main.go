@@ -58,14 +58,17 @@ var (
 )
 
 type optionsData struct {
-	Lang    string `json:"lang"`
-	Cal     string `json:"cal"`
-	Recreio string `json:"recreio"`
-	Port    string `json:"port"`
-	Home    string `json:"home"`
-	TLSCert string `json:"tls_cert"`
-	TLSKey  string `json:"tls_key"`
-	MyName  string `json:"my_name"`
+	Lang            string `json:"lang"`
+	Cal             string `json:"cal"`
+	Recreio         string `json:"recreio"`
+	Port            string `json:"port"`
+	Home            string `json:"home"`
+	TLSCert         string `json:"tls_cert"`
+	TLSKey          string `json:"tls_key"`
+	MyName          string `json:"my_name"`
+	OpenLastPage    bool   `json:"open_last_page"`
+	OpenLastPageSet bool   `json:"-"`
+	LastPage        string `json:"last_page"`
 }
 
 var validLangs = map[string]bool{
@@ -479,6 +482,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 				data.Port = v
 			}
 		}
+		if v := r.FormValue("open_last_page"); v != "" {
+			b := v == "1" || v == "true" || v == "on"
+			data.OpenLastPage = b
+			data.OpenLastPageSet = true
+		}
 		if v := r.FormValue("tls_cert"); v != "" {
 			data.TLSCert = v
 		} else if _, ok := r.Form["tls_cert"]; ok {
@@ -544,6 +552,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	if curHome == "" {
 		curHome = "/index.html"
 	}
+	curOpenLast := isOpenLastPage(data)
 
 	defaultTLSDir := "/etc/historytracers/"
 	if runtime.GOOS == "windows" {
@@ -574,11 +583,11 @@ select{height:30px}
 var lang=%q;
 var cal=%q;
 var L={};
-L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
+L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',openLastLabel:'Abrir \u00faltima p\u00e1gina visitada ao iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
 L['pt']=L['pt-BR'];
-L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
+L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',openLastLabel:'Abrir la \u00faltima p\u00e1gina visitada al iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
 L['es']=L['es-ES'];
-L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
+L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',openLastLabel:'Open last visited page on startup',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
 L['en']=L['en-US'];
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
@@ -589,6 +598,7 @@ var homeVal=%q;
 var tlsCertVal=%q;
 var tlsKeyVal=%q;
 var certDir=%q;
+var openLastVal=%v;
 
 var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
 var langs=['pt-BR','en-US','es-ES'];
@@ -611,6 +621,7 @@ for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(Stri
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
 html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
+html+='<div class="form-group"><label><input type="checkbox" id="opt_open_last" '+(openLastVal?'checked':'')+'> '+l.openLastLabel+'</label></div>';
 html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
 html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
@@ -635,7 +646,8 @@ document.getElementById('opt_apply').onclick=function(){
 	if(window.__ht_token)hdr['X-HT-Token']=window.__ht_token;
 	var nm=document.getElementById('opt_my_name').value;
 	localStorage.setItem('ht_my_name',nm);
-	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)}).then(function(r){
+	var ol=document.getElementById('opt_open_last').checked?'1':'0';
+	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)+'&open_last_page='+ol}).then(function(r){
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
 		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);parent.location.href=pu.toString()}catch(e){}
@@ -644,7 +656,14 @@ document.getElementById('opt_apply').onclick=function(){
 	});
 };
 </script>
-</body></html>`, viewerToken, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir)
+</body></html>`, viewerToken, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir, curOpenLast)
+}
+
+func isOpenLastPage(d optionsData) bool {
+	if !d.OpenLastPageSet {
+		return true
+	}
+	return d.OpenLastPage
 }
 
 func validateOptions(data *optionsData) {
@@ -671,6 +690,26 @@ func validateOptions(data *optionsData) {
 	if (data.TLSCert != "") != (data.TLSKey != "") {
 		data.TLSCert = ""
 		data.TLSKey = ""
+	}
+	if !data.OpenLastPageSet {
+		data.OpenLastPage = true
+		data.OpenLastPageSet = true
+	}
+	if data.LastPage != "" {
+		trimmed := strings.TrimLeft(data.LastPage, "/")
+		if !strings.HasPrefix(trimmed, "index.html") {
+			data.LastPage = ""
+		} else {
+			u, err := url.Parse(data.LastPage)
+			if err != nil {
+				data.LastPage = ""
+			} else {
+				pg := u.Query().Get("page")
+				if pg != "" && !allowedPage(pg) {
+					data.LastPage = ""
+				}
+			}
+		}
 	}
 }
 
@@ -816,7 +855,6 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	now := time.Now().Unix()
 
 	historyMu.Lock()
-	defer historyMu.Unlock()
 
 	entries := readHistoryLocked()
 	// Remove existing entry with the same page+arg+people to avoid duplicates
@@ -833,7 +871,32 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	writeHistoryLocked(entries)
 	rotateToken()
-	w.Header().Set("X-HT-Next-Token", viewerToken)
+	nextToken := viewerToken
+	historyMu.Unlock()
+
+	// Persist last visited page for startup restore
+	optionsMu.Lock()
+	data := readOptions()
+	last := "/index.html?page=" + url.QueryEscape(page)
+	if arg != "" {
+		last += "&arg=" + url.QueryEscape(arg)
+	}
+	if people != "" {
+		last += "&people=" + url.QueryEscape(people)
+	}
+	if lang != "" {
+		last += "&lang=" + url.QueryEscape(lang)
+	}
+	if cal != "" {
+		last += "&cal=" + url.QueryEscape(cal)
+	}
+	data.LastPage = last
+	writeOptionsLocked(data)
+	savedOptions = data
+	optionsMu.Unlock()
+
+	w.Header().Set("X-HT-Next-Token", nextToken)
+	return
 }
 
 func historyListHandler(w http.ResponseWriter, r *http.Request) {
@@ -1306,6 +1369,30 @@ func main() {
 	addr := resolveAddr(effectivePort)
 	if *class != "" {
 		pageURL = buildPageURL(addr, *class, *lang, *cal)
+	} else if isOpenLastPage(savedOptions) && savedOptions.LastPage != "" {
+		trimmed := strings.TrimLeft(savedOptions.LastPage, "/")
+		if strings.HasPrefix(trimmed, "index.html") {
+			if u2, err := url.Parse(savedOptions.LastPage); err == nil {
+				pg := u2.Query().Get("page")
+				if pg == "" || allowedPage(pg) {
+					lp := savedOptions.LastPage
+					if !strings.HasPrefix(lp, "/") {
+						lp = "/" + lp
+					}
+					scheme := "http"
+					if useTLS {
+						scheme = "https"
+					}
+					pageURL = fmt.Sprintf("%s://%s%s", scheme, addr, lp)
+				} else {
+					pageURL = buildPageURL(addr, "", *lang, *cal)
+				}
+			} else {
+				pageURL = buildPageURL(addr, "", *lang, *cal)
+			}
+		} else {
+			pageURL = buildPageURL(addr, "", *lang, *cal)
+		}
 	} else if savedOptions.Home != "" && strings.HasPrefix(strings.TrimLeft(savedOptions.Home, "/"), "index.html") {
 		trimmed := strings.TrimLeft(savedOptions.Home, "/")
 		scheme := "http"
