@@ -1,0 +1,251 @@
+{
+   "title": "A Ordem da Adição",
+   "header": "A Ordem da Adição",
+   "sources": [
+      "8fe2026a-08b0-4297-b480-cb76d11dfa0f"
+   ],
+   "scripts": [
+      "8fe2026a-08b0-4297-b480-cb76d11dfa0f"
+   ],
+   "audio": [],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1788034948"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos que o leitor estude o texto anterior e seus pré-requisitos antes de prosseguir com este",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "text": "History Tracers Team",
+                     "page": "Caminhando entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nNo texto anterior, aprendemos um axioma que afirma que qualquer valor adicionado a 0 é igual a ele mesmo (Identidade Aditiva). Além disso, vimos que ao passar de um número para o próximo em sequência, estamos adicionando 1 ao número anterior",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "text": "History Tracers Team",
+                     "page": "Caminhando entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre axiomas</b><br /><br />Se existe um axioma para a adição com zero, será que também há axiomas para a adição com outros números?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Neste texto, exploraremos mais a fundo a adição e como podemos nos deslocar ainda mais rapidamente pelos eixos numéricos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_axiom",
+         "text": [
+            {
+               "text": "### A Ordem da Adição\n\nA adição possui uma propriedade fundamental, que também é um axioma, ainda não explorado, mas que será essencial para guiar nossos estudos. Vamos observar novamente a representação de um eixo numérico:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\"><b>Gráfico 1</b>: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Os códigos-fontes usados para montar a imagem CSS estão em <htcite0>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c7edc93c-0a41-4753-8f89-9e52904ff003",
+                     "text": "W3 Schools",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Com base no que aprendemos no texto anterior, vamos trabalhar com o número 5. No eixo acima, podemos interpretar que uma pessoa posicionada no número 5 está a 5 unidades de distância da origem, ou seja, percorreu 5 passos a partir do 0. Além disso, sabemos que, ao adicionar 0, o resultado continua sendo 5, pois não houve deslocamento adicional",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "text": "History Tracers Team",
+                     "page": "Caminhando entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p class=\"desc\"><i><b><b>Cálculo 1</b>:</b> Adição de 0 e 5.</i></p></div></div></center><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre a inversão</b><br /><br />Será que teríamos um resultado diferente se, em vez de adicionarmos <b>5 + 0</b>, fizéssemos <b>0 + 5</b>?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Partindo do axioma aprendido anteriormente, sabemos que adicionar zero a qualquer número resulta no próprio número. Assim, seja **0 + 5** ou **5 + 0**, resultado será sempre o mesmo, pois em ambas as operações estamos apenas adicionando 0 ao número 5.\n\nO mesmo princípio se aplica a outros números. Por exemplo, ao adicionarmos 4 e 1, e depois invertermos a ordem, adicionando 1 e 4, o resultado continua o mesmo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>4</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>4</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p><p class=\"desc\"><i><b><b>Cálculo 2</b>:</b> Adição de dois inteiros.</i></p></p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Podemos visualizar esse cálculo no eixo numérico do **Gráfico 1**. No primeiro caso, partimos da posição 4 e avançamos 1, chegando à posição 5. No segundo caso, começamos na posição 1 e avançamos 4, chegando novamente à posição 5.\n\nCom base nesses cálculos, podemos definir o **Axioma da Comutatividade**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i><b>Comutatividade:</b> Para qualquer número <b>a</b> e <b>b</b>, a ordem da adição não altera o resultado:<br /> a + b = b + a</i></li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para finalizar esta subseção, vamos aplicar o Axioma da Comutatividade ao Cálculo 2.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgGrape\" onclick=\"htImageZoom('imgGrape', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representação do Cálculo 2 com frutas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Nesta imagem, vemos a soma de uma fruta com outras quatro resultando em cinco frutas independente da ordem.",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Se eu adicionar <b>5 + 4</b>, o resultado será diferente de adicionar <b>4 + 5</b>?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem em que somamos os números não altera o resultado."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
