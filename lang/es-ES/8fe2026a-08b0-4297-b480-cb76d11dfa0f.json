@@ -201,8 +201,21 @@
                "PostMention": ""
             },
             {
-               "text": "Podemos visualizar este cálculo en el eje numérico del **Gráfico 1**. En el primer caso, partimos de la posición 4 y avanzamos 1, llegando a la posición 5. En el segundo caso, comenzamos en la posición 1 y avanzamos 4, alcanzando nuevamente la posición 5.\n\nBasándonos en estos cálculos, podemos definir el **Axioma de la Conmutatividad**:",
-               "source": null,
+               "text": "Podemos visualizar este cálculo en el eje numérico del **Gráfico 1**. En el primer caso, partimos de la posición 4 y avanzamos 1, llegando a la posición 5. En el segundo caso, comenzamos en la posición 1 y avanzamos 4, alcanzando nuevamente la posición 5.\n\nBasándonos en estos cálculos, podemos definir el **Axioma de la Conmutatividad** (<htcite5>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -237,6 +250,20 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, descubrimos el <b>Axioma de la Conmutatividad de la adición</b>: cuando sumamos dos números, el orden no importa—el resultado siempre es el mismo. Ya sea que calculemos 4 + 1 o 1 + 4, llegamos a 5.\n\nTambién vimos este principio en acción usando el eje numérico: partir de la posición 4 y avanzar 1 paso nos lleva al mismo lugar que partir de la posición 1 y avanzar 4 pasos. El camino cambia, pero el destino no.\n\nEste axioma es uno de los pilares de la matemática. En el próximo texto, lo utilizaremos—junto con lo que ya sabemos sobre sumar cero—para explorar cómo sumar números más grandes de manera eficiente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -244,6 +271,11 @@
          "question": "Si sumo <b>5 + 4</b>, ¿el resultado será diferente de sumar <b>4 + 5</b>?",
          "yesNoAnswer": "No",
          "additionalInfo": "Como se menciona en el <b>Axioma de la Conmutatividad</b>, el orden en que sumamos los números no altera el resultado."
+      },
+      {
+         "question": "Un estudiante afirma que <b>3 + 7</b> es diferente de <b>7 + 3</b> porque los números están en un orden distinto. ¿Tiene razón el estudiante?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "El estudiante no tiene razón. Según el <b>Axioma de la Conmutatividad</b>, cambiar el orden de los números no altera el resultado. Tanto 3 + 7 como 7 + 3 son igual a 10. Puede verificarlo en el eje numérico: partir de la posición 3 y avanzar 7 pasos llega al mismo lugar que partir de la posición 7 y avanzar 3 pasos."
       }
    ],
    "game_v2": null,

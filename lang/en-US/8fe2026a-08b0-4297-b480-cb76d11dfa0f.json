@@ -201,8 +201,21 @@
                "PostMention": ""
             },
             {
-               "text": "We can visualize these calculations using the numerical axis in **Chart 1**. In the first case, we start at position 4 and advance 1 step to reach position 5. In the second case, we start at position 1 and advance 4 steps, again reaching position 5.\n\nBased on these observations, we can define the **Commutative Axiom**:",
-               "source": null,
+               "text": "We can visualize these calculations using the numerical axis in **Chart 1**. In the first case, we start at position 4 and advance 1 step to reach position 5. In the second case, we start at position 1 and advance 4 steps, again reaching position 5.\n\nBased on these observations, we can define the **Commutative Axiom** (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -237,6 +250,20 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we discovered the <b>Commutative Axiom of Addition</b>: when we add two numbers, the order does not matter—the result is always the same. Whether we calculate 4 + 1 or 1 + 4, we arrive at 5.\n\nWe also saw this principle in action using the numerical axis: starting at 4 and moving 1 step forward lands us at the same position as starting at 1 and moving 4 steps forward. The path changes, but the destination does not.\n\nThis axiom is one of the building blocks of mathematics. In the next text, we will use it—along with what we already know about adding zero—to explore how to add larger numbers efficiently.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -244,6 +271,11 @@
          "question": "If I calculate <b>5 + 4</b>, would the result be different from <b>4 + 5</b>?",
          "yesNoAnswer": "No",
          "additionalInfo": "As mentioned in the <b>Commutative Axiom of Addition</b>, the order in which we add numbers does not change the final result."
+      },
+      {
+         "question": "A student claims that <b>3 + 7</b> is different from <b>7 + 3</b> because the numbers are in a different order. Is the student correct?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "The student is not correct. According to the <b>Commutative Axiom of Addition</b>, changing the order of the numbers does not change the result. Both 3 + 7 and 7 + 3 equal 10. You can verify this on the numerical axis: starting at 3 and advancing 7 steps reaches the same position as starting at 7 and advancing 3 steps."
       }
    ],
    "game_v2": null,
