@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# HistoryTracers static release image
+# This image is used during release to generate the static binary
+# via ./historytracers2static.sh (self-extracting installer + tarball).
+#
+# Build:
+#   docker build -f Dockerfile.static -t historytracers:static .
+#
+# Run (generates artifacts/historytracers-*.tar.gz and -static-installer.sh):
+#   docker run --rm -v $(pwd)/artifacts:/workspace/artifacts historytracers:static
+#
+# Pass args to the script (e.g. --help, --no-compile):
+#   docker run --rm historytracers:static --help
+#
+# The artifacts directory is preserved via a volume mount so the host
+# can retrieve the generated tarball/installer after the container exits.
+
+FROM fedora:41
+
+RUN dnf install -y make gcc golang nodejs autoconf automake which tar gzip findutils coreutils sed gawk && dnf clean all
+
+WORKDIR /workspace
+COPY . .
+
+ENTRYPOINT ["bash", "./historytracers2static.sh"]
