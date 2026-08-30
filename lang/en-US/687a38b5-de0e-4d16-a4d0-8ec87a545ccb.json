@@ -288,6 +288,11 @@
          "question": "Is the main difference between adding two single-digit numbers and two ten-digit numbers the time required to perform the operation?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "In fact, the rule for adding small numbers is exactly the same as the rule for adding large numbers. The only difference is that, in the case of large numbers, we need to repeat the same steps multiple times, which requires more time to complete the operation."
+      },
+      {
+         "question": "When adding two numbers column by column, if a column sum exceeds 9, do we write the ones digit in the result and carry the tens digit to the next column?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "When the sum of a column exceeds 9, we cannot write a two-digit number in a single column. So we write the ones digit in the result and carry the tens digit (which is always 1 for two single-digit numbers) to the next column on the left. This is the same addition rule we use for small numbers, just applied repeatedly."
       }
    ],
    "game_v2": null,

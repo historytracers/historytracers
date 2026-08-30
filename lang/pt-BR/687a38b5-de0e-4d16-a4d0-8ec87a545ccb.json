@@ -288,6 +288,11 @@
          "question": "A maior diferença entre somar dois números de <b>um dígito</b> e dois números de <b>dez dígitos</b> é o <b>tempo</b> necessário para realizar a operação?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "De fato, a regra para somar números pequenos é exatamente a mesma para números grandes. A única diferença é que, para números maiores, precisamos repetir as mesmas etapas mais vezes, o que exige mais tempo para realizar a operação."
+      },
+      {
+         "question": "Ao somar dois números coluna por coluna, se a soma de uma coluna ultrapassar 9, escrevemos o dígito das unidades no resultado e transportamos o dígito das dezenas para a próxima coluna?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Quando a soma de uma coluna ultrapassa 9, não podemos escrever um número de dois dígitos em uma única coluna. Por isso, escrevemos o dígito das unidades no resultado e transportamos o dígito das dezenas (que sempre é 1 ao somar dois dígitos de um único algarismo) para a próxima coluna à esquerda. Esta é a mesma regra de adição que usamos com números pequenos, só que aplicada repetidamente."
       }
    ],
    "game_v2": null,
