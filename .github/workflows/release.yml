@@ -1,0 +1,163 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Release workflow – builds static binary via Docker and publishes source archives
+#
+# To begin a new release:
+#   TAG=v1.0.0 git tag "$TAG" && git push origin "$TAG"
+#
+# Triggers:
+#   - push of a version tag (v* or X.Y.Z) – creates a GitHub Release with assets
+#   - manual dispatch from the Actions tab
+#   - creation of a GitHub Release (re-build assets for draft releases)
+#
+# Artifacts produced in artifacts/:
+#   - historytracers-static-<version>.tar.gz            (static binary tarball)
+#   - historytracers-<version>-static-installer.sh      (self-extracting installer)
+#   - historytracers-<version>.tar.gz                   (source tar.gz)
+#   - historytracers-<version>.zip                      (source zip)
+#   - SHA256SUMS
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+      - '[0-9]+.[0-9]+.[0-9]*'
+  release:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Override version (e.g. 1.0.0). Leave empty to auto-detect from packaging/Slackware/historytracers.info'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve version
+        id: version
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          set -e
+          if [ -n "$INPUT_VERSION" ]; then
+            if ! printf '%s' "$INPUT_VERSION" | grep -Eq '^[0-9A-Za-z._-]+$'; then
+              echo "::error::Invalid version format: $INPUT_VERSION" >&2
+              exit 1
+            fi
+            VERSION="$INPUT_VERSION"
+          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            VERSION="${GITHUB_REF#refs/tags/}"
+            VERSION="${VERSION#v}"
+          elif [ -f packaging/Slackware/historytracers.info ]; then
+            # shellcheck disable=SC1091
+            . packaging/Slackware/historytracers.info
+            VERSION="${VERSION:-1.0.0}"
+          else
+            VERSION=$(grep -E '^AC_INIT' configure.ac | sed -E 's/.*\[([0-9.]+)\].*/\1/')
+            VERSION="${VERSION:-1.0.0}"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "VERSION=$VERSION"
+          echo "Resolved version: $VERSION"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build static release image
+        run: |
+          set -e
+          # Uses Dockerfile.static – runs ./historytracers2static.sh on container start
+          # Alternative: docker build --target static -t historytracers:static .
+          docker build -f Dockerfile.static -t historytracers:static .
+
+      - name: Generate static binary (via Docker)
+        run: |
+          set -e
+          mkdir -p artifacts
+          # The static builder writes to artifacts/ inside the container;
+          # we mount the host artifacts/ directory so results persist.
+          docker run --rm -v "$PWD/artifacts:/workspace/artifacts" historytracers:static
+          echo "Static artifacts:"
+          ls -lh artifacts/
+          # Fail if expected files not produced
+          VERSION="${{ steps.version.outputs.version }}"
+          if [ ! -f "artifacts/historytracers-static-${VERSION}.tar.gz" ] || [ ! -f "artifacts/historytracers-${VERSION}-static-installer.sh" ]; then
+            echo "::warning::Required static artifacts missing for version $VERSION (expected historytracers-static-${VERSION}.tar.gz and historytracers-${VERSION}-static-installer.sh)"
+            ls -R artifacts || true
+          fi
+
+      - name: Create source archives (zip + tar.gz)
+        run: |
+          set -e
+          VERSION="${{ steps.version.outputs.version }}"
+          echo "Creating source archives for version $VERSION"
+          # Ensure artifacts exists (static step already created it, but guard for workflow_dispatch without tag)
+          mkdir -p artifacts
+          # Use git archive so the archives contain the exact committed tree
+          # with a versioned top-level directory (historytracers-<version>/)
+          git archive --format=tar.gz --prefix="historytracers-${VERSION}/" -o "artifacts/historytracers-${VERSION}.tar.gz" HEAD
+          git archive --format=zip --prefix="historytracers-${VERSION}/" -o "artifacts/historytracers-${VERSION}.zip" HEAD
+          # Fallback for environments without git archive (should not happen on ubuntu-latest)
+          if [ ! -f "artifacts/historytracers-${VERSION}.tar.gz" ]; then
+            tar --exclude=.git --exclude=artifacts --exclude=www --exclude=build -czf "artifacts/historytracers-${VERSION}.tar.gz" .
+          fi
+          if [ ! -f "artifacts/historytracers-${VERSION}.zip" ]; then
+            zip -r "artifacts/historytracers-${VERSION}.zip" . -x ".git/*" "artifacts/*" "www/*" "build/*"
+          fi
+          ls -lh artifacts/
+          echo "Source archives created:"
+          ls -lh "artifacts/historytracers-${VERSION}.tar.gz" "artifacts/historytracers-${VERSION}.zip"
+
+      - name: Generate checksums
+        run: |
+          set -e
+          cd artifacts
+          sha256sum historytracers-* > SHA256SUMS || true
+          cat SHA256SUMS
+          ls -lh
+
+      - name: Upload artifacts (workflow)
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts-${{ steps.version.outputs.version }}
+          path: artifacts/*
+          if-no-files-found: error
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            artifacts/historytracers-static-*.tar.gz
+            artifacts/historytracers-*-static-installer.sh
+            artifacts/historytracers-*.tar.gz
+            artifacts/historytracers-*.zip
+            artifacts/SHA256SUMS
+          generate_release_notes: true
+          fail_on_unmatched_files: false
+
+      - name: Create GitHub Release (manual dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          files: |
+            artifacts/historytracers-static-*.tar.gz
+            artifacts/historytracers-*-static-installer.sh
+            artifacts/historytracers-*.tar.gz
+            artifacts/historytracers-*.zip
+            artifacts/SHA256SUMS
+          generate_release_notes: true
+          fail_on_unmatched_files: false
