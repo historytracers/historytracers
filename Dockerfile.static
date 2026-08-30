@@ -15,7 +15,7 @@
 # The artifacts directory is preserved via a volume mount so the host
 # can retrieve the generated tarball/installer after the container exits.
 
-FROM fedora:41
+FROM fedora:42
 
 RUN dnf install -y make gcc golang nodejs autoconf automake which tar gzip findutils coreutils sed gawk && dnf clean all
 

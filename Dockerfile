@@ -1,4 +1,4 @@
-FROM fedora:41 AS base
+FROM fedora:42 AS base
 
 RUN dnf install -y rpmdevtools rpm-build make gcc golang nodejs autoconf automake which tar gzip findutils coreutils sed gawk && dnf clean all
 
