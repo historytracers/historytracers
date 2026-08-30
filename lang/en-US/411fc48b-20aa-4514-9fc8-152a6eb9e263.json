@@ -28,10 +28,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765765"
+      "1788039870"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -49,7 +51,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text will explore the concept of addition in greater depth. As such, we recommend reviewing the previous texts in this chapter, along with their respective prerequisites",
+               "text": "### Prerequisites\n\nThis text will explore the concept of addition in greater depth. Before continuing, make sure you are comfortable with counting objects and adding small numbers. We recommend reviewing the previous texts in this chapter, along with their respective prerequisites, so that the ideas below build on a solid foundation",
                "source": [
                   {
                      "type": 1,
@@ -76,7 +78,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nFrequently, when performing addition, we respond automatically—a habit that leads us to reflect:",
+               "text": "### Introduction\n\nWe add numbers every day—counting fingers, sharing snacks, or keeping score in a game. Because addition feels so familiar, we often answer without stopping to think. But is every addition as straightforward as it seems? Let us pause and reflect:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -94,7 +96,7 @@
                "PostMention": ""
             },
             {
-               "text": "If you concluded that the answer is 80, you are likely correct. However, we cannot rule out the possibility of error, as we have only provided the numbers without specifying what is being added.",
+               "text": "If you concluded that the answer is 80, you are likely correct—but only in certain situations. Notice that the problem gave us two numbers without telling us what we are counting. Are they fingers? Apples? Degrees on a thermometer? As we will discover, the answer depends on <b>what</b> we are adding, not just the numbers themselves.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -108,7 +110,7 @@
          "id": "SECTION_always",
          "text": [
             {
-               "text": "### When Is 40 + 40 Equal to 80?\n\nThe question in this section’s title invites further reflection:",
+               "text": "### When Is 40 + 40 Equal to 80?\n\nThe question in this section’s title may sound strange—after all, 40 + 40 is always 80, right? Let us test this idea with a concrete example:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -126,7 +128,7 @@
                "PostMention": ""
             },
             {
-               "text": "Let us observe our hands once again:",
+               "text": "To find out, let us observe our hands once again. Each hand has five fingers—so two hands give us ten. If we scale this up, we can count:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -164,7 +166,7 @@
                "PostMention": ""
             },
             {
-               "text": "If we combine 40 fingers and add another 40 fingers, we would ultimately obtain 80 fingers. A similar result would occur if we performed the counting using hands. However, this concept is not limited to the human body—we can also apply this type of summation to trees and other animals. Reflecting on these examples, let us consider another question:",
+               "text": "If we gather 40 fingers and add another 40 fingers, we obtain 80 fingers. The same logic applies if we count hands, leaves on trees, or animals in a field. In every case, we are counting <b>the same kind of thing</b>, and the addition works as expected. This leads us to an important question:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -173,7 +175,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</i></div><div class=\"first_steps_reflection\"><b>Reflection 3: What Is the Common Element?</b><br /><br />Can you identify something that connects us to plants and other animals?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: What Is the Common Element?</b><br /><br />Can you identify something that connects us to plants and other animals? <i>Hint: think about what we all have in common as part of the living world.</i></div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -182,7 +184,7 @@
                "PostMention": ""
             },
             {
-               "text": "Like other animals and plants, we are living beings (or, if you prefer, natural beings). The same applies to the numbers we have used so far. These natural numbers, represented in mathematics by the symbol ℕ, are directly tied to our understanding of counting.",
+               "text": "Like other animals and plants, we are living beings—or, if you prefer, natural beings. The numbers we use to count these things belong to a special family called <b>natural numbers</b>, represented in mathematics by the symbol ℕ. Natural numbers are the numbers we first learn as children: 1, 2, 3, 4, and so on, growing one step at a time toward infinity.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -191,7 +193,7 @@
                "PostMention": ""
             },
             {
-               "text": "Within the context of natural numbers, it is correct to state that 40 + 40 = 80, provided we are referring to the same entities (whether objects or living beings). Nevertheless, it is crucial to analyze the context and its dimensions, as we will explore further",
+               "text": "Within the context of natural numbers, the arithmetic is always correct: 40 + 40 = 80. However, the result only makes sense when we are adding <b>compatible</b> things. Adding 40 apples to 40 apples gives 80 apples—a meaningful result. But what happens when we mix different things, or when we are not even counting objects at all? To answer that, we need to understand the idea of <b>dimensions</b>",
                "source": [
                   {
                      "type": 1,
@@ -230,7 +232,7 @@
          "id": "SECTION_dimensions",
          "text": [
             {
-               "text": "### Dimensions\n\n#### Analysis of Dimensional Summation\n\nWhen summing natural elements, we must consider more than just the numerical values. It is essential to understand exactly what quantities we are summing—meaning we need to verify the dimensions (<htcite0>) of the objects involved.",
+               "text": "### Dimensions\n\n#### What Does \"Dimension\" Mean?\n\nIn everyday language, a <b>dimension</b> describes the kind of thing we are measuring (<htcite0>). For example, length is a dimension, volume is a dimension, and temperature is a dimension. When we add numbers, we must always ask: <i>what kind of thing do these numbers represent?</i>\n\n#### Analysis of Dimensional Summation\n\nWhen summing natural elements, we must consider more than just the numerical values. It is essential to understand exactly what quantities we are summing—meaning we need to verify the dimensions (<htcite0>) of the objects involved.",
                "source": [
                   {
                      "type": 0,
@@ -252,7 +254,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: Dimensionless Summation</b><br /><br />What is the result of adding 40 bananas + 40 apples? Could we obtain 80 grapes as the final result?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: Incompatible Categories</b><br /><br />What is the result of adding 40 bananas + 40 apples? Could we say the answer is 80 grapes? <i>Think about whether bananas, apples, and grapes are the same kind of thing.</i></div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -261,7 +263,7 @@
                "PostMention": ""
             },
             {
-               "text": "This reflection demonstrates a case where 40 + 40 does not equal 80. As observed, the initial question failed to properly account for dimensional consistency.\n\nA valid correction would be to group the items as fruits rather than as distinct species. Thus, when summing 40 fruits + 40 fruits, we obtain 80 fruits—a logically consistent result.\n\nWe conclude that while dimensional analysis does not verify calculation accuracy, it reveals whether we are making a fundamental categorical error.",
+               "text": "This reflection demonstrates a case where 40 + 40 does <b>not</b> equal 80. Bananas, apples, and grapes are three different kinds of fruit, so we cannot simply add them together and call the result \"grapes.\"\n\nHowever, we <b>can</b> fix the problem by grouping them under a broader category. If we call them all \"fruits,\", then 40 fruits + 40 fruits = 80 fruits. The numbers have not changed—only our understanding of <b>what we are counting</b>.\n\n<b>Key takeaway:</b> dimensional analysis does not check whether our arithmetic is correct, but it reveals whether the addition makes sense in the first place.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -270,7 +272,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### I only know, I do not know\n\nLet us gather two glasses of water (40 mL/1.35 oz each), an empty jar, and a thermometer.",
+               "text": "#### An Experiment: When Adding Changes the Result\n\nSo far, we have seen that mixing different objects can make addition meaningless. But what about quantities that <i>look</i> like they should add up—such as temperature? Let us find out with an experiment.\n\n<b>Materials needed:</b> two glasses of water (40 mL / 1.35 oz each), an empty jar, and a thermometer.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -301,7 +303,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Laboratory of Summation</b><br /><br />Measure the water temperature in both glasses (assume 40°C/104°F on a hot day).<br /><br />Carefully pour the water into the jar (total: 80 mL/2.7 oz).<br /><br />Remeasure the temperature in the jar. You will observe that the temperature remains 40°C/104°F.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Laboratory of Summation</b><br /><br /><b>Step 1:</b> Measure the temperature of the water in each glass. Suppose both read 40°C (104°F).<br /><br /><b>Step 2:</b> Before pouring, make a prediction: if we combine the water, will the temperature be 80°C, 40°C, or something else?<br /><br /><b>Step 3:</b> Carefully pour both glasses into the jar. The total volume is now 80 mL (2.7 oz).<br /><br /><b>Step 4:</b> Measure the temperature in the jar. You will observe that it is still 40°C (104°F).</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -310,7 +312,7 @@
                "PostMention": ""
             },
             {
-               "text": "The combined water maintains the same temperature, demonstrating that temperature follows different summation rules than volume",
+               "text": "The combined water maintains the same temperature—40°C, not 80°C! This happens because temperature is an <b>intensive property</b>: it describes the condition of the water, not the amount of it. Volume, on the other hand, is an <b>extensive property</b> and <i>does</i> add up (40 mL + 40 mL = 80 mL). The lesson: even when the numbers look the same, not every quantity follows the rules of ordinary addition",
                "source": [
                   {
                      "type": 1,
@@ -337,7 +339,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we observed that numerical summation can yield incorrect results without proper contextual consideration.\n\nProper addition requires:\n\n- Understanding the nature of the quantities being summed.\n- Analyzing the dimensions of the elements involved.\n\nMathematics extends beyond simple arithmetic—understanding the meaning behind numbers is just as important as performing calculations correctly",
+               "text": "### Conclusion\n\nIn this text, we discovered something important: <b>40 + 40 always equals 80, but the result only makes sense when the things we are adding are compatible</b>.\n\nWe learned three important ideas:\n\n1. <b>Context matters.</b> Before adding, we must ask: what are we counting? Adding 40 apples to 40 apples gives 80 apples, but adding 40 apples to 40 bananas requires us to choose a common category (\"fruits\") before the addition makes sense.\n\n2. <b>Dimensions guide us.</b> Every quantity has a dimension—length, volume, temperature, and so on. We can only add quantities that share the same dimension, and even then, we must understand <i>how</i> that dimension behaves.\n\n3. <b>Not all quantities add up.</b> Our temperature experiment showed that combining two samples of water at 40°C produces a mixture at 40°C (not 80°C), while the volume increases to 80 mL. Temperature does not accumulate the way volume does.\n\nMathematics extends beyond simple arithmetic—understanding the meaning behind numbers is just as important as performing calculations correctly",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -352,12 +354,12 @@
       {
          "question": "Regardless of what we are summing, does the addition of two numbers always yield the same result?",
          "yesNoAnswer": "No",
-         "additionalInfo": "When summing two quantities, we must first understand exactly what we are adding in order to apply the correct summation rules. Additionally, we need to consider the dimensions of the elements involved."
+         "additionalInfo": "When summing two quantities, we must first understand exactly what we are adding. For example, 40 bananas + 40 apples cannot be called \"80 grapes\" because the items are different. Even when the items are the same type, some quantities—like temperature—do not follow ordinary addition rules. Always consider the <b>context</b> and the <b>dimensions</b> of what you are counting."
       },
       {
          "question": "Are the numbers used for counting called Natural Numbers (ℕ)?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Natural numbers, which we have used thus far, serve to count discrete natural elements and are represented by the symbol ℕ. As noted in our references, this numerical sequence may or may not include zero (0). As previously discussed, these numbers increment by one, and extend to infinity (∞)."
+         "additionalInfo": "Natural numbers are the numbers we use for counting: 1, 2, 3, 4, and so on. They are represented by the symbol ℕ. As noted in our references, this sequence may or may not include zero (0). These numbers increase by one each step and continue forever—toward infinity (∞). We use them every time we count objects around us."
       }
    ],
    "game_v2": null,
