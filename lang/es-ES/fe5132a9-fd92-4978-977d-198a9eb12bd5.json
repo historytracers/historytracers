@@ -1,0 +1,427 @@
+{
+   "title": "¿Texto o número?",
+   "header": "¿Texto o número?",
+   "sources": [
+      "fe5132a9-fd92-4978-977d-198a9eb12bd5"
+   ],
+   "scripts": [
+      "fe5132a9-fd92-4978-977d-198a9eb12bd5"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/fe5132a9-fd92-4978-977d-198a9eb12bd5_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/43UPRRpBxYmRoGdSoWfJD0?si=P4-eB2EKRlSX4w64FhaAEw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1788119802"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAgeMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEn este texto, exploraremos otro sistema numérico que fue utilizado en Europa durante varios siglos. Para una mejor comprensión, sugerimos estudiar los textos en los que explicamos cómo creamos nuestros números antes de continuar (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9618a83e-f232-49db-84f6-fc3455a3f1d1",
+                     "text": "History Tracers Team",
+                     "page": "Desenhando para contar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Nuestros números actuales",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "unix",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "julian",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nAl estudiar números en diferentes sistemas numéricos en distintos continentes (Asia, América - *Abya Yala* y África), observamos que la humanidad creó diferentes símbolos para representar el conteo y que estos símbolos eran diferentes del alfabeto que usamos en nuestra vida diaria.\n\nAhora, observa los números romanos, también conocidos como números latinos, adaptados del pueblo etrusco, en la siguiente tabla, comparados con otros sistemas decimales (<htcite0>; <htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7be50fd2-2ce2-4d2d-b123-22d6bae50e23",
+                     "text": "Keyser, P.",
+                     "page": "pp. 544",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "08",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c6f861ac-7b52-4dd4-8e64-e5fb5bc87ad5",
+                     "text": "Gregersen, E. (2026, July 27)",
+                     "page": "Números romanos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "08",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen tableTenBgBlue\"><tr><th>Sistema numérico</th><th  colspan=\"7\">Números</th></tr> <tr><td>Romano</td><td style=\"background-color: white;\">I</td><td style=\"background-color: white;\">V</td><td style=\"background-color: white;\">X</td><td style=\"background-color: white;\">L</td><td style=\"background-color: white;\">C</td><td style=\"background-color: white;\">D</td><td style=\"background-color: white;\">M</td> </tr>  <tr><td>Indo-árabe</td><td style=\"background-color: white;\">1</td><td style=\"background-color: white;\">5</td><td style=\"background-color: white;\">10</td><td style=\"background-color: white;\">50</td><td style=\"background-color: white;\">100</td><td style=\"background-color: white;\">500</td><td style=\"background-color: white;\">1000</td> </tr> <tr><td rowspan=\"3\">Vigesimal mesoamericano</td><td  rowspan=\"3\" style=\"background-color: white; vertical-align: bottom;\"><img id=\"idt1\" onclick=\"htImageZoom('idt1', '0%')\" alt=\"Numeral maya 1\" src=\"images/HistoryTracers/Maya_1.png\" /></td><td rowspan=\"3\" style=\"background-color: white; vertical-align: bottom;\"><img id=\"idt5\" onclick=\"htImageZoom('idt5', '0%')\" alt=\"Numeral maya 5\" src=\"images/HistoryTracers/Maya_5.png\" /></td><td rowspan=\"3\" style=\"background-color: white; vertical-align: bottom;\"><img id=\"idt10\" onclick=\"htImageZoom('idt10', '0%')\" alt=\"Numeral maya 10\" src=\"images/HistoryTracers/Maya_10.png\" /></td><td style=\"background-color: white; vertical-align: bottom;\" rowspan=\"2\"><img id=\"idt250\" onclick=\"htImageZoom('idt250', '0%')\" alt=\"Numeral maya 2\" src=\"images/HistoryTracers/Maya_2.png\" /></td><td style=\"background-color: white; vertical-align: bottom;\" rowspan=\"2\"><img id=\"idt5100\" onclick=\"htImageZoom('idt5100', '0%')\" alt=\"Numeral maya 5\" src=\"images/HistoryTracers/Maya_5.png\" /></td><td style=\"background-color: white; border-bottom: none;\"><img id=\"idt1500\" onclick=\"htImageZoom('idt1500', '0%')\" alt=\"Numeral maya 1\" src=\"images/HistoryTracers/Maya_1.png\" /></td><td style=\"background-color: white; border-bottom: none;\"><img id=\"idt21000\" onclick=\"htImageZoom('idt21000', '0%')\" alt=\"Numeral maya 2\" src=\"images/HistoryTracers/Maya_2.png\" /></td></tr>            <tr style=\"background-color: white;\"><td><img id=\"idt1050\" onclick=\"htImageZoom('idt1050', '0%')\" alt=\"Numeral maya 5\" src=\"images/HistoryTracers/Maya_5.png\" /> </td><td><img id=\"idt0100b\" onclick=\"htImageZoom('idt0100b', '0%')\" alt=\"Numeral maya 10\" src=\"images/HistoryTracers/Maya_10.png\" /> </td></tr> <tr style=\"background-color: white;\"><td><img id=\"idt1050b\" onclick=\"htImageZoom('idt1050b', '0%')\" alt=\"Numeral maya 10\" src=\"images/HistoryTracers/Maya_10.png\" /></td><td><img id=\"idt01000b\" onclick=\"htImageZoom('idt01000b', '0%')\" alt=\"Numeral maya 0\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td><img id=\"idt0500\" onclick=\"htImageZoom('idt0500', '0%')\" alt=\"Numeral maya 0\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td><img id=\"idt01000bb\" onclick=\"htImageZoom('idt01000bb', '0%')\" alt=\"Numeral maya 0\" src=\"images/HistoryTracers/Maya_0.png\" /></td></tr></table> </p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabla 1</b>: Comparación de números romanos, indo-árabes y mesoamericanos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Esto me recuerda a...</b><br /><br />Observando los sistemas numéricos de la <b>Tabla 1</b>, ¿a qué te recuerdan los números romanos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_history",
+         "text": [
+            {
+               "text": "### La relación entre los pueblos\n\nAntes de tratar las posibles memorias que el sistema numérico nos trae, es necesario explicar por qué tratamos el sistema numérico presentado en esta página como *etrusco-romano*.\n\nComo menciona Paul Keyser, los etruscos dominaron Roma durante su período real (<htdate0> - <htdate1>) (<htcite0>). Como consecuencia de la antigua relación entre los pueblos, el alfabeto latino tendría su origen en el alfabeto etrusco. Y, como los números fueron posiblemente creaciones contemporáneas al alfabeto, también habrían sido una fuente de conocimiento para los romanos (<htcite1>).\n\nEl hecho de que hoy tengamos este conocimiento no significa que siempre hayamos conocido la relación entre estos números. Ante esto, varios investigadores han propuesto teorías para explicar la razón por la cual los romanos tendrían 7 símbolos para sus números (<htcite2>).\n\nCon la ayuda del trabajo de Paul Keyser, aprenderemos un poco más de esta historia y veremos si estos números son las mismas letras de nuestro alfabeto.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4ca46079-38b3-49bc-862d-1840854c9fd9",
+                     "text": "Salmon, E.T., et al.",
+                     "page": "Roma Antigua",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "08",
+                        "day": "10"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7be50fd2-2ce2-4d2d-b123-22d6bae50e23",
+                     "text": "Keyser, P.",
+                     "page": "pp. 538, 541",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "08",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7be50fd2-2ce2-4d2d-b123-22d6bae50e23",
+                     "text": "Keyser, P.",
+                     "page": "pp. 530 - 543",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "08",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-753",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-509",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_alphabet",
+         "text": [
+            {
+               "text": "### Parece alfabeto, luego...\n\nEl proceso de construcción de la memoria no es tan simple como se pensaba hace algunos siglos. Investigaciones recientes nos muestran que la formación de la memoria involucra varias áreas de nuestro cerebro y no podría limitarse a un proceso simple como visualizar un evento, reforzarlo y almacenarlo. Tampoco podemos limitar nuestras memorias a la memoria de corto y largo plazo (<htcite0>). Pero este es un estudio reciente. En el pasado, algunas propuestas sobre cómo surgieron los números romanos aparentemente siguieron estas ideas.\n\nEn su trabajo, Paul Keyser menciona diferentes ideas que asociaron el alfabeto latino y otros alfabetos con los números etrusco-romanos durante un largo período de tiempo (<htcite1>). Pero, antes de exponer los problemas con estas propuestas, hagamos una reflexión más.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "82ee781f-4d3f-4e98-8c05-47b28e3d3137",
+                     "text": "Nadel, L., Hupbach, A., Gomez, R., & Newman-Smith, K.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "08",
+                        "day": "29"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7be50fd2-2ce2-4d2d-b123-22d6bae50e23",
+                     "text": "Keyser, P.",
+                     "page": "pp. 536 - 541",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "08",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Tiene la letra, luego es el número</b><br /><br />En latín leemos mil como <i>mille</i>. Como la palabra empieza con <b>M</b> y el número 1000 se representa con <b>M</b>, ¿eso es suficiente para definir cómo se crearon los números?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Un análisis más profundo\n\nSi la regla de la reflexión es verdadera, entonces sería necesario que se aplicara a todos los números. Pero, en latín, el número cinco es *quinque*, es decir, no empieza con *V* (<htcite0>).\n\nSi descartamos las letras del alfabeto como el origen de los números, necesitamos estudiar otras posibilidades, que deben ser comprobadas con textos hechos por etruscos y romanos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7be50fd2-2ce2-4d2d-b123-22d6bae50e23",
+                     "text": "Keyser, P.",
+                     "page": "pp. 541",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_wide",
+         "text": [
+            {
+               "text": "### Un escenario más amplio\n\nComencemos observando los números etruscos que posiblemente sirvieron de inspiración para los números romanos (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7be50fd2-2ce2-4d2d-b123-22d6bae50e23",
+                     "text": "Keyser, P.",
+                     "page": "pp. 544",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen tableTenBgBlue\"><tr><th>Sistema numérico</th><th  colspan=\"7\">Números</th></tr> <tr><td>Romano</td><td style=\"background-color: white;\">I</td><td style=\"background-color: white;\">V</td><td style=\"background-color: white;\">X</td><td style=\"background-color: white;\">L</td><td style=\"background-color: white;\">C</td><td style=\"background-color: white;\">D</td><td style=\"background-color: white;\">M</td> </tr>  <tr><td>Indo-árabe</td><td style=\"background-color: white;\">1</td><td style=\"background-color: white;\">5</td><td style=\"background-color: white;\">10</td><td style=\"background-color: white;\">50</td><td style=\"background-color: white;\">100</td><td style=\"background-color: white;\">500</td><td style=\"background-color: white;\">1000</td> </tr>        <tr><td>Etrusco</td><td style=\"background-color: white;\">I</td><td style=\"background-color: white;\">𐌡</td><td style=\"background-color: white;\">𐌢</td><td style=\"background-color: white;\">𐌣</td><td style=\"background-color: white;\">𐌟</td><td style=\"background-color: white;\">&nbsp;</td><td style=\"background-color: white;\">⊕</td> </tr> </table> </p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabla 2</b>: Comparación de números romanos, indo-árabes y etruscos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Estudiando los números\n\nComenzamos señalando que no escribimos el número etrusco 500, ya que no lo tenemos en el formato de texto que estamos utilizando. Pero sí existe y está representado por la mitad inferior del número etrusco 1000.\n\nSegún la comprensión de Paul Keyser, los números romanos tendrían el siguiente origen (<htcite0>):\n- El origen de los números romanos son modificaciones de los números etruscos originales;\n- El número 1 (I) representa una marca unitaria;\n- El número 10 (𐌢) es el mismo número utilizado por los etruscos.\n- Los números para 5 (𐌡) y para 50 (𐌣) son la parte inferior de los números 10 y 100, respectivamente. Cuando los romanos comenzaron a usarlos, habrían invertido ambos símbolos, y el 50 habría pasado por una transformación adicional, así como el 100.\n- Para el número 1000, Paul sostiene que la transformación también sería posible, pero es necesario un estudio más profundo del latín para entender las etapas de transformación.\n- En cuanto al número 500, sería equivalente al etrusco, pero en vez de usar la parte inferior del número como los etruscos hicieron, usaríamos el lado derecho del número 1000.\n\nEsta propuesta de Paul Keyser fue presentada después de discutir diferentes modelos propuestos para intentar explicar el origen de los números romanos, aportando como una de sus ventajas la conexión con comparaciones de señales de alfabeto con orígenes comprobados.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7be50fd2-2ce2-4d2d-b123-22d6bae50e23",
+                     "text": "Keyser, P.",
+                     "page": "pp. 541 - 543",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, aprendimos que los números latinos posiblemente derivan de los números etruscos y que una asociación con el alfabeto es una simplificación que tiene sentido en una comparación simple, pero con un estudio más profundo podemos observar problemas con la propuesta.\n\nAdemás, aprendimos que el modelo de asociación de nuestras memorias también ha sufrido transformaciones a lo largo del tiempo, pasando de un modelo en el que habría un refuerzo constante y las memorias se almacenarían, a un modelo más complejo que involucra diferentes áreas del cerebro que ayudan a construir nuestras memorias.\n\nDada toda esta información, cerramos con una reflexión interior para los lectores.",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Me limito por no entender</b><br /><br />¿Es posible que te hayas aferrado a una respuesta simple porque parecía tener sentido, pero no la has estudiado más profundamente?<br /><br />¿Podrían las personas aceptar respuestas fáciles de acuerdo con el conocimiento que poseen porque no tienen tiempo o no saben cómo buscar más conocimiento?<br /><br />En este texto, aprendimos que investigadores han demostrado que los modelos de memoria a corto y largo plazo, así como el origen de los números romanos a partir del alfabeto, no pueden considerarse correctos debido a las limitaciones que poseen. ¿Podemos decir que las personas que solo reciben modelos limitados, o ningún modelo, durante su vida respecto a esta y otras preguntas están restringidas en sus conocimientos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Es posible que un pueblo adquiera conocimiento de otro pueblo y lo adapte de acuerdo con sus necesidades locales?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Esto ocurre en todo el planeta. A medida que hubo contacto entre culturas, los pueblos intercambiaron conocimientos matemáticos, de agricultura e incluso creencias, ya sea de manera amistosa o impuesta al otro."
+      },
+      {
+         "question": "¿Podemos afirmar con convicción que los números romanos poseen origen en las letras que los nombran y, por lo tanto, tuvieron origen en el alfabeto?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Si tal información fuera cierta, todos los siete dígitos comenzarían con la letra que nombra a cada número, algo que definitivamente nunca ocurrió. Ante este escenario, la propuesta de Paul Keyser que estudiamos, de origen a partir de los números etruscos, es más probable."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
