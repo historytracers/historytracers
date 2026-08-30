@@ -1,0 +1,166 @@
+{
+   "title": "Practicando los axiomas de la suma",
+   "header": "Practicando los axiomas de la suma",
+   "sources": [
+      "462b1750-2d39-454d-a780-f22d4bd154c3"
+   ],
+   "scripts": [
+      "462b1750-2d39-454d-a780-f22d4bd154c3"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/462b1750-2d39-454d-a780-f22d4bd154c3_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4gHnZkYkQxRvM2v9dT1yNb?si=9Z6t3xKrQPyQvM8uR5wLbA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1788127041"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Prerrequisitos</h3>El juego de esta página tiene como objetivo reforzar dos axiomas de la suma: la identidad aditiva (<b>a + 0 = a</b>) y el axioma conmutativo (<b>a + b = b + a</b>). Antes de empezar, se sugiere estudiar los siguientes textos:</p><p><ul><li><b>Caminando entre los números</b>: aprendemos que sumar cero a cualquier número deja el número sin cambios (<htcite0>).</li> <li><b>El Orden de la Adición</b>: aprendemos que el orden de la suma no cambia el resultado (<htcite1>).</li></ul></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "text": "History Tracers Team",
+                     "page": "Caminando entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8fe2026a-08b0-4297-b480-cb76d11dfa0f",
+                     "text": "History Tracers Team",
+                     "page": "El Orden de la Adición",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Cómo jugar\n\nEl juego tiene tres niveles. En cada nivel, se muestra una ecuación con espacios vacíos, y debes completarla usando las flechas debajo de cada espacio vacío. Cuando los dos lados de la ecuación sean iguales, el ejercicio está completo.\n\n- **Nivel 1**: refuerza la identidad aditiva. El lado izquierdo muestra <b>a + 0</b>. Usa las flechas para colocar el valor <b>a</b> en el lado derecho.\n- **Nivel 2**: refuerza el axioma conmutativo. El lado izquierdo muestra <b>a + b</b>. Un valor del lado derecho ya está colocado. Usa las flechas para completar el valor que falta.\n- **Nivel 3**: refuerza nuevamente el axioma conmutativo. El lado izquierdo muestra <b>a + b</b>. Usa las flechas para colocar ambos valores en el lado derecho.\n\nEstos axiomas se introducen en los textos anteriores (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><center><div class=\"compGame\"><p id=\"axLevelTitle\" class=\"compLevel\"></p><p id=\"axInstr\" class=\"compInstr\"></p><div id=\"axTable\"></div><div class=\"compFeedback\"><p id=\"axMsgCorrect\" class=\"compMsg compMsgCorrect\" style=\"display: none;\"><i class=\"fa-solid fa-check\"></i> ¡Correcto!</p><p id=\"axMsgLevelComplete\" class=\"compMsg compMsgFinish\" style=\"display: none;\"><i class=\"fa-solid fa-medal\"></i> ¡Nivel completado!</p><p id=\"axMsgGameComplete\" class=\"compMsg compMsgFinish\" style=\"display: none;\"><i class=\"fa-solid fa-medal\"></i> ¡Juego completado! ¡Felicidades!</p></div><p id=\"axProgress\" class=\"compProgress\"></p><p id=\"axScoreText\" class=\"compScore\"></p><p><button type=\"button\" id=\"axNext\" class=\"compNext\" style=\"display: none;\"></button> <button type=\"button\" id=\"axRestart\" class=\"compNext\"></button></p><div style=\"display: none;\"><span id=\"axWordLevel\">Nivel</span><span id=\"axWordExercise\">Ejercicio</span><span id=\"axWordOf\">de</span><span id=\"axWordScore\">Puntuación</span><span id=\"axWordEquation\">Ecuación</span><span id=\"axWordArrows\">Flechas</span><span id=\"axWordNextLevel\">Siguiente nivel</span><span id=\"axWordRestart\">Reiniciar</span><span id=\"axWordPlayAgain\">Jugar de nuevo</span><span id=\"axWordLevel1\">a + 0 = a</span><span id=\"axWordLevel2\">a + b = b + a (Parte 1)</span><span id=\"axWordLevel3\">a + b = b + a (Parte 2)</span><span id=\"axWordInstr1\">Usa las flechas para fijar el valor de la derecha para que ambos lados de la ecuación sean iguales.</span><span id=\"axWordInstr2\">Usa las flechas para completar el valor que falta a la derecha para que ambos lados de la ecuación sean iguales.</span><span id=\"axWordInstr3\">Usa las flechas para rellenar los dos valores de la derecha para que ambos lados de la ecuación sean iguales.</span></div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">La identidad aditiva se presenta en <i>Caminando entre los números</i> (<htcite0>), y el axioma conmutativo en <i>El Orden de la Adición</i> (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "text": "History Tracers Team",
+                     "page": "Caminando entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8fe2026a-08b0-4297-b480-cb76d11dfa0f",
+                     "text": "History Tracers Team",
+                     "page": "El Orden de la Adición",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
