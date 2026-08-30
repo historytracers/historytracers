@@ -169,10 +169,29 @@ func htFindContentFilePath(lang string, uid string) string {
 
 // htIsCommonContentPath reports whether the given path points inside the
 // src/common submodule, whose contents are maintained in another repository
-// and therefore must never be rewritten by the publisher.
+// and therefore must never be rewritten by the publisher. Both the common
+// directory and the candidate path are normalized to forward slashes so
+// mixed-separator paths (e.g. Windows backslashes) are classified correctly.
 func htIsCommonContentPath(path string) bool {
-	commonPath := CFG.SrcPath + "src" + string(os.PathSeparator) + "common"
-	return strings.HasPrefix(path, commonPath)
+	commonPath := normalizeSlashes(CFG.SrcPath + "src/common")
+	return htIsWithinDir(commonPath, normalizeSlashes(path))
+}
+
+// normalizeSlashes converts every backslash to a forward slash so that path
+// comparisons work regardless of the host operating system's separator.
+func normalizeSlashes(p string) string {
+	return strings.ReplaceAll(p, "\\", "/")
+}
+
+// htIsWithinDir reports whether path is located inside dir (or equals dir),
+// matching at directory boundaries so sibling prefixes like "commonity" are
+// not considered part of "common".
+func htIsWithinDir(dir, path string) bool {
+	if path == dir {
+		return true
+	}
+	prefix := strings.TrimSuffix(dir, "/")
+	return strings.HasPrefix(path, prefix+"/")
 }
 
 func htCheckSources() {
@@ -263,10 +282,10 @@ func htCheckSources() {
 				}
 			}
 
-			if len(actualFixes) > 0 && !htIsCommonContentPath(fpath) {
+			inCommon := htIsCommonContentPath(fpath)
+
+			if len(actualFixes) > 0 && !inCommon {
 				// Surgical byte replacement — preserves all formatting and key order.
-				// Files under src/common live in another repository, so they are
-				// reported but never modified here.
 				if err := fixDatesSurgically(fpath, actualFixes); err != nil {
 					fmt.Fprintf(os.Stderr, "ERROR fixing file %s: %s\n", fpath, err)
 				} else {
@@ -275,6 +294,13 @@ func htCheckSources() {
 			}
 
 			for _, f := range actualFixes {
+				if inCommon {
+					// Files under src/common live in another repository, so they are
+					// reported but never modified here.
+					fmt.Printf("[REPORTED] %s/%s: source UUID %s date_time.year \"%s\" differs from published \"%s\" (file in src/common submodule; fix in its repo)\n",
+						lang, uid, f.srcUUID, f.fileYear, f.fixedTo)
+					continue
+				}
 				fmt.Printf("[FIXED] %s/%s: source UUID %s date_time.year \"%s\" -> \"%s\"\n",
 					lang, uid, f.srcUUID, f.fileYear, f.fixedTo)
 				totalFixed++

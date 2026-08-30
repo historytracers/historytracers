@@ -1145,5 +1145,33 @@ L['en']=L['en-US'];
 		})();
 	}
 	addBar();
+	try{
+		try{ if(sessionStorage.getItem('__ht_splashShown')) return; }catch(e){}
+		try{ sessionStorage.setItem('__ht_splashShown','1'); }catch(e){}
+		var _splash=document.createElement('div');
+		_splash.id='__ht_splash';
+		_splash.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:2147483647;transition:opacity 0.5s;';
+		var _stitle=document.createElement('h1');
+		_stitle.textContent='History Tracers';
+		_stitle.style.cssText='color:#000;font-size:clamp(32px,8vw,96px);font-weight:bold;letter-spacing:2px;margin:0;font-family:verdana,arial,helvetica;';
+		_splash.appendChild(_stitle);
+		var _sub=document.createElement('p');
+		_sub.style.cssText='color:#555;font-size:16px;margin:16px 0 0;font-family:verdana,arial,helvetica;text-align:center;';
+		_sub.textContent='Explore, learn, and share knowledge across disciplines.';
+		_splash.appendChild(_sub);
+		var _sub2=document.createElement('p');
+		_sub2.style.cssText='color:#555;font-size:16px;margin:8px 0 0;font-family:verdana,arial,helvetica;text-align:center;';
+		_sub2.textContent='Explora, aprende y comparte conocimiento entre disciplinas.';
+		_splash.appendChild(_sub2);
+		var _sub3=document.createElement('p');
+		_sub3.style.cssText='color:#555;font-size:16px;margin:8px 0 0;font-family:verdana,arial,helvetica;text-align:center;';
+		_sub3.textContent='Explore, aprenda e compartilhe conhecimento entre disciplinas.';
+		_splash.appendChild(_sub3);
+		document.documentElement.appendChild(_splash);
+		setTimeout(function(){
+			_splash.style.opacity='0';
+			setTimeout(function(){try{_splash.remove()}catch(e){}},500);
+		},2000);
+	}catch(e){}
 })();
 `

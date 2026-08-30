@@ -128,8 +128,8 @@ function htFillBoxesMultiplicationChart(target)
             datasets : datasets
         },
         options : {
-            responsive : false,
-            maintainAspectRatio : false,
+            responsive : true,
+            maintainAspectRatio : true,
             scales : {
                 y : {
                     stacked : true,

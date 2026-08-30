@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765768"
+      "1788059192"
    ],
    "authors": null,
    "reviewers": [
@@ -50,13 +50,25 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nRecomendamos que el lector estudie el texto anterior y sus prerrequisitos antes de continuar con este",
+               "text": "### Prerrequisitos\n\nAntes de continuar, recomendamos estudiar los siguientes textos y sus prerrequisitos:\n\n- **Caminando entre los números**: introduce el eje numérico y los fundamentos de la adición (<htcite0>).\n- **El Orden de la Adición**: presenta el Axioma de la Conmutatividad, que establece que el orden de los números no altera el resultado (<htcite1>).\n\nComprender estos dos textos facilitará el seguimiento de las ideas que se presentan aquí.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "uuid": "1ae03186-6cd0-451d-ae10-d5107cbe9651",
                      "text": "History Tracers Team",
                      "page": "Caminando entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8fe2026a-08b0-4297-b480-cb76d11dfa0f",
+                     "text": "History Tracers Team",
+                     "page": "El Orden de la Adición",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -77,64 +89,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nEn el texto anterior, aprendimos un axioma que establece que cualquier valor adicionado a 0 es igual a sí mismo (Identidad Aditiva). Además, vimos que al avanzar de un número al siguiente en la secuencia, estamos adicionando 1 al número anterior",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
-                     "text": "Ernst, Dana.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2014",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
-                     "text": "History Tracers Team",
-                     "page": "Caminando entre los números",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre axiomas</b><br /><br />Si existe un axioma para la adición con cero, ¿también habrá axiomas para la adición con otros números?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "En este texto, exploraremos más a fondo la adición y cómo podemos desplazarnos aún más rápidamente por los ejes numéricos.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_axiom",
-         "text": [
-            {
-               "text": "### La Orden de la Adición\n\nLa adición posee una propiedad fundamental, que también es un axioma. Aunque aún no la hemos explorado, será esencial para guiar nuestros estudios. Observemos nuevamente la representación de un eje numérico:",
+               "text": "### Introducción\n\nEn los textos anteriores, aprendimos que la adición sigue ciertas reglas—como la Identidad Aditiva y el Axioma de la Conmutatividad. Practicamos sumando números pequeños y vimos cómo el eje numérico nos ayuda a visualizar cada paso.\n\nPero, ¿qué sucede cuando los números crecen? ¿Podemos seguir aplicando las mismas reglas? En este texto, exploraremos cómo funciona la adición cuando nos enfrentamos a números más grandes. Comenzaremos con una analogía de la arquitectura mesoamericana, donde los templos se construían capa sobre capa, y luego aprenderemos un método paso a paso para sumar números de cualquier tamaño.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -143,109 +98,11 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\"><b>Gráfico 1</b>: Representación de un eje con números. Los números están dispuestos debajo de la línea, y una flecha en su extremo indica la dirección de crecimiento de los valores. Los códigos fuente utilizados para generar la imagen en CSS están disponibles en <htcite0>.</p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "c7edc93c-0a41-4753-8f89-9e52904ff003",
-                     "text": "W3 Schools",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "07",
-                        "day": "25"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Basándonos en lo aprendido en el texto anterior, trabajemos con el número 5. En el eje mostrado, podemos interpretar que una persona ubicada en el número 5 está cinco unidades a la derecha del origen, es decir, ha recorrido 5 pasos desde el 0. Además, sabemos que, al adicionar 0, el resultado sigue siendo 5, ya que no hubo desplazamiento adicional",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
-                     "text": "History Tracers Team",
-                     "page": "Caminando entre los números",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ":"
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p class=\"desc\"><i><b><b>Cálculo 1</b>:</b> Adición de 0 y 5.</i></p></div></div></center><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre la inversión</b><br /><br />¿Obtenemos un resultado diferente si, en lugar de adicionar <b>5 + 0</b>, adicionamos <b>0 + 5</b>?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Mirando hacia adelante</b><br /><br />Si ya sabes sumar dos números de un solo dígito, ¿qué estrategia usarías para sumar dos números de seis dígitos, como <b>654321 + 543210</b>?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "A partir del axioma aprendido anteriormente, sabemos que adicionar cero a cualquier número da como resultado el propio número. Por lo tanto, tanto **0 + 5** como **5 + 0** nos llevan al mismo resultado, ya que en ambas operaciones simplemente estamos añadiendo 0 al número 5.\n\nEl mismo principio se aplica a otros números. Por ejemplo, si adicionamos 4 y 1, y luego invertimos el orden, adicionando 1 y 4, el resultado sigue siendo el mismo:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>4</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>4</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>5</mn></math></p><p><p class=\"desc\"><i><b><b>Cálculo 2</b>:</b> Adición de dos números enteros.</i></p></p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Podemos visualizar este cálculo en el eje numérico del **Gráfico 1**. En el primer caso, partimos de la posición 4 y avanzamos 1, llegando a la posición 5. En el segundo caso, comenzamos en la posición 1 y avanzamos 4, alcanzando nuevamente la posición 5.\n\nBasándonos en estos cálculos, podemos definir el **Axioma de la Conmutatividad**:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><ul class=\"citation\"><li><i><b>Conmutatividad:</b> Para cualquier número <b>a</b> y <b>b</b>, el orden de la adición no altera el resultado:<br /> a + b = b + a</i></li></ul></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Para concluir esta subsección, apliquemos el Axioma de la Conmutatividad al Cálculo 2:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p class=\"desc\"><img id=\"imgGrape\" onclick=\"htImageZoom('imgGrape', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representación del Cálculo 2 con frutas.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "En esta imagen, vemos la suma de una fruta con otras cuatro resultando en cinco frutas independente del orden.",
                "format": "html",
                "PostMention": ""
             }
@@ -428,14 +285,14 @@
    ],
    "exercise_v2": [
       {
-         "question": "Si sumo <b>5 + 4</b>, ¿el resultado será diferente de sumar <b>4 + 5</b>?",
-         "yesNoAnswer": "No",
-         "additionalInfo": "Como se menciona en el <b>Axioma de la Conmutatividad</b>, el orden en que sumamos los números no altera el resultado."
-      },
-      {
          "question": "¿La mayor diferencia entre sumar dos números de <b>un dígito</b> y dos números de <b>diez dígitos</b> es el <b>tiempo</b> necesario para realizar la operación?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "De hecho, la regla para sumar números pequeños es exactamente la misma que para números grandes. La única diferencia es que, en el caso de números mayores, debemos repetir las mismas etapas más veces, lo que requiere más tiempo para completar la operación."
+      },
+      {
+         "question": "Al sumar dos números columna por columna, si la suma de una columna supera 9, ¿escribimos el dígito de las unidades en el resultado y llevamos el dígito de las decenas a la siguiente columna?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Cuando la suma de una columna supera 9, no podemos escribir un número de dos dígitos en una sola columna. Por eso, escribimos el dígito de las unidades en el resultado y llevamos el dígito de las decenas (que siempre es 1 al sumar dos dígitos de un solo algarismo) a la siguiente columna a la izquierda. Esta es la misma regla de adición que usamos con números pequeños, solo que aplicada repetidamente."
       }
    ],
    "game_v2": null,
