@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var localAnswerVector = undefined;
+var localAnswerVectorfe5132a9 = undefined;
 
 function htLoadExercise() {
-    if (localAnswerVector == undefined) {
-        localAnswerVector = htLoadAnswersFromExercise();
+    if (localAnswerVectorfe5132a9 == undefined) {
+        localAnswerVectorfe5132a9 = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers(localAnswerVector);
+        htResetAnswers(localAnswerVectorfe5132a9);
     }
 
     return false;
@@ -14,9 +14,9 @@ function htLoadExercise() {
 
 function htCheckAnswers()
 {
-    if (localAnswerVector != undefined) {
-        for (let i = 0; i < localAnswerVector.length; i++) {
-            htCheckExerciseAnswer("exercise"+i, localAnswerVector[i], "#answer"+i, "#explanation"+i);
+    if (localAnswerVectorfe5132a9 != undefined) {
+        for (let i = 0; i < localAnswerVectorfe5132a9.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, localAnswerVectorfe5132a9[i], "#answer"+i, "#explanation"+i);
         }
     }
 }

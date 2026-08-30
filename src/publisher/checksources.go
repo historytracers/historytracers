@@ -169,10 +169,29 @@ func htFindContentFilePath(lang string, uid string) string {
 
 // htIsCommonContentPath reports whether the given path points inside the
 // src/common submodule, whose contents are maintained in another repository
-// and therefore must never be rewritten by the publisher.
+// and therefore must never be rewritten by the publisher. Both the common
+// directory and the candidate path are normalized to forward slashes so
+// mixed-separator paths (e.g. Windows backslashes) are classified correctly.
 func htIsCommonContentPath(path string) bool {
-	commonPath := CFG.SrcPath + "src" + string(os.PathSeparator) + "common"
-	return strings.HasPrefix(path, commonPath)
+	commonPath := normalizeSlashes(CFG.SrcPath + "src/common")
+	return htIsWithinDir(commonPath, normalizeSlashes(path))
+}
+
+// normalizeSlashes converts every backslash to a forward slash so that path
+// comparisons work regardless of the host operating system's separator.
+func normalizeSlashes(p string) string {
+	return strings.ReplaceAll(p, "\\", "/")
+}
+
+// htIsWithinDir reports whether path is located inside dir (or equals dir),
+// matching at directory boundaries so sibling prefixes like "commonity" are
+// not considered part of "common".
+func htIsWithinDir(dir, path string) bool {
+	if path == dir {
+		return true
+	}
+	prefix := strings.TrimSuffix(dir, "/")
+	return strings.HasPrefix(path, prefix+"/")
 }
 
 func htCheckSources() {
