@@ -124,6 +124,8 @@ function htAxiom462bCheck() {
 function htAxiom462bFinishLevel() {
     var s = localAxiom462b1750;
     $("#axMsgCorrect").hide();
+    $("#axTable").html("");
+    $("#axProgress").html("");
     if (s.level >= s.totalLevels) {
         $("#axMsgGameComplete").show();
         $("#axNext").html($("#axWordPlayAgain").text());
