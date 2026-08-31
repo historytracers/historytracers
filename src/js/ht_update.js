@@ -13,14 +13,53 @@
     }
 
     function compareVersions(a, b) {
-        var pa = normalize(a).split(".").map(function(x) { return parseInt(x, 10) || 0; });
-        var pb = normalize(b).split(".").map(function(x) { return parseInt(x, 10) || 0; });
-        var len = Math.max(pa.length, pb.length);
+        function parseSemVer(v) {
+            var s = String(v).trim().replace(/^v/i, "");
+            var plusIdx = s.indexOf("+");
+            if (plusIdx !== -1) s = s.substring(0, plusIdx);
+            var dashIdx = s.indexOf("-");
+            var core = dashIdx === -1 ? s : s.substring(0, dashIdx);
+            var pre = dashIdx === -1 ? "" : s.substring(dashIdx + 1);
+            var coreParts = core.split(".").map(function(x) { var n = parseInt(x, 10); return isNaN(n) ? 0 : n; });
+            while (coreParts.length < 3) coreParts.push(0);
+            var preIds = pre ? pre.split(".") : [];
+            return {core: coreParts, pre: pre, preIds: preIds};
+        }
+        var pa = parseSemVer(a);
+        var pb = parseSemVer(b);
+        var len = Math.max(pa.core.length, pb.core.length);
         for (var i = 0; i < len; i++) {
-            var av = pa[i] || 0;
-            var bv = pb[i] || 0;
+            var av = pa.core[i] || 0;
+            var bv = pb.core[i] || 0;
             if (av > bv) return 1;
             if (av < bv) return -1;
+        }
+        var aHasPre = pa.pre !== "";
+        var bHasPre = pb.pre !== "";
+        if (!aHasPre && !bHasPre) return 0;
+        if (!aHasPre && bHasPre) return 1;
+        if (aHasPre && !bHasPre) return -1;
+        var max = Math.max(pa.preIds.length, pb.preIds.length);
+        for (var i = 0; i < max; i++) {
+            var ai = pa.preIds[i];
+            var bi = pb.preIds[i];
+            if (ai === undefined) return -1;
+            if (bi === undefined) return 1;
+            var an = /^\d+$/.test(ai);
+            var bn = /^\d+$/.test(bi);
+            if (an && bn) {
+                var av = parseInt(ai, 10);
+                var bv = parseInt(bi, 10);
+                if (av > bv) return 1;
+                if (av < bv) return -1;
+            } else if (an && !bn) {
+                return -1;
+            } else if (!an && bn) {
+                return 1;
+            } else {
+                if (ai > bi) return 1;
+                if (ai < bi) return -1;
+            }
         }
         return 0;
     }
