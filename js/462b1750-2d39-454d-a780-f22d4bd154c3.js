@@ -13,7 +13,8 @@ var localAxiom462b1750 = {
     targets: [],
     locked: [],
     solved: false,
-    score: 0
+    score: 0,
+    pendingTimeout: null
 };
 
 function htAxiom462bRandom(min, max) {
@@ -80,9 +81,12 @@ function htAxiom462bRender() {
     for (let j = 0; j < s.right.length; j++) {
         html += htAxiom462bTokenCell(s.right[j]);
     }
+    var upLabel = $("#axWordIncrease").text() || "Increase";
+    var downLabel = $("#axWordDecrease").text() || "Decrease";
     for (let k = 0; k < s.values.length; k++) {
         var arrowCls = (s.locked[k]) ? " htAxiomArrowStopped" : "";
-        html += "<td><i class=\"fa-solid fa-caret-up upArrowWithFA" + arrowCls + "\" onclick=\"htAxiom462bChange(" + k + ", 1);\"></i><br /><i class=\"fa-solid fa-caret-down downArrowWithFA" + arrowCls + "\" onclick=\"htAxiom462bChange(" + k + ", -1);\"></i></td>";
+        var disabled = (s.locked[k]) ? " disabled" : "";
+        html += "<td><button type=\"button\" class=\"fa-solid fa-caret-up upArrowWithFA" + arrowCls + "\" onclick=\"htAxiom462bChange(" + k + ", 1);\" aria-label=\"" + upLabel + "\"" + disabled + " style=\"background:none;border:none;padding:0;cursor:pointer;\"></button><br /><button type=\"button\" class=\"fa-solid fa-caret-down downArrowWithFA" + arrowCls + "\" onclick=\"htAxiom462bChange(" + k + ", -1);\" aria-label=\"" + downLabel + "\"" + disabled + " style=\"background:none;border:none;padding:0;cursor:pointer;\"></button></td>";
     }
     html += "</tr></table>";
     $("#axTable").html(html);
@@ -120,7 +124,8 @@ function htAxiom462bCheck() {
     s.score++;
     $("#axScoreText").html($("#axWordScore").text() + ": " + s.score + "/" + s.totalRounds);
     $("#axMsgCorrect").show();
-    setTimeout(function() {
+    s.pendingTimeout = setTimeout(function() {
+        s.pendingTimeout = null;
         if (s.round >= s.totalRounds) {
             htAxiom462bFinishLevel();
         } else {
@@ -167,6 +172,10 @@ function htAxiom462bShowLevel() {
 
 function htAxiom462bLoadLevel() {
     var s = localAxiom462b1750;
+    if (s.pendingTimeout) {
+        clearTimeout(s.pendingTimeout);
+        s.pendingTimeout = null;
+    }
     s.round = 0;
     s.score = 0;
     htAxiom462bShowLevel();
