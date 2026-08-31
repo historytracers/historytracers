@@ -11,6 +11,7 @@ var localAxiom462b1750 = {
     right: [],
     values: [],
     targets: [],
+    locked: [],
     solved: false,
     score: 0
 };
@@ -47,8 +48,10 @@ function htAxiom462bSetupRound() {
         }
     }
     s.values = [];
+    s.locked = [];
     for (let i = 0; i < s.targets.length; i++) {
         s.values.push((s.targets[i] == 0) ? 1 : 0);
+        s.locked.push(false);
     }
     s.solved = false;
     s.round++;
@@ -57,7 +60,8 @@ function htAxiom462bSetupRound() {
 function htAxiom462bTokenCell(token) {
     var s = localAxiom462b1750;
     if (token.t == "edit") {
-        return "<td class=\"htAxiomEditableCell\"><span class=\"text_to_paint\" id=\"axVal" + token.idx + "\">" + s.values[token.idx] + "</span></td>";
+        var cls = (s.locked[token.idx]) ? "" : " class=\"htAxiomEditableCell\"";
+        return "<td" + cls + "><span class=\"text_to_paint\" id=\"axVal" + token.idx + "\">" + s.values[token.idx] + "</span></td>";
     }
     return "<td><span class=\"text_to_paint\">" + token.v + "</span></td>";
 }
@@ -77,7 +81,8 @@ function htAxiom462bRender() {
         html += htAxiom462bTokenCell(s.right[j]);
     }
     for (let k = 0; k < s.values.length; k++) {
-        html += "<td><i class=\"fa-solid fa-caret-up upArrowWithFA\" onclick=\"htAxiom462bChange(" + k + ", 1);\"></i><br /><i class=\"fa-solid fa-caret-down downArrowWithFA\" onclick=\"htAxiom462bChange(" + k + ", -1);\"></i></td>";
+        var arrowCls = (s.locked[k]) ? " htAxiomArrowStopped" : "";
+        html += "<td><i class=\"fa-solid fa-caret-up upArrowWithFA" + arrowCls + "\" onclick=\"htAxiom462bChange(" + k + ", 1);\"></i><br /><i class=\"fa-solid fa-caret-down downArrowWithFA" + arrowCls + "\" onclick=\"htAxiom462bChange(" + k + ", -1);\"></i></td>";
     }
     html += "</tr></table>";
     $("#axTable").html(html);
@@ -87,7 +92,7 @@ function htAxiom462bRender() {
 
 function htAxiom462bChange(idx, delta) {
     var s = localAxiom462b1750;
-    if (s.solved) {
+    if (s.solved || s.locked[idx]) {
         return false;
     }
     s.values[idx] += delta;
@@ -96,7 +101,10 @@ function htAxiom462bChange(idx, delta) {
     } else if (s.values[idx] > 9) {
         s.values[idx] = 9;
     }
-    $("#axVal" + idx).html(s.values[idx]);
+    if (s.values[idx] == s.targets[idx]) {
+        s.locked[idx] = true;
+    }
+    htAxiom462bRender();
     htAxiom462bCheck();
     return false;
 }
