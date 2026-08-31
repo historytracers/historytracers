@@ -1220,3 +1220,20 @@ canvas {
 .compNext:active {
   transform: translateY(1px);
 }
+
+.compInstr {
+  font-size: 1rem;
+  color: #5a3f2c;
+  margin: 1vh auto;
+  max-width: 90%;
+}
+
+.tawapukllay td.htAxiomEditableCell {
+  background: #fff3b0;
+  border: 2px dashed #b8860b;
+}
+
+.htAxiomArrowStopped {
+  opacity: 0.3;
+  pointer-events: none;
+}
