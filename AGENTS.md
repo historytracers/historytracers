@@ -85,6 +85,47 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
 
 - `exercise_v2[].yesNoAnswer` must always be the literal string `"Yes"` or `"No"` (English). These values are used by the application algorithm, not displayed to the user. Never translate them to `"Sí"`, `"Sim"`, or any other language.
 
+## Fixing gallery pages (`index: ["gallery"]`, e.g. `6487ffc3-0a2d-44f4-b377-37ad553750e2` British Museum)
+
+Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images from one source (e.g. British Museum, ANTT, Bing Zhao). Reference pattern is `fe5d0b8a-5782-41ee-b6a8-cde4808044a7.json` (ANTT) and `ac5f2361-7824-466e-954c-2adfe798975e.json` (Bing Zhao) — each `htSlide` has caption with single `Trustees ... (<htciteN>)` and `htSlideRefs` with `Page Name - Description (<htciteM>)` per related file. Fixes below were applied to British Museum (`6487ffc3...` 25/26 slides) and `e3215ef1...` (Our Week) and must be repeated for other galleries:
+
+1. **Identify missing related content via JS image reuse** (user-visible “Related content” list):
+   - `grep -r "images/<Gallery>/" js/*.js` → map `htSetImageSrc("imgX","images/...")` per `js/<uuid>.js`.
+   - For each image in `js/6487...js` (e.g. `mid_00032581_001.jpg`), `image_to_uuids[image] = [other js files containing that path]`. Every such `other` file must appear as `htSlideRefs` for that slide.
+   - `mid_00034725_001.jpg` and `mid_C_161.jpg` had 0 others → correctly no `htSlideRefs`; all others must have ≥1.
+
+2. **Fix `htCite` duplicates — each citation needs unique index** (otherwise some links show no `enlace` on right side):
+   - `content[1].text[1].text` contains `(<htciteN>)` in captions and related. `content[1].text[1].source` must have one entry per occurrence, even if same `uuid` repeats (Bing Zhao has `75d612d6` at 1,2,3). After dedup, `34` unique `htCite` for `38` `<li>` + `16` captions = `59` total but `22` extra, `5` uncited → rebuilt `source` in appearance order and renumbered `txt` sequentially `0..N-1` so `len(source)==len(cites)` and `Counter(cites)` has no duplicates, `uncited==0`. Validate `python3 -c "import re; len(re.findall(r'<htcite\d+>', txt))==len(src)"`.
+
+3. **Image removal and counting**:
+   - If `images/<Gallery>/X.jpg` deleted (e.g. `mid_00034725`), remove `htSetImageSrc("imgBritishMuseum0",...)` from `js/<uuid>.js` and the entire `<div class="htSlide">...imgBritishMuseum0...</div>` from all three `lang/*/<uuid>.json`, then renumber `htSlideCounter` to `1 / 25 … 25 / 25` (was `1 / 26`).
+
+4. **Arrow position** (`fa-chevron-left/right htSlidePrev/Next`):
+   - Must be inside `htSlides` after last `htSlide`: `...<div class="htSlide">...</div></div><i class="fa-solid...Prev..."></i><i class="fa-solid...Next..."></i></div></p>` (refs `</div>` + slide `</div>` + arrows + `</div></p>`). Extra `</div>` before arrows (e.g. `</div></div></div><i`) moves arrows outside container → fix by ensuring `prefix="<p><div class=\"htSlides\">"` + `slides*"</div>"` + `suffix="<i...></i><i...></i></div></p>"` and `closeCount==1+25+25+25+refs`.
+
+5. **Image loading via JS** (e.g. `e3215ef1` Figure 2 `mid_C_161.jpg`):
+   - JSON must be `<img src="" id="imgH" onclick="htImageZoom('imgH','0%')" .../>` (empty `src` or no `src`), not `src="images/..."`. `js/<uuid>.js` `htLoadContent()` must contain `htSetImageSrc("imgH","images/BritishMuseum/mid_C_161.jpg");` after `htWriteNavigation();`. This makes `grep -r mid_C_161 js/*.js` find `e3215` as related for `BritishMuseum1` slide, which then gets `Our Week` in its `htSlideRefs`.
+
+6. **Missing description between page name and link**:
+   - `htSlideRefs` `li` must be `Name - Desc (<htciteN>)` where `Desc` is from the index that lists the page (e.g. `literature.json`, `families.json`), not from `myths_believes.json` (content page). For `2c7a1281`/`6808a4de`/`baa7e16f`/`cde96120`/`f899e6cf` the gallery had `Has there never been a flood?` etc. from `myths_believes`, correct is `Texts with Sciences (Conclusion)` etc. from `literature.json`. Use `find_other()` excluding `myths_believes` and replace `src[].text` and `li` inner.
+
+7. **Second image in `Related content`** (`3 / 25`):
+   - `baa7e16f` desc from index contains embedded `:</p><p class="desc"><img src="images/BritishMuseum/mid_00107404_001.jpg" id="imgGilgamesh"...><b>Figure 1</b>...</p>` causing a second visible image when arrowing. Strip `:</p><p class="desc"><img src="images/BritishMuseum/mid_00107404_001.jpg"[^>]*>.*?</p>` → `)` before ` (<htcite` for that `li` in all three langs. Only main `imgAtra` should remain visible.
+
+8. **Two links per line in `5 / 25`** (`Is it possible...` and `Sumerians - The Dynasties...`):
+   - `desc` from index contains embedded `<a href="#" onclick="htCleanSources...">...</a>` (e.g. `History Tracers Team, Atlas` and `Mark, J.J., Gilgamesh`). Gallery `li` should have only the final ` (<htciteN>)` for the page name, so remove any ` (<a href="#"[^>]*>.*?</a>)` (and trailing `).` ) inside `li` before ` (<htcite`. Verified `len(re.findall(r'<a href', li))==0` for all `38` lis.
+
+9. **Empty `Trustees British Museum ()` captions** (`4 / 25` Flood Tablet, `18 / 25` Clovis, `20 / 25` Prism):
+   - Add distinct `type0` British Museum `primary_sources` entries (not generic duplicate `5f4ae6cf`) and matching ` (<htciteN>)` in caption:
+     - `4 / 25` `bab0a6a1-d2a4-46b3-8d86-f33e3ad035d6` `The Flood Tablet. <i>The British Museum</i>` `W_K-3375`
+     - `18 / 25` `8e3c4eca-abc0-4178-b097-ea1740b73d2d` `clovis point; projectile point. Am1983,39.1797...` `E_Am1983-39-1797`
+     - `20 / 25` `9222b3a4-0085-4aa9-b3ac-cc6ba2e0c85e` `Cast of Basalt Stele. <i>The British Museum</i>` `W_C-161`
+   - Insert at `60,61,62` so `len(source)==len(cites)==63` (later `60` after `e3215` addition) and `top` updated.
+
+10. **DB `citation` missing links** (`lang/sources/history_tracers.db` is source of truth; `lang/sources/*.json` are generated via `historytracers-installer.sh` → `build/historytracers-publisher -minify`, so fix DB directly):
+    - For each `lang/XX-YY/<uuid>.json` `content[].text[].source[]` `(uuid,type)`, ensure `SELECT 1 FROM citation WHERE fil_id='<uuid>' AND src_id='<src_uuid>' AND cit_type=<type>` exists; otherwise `INSERT OR IGNORE INTO citation (fil_id,src_id,cit_type) VALUES (...)` and `UPDATE files SET fil_desc='Title' WHERE fil_desc=''`.
+    - Example missing: `e3215` `9222b3a4(0)`, `ac5f2361` `ac5f2361(0)`, `fdb0a7ff` `4d0b579d(0)`, etc. After fix `SELECT COUNT(*) FROM citation` `5018`, `globalangtest` still PASS. Do not hand-edit `lang/sources/*.json`; they are rebuilt.
+
 ## Rebasing/merging the sources DB (binary conflicts)
 
 `lang/sources/history_tracers.db` is a SQLite file and cannot be auto-merged. During `git merge`/`rebase` it appears as `both modified` (or deleted/modified). To resolve, union the two datasets:
