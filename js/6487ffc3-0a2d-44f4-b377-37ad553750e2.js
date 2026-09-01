@@ -17,7 +17,6 @@ function htLoadContent() {
     htSetImageSrc("imgBanner", "images/BritishMuseum/mid_00014278_003.jpg");
     htSetImageSrc("imgAtra", "images/BritishMuseum/mid_00032581_001.jpg");
     htSetImageSrc("imgBuda", "images/BritishMuseum/mid_00034168_001.jpg");
-    htSetImageSrc("imgBritishMuseum0", "images/BritishMuseum/mid_00034725_001.jpg");
     htSetImageSrc("imgGilgamesh", "images/BritishMuseum/mid_00107404_001.jpg");
     htSetImageSrc("imgMid001", "images/BritishMuseum/mid_00108766_001.jpg");
     htSetImageSrc("imgEgypt", "images/BritishMuseum/mid_00178382_001.jpg");
