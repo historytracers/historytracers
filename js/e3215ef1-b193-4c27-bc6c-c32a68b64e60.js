@@ -12,6 +12,7 @@ function htLoadExercise() {
 
 function htLoadContent() {
     htWriteNavigation();
+    htSetImageSrc("imgH", "images/BritishMuseum/mid_C_161.jpg");
 
     htWriteMultiplicationTable("#mParent7", 7);
     htWriteMultiplicationTable("#mParent10", 10);
