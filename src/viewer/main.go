@@ -34,6 +34,17 @@ var tlsCertFile string
 var tlsKeyFile string
 var useTLS bool
 
+var appVersion = "1.0.0"
+
+func versionHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Cache-Control", "no-store")
+	json.NewEncoder(w).Encode(map[string]string{
+		"version":      appVersion,
+		"releases_url": "https://github.com/historytracers/historytracers/releases",
+	})
+}
+
 type historyEntry struct {
 	Page    string `json:"page"`
 	ArgUUID string `json:"arg"`
@@ -1505,6 +1516,7 @@ func main() {
 	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.HandleFunc("/api/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/options", optionsHandler)
+	mux.HandleFunc("/api/version", versionHandler)
 	mux.HandleFunc("/metrics", metricsHandler)
 	mux.Handle("/csv/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		clean := path.Clean(r.URL.Path)
