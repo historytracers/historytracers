@@ -43,6 +43,17 @@ var tlsCertFile string
 var tlsKeyFile string
 var useTLS bool
 
+var appVersion = "1.0.0"
+
+func versionHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Cache-Control", "no-store")
+	json.NewEncoder(w).Encode(map[string]string{
+		"version":      appVersion,
+		"releases_url": "https://github.com/historytracers/historytracers/releases",
+	})
+}
+
 func checkToken(r *http.Request) bool {
 	return r.Header.Get("X-HT-Token") == viewerToken
 }
@@ -1683,6 +1694,8 @@ func main() {
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
+	mux.HandleFunc("/api/version", versionHandler)
+	mux.HandleFunc("/api/editor/version", versionHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)

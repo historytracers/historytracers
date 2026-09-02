@@ -13,8 +13,7 @@ var localAxiom462b1750 = {
     targets: [],
     locked: [],
     solved: false,
-    score: 0,
-    pendingTimeout: null
+    score: 0
 };
 
 function htAxiom462bRandom(min, max) {
@@ -124,19 +123,25 @@ function htAxiom462bCheck() {
     s.score++;
     $("#axScoreText").html($("#axWordScore").text() + ": " + s.score + "/" + s.totalRounds);
     $("#axMsgCorrect").show();
-    s.pendingTimeout = setTimeout(function() {
-        s.pendingTimeout = null;
-        if (s.round >= s.totalRounds) {
-            htAxiom462bFinishLevel();
-        } else {
-            htAxiom462bLoadRound();
-        }
-    }, 1100);
+    $("#axNextExercise").html($("#axWordNextExercise").text());
+    $("#axNextExercise").show();
+}
+
+function htAxiom462bNextExercise() {
+    var s = localAxiom462b1750;
+    $("#axMsgCorrect").hide();
+    $("#axNextExercise").hide();
+    if (s.round >= s.totalRounds) {
+        htAxiom462bFinishLevel();
+    } else {
+        htAxiom462bLoadRound();
+    }
 }
 
 function htAxiom462bFinishLevel() {
     var s = localAxiom462b1750;
     $("#axMsgCorrect").hide();
+    $("#axNextExercise").hide();
     $("#axTable").html("");
     $("#axProgress").html("");
     if (s.level >= s.totalLevels) {
@@ -159,6 +164,7 @@ function htAxiom462bShowLevel() {
     $("#axMsgLevelComplete").hide();
     $("#axMsgGameComplete").hide();
     $("#axNext").hide();
+    $("#axNextExercise").hide();
     $("#axNext").off("click");
     $("#axNext").on("click", function() {
         if (s.level >= s.totalLevels) {
@@ -172,10 +178,6 @@ function htAxiom462bShowLevel() {
 
 function htAxiom462bLoadLevel() {
     var s = localAxiom462b1750;
-    if (s.pendingTimeout) {
-        clearTimeout(s.pendingTimeout);
-        s.pendingTimeout = null;
-    }
     s.round = 0;
     s.score = 0;
     htAxiom462bShowLevel();
@@ -184,6 +186,7 @@ function htAxiom462bLoadLevel() {
 
 function htAxiom462bLoadRound() {
     $("#axMsgCorrect").hide();
+    $("#axNextExercise").hide();
     htAxiom462bSetupRound();
     htAxiom462bRender();
 }
@@ -191,6 +194,9 @@ function htAxiom462bLoadRound() {
 function htLoadContent() {
     $("#axRestart").on("click", function() {
         htAxiom462bLoadLevel();
+    });
+    $("#axNextExercise").on("click", function() {
+        htAxiom462bNextExercise();
     });
 
     htAxiom462bLoadLevel();
