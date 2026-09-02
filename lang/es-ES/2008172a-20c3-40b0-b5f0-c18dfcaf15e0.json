@@ -30,7 +30,9 @@
       "1782765773"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -351,7 +353,7 @@
          "id": "SECTION_inverting",
          "text": [
             {
-               "text": "### Modelando el conocimiento\n\nLa conclusión de Sócrates, acompañada por los estudios de Baruch Fischhoff, Paul Slovic y Sarah Lichtenstein, puede escribirse de manera simplificada. Sin embargo, la falta de interdisciplinariedad impide que se haga esta representación que pasamos a tratar.\n\n#### Describiendo lo que vimos\n\nPodemos resumir de la siguiente manera lo que vimos en este texto hasta el momento, relacionado al conocimiento:\n- Cuando una persona tiene plena certeza y convicción de que conoce algo, esto indica que, en realidad, posee un gran desconocimiento;\n- Muchas personas, al intentar responder algo que desconocen, buscan en sus memorias y, al no encontrar la respuesta, infieren posibles explicaciones a partir de lo que no conocen, las cuales generalmente están equivocadas;\n- A medida que una persona estudia y comienza a entender, de manera más amplia, diferentes temas, tiende a no cometer los errores de los \"sabelotodo\", pues pasa a tener una mejor visión del conocimiento y de sus limitaciones.\n\n#### Resumiendo el conocimiento\n\nAnte esta información, podemos concluir que la certeza y el completo dominio sobre algo son inversamente proporcionales (<htcite0>) al conocimiento de la persona, o, de manera más resumida:",
+               "text": "### Modelando el conocimiento\n\nLa conclusión de Sócrates, acompañada por los estudios de Baruch Fischhoff, Paul Slovic y Sarah Lichtenstein, puede escribirse de manera simplificada. Sin embargo, la falta de interdisciplinariedad impide que se haga esta representación que pasamos a tratar.\n\n#### Describiendo lo que vimos\n\nPodemos resumir de la siguiente manera lo que vimos en este texto hasta el momento, relacionado al conocimiento:\n- Cuando una persona tiene plena certeza y convicción de que conoce algo, esto indica que, en realidad, posee un gran desconocimiento;\n- Muchas personas, al intentar responder algo que desconocen, buscan en sus memorias y, al no encontrar la respuesta, infieren posibles explicaciones a partir de información incompleta, las cuales generalmente están equivocadas;\n- A medida que una persona estudia y comienza a entender, de manera más amplia, diferentes temas, tiende a no cometer los errores de los \"sabelotodo\", pues pasa a tener una mejor visión del conocimiento y de sus limitaciones.\n\n#### Resumiendo el conocimiento\n\nAnte esta información, podemos concluir que la certeza y el completo dominio sobre algo son inversamente proporcionales (<htcite0>) al conocimiento de la persona, o, de manera más resumida:",
                "source": [
                   {
                      "type": 1,
@@ -382,7 +384,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Visualizando la relación\n\nComo la **Fórmula 1** está expresada en forma de proporción, necesitamos una constante **K**, que assumiremos como igual a 1 en este primer texto. Esta constante nos permite hacer que lo que está en el lado derecho de la **Fórmula 1** también quede expresado como certeza.\n\nEstas constantes se conocen como constantes de proporcionalidad (<htcite0>), ya que nos ayudan a hacer equivalentes ambos lados de la expresión. Al aplicar esta constante, llegamos a nuestro modelo inicial que relaciona la certeza con el conocimiento:",
+               "text": "#### Visualizando la relación\n\nComo la **Fórmula 1** está expresada en forma de proporción, necesitamos una constante **K**, que asumiremos como igual a 1 en este primer texto. Esta constante nos permite hacer que lo que está en el lado derecho de la **Fórmula 1** también quede expresado como certeza.\n\nEstas constantes se conocen como constantes de proporcionalidad (<htcite0>), ya que nos ayudan a hacer equivalentes ambos lados de la expresión. Al aplicar esta constante, llegamos a nuestro modelo inicial que relaciona la certeza con el conocimiento:",
                "source": [
                   {
                      "type": 1,
@@ -484,7 +486,7 @@
    ],
    "exercise_v2": [
       {
-         "question": "¿Cuándo las personas desconocen algo, intentan sacar de su memoria las respuestas, infiriendo a menudo algo a pesar de asumir que esa es la respuesta correcta?",
+         "question": "Cuando las personas desconocen algo, ¿intentan sacar de su memoria las respuestas, infiriendo a menudo algo a pesar de asumir que esa es la respuesta correcta?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Esta pregunta muestra una contradicción, pero es lo que generalmente ocurre. Si desconocemos algo, tal vez la memoria no sea el mejor lugar para obtener la respuesta. Aun así, comúnmente las personas infieren respuestas sobre aquello que desconocen y tienden a creer que están en lo correcto."
       },
