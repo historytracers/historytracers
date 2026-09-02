@@ -85,6 +85,11 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
 
 - `exercise_v2[].yesNoAnswer` must always be the literal string `"Yes"` or `"No"` (English). These values are used by the application algorithm, not displayed to the user. Never translate them to `"Sí"`, `"Sim"`, or any other language.
 
+## Source evaluation
+
+- Always evaluate `sources` using the database `lang/sources/history_tracers.db` (tables `files`, `sources`, `citation`) as the single source of truth. Do not infer or validate `sources` from `lang/<lang>/<uuid>.json` `sources` arrays, `lang/<lang>/gallery*.json` group lists, or generated `lang/sources/*.json`.
+- When a citation appears broken (e.g., `js/ht_common.js:refSourceMap` missing entry or nested citation not resolving), fix the DB so that regeneration recreates the correct state. Use `INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (...)`, `INSERT OR IGNORE INTO sources (src_id, ...) VALUES (...)`, `INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (...)` and `UPDATE files SET fil_desc='Title' WHERE fil_desc=''` as needed; then regenerate with `build/historytracers-publisher -minify`. Do not patch the JSON `sources` array to work around a missing DB row.
+
 ## Fixing gallery pages (`index: ["gallery"]`, e.g. `6487ffc3-0a2d-44f4-b377-37ad553750e2` British Museum)
 
 Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images from one source (e.g. British Museum, ANTT, Bing Zhao). Reference pattern is `fe5d0b8a-5782-41ee-b6a8-cde4808044a7.json` (ANTT) and `ac5f2361-7824-466e-954c-2adfe798975e.json` (Bing Zhao) — each `htSlide` has caption with single `Trustees ... (<htciteN>)` and `htSlideRefs` with `Page Name - Description (<htciteM>)` per related file. Fixes below were applied to British Museum (`6487ffc3...` 25/26 slides) and `e3215ef1...` (Our Week) and must be repeated for other galleries:
