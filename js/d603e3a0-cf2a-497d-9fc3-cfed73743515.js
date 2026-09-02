@@ -24,5 +24,7 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+		htSetImageSrc("imgEstela", "images/GuatemalaAntropologia/EstelaAntropologiaGuatemala.jpg")
+
     return false;
 }
