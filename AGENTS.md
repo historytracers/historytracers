@@ -95,7 +95,7 @@ Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images f
    - `mid_00034725_001.jpg` and `mid_C_161.jpg` had 0 others → correctly no `htSlideRefs`; all others must have ≥1.
 
 2. **Fix `htCite` duplicates — each citation needs unique index** (otherwise some links show no `enlace` on right side):
-   - `content[1].text[1].text` contains `(<htciteN>)` in captions and related. `content[1].text[1].source` must have one entry per occurrence, even if same `uuid` repeats (Bing Zhao has `75d612d6` at 1,2,3). After dedup, `34` unique `htCite` for `38` `<li>` + `16` captions = `59` total but `22` extra, `5` uncited → rebuilt `source` in appearance order and renumbered `txt` sequentially `0..N-1` so `len(source)==len(cites)` and `Counter(cites)` has no duplicates, `uncited==0`. Validate `python3 -c "import re; len(re.findall(r'<htcite\d+>', txt))==len(src)"`.
+   - `content[1].text[1].text` contains `(<htciteN>)` in captions and related. `content[1].text[1].source` must have one entry per occurrence, even if same `uuid` repeats (Bing Zhao has `75d612d6` at 1,2,3). For `6487...` `38` `<li>` + `25` captions = `63` total `htCite` occurrences, `45` unique before dedup → `18` extra, `3` uncited (empty `Trustees ()` captions) → rebuilt `source` in appearance order and renumbered `txt` sequentially `0..N-1` so `len(source)==len(cites)` (`63`) and `Counter(cites)` has no duplicates, `uncited==0`. Validate `python3 -c "import re; cites=re.findall(r'<htcite\d+>', txt); print(len(cites), len(set(cites)), len(src), len(src)-len(set(int(re.search(r'\d+',c).group(0)) for c in cites)))"`.
 
 3. **Image removal and counting**:
    - If `images/<Gallery>/X.jpg` deleted (e.g. `mid_00034725`), remove `htSetImageSrc("imgBritishMuseum0",...)` from `js/<uuid>.js` and the entire `<div class="htSlide">...imgBritishMuseum0...</div>` from all three `lang/*/<uuid>.json`, then renumber `htSlideCounter` to `1 / 25 … 25 / 25` (was `1 / 26`).
@@ -110,16 +110,16 @@ Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images f
    - `htSlideRefs` `li` must be `Name - Desc (<htciteN>)` where `Desc` is from the index that lists the page (e.g. `literature.json`, `families.json`), not from `myths_believes.json` (content page). For `2c7a1281`/`6808a4de`/`baa7e16f`/`cde96120`/`f899e6cf` the gallery had `Has there never been a flood?` etc. from `myths_believes`, correct is `Texts with Sciences (Conclusion)` etc. from `literature.json`. Use `find_other()` excluding `myths_believes` and replace `src[].text` and `li` inner.
 
 7. **Second image in `Related content`** (`3 / 25`):
-   - `baa7e16f` desc from index contains embedded `:</p><p class="desc"><img src="images/BritishMuseum/mid_00107404_001.jpg" id="imgGilgamesh"...><b>Figure 1</b>...</p>` causing a second visible image when arrowing. Strip `:</p><p class="desc"><img src="images/BritishMuseum/mid_00107404_001.jpg"[^>]*>.*?</p>` → `)` before ` (<htcite` for that `li` in all three langs. Only main `imgAtra` should remain visible.
+   - `baa7e16f` desc from index contains embedded `:</p><p class="desc"><img src="images/BritishMuseum/mid_00107404_001.jpg" id="imgGilgamesh"...><b>Figure 1</b>...</p>` causing a second visible image when arrowing. Strip `:</p><p class="desc"><img src="images/BritishMuseum/mid_00107404_001.jpg"[^>]*>.*?</p>`→`)` before `(<htcite` for that `li` in all three langs. Only main `imgAtra` should remain visible.
 
 8. **Two links per line in `5 / 25`** (`Is it possible...` and `Sumerians - The Dynasties...`):
-   - `desc` from index contains embedded `<a href="#" onclick="htCleanSources...">...</a>` (e.g. `History Tracers Team, Atlas` and `Mark, J.J., Gilgamesh`). Gallery `li` should have only the final ` (<htciteN>)` for the page name, so remove any ` (<a href="#"[^>]*>.*?</a>)` (and trailing `).` ) inside `li` before ` (<htcite`. Verified `len(re.findall(r'<a href', li))==0` for all `38` lis.
+   - `desc` from index contains embedded `<a href="#" onclick="htCleanSources...">...</a>` (e.g. `History Tracers Team, Atlas` and `Mark, J.J., Gilgamesh`). Gallery `li` should have only the final `(<htciteN>)` for the page name, so remove any `(<a href="#"[^>]*>.*?</a>)` (and trailing `).`) inside `li` before `(<htcite`. Verified `len(re.findall(r'<a href', li))==0` for all `38` lis.
 
 9. **Empty `Trustees British Museum ()` captions** (`4 / 25` Flood Tablet, `18 / 25` Clovis, `20 / 25` Prism):
-   - Add distinct `type0` British Museum `primary_sources` entries (not generic duplicate `5f4ae6cf`) and matching ` (<htciteN>)` in caption:
+   - Add distinct `type0` British Museum `primary_sources` entries (not generic duplicate `5f4ae6cf`) and matching `(<htciteN>)` in caption:
      - `4 / 25` `bab0a6a1-d2a4-46b3-8d86-f33e3ad035d6` `The Flood Tablet. <i>The British Museum</i>` `W_K-3375`
      - `18 / 25` `8e3c4eca-abc0-4178-b097-ea1740b73d2d` `clovis point; projectile point. Am1983,39.1797...` `E_Am1983-39-1797`
-     - `20 / 25` `9222b3a4-0085-4aa9-b3ac-cc6ba2e0c85e` `Cast of Basalt Stele. <i>The British Museum</i>` `W_C-161`
+     - `20 / 25` `185c4ec2-7d57-4a74-b0a1-e748795beb2f` `Prism (Museum number 121006). The British Museum` `W_1929-1012-2`
    - Insert at `60,61,62` so `len(source)==len(cites)==63` (later `60` after `e3215` addition) and `top` updated.
 
 10. **DB `citation` missing links** (`lang/sources/history_tracers.db` is source of truth; `lang/sources/*.json` are generated via `historytracers-installer.sh` → `build/historytracers-publisher -minify`, so fix DB directly):
