@@ -84,8 +84,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -158,7 +158,7 @@
                "PostMention": ""
             },
             {
-               "text": "Nessa fórmula, cada letra representa uma quantidade que pode mudar:\n- **r**: é o **resultado** da multiplicação (também chamado de **produto**). É a resposta que obtemos.\n- **N**: é o **número de vezes** que repetimos o mesmo número (também chamado de **fator**). Conta quantos grupos temos.\n- **a**: é o número que repetimos—a própria tabuada. Os matemáticos o chamam de **coeficiente angular** (ou **inclinação**) porque, como veremos em breve, controla quão íngreme a reta sobe.\n\nPense assim: se **a** é pequeno (como 1), os resultados crescem devagar. Se **a** é grande (como 10), os resultados crescem rápido. Vamos ver isso na prática!",
+               "text": "Nessa fórmula, cada letra representa uma quantidade que pode mudar:\n- **r**: é o **resultado** da multiplicação (também chamado de **produto**). É a resposta que obtemos.\n- **N**: é o **número de vezes** que repetimos o mesmo número (também chamado de **fator**). Conta quantos grupos temos.\n- **a**: é o número que repetimos — a própria tabuada. Os matemáticos o chamam de **coeficiente angular** (ou **inclinação**) porque, como veremos em breve, controla quão íngreme a reta sobe.\n\nPense assim: se **a** é pequeno (como 1), os resultados crescem devagar. Se **a** é grande (como 10), os resultados crescem rápido. Vamos ver isso na prática!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -167,7 +167,7 @@
                "PostMention": ""
             },
             {
-               "text": "Agora vamos ver a fórmula em ação com os valores mais simples de **a**. Tente calcular cada resultado você mesmo antes de mover o ponteiro sobre as tabelas abaixo:\n- Quando **a = 0**, repetimos o número zero: 0 + 0 + 0 + ... + 0 = 0 × **N**. Não importa quantas vezes somemos zero, o resultado é sempre zero.\n- Quando **a = 1**, repetimos o número um: 1 + 1 + 1 + ... + 1 = 1 × **N**. O resultado é sempre o próprio número **N**—nada muda!\n\nMova o ponteiro sobre cada resultado para ver como ele é formado",
+               "text": "Agora vamos ver a fórmula em ação com os valores mais simples de **a**. Tente calcular cada resultado você mesmo antes de mover o ponteiro sobre as tabelas abaixo:\n- Quando **a = 0**, repetimos o número zero: 0 + 0 + 0 + ... + 0 = 0 × **N**. Não importa quantas vezes somemos zero, o resultado é sempre zero.\n- Quando **a = 1**, repetimos o número um: 1 + 1 + 1 + ... + 1 = 1 × **N**. O resultado é sempre o próprio número **N** — nada muda!\n\nMova o ponteiro sobre cada resultado para ver como ele é formado",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -409,7 +409,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart6\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Pontos da tabuada de um (1) conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart6\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Pontos da tabuada do um conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -450,8 +450,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -471,7 +471,7 @@
                "PostMention": ""
             },
             {
-               "text": "Além dessa definição, no texto de Weisstein há também uma menção que o triângulo retângulo formado no gráfico possui componentes com nomes específicos. No Gráfico 7, destacamos essas partes e as nomeamos na sequência",
+               "text": "Além dessa definição, Weisstein menciona que o triângulo retângulo mostrado no gráfico possui componentes com nomes específicos. No Gráfico 7, identificamos e nomeamos essas partes",
                "source": [
                   {
                      "type": 1,
@@ -528,7 +528,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, aprendemos uma receita com três passos que funciona para qualquer tabuada:\n1. Criar uma **fórmula** (r = a × N).\n2. **Marcar os pontos** em um papel quadriculado.\n3. **Unir os pontos** com traços retos.\n\nCom essa receita, descobrimos algo bonito: a tabuada do zero virou uma linha horizontal e plana, e a tabuada do um virou uma linha diagonal ascendente. Ao preencher o espaço entre a reta ascendente e os eixos, encontramos uma forma muito importante: o **triângulo**—uma figura fechada com três lados e três ângulos.\n\nIsso é só o começo. Nos próximos textos, usaremos essa mesma receita com outras tabuadas (2, 3, 5, ...) e descobriremos novas formas e padrões. O que você acha que acontecerá quando **a = 2**? Tente imaginar antes de continuar lendo!",
+               "text": "### Conclusão\n\nNeste texto, aprendemos uma receita com três passos que funciona para qualquer tabuada:\n1. Criar uma **fórmula** (r = a × N).\n2. **Marcar os pontos** em um papel quadriculado.\n3. **Unir os pontos** com traços retos.\n\nCom essa receita, descobrimos algo bonito: a tabuada do zero virou uma linha horizontal e plana, e a tabuada do um virou uma linha diagonal ascendente. Ao preencher o espaço entre a reta ascendente e os eixos, encontramos uma forma muito importante: o **triângulo** — uma figura fechada com três lados e três ângulos.\n\nIsso é só o começo. Nos próximos textos, usaremos essa mesma receita com outras tabuadas (2, 3, 5, ...) e descobriremos novas formas e padrões. O que você acha que acontecerá quando **a = 2**? Tente imaginar antes de continuar lendo!",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -558,7 +558,7 @@
       {
          "question": "Usando a receita deste texto, se desenharmos a tabuada do dois (a = 2), você espera que a reta suba mais rápido do que a reta da tabuada do um?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Como a = 2 é maior que a = 1, os resultados crescem duas vezes mais rápido: 2, 4, 6, 8, ... Então a reta subirá mais íngreme. Quanto maior o valor de a, mais íngreme é a reta."
+         "additionalInfo": "Como a = 2 é maior que a = 1, os resultados crescem duas vezes mais rápido: 2, 4, 6, 8, ... Então a reta será mais íngreme. Quanto maior o valor de a, mais íngreme é a reta."
       }
    ],
    "game_v2": null,
