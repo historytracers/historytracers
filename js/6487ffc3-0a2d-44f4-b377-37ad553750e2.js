@@ -38,6 +38,9 @@ function htLoadContent() {
     htSetImageSrc("imgXuanzong", "images/BritishMuseum/mid_JP2105_1.jpg");
     htSetImageSrc("imgChinese", "images/BritishMuseum/mid_RRC5932_14.jpg");
     htSetImageSrc("imgPBM", "images/BritishMuseum/mid_WCT24211.jpg");
+    htSetImageSrc("imgAbacus", "images/BritishMuseum/289044001.jpg");
+    htSetImageSrc("imgGizaBM", "images/BritishMuseum/mid_00539475_001.jpg");
+    htSetImageSrc("imgSaqqaraBM", "images/BritishMuseum/mid_EPF1915.jpg");
     htPlusDivs(0);
 
     return false;
