@@ -2291,15 +2291,38 @@ func sourceFormatsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // dateRE matches the YYYY-MM-DD date format used by the sources table.
+// yearRE matches the YYYY format also accepted for sources.
 var dateRE = regexp.MustCompile(`^[0-9]{4}-[0-9]{2}-[0-9]{2}$`)
+var yearRE = regexp.MustCompile(`^[0-9]{4}$`)
 
 // validSourceDate reports whether the given date is empty or uses the
-// YYYY-MM-DD format expected by the sources table.
+// YYYY-MM-DD or YYYY format expected by the sources table.
 func validSourceDate(value string) bool {
 	if value == "" {
 		return true
 	}
-	return dateRE.MatchString(value)
+	if yearRE.MatchString(value) {
+		return true
+	}
+	if !dateRE.MatchString(value) {
+		return false
+	}
+	// Validate month/day when full date is provided.
+	parts := strings.Split(value, "-")
+	if len(parts) != 3 {
+		return false
+	}
+	y, _ := strconv.Atoi(parts[0])
+	m, _ := strconv.Atoi(parts[1])
+	d, _ := strconv.Atoi(parts[2])
+	if m < 1 || m > 12 {
+		return false
+	}
+	dim := []int{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+	if (y%4 == 0 && y%100 != 0) || y%400 == 0 {
+		dim[1] = 29
+	}
+	return d >= 1 && d <= dim[m-1]
 }
 
 // createSourceHandler inserts a new row into the sources table and links it to
@@ -2324,12 +2347,12 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !validSourceDate(srcDate) {
-		json.NewEncoder(w).Encode(map[string]string{"error": "src_date must use the YYYY-MM-DD format"})
+		json.NewEncoder(w).Encode(map[string]string{"error": "src_date must use the YYYY-MM-DD or YYYY format"})
 		return
 	}
 
 	if !validSourceDate(srcPublishDate) {
-		json.NewEncoder(w).Encode(map[string]string{"error": "src_publish_date must use the YYYY-MM-DD format"})
+		json.NewEncoder(w).Encode(map[string]string{"error": "src_publish_date must use the YYYY-MM-DD or YYYY format"})
 		return
 	}
 
