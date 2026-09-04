@@ -1833,6 +1833,10 @@ func htSaveSourceFileToDB(uuid string, data []byte) error {
 	}
 	defer db.Close()
 
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
+
 	tx, err := db.Begin()
 	if err != nil {
 		return fmt.Errorf("failed to begin transaction: %w", err)
@@ -1869,7 +1873,8 @@ func htSaveSourceFileToDB(uuid string, data []byte) error {
 			if sfoID == "" {
 				sfoID = apaUUID
 			}
-			srcStmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL)
+			trimmedURL := strings.TrimSpace(elem.URL)
+			srcStmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, trimmedURL)
 			citStmt.Exec(uuid, elem.ID, citType)
 		}
 	}
@@ -2182,7 +2187,7 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 	srcCitation := r.FormValue("src_citation")
 	srcDate := r.FormValue("src_date")
 	srcPublishDate := r.FormValue("src_publish_date")
-	srcURL := r.FormValue("src_url")
+	srcURL := strings.TrimSpace(r.FormValue("src_url"))
 	citTypeStr := r.FormValue("cit_type")
 
 	if fileUUID == "" || srcID == "" {
@@ -2212,6 +2217,10 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer db.Close()
+
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
 
 	tx, err := db.Begin()
 	if err != nil {
@@ -2325,6 +2334,37 @@ func validSourceDate(value string) bool {
 	return d >= 1 && d <= dim[m-1]
 }
 
+func isUniqueConstraintError(err error) bool {
+	if err == nil {
+		return false
+	}
+	msg := err.Error()
+	return strings.Contains(msg, "UNIQUE constraint failed") || strings.Contains(msg, "unique constraint")
+}
+
+func htMigrateSourceURLs(db *sql.DB) error {
+	if _, err := db.Exec(`UPDATE sources SET src_url = TRIM(src_url) WHERE src_url != TRIM(src_url)`); err != nil {
+		if !strings.Contains(err.Error(), "no such table") {
+			return fmt.Errorf("trim src_url: %w", err)
+		}
+	}
+	// Existing data contains 166 groups where different source IDs share the same
+	// normalized URL (distinct citations hosted at the same URL). Deleting those
+	// rows would require updating 717+ JSON files under lang/* that contain
+	// HTSource objects referencing the discarded IDs. To keep the change minimal
+	// and avoid data loss, the migration only normalizes whitespace and creates
+	// the unique index when the data already satisfies it; otherwise it logs and
+	// leaves reconciliation for a dedicated cleanup.
+	if _, err := db.Exec(`CREATE UNIQUE INDEX IF NOT EXISTS idx_sources_src_url_unique ON sources(src_url) WHERE src_url != ''`); err != nil {
+		if strings.Contains(err.Error(), "UNIQUE constraint failed") || strings.Contains(err.Error(), "already exists") {
+			log.Printf("WARNING: cannot create unique index on src_url – duplicate URLs remain (%v). Skipping index creation.", err)
+			return nil
+		}
+		return fmt.Errorf("create unique index: %w", err)
+	}
+	return nil
+}
+
 // createSourceHandler inserts a new row into the sources table and links it to
 // the current file in the citation table. The src_id is generated here (UUID);
 // all other fields come from the editor form.
@@ -2390,6 +2430,10 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
+
 	if srcURL != "" {
 		var existingID string
 		err := db.QueryRow(`SELECT src_id FROM sources WHERE src_url = ? LIMIT 1`, srcURL).Scan(&existingID)
@@ -2410,9 +2454,15 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	defer tx.Rollback()
 
 	srcID := uuid.New().String()
-	_, err = tx.Exec(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
+	_, err = tx.Exec(`INSERT INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
 		srcID, sfoID, srcCitation, srcDate, srcPublishDate, srcURL)
 	if err != nil {
+		if isUniqueConstraintError(err) && srcURL != "" {
+			var existingID string
+			_ = db.QueryRow(`SELECT src_id FROM sources WHERE src_url = ? LIMIT 1`, srcURL).Scan(&existingID)
+			json.NewEncoder(w).Encode(map[string]string{"error": "src_url already exists", "src_id": existingID})
+			return
+		}
 		json.NewEncoder(w).Encode(map[string]string{"error": "failed to insert source"})
 		return
 	}

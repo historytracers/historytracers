@@ -152,6 +152,10 @@ func htCreateDatabase(dbPath string) {
 		panic(fmt.Errorf("failed to commit transaction: %w", err))
 	}
 
+	if err := htMigrateSourceURLs(db); err != nil {
+		fmt.Fprintf(os.Stderr, "WARNING migrate sources: %v\n", err)
+	}
+
 	htCreateSourcesIndex(db)
 
 	fmt.Printf("Database created successfully at %s\n", dbPath)
@@ -370,6 +374,10 @@ func htAddEntryToSourceFileDB(uid, cat string, elem common.HTSourceElement) erro
 	}
 	defer db.Close()
 
+	if err := htMigrateSourceURLs(db); err != nil {
+		fmt.Fprintf(os.Stderr, "WARNING migrate sources: %v\n", err)
+	}
+
 	tx, err := db.Begin()
 	if err != nil {
 		return fmt.Errorf("failed to begin transaction: %w", err)
@@ -384,8 +392,9 @@ func htAddEntryToSourceFileDB(uid, cat string, elem common.HTSourceElement) erro
 	if sfoID == "" {
 		sfoID = apaFormatUUID.String()
 	}
+	trimmedURL := strings.TrimSpace(elem.URL)
 	if _, err := tx.Exec(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
-		elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL); err != nil {
+		elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, trimmedURL); err != nil {
 		return fmt.Errorf("failed to insert source: %w", err)
 	}
 
@@ -451,6 +460,30 @@ func htCreateSourcesIndex(db *sql.DB) {
 	}
 }
 
+func htMigrateSourceURLs(db *sql.DB) error {
+	if _, err := db.Exec(`UPDATE sources SET src_url = TRIM(src_url) WHERE src_url != TRIM(src_url)`); err != nil {
+		if !strings.Contains(err.Error(), "no such table") {
+			return fmt.Errorf("trim src_url: %w", err)
+		}
+	}
+	// Note: existing data contains 166 groups where different source IDs share the
+	// same normalized URL (e.g. two distinct citations hosted at the same URL).
+	// Enforcing a unique index on src_url would require deleting those rows and
+	// updating all HTSource references in 717+ JSON files under lang/* – not a
+	// minimal change and would lose distinct citation data. The migration therefore
+	// only normalizes whitespace and creates the unique index when the data already
+	// satisfies it; otherwise it logs a warning and leaves reconciliation for a
+	// dedicated data-cleanup task.
+	if _, err := db.Exec(`CREATE UNIQUE INDEX IF NOT EXISTS idx_sources_src_url_unique ON sources(src_url) WHERE src_url != ''`); err != nil {
+		if strings.Contains(err.Error(), "UNIQUE constraint failed") || strings.Contains(err.Error(), "already exists") {
+			fmt.Fprintf(os.Stderr, "WARNING: cannot create unique index on src_url – duplicate URLs remain (%v). Skipping index creation.\n", err)
+			return nil
+		}
+		return fmt.Errorf("create unique index: %w", err)
+	}
+	return nil
+}
+
 func htInsertSourceElements(stmt *sql.Stmt, seen map[string]bool, elements []common.HTSourceElement) {
 	for _, elem := range elements {
 		if seen[elem.ID] {
@@ -462,7 +495,8 @@ func htInsertSourceElements(stmt *sql.Stmt, seen map[string]bool, elements []com
 		if sfoID == "" {
 			sfoID = apaFormatUUID.String()
 		}
-		if _, err := stmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL); err != nil {
+		trimmedURL := strings.TrimSpace(elem.URL)
+		if _, err := stmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, trimmedURL); err != nil {
 			fmt.Fprintf(os.Stderr, "ERROR inserting source %s: %v\n", elem.ID, err)
 		}
 	}
