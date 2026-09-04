@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788475713"
+      "1788480968"
    ],
    "authors": [
       ""
@@ -176,13 +176,13 @@
          "id": "SECTION_practicing",
          "text": [
             {
-               "text": "### The Roman abacus\n\nIn the reflection, we asked whether Europe also created a tool to calculate. The answer is yes: to calculate, the Romans used their own abacus, an instrument that writes numbers using the seven symbols of the Etruscan-Roman numbers that we studied (<htcite0>).",
+               "text": "### The Roman abacus\n\nIn the reflection, we asked whether Europe also created a tool to calculate. The answer is yes: to calculate, the Romans used their own abacus, which has a shape similar to the Soroban (<htcite0>). Like the Soroban, each of its columns has an upper bead that counts for 5 and four lower beads that each count for 1.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "5fc193f7-7226-4852-82d1-706a44de71ec",
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
                      "text": "History Tracers Team",
-                     "page": "And the missing numbers?",
+                     "page": "Building to count (Soroban, 算盤)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -198,33 +198,8 @@
                "PostMention": ""
             },
             {
-               "text": "In the application below, we will represent numbers on this Roman abacus, just as we represented them on the Schyoty (счёты) (<htcite0>). Represent the number that appears below: move the beads of the abacus so that the value shown is equal to the requested number. While you move the beads, the application shows the number written with Roman numerals and with Indo-Arabic numerals.\n\nRemember that a number can be written in more than one way (<htcite1>). On this abacus, we use the additive form of the Etruscan-Roman numbers: for example, the number 9 is written as **VIIII**. When you finish, the application tells you whether the representation is correct. Click **Restart** to receive a new number and practice again.",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "d74ba899-dcbd-46d1-a44f-f77832358a4c",
-                     "text": "History Tracers Team",
-                     "page": "Schyoty (счёты), or the vertical abacus",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "5fc193f7-7226-4852-82d1-706a44de71ec",
-                     "text": "History Tracers Team",
-                     "page": "And the missing numbers?",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
+               "text": "In the application below, we use the columns of the archaeological Roman abacus. From left to right, they are marked (((I))), ((I)), (I), C, X and I, which represent the hundred thousands, the ten thousands, the thousands, the hundreds, the tens and the units. In this abacus, one thousand is marked as (I), ten thousand as ((I)) and one hundred thousand as (((I))).\n\nRepresent the number that appears below: move the beads of the columns until the value shown is equal to the requested number. While you move the beads, the application shows the number written with Indo-Arabic numerals and with Roman numerals. Click **Restart** to receive a new number and practice again.",
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -232,7 +207,7 @@
                "PostMention": ""
             },
             {
-               "text": "<style>.roman-abacus-container { background: linear-gradient(145deg, #c98a4b, #9c5a26); border-radius: clamp(1.5rem, 5vw, 3rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.55); padding: clamp(0.8rem, 3vw, 1.6rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 680px; margin: 0 auto; box-sizing: border-box; } .roman-abacus-frame { background: #e9dcb4; border-radius: clamp(1rem, 3vw, 1.6rem); padding: clamp(8px, 2vw, 14px); box-shadow: inset 0 0 0 2px #fbe9c4, inset 0 0 0 5px #6d451f, 0 8px 18px rgba(0, 0, 0, 0.2); } #romanAbacusCanvas { display: block; margin: 0 auto; border-radius: 10px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); cursor: pointer; background-color: #efe1bd; width: 100%; height: auto; aspect-ratio: 560 / 320; max-width: 560px; } .roman-abacus-panel { margin-top: clamp(0.8rem, 4vw, 1.6rem); background: #4a2c12; border-radius: 50px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 22px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(255, 240, 180, 0.25); } .roman-abacus-panel-left { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; flex: 1; min-width: 200px; } .roman-abacus-readout { background: #f8efd4; padding: 0.3rem 1rem; border-radius: 30px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(0.95rem, 4.6vw, 1.35rem); color: #33190a; box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.12), 0 1px 2px #fff; white-space: nowrap; } .roman-abacus-readout-roman { color: #8a3c10; } .roman-abacus-success { background: #2f6b1f; color: #eaffd9; font-weight: bold; padding: 0.35rem 1rem; border-radius: 30px; font-size: clamp(0.85rem, 4vw, 1.1rem); display: none; visibility: hidden; white-space: nowrap; } .roman-abacus-reset { background: #7a4a24; border: none; color: #ffe9c2; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.15rem); font-family: inherit; padding: 0.5rem 1.1rem; border-radius: 50px; cursor: pointer; box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.35); } .roman-abacus-reset:hover { background: #91592e; } .roman-abacus-game-area { margin-top: clamp(0.8rem, 3vw, 1.3rem); text-align: center; } .roman-abacus-game-label { font-weight: bold; color: #3c200d; margin-right: 0.6rem; font-size: clamp(0.95rem, 4.5vw, 1.2rem); } .roman-abacus-game-target { display: inline-block; background: #ffe9c2; border: 2px solid #7a4a24; border-radius: 20px; padding: 0.25rem 1.1rem; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.6rem); color: #33190a; } .roman-abacus-congrats { background: #2f6b1f; color: #eaffd9; font-weight: bold; margin-top: 0.9rem; padding: 0.6rem 1rem; border-radius: 20px; text-align: center; font-size: clamp(0.9rem, 4vw, 1.15rem); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25); } #romanAbacusFeedback { text-align: center; }</style>",
+               "text": "<style>.roman-abacus-container { background: linear-gradient(145deg, #c98a4b, #9c5a26); border-radius: clamp(1.5rem, 5vw, 3rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.55); padding: clamp(0.8rem, 3vw, 1.6rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 680px; margin: 0 auto; box-sizing: border-box; } .roman-abacus-frame { background: #e9dcb4; border-radius: clamp(1rem, 3vw, 1.6rem); padding: clamp(8px, 2vw, 14px); box-shadow: inset 0 0 0 2px #fbe9c4, inset 0 0 0 5px #6d451f, 0 8px 18px rgba(0, 0, 0, 0.2); } #romanAbacusCanvas { display: block; margin: 0 auto; border-radius: 10px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); cursor: pointer; background-color: #efe1bd; width: 100%; height: auto; aspect-ratio: 700 / 460; max-width: 680px; } .roman-abacus-panel { margin-top: clamp(0.8rem, 4vw, 1.6rem); background: #4a2c12; border-radius: 50px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 22px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(255, 240, 180, 0.25); } .roman-abacus-panel-left { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; flex: 1 1 200px; min-width: 0; } .roman-abacus-readout { background: #f8efd4; padding: 0.3rem 1rem; border-radius: 30px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(0.95rem, 4.6vw, 1.35rem); color: #33190a; box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.12), 0 1px 2px #fff; white-space: nowrap; } .roman-abacus-readout-roman { color: #8a3c10; white-space: normal; overflow-wrap: anywhere; } .roman-abacus-success { background: #2f6b1f; color: #eaffd9; font-weight: bold; padding: 0.35rem 1rem; border-radius: 30px; font-size: clamp(0.85rem, 4vw, 1.1rem); display: none; visibility: hidden; white-space: nowrap; } .roman-abacus-reset { background: #7a4a24; border: none; color: #ffe9c2; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.15rem); font-family: inherit; padding: 0.5rem 1.1rem; border-radius: 50px; cursor: pointer; box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.35); } .roman-abacus-reset:hover { background: #91592e; } .roman-abacus-game-area { margin-top: clamp(0.8rem, 3vw, 1.3rem); text-align: center; } .roman-abacus-game-label { font-weight: bold; color: #3c200d; margin-right: 0.6rem; font-size: clamp(0.95rem, 4.5vw, 1.2rem); } .roman-abacus-game-target { display: inline-block; background: #ffe9c2; border: 2px solid #7a4a24; border-radius: 20px; padding: 0.25rem 1.1rem; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.6rem); color: #33190a; } .roman-abacus-congrats { background: #2f6b1f; color: #eaffd9; font-weight: bold; margin-top: 0.9rem; padding: 0.6rem 1rem; border-radius: 20px; text-align: center; font-size: clamp(0.9rem, 4vw, 1.15rem); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25); } .roman-abacus-overline { text-decoration: overline; } #romanAbacusFeedback { text-align: center; }</style>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -241,7 +216,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"roman-abacus-container\"><div class=\"roman-abacus-frame\"><canvas id=\"romanAbacusCanvas\" width=\"560\" height=\"320\" style=\"width:100%; height:auto; max-width:560px; aspect-ratio:560/320\"></canvas></div><div class=\"roman-abacus-panel\"><div class=\"roman-abacus-panel-left\"><div class=\"roman-abacus-readout\">Indo-Arabic: <span id=\"romanAbacusValue\">0</span></div><div class=\"roman-abacus-readout roman-abacus-readout-roman\">Roman: <span id=\"romanAbacusRoman\"></span></div></div><div id=\"romanAbacusSuccess\" class=\"roman-abacus-success\">&#10003; Correct!</div><button id=\"romanAbacusResetBtn\" class=\"roman-abacus-reset\">&#8634; Restart</button></div><div class=\"roman-abacus-game-area\"><span class=\"roman-abacus-game-label\">Represent the number:</span><span id=\"romanAbacusCMP\" class=\"roman-abacus-game-target\">0</span></div><div id=\"romanAbacusFeedback\"></div><div class=\"text-store\" style=\"display:none\"><span id=\"txt_romanAbacusFinalMessage\">&#127881;&#127942; ALL LEVELS COMPLETE! &#127942;&#127881;<br>You mastered the Roman abacus! Click &quot;Restart&quot; to start again at level 1.</span></div></div>",
+               "text": "<div class=\"roman-abacus-container\"><div class=\"roman-abacus-frame\"><canvas id=\"romanAbacusCanvas\" width=\"700\" height=\"460\" style=\"width:100%; height:auto; max-width:680px; aspect-ratio:700/460\"></canvas></div><div class=\"roman-abacus-panel\"><div class=\"roman-abacus-panel-left\"><div class=\"roman-abacus-readout\">Indo-Arabic: <span id=\"romanAbacusValue\">0</span></div><div class=\"roman-abacus-readout roman-abacus-readout-roman\">Roman: <span id=\"romanAbacusRoman\"></span></div><div id=\"romanAbacusSuccess\" class=\"roman-abacus-success\">&#10003; Correct!</div></div><button id=\"romanAbacusResetBtn\" class=\"roman-abacus-reset\">&#8634; Restart</button></div><div class=\"roman-abacus-game-area\"><span class=\"roman-abacus-game-label\">Represent the number:</span><span id=\"romanAbacusCMP\" class=\"roman-abacus-game-target\">0</span></div><div id=\"romanAbacusFeedback\"></div><div class=\"text-store\" style=\"display:none\"><span id=\"txt_romanAbacusFinalMessage\">&#127881;&#127942; ALL LEVELS COMPLETE! &#127942;&#127881;<br>You mastered the Roman abacus! Click &quot;Restart&quot; to start again at level 1.</span></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,

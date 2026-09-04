@@ -6,189 +6,312 @@ function htLoadContent() {
     return false;
 }
 
-// ----- Roman Abacus Controller -----
+// ----- Roman Abacus Controller (Soroban-shaped archaeological layout) -----
 var localRomanAbacusController = {};
 
-localRomanAbacusController.SYMBOLS = ["M", "D", "C", "L", "X", "V", "I"];
-localRomanAbacusController.VALUES = [1000, 500, 100, 50, 10, 5, 1];
-localRomanAbacusController.CAPS = [4, 1, 4, 1, 4, 1, 4];
-localRomanAbacusController.LEVELS = 4;
+localRomanAbacusController.HEADINGS = ["(((I)))", "((I))", "(I)", "C", "X", "I"];
+localRomanAbacusController.PLACES = [100000, 10000, 1000, 100, 10, 1];
+localRomanAbacusController.LEVELS = 6;
 
 function htRomanAbacusInitState() {
     localRomanAbacusController.state = [];
-    for (let c = 0; c < localRomanAbacusController.SYMBOLS.length; c++) {
-        localRomanAbacusController.state.push(0);
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        localRomanAbacusController.state.push({ upper: 0, lower: 0 });
     }
+}
+
+function htRomanAbacusColumnValue(c) {
+    const col = localRomanAbacusController.state[c];
+    return (col.upper * 5 + col.lower) * localRomanAbacusController.PLACES[c];
 }
 
 function htRomanAbacusComputeValue() {
     let value = 0;
-    for (let c = 0; c < localRomanAbacusController.state.length; c++) {
-        value += localRomanAbacusController.state[c] * localRomanAbacusController.VALUES[c];
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        value += htRomanAbacusColumnValue(c);
     }
     return value;
 }
 
-function htRomanAbacusComputeRoman() {
+function htRomanAbacusRomanOf(n) {
+    if (n <= 0) return "";
+    const table = [[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
+                   [100, "C"], [90, "XC"], [50, "L"], [40, "XL"],
+                   [10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]];
     let roman = "";
-    for (let c = 0; c < localRomanAbacusController.state.length; c++) {
-        for (let k = 0; k < localRomanAbacusController.state[c]; k++) {
-            roman += localRomanAbacusController.SYMBOLS[c];
+    let rest = n;
+    for (let i = 0; i < table.length; i++) {
+        while (rest >= table[i][0]) {
+            roman += table[i][1];
+            rest -= table[i][0];
         }
     }
     return roman;
 }
 
+function htRomanAbacusRomanHTML(value) {
+    if (value <= 0) return "";
+    const upper = Math.floor(value / 1000);
+    const lower = value % 1000;
+    let html = "";
+    if (upper > 0) {
+        html += '<span class="roman-abacus-overline">' + htRomanAbacusRomanOf(upper) + '</span>';
+    }
+    if (lower > 0) {
+        html += htRomanAbacusRomanOf(lower);
+    }
+    return html;
+}
+
 function htRomanAbacusComputeLayout() {
     const cvs = localRomanAbacusController.canvas;
-    localRomanAbacusController.W = cvs.width;
-    localRomanAbacusController.H = cvs.height;
+    localRomanAbacusController.canvasWidth = cvs.width;
+    localRomanAbacusController.canvasHeight = cvs.height;
 
-    const M = { top: 52, bottom: 14, left: 12, right: 12 };
-    localRomanAbacusController.M = M;
+    const horizontalMargin = 24;
+    const totalColSpace = localRomanAbacusController.canvasWidth - (horizontalMargin * 2);
+    localRomanAbacusController.colWidth = totalColSpace / localRomanAbacusController.HEADINGS.length;
+    localRomanAbacusController.startX = horizontalMargin + localRomanAbacusController.colWidth / 2;
 
-    const colW = (localRomanAbacusController.W - M.left - M.right) / localRomanAbacusController.SYMBOLS.length;
-    localRomanAbacusController.colW = colW;
+    localRomanAbacusController.decimalTrackY = localRomanAbacusController.canvasHeight * 0.5;
+    localRomanAbacusController.decimalTrackTop = localRomanAbacusController.decimalTrackY - 30;
+    localRomanAbacusController.decimalTrackBottom = localRomanAbacusController.decimalTrackY + 30;
+    localRomanAbacusController.barY = localRomanAbacusController.decimalTrackY;
 
-    localRomanAbacusController.colX = [];
-    for (let c = 0; c < localRomanAbacusController.SYMBOLS.length; c++) {
-        localRomanAbacusController.colX.push(M.left + colW * (c + 0.5));
+    const upperMax = 1;
+    const lowerMax = 4;
+    const verticalStep = 26;
+
+    const upperBaseActive = localRomanAbacusController.decimalTrackTop - 8;
+    const upperStartInactive = localRomanAbacusController.decimalTrackTop - 52;
+    localRomanAbacusController.upperPositions = [];
+    for (let i = 0; i < upperMax; i++) {
+        let activeY = upperBaseActive - (i * verticalStep);
+        let inactiveY = upperStartInactive - (i * verticalStep * 0.8);
+        if (inactiveY < 20) inactiveY = 20 + i * 5;
+        localRomanAbacusController.upperPositions.push({ activeY: activeY, inactiveY: inactiveY });
     }
 
-    const slotTop = M.top;
-    const slotBottom = localRomanAbacusController.H - M.bottom;
-    const slotArea = slotBottom - slotTop;
-    const maxCap = Math.max.apply(null, localRomanAbacusController.CAPS);
-    localRomanAbacusController.beadR = slotArea / (2 * maxCap);
-
-    localRomanAbacusController.groove = [];
-    for (let c = 0; c < localRomanAbacusController.SYMBOLS.length; c++) {
-        const h = slotArea * localRomanAbacusController.CAPS[c] / maxCap;
-        localRomanAbacusController.groove.push({
-            top: slotTop + (slotArea - h) / 2,
-            h: h
-        });
+    const lowerBaseActive = localRomanAbacusController.decimalTrackBottom + 8;
+    const lowerInactiveDrop = 30;
+    localRomanAbacusController.lowerPositions = [];
+    for (let i = 0; i < lowerMax; i++) {
+        let activeY = lowerBaseActive + (i * verticalStep);
+        let inactiveY = activeY + lowerInactiveDrop;
+        localRomanAbacusController.lowerPositions.push({ activeY: activeY, inactiveY: inactiveY });
     }
+
+    let maxRadiusByWidth = localRomanAbacusController.colWidth * 0.38;
+    let maxRadiusByVertical = verticalStep * 0.45;
+    localRomanAbacusController.ballRadius = Math.min(maxRadiusByWidth, maxRadiusByVertical, 13);
+    localRomanAbacusController.ballRadius = Math.max(localRomanAbacusController.ballRadius, 9);
 }
 
-function htRomanAbacusDrawBead(ctx, x, y, r, active) {
-    const grad = ctx.createRadialGradient(x - r * 0.35, y - r * 0.35, r * 0.1, x, y, r);
-    if (active) {
-        grad.addColorStop(0, '#ffe2a0');
-        grad.addColorStop(1, '#b57b2c');
-    } else {
-        grad.addColorStop(0, '#d9c9a3');
-        grad.addColorStop(1, '#8b7752');
-    }
+function htRomanAbacusDrawTrack() {
+    const ctx = localRomanAbacusController.ctx;
+    ctx.fillStyle = "#dac894";
+    ctx.globalAlpha = 0.4;
+    ctx.fillRect(6, localRomanAbacusController.decimalTrackTop,
+                 localRomanAbacusController.canvasWidth - 12,
+                 localRomanAbacusController.decimalTrackBottom - localRomanAbacusController.decimalTrackTop);
+    ctx.globalAlpha = 1;
+
+    ctx.strokeStyle = "#b59762";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(7, localRomanAbacusController.decimalTrackTop + 2,
+                   localRomanAbacusController.canvasWidth - 14,
+                   (localRomanAbacusController.decimalTrackBottom - localRomanAbacusController.decimalTrackTop) - 4);
+
+    ctx.fillStyle = '#c9a86b';
+    ctx.fillRect(5, localRomanAbacusController.barY - 6, localRomanAbacusController.canvasWidth - 10, 12);
+    ctx.fillStyle = '#e5c28e';
+    ctx.fillRect(5, localRomanAbacusController.barY - 4, localRomanAbacusController.canvasWidth - 10, 8);
+    ctx.fillStyle = '#f5e2b0';
+    ctx.fillRect(5, localRomanAbacusController.barY - 2, localRomanAbacusController.canvasWidth - 10, 4);
+}
+
+function htRomanAbacusDrawColumn(idx) {
+    const ctx = localRomanAbacusController.ctx;
+    const x = localRomanAbacusController.startX + idx * localRomanAbacusController.colWidth;
+    const col = localRomanAbacusController.state[idx];
+    const lowerCount = col.lower;
+    const upperCount = col.upper;
 
     ctx.beginPath();
-    ctx.arc(x, y, r - 0.75, 0, Math.PI * 2);
-    ctx.fillStyle = grad;
-    ctx.fill();
-    ctx.strokeStyle = active ? '#6e4a15' : '#5f4c30';
-    ctx.lineWidth = 1;
+    ctx.moveTo(x, 78);
+    ctx.lineTo(x, localRomanAbacusController.canvasHeight - 28);
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#b08054';
     ctx.stroke();
-
     ctx.beginPath();
-    ctx.arc(x - r * 0.3, y - r * 0.3, r * 0.18, 0, Math.PI * 2);
-    ctx.fillStyle = active ? 'rgba(255, 250, 225, 0.75)' : 'rgba(255, 250, 225, 0.4)';
-    ctx.fill();
-}
-
-function htRomanAbacusDrawColumn(c, ctx) {
-    const g = localRomanAbacusController;
-    const cx = g.colX[c];
-    const gro = g.groove[c];
-    const n = g.CAPS[c];
-    const a = g.state[c];
-    const step = gro.h / n;
-
-    for (let k = 0; k < n; k++) {
-        const y = gro.top + g.beadR + k * step;
-        htRomanAbacusDrawBead(ctx, cx, y, g.beadR, k < a);
-    }
-}
-
-function htRomanAbacusDrawGroove(c, ctx) {
-    const g = localRomanAbacusController;
-    const gro = g.groove[c];
-    const w = g.colW * 0.6;
-    const x = g.colX[c] - w / 2;
-
-    ctx.beginPath();
-    ctx.rect(x, gro.top, w, gro.h);
-    ctx.fillStyle = 'rgba(122, 90, 55, 0.16)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(90, 62, 30, 0.35)';
+    ctx.moveTo(x - 1, 76);
+    ctx.lineTo(x - 1, localRomanAbacusController.canvasHeight - 26);
     ctx.lineWidth = 1.5;
+    ctx.strokeStyle = '#e9c48b';
     ctx.stroke();
+
+    for (let u = 0; u < 1; u++) {
+        const isActive = (u < upperCount);
+        const pos = localRomanAbacusController.upperPositions[u];
+        if (!pos) continue;
+        const beadY = isActive ? pos.activeY : pos.inactiveY;
+        let gradUp = ctx.createRadialGradient(x - 4, beadY - 3, 3, x, beadY, localRomanAbacusController.ballRadius);
+        gradUp.addColorStop(0, '#f06a50');
+        gradUp.addColorStop(1, '#c03a28');
+        ctx.beginPath();
+        ctx.arc(x, beadY, localRomanAbacusController.ballRadius, 0, Math.PI * 2);
+        ctx.fillStyle = gradUp;
+        ctx.fill();
+        ctx.strokeStyle = '#4a2018';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x - 3, beadY - 3, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffead4';
+        ctx.fill();
+    }
+
+    for (let b = 0; b < 4; b++) {
+        const isActive = (b < lowerCount);
+        const pos = localRomanAbacusController.lowerPositions[b];
+        if (!pos) continue;
+        const beadY = isActive ? pos.activeY : pos.inactiveY;
+        let gradLow = ctx.createLinearGradient(x - 5, beadY - 4, x + 5, beadY + 4);
+        gradLow.addColorStop(0, '#7da0ae');
+        gradLow.addColorStop(1, '#3a6068');
+        ctx.beginPath();
+        ctx.arc(x, beadY, localRomanAbacusController.ballRadius - 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = gradLow;
+        ctx.fill();
+        ctx.strokeStyle = '#1a3a3a';
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x - 2.5, beadY - 2.5, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#c8e2ec';
+        ctx.fill();
+    }
 }
 
-function htRomanAbacusDrawLabel(c, ctx) {
-    const g = localRomanAbacusController;
-    const x = g.colX[c];
+function htRomanAbacusDrawLabels() {
+    const ctx = localRomanAbacusController.ctx;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.font = 'bold 18px Georgia, "Times New Roman", serif';
-    ctx.fillStyle = '#40280f';
-    ctx.fillText(g.SYMBOLS[c], x, 20);
-    ctx.font = '10px Verdana, sans-serif';
-    ctx.fillStyle = '#7c5a2c';
-    ctx.fillText(g.VALUES[c].toString(), x, 38);
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        const x = localRomanAbacusController.startX + c * localRomanAbacusController.colWidth;
+        ctx.font = 'bold 16px Georgia, "Times New Roman", serif';
+        ctx.fillStyle = '#40280f';
+        ctx.fillText(localRomanAbacusController.HEADINGS[c], x, 36);
+        ctx.font = '10px Verdana, sans-serif';
+        ctx.fillStyle = '#7a4a24';
+        ctx.fillText(localRomanAbacusController.PLACES[c].toString(), x, 56);
+    }
+}
+
+function htRomanAbacusDrawFrame() {
+    const ctx = localRomanAbacusController.ctx;
+    ctx.strokeStyle = '#f9eec7';
+    ctx.lineWidth = 2.5;
+    ctx.strokeRect(5, 5, localRomanAbacusController.canvasWidth - 10, localRomanAbacusController.canvasHeight - 10);
+    ctx.strokeStyle = '#b48b5a';
+    ctx.lineWidth = 1.8;
+    ctx.strokeRect(3, 3, localRomanAbacusController.canvasWidth - 6, localRomanAbacusController.canvasHeight - 6);
 }
 
 function htRomanAbacusRender() {
     const ctx = localRomanAbacusController.ctx;
     if (!ctx) return;
-    const W = localRomanAbacusController.W;
-    const H = localRomanAbacusController.H;
+    const W = localRomanAbacusController.canvasWidth;
+    const H = localRomanAbacusController.canvasHeight;
 
     ctx.clearRect(0, 0, W, H);
-
-    ctx.fillStyle = '#efe1bd';
+    ctx.fillStyle = '#fef5e0';
     ctx.fillRect(0, 0, W, H);
 
-    ctx.strokeStyle = '#6d451f';
-    ctx.lineWidth = 3;
-    ctx.strokeRect(2, 2, W - 4, H - 4);
-    ctx.strokeStyle = '#c9a05f';
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(6, 6, W - 12, H - 12);
+    ctx.globalAlpha = 0.2;
+    for (let i = 0; i < 60; i++) {
+        ctx.beginPath();
+        ctx.moveTo(0, i * 8);
+        ctx.lineTo(W, i * 8 + 3);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#c8b280';
+        ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
 
-    for (let c = 0; c < localRomanAbacusController.SYMBOLS.length; c++) {
-        htRomanAbacusDrawLabel(c, ctx);
+    htRomanAbacusDrawTrack();
+    htRomanAbacusDrawLabels();
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        htRomanAbacusDrawColumn(c);
     }
-    for (let c = 0; c < localRomanAbacusController.SYMBOLS.length; c++) {
-        htRomanAbacusDrawGroove(c, ctx);
-    }
-    for (let c = 0; c < localRomanAbacusController.SYMBOLS.length; c++) {
-        htRomanAbacusDrawColumn(c, ctx);
-    }
+    htRomanAbacusDrawFrame();
 }
 
-function htRomanAbacusHitTest(mx, my) {
-    const g = localRomanAbacusController;
-    for (let c = 0; c < g.SYMBOLS.length; c++) {
-        if (Math.abs(mx - g.colX[c]) > g.colW * 0.45) continue;
-        const gro = g.groove[c];
-        const n = g.CAPS[c];
-        if (my < gro.top || my > gro.top + gro.h) continue;
-        const step = gro.h / n;
-        let k = Math.floor((my - gro.top) / step);
-        if (k < 0) k = 0;
-        if (k >= n) k = n - 1;
-        return { col: c, k: k };
+function htRomanAbacusGetHitRegion(mouseX, mouseY) {
+    let colIdx = -1;
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        const centerX = localRomanAbacusController.startX + c * localRomanAbacusController.colWidth;
+        if (Math.abs(mouseX - centerX) < localRomanAbacusController.colWidth * 0.45) {
+            colIdx = c;
+            break;
+        }
+    }
+    if (colIdx === -1) return null;
+
+    const col = localRomanAbacusController.state[colIdx];
+    const centerX = localRomanAbacusController.startX + colIdx * localRomanAbacusController.colWidth;
+    const radius = localRomanAbacusController.ballRadius;
+
+    for (let u = 0; u < 1; u++) {
+        const pos = localRomanAbacusController.upperPositions[u];
+        if (!pos) continue;
+        const beadY = (u < col.upper) ? pos.activeY : pos.inactiveY;
+        if (Math.abs(mouseY - beadY) < radius + 8 && Math.hypot(mouseX - centerX, mouseY - beadY) < radius + 6) {
+            if (mouseY < localRomanAbacusController.decimalTrackTop - 2) {
+                return { type: 'upper', col: colIdx, beadIdx: u };
+            }
+        }
+    }
+
+    for (let b = 0; b < 4; b++) {
+        const pos = localRomanAbacusController.lowerPositions[b];
+        if (!pos) continue;
+        const beadY = (b < col.lower) ? pos.activeY : pos.inactiveY;
+        if (Math.abs(mouseY - beadY) < radius + 8 && Math.hypot(mouseX - centerX, mouseY - beadY) < radius + 6) {
+            if (mouseY > localRomanAbacusController.decimalTrackBottom + 2) {
+                return { type: 'lower', col: colIdx, beadIdx: b };
+            }
+        }
     }
     return null;
 }
 
-function htRomanAbacusToggle(col, k) {
-    const n = localRomanAbacusController.CAPS[col];
-    const a = localRomanAbacusController.state[col];
-    if (k < a) {
-        localRomanAbacusController.state[col] = k;
+function htRomanAbacusToggleUpper(col, beadIdx) {
+    const colState = localRomanAbacusController.state[col];
+    const currentUpper = colState.upper;
+    if (beadIdx < currentUpper) {
+        colState.upper = beadIdx;
     } else {
-        localRomanAbacusController.state[col] = Math.min(n, k + 1);
+        colState.upper = beadIdx + 1;
+    }
+    if (colState.upper > 1) colState.upper = 1;
+    if (colState.upper < 0) colState.upper = 0;
+    htRomanAbacusRender();
+    htRomanAbacusUpdateDisplay();
+}
+
+function htRomanAbacusHandleLowerClick(col, beadIdx) {
+    const colState = localRomanAbacusController.state[col];
+    const currentLower = colState.lower;
+    const isActive = (beadIdx < currentLower);
+    if (isActive) {
+        let newLower = beadIdx;
+        if (newLower < 0) newLower = 0;
+        colState.lower = newLower;
+    } else {
+        let newLower = beadIdx + 1;
+        if (newLower > 4) newLower = 4;
+        colState.lower = newLower;
     }
     htRomanAbacusRender();
     htRomanAbacusUpdateDisplay();
@@ -211,8 +334,8 @@ function htRomanAbacusFillGame() {
     const lvl = localRomanAbacusController.gameLvl || 0;
     localRomanAbacusController.currentTargetLevel = lvl;
 
-    const minV = [1, 10, 100, 1000][lvl];
-    const maxV = [9, 99, 999, 3999][lvl];
+    const minV = [1, 10, 100, 1000, 10000, 100000][lvl];
+    const maxV = [9, 99, 999, 9999, 99999, 999999][lvl];
     cmp.innerText = (Math.floor(Math.random() * (maxV - minV + 1)) + minV).toString();
 
     localRomanAbacusController.gameLvl = lvl + 1;
@@ -228,7 +351,7 @@ function htRomanAbacusUpdateDisplay() {
     if (vEl) vEl.innerText = val.toString();
 
     const rEl = document.getElementById('romanAbacusRoman');
-    if (rEl) rEl.innerText = htRomanAbacusComputeRoman();
+    if (rEl) rEl.innerHTML = htRomanAbacusRomanHTML(val);
 
     const cmp = document.getElementById('romanAbacusCMP');
     const sv = document.getElementById('romanAbacusSuccess');
@@ -248,8 +371,9 @@ function htRomanAbacusUpdateDisplay() {
 }
 
 function htRomanAbacusReset() {
-    for (let c = 0; c < localRomanAbacusController.SYMBOLS.length; c++) {
-        localRomanAbacusController.state[c] = 0;
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        localRomanAbacusController.state[c].upper = 0;
+        localRomanAbacusController.state[c].lower = 0;
     }
     const fb = document.getElementById('romanAbacusFeedback');
     if (fb) fb.innerHTML = '';
@@ -258,30 +382,34 @@ function htRomanAbacusReset() {
     htRomanAbacusUpdateDisplay();
 }
 
-function htRomanAbacusHandleClick(e) {
+function htRomanAbacusHandleCanvasStart(e) {
     const cvs = localRomanAbacusController.canvas;
     if (!cvs) return;
     const rect = cvs.getBoundingClientRect();
-    const sx = cvs.width / rect.width;
-    const sy = cvs.height / rect.height;
-    let cx, cy;
+    const scaleX = cvs.width / rect.width;
+    const scaleY = cvs.height / rect.height;
+    let clientX, clientY;
     if (e.touches) {
-        cx = e.touches[0].clientX;
-        cy = e.touches[0].clientY;
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
         e.preventDefault();
     } else {
-        cx = e.clientX;
-        cy = e.clientY;
+        clientX = e.clientX;
+        clientY = e.clientY;
     }
-    const hit = htRomanAbacusHitTest((cx - rect.left) * sx, (cy - rect.top) * sy);
-    if (hit) htRomanAbacusToggle(hit.col, hit.k);
+    const canvasX = (clientX - rect.left) * scaleX;
+    const canvasY = (clientY - rect.top) * scaleY;
+    const hit = htRomanAbacusGetHitRegion(canvasX, canvasY);
+    if (!hit) return;
+    if (hit.type === 'upper') htRomanAbacusToggleUpper(hit.col, hit.beadIdx);
+    else if (hit.type === 'lower') htRomanAbacusHandleLowerClick(hit.col, hit.beadIdx);
 }
 
-function htRomanAbacusBindEvents() {
+function htRomanAbacusAttachEvents() {
     const cvs = localRomanAbacusController.canvas;
     if (!cvs) return;
-    cvs.addEventListener('click', htRomanAbacusHandleClick);
-    cvs.addEventListener('touchstart', htRomanAbacusHandleClick, { passive: false });
+    cvs.addEventListener('mousedown', htRomanAbacusHandleCanvasStart);
+    cvs.addEventListener('touchstart', htRomanAbacusHandleCanvasStart, { passive: false });
 
     const rb = document.getElementById('romanAbacusResetBtn');
     if (rb) rb.addEventListener('click', htRomanAbacusReset);
@@ -293,7 +421,6 @@ function htRomanAbacusBindEvents() {
 }
 
 function htRomanAbacusInit() {
-    localRomanAbacusController.currentTargetLevel = 0;
     localRomanAbacusController.canvas = document.getElementById('romanAbacusCanvas');
     if (!localRomanAbacusController.canvas) return;
     localRomanAbacusController.ctx = localRomanAbacusController.canvas.getContext('2d');
@@ -301,7 +428,7 @@ function htRomanAbacusInit() {
 
     htRomanAbacusInitState();
     htRomanAbacusComputeLayout();
-    htRomanAbacusBindEvents();
+    htRomanAbacusAttachEvents();
     htRomanAbacusRender();
     htRomanAbacusFillGame();
     htRomanAbacusUpdateDisplay();
@@ -309,6 +436,7 @@ function htRomanAbacusInit() {
 
 function htRomanAbacusLoadContent() {
     localRomanAbacusController.gameLvl = 0;
+    localRomanAbacusController.currentTargetLevel = 0;
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', htRomanAbacusInit);
     } else {
