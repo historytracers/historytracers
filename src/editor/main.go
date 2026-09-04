@@ -2118,7 +2118,7 @@ func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 	if _, err := uuid.Parse(q); err == nil {
 		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
 	} else {
-		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? ORDER BY s.src_id", likeQ)
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
 	}
 	if err != nil {
 		json.NewEncoder(w).Encode([]map[string]string{})
@@ -2375,6 +2375,8 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 		citType = v
 	}
 
+	srcURL = strings.TrimSpace(srcURL)
+
 	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
 	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
 		json.NewEncoder(w).Encode(map[string]string{"error": "database not found"})
@@ -2387,6 +2389,18 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer db.Close()
+
+	if srcURL != "" {
+		var existingID string
+		err := db.QueryRow(`SELECT src_id FROM sources WHERE src_url = ? LIMIT 1`, srcURL).Scan(&existingID)
+		if err == nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "src_url already exists", "src_id": existingID})
+			return
+		} else if err != sql.ErrNoRows {
+			json.NewEncoder(w).Encode(map[string]string{"error": "failed to check duplicate src_url"})
+			return
+		}
+	}
 
 	tx, err := db.Begin()
 	if err != nil {
