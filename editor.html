@@ -69,7 +69,15 @@ select#langSelect option{color:#000;background:#fff}
 #editor .file-path .status.saved{background:#2e7d32;color:#fff}
 #editor .file-path select{background:#37474f;color:#b0bec5;border:1px solid #546e7a;border-radius:3px;font:11px/1.4 monospace;padding:1px 4px;outline:none;max-width:240px;cursor:pointer}
 #editor .file-path select:hover{border-color:#80cbc4}
-#editorBody{flex:1;display:flex;overflow:hidden}
+#editorBody{flex:1;display:flex;overflow:hidden;position:relative}
+#searchHighlightBackdrop{position:absolute;top:0;left:44px;right:0;bottom:0;padding:12px 12px 12px 8px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;white-space:pre-wrap;word-wrap:break-word;overflow:hidden;color:transparent;background:#1e272e;pointer-events:none;display:none;tab-size:2}
+#searchHighlightBackdrop mark{background:#e65100;color:transparent;border-radius:2px}
+#searchHighlightBackdrop mark.current{background:#ff9800;color:transparent;outline:1px solid #ffcc80}
+#editorArea.search-active{background:transparent !important;position:relative;z-index:1}
+.design-light #searchHighlightBackdrop{background:#fff}
+.design-light #searchHighlightBackdrop mark{background:#ffcc80}
+.design-light #searchHighlightBackdrop mark.current{background:#ff9800;outline:1px solid #e65100}
+.design-light #editorArea.search-active{background:transparent !important}
 #configFrame,#viewFrame{flex:1;border:none;width:100%;background:#fff}
 .tab.view{border-left:2px solid #80cbc4}
 #lineNumbers{width:44px;flex-shrink:0;padding:12px 6px 12px 10px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1b262c;color:#546e7a;text-align:right;overflow:hidden;user-select:none;border-right:1px solid #2b3b45}
@@ -245,6 +253,7 @@ input[type="date"]{color-scheme:dark}
 </div>
 <div id="editorBody" style="display:none">
 <div id="lineNumbers">1</div>
+<div id="searchHighlightBackdrop"></div>
 <textarea id="editorArea" spellcheck="false" wrap="soft" placeholder="Open a file to start editing"></textarea>
 </div>
 <iframe id="configFrame" style="display:none;flex:1;border:none;width:100%;background:#fff"></iframe>
@@ -823,6 +832,8 @@ function loadEditorState(index){
 	area.focus();
 	area.selectionStart=area.selectionEnd=t.cursorPos||0;
 	area.scrollTop=t.scrollPos||0;
+	if(document.getElementById('searchBar').classList.contains('open')) doSearch(); else updateSearchHighlight();
+	syncSearchScroll();
 	updateInsertBtn();
 	updateTreeSelection();
 }
@@ -1547,6 +1558,40 @@ function pasteFile(){
 var searchMatches=[];
 var searchIndex=-1;
 
+function syncSearchScroll(){
+	var area=document.getElementById('editorArea');
+	var bd=document.getElementById('searchHighlightBackdrop');
+	if(bd) {bd.scrollTop=area.scrollTop; bd.scrollLeft=area.scrollLeft;}
+}
+function updateSearchHighlight(){
+	var area=document.getElementById('editorArea');
+	var bd=document.getElementById('searchHighlightBackdrop');
+	if(!bd||!area) return;
+	var query=document.getElementById('searchInput').value;
+	if(!query||searchMatches.length===0){
+		bd.style.display='none';
+		bd.innerHTML='';
+		area.classList.remove('search-active');
+		return;
+	}
+	var val=area.value;
+	var html='';
+	var last=0;
+	for(var i=0;i<searchMatches.length;i++){
+		var pos=searchMatches[i];
+		html+=escHtml(val.substring(last,pos));
+		var m=escHtml(val.substring(pos,pos+query.length));
+		var cls=i===searchIndex?' class="current"':'';
+		html+='<mark'+cls+'>'+m+'</mark>';
+		last=pos+query.length;
+	}
+	html+=escHtml(val.substring(last));
+	if(val.length>0&&val.charAt(val.length-1)==='\n') html+='\n';
+	bd.innerHTML=html;
+	bd.style.display='block';
+	area.classList.add('search-active');
+	syncSearchScroll();
+}
 function openSearch(){
 	var sb=document.getElementById('searchBar');
 	sb.classList.add('open');
@@ -1556,6 +1601,7 @@ function openSearch(){
 	searchMatches=[];
 	searchIndex=-1;
 	document.getElementById('searchCount').textContent='';
+	updateSearchHighlight();
 }
 
 function closeSearch(){
@@ -1563,6 +1609,7 @@ function closeSearch(){
 	searchMatches=[];
 	searchIndex=-1;
 	document.getElementById('searchCount').textContent='';
+	updateSearchHighlight();
 }
 
 function doSearch(){
@@ -1572,6 +1619,7 @@ function doSearch(){
 		searchMatches=[];
 		searchIndex=-1;
 		document.getElementById('searchCount').textContent='';
+		updateSearchHighlight();
 		return
 	}
 	var val=area.value;
@@ -1590,6 +1638,7 @@ function doSearch(){
 		searchIndex=-1;
 		document.getElementById('searchCount').textContent='0 matches';
 	}
+	updateSearchHighlight();
 }
 
 function selectSearchMatch(focusArea){
@@ -1597,6 +1646,7 @@ function selectSearchMatch(focusArea){
 	var query=document.getElementById('searchInput').value;
 	if(searchIndex<0||searchIndex>=searchMatches.length){
 		document.getElementById('searchCount').textContent='0 matches';
+		updateSearchHighlight();
 		return
 	}
 	var pos=searchMatches[searchIndex];
@@ -1607,20 +1657,21 @@ function selectSearchMatch(focusArea){
 	var lineHeight=parseFloat(getComputedStyle(area).lineHeight);
 	area.scrollTop=Math.max(0,lines*lineHeight-area.clientHeight/3);
 	document.getElementById('searchCount').textContent=(searchIndex+1)+' of '+searchMatches.length;
+	syncSearchScroll();
+	updateSearchHighlight();
+	if(!focusArea) document.getElementById('searchInput').focus();
 }
 
 function searchNext(){
 	if(searchMatches.length===0)return;
 	searchIndex=(searchIndex+1)%searchMatches.length;
 	selectSearchMatch(false);
-	document.getElementById('searchInput').focus();
 }
 
 function searchPrev(){
 	if(searchMatches.length===0)return;
 	searchIndex=(searchIndex-1+searchMatches.length)%searchMatches.length;
 	selectSearchMatch(false);
-	document.getElementById('searchInput').focus();
 }
 
 function searchKeydown(e){
@@ -1631,6 +1682,16 @@ function searchKeydown(e){
 		closeSearch();
 	}
 }
+(function(){
+	var a=document.getElementById('editorArea');
+	if(a){
+		a.addEventListener('scroll', syncSearchScroll);
+		a.addEventListener('input', function(){
+			if(document.getElementById('searchBar').classList.contains('open')) doSearch();
+			else updateSearchHighlight();
+		});
+	}
+})();
 
 // --- Insert templates ---
 
