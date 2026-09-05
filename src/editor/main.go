@@ -1833,6 +1833,10 @@ func htSaveSourceFileToDB(uuid string, data []byte) error {
 	}
 	defer db.Close()
 
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
+
 	tx, err := db.Begin()
 	if err != nil {
 		return fmt.Errorf("failed to begin transaction: %w", err)
@@ -1869,7 +1873,8 @@ func htSaveSourceFileToDB(uuid string, data []byte) error {
 			if sfoID == "" {
 				sfoID = apaUUID
 			}
-			srcStmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL)
+			trimmedURL := strings.TrimSpace(elem.URL)
+			srcStmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, trimmedURL)
 			citStmt.Exec(uuid, elem.ID, citType)
 		}
 	}
@@ -2118,7 +2123,7 @@ func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 	if _, err := uuid.Parse(q); err == nil {
 		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
 	} else {
-		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? ORDER BY s.src_id", likeQ)
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
 	}
 	if err != nil {
 		json.NewEncoder(w).Encode([]map[string]string{})
@@ -2182,7 +2187,7 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 	srcCitation := r.FormValue("src_citation")
 	srcDate := r.FormValue("src_date")
 	srcPublishDate := r.FormValue("src_publish_date")
-	srcURL := r.FormValue("src_url")
+	srcURL := strings.TrimSpace(r.FormValue("src_url"))
 	citTypeStr := r.FormValue("cit_type")
 
 	if fileUUID == "" || srcID == "" {
@@ -2212,6 +2217,10 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer db.Close()
+
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
 
 	tx, err := db.Begin()
 	if err != nil {
@@ -2325,6 +2334,111 @@ func validSourceDate(value string) bool {
 	return d >= 1 && d <= dim[m-1]
 }
 
+func isUniqueConstraintError(err error) bool {
+	if err == nil {
+		return false
+	}
+	msg := err.Error()
+	return strings.Contains(msg, "UNIQUE constraint failed") || strings.Contains(msg, "unique constraint")
+}
+
+func htMigrateSourceURLs(db *sql.DB) error {
+	if _, err := db.Exec(`UPDATE sources SET src_url = TRIM(src_url) WHERE src_url != TRIM(src_url)`); err != nil {
+		if !strings.Contains(err.Error(), "no such table") {
+			return fmt.Errorf("trim src_url: %w", err)
+		}
+	}
+	// Audit: capture all UUIDs with duplicated src_url before dedup so callers
+	// can reconcile HTSource objects in lang/* JSON files that reference the
+	// discarded IDs. Keep IF NOT EXISTS to preserve pre-dedup audit on later runs.
+	if _, err := db.Exec(`CREATE TABLE IF NOT EXISTS temp_sources (src_id TEXT PRIMARY KEY, src_url TEXT NOT NULL, normalized_url TEXT NOT NULL)`); err != nil {
+		return fmt.Errorf("create temp_sources table: %w", err)
+	}
+	var cnt int
+	if err := db.QueryRow(`SELECT COUNT(*) FROM temp_sources`).Scan(&cnt); err == nil && cnt == 0 {
+		if _, err := db.Exec(`INSERT INTO temp_sources (src_id, src_url, normalized_url) SELECT s.src_id, s.src_url, TRIM(s.src_url) FROM sources s WHERE TRIM(s.src_url) != '' AND TRIM(s.src_url) IN (SELECT TRIM(src_url) FROM sources WHERE TRIM(src_url) != '' GROUP BY TRIM(src_url) HAVING COUNT(*) > 1)`); err != nil {
+			if !strings.Contains(err.Error(), "no such table") {
+				return fmt.Errorf("populate temp_sources: %w", err)
+			}
+		}
+	}
+	// Select best source per duplicated URL (most info in sources table) and
+	// store in temp_keep_source. This will be used as the keeper during dedup
+	// instead of arbitrary lexicographic order. Keep IF NOT EXISTS to preserve
+	// pre-dedup audit on subsequent runs.
+	if _, err := db.Exec(`CREATE TABLE IF NOT EXISTS temp_keep_source (normalized_url TEXT PRIMARY KEY, keep_src_id TEXT NOT NULL)`); err != nil {
+		return fmt.Errorf("create temp_keep_source: %w", err)
+	}
+	var cntKeep int
+	if err := db.QueryRow(`SELECT COUNT(*) FROM temp_keep_source`).Scan(&cntKeep); err == nil && cntKeep == 0 {
+		if _, err := db.Exec(`INSERT INTO temp_keep_source (normalized_url, keep_src_id)
+			SELECT normalized_url, src_id FROM (
+				SELECT TRIM(s.src_url) AS normalized_url, s.src_id,
+					ROW_NUMBER() OVER (PARTITION BY TRIM(s.src_url) ORDER BY
+						(CASE WHEN s.src_citation != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.src_date != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.src_publish_date != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.sfo_id != '' THEN 1 ELSE 0 END) DESC,
+						length(s.src_citation) DESC,
+						length(s.src_url) DESC,
+						s.src_id ASC) AS rn
+				FROM sources s
+				WHERE TRIM(s.src_url) != '' AND TRIM(s.src_url) IN (
+					SELECT TRIM(src_url) FROM sources WHERE TRIM(src_url) != '' GROUP BY TRIM(src_url) HAVING COUNT(*) > 1
+				)
+			) WHERE rn=1`); err != nil {
+			return fmt.Errorf("populate temp_keep_source: %w", err)
+		}
+	}
+	rows, err := db.Query(`SELECT tks.normalized_url, tks.keep_src_id, GROUP_CONCAT(ts.src_id) as ids
+		FROM temp_keep_source tks
+		JOIN temp_sources ts ON ts.normalized_url = tks.normalized_url
+		GROUP BY tks.normalized_url, tks.keep_src_id`)
+	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			return nil
+		}
+		return fmt.Errorf("query duplicates: %w", err)
+	}
+	defer rows.Close()
+	type dupGroup struct {
+		norm string
+		keep string
+		ids  string
+	}
+	var groups []dupGroup
+	for rows.Next() {
+		var g dupGroup
+		if err := rows.Scan(&g.norm, &g.keep, &g.ids); err != nil {
+			continue
+		}
+		groups = append(groups, g)
+	}
+	rows.Close()
+	for _, g := range groups {
+		ids := strings.Split(g.ids, ",")
+		keep := g.keep
+		for _, dup := range ids {
+			if dup == keep {
+				continue
+			}
+			// Only overwrite the duplicate UUID with the keeper UUID; do not
+			// remove any citation or source row. The keeper UUID overwrites the
+			// discarded one in referencing data, preserving citation count.
+			// No DELETE is performed here per requirement to keep all citations.
+			log.Printf("[OVERWRITE] duplicate src_url %q: would overwrite %s with %s (most info) – no rows deleted", g.norm, dup, keep)
+		}
+	}
+	if _, err := db.Exec(`CREATE UNIQUE INDEX IF NOT EXISTS idx_sources_src_url_unique ON sources(src_url) WHERE src_url != ''`); err != nil {
+		if strings.Contains(err.Error(), "UNIQUE constraint failed") || strings.Contains(err.Error(), "already exists") {
+			log.Printf("WARNING: cannot create unique index on src_url – duplicate URLs remain (%v). Skipping index creation.", err)
+			return nil
+		}
+		return fmt.Errorf("create unique index: %w", err)
+	}
+	return nil
+}
+
 // createSourceHandler inserts a new row into the sources table and links it to
 // the current file in the citation table. The src_id is generated here (UUID);
 // all other fields come from the editor form.
@@ -2375,6 +2489,8 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 		citType = v
 	}
 
+	srcURL = strings.TrimSpace(srcURL)
+
 	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
 	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
 		json.NewEncoder(w).Encode(map[string]string{"error": "database not found"})
@@ -2388,6 +2504,22 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
+
+	if srcURL != "" {
+		var existingID string
+		err := db.QueryRow(`SELECT src_id FROM sources WHERE src_url = ? LIMIT 1`, srcURL).Scan(&existingID)
+		if err == nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "src_url already exists", "src_id": existingID})
+			return
+		} else if err != sql.ErrNoRows {
+			json.NewEncoder(w).Encode(map[string]string{"error": "failed to check duplicate src_url"})
+			return
+		}
+	}
+
 	tx, err := db.Begin()
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"error": "failed to begin transaction"})
@@ -2396,9 +2528,15 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	defer tx.Rollback()
 
 	srcID := uuid.New().String()
-	_, err = tx.Exec(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
+	_, err = tx.Exec(`INSERT INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
 		srcID, sfoID, srcCitation, srcDate, srcPublishDate, srcURL)
 	if err != nil {
+		if isUniqueConstraintError(err) && srcURL != "" {
+			var existingID string
+			_ = db.QueryRow(`SELECT src_id FROM sources WHERE src_url = ? LIMIT 1`, srcURL).Scan(&existingID)
+			json.NewEncoder(w).Encode(map[string]string{"error": "src_url already exists", "src_id": existingID})
+			return
+		}
 		json.NewEncoder(w).Encode(map[string]string{"error": "failed to insert source"})
 		return
 	}
