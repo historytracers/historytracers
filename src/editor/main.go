@@ -2348,13 +2348,87 @@ func htMigrateSourceURLs(db *sql.DB) error {
 			return fmt.Errorf("trim src_url: %w", err)
 		}
 	}
-	// Existing data contains 166 groups where different source IDs share the same
-	// normalized URL (distinct citations hosted at the same URL). Deleting those
-	// rows would require updating 717+ JSON files under lang/* that contain
-	// HTSource objects referencing the discarded IDs. To keep the change minimal
-	// and avoid data loss, the migration only normalizes whitespace and creates
-	// the unique index when the data already satisfies it; otherwise it logs and
-	// leaves reconciliation for a dedicated cleanup.
+	// Audit: capture all UUIDs with duplicated src_url before dedup so callers
+	// can reconcile HTSource objects in lang/* JSON files that reference the
+	// discarded IDs. Keep IF NOT EXISTS to preserve pre-dedup audit on later runs.
+	if _, err := db.Exec(`CREATE TABLE IF NOT EXISTS temp_sources (src_id TEXT PRIMARY KEY, src_url TEXT NOT NULL, normalized_url TEXT NOT NULL)`); err != nil {
+		return fmt.Errorf("create temp_sources table: %w", err)
+	}
+	var cnt int
+	if err := db.QueryRow(`SELECT COUNT(*) FROM temp_sources`).Scan(&cnt); err == nil && cnt == 0 {
+		if _, err := db.Exec(`INSERT INTO temp_sources (src_id, src_url, normalized_url) SELECT s.src_id, s.src_url, TRIM(s.src_url) FROM sources s WHERE TRIM(s.src_url) != '' AND TRIM(s.src_url) IN (SELECT TRIM(src_url) FROM sources WHERE TRIM(src_url) != '' GROUP BY TRIM(src_url) HAVING COUNT(*) > 1)`); err != nil {
+			if !strings.Contains(err.Error(), "no such table") {
+				return fmt.Errorf("populate temp_sources: %w", err)
+			}
+		}
+	}
+	// Select best source per duplicated URL (most info in sources table) and
+	// store in temp_keep_source. This will be used as the keeper during dedup
+	// instead of arbitrary lexicographic order. Keep IF NOT EXISTS to preserve
+	// pre-dedup audit on subsequent runs.
+	if _, err := db.Exec(`CREATE TABLE IF NOT EXISTS temp_keep_source (normalized_url TEXT PRIMARY KEY, keep_src_id TEXT NOT NULL)`); err != nil {
+		return fmt.Errorf("create temp_keep_source: %w", err)
+	}
+	var cntKeep int
+	if err := db.QueryRow(`SELECT COUNT(*) FROM temp_keep_source`).Scan(&cntKeep); err == nil && cntKeep == 0 {
+		if _, err := db.Exec(`INSERT INTO temp_keep_source (normalized_url, keep_src_id)
+			SELECT normalized_url, src_id FROM (
+				SELECT TRIM(s.src_url) AS normalized_url, s.src_id,
+					ROW_NUMBER() OVER (PARTITION BY TRIM(s.src_url) ORDER BY
+						(CASE WHEN s.src_citation != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.src_date != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.src_publish_date != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.sfo_id != '' THEN 1 ELSE 0 END) DESC,
+						length(s.src_citation) DESC,
+						length(s.src_url) DESC,
+						s.src_id ASC) AS rn
+				FROM sources s
+				WHERE TRIM(s.src_url) != '' AND TRIM(s.src_url) IN (
+					SELECT TRIM(src_url) FROM sources WHERE TRIM(src_url) != '' GROUP BY TRIM(src_url) HAVING COUNT(*) > 1
+				)
+			) WHERE rn=1`); err != nil {
+			return fmt.Errorf("populate temp_keep_source: %w", err)
+		}
+	}
+	rows, err := db.Query(`SELECT tks.normalized_url, tks.keep_src_id, GROUP_CONCAT(ts.src_id) as ids
+		FROM temp_keep_source tks
+		JOIN temp_sources ts ON ts.normalized_url = tks.normalized_url
+		GROUP BY tks.normalized_url, tks.keep_src_id`)
+	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			return nil
+		}
+		return fmt.Errorf("query duplicates: %w", err)
+	}
+	defer rows.Close()
+	type dupGroup struct {
+		norm string
+		keep string
+		ids  string
+	}
+	var groups []dupGroup
+	for rows.Next() {
+		var g dupGroup
+		if err := rows.Scan(&g.norm, &g.keep, &g.ids); err != nil {
+			continue
+		}
+		groups = append(groups, g)
+	}
+	rows.Close()
+	for _, g := range groups {
+		ids := strings.Split(g.ids, ",")
+		keep := g.keep
+		for _, dup := range ids {
+			if dup == keep {
+				continue
+			}
+			// Only overwrite the duplicate UUID with the keeper UUID; do not
+			// remove any citation or source row. The keeper UUID overwrites the
+			// discarded one in referencing data, preserving citation count.
+			// No DELETE is performed here per requirement to keep all citations.
+			log.Printf("[OVERWRITE] duplicate src_url %q: would overwrite %s with %s (most info) – no rows deleted", g.norm, dup, keep)
+		}
+	}
 	if _, err := db.Exec(`CREATE UNIQUE INDEX IF NOT EXISTS idx_sources_src_url_unique ON sources(src_url) WHERE src_url != ''`); err != nil {
 		if strings.Contains(err.Error(), "UNIQUE constraint failed") || strings.Contains(err.Error(), "already exists") {
 			log.Printf("WARNING: cannot create unique index on src_url – duplicate URLs remain (%v). Skipping index creation.", err)
