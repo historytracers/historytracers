@@ -557,6 +557,30 @@
     }
 }
 
+/* Mesoamerican numerals in the numeral-system comparison tables (.tableTen) */
+.mesoNumTable td img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Narrow and portrait screens: let the columns and the Maya glyphs scale to fit */
+@media screen and (max-width: 767px), screen and (orientation: portrait) {
+  .mesoNumTable {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .mesoNumTable th,
+  .mesoNumTable td {
+    overflow-wrap: break-word;
+  }
+
+  .mesoNumTable th:first-child,
+  .mesoNumTable td:first-child {
+    width: 25%;
+  }
+}
+
 .yupana-btn {
   cursor: pointer;
   background: ghostwhite;
