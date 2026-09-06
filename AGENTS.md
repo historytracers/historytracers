@@ -19,9 +19,15 @@ A "group of files" is identified by a single UUID, e.g. `e0380670-cd02-46e8-abb8
    - `lang/<lang>/first_steps.json`
    - `lang/<lang>/math_games.json` (for games/exercises)
    Add a `group-list` entry object with `id`, `name`, `desc`, `date_time: null`, matching the surrounding entries.
-6. Register in the sources DB `lang/sources/history_tracers.db`:
-   - `INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES ('<uuid>', '<title>');`
-   - For every cited source in the content: `INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES ('<uuid>', '<src-uuid>', 1);` (type 1 = reference).
+6. Register in the sources DB `lang/sources/history_tracers.db` (do this even if the content JSON was created first):
+   1. Add one row to `files` for the new UUID using the **English** `title`:
+      - `INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES ('<uuid>', '<English title>');`
+   2. For **every** distinct source cited in the content, add a row to `citation` that links the file (the `fil_id` just added to `files`) with the source (`src_id` as it exists in the `sources` table). `cit_type` must match the JSON `source[].type` used in the content (0 = primary source, 1 = reference):
+      - `INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES ('<uuid>', '<src-uuid>', 1);`
+      - To find the list of cited sources automatically, collect the distinct `source[].uuid` values from `content[].text[].source[]` across `lang/{en-US,es-ES,pt-BR}/<uuid>.json`.
+      - If a cited uuid is **not** present in the `sources` table, add it first (same pattern as other History Tracers content rows, e.g. `INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES ('<uuid>', 'a1b2c3d4-0000-4000-8000-000000000001', 'History Tracers Team (<year>). <Title>', '<created>', '<published>', '');`).
+   3. Verify every mention is linked with a join against `sources`:
+      - `SELECT c.fil_id, f.fil_desc, c.src_id, s.src_citation, c.cit_type FROM citation c LEFT JOIN files f ON f.fil_id = c.fil_id LEFT JOIN sources s ON s.src_id = c.src_id WHERE c.fil_id = '<uuid>';`
 7. Validate with the prebuilt publisher (`build/historytracers-publisher`):
    - `build/historytracers-publisher -langtest en-US:<uuid>` — checks JSON and line-count consistency.
    - `build/historytracers-publisher -globalangtest` — checks all UUID files.
