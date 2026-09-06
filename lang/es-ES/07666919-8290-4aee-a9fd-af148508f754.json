@@ -179,7 +179,7 @@
          "id": "SECTION_tens",
          "text": [
             {
-               "text": "### Las decenas (del 10 al 99)\n\nYa conocemos el número 10, que se escribe con el símbolo X. En esta sección aprenderemos a escribir todos los números del 10 al 99.\n\nEn el texto anterior aprendimos un patrón para escribir los números del 1 al 9 con I, V y X: repetimos la unidad I para contar, el valor 5 tiene su propio símbolo (V) y, cuando se coloca un símbolo menor antes de uno mayor, se resta (<htcite0>; <htcite1>).",
+               "text": "### Las decenas (del 10 al 99)\n\nYa conocemos el número 10, que se escribe con el símbolo X. En esta sección aprenderemos a escribir todos los números del 10 al 99.\n\nEn el texto anterior aprendimos un patrón para escribir los números del 1 al 9 con I, V y X: repetimos la unidad I para contar, el valor 5 tiene su propio símbolo (V) y, cuando se coloca un símbolo menor antes de uno mayor, se devuelve (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -213,7 +213,7 @@
                "PostMention": ""
             },
             {
-               "text": "Las decenas siguen el mismo patrón. En las decenas, la unidad es el símbolo X, que vale 10; el valor medio es L, que vale 50; y el valor que sigue es C, que vale 100. Por lo tanto:\n- Cuatro decenas se escriben XL (X antes de L: 50 menos 10);\n- Cinco decenas se escriben L;\n- Nueve decenas se escriben XC (X antes de C: 100 menos 10).\n\nLa **Tabla 2** muestra los múltiplos de diez del 10 al 90.",
+               "text": "Las decenas siguen el mismo patrón. En las decenas, la unidad es el símbolo X, que vale 10; el valor medio es L, que vale 50; y el valor que sigue es C, que vale 100. Por lo tanto:\n- Cuatro decenas se escriben XL (X antes de L: 10 se devuelve de 50);\n- Cinco decenas se escriben L;\n- Nueve decenas se escriben XC (X antes de C: 10 se devuelve de 100).\n\nLa **Tabla 2** muestra los múltiplos de diez del 10 al 90.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -254,7 +254,7 @@
          "id": "SECTION_hundreds",
          "text": [
             {
-               "text": "### Las centenas (del 100 al 999)\n\nPara escribir los números del 100 al 999, seguimos una vez más el mismo patrón. En las centenas, la unidad es el símbolo C, que vale 100; el valor medio es D, que vale 500; y el valor que sigue es M, que vale 1000. Por lo tanto:\n- Cuatro centenas se escriben CD (C antes de D: 500 menos 100);\n- Cinco centenas se escriben D;\n- Nueve centenas se escriben CM (C antes de M: 1000 menos 100).\n\nLa **Tabla 3** muestra los múltiplos de cien del 100 al 900.",
+               "text": "### Las centenas (del 100 al 999)\n\nPara escribir los números del 100 al 999, seguimos una vez más el mismo patrón. En las centenas, la unidad es el símbolo C, que vale 100; el valor medio es D, que vale 500; y el valor que sigue es M, que vale 1000. Por lo tanto:\n- Cuatro centenas se escriben CD (C antes de D: 100 se devuelve de 500);\n- Cinco centenas se escriben D;\n- Nueve centenas se escriben CM (C antes de M: 100 se devuelve de 1000).\n\nLa **Tabla 3** muestra los múltiplos de cien del 100 al 900.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -425,12 +425,12 @@
       {
          "question": "En este texto, ¿el número 40 se escribe como XL?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Sí. XL significa que X (10) se coloca antes de L (50); por lo tanto, restamos: 50 menos 10 es 40."
+         "additionalInfo": "Sí. XL significa que X (10) se coloca antes de L (50); por lo tanto, 10 se devuelve de 50, dando 40."
       },
       {
          "question": "En este texto, ¿el número 900 se escribe como CCCC?",
          "yesNoAnswer": "No",
-         "additionalInfo": "No. Siguiendo el patrón que estudiamos, 900 se escribe como CM: C (100) antes de M (1000), es decir, 1000 menos 100."
+         "additionalInfo": "No. Siguiendo el patrón que estudiamos, 900 se escribe como CM: C (100) antes de M (1000), es decir, 100 se devuelve de 1000."
       }
    ],
    "game_v2": null,
