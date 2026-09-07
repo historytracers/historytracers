@@ -9,12 +9,12 @@
    ],
    "audio": [
       {
-         "url": "https://www.historytracers.org/audios/",
+         "url": "https://www.historytracers.org/audios/1aacf33a-fb94-4535-a66f-3997087fa404_es-ES.ogg",
          "external": true,
          "spotify": false
       },
       {
-         "url": "https://open.spotify.com/episode/",
+         "url": "https://open.spotify.com/episode/39GPcSOcIwBjVOBQlDFxHm?si=bykrOIPuQvqbFB-GzLYhaA",
          "external": true,
          "spotify": true
       }
@@ -27,13 +27,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788571146"
+      "1788721682"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -65,7 +65,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEste texto continúa el estudio de los números etrusco-romanos. Por lo tanto, recomendamos leer los textos anteriores sobre su origen (<htcite0>) y sobre cómo escribir los números con sus siete símbolos (<htcite1>) antes de continuar.",
+               "text": "### Prerrequisitos\n\nEste texto continúa el estudio de los números etrusco-romanos. Por lo tanto, recomendamos leer los textos anteriores sobre su origen (<htcite0>) y sobre cómo escribir los números con sus siete símbolos (<htcite1>; <htcite2>) antes de continuar.",
                "source": [
                   {
                      "type": 1,
@@ -89,6 +89,18 @@
                         "year": "2026",
                         "month": "",
                         "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9cf2c23-7f0f-4e73-9ba2-2b53c7b60f05",
+                     "text": "History Tracers Team",
+                     "page": "Números etrusco-romanos grandes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "09",
+                        "day": "06"
                      }
                   }
                ],
@@ -176,7 +188,7 @@
          "id": "SECTION_history",
          "text": [
             {
-               "text": "### El ábaco en Europa\n\nAunque hablemos del ábaco romano, parece que los romanos no fueron los primeros en darse cuenta de que esta herramienta era útil en Europa.\n\n#### Respondiendo a una necesidad\nLas primeras evidencias del ábaco en Europa son la tablilla encontrada en la isla de Salamina, Grecia, datada en <htdate0> (<htcite0>; <htcite1>).\n\nSegún Keith E. Sugden, los griegos necesitaban agilizar sus cálculos durante la expansión comercial y las negociaciones en el mar Mediterráneo, lo que los llevó a crear herramientas de cálculo. Además, los romanos ya poseían una notación numérica más sencilla, que facilitaba operaciones como la suma y la resta (<htcite2>).\n\n#### En Roma\n\nAunque llamemos al instrumento romano \"ábaco\", no hay evidencias de que los romanos hayan utilizado ese nombre para su herramienta de cálculo. El término más común era *calculi* (<htcite3>).\n\nEl instrumento que ha llegado hasta nosotros se parece mucho a los ábacos creados en China (Zhongguo, 中國) y en Japón (Nippon koku or Nihon koku, 日本国): tiene una división con un marcador superior que vale 5 (V) y marcadores inferiores que valen 1 cada uno (I) (<htcite4>; <htcite5>).",
+               "text": "### El ábaco en Europa\n\nAunque hablemos del ábaco romano, parece que los romanos no fueron los primeros en darse cuenta de que esta herramienta era útil en Europa.\n\n#### Respondiendo a una necesidad\nLa primera evidencia del ábaco en Europa es la tablilla encontrada en la isla de Salamina, Grecia, datada en <htdate0> (<htcite0>; <htcite1>).\n\nSegún Keith E. Sugden, los griegos necesitaban agilizar sus cálculos durante la expansión comercial y las negociaciones en el mar Mediterráneo, lo que los llevó a crear herramientas de cálculo. Además, los romanos ya poseían una notación numérica más sencilla, que facilitaba operaciones como la suma y la resta (<htcite2>).\n\n#### En Roma\n\nAunque llamemos al instrumento romano \"ábaco\", no hay evidencias de que los romanos hayan utilizado ese nombre para su herramienta de cálculo. El término más común era *calculi* (<htcite3>).\n\nEl instrumento que ha llegado hasta nosotros se parece mucho a los ábacos creados en China (Zhongguo, 中國) y en Japón (Nippon koku or Nihon koku, 日本国): tiene una división con un marcador superior que vale 5 (V) y marcadores inferiores que valen 1 cada uno (I) (<htcite4>; <htcite5>).",
                "source": [
                   {
                      "type": 1,
@@ -292,7 +304,7 @@
                "PostMention": ""
             },
             {
-               "text": "En la aplicación de abajo usamos las columnas del ábaco romano arqueológico. De izquierda a derecha, están marcadas con (((I))), ((I)), (I), C, X e I, que representan los cientos de miles, los decenas de miles, los miles, las centenas, las decenas y las unidades. En este ábaco, un mil se marca como (I), diez mil como ((I)) y cien mil como (((I))).\n\nRepresenta el número que se muestra más abajo: mueve las cuentas de las columnas hasta que el valor indicado sea igual al número pedido. Mientras mueves las cuentas, la aplicación muestra el número en números indo-árabes y en números romanos. Haz clic en **Reiniciar** para recibir un nuevo número y practicar de nuevo.",
+               "text": "En la aplicación de abajo usamos las columnas del ábaco romano arqueológico. De izquierda a derecha, están marcadas con (((I))), ((I)), (I), C, X e I, que representan los cientos de millares, las decenas de millares, los millares, las centenas, las decenas y las unidades. En este ábaco, un mil se marca como (I), diez mil como ((I)) y cien mil como (((I))).\n\nRepresenta el número que se muestra más abajo: mueve las cuentas de las columnas hasta que el valor indicado sea igual al número pedido. Mientras mueves las cuentas, la aplicación muestra el número en números indo-árabes y en números romanos. Haz clic en **Reiniciar** para recibir un nuevo número y practicar de nuevo.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -310,7 +322,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"roman-abacus-container\"><div class=\"roman-abacus-frame\"><canvas id=\"romanAbacusCanvas\" width=\"700\" height=\"460\" style=\"width:100%; height:auto; max-width:680px; aspect-ratio:700/460\"></canvas></div><div class=\"roman-abacus-panel\"><div class=\"roman-abacus-panel-left\"><div class=\"roman-abacus-readout\">Indo-árabe: <span id=\"romanAbacusValue\">0</span></div><div class=\"roman-abacus-readout roman-abacus-readout-roman\">Romano: <span id=\"romanAbacusRoman\"></span></div><div id=\"romanAbacusSuccess\" class=\"roman-abacus-success\">&#10003; &#161;Correcto!</div></div><button id=\"romanAbacusResetBtn\" class=\"roman-abacus-reset\">&#8634; Reiniciar</button></div><div class=\"roman-abacus-game-area\"><span class=\"roman-abacus-game-label\">Representa el n&#250;mero:</span><span id=\"romanAbacusCMP\" class=\"roman-abacus-game-target\">0</span></div><div id=\"romanAbacusFeedback\"></div><div class=\"text-store\" style=\"display:none\"><span id=\"txt_romanAbacusFinalMessage\">&#127881;&#127942; &#161;TODOS LOS NIVELES COMPLETADOS! &#127942;&#127881;<br>&#161;Dominaste el &#225;baco romano! Haz clic en &quot;Reiniciar&quot; para empezar de nuevo en el nivel 1.</span></div></div>",
+               "text": "<div class=\"roman-abacus-container\"><div class=\"roman-abacus-frame\"><canvas id=\"romanAbacusCanvas\" width=\"700\" height=\"460\" tabindex=\"0\" role=\"application\" aria-label=\"Ábaco romano interactivo\" style=\"width:100%; height:auto; max-width:680px; aspect-ratio:700/460\"></canvas></div><div class=\"roman-abacus-panel\"><div class=\"roman-abacus-panel-left\"><div class=\"roman-abacus-readout\">Indo-árabe: <span id=\"romanAbacusValue\">0</span></div><div class=\"roman-abacus-readout roman-abacus-readout-roman\">Romano: <span id=\"romanAbacusRoman\"></span></div><div id=\"romanAbacusSuccess\" class=\"roman-abacus-success\">&#10003; &#161;Correcto!</div></div><button id=\"romanAbacusResetBtn\" class=\"roman-abacus-reset\">&#8634; Reiniciar</button></div><div class=\"roman-abacus-game-area\"><span class=\"roman-abacus-game-label\">Representa el n&#250;mero:</span><span id=\"romanAbacusCMP\" class=\"roman-abacus-game-target\">0</span></div><div id=\"romanAbacusFeedback\"></div><div class=\"text-store\" style=\"display:none\"><span id=\"txt_romanAbacusFinalMessage\">&#127881;&#127942; &#161;TODOS LOS NIVELES COMPLETADOS! &#127942;&#127881;<br>&#161;Dominaste el &#225;baco romano! Haz clic en &quot;Reiniciar&quot; para empezar de nuevo en el nivel 1.</span></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,

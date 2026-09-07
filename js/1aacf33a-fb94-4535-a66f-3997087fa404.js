@@ -405,11 +405,41 @@ function htRomanAbacusHandleCanvasStart(e) {
     else if (hit.type === 'lower') htRomanAbacusHandleLowerClick(hit.col, hit.beadIdx);
 }
 
+function htRomanAbacusHandleKeydown(e) {
+    const headings = localRomanAbacusController.HEADINGS;
+    if (!localRomanAbacusController.focusedCol && localRomanAbacusController.focusedCol !== 0) {
+        localRomanAbacusController.focusedCol = 0;
+    }
+    let col = localRomanAbacusController.focusedCol;
+    if (e.key === 'ArrowLeft') {
+        localRomanAbacusController.focusedCol = Math.max(0, col - 1);
+        e.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+        localRomanAbacusController.focusedCol = Math.min(headings.length - 1, col + 1);
+        e.preventDefault();
+    } else if (e.key === 'ArrowUp' || e.key === '5') {
+        htRomanAbacusToggleUpper(col, 0);
+        e.preventDefault();
+    } else if (e.key === 'ArrowDown' || e.key === '1') {
+        const colState = localRomanAbacusController.state[col];
+        const nextLower = colState.lower < 4 ? colState.lower : 3;
+        htRomanAbacusHandleLowerClick(col, nextLower);
+        e.preventDefault();
+    } else if (e.key === '0') {
+        localRomanAbacusController.state[col].upper = 0;
+        localRomanAbacusController.state[col].lower = 0;
+        htRomanAbacusRender();
+        htRomanAbacusUpdateDisplay();
+        e.preventDefault();
+    }
+}
+
 function htRomanAbacusAttachEvents() {
     const cvs = localRomanAbacusController.canvas;
     if (!cvs) return;
     cvs.addEventListener('mousedown', htRomanAbacusHandleCanvasStart);
     cvs.addEventListener('touchstart', htRomanAbacusHandleCanvasStart, { passive: false });
+    cvs.addEventListener('keydown', htRomanAbacusHandleKeydown);
 
     const rb = document.getElementById('romanAbacusResetBtn');
     if (rb) rb.addEventListener('click', htRomanAbacusReset);

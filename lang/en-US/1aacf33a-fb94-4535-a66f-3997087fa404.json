@@ -9,12 +9,12 @@
    ],
    "audio": [
       {
-         "url": "https://www.historytracers.org/audios/",
+         "url": "https://www.historytracers.org/audios/1aacf33a-fb94-4535-a66f-3997087fa404_en-US.ogg",
          "external": true,
          "spotify": false
       },
       {
-         "url": "https://open.spotify.com/episode/",
+         "url": "https://open.spotify.com/episode/4xwEjNB1EjoPt0pigIWqCL?si=koDDbOfDS6KrI43IhQaE_g",
          "external": true,
          "spotify": true
       }
@@ -27,13 +27,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788571115"
+      "1788721634"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -65,7 +65,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text continues the study of the Etruscan-Roman numbers. Therefore, we recommend reading the previous texts about their origin (<htcite0>) and about how to write numbers with their seven symbols (<htcite1>) before continuing.",
+               "text": "### Prerequisites\n\nThis text continues the study of the Etruscan-Roman numbers. Therefore, we recommend reading the previous texts about their origin (<htcite0>) and about how to write numbers with their seven symbols (<htcite1>; <htcite2>) before continuing.",
                "source": [
                   {
                      "type": 1,
@@ -90,6 +90,18 @@
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9cf2c23-7f0f-4e73-9ba2-2b53c7b60f05",
+                     "text": "History Tracers Team",
+                     "page": "Large Etruscan-Roman numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "09",
+                        "day": "06"
+                     }
                   }
                ],
                "date_time": null,
@@ -104,7 +116,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nIn the texts we have studied so far, we saw three different abacuses, all of them created in Asia: the Soroban, the Suanpan (算盤) and the Schyoty (счёты) (<htcite0>; <htcite1>; <htcite2>). We also learned about the Yupana, a tool to calculate created by the Indigenous peoples of the Andes, in *Abya Yala* (America) (<htcite3>).",
+               "text": "### Introduction\n\nIn the texts we have studied so far, we saw three different abacuses, all of them created in Asia: the Soroban, the Suanpan (算盤) and the Schyoty (счёты) (<htcite0>; <htcite1>; <htcite2>). We also learned about the Yupana, a calculating tool created by the Indigenous peoples of the Andes, in *Abya Yala* (America) (<htcite3>).",
                "source": [
                   {
                      "type": 1,
@@ -162,7 +174,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: And Europe?</b><br /><br />We have seen calculating tools created in Asia, such as the Soroban, the Suanpan (算盤) and the Schyoty (счёты), and in <i>Abya Yala</i> (America), such as the Yupana. Given the knowledge exchanged between peoples, do you believe that Europe also created a tool to calculate?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: And Europe?</b><br /><br />We have seen calculating tools created in Asia, such as the Soroban, the Suanpan (算盤) and the Schyoty (счёты), and in <i>Abya Yala</i> (America), such as the Yupana. Given the knowledge exchanged between peoples, do you think that Europe also created a calculating tool?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -270,7 +282,7 @@
          "id": "SECTION_practicing",
          "text": [
             {
-               "text": "### The Roman abacus\n\nIn the reflection, we asked whether Europe also created a tool to calculate. The answer is yes: to calculate, the Romans used their own abacus, which has a shape similar to the Soroban (<htcite0>). Like the Soroban, each of its columns has an upper bead that counts for 5 and four lower beads that each count for 1.",
+               "text": "### The Roman abacus\n\nIn the reflection, we asked whether Europe also created a calculating tool. The answer is yes: to calculate, the Romans used their own abacus, which has a shape similar to the Soroban (<htcite0>). Like the Soroban, each of its columns has an upper bead that counts for 5 and four lower beads that each count for 1.",
                "source": [
                   {
                      "type": 1,
@@ -310,7 +322,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"roman-abacus-container\"><div class=\"roman-abacus-frame\"><canvas id=\"romanAbacusCanvas\" width=\"700\" height=\"460\" style=\"width:100%; height:auto; max-width:680px; aspect-ratio:700/460\"></canvas></div><div class=\"roman-abacus-panel\"><div class=\"roman-abacus-panel-left\"><div class=\"roman-abacus-readout\">Indo-Arabic: <span id=\"romanAbacusValue\">0</span></div><div class=\"roman-abacus-readout roman-abacus-readout-roman\">Roman: <span id=\"romanAbacusRoman\"></span></div><div id=\"romanAbacusSuccess\" class=\"roman-abacus-success\">&#10003; Correct!</div></div><button id=\"romanAbacusResetBtn\" class=\"roman-abacus-reset\">&#8634; Restart</button></div><div class=\"roman-abacus-game-area\"><span class=\"roman-abacus-game-label\">Represent the number:</span><span id=\"romanAbacusCMP\" class=\"roman-abacus-game-target\">0</span></div><div id=\"romanAbacusFeedback\"></div><div class=\"text-store\" style=\"display:none\"><span id=\"txt_romanAbacusFinalMessage\">&#127881;&#127942; ALL LEVELS COMPLETE! &#127942;&#127881;<br>You mastered the Roman abacus! Click &quot;Restart&quot; to start again at level 1.</span></div></div>",
+               "text": "<div class=\"roman-abacus-container\"><div class=\"roman-abacus-frame\"><canvas id=\"romanAbacusCanvas\" width=\"700\" height=\"460\" tabindex=\"0\" role=\"application\" aria-label=\"Roman abacus interactive canvas\" style=\"width:100%; height:auto; max-width:680px; aspect-ratio:700/460\"></canvas></div><div class=\"roman-abacus-panel\"><div class=\"roman-abacus-panel-left\"><div class=\"roman-abacus-readout\">Indo-Arabic: <span id=\"romanAbacusValue\">0</span></div><div class=\"roman-abacus-readout roman-abacus-readout-roman\">Roman: <span id=\"romanAbacusRoman\"></span></div><div id=\"romanAbacusSuccess\" class=\"roman-abacus-success\">&#10003; Correct!</div></div><button id=\"romanAbacusResetBtn\" class=\"roman-abacus-reset\">&#8634; Restart</button></div><div class=\"roman-abacus-game-area\"><span class=\"roman-abacus-game-label\">Represent the number:</span><span id=\"romanAbacusCMP\" class=\"roman-abacus-game-target\">0</span></div><div id=\"romanAbacusFeedback\"></div><div class=\"text-store\" style=\"display:none\"><span id=\"txt_romanAbacusFinalMessage\">&#127881;&#127942; ALL LEVELS COMPLETE! &#127942;&#127881;<br>You mastered the Roman abacus! Click &quot;Restart&quot; to start again at level 1.</span></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,

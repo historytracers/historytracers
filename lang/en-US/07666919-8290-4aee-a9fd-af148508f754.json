@@ -9,12 +9,12 @@
    ],
    "audio": [
       {
-         "url": "https://www.historytracers.org/audios/",
+         "url": "https://www.historytracers.org/audios/07666919-8290-4aee-a9fd-af148508f754_en-US.ogg",
          "external": true,
          "spotify": false
       },
       {
-         "url": "https://open.spotify.com/episode/",
+         "url": "https://open.spotify.com/episode/4YajygMwqViXkgZFihn0dM?si=mjRMiYfIQvWfjb6JzJK8Ew",
          "external": true,
          "spotify": true
       }
@@ -104,7 +104,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nIn the previous texts, we learned that the Etruscan-Roman numbers, also known as Latin numbers, use only seven symbols (<htcite0>) and we learned to write, with three of them, all the numbers between 1 and 10 (<htcite1>).\n\n**Table 1** reminds us of the seven symbols and their values.",
+               "text": "### Introduction\n\nIn the previous texts, we learned that the Etruscan-Roman numbers, also known as Latin numbers, use only seven symbols (<htcite0>) and we learned to write all the numbers between 1 and 10 with three of them (<htcite1>).\n\n**Table 1** reminds us of the seven symbols and their values.",
                "source": [
                   {
                      "type": 1,
@@ -165,7 +165,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: How to use the other symbols?</b><br /><br />To write the numbers between 1 and 10, we used only the symbols I, V and X. How could we use the symbols L, C, D and M to write numbers greater than 10? What relationship do these symbols have with the three we have already used?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: How can we use the other symbols?</b><br /><br />To write the numbers between 1 and 10, we used only the symbols I, V and X. How could we use the symbols L, C, D and M to write numbers greater than 10? What relationship do these symbols have with the three we have already used?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -179,7 +179,7 @@
          "id": "SECTION_tens",
          "text": [
             {
-               "text": "### The tens (from 10 to 99)\n\nWe already know the number 10, written with the symbol X. In this section we will learn to write every number from 10 to 99.\n\nIn the previous text, we learned a pattern to write the numbers from 1 to 9 with I, V and X: we repeat the unit I to count, the value 5 has its own symbol (V), and when a smaller symbol is placed before a larger one, it is subtracted (<htcite0>; <htcite1>).",
+               "text": "### The tens (from 10 to 99)\n\nWe already know the number 10, written with the symbol X. In this section we will learn to write every number from 10 to 99.\n\nIn the previous text, we learned a pattern to write the numbers from 1 to 9 with I, V and X: we repeat the unit I to count, the value 5 has its own symbol (V), and when a smaller symbol is placed before a larger one, its value returns from the larger one (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -213,7 +213,7 @@
                "PostMention": ""
             },
             {
-               "text": "The tens follow the same pattern. In the tens, the unit is the symbol X, worth 10; the middle value is L, worth 50; and the value that follows is C, worth 100. Therefore:\n- Four tens are written XL (X before L: 50 minus 10);\n- Five tens are written L;\n- Nine tens are written XC (X before C: 100 minus 10).\n\n**Table 2** shows the multiples of ten from 10 to 90.",
+               "text": "The tens follow the same pattern. In the tens, the unit is the symbol X, worth 10; the middle value is L, worth 50; and the value that follows is C, worth 100. Therefore:\n- Four tens are written XL (X before L: 10 returns from 50);\n- Five tens are written L;\n- Nine tens are written XC (X before C: 10 returns from 100).\n\n**Table 2** shows the multiples of ten from 10 to 90.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -254,7 +254,7 @@
          "id": "SECTION_hundreds",
          "text": [
             {
-               "text": "### The hundreds (from 100 to 999)\n\nTo write the numbers from 100 to 999, we follow the same pattern once more. In the hundreds, the unit is the symbol C, worth 100; the middle value is D, worth 500; and the value that follows is M, worth 1000. Therefore:\n- Four hundreds are written CD (C before D: 500 minus 100);\n- Five hundreds are written D;\n- Nine hundreds are written CM (C before M: 1000 minus 100).\n\n**Table 3** shows the multiples of one hundred from 100 to 900.",
+               "text": "### The hundreds (from 100 to 999)\n\nTo write the numbers from 100 to 999, we follow the same pattern once more. In the hundreds, the unit is the symbol C, worth 100; the middle value is D, worth 500; and the value that follows is M, worth 1000. Therefore:\n- Four hundreds are written CD (C before D: 100 returns from 500);\n- Five hundreds are written D;\n- Nine hundreds are written CM (C before M: 100 returns from 1000).\n\n**Table 3** shows the multiples of one hundred from 100 to 900.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -304,8 +304,20 @@
                "PostMention": ""
             },
             {
-               "text": "For numbers from 1000 to 999,999, the Etruscan-Roman numbers use a bar drawn above the symbols. In the Roman abacus that we will study in the next text, we can observe how a bar above a group of symbols multiplies the value of that group by one thousand (<htcite0>).",
+               "text": "For numbers from 1000 to 999,999, the Etruscan-Roman numbers use a bar drawn above the symbols (<htcite0>). In the Roman abacus that we will study in the next text, we can observe how a bar above a group of symbols multiplies the value of that group by one thousand (<htcite1>).",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d885fe6c-2b1b-43ff-997f-d200c58b245b",
+                     "text": "Weisstein, Eric W. \"Vinculum.\" From MathWorld--A Wolfram Resource",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "1aacf33a-fb94-4535-a66f-3997087fa404",
@@ -413,12 +425,12 @@
       {
          "question": "In this text, is the number 40 written as XL?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Yes. XL means that X (10) is placed before L (50); therefore we subtract: 50 minus 10 is 40."
+         "additionalInfo": "Yes. XL means that X (10) is placed before L (50); therefore 10 returns from 50, giving 40."
       },
       {
          "question": "In this text, is the number 900 written as CCCC?",
          "yesNoAnswer": "No",
-         "additionalInfo": "No. Following the pattern we studied, 900 is written as CM: C (100) before M (1000), that is, 1000 minus 100."
+         "additionalInfo": "No. Following the pattern we studied, 900 is written as CM: C (100) before M (1000), that is, 100 returns from 1000."
       }
    ],
    "game_v2": null,
