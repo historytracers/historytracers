@@ -968,15 +968,15 @@ function htFillSource(divID, sourceMap, id)
 {
     const src = sourceMap.get(id);
     if (src) {
-        var dateValue = "";
+        var dateValue = ". ";
         if (src.date_time && src.date_time.length > 0) {
-            dateValue = ". [ "+keywords[22]+" "+src.date_time+" ].";
+            dateValue = ". [ "+keywords[22]+" "+src.date_time+" ]";
         }
         var urlValue = "";
         if (src.url && src.url.length > 0) {
-            urlValue = keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
+            urlValue += ". "+keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
         }
-        $(divID).append("<p>"+src.citation+" "+dateValue +" "+urlValue+"</p>");
+        $(divID).append("<p>"+src.citation+""+dateValue +""+urlValue+"</p>");
     }
 }
 
