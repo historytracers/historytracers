@@ -36,13 +36,13 @@ var addressBarJS = `
 		window.__ht_dev=true;
 		var _ce=console.error;
 		console.error=function(){
-			try{_ce.apply(console,arguments);var msg=Array.prototype.join.call(arguments,' ');fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(e){}
+			try{_ce.apply(console,arguments);var msg=Array.prototype.join.call(arguments,' ');var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(e){}
 		};
 		window.addEventListener('error',function(e){
-			try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(String(e.message||e.error||''))+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(ex){}
+			try{var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(String(e.message||e.error||''))+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(ex){}
 		});
 		window.addEventListener('unhandledrejection',function(e){
-			try{var msg=e.reason&&e.reason.message||String(e.reason||'');fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(ex){}
+			try{var msg=e.reason&&e.reason.message||String(e.reason||'');var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(ex){}
 		});
 		function _htToken(){var t=window.__ht_token;if(!t)try{t=parent.__ht_token}catch(e){}if(!t)try{t=sessionStorage.__ht_token}catch(e){}return t||''}
 		function _htSetToken(v){window.__ht_token=v;try{sessionStorage.__ht_token=v}catch(e){}try{if(parent&&parent.__ht_token!==undefined)parent.__ht_token=v}catch(e){}}
@@ -58,10 +58,10 @@ var addressBarJS = `
 			}
 			return _of.apply(this,a).then(function(r){
 				try{var nt=r.headers.get('X-HT-Next-Token');if(nt)_htSetToken(nt)}catch(e){}
-				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st})}catch(e){}
+				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st}).catch(function(){})}catch(e){}
 				return r;
 			}).catch(function(err){
-				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st})}catch(e){}
+				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st}).catch(function(){})}catch(e){}
 				throw err;
 			});
 		};
@@ -83,7 +83,7 @@ var addressBarJS = `
 				var st=Date.now(),su=x._du,sm=x._dm;
 				x.addEventListener('loadend',function(){
 					try{var nt=x.getResponseHeader('X-HT-Next-Token');if(nt)_htSetToken(nt)}catch(e){}
-					try{if(su&&su.indexOf('/api/dev/')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(su)+'&method='+encodeURIComponent(sm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-st)+'&time='+st})}catch(e){}
+					try{if(su&&su.indexOf('/api/dev/')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(su)+'&method='+encodeURIComponent(sm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-st)+'&time='+st}).catch(function(){})}catch(e){}
 				});
 				return _sd.apply(x,arguments);
 			};
@@ -807,7 +807,7 @@ L['en']=L['en-US'];
 							if(tabs[0].histIdx < tabs[0].history.length-1) tabs[0].history=tabs[0].history.slice(0,tabs[0].histIdx+1);
 							tabs[0].history.push(_cur);
 							tabs[0].histIdx=tabs[0].history.length-1;
-							if(tabs[0].history.length>256){tabs[0].history.shift();tabs[0].histIdx--;}
+							if(tabs[0].history.length>10){tabs[0].history.shift();tabs[0].histIdx--;}
 						}
 						tabs[0].url=_cur;
 					}
@@ -820,10 +820,11 @@ L['en']=L['en-US'];
 			if(rec._navLock){rec._navLock=false;updateNavButtons();if(idx===0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){}}return;}
 			if(!rec.history){rec.history=[rec.url||url];rec.histIdx=0;}
 			if(rec.history[rec.histIdx]===url){rec.url=url;updateNavButtons();return;}
+			for(var _k=0;_k<rec.history.length;_k++){ if(rec.history[_k]===url){ rec.histIdx=_k; rec.url=url; if(idx===0) try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){} updateNavButtons(); return; } }
 			if(rec.histIdx < rec.history.length-1) rec.history=rec.history.slice(0,rec.histIdx+1);
 			rec.history.push(url);
 			rec.histIdx=rec.history.length-1;
-			if(rec.history.length>256){rec.history.shift();rec.histIdx--;}
+			if(rec.history.length>10){rec.history.shift();rec.histIdx--;}
 			rec.url=url;
 			if(idx===0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){}}
 			if(idx===active) updateNavButtons();
