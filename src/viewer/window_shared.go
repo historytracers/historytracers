@@ -114,11 +114,11 @@ var addressBarJS = `
 		try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||''}catch(e){}
 		if(!loc)loc=window.__ht_lang||navigator.language||'en-US';
 		var L={};
-L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',setHomeTitle:'Definir como P\u00e1gina Inicial',homeSaved:'P\u00e1gina inicial definida!',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',err:'Erro',cal_gregory:'Gregoriano',cal_hebrew:'Hebraico',cal_hispanic:'Hisp\u00e2nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (Dias)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Est.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chin\u00eas',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00eas',cal_japanese:'Japon\u00eas',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
+L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',prevTitle:'Voltar',nextTitle:'Avan\u00e7ar',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',setHomeTitle:'Definir como P\u00e1gina Inicial',homeSaved:'P\u00e1gina inicial definida!',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',err:'Erro',cal_gregory:'Gregoriano',cal_hebrew:'Hebraico',cal_hispanic:'Hisp\u00e2nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (Dias)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Est.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chin\u00eas',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00eas',cal_japanese:'Japon\u00eas',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
 L['pt']=L['pt-BR'];
-L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',setHomeTitle:'Establecer como P\u00e1gina de Inicio',homeSaved:'\u00a1P\u00e1gina de inicio establecida!',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',err:'Error',cal_gregory:'Gregoriano',cal_hebrew:'Hebreo',cal_hispanic:'Hisp\u00e1nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (D\u00edas)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Ext.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chino',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00e9s',cal_japanese:'Japon\u00e9s',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
+L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',prevTitle:'Atr\u00e1s',nextTitle:'Adelante',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',setHomeTitle:'Establecer como P\u00e1gina de Inicio',homeSaved:'\u00a1P\u00e1gina de inicio establecida!',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',err:'Error',cal_gregory:'Gregoriano',cal_hebrew:'Hebreo',cal_hispanic:'Hisp\u00e1nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (D\u00edas)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Ext.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chino',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00e9s',cal_japanese:'Japon\u00e9s',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
 L['es']=L['es-ES'];
-L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',setHomeTitle:'Set as Home Page',homeSaved:'Home page set!',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',err:'Error',cal_gregory:'Gregorian',cal_hebrew:'Hebrew',cal_hispanic:'Hispanic',cal_islamic:'Islamic',cal_julian:'Julian (Days)',cal_mesoamerican:'Mesoamerican',cal_emesoamerican:'Mesoamerican (Ext.)',cal_persian:'Persian',cal_french:'French Rev.',cal_shaka:'Shaka',cal_chinese:'Chinese',cal_aymara:'Aymara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javanese',cal_japanese:'Japanese',optionsApply:'Apply',printTitle:'Print page'};
+L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',prevTitle:'Back',nextTitle:'Forward',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',setHomeTitle:'Set as Home Page',homeSaved:'Home page set!',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',err:'Error',cal_gregory:'Gregorian',cal_hebrew:'Hebrew',cal_hispanic:'Hispanic',cal_islamic:'Islamic',cal_julian:'Julian (Days)',cal_mesoamerican:'Mesoamerican',cal_emesoamerican:'Mesoamerican (Ext.)',cal_persian:'Persian',cal_french:'French Rev.',cal_shaka:'Shaka',cal_chinese:'Chinese',cal_aymara:'Aymara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javanese',cal_japanese:'Japanese',optionsApply:'Apply',printTitle:'Print page'};
 L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var _lang='';
@@ -161,6 +161,8 @@ L['en']=L['en-US'];
 				var e=_el[i];
 				if(e.id==='__ht_home')e.title=l.homeTitle;
 				else if(e.id==='__ht_rld')e.title=l.reloadTitle;
+				else if(e.id==='__ht_prev')e.title=l.prevTitle||'Back';
+				else if(e.id==='__ht_next')e.title=l.nextTitle||'Forward';
 				else if(e.id==='__ht_firststeps')e.title=l.firstStepsTitle;
 				else if(e.id==='__ht_game')e.title=l.gameTitle;
 				else if(e.id==='__ht_atlas')e.title=l.atlasTitle;
@@ -252,6 +254,24 @@ L['en']=L['en-US'];
 		r.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=new URL(window.location.href);if(g)u.searchParams.set('lang',g);if(c)u.searchParams.set('cal',c);if(r)u.searchParams.set('rec',r);location.href=u.toString()};
 		_el.push(r);
 		b.appendChild(r);
+		var prevBtn=document.createElement('button');
+		prevBtn.id='__ht_prev';
+		prevBtn.textContent='\u2190';
+		prevBtn.title=l.prevTitle||'Back';
+		prevBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 20px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
+		prevBtn.disabled=true;
+		prevBtn.onclick=function(){ goPrev(); };
+		_el.push(prevBtn);
+		b.appendChild(prevBtn);
+		var nextBtn=document.createElement('button');
+		nextBtn.id='__ht_next';
+		nextBtn.textContent='\u2192';
+		nextBtn.title=l.nextTitle||'Forward';
+		nextBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 20px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
+		nextBtn.disabled=true;
+		nextBtn.onclick=function(){ goNext(); };
+		_el.push(nextBtn);
+		b.appendChild(nextBtn);
 		var sep=document.createElement('div');
 		sep.style.cssText='width:1px;height:16px;background:#999;margin:0 4px;flex-shrink:0;';
 		b.appendChild(sep);
@@ -765,6 +785,87 @@ L['en']=L['en-US'];
 		tb.style.cssText='position:fixed;top:'+ADDR_H+'px;left:0;right:0;height:'+TAB_H+'px;background:#d0d0d0;border-bottom:1px solid #999;z-index:2147483646;display:flex;align-items:stretch;padding:0;font:13px/1 sans-serif;overflow:hidden;';
 		document.documentElement.appendChild(tb);
 		var tabs={0:{type:'main',el:null,iframe:null,url:window.location.href}},cnt=1,active=0;
+		tabs[0].history=[window.location.href];
+		tabs[0].histIdx=0;
+		tabs[0]._navLock=false;
+		try{
+			var _stored=sessionStorage.getItem('__ht_main_history');
+			if(_stored){
+				var _parsed=JSON.parse(_stored);
+				if(_parsed&&_parsed.history&&_parsed.history.length){
+					var _cur=window.location.href;
+					var _found=-1;
+					for(var _i=0;_i<_parsed.history.length;_i++){ if(_parsed.history[_i]===_cur){_found=_i;break;} }
+					if(_found>=0){
+						tabs[0].history=_parsed.history;
+						tabs[0].histIdx=_found;
+					} else {
+						tabs[0].history=_parsed.history;
+						tabs[0].histIdx=_parsed.history.length-1;
+						// If current URL differs from last, push it
+						if(_parsed.history[_parsed.history.length-1]!==_cur){
+							if(tabs[0].histIdx < tabs[0].history.length-1) tabs[0].history=tabs[0].history.slice(0,tabs[0].histIdx+1);
+							tabs[0].history.push(_cur);
+							tabs[0].histIdx=tabs[0].history.length-1;
+							if(tabs[0].history.length>256){tabs[0].history.shift();tabs[0].histIdx--;}
+						}
+						tabs[0].url=_cur;
+					}
+				}
+			}
+		}catch(e){}
+		function pushTabHistory(idx,url){
+			var rec=tabs[idx];
+			if(!rec) return;
+			if(rec._navLock){rec._navLock=false;updateNavButtons();if(idx===0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){}}return;}
+			if(!rec.history){rec.history=[rec.url||url];rec.histIdx=0;}
+			if(rec.history[rec.histIdx]===url){rec.url=url;updateNavButtons();return;}
+			if(rec.histIdx < rec.history.length-1) rec.history=rec.history.slice(0,rec.histIdx+1);
+			rec.history.push(url);
+			rec.histIdx=rec.history.length-1;
+			if(rec.history.length>256){rec.history.shift();rec.histIdx--;}
+			rec.url=url;
+			if(idx===0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){}}
+			if(idx===active) updateNavButtons();
+		}
+		function updateNavButtons(){
+			var rec=tabs[active];
+			var pb=document.getElementById('__ht_prev');
+			var nb=document.getElementById('__ht_next');
+			if(!pb||!nb) return;
+			var canPrev=rec&&rec.history&&rec.histIdx>0;
+			var canNext=rec&&rec.history&&rec.histIdx<rec.history.length-1;
+			pb.disabled=!canPrev;
+			nb.disabled=!canNext;
+			pb.style.opacity=canPrev?'1':'0.4';
+			nb.style.opacity=canNext?'1':'0.4';
+			pb.style.cursor=canPrev?'pointer':'default';
+			nb.style.cursor=canNext?'pointer':'default';
+		}
+		function goPrev(){
+			var rec=tabs[active];
+			if(!rec||!rec.history||rec.histIdx<=0) return;
+			rec.histIdx--;
+			rec._navLock=true;
+			var target=rec.history[rec.histIdx];
+			rec.url=target;
+			if(active==0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){} window.location.href=target; } else { try{rec.iframe.src=target;}catch(e){try{rec.iframe.src=target;}catch(ex){}} }
+			var ue=document.getElementById('__ht_url'); if(ue) ue.value=target;
+			checkFavStar(target);
+			updateNavButtons();
+		}
+		function goNext(){
+			var rec=tabs[active];
+			if(!rec||!rec.history||rec.histIdx>=rec.history.length-1) return;
+			rec.histIdx++;
+			rec._navLock=true;
+			var target=rec.history[rec.histIdx];
+			rec.url=target;
+			if(active==0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){} window.location.href=target; } else { try{rec.iframe.src=target;}catch(e){try{rec.iframe.src=target;}catch(ex){}} }
+			var ue=document.getElementById('__ht_url'); if(ue) ue.value=target;
+			checkFavStar(target);
+			updateNavButtons();
+		}
 		function mkTab(idx){
 			var t=document.createElement('div');
 			t.className='__ht_t';t.dataset.idx=idx;
@@ -784,6 +885,7 @@ L['en']=L['en-US'];
 			var e=document.getElementById('__ht_url');
 			if(e&&tabs[idx])e.value=tabs[idx].url||window.location.href;
 			checkFavStar(tabs[idx]?tabs[idx].url:window.location.href);
+			updateNavButtons();
 		}
 		function closeTab(idx){
 			if(idx==0||!tabs[idx])return;
@@ -815,7 +917,7 @@ L['en']=L['en-US'];
 			f.style.cssText='position:fixed;top:'+BAR_H+'px;left:0;right:0;bottom:0;width:100%;height:calc(100vh - '+BAR_H+'px);border:none;z-index:1000;';
 			f.style.display='none';
 			document.documentElement.appendChild(f);
-			tabs[idx]={type:'iframe',el:t,iframe:f,url:url};
+			tabs[idx]={type:'iframe',el:t,iframe:f,url:url,history:[url],histIdx:0,_navLock:false};
 			// Early viewer fix for new window: poll to set htLocalImgSrc and inject style before page JS runs (fixes images not visible).
 			var _viewerFixInterval=setInterval(function(){
 				try{
@@ -868,6 +970,7 @@ L['en']=L['en-US'];
 						}
 					}catch(e){}
 					tabs[idx].url=iw.location.href;
+					pushTabHistory(idx, iw.location.href);
 					_favGen++;
 					recordHistory(iw.location.href, idoc.title);
 					if(active==idx){
@@ -892,6 +995,7 @@ L['en']=L['en-US'];
 						try{
 							var nu=new URL(arguments[2],oldUrl);
 							tabs[idx].url=nu.href;
+							pushTabHistory(idx, nu.href);
 							_favGen++;
 							recordHistory(nu.href, idoc.title);
 							if(active==idx){var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=nu.href;checkFavStar(nu.href)}
@@ -904,6 +1008,7 @@ L['en']=L['en-US'];
 						try{
 							var nu=new URL(arguments[2],oldUrl);
 							tabs[idx].url=nu.href;
+							pushTabHistory(idx, nu.href);
 							_favGen++;
 							recordHistory(nu.href, idoc.title);
 							if(active==idx){var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=nu.href;checkFavStar(nu.href)}
@@ -911,6 +1016,7 @@ L['en']=L['en-US'];
 					};
 					iw.addEventListener('popstate',function(){
 						tabs[idx].url=iw.location.href;
+						pushTabHistory(idx, iw.location.href);
 						_favGen++;
 						if(active==idx){var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=iw.location.href;checkFavStar(iw.location.href)}
 					});
@@ -925,6 +1031,7 @@ L['en']=L['en-US'];
 		t0.onclick=function(){selTab(0)};
 		tb.appendChild(t0);
 		tabs[0].el=t0;
+		setTimeout(updateNavButtons,100);
 		(function(){
 			var titleEl=document.querySelector('title');
 			if(!titleEl)return;
@@ -1122,6 +1229,7 @@ L['en']=L['en-US'];
 				try{
 					var u=new URL(urlParam,window.location.origin);
 					tabs[0].url=u.href;
+					pushTabHistory(0, u.href);
 					var urlEl=document.getElementById('__ht_url');
 					if(urlEl)urlEl.value=u.href;
 					recordHistory(urlParam);
@@ -1141,7 +1249,7 @@ L['en']=L['en-US'];
 				trackNav(arguments[2]);
 				setTimeout(checkFavStar,200);
 			};
-			window.addEventListener('popstate',function(){_favGen++;tabs[0].url=window.location.href;var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=window.location.href;setTimeout(checkFavStar,200)});
+			window.addEventListener('popstate',function(){_favGen++;tabs[0].url=window.location.href;pushTabHistory(0, window.location.href);var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=window.location.href;setTimeout(checkFavStar,200)});
 		})();
 	}
 	addBar();
