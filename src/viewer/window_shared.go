@@ -96,7 +96,7 @@ var addressBarJS = `
 		// Inside iframe (new tab): ensure viewer-local image handling and layout fix for broken format/images.
 		try{window.htLocalImgSrc=true;}catch(e){}
 		try{
-			var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
+			var TAB_H=22,ADDR_H=48,BAR_H=ADDR_H+TAB_H;
 			var s=document.createElement('style');
 			s.textContent=__htViewerFixCSS(BAR_H);
 			if(document.documentElement) document.documentElement.appendChild(s);
@@ -109,7 +109,7 @@ var addressBarJS = `
 		try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
-		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
+		var TAB_H=22,ADDR_H=48,BAR_H=ADDR_H+TAB_H;
 		var loc='';
 		try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||''}catch(e){}
 		if(!loc)loc=window.__ht_lang||navigator.language||'en-US';
@@ -256,18 +256,18 @@ L['en']=L['en-US'];
 		b.appendChild(r);
 		var prevBtn=document.createElement('button');
 		prevBtn.id='__ht_prev';
-		prevBtn.textContent='\u2190';
+		prevBtn.textContent='\u25C0';
 		prevBtn.title=l.prevTitle||'Back';
-		prevBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 20px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
+		prevBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
 		prevBtn.disabled=true;
 		prevBtn.onclick=function(){ goPrev(); };
 		_el.push(prevBtn);
 		b.appendChild(prevBtn);
 		var nextBtn=document.createElement('button');
 		nextBtn.id='__ht_next';
-		nextBtn.textContent='\u2192';
+		nextBtn.textContent='\u25B6';
 		nextBtn.title=l.nextTitle||'Forward';
-		nextBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 20px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
+		nextBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
 		nextBtn.disabled=true;
 		nextBtn.onclick=function(){ goNext(); };
 		_el.push(nextBtn);
