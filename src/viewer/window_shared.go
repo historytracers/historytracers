@@ -36,16 +36,17 @@ var addressBarJS = `
 		window.__ht_dev=true;
 		var _ce=console.error;
 		console.error=function(){
-			try{_ce.apply(console,arguments);var msg=Array.prototype.join.call(arguments,' ');var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(e){}
+			try{_ce.apply(console,arguments);var msg=Array.prototype.join.call(arguments,' ');if(_htShouldIgnore(msg,window.location.href)) return;var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(e){}
 		};
 		window.addEventListener('error',function(e){
-			try{var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(String(e.message||e.error||''))+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(ex){}
+			try{var m=String(e.message||e.error||'');if(_htShouldIgnore(m,window.location.href)) return;var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(m)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(ex){}
 		});
 		window.addEventListener('unhandledrejection',function(e){
-			try{var msg=e.reason&&e.reason.message||String(e.reason||'');var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(ex){}
+			try{var msg=e.reason&&e.reason.message||String(e.reason||'');if(_htShouldIgnore(msg,window.location.href)) return;var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(ex){}
 		});
 		function _htToken(){var t=window.__ht_token;if(!t)try{t=parent.__ht_token}catch(e){}if(!t)try{t=sessionStorage.__ht_token}catch(e){}return t||''}
 		function _htSetToken(v){window.__ht_token=v;try{sessionStorage.__ht_token=v}catch(e){}try{if(parent&&parent.__ht_token!==undefined)parent.__ht_token=v}catch(e){}}
+		function _htShouldIgnore(msg,url){ try{ if(!msg) return false; if(msg.indexOf('Cannot define multiple custom elements')>=0) return true; if(msg.indexOf('ia-sentry')>=0) return true; if(msg.indexOf('donation-banner')>=0) return true; if(msg.indexOf('SoundManager')>=0) return true; if(msg.indexOf('NotSupportedError')>=0) return true; if(url&&url.indexOf('archive.org')>=0) return true; if(window.location.href.indexOf('archive.org')>=0 && msg.indexOf('custom elements')>=0) return true; }catch(e){} return false; }
 		var _of=window.fetch;
 		window.fetch=function(){
 			var a=arguments,url=a[0] instanceof Request?a[0].url:String(a[0]);
@@ -58,10 +59,10 @@ var addressBarJS = `
 			}
 			return _of.apply(this,a).then(function(r){
 				try{var nt=r.headers.get('X-HT-Next-Token');if(nt)_htSetToken(nt)}catch(e){}
-				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st}).catch(function(){})}catch(e){}
+				try{if(url.indexOf('archive.org')>=0) throw 0;fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st}).catch(function(){})}catch(e){}
 				return r;
 			}).catch(function(err){
-				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st}).catch(function(){})}catch(e){}
+				try{if(url.indexOf('archive.org')>=0) throw 0;fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st}).catch(function(){})}catch(e){}
 				throw err;
 			});
 		};
@@ -83,7 +84,7 @@ var addressBarJS = `
 				var st=Date.now(),su=x._du,sm=x._dm;
 				x.addEventListener('loadend',function(){
 					try{var nt=x.getResponseHeader('X-HT-Next-Token');if(nt)_htSetToken(nt)}catch(e){}
-					try{if(su&&su.indexOf('/api/dev/')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(su)+'&method='+encodeURIComponent(sm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-st)+'&time='+st}).catch(function(){})}catch(e){}
+					try{if(su&&su.indexOf('/api/dev/')<0&&su.indexOf('archive.org')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(su)+'&method='+encodeURIComponent(sm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-st)+'&time='+st}).catch(function(){})}catch(e){}
 				});
 				return _sd.apply(x,arguments);
 			};
