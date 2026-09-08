@@ -1568,6 +1568,41 @@ function htFillFamilies(page, table) {
     // ensure list is empty before filling (it was cleared above, but after detach keep empty)
     // $("#index_list") already empty
 
+    // --- Introduction page: common vector on top of families ---
+    var hasIntroduction = table.common && Array.isArray(table.common) && table.common.length > 0;
+    if (hasIntroduction) {
+        htAddPaperDivs("#paper", "family-introduction", "", "", "", paperIdx++);
+        var $commonBlock = $("#common");
+        if ($commonBlock.length && $commonBlock.children().length > 0) {
+            $("#paper-family-introduction").append($commonBlock.detach());
+            $commonBlock.show();
+        } else {
+            // fallback render common directly (if #common was empty due to earlier detach or not yet filled)
+            var localLangIntro = $("#site_language").val();
+            var localCalIntro = $("#site_calendar").val();
+            var introHtml = "";
+            for (var ci = 0; ci < table.common.length; ci++) {
+                var cobj = table.common[ci];
+                var txt = (typeof cobj === "string") ? cobj : htParagraphFromObject(cobj, localLangIntro, localCalIntro);
+                introHtml += txt;
+            }
+            $("#paper-family-introduction").html("<div id=\"common\">"+introHtml+"</div>");
+        }
+        var introLabel = (function(){
+            var lang = $("#site_language").val() || "en-US";
+            if (lang.startsWith("pt")) return "Introdução";
+            if (lang.startsWith("es")) return "Introducción";
+            return "Introduction";
+        })();
+        $("#index_list").prepend("<li id=\"lnk-introduction\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabel+"</a></li>");
+        // navigation for introduction page
+        var introPrev = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[56]+"<br/>"+keywords[135]+"</a>";
+        var introNext = validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;";
+        var introMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
+        var introNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+introPrev+"</td><td style=\"width:34%;text-align:center;\">"+introMiddle+"</td><td style=\"width:33%;text-align:right;\">"+introNext+"</td></tr></table></p>";
+        $("#paper-family-introduction").append(introNav);
+    }
+
     for (var fi = 0; fi < validFamilies.length; fi++) {
         var family = validFamilies[fi];
         var family_id = family.id;
@@ -1612,6 +1647,9 @@ function htFillFamilies(page, table) {
         if (fi > 0) {
             var prevF = validFamilies[fi-1];
             prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+prevF.id+"');\">"+keywords[56]+"<br/>"+prevF.name+"</a>";
+        } else if (hasIntroduction) {
+            var introLabelPrev = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdução"; if(lang.startsWith("es")) return "Introducción"; return "Introduction"; })();
+            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+keywords[56]+"<br/>"+introLabelPrev+"</a>";
         } else {
             prevLink = "&nbsp;";
         }
