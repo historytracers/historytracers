@@ -5,7 +5,8 @@
       "fb9dca2c-cd76-4951-b7d0-4b2c694e8056"
    ],
    "scripts": [
-      "ht_sequence_game"
+      "ht_sequence_game",
+      "ht_yupana"
    ],
    "audio": [
       {
@@ -28,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765777"
+      "1788909085"
    ],
    "authors": null,
    "reviewers": null,
@@ -102,7 +103,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>O jogo</h3>Selecione um sistema numérico: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Hindu-Arábico <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamericano</p><p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp1\"><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp2\"><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<htcite0>) da Associação Yupanki (<htcite1>).<br />A aplicação dos números mesoamericanos é baseada no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Além disso, incorporamos as contribuições de Francisco Barriga Puente (<htcite4>).<br />Por fim, empregamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<htcite5>).</p>",
+               "text": "<p><h3>O jogo</h3>Selecione um sistema numérico: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Hindu-Arábico <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamericano</p><div class=\"htSequenceYupanaTables\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table></div><p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<htcite0>) da Associação Yupanki (<htcite1>).<br />A aplicação dos números mesoamericanos é baseada no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Além disso, incorporamos as contribuições de Francisco Barriga Puente (<htcite4>).<br />Por fim, empregamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<htcite5>).</p>",
                "source": [
                   {
                      "type": 1,

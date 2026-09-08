@@ -308,6 +308,16 @@ function htUpdateSequenceOrder()
     }
 }
 
+function htSequenceToggleYupanaLayout()
+{
+    var wrapper = document.querySelector(".htSequenceYupanaTables");
+    if (!wrapper) {
+        return;
+    }
+    var selected = $("input[name='htNumericalSystem']:checked").val();
+    wrapper.classList.toggle("htSeqYupana", selected == "yupana");
+}
+
 function htLoadContent()
 {
     $("input[name='htNumericalSystem']").on( "change", function() {
@@ -316,7 +326,9 @@ function htLoadContent()
         currentLevel = 0;
         htSequenceSetFactor();
         htLoadTest(sel);
+        htSequenceToggleYupanaLayout();
     });
+    htSequenceToggleYupanaLayout();
 
     localGameVectorfb9dca2c = htLoadGameData();
 

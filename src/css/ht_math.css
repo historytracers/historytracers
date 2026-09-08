@@ -528,6 +528,57 @@
   color: #155724;
 }
 
+/* Sequence game (fb9dca2c): compact Yupana tables side by side.
+   The three <table>s share one wrapper (.htSequenceYupanaTables). The layout
+   class htSeqYupana is toggled by JS only while the "Yupana" system is active,
+   so the Hindu-Arabic / Mesoamerican views keep their normal single table. */
+.htSequenceYupanaTables {
+  text-align: center;
+}
+
+.htSequenceYupanaTables.htSeqYupana {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  width: auto;
+  font-size: 0.62em;
+  border-spacing: 2px;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr:first-child {
+  display: none;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+  width: 4.2em;
+  height: 4.2em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+  width: 2.2em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+  font-size: 2em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .desc {
+  font-size: 1.8em;
+}
 
 /* Small screens (600px) */
 @media screen and (max-width: 600px) {
@@ -554,6 +605,29 @@
     .dot {
         width: 2vmin;
         height: 2vmin;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        font-size: 0.5em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+        width: 4em;
+        height: 4em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+        width: 2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+        width: 0.55em;
+        height: 0.55em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+        font-size: 1.5em;
     }
 }
 
@@ -656,6 +730,29 @@
     .dot {
         width: 1.8vmin;
         height: 1.8vmin;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        font-size: 0.55em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+        width: 4.2em;
+        height: 4.2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+        width: 2.2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+        width: 0.5em;
+        height: 0.5em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+        font-size: 1.8em;
     }
 }
 
