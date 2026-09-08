@@ -302,18 +302,10 @@ L['en']=L['en-US'];
 				var win = isIframe ? tabs[active].iframe.contentWindow : window;
 				if(!doc) doc=document;
 				if(!win) win=window;
-				// First try to delegate to the page's own htPrintContent if available (best fidelity)
-				try{
-					// Propagate viewer marker to iframe so it uses viewer print path instead of popup fallback
-					try{ if(window.__ht_token) win.__ht_token=window.__ht_token; }catch(e){}
-					try{ win.htLocalImgSrc=true; win.__ht_localImgSrc=true; }catch(e){}
-					try{ if(window.external && !win.external) win.external=window.external; }catch(e){}
-					try{ if(sessionStorage.__ht_token) win.sessionStorage.__ht_token=sessionStorage.__ht_token; }catch(e){}
-					if(win.htPrintContent && typeof win.htPrintContent==='function'){
-						win.htPrintContent('#header', '#page_data');
-						return;
-					}
-				}catch(e){}
+				// Build printable HTML directly (do not delegate to iframe htPrintContent).
+				// Delegating to win.htPrintContent loses user gesture (popup blocked) when the
+				// viewer invokes it from the top bar. The direct path uses fetch+openTab without
+				// requiring window.open, so it is not blocked by popup blockers.
 				// Fallback: build printable HTML from visible elements
 				var header='', body='', sources='', headerStyle='';
 				try{

@@ -456,49 +456,42 @@ function htPrintContent(header, body)
         } catch(e) {}
         if (isViewer) {
             var printWindow = null;
-            try {
-                try{ printWindow = window.open('about:blank', '_blank'); }catch(e){ printWindow=null; }
-                if(printWindow && typeof printWindow.location === 'undefined'){
-                    try{ if(!printWindow.closed) printWindow.close(); }catch(e){}
-                    printWindow = null;
-                }
-                if(!printWindow){
-                    throw new Error('Popup blocked. Please allow popups for this site.');
-                }
-                var tk = window.__ht_token || '';
-                try { if(!tk) tk = sessionStorage.__ht_token || ''; } catch(e2) {}
-                var headers = {'Content-Type': 'text/html'};
-                if(tk) headers['X-HT-Token'] = tk;
-                fetch('/api/print/store', {method:'POST', headers: headers, body: printDocument})
-                    .then(function(r){ if(!r.ok) throw new Error('store failed '+r.status); return r.text(); })
-                    .then(function(p){
-                        var fullUrl = window.location.origin + p;
-                        if(printWindow && typeof printWindow.location !== 'undefined' && printWindow.location){
-                            try{ printWindow.location.href = fullUrl; return; }catch(e){}
-                        }
-                        if(printWindow && !printWindow.closed){
-                            try{ printWindow.document.write(printDocument); printWindow.document.close(); return; }catch(e){}
-                        }
-                        try{ window.open(fullUrl, '_blank'); }catch(e2){}
-                    })
-                    .catch(function(err){
-                        console.error('Viewer print fallback failed', err);
-                        if(printWindow && !printWindow.closed){
-                            try{ printWindow.document.write(printDocument); printWindow.document.close(); return; }catch(e){}
-                        }
-                        try{ fallbackWindowPrint(); }catch(e){ console.error('Printing failed:', e); alert('Printing failed: '+e.message); }
-                    });
-                return;
-            } catch(e) {
-                try{ if(printWindow && !printWindow.closed) printWindow.close(); }catch(e2){}
-                console.error('Viewer print setup failed', e);
-                if(String(e.message).indexOf('Popup blocked')>=0){
-                    console.error('Printing failed:', e);
-                    alert('Printing failed: '+e.message);
-                    return;
-                }
-                // fall through to fallback
+            try{ printWindow = window.open('about:blank', '_blank'); }catch(e){ printWindow=null; }
+            if(printWindow && typeof printWindow.location === 'undefined'){
+                try{ if(!printWindow.closed) printWindow.close(); }catch(e){}
+                printWindow = null;
             }
+            // Do not fail if popup was blocked - the server-side store path does not
+            // require a pre-opened window. Popup blockers trigger when this function is
+            // delegated from the viewer top bar (user gesture lost across frames).
+            var tk = window.__ht_token || '';
+            try { if(!tk) tk = sessionStorage.__ht_token || ''; } catch(e2) {}
+            var headers = {'Content-Type': 'text/html'};
+            if(tk) headers['X-HT-Token'] = tk;
+            fetch('/api/print/store', {method:'POST', headers: headers, body: printDocument})
+                .then(function(r){ if(!r.ok) throw new Error('store failed '+r.status); return r.text(); })
+                .then(function(p){
+                    var fullUrl = window.location.origin + p;
+                    if(printWindow && typeof printWindow.location !== 'undefined' && printWindow.location){
+                        try{ printWindow.location.href = fullUrl; return; }catch(e){}
+                    }
+                    if(printWindow && !printWindow.closed){
+                        try{ printWindow.document.write(printDocument); printWindow.document.close(); return; }catch(e){}
+                    }
+                    try{ if(window.parent && window.parent !== window && typeof window.parent.open === 'function'){ try{ window.parent.open(fullUrl, '_blank'); return; }catch(e){} } }catch(e){}
+                    try{ if(window.top && window.top !== window && typeof window.top.open === 'function'){ try{ window.top.open(fullUrl); return; }catch(e){} } }catch(e){}
+                    try{ window.open(fullUrl, '_blank'); return; }catch(e2){}
+                    try{ window.location.href = fullUrl; return; }catch(e){}
+                    try{ fallbackWindowPrint(); }catch(e){ console.error('Printing failed:', e); alert('Printing failed: '+e.message); }
+                })
+                .catch(function(err){
+                    console.error('Viewer print fallback failed', err);
+                    if(printWindow && !printWindow.closed){
+                        try{ printWindow.document.write(printDocument); printWindow.document.close(); return; }catch(e){}
+                    }
+                    try{ fallbackWindowPrint(); }catch(e){ console.error('Printing failed:', e); alert('Printing failed: '+e.message); }
+                });
+            return;
         }
         function fallbackWindowPrint(){
             const printWindow = window.open('', 'PRINT', 'height=600,width=800');
