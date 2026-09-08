@@ -1514,19 +1514,53 @@ function htFillFamilies(page, table) {
 
     $("#index-identifier").html(keywords[135]);
 
-    genealogicalStats.families = (table.families != undefined) ? table.families.length : 0;
+    // --- Book per family: clear previous containers and create paginated book ---
+    $("#trees").empty();
+    $("#paper").empty();
+    $("#index_list").empty();
+
+    var families = table.families || [];
+    var validFamilies = [];
+    for (const i in families) {
+        var f = families[i];
+        if (f && f.id != undefined && f.name != undefined) validFamilies.push(f);
+    }
+    genealogicalStats.families = validFamilies.length;
     var totalPeople = 0;
-    for (const i in table.families) {
-        let family = table.families[i];
-        if (family.id == undefined ||
-            family.name == undefined) {
-            continue;
-        }
 
+    // helper to show one family page at a time (book)
+    if (typeof window.htShowFamily !== 'function') {
+        window.htShowFamily = function(familyId) {
+            $("[id^='paper-family-']").hide();
+            var sel = $("#paper-family-"+familyId);
+            if (sel.length) sel.show();
+            // also show nav top/bottom
+            $("#paper-familyNavTop").show();
+            $("#paper-familyNavBottom").show();
+            // update location hash without reload
+            try { htSetCurrentLinkBasis(table.title || page, familyId); } catch(e) {}
+            // scroll to family header
+            try { htScrollToID("#paper-family-"+familyId); } catch(e) {}
+        };
+    }
+
+    // top navigation placeholder (like class_content)
+    var paperIdx = 0;
+    if (validFamilies.length > 0) {
+        htAddPaperDivs("#paper", "familyNavTop", "<p class=\"dynamicNavigation\"></p>", "", "<hr class=\"limit\" />", paperIdx++);
+    }
+
+    for (var fi = 0; fi < validFamilies.length; fi++) {
+        var family = validFamilies[fi];
         var family_id = family.id;
-        $("#index_list").append("<li id=\"lnk-"+family_id+"\"><a href=\"javascript:void(0);\" onclick=\"htScrollTree('#hist-"+family_id+"');\">"+keywords[8] + " : " +family.name+"</a></li>");
+        // index linking to book page
+        $("#index_list").append("<li id=\"lnk-"+family_id+"\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+family_id+"');\">"+keywords[8] + " : " +family.name+"</a></li>");
 
-        $("#trees").append("<div id=\"hist-"+family_id+"\"></div>");
+        // create book page for this family
+        htAddPaperDivs("#paper", "family-"+family_id, "", "", "", paperIdx++);
+
+        // family header/history container inside book page
+        $("#paper-family-"+family_id).append("<div id=\"hist-"+family_id+"\"></div>");
 
         htAppendFamilyData("hist",
                    family_id,
@@ -1535,30 +1569,71 @@ function htFillFamilies(page, table) {
                    family,
                    page);
 
-        if (family.people == undefined) {
-            continue;
-        }
-
-        var people = family.people;
-        totalPeople += people.length;
-        for (const j in people) {
-            if (people[j].id == undefined ||
-                people[j].name == undefined) {
-                continue;
+        if (family.people != undefined) {
+            var people = family.people;
+            totalPeople += people.length;
+            for (const j in people) {
+                if (people[j].id == undefined ||
+                    people[j].name == undefined) {
+                    continue;
+                }
+                var person_id = people[j].id;
+                $("#hist-"+family_id).append("<div id=\"tree-"+person_id+"\" class=\"tree-person-text\"></div>");
+                personNameMap.set(people[j].id, people[j].fullname);
+                htAppendFamilyData("tree",
+                           person_id,
+                           family_id,
+                           people[j].fullname,
+                           people[j],
+                           page);
             }
-
-            var person_id = people[j].id;
-            $("#hist-"+family_id).append("<div id=\"tree-"+person_id+"\" class=\"tree-person-text\"></div>");
-
-            personNameMap.set(people[j].id, people[j].fullname);
-            htAppendFamilyData("tree",
-                       person_id,
-                       family_id,
-                       people[j].fullname,
-                       people[j],
-                       page);
         }
+
+        // per-family prev/next navigation (book)
+        var prevLink = "", nextLink = "";
+        if (fi > 0) {
+            var prevF = validFamilies[fi-1];
+            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+prevF.id+"');\">"+keywords[56]+"<br/>"+prevF.name+"</a>";
+        } else {
+            prevLink = "&nbsp;";
+        }
+        if (fi < validFamilies.length -1) {
+            var nextF = validFamilies[fi+1];
+            nextLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+nextF.id+"');\">"+keywords[58]+"<br/>"+nextF.name+"</a>";
+        } else {
+            nextLink = "&nbsp;";
+        }
+        var bookNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+prevLink+"</td><td style=\"width:34%;text-align:center;\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+family_id+"');\">"+keywords[57]+"</a></td><td style=\"width:33%;text-align:right;\">"+nextLink+"</td></tr></table></p>";
+        $("#paper-family-"+family_id).append(bookNav);
     }
+
+    // bottom navigation placeholder
+    if (validFamilies.length > 0) {
+        htAddPaperDivs("#paper", "familyNavBottom", "<p class=\"dynamicNavigation\"></p>", "<hr class=\"limit\" />", "", paperIdx++);
+    }
+
+    // show first family as default, or family matching selector/person_id
+    if (validFamilies.length > 0) {
+        var initialFamily = validFamilies[0].id;
+        // if URL contains arg with family id, try to use it? htCurrentArg holds file id, not family id
+        // check selector (person_id) to find its family
+        var selDest = $("#selector").val();
+        if (selDest && selDest.length > 1) {
+            // find family that contains this person
+            for (var k=0;k<validFamilies.length;k++) {
+                var fam = validFamilies[k];
+                if (fam.people) {
+                    for (var p=0;p<fam.people.length;p++) {
+                        if (fam.people[p].id === selDest) { initialFamily = fam.id; break; }
+                    }
+                }
+            }
+        }
+        // hide all then show initial
+        $("[id^='paper-family-']").hide();
+        $("#paper-family-"+initialFamily).show();
+    }
+
     genealogicalStats.people = totalPeople;
 
 
