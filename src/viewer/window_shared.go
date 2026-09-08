@@ -416,7 +416,7 @@ L['en']=L['en-US'];
 		printBtn.id='__ht_print_btn';
 		printBtn.textContent='\uD83D\uDDA8';
 		printBtn.title=l.printTitle||'Print';
-		printBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:16px/1 monospace;padding:0 6px;color:#555;';
+		printBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 28.8px/1 monospace;padding:0 5px;color:#555;';
 		printBtn.onclick=function(){ viewerPrintCurrentPage(); };
 		_el.push(printBtn);
 		b.appendChild(printBtn);
