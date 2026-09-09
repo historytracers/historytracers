@@ -186,7 +186,7 @@ function htUpdateMesoamericanValues()
     var rows = htSelectRows();
     for (let i = 1; i < 4; i++) {
         for (let j = 1; j <= rows; j++) {
-            $("#tc"+i+"f"+j).html("<img src=\""+prefix+"\" id=\"tmc"+i+"l"+j+"\" />");
+            $("#tc"+i+"f"+j).html("<img src=\""+prefix+"\" id=\"tmc"+i+"l"+j+"\" alt=\"Maya numeral 0\" onclick=\"htImageZoom('tmc"+i+"l"+j+"', '0%')\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" />");
         }
     }
 
@@ -340,6 +340,11 @@ function htSequenceToggleYupanaLayout()
     }
     var selected = $("input[name='htNumericalSystem']:checked").val();
     wrapper.classList.toggle("htSeqYupana", selected == "yupana");
+    wrapper.classList.toggle("mesoNumTable", selected == "mesoamerican");
+    var tables = wrapper.querySelectorAll(".tawapukllay");
+    tables.forEach(function(tbl){
+        tbl.classList.toggle("mesoNumTable", selected == "mesoamerican");
+    });
 }
 
 function htLoadContent()
