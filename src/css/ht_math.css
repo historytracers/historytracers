@@ -558,12 +558,12 @@
 }
 
 .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
-  width: 4.2em;
-  height: 4.2em;
+  width: 4.5em;
+  height: 4.5em;
 }
 
 .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
-  width: 2.2em;
+  width: 1em;
 }
 
 .htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
@@ -573,11 +573,34 @@
 
 .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
 .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
-  font-size: 2em;
+  font-size: 1.3em;
 }
 
 .htSequenceYupanaTables.htSeqYupana .tawapukllay .desc {
   font-size: 1.8em;
+}
+
+/* Wide screens: let the three Yupana tables sit side by side and stretch to
+   fill ~90% of the lesson column (same footprint as the single Mesoamerican
+   table). Board/cell sizes then scale with the available width (container
+   query units), so they grow on large monitors instead of staying small. */
+@media screen and (min-width: 1200px) {
+    .htSequenceYupanaTables.htSeqYupana {
+        display: grid;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        container-type: inline-size;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        display: block;
+        width: 100%;
+        margin: 0;
+        font-size: 1.55cqw;
+    }
 }
 
 /* Small screens (600px) */
