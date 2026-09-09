@@ -5,7 +5,8 @@
       "fb9dca2c-cd76-4951-b7d0-4b2c694e8056"
    ],
    "scripts": [
-      "ht_sequence_game"
+      "ht_sequence_game",
+      "ht_yupana"
    ],
    "audio": [
       {
@@ -14,7 +15,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/owLeegm0ZUb",
+         "url": "https://open.spotify.com/episode/7JCXIw9S2QsDjyBFzQey6V?si=Cle666btSymm9B7Gyp9Yag",
          "external": true,
          "spotify": true
       }
@@ -28,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765771"
+      "1788922944"
    ],
    "authors": null,
    "reviewers": null,
@@ -102,7 +103,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>El juego</h3>Elige un sistema numérico: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Indo-arábigo <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamericano</p><p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp1\"><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp2\"><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\">Trabajamos con la <i>Yupana</i> utilizando el método <i>\"Yupana Inka Tawa Pukllay\"</i>, desarrollado y publicado por Dhavit Prem (<htcite0>) de la Asociación Yupanki (<htcite1>).<br />El uso de los números mesoamericanos se basa en el trabajo de Orlando Josué Casares Contreras, José M. Gamboa Cetina y Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Además, incorporamos la Francisco Barriga Puente (<htcite4>).<br />Finalmente, empleamos diversos métodos de conteo inspirado por el trabajo de Francisco A. González Redondo <i>et al.</i> (<htcite5>).</p>",
+               "text": "<p><h3>El juego</h3>Elige un sistema numérico: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Indo-arábigo <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamericano</p><div class=\"htSequenceYupanaTables\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table></div><p class=\"desc\">Trabajamos con la <i>Yupana</i> utilizando el método <i>\"Yupana Inka Tawa Pukllay\"</i>, desarrollado y publicado por Dhavit Prem (<htcite0>) de la Asociación Yupanki (<htcite1>).<br />El uso de los números mesoamericanos se basa en el trabajo de Orlando Josué Casares Contreras, José M. Gamboa Cetina y Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Además, incorporamos la obra de Francisco Barriga Puente (<htcite4>).<br />Finalmente, empleamos diversos métodos de conteo inspirados por el trabajo de Francisco A. González Redondo <i>et al.</i> (<htcite5>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -220,8 +221,8 @@
    "exercise_v2": null,
    "game_v2": [
       {
-         "imagePath": "images/AntopologyPeru/CeramicaAntropologiaPeru.jpg",
-         "imageDesc": "Figura 1: Cerámicas andinas del periodo formativo. Foto tomada en <htdate0>, durante una visita al Museo de Antropologia em Lima, Perú.",
+         "imagePath": "images/AntopologyPeru/CeramicaAntropologíaPeru.jpg",
+         "imageDesc": "Figura 1: Cerámicas andinas del periodo formativo. Foto tomada en <htdate0>, durante una visita al Museo de Antropología en Lima, Perú.",
          "date_time": [
             {
                "type": "gregory",
@@ -233,7 +234,7 @@
       },
       {
          "imagePath": "images/CahalPech/ChocolatPot.jpg",
-         "imageDesc": "Figura 2: Pote de cerâmica mesoamericano. Foto tomada en <htdate0>, durante una visita al sítio arqueológico de Cahal Pech, Belize.",
+         "imageDesc": "Figura 2: Pote de cerámica mesoamericano. Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Cahal Pech, Belize.",
          "date_time": [
             {
                "type": "gregory",
@@ -244,8 +245,8 @@
          ]
       },
       {
-         "imagePath": "images/GuatemalaAntropologia/EstelaAntropologiaGuatemala.jpg",
-         "imageDesc": "Figura 3: Estela Maya. Foto tomada en <htdate0>, durante una visita al Museo de Antropologia de Ciudad de Guatemala, Guatemala.",
+         "imagePath": "images/GuatemalaAntropología/EstelaAntropologíaGuatemala.jpg",
+         "imageDesc": "Figura 3: Estela Maya. Foto tomada en <htdate0>, durante una visita al Museo de Antropología de Ciudad de Guatemala, Guatemala.",
          "date_time": [
             {
                "type": "gregory",
@@ -257,7 +258,7 @@
       },
       {
          "imagePath": "images/GuatemalaKaminaljuyu/Kaminaljuyu.jpg",
-         "imageDesc": "Figura 4: Estela Maya. Foto tomada en <htdate0>, durante una visita al sítio arqueológico de Kaminaljuyu, Guatemala.",
+         "imageDesc": "Figura 4: Estela Maya. Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Kaminaljuyu, Guatemala.",
          "date_time": [
             {
                "type": "gregory",
@@ -281,7 +282,7 @@
       },
       {
          "imagePath": "images/Teotihuacan/MetateTeotihuacan.jpg",
-         "imageDesc": "Figura 6: Metate para moler maíz. Foto tomada en <htdate0>, durante una visita al sítio arqueológico de Teotihuacan, Mexico.",
+         "imageDesc": "Figura 6: Metate para moler maíz. Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Teotihuacan, México.",
          "date_time": [
             {
                "type": "gregory",
@@ -292,8 +293,8 @@
          ]
       },
       {
-         "imagePath": "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg",
-         "imageDesc": "Figura 7: Metate para moler maíz - Pós-classicotomada enrada em <htdate0>, durante una visita al Museo de Antropologia de San José, Costa Rica.",
+         "imagePath": "images/SanJoseCRMuseo/SanJoseCRAntropología.jpg",
+         "imageDesc": "Figura 7: Metate para moler maíz - Posclásico. Foto tomada en <htdate0>, durante una visita al Museo de Antropología de San José, Costa Rica.",
          "date_time": [
             {
                "type": "gregory",
@@ -304,8 +305,8 @@
          ]
       },
       {
-         "imagePath": "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg",
-         "imageDesc": "Figura 8: Metate para moler maíz - Posclassico. Foto tomada en <htdate0>, durante una visita al Museo de Antropologia de San Salvador, El Salvador.",
+         "imagePath": "images/ElSalvadorMuseo/SanSalvadorESAntropología.jpg",
+         "imageDesc": "Figura 8: Metate para moler maíz - Posclásico. Foto tomada en <htdate0>, durante una visita al Museo de Antropología de San Salvador, El Salvador.",
          "date_time": [
             {
                "type": "gregory",
@@ -317,7 +318,7 @@
       },
       {
          "imagePath": "images/Copan/StelaACopan.jpg",
-         "imageDesc": "Figura 9: Estela 'A' Maya. Foto tomada en <htdate0>, durante una visita al sítio arqueológico de Copan, Honduras.",
+         "imageDesc": "Figura 9: Estela 'A' Maya. Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Copan, Honduras.",
          "date_time": [
             {
                "type": "gregory",
@@ -329,7 +330,7 @@
       },
       {
          "imagePath": "images/SanJoseCRMuseo/MusicCR.jpg",
-         "imageDesc": "Figura 10: Instrumentos musicales. Foto tomada en <htdate0>, durante una visita al Museo de Antropologia de San José, Costa Rica.",
+         "imageDesc": "Figura 10: Instrumentos musicales. Foto tomada en <htdate0>, durante una visita al Museo de Antropología de San José, Costa Rica.",
          "date_time": [
             {
                "type": "gregory",

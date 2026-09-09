@@ -528,6 +528,101 @@
   color: #155724;
 }
 
+/* Sequence game (fb9dca2c): compact Yupana tables side by side.
+   The three <table>s share one wrapper (.htSequenceYupanaTables). The layout
+   class htSeqYupana is toggled by JS only while the "Yupana" system is active,
+   so the Hindu-Arabic / Mesoamerican views keep their normal single table. */
+.htSequenceYupanaTables {
+  text-align: center;
+}
+
+.htSequenceYupanaTables.htSeqYupana {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  width: auto;
+  font-size: 0.62em;
+  border-spacing: 2px;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr:first-child {
+  display: none;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+  width: 4.5em;
+  height: 4.5em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+  width: 1em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+  font-size: 2.6em;
+  cursor: pointer;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr.htYupanaControlsRow td {
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr.htYupanaControlsRow button.htYupanaControl {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0 0.3em;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .desc {
+  font-size: 1em;
+}
+
+/* Wide screens: let the three Yupana tables sit side by side and stretch to
+   fill ~90% of the lesson column (same footprint as the single Mesoamerican
+   table). Board/cell sizes then scale with the available width (container
+   query units), so they grow on large monitors instead of staying small. */
+@media screen and (min-width: 1200px) {
+    .htSequenceYupanaTables.htSeqYupana {
+        display: grid;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        container-type: inline-size;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        display: block;
+        width: 100%;
+        margin: 0;
+        font-size: 1.55cqw;
+    }
+}
 
 /* Small screens (600px) */
 @media screen and (max-width: 600px) {
@@ -554,6 +649,29 @@
     .dot {
         width: 2vmin;
         height: 2vmin;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        font-size: 0.5em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+        width: 4em;
+        height: 4em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+        width: 2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+        width: 0.55em;
+        height: 0.55em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+        font-size: 2em;
     }
 }
 
@@ -656,6 +774,29 @@
     .dot {
         width: 1.8vmin;
         height: 1.8vmin;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        font-size: 0.55em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+        width: 4.2em;
+        height: 4.2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+        width: 2.2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+        width: 0.5em;
+        height: 0.5em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+        font-size: 2.2em;
     }
 }
 
