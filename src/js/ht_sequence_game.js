@@ -161,7 +161,7 @@ function htSequenceAddBottomControls(id)
     var ctrlRow = htSelectRows() + 2;
     var upLabel = htSequenceArrowLabel(1);
     var downLabel = htSequenceArrowLabel(-1);
-    $("#yupana"+id).append("<tr id=\"tf"+ctrlRow+"\" class=\"trCanBeRemoved htYupanaControlsRow\"><td colspan=\"6\" style=\"text-align:center;\"><button type=\"button\" class=\"htYupanaControl\" id=\"traineeUp"+id+"\" aria-label=\""+upLabel+"\" onclick=\"htSequenceUpdateValue(+1);\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" aria-hidden=\"true\"></i></button> <button type=\"button\" class=\"htYupanaControl\" id=\"traineeDown"+id+"\" aria-label=\""+downLabel+"\" onclick=\"htSequenceUpdateValue(-1);\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" aria-hidden=\"true\"></i></button></td></tr>");
+    $("#yupana"+id).append("<tr id=\"tf"+ctrlRow+"\" class=\"trCanBeRemoved htYupanaControlsRow\"><td colspan=\"6\" style=\"text-align:center; background-color: white;\"><button type=\"button\" class=\"htYupanaControl\" id=\"traineeUp"+id+"\" aria-label=\""+upLabel+"\" onclick=\"htSequenceUpdateValue(+1);\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" aria-hidden=\"true\"></i></button> <button type=\"button\" class=\"htYupanaControl\" id=\"traineeDown"+id+"\" aria-label=\""+downLabel+"\" onclick=\"htSequenceUpdateValue(-1);\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" aria-hidden=\"true\"></i></button></td></tr>");
 }
 
 function htUpdateHAValues()
