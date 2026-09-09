@@ -29,7 +29,7 @@ function htTranslationLoadHA(tableID, field, selector, value)
 function htTranslationLoadIndigenous(tableID, field, selector, value)
 {
    var htImgSrcPrefix = htGetImgSrcPrefix();
-   $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value+".png\" />" : "&nbsp;");
+   $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value+".png\" alt=\"Maya numeral "+value+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" />" : "&nbsp;");
 }
 
 function htTranslationFillRandomVector(min, max, end)
