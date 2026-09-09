@@ -126,12 +126,12 @@ function htSelectRows()
     return currentSelection;
 }
 
-function htSequenceAddCommonTable(id, hasLevels, isHA)
+function htSequenceAddCommonTable(id, hasLevels, isHA, noArrows)
 {
     var end = htSelectRows();
     for (let i =1; i <= end; i++) {
         var controls = "";
-        if (i == 1) {
+        if (i == 1 && !noArrows) {
             controls = "<td id=\"tc5f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp"+id+"\" onclick=\"htSequenceUpdateValue(+1);\"></i> </td><td id=\"tc6f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown"+id+"\" onclick=\"htSequenceUpdateValue(-1);\"></i></td>";
         }
         $("#yupana"+id+" tr:last").after("<tr id=\"tf"+i+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+i+"\">&nbsp;</td> <td id=\"tc2f"+i+"\">&nbsp;</td> <td id=\"tc3f"+i+"\">&nbsp;</td> <td id=\"tc4f"+i+"\">&nbsp;</td>"+controls+"</tr>");
@@ -142,6 +142,12 @@ function htSequenceAddImageRow(id, hasLevels)
 {
     var imgID = htSelectRows() + 1;
     $("#yupana"+id+" tr:last").after("<tr id=\"tf"+imgID+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+imgID+"\" colspan=\"4\"><span id=\"gameImage"+id+"\"></span></td><td id=\"tc5f"+imgID+"\" style=\"background-color: white;\" colspan=\"2\"><i class=\"fa-solid fa-chevron-right\" style=\"font-size:3.0em;\" onclick=\"htSequenceGoNext();\"></i></td></tr>");
+}
+
+function htSequenceAddBottomControls(id)
+{
+    var ctrlRow = htSelectRows() + 2;
+    $("#yupana"+id).append("<tr id=\"tf"+ctrlRow+"\" class=\"trCanBeRemoved htYupanaControlsRow\"><td colspan=\"6\" style=\"text-align:center;\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp"+id+"\" onclick=\"htSequenceUpdateValue(+1);\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown"+id+"\" onclick=\"htSequenceUpdateValue(-1);\"></i></td></tr>");
 }
 
 function htUpdateHAValues()
@@ -224,10 +230,11 @@ function htSequenceFillYupana()
     $("#yupana1").removeClass("htSlideGameMenuHidden");
     $("#yupana2").removeClass("htSlideGameMenuHidden");
 
+    var compactLayout = (document.querySelector(".htSequenceYupanaTables") != null);
     var hasLevel = ($("#sequenceOrder").length > 0) ? true: false;
     var end = currentSelection + 1;
     for (let i = 0; i < 3; i++) {
-        htSequenceAddCommonTable(i, hasLevel, false);
+        htSequenceAddCommonTable(i, hasLevel, false, compactLayout);
         for (let j = 1; j <= end; j++) {
             $("#yupana"+i+" #tc1f"+j).html(htYupanaDrawFirstSquare());
             $("#yupana"+i+" #tc2f"+j).html(htYupanaDrawSecondSquare());
@@ -236,6 +243,9 @@ function htSequenceFillYupana()
         }
 
         htSequenceAddImageRow(i, hasLevel, false);
+        if (compactLayout && i == updatingIdx) {
+            htSequenceAddBottomControls(i);
+        }
     }
     htUpdateYupanaValues();
 }

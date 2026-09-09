@@ -573,7 +573,24 @@
 
 .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
 .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
-  font-size: 1.3em;
+  font-size: 2.6em;
+  cursor: pointer;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr.htYupanaControlsRow td {
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr.htYupanaControlsRow td .upArrowWithFA,
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr.htYupanaControlsRow td .downArrowWithFA {
+  margin: 0 0.3em;
 }
 
 .htSequenceYupanaTables.htSeqYupana .tawapukllay .desc {
@@ -650,7 +667,7 @@
 
     .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
     .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
-        font-size: 1.5em;
+        font-size: 2em;
     }
 }
 
@@ -775,7 +792,7 @@
 
     .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
     .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
-        font-size: 1.8em;
+        font-size: 2.2em;
     }
 }
 
