@@ -144,10 +144,24 @@ function htSequenceAddImageRow(id, hasLevels)
     $("#yupana"+id+" tr:last").after("<tr id=\"tf"+imgID+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+imgID+"\" colspan=\"4\"><span id=\"gameImage"+id+"\"></span></td><td id=\"tc5f"+imgID+"\" style=\"background-color: white;\" colspan=\"2\"><i class=\"fa-solid fa-chevron-right\" style=\"font-size:3.0em;\" onclick=\"htSequenceGoNext();\"></i></td></tr>");
 }
 
+function htSequenceArrowLabel(dir)
+{
+    var lang = $("#site_language").val();
+    if (lang == "es-ES") {
+        return (dir > 0) ? "Aumentar" : "Disminuir";
+    }
+    if (lang == "pt-BR") {
+        return (dir > 0) ? "Aumentar" : "Diminuir";
+    }
+    return (dir > 0) ? "Increase" : "Decrease";
+}
+
 function htSequenceAddBottomControls(id)
 {
     var ctrlRow = htSelectRows() + 2;
-    $("#yupana"+id).append("<tr id=\"tf"+ctrlRow+"\" class=\"trCanBeRemoved htYupanaControlsRow\"><td colspan=\"6\" style=\"text-align:center;\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp"+id+"\" onclick=\"htSequenceUpdateValue(+1);\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown"+id+"\" onclick=\"htSequenceUpdateValue(-1);\"></i></td></tr>");
+    var upLabel = htSequenceArrowLabel(1);
+    var downLabel = htSequenceArrowLabel(-1);
+    $("#yupana"+id).append("<tr id=\"tf"+ctrlRow+"\" class=\"trCanBeRemoved htYupanaControlsRow\"><td colspan=\"6\" style=\"text-align:center;\"><button type=\"button\" class=\"htYupanaControl\" id=\"traineeUp"+id+"\" aria-label=\""+upLabel+"\" onclick=\"htSequenceUpdateValue(+1);\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" aria-hidden=\"true\"></i></button> <button type=\"button\" class=\"htYupanaControl\" id=\"traineeDown"+id+"\" aria-label=\""+downLabel+"\" onclick=\"htSequenceUpdateValue(-1);\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" aria-hidden=\"true\"></i></button></td></tr>");
 }
 
 function htUpdateHAValues()
