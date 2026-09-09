@@ -122,7 +122,7 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimal
         if (decimalColumn != undefined) {
             $("#tmc"+decimalColumn+"l"+top2bottom).html(0);
         }
-        $("#tmc"+outputColumn+"l"+top2bottom).attr("src", htMayaImageName("0"));
+        $("#tmc"+outputColumn+"l"+top2bottom).attr("src", htMayaImageName("0")).attr("alt", "Maya numeral 0");
         start /= 20;
         top2bottom++;
     }
@@ -133,7 +133,7 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimal
         if (decimalColumn != undefined) {
             $("#tmc"+decimalColumn+"l"+bottom2top).html(r);
         }
-        $("#tmc"+outputColumn+"l"+bottom2top).attr("src", htMayaImageName(r.toString()));
+        $("#tmc"+outputColumn+"l"+bottom2top).attr("src", htMayaImageName(r.toString())).attr("alt", "Maya numeral " + r);
     }
 }
 
