@@ -5,7 +5,8 @@
       "fb9dca2c-cd76-4951-b7d0-4b2c694e8056"
    ],
    "scripts": [
-      "ht_sequence_game"
+      "ht_sequence_game",
+      "ht_yupana"
    ],
    "audio": [
       {
@@ -28,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765765"
+      "1788909053"
    ],
    "authors": null,
    "reviewers": null,
@@ -49,7 +50,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Prerequisites</h3>In this text, we reinfornce knowledge about the numerical systems. For more details, we recommend starting with:</p><p><ul><li><htcite0>: show how we change from our fingers to geometric pictures.</li><li><htcite1>: Illustrating the relationship between our ancestors and numbers.</li></ul></p>",
+               "text": "<p><h3>Prerequisites</h3>In this text, we reinforce knowledge about numerical systems. For more details, we recommend starting with:</p><p><ul><li><htcite0>: shows how we moved from our fingers to geometric shapes.</li><li><htcite1>: illustrates the relationship between our ancestors and numbers.</li></ul></p>",
                "source": [
                   {
                      "type": 1,
@@ -102,7 +103,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>The game</h3>Select a numerical system: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Hindu-Arabic <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamerican</p><p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controls</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp1\"><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp2\"><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\">The <i>Yupana</i> method used in this game is based on the <i>\"Yupana Inka Tawa Pukllay\"</i>, developed and published by Dhavit Prem (<htcite0>) of Associação Yupanki (<htcite1>).<br />The application of Mesoamerican numbers is grounded in the work of Orlando Josué Casares Contreras, José M. Gamboa Cetina and Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Additionally, we incorporate methods inspired by the work of Francisco Barriga Puente (<htcite4>).<br />Lastly, we employ various counting methods influenced by A. González Redondo <i>et al.</i> (<htcite5>).</p>",
+               "text": "<p><h3>The game</h3>Select a numerical system: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Hindu-Arabic <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamerican</p><div class=\"htSequenceYupanaTables\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controls</th></tr> </table><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controls</th></tr> </table><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controls</th></tr> </table></div><p class=\"desc\">The <i>Yupana</i> method used in this game is based on the <i>\"Yupana Inka Tawa Pukllay\"</i>, developed and published by Dhavit Prem (<htcite0>) of Associação Yupanki (<htcite1>).<br />The application of Mesoamerican numbers is grounded in the work of Orlando Josué Casares Contreras, José M. Gamboa Cetina and Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Additionally, we incorporate methods inspired by the work of Francisco Barriga Puente (<htcite4>).<br />Lastly, we employ various counting methods influenced by A. González Redondo <i>et al.</i> (<htcite5>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -221,7 +222,7 @@
    "game_v2": [
       {
          "imagePath": "images/AntopologyPeru/CeramicaAntropologiaPeru.jpg",
-         "imageDesc": "Figure 1: Ceramic andian during formative period. Photo taken on <htdate0>, during a visit to the Antropological Museum in Lima, Peru.",
+         "imageDesc": "Figure 1: Andean ceramic during formative period. Photo taken on <htdate0>, during a visit to the Anthropological Museum in Lima, Peru.",
          "date_time": [
             {
                "type": "gregory",
@@ -245,7 +246,7 @@
       },
       {
          "imagePath": "images/GuatemalaAntropologia/EstelaAntropologiaGuatemala.jpg",
-         "imageDesc": "Figure 3: Stela Maia. Photo taken on <htdate0>, during a visit to the Antropological Museum of de Ciudad de Guatemala, Guatemala.",
+         "imageDesc": "Figure 3: Maya stela. Photo taken on <htdate0>, during a visit to the Anthropological Museum of Guatemala City, Guatemala.",
          "date_time": [
             {
                "type": "gregory",
@@ -257,7 +258,7 @@
       },
       {
          "imagePath": "images/GuatemalaKaminaljuyu/Kaminaljuyu.jpg",
-         "imageDesc": "Figure 4: Stela Maia. Photo taken on <htdate0>, during a visit to the Archaeological Site of Kaminaljuyu, Guatemala.",
+         "imageDesc": "Figure 4: Maya stela. Photo taken on <htdate0>, during a visit to the Archaeological Site of Kaminaljuyu, Guatemala.",
          "date_time": [
             {
                "type": "gregory",
@@ -269,7 +270,7 @@
       },
       {
          "imagePath": "images/SanJoseCRJade/MayaCRJade.jpg",
-         "imageDesc": "Figure 5: Maia text. Photo taken on <htdate0>, during a visit to the Museuum of Jade in San José, Costa Rica.",
+         "imageDesc": "Figure 5: Maya text. Photo taken on <htdate0>, during a visit to the Museum of Jade in San José, Costa Rica.",
          "date_time": [
             {
                "type": "gregory",
@@ -281,7 +282,7 @@
       },
       {
          "imagePath": "images/Teotihuacan/MetateTeotihuacan.jpg",
-         "imageDesc": "Figure 6: Metate to grind corn. Photo taken on <htdate0>, during a visit to the Archaeological Site of Teotihuacan, Mexico.",
+         "imageDesc": "Figure 6: Metate for grinding corn. Photo taken on <htdate0>, during a visit to the Archaeological Site of Teotihuacan, Mexico.",
          "date_time": [
             {
                "type": "gregory",
@@ -293,7 +294,7 @@
       },
       {
          "imagePath": "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg",
-         "imageDesc": "Figure 7: Metate  to grind corn during Posclassico. Photo taken on <htdate0>, during a visit to the Antropological Museum in San José, Costa Rica.",
+         "imageDesc": "Figure 7: Metate for grinding corn during Postclassic. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San José, Costa Rica.",
          "date_time": [
             {
                "type": "gregory",
@@ -305,7 +306,7 @@
       },
       {
          "imagePath": "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg",
-         "imageDesc": "Figure 8: Metate  to grind corn during Posclassico. Photo taken on <htdate0>, during a visit to the Antropological Museum in San Salvador, El Salvador.",
+         "imageDesc": "Figure 8: Metate for grinding corn during Postclassic. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San Salvador, El Salvador.",
          "date_time": [
             {
                "type": "gregory",
@@ -317,7 +318,7 @@
       },
       {
          "imagePath": "images/Copan/StelaACopan.jpg",
-         "imageDesc": "Figure 9: Stela 'A' Maia. Photo taken on <htdate0>, during a visit to the Archaeological Site of Copan, Honduras.",
+         "imageDesc": "Figure 9: Maya stela 'A'. Photo taken on <htdate0>, during a visit to the Archaeological Site of Copan, Honduras.",
          "date_time": [
             {
                "type": "gregory",
@@ -329,7 +330,7 @@
       },
       {
          "imagePath": "images/SanJoseCRMuseo/MusicCR.jpg",
-         "imageDesc": "Figure 10: Musical instruments. Photo taken on <htdate0>, during a visit to the Antropological Museum in San José, Costa Rica.",
+         "imageDesc": "Figure 10: Musical instruments. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San José, Costa Rica.",
          "date_time": [
             {
                "type": "gregory",
