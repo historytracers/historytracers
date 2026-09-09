@@ -1531,14 +1531,11 @@ function htFillFamilies(page, table) {
     // helper to show one family page at a time (book) - also handles index page
     if (typeof window.htShowFamily !== 'function') {
         window.htShowFamily = function(familyId) {
-            $("[id^='paper-family-']").hide();
+            $("[id^='paper-family-']").not("#paper-familyNavBottom").hide();
             var sel = $("#paper-family-"+familyId);
             if (sel.length) sel.show();
-            // also show nav top/bottom
-            $("#paper-familyNavTop").show();
-            $("#paper-familyNavBottom").show();
             // update location hash without reload - for index keep file id
-            try { if (familyId !== 'index') htSetCurrentLinkBasis(table.title || page, familyId); } catch(e) {}
+            try { if (familyId !== 'index' && familyId !== 'introduction') htSetCurrentLinkBasis(table.title || page, familyId); } catch(e) {}
             // scroll to selected page
             try { htScrollToID("#paper-family-"+familyId); } catch(e) {}
         };
@@ -1548,11 +1545,8 @@ function htFillFamilies(page, table) {
         window.htShowFamilyIndex = function(){ window.htShowFamily('index'); };
     }
 
-    // top navigation placeholder (like class_content)
+    // book pages start at 0 - top navigation is the existing #dnavigationup outside #paper
     var paperIdx = 0;
-    if (validFamilies.length > 0) {
-        htAddPaperDivs("#paper", "familyNavTop", "<p class=\"dynamicNavigation\"></p>", "", "<hr class=\"limit\" />", paperIdx++);
-    }
 
     // --- First page of book: Patriarch/Matriarch index ---
     htAddPaperDivs("#paper", "family-index", "", "", "", paperIdx++);
@@ -1664,11 +1658,6 @@ function htFillFamilies(page, table) {
         $("#paper-family-"+family_id).append(bookNav);
     }
 
-    // bottom navigation placeholder
-    if (validFamilies.length > 0) {
-        htAddPaperDivs("#paper", "familyNavBottom", "<p class=\"dynamicNavigation\"></p>", "<hr class=\"limit\" />", "", paperIdx++);
-    }
-
     // show patriarchs index as first page by default, or family matching selector/person_id
     if (validFamilies.length > 0) {
         var initialFamily = 'index';
@@ -1684,12 +1673,9 @@ function htFillFamilies(page, table) {
                 }
             }
         }
-        // hide all then show initial (index)
-        $("[id^='paper-family-']").hide();
+        // hide all then show initial (index) - bottom nav not yet created
+        $("[id^='paper-family-']").not("#paper-familyNavBottom").hide();
         $("#paper-family-"+initialFamily).show();
-        // keep top/bottom nav visible
-        $("#paper-familyNavTop").show();
-        $("#paper-familyNavBottom").show();
     }
 
     genealogicalStats.people = totalPeople;
@@ -1713,6 +1699,11 @@ function htFillFamilies(page, table) {
         htFillHTDate(table.date_time);
     } else if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
         htFillHTDate(table.fill_dates);
+    }
+
+    // bottom navigation after questions (one on top via #dnavigationup, one after questions)
+    if (validFamilies.length > 0) {
+        htAddPaperDivs("#paper", "familyNavBottom", "<p class=\"dynamicNavigation\"></p>", "<hr class=\"limit\" />", "", paperIdx++);
     }
 
     $("#loading_msg").hide();
