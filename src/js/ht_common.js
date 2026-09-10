@@ -1518,11 +1518,9 @@ function htFillFamilies(page, table) {
     $("#trees").empty();
     $("#paper").empty();
     $("#index_list").empty();
-    // Define region of new book on screen: H3 Family Name Book (translated via common_keywords.json:145)
-    $("#family-book-title").remove();
+    // Family Name Book title (translated via common_keywords.json:145) will be added inside first page (like Page Statistics)
     var _bookTitleIdx = 145;
     var _bookTitle = (typeof keywords !== 'undefined' && keywords.length > _bookTitleIdx && keywords[_bookTitleIdx]) ? keywords[_bookTitleIdx] : "Family Name Book";
-    $("#paper").before("<h3 id=\"family-book-title\" style=\"text-align:center; margin: 20px 0 15px 0;\">"+_bookTitle+"</h3>");
 
     var families = table.families || [];
     var validFamilies = [];
@@ -1554,15 +1552,35 @@ function htFillFamilies(page, table) {
     var paperIdx = 0;
 
     // --- First page of book: Patriarch/Matriarch index ---
-    htAddPaperDivs("#paper", "family-index", "", "", "", paperIdx++);
+    if ($("#paper-family-index").length === 0) {
+        htAddPaperDivs("#paper", "family-index", "", "", "", paperIdx++);
+    } else {
+        paperIdx++;
+    }
     var $idxBlock = $("#index");
     if ($idxBlock.length) {
-        $("#paper-family-index").append($idxBlock.detach());
-        $idxBlock.show();
+        // Use .html instead of .append(detach) - append was not rendering
+        if ($idxBlock.closest("#paper-family-index").length === 0) {
+            var idxHtml = $idxBlock.prop('outerHTML');
+            $idxBlock.remove();
+            $("#paper-family-index").html($("#paper-family-index").html() + idxHtml);
+        }
+        $("#index").show();
+        $("#index_list").show();
     } else {
         // fallback if #index not present in tree.html
-        $("#paper-family-index").append("<div id=\"index\"><h4 id=\"index-identifier\"></h4><ol id=\"index_list\"></ol></div>");
+        $("#paper-family-index").html($("#paper-family-index").html() + "<div id=\"index\"><h4 id=\"index-identifier\"></h4><ol id=\"index_list\"></ol></div>");
         $("#index-identifier").html(keywords[135]);
+    }
+    // Add Family Name Book title before book, like Page Statistics (H3) - use .html as requested (append was not working)
+    var $bt = $("#family-book-title");
+    if ($bt.length) {
+        $bt.html(_bookTitle);
+        $bt.show();
+        $bt.html(_bookTitle);
+    } else {
+        $("#paper").before("<h3 id=\"family-book-title\" style=\"text-align:center; margin:20px 0 15px 0;\">"+_bookTitle+"</h3>");
+        $("#family-book-title").html(_bookTitle);
     }
     // ensure list is empty before filling (it was cleared above, but after detach keep empty)
     // $("#index_list") already empty
