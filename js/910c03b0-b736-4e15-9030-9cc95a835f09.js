@@ -23,6 +23,7 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
+		htSetImageSrc("imgCompostela", "images/Archive/historiadelasant04lpez_0376.jpg");
 
     return false;
 }
