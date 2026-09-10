@@ -1,0 +1,237 @@
+{
+   "title": "Contando con el hueso",
+   "header": "Contando con el hueso",
+   "sources": [
+      "7d2fd4de-5c10-4811-957c-8233bc8d21de"
+   ],
+   "scripts": [
+      "7d2fd4de-5c10-4811-957c-8233bc8d21de"
+   ],
+   "audio": [],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1788998878"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEl juego de esta página practica transformar dedos levantados en marcas sobre un hueso. Antes de empezar, sugerimos estudiar las siguientes páginas anteriores:\n- **Nuestros lados son similares**: aprendemos que nuestro cuerpo tiene dos lados parecidos (<htcite0>).\n- **Contando**: aprendemos a contar usando nuestro cuerpo (<htcite1>).\n- **Más allá de los dedos**: vemos los límites de contar con el cuerpo y cómo aparecieron las marcas en los huesos (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "20b14681-88c0-438a-a273-a0902ae5db38",
+                     "text": "History Tracers Team",
+                     "page": "Nuestros lados son similares",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3874d1e8-0f76-4432-9ee2-d8c8c9dccf53",
+                     "text": "History Tracers Team",
+                     "page": "Contando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cc8c1467-a6af-4f9c-ba60-ab6df35aba05",
+                     "text": "History Tracers Team",
+                     "page": "Más allá de los dedos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "23"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_why",
+         "text": [
+            {
+               "text": "<p><h3>¿Por qué jugar?</h3>La necesidad de contar no apareció recientemente. Existe desde hace mucho tiempo, desde antes de que hubiera ciudades o casas. Lo sabemos gracias a los científicos que encontraron huesos con marcas en diferentes lugares (<htcite0> ; <htcite1> ; <htcite2>):</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "pp. 21 - 23",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+                     "text": "González Redondo, Francisco A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "27"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgBone\" onclick=\"htImageZoom('imgBone', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representación de un hueso de babuino con marcas. Esta imagen, realizada por Enrique Silván Pobes, se encuentra en el trabajo de Francisco A. González Redondo et al.<br />El original está disponible en ResearchNet (<htcite0>) y se muestra aquí con la autorización del Doctor Francisco A. González Redondo.</p><p>Mira las marcas del hueso. Se parecen a nuestros dedos. En este juego hacemos lo contrario: miramos manos con dedos levantados y colocamos marcas en un hueso hasta que coinciden con los dedos levantados.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "adaed4fb-9c50-4ef9-ab79-c65f3c0629b8",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "02",
+                        "day": "01"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_levels",
+         "text": [
+            {
+               "text": "<p><h3>Los niveles</h3>El juego tiene cuatro niveles. El nivel nos dice cuántas manos veremos y, por tanto, qué números podemos representar con los dedos levantados:</p><p><table class=\"htLevelsTable\"><thead><tr><th>Nivel</th><th>Manos</th><th>Números</th></tr></thead><tbody><tr><td>Nivel 1</td><td>1 mano</td><td>1 a 5</td></tr><tr><td>Nivel 2</td><td>2 manos</td><td>6 a 10</td></tr><tr><td>Nivel 3</td><td>3 manos</td><td>11 a 15</td></tr><tr><td>Nivel 4</td><td>4 manos</td><td>16 a 20</td></tr></tbody></table></p><p class=\"desc\"><b>Tabla 1</b>: Niveles del juego y sus números.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Objetivo y reglas</h3><p>Elige un nivel con los botones de arriba de la tabla. Mira las manos: cada mano muestra algunos dedos levantados. Después usa las flechas al lado del hueso para colocar marcas. La flecha hacia arriba <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> añade una marca, y la flecha hacia abajo <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> quita una marca. El juego se detiene en cuanto el número de marcas del hueso es igual al número de dedos levantados.</p><p>Para practicar más, elige otro nivel o haz clic en <b>Nuevo número</b>.</p></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Nivel:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">1 mano · 1 – 5</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">2 manos · 6 – 10</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">3 manos · 11 – 15</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">4 manos · 16 – 20</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Cuenta los dedos levantados y coloca en el hueso la misma cantidad de marcas.</p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>El hueso</th><th>Flechas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div><div class=\"htBoneCount\"><span id=\"htBoneMarksLabel\">Marcas:</span> <b id=\"htBoneMarksValue\">0</b></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><i class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" role=\"button\" aria-label=\"Añadir una marca\"></i><i class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" role=\"button\" aria-label=\"Quitar una marca\"></i></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> ¡Felicitaciones! Las <b id=\"htBoneCongratsMarks\">0</b> marcas coinciden con los <b id=\"htBoneCongratsTarget\">0</b> dedos levantados. <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Nuevo número</button></p><p class=\"desc\"><b>Tabla 2</b>: Tablero del juego. Las flechas al lado del hueso añaden o quitan marcas.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Mano con {n} dedos levantados</span></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>¿Qué practicamos?</h3>Con este juego practicamos convertir una cantidad en una secuencia de marcas, como algunos pueblos antiguos hacían en los huesos. También entrenamos nuestra cuenta hasta el 20.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
