@@ -7,7 +7,18 @@
    "scripts": [
       "7d2fd4de-5c10-4811-957c-8233bc8d21de"
    ],
-   "audio": [],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/7d2fd4de-5c10-4811-957c-8233bc8d21de_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0xnfnSNhWHklodKGf5xk4F?si=OVBx7q9jShaNEFRRLgnUwQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
    "index": [
       "first_steps",
       "math_games"
@@ -17,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789062239"
+      "1789068662"
    ],
    "authors": null,
    "reviewers": [
@@ -168,7 +179,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgBone\" onclick=\"htImageZoom('imgBone', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representação de um osso de babuíno com marcas. Imagem de Enrique Silván Pobes, do trabalho de Francisco A. González Redondo et al.<br />Original disponível em ResearchNet (<htcite0>), incluída aqui com a autorização do Doutor Francisco A. González Redondo.</p><p>Observe as marcas no osso. Elas parecem com os nossos dedos. Neste jogo, tu fazes o contrário: olhas para mãos com dedos levantados e colocas marcas em um osso até que elas coincidam com os dedos levantados.</p>",
+               "text": "<p class=\"desc\"><img id=\"imgBone\" onclick=\"htImageZoom('imgBone', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representação de um osso de babuíno com marcas. Imagem de Enrique Silván Pobes, do trabalho de Francisco A. González Redondo et al.<br />Original disponível em ResearchNet (<htcite0>), incluída aqui com a autorização do Doutor Francisco A. González Redondo.</p><p>Observe as marcas no osso. Elas parecem com os nossos dedos. Neste jogo, você fará o contrário: olhará para mãos com dedos levantados e colocará marcas em um osso até que elas coincidam com os dedos levantados.</p>",
                "source": [
                   {
                      "type": 1,
@@ -216,7 +227,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Objetivo e regras</h3><p>Escolha quais mãos vão levantar dedos usando os botões acima da tabela. Observe os dedos levantados. Depois, use as setas ao lado do osso para colocar marcas. A seta para cima <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> adiciona uma marca, e a seta para baixo <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> remove uma marca. O jogo para assim que o osso mostrar o mesmo número de marcas que o de dedos levantados.</p><p>Para continuar praticando, comece uma nova rodada ou escolha outras mãos.</p></p>",
+               "text": "<p><h3>Objetivo e regras</h3><p>Escolha quais mãos vão levantar dedos usando os botões acima da tabela. Observe os dedos levantados. Depois, use as setas ao lado do osso para colocar marcas. A seta para cima (<i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i>) adiciona uma marca, e a seta para baixo (<i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i>) remove uma marca. O jogo para assim que o osso mostrar o mesmo número de marcas que o de dedos levantados.</p><p>Para continuar praticando, comece uma nova rodada ou escolha outras mãos.</p></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -226,15 +237,6 @@
             },
             {
                "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Mãos:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">Mão esquerda</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">Mãos esquerda e direita</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">As duas mãos e a mão esquerda de um amigo</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">As mãos das duas pessoas</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Conte os dedos levantados e coloque no osso a mesma quantidade de marcas.</p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>O osso</th><th>Setas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Adicionar uma marca\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remover uma marca\"></button></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Parabéns! As marcas no osso coincidem com os dedos levantados! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Nova rodada</button></p><p class=\"desc\">As setas ao lado do osso adicionam ou removem marcas.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Mão com {n} dedos levantados</span></div></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><h3>O que tu praticas?</h3>Com este jogo, tu praticas transformar uma quantidade em uma sequência de marcas, tal como alguns povos antigos faziam nos ossos. Também praticas contar com os dedos das tuas mãos e, quando a quantidade cresce, com as mãos de outra pessoa.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,

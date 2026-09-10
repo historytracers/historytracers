@@ -7,7 +7,18 @@
    "scripts": [
       "7d2fd4de-5c10-4811-957c-8233bc8d21de"
    ],
-   "audio": [],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/7d2fd4de-5c10-4811-957c-8233bc8d21de_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4vixUrVA07lb8CrMy1HpgI?si=fCFyyp1OS7aBei5Y60UDXQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
    "index": [
       "first_steps",
       "math_games"
@@ -17,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789062211"
+      "1789068621"
    ],
    "authors": null,
    "reviewers": [
@@ -216,7 +227,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Objective and rules</h3><p>Choose which hands will raise fingers using the buttons above the table. Look at the raised fingers. Then use the arrows on the side of the bone to place marks. The up arrow <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> adds a mark, and the down arrow <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> removes a mark. The game stops as soon as the bone shows the same number of marks as raised fingers.</p><p>To keep practicing, start a new round or choose a different set of hands.</p></p>",
+               "text": "<p><h3>Objective and rules</h3><p>Choose which hands will raise fingers using the buttons above the table. Look at the raised fingers. Then use the arrows on the side of the bone to place marks. The up arrow (<i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i>) adds a mark, and the down arrow (<i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i>) removes a mark. The game stops as soon as the bone shows the same number of marks as raised fingers.</p><p>To keep practicing, start a new round or choose a different set of hands.</p></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -226,15 +237,6 @@
             },
             {
                "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Hands:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">Left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">Left and right hands</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">Both hands and a friend's left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">Both people's hands</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Count the raised fingers, then place the same quantity of marks on the bone.</p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Add one mark\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remove one mark\"></button></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The marks on the bone match the raised fingers! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New round</button></p><p class=\"desc\">The arrows beside the bone add or remove marks.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span></div></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><h3>What are we practicing?</h3>With this game, you practice converting a quantity into a sequence of marks, just as some ancient peoples did on bones. You also practice counting with the fingers of your hands and, when the quantity grows, with the hands of another person.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
