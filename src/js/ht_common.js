@@ -1464,7 +1464,9 @@ function htFillFamilies(page, table) {
         }
     }
 
-    if (table.maps && $("#maps").length > 0) {
+    var hasGeography = table.maps && Array.isArray(table.maps) && table.maps.length > 0;
+    var geographyHtml = "";
+    if (hasGeography) {
         var textMap = "<p><h3>"+keywords[79]+"</h3>"+keywords[80]+"</p>";
 
         for (const i in table.maps) {
@@ -1478,7 +1480,13 @@ function htFillFamilies(page, table) {
             textMap += "<p class=\"desc\"><img src=\""+htImgSrcPrefix+currMap.img+"\" id=\"imgFamilyMap"+currMap.order+"\" onclick=\"htImageZoom('imgFamilyMap"+currMap.order+"', '0%')\" class=\"imgcenter\"/><b>"+keywords[81]+"</b> "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
         }
 
-        $("#maps").html(textMap);
+        geographyHtml = textMap;
+        // Clear outside container - will be inside book
+        $("#maps").empty();
+        if ($("#maps").length) $("#maps").hide();
+    } else {
+        $("#maps").empty();
+        if ($("#maps").length) $("#maps").hide();
     }
 
     if (table.prerequisites && $("#pre_requisites").length > 0) {
@@ -1538,7 +1546,7 @@ function htFillFamilies(page, table) {
             var sel = $("#paper-family-"+familyId);
             if (sel.length) sel.show();
             // update location hash without reload - for index keep file id
-            try { if (familyId !== 'index' && familyId !== 'introduction') htSetCurrentLinkBasis(table.title || page, familyId); } catch(e) {}
+            try { if (familyId !== 'index' && familyId !== 'introduction' && familyId !== 'geography') htSetCurrentLinkBasis(table.title || page, familyId); } catch(e) {}
             // scroll to selected page
             try { htScrollToID("#paper-family-"+familyId); } catch(e) {}
         };
@@ -1612,12 +1620,33 @@ function htFillFamilies(page, table) {
             return "Introduction";
         })();
         $("#index_list").prepend("<li id=\"lnk-introduction\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabel+"</a></li>");
-        // navigation for introduction page
+        // navigation for introduction page (next goes to Geography if exists, else first family)
         var introPrev = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[56]+"<br/>"+keywords[135]+"</a>";
-        var introNext = validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;";
+        var geoLabelForIntro = keywords[79] || "Geography";
+        var introNext = hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+keywords[58]+"<br/>"+geoLabelForIntro+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;");
         var introMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
         var introNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+introPrev+"</td><td style=\"width:34%;text-align:center;\">"+introMiddle+"</td><td style=\"width:33%;text-align:right;\">"+introNext+"</td></tr></table></p>";
         $("#paper-family-introduction").append(introNav);
+    }
+
+    // --- Geography page: maps vector after Introduction ---
+    if (hasGeography) {
+        htAddPaperDivs("#paper", "family-geography", "", "", "", paperIdx++);
+        $("#paper-family-geography").html(geographyHtml);
+        var geoLabel = keywords[79] || "Geography";
+        // Add to index after Introduction, before families
+        var $introLnk = $("#lnk-introduction");
+        if ($introLnk.length) {
+            $introLnk.after("<li id=\"lnk-geography\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabel+"</a></li>");
+        } else {
+            $("#index_list").prepend("<li id=\"lnk-geography\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabel+"</a></li>");
+        }
+        // navigation for geography page
+        var geoPrev = hasIntroduction ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+keywords[56]+"<br/>"+introLabel+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[56]+"<br/>"+keywords[135]+"</a>";
+        var geoNext = validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;";
+        var geoMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
+        var geoNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+geoPrev+"</td><td style=\"width:34%;text-align:center;\">"+geoMiddle+"</td><td style=\"width:33%;text-align:right;\">"+geoNext+"</td></tr></table></p>";
+        $("#paper-family-geography").append(geoNav);
     }
 
     for (var fi = 0; fi < validFamilies.length; fi++) {
@@ -1664,6 +1693,9 @@ function htFillFamilies(page, table) {
         if (fi > 0) {
             var prevF = validFamilies[fi-1];
             prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+prevF.id+"');\">"+keywords[56]+"<br/>"+prevF.name+"</a>";
+        } else if (hasGeography) {
+            var geoLabelPrev = keywords[79] || "Geography";
+            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+keywords[56]+"<br/>"+geoLabelPrev+"</a>";
         } else if (hasIntroduction) {
             var introLabelPrev = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdução"; if(lang.startsWith("es")) return "Introducción"; return "Introduction"; })();
             prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+keywords[56]+"<br/>"+introLabelPrev+"</a>";
