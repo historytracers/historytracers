@@ -17,10 +17,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789000768"
+      "1789062211"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -89,7 +91,7 @@
          "id": "SECTION_why",
          "text": [
             {
-               "text": "<p><h3>Why play?</h3>The need to count is not recent. It has existed for a very long time, since before cities or houses existed. We know this because scientists discovered bones with marks in different places (<htcite0> ; <htcite1> ; <htcite2>):</p>",
+               "text": "<p><h3>Why play?</h3>The need to count is not recent. It has existed for a very long time, since before cities or houses existed. We know this because scientists discovered bones with marks in different places (<htcite0> ; <htcite1> ; <htcite2>; <htcite3>):</p>",
                "source": [
                   {
                      "type": 1,
@@ -125,6 +127,18 @@
                         "year": "2024",
                         "month": "10",
                         "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "pp. 20 - 23",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "07",
+                        "day": "25"
                      }
                   }
                ],
@@ -211,7 +225,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Hands:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">Left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">Left and right hands</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">Both hands and a friend's left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">Both people's hands</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Count the raised fingers, then place the same quantity of marks on the bone.</p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><i class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" role=\"button\" aria-label=\"Add one mark\"></i><i class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" role=\"button\" aria-label=\"Remove one mark\"></i></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The marks on the bone match the raised fingers! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New round</button></p><p class=\"desc\">The arrows beside the bone add or remove marks.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span></div></p>",
+               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Hands:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">Left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">Left and right hands</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">Both hands and a friend's left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">Both people's hands</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Count the raised fingers, then place the same quantity of marks on the bone.</p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Add one mark\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remove one mark\"></button></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The marks on the bone match the raised fingers! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New round</button></p><p class=\"desc\">The arrows beside the bone add or remove marks.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
