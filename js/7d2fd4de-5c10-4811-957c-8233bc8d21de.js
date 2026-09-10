@@ -10,7 +10,7 @@ var localBoneGame = {
 function htBoneHandSides(level) {
     var sides = [];
     for (let i = 0; i < level; i++) {
-        sides.push((i % 2 === 0) ? "Right" : "Left");
+        sides.push((i % 2 === 0) ? "Left" : "Right");
     }
     return sides;
 }
@@ -57,8 +57,6 @@ function htBoneRender() {
         container.append("<span class=\"htBoneMark\" style=\"left:" + left + "%\"></span>");
     }
 
-    $("#htBoneMarksValue").text(total);
-
     var up = $("#htBoneAdd");
     var down = $("#htBoneRemove");
     up.removeClass("htBoneArrowDisabled");
@@ -71,8 +69,6 @@ function htBoneRender() {
     }
 
     if (localBoneGame.won) {
-        $("#htBoneCongratsMarks").text(localBoneGame.marks);
-        $("#htBoneCongratsTarget").text(localBoneGame.target);
         $("#htBoneCongrats").show();
     } else {
         $("#htBoneCongrats").hide();

@@ -17,7 +17,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788998878"
+      "1789000768"
    ],
    "authors": null,
    "reviewers": null,
@@ -188,7 +188,7 @@
          "id": "SECTION_levels",
          "text": [
             {
-               "text": "<p><h3>The levels</h3>The game has four levels. The level tells us how many hands we will see and, therefore, which numbers we can represent with the raised fingers:</p><p><table class=\"htLevelsTable\"><thead><tr><th>Level</th><th>Hands</th><th>Numbers</th></tr></thead><tbody><tr><td>Level 1</td><td>1 hand</td><td>1 to 5</td></tr><tr><td>Level 2</td><td>2 hands</td><td>6 to 10</td></tr><tr><td>Level 3</td><td>3 hands</td><td>11 to 15</td></tr><tr><td>Level 4</td><td>4 hands</td><td>16 to 20</td></tr></tbody></table></p><p class=\"desc\"><b>Table 1</b>: Levels of the game and their numbers.</p>",
+               "text": "<p><h3>The stages</h3>The game has four stages. In each stage, hands raise fingers to make a quantity, and we place the same quantity of marks on the bone:</p><p>In the first stage, we raise fingers of our left hand.</p><p>In the second stage, we raise fingers of our left hand and then of our right hand.</p><p>In the third stage, we invite another person to help us: we raise the fingers of both of our hands and also of the left hand of that person.</p><p>In the fourth stage, both people raise the fingers of all of their hands.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -202,7 +202,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Objective and rules</h3><p>Choose a level using the buttons above the table. Look at the hands: each hand shows some raised fingers. Then use the arrows on the side of the bone to place marks. The up arrow <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> adds a mark, and the down arrow <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> removes a mark. The game stops as soon as the number of marks on the bone equals the number of raised fingers.</p><p>To practice more, choose another level or click <b>New number</b>.</p></p>",
+               "text": "<p><h3>Objective and rules</h3><p>Choose which hands will raise fingers using the buttons above the table. Look at the raised fingers. Then use the arrows on the side of the bone to place marks. The up arrow <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> adds a mark, and the down arrow <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> removes a mark. The game stops as soon as the bone shows the same quantity of marks as raised fingers.</p><p>To practice more, start a new round or choose another set of hands.</p></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -211,7 +211,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Level:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">1 hand · 1 – 5</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">2 hands · 6 – 10</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">3 hands · 11 – 15</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">4 hands · 16 – 20</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Count the raised fingers, then place the same number of marks on the bone.</p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div><div class=\"htBoneCount\"><span id=\"htBoneMarksLabel\">Marks:</span> <b id=\"htBoneMarksValue\">0</b></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><i class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" role=\"button\" aria-label=\"Add one mark\"></i><i class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" role=\"button\" aria-label=\"Remove one mark\"></i></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The <b id=\"htBoneCongratsMarks\">0</b> marks match the <b id=\"htBoneCongratsTarget\">0</b> raised fingers. <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New number</button></p><p class=\"desc\"><b>Table 2</b>: Game board. The arrows beside the bone add or remove marks.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span></div></p>",
+               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Hands:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">Left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">Left and right hands</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">Both hands and a friend's left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">Both people's hands</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Count the raised fingers, then place the same quantity of marks on the bone.</p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><i class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" role=\"button\" aria-label=\"Add one mark\"></i><i class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" role=\"button\" aria-label=\"Remove one mark\"></i></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The marks on the bone match the raised fingers! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New round</button></p><p class=\"desc\">The arrows beside the bone add or remove marks.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -220,7 +220,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>What are we practicing?</h3>With this game, we practice turning a quantity into a sequence of marks, like some ancient peoples did on bones. We also train our counting up to 20.</p>",
+               "text": "<p><h3>What are we practicing?</h3>With this game, we practice turning a quantity into a sequence of marks, like some ancient peoples did on bones. We also practice counting with the fingers of our hands and, when the quantity grows, with the hands of another person.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,

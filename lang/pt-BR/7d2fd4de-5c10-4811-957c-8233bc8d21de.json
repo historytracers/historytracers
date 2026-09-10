@@ -17,7 +17,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788998878"
+      "1789000788"
    ],
    "authors": null,
    "reviewers": null,
@@ -188,7 +188,7 @@
          "id": "SECTION_levels",
          "text": [
             {
-               "text": "<p><h3>Os níveis</h3>O jogo tem quatro níveis. O nível indica quantas mãos veremos e, portanto, quais números podemos representar com os dedos levantados:</p><p><table class=\"htLevelsTable\"><thead><tr><th>Nível</th><th>Mãos</th><th>Números</th></tr></thead><tbody><tr><td>Nível 1</td><td>1 mão</td><td>1 a 5</td></tr><tr><td>Nível 2</td><td>2 mãos</td><td>6 a 10</td></tr><tr><td>Nível 3</td><td>3 mãos</td><td>11 a 15</td></tr><tr><td>Nível 4</td><td>4 mãos</td><td>16 a 20</td></tr></tbody></table></p><p class=\"desc\"><b>Tabela 1</b>: Níveis do jogo e seus números.</p>",
+               "text": "<p><h3>As etapas</h3>O jogo tem quatro etapas. Em cada etapa, as mãos levantam dedos para formar uma quantidade e colocamos no osso a mesma quantidade de marcas:</p><p>Na primeira etapa, levantamos dedos da nossa mão esquerda.</p><p>Na segunda etapa, levantamos dedos da nossa mão esquerda e depois da nossa mão direita.</p><p>Na terceira etapa, convidamos outra pessoa para nos ajudar: levantamos os dedos das nossas duas mãos e também os da mão esquerda dessa pessoa.</p><p>Na quarta etapa, as duas pessoas levantam os dedos de todas as suas mãos.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -202,7 +202,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Objetivo e regras</h3><p>Escolha um nível usando os botões acima da tabela. Observe as mãos: cada mão mostra alguns dedos levantados. Depois, use as setas ao lado do osso para colocar marcas. A seta para cima <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> adiciona uma marca, e a seta para baixo <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> remove uma marca. O jogo para assim que o número de marcas no osso for igual ao número de dedos levantados.</p><p>Para praticar mais, escolha outro nível ou clique em <b>Novo número</b>.</p></p>",
+               "text": "<p><h3>Objetivo e regras</h3><p>Escolha quais mãos vão levantar dedos usando os botões acima da tabela. Observe os dedos levantados. Depois, use as setas ao lado do osso para colocar marcas. A seta para cima <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> adiciona uma marca, e a seta para baixo <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> remove uma marca. O jogo para assim que o osso mostrar a mesma quantidade de marcas que a de dedos levantados.</p><p>Para praticar mais, comece uma nova rodada ou escolha outras mãos.</p></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -211,7 +211,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Nível:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">1 mão · 1 – 5</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">2 mãos · 6 – 10</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">3 mãos · 11 – 15</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">4 mãos · 16 – 20</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Conte os dedos levantados e coloque no osso a mesma quantidade de marcas.</p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>O osso</th><th>Setas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div><div class=\"htBoneCount\"><span id=\"htBoneMarksLabel\">Marcas:</span> <b id=\"htBoneMarksValue\">0</b></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><i class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" role=\"button\" aria-label=\"Adicionar uma marca\"></i><i class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" role=\"button\" aria-label=\"Remover uma marca\"></i></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Parabéns! As <b id=\"htBoneCongratsMarks\">0</b> marcas coincidem com os <b id=\"htBoneCongratsTarget\">0</b> dedos levantados. <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Novo número</button></p><p class=\"desc\"><b>Tabela 2</b>: Tabuleiro do jogo. As setas ao lado do osso adicionam ou removem marcas.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Mão com {n} dedos levantados</span></div></p>",
+               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Mãos:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">Mão esquerda</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">Mãos esquerda e direita</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">As duas mãos e a mão esquerda de um amigo</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">As mãos das duas pessoas</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Conte os dedos levantados e coloque no osso a mesma quantidade de marcas.</p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>O osso</th><th>Setas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><i class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" role=\"button\" aria-label=\"Adicionar uma marca\"></i><i class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" role=\"button\" aria-label=\"Remover uma marca\"></i></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Parabéns! As marcas no osso coincidem com os dedos levantados! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Nova rodada</button></p><p class=\"desc\">As setas ao lado do osso adicionam ou removem marcas.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Mão com {n} dedos levantados</span></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -220,7 +220,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>O que praticamos?</h3>Com este jogo, praticamos transformar uma quantidade em uma sequência de marcas, como alguns povos antigos faziam nos ossos. Também treinamos nossa contagem até 20.</p>",
+               "text": "<p><h3>O que praticamos?</h3>Com este jogo, praticamos transformar uma quantidade em uma sequência de marcas, como alguns povos antigos faziam nos ossos. Também praticamos contar com os dedos das nossas mãos e, quando a quantidade cresce, com as mãos de outra pessoa.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,

@@ -17,7 +17,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788998878"
+      "1789000778"
    ],
    "authors": null,
    "reviewers": null,
@@ -188,7 +188,7 @@
          "id": "SECTION_levels",
          "text": [
             {
-               "text": "<p><h3>Los niveles</h3>El juego tiene cuatro niveles. El nivel nos dice cuántas manos veremos y, por tanto, qué números podemos representar con los dedos levantados:</p><p><table class=\"htLevelsTable\"><thead><tr><th>Nivel</th><th>Manos</th><th>Números</th></tr></thead><tbody><tr><td>Nivel 1</td><td>1 mano</td><td>1 a 5</td></tr><tr><td>Nivel 2</td><td>2 manos</td><td>6 a 10</td></tr><tr><td>Nivel 3</td><td>3 manos</td><td>11 a 15</td></tr><tr><td>Nivel 4</td><td>4 manos</td><td>16 a 20</td></tr></tbody></table></p><p class=\"desc\"><b>Tabla 1</b>: Niveles del juego y sus números.</p>",
+               "text": "<p><h3>Las etapas</h3>El juego tiene cuatro etapas. En cada etapa, las manos levantan dedos para formar una cantidad y colocamos en el hueso la misma cantidad de marcas:</p><p>En la primera etapa, levantamos dedos de nuestra mano izquierda.</p><p>En la segunda etapa, levantamos dedos de nuestra mano izquierda y luego de nuestra mano derecha.</p><p>En la tercera etapa, invitamos a otra persona a ayudarnos: levantamos los dedos de nuestras dos manos y también los de la mano izquierda de esa persona.</p><p>En la cuarta etapa, las dos personas levantan los dedos de todas sus manos.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -202,7 +202,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Objetivo y reglas</h3><p>Elige un nivel con los botones de arriba de la tabla. Mira las manos: cada mano muestra algunos dedos levantados. Después usa las flechas al lado del hueso para colocar marcas. La flecha hacia arriba <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> añade una marca, y la flecha hacia abajo <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> quita una marca. El juego se detiene en cuanto el número de marcas del hueso es igual al número de dedos levantados.</p><p>Para practicar más, elige otro nivel o haz clic en <b>Nuevo número</b>.</p></p>",
+               "text": "<p><h3>Objetivo y reglas</h3><p>Elige qué manos levantarán los dedos con los botones de arriba de la tabla. Observa los dedos levantados. Después usa las flechas al lado del hueso para colocar marcas. La flecha hacia arriba <i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i> añade una marca, y la flecha hacia abajo <i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i> quita una marca. El juego se detiene en cuanto el hueso muestra la misma cantidad de marcas que dedos levantados.</p><p>Para practicar más, comienza una nueva ronda o elige otras manos.</p></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -211,7 +211,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Nivel:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">1 mano · 1 – 5</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">2 manos · 6 – 10</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">3 manos · 11 – 15</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">4 manos · 16 – 20</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Cuenta los dedos levantados y coloca en el hueso la misma cantidad de marcas.</p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>El hueso</th><th>Flechas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div><div class=\"htBoneCount\"><span id=\"htBoneMarksLabel\">Marcas:</span> <b id=\"htBoneMarksValue\">0</b></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><i class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" role=\"button\" aria-label=\"Añadir una marca\"></i><i class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" role=\"button\" aria-label=\"Quitar una marca\"></i></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> ¡Felicitaciones! Las <b id=\"htBoneCongratsMarks\">0</b> marcas coinciden con los <b id=\"htBoneCongratsTarget\">0</b> dedos levantados. <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Nuevo número</button></p><p class=\"desc\"><b>Tabla 2</b>: Tablero del juego. Las flechas al lado del hueso añaden o quitan marcas.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Mano con {n} dedos levantados</span></div></p>",
+               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Manos:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">Mano izquierda</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">Manos izquierda y derecha</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">Las dos manos y la mano izquierda de un amigo</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">Las manos de las dos personas</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Cuenta los dedos levantados y coloca en el hueso la misma cantidad de marcas.</p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>El hueso</th><th>Flechas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><i class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" role=\"button\" aria-label=\"Añadir una marca\"></i><i class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" role=\"button\" aria-label=\"Quitar una marca\"></i></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> ¡Felicitaciones! Las marcas del hueso coinciden con los dedos levantados! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Nueva ronda</button></p><p class=\"desc\">Las flechas al lado del hueso añaden o quitan marcas.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Mano con {n} dedos levantados</span></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -220,7 +220,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>¿Qué practicamos?</h3>Con este juego practicamos convertir una cantidad en una secuencia de marcas, como algunos pueblos antiguos hacían en los huesos. También entrenamos nuestra cuenta hasta el 20.</p>",
+               "text": "<p><h3>¿Qué practicamos?</h3>Con este juego practicamos convertir una cantidad en una secuencia de marcas, como algunos pueblos antiguos hacían en los huesos. También practicamos contar con los dedos de nuestras manos y, cuando la cantidad crece, con las manos de otra persona.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
