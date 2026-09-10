@@ -1518,6 +1518,11 @@ function htFillFamilies(page, table) {
     $("#trees").empty();
     $("#paper").empty();
     $("#index_list").empty();
+    // Define region of new book on screen: H3 Family Name Book (translated via common_keywords.json:145)
+    $("#family-book-title").remove();
+    var _bookTitleIdx = 145;
+    var _bookTitle = (typeof keywords !== 'undefined' && keywords.length > _bookTitleIdx && keywords[_bookTitleIdx]) ? keywords[_bookTitleIdx] : "Family Name Book";
+    $("#paper").before("<h3 id=\"family-book-title\" style=\"text-align:center; margin: 20px 0 15px 0;\">"+_bookTitle+"</h3>");
 
     var families = table.families || [];
     var validFamilies = [];
@@ -3000,6 +3005,10 @@ function htFillStringOnPage(data, idx, page)
 
 function htFillWebPage(page, data)
 {
+    // Remove Family Book title when not on genealogy pages (it will be recreated in htFillFamilies)
+    if (!data?.families) {
+        $("#family-book-title").remove();
+    }
     if (data?.title?.length) {
         $(document).prop("title", data.title);
     }
