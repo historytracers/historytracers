@@ -9,7 +9,7 @@ function htAddElementTo687ee328Table(tableID, rowID, rows)
     var right = 0;
     var htImgSrcPrefix = htGetImgSrcPrefix();
     for (let i = 0 ; i < rows ; i++) {
-        $(tableID+" "+rowID+i).html("<td><img id=\"idf"+i+"\" onclick=\"htImageZoom('idf"+i+"', '0%')\" src=\"images/HistoryTracers/"+left+"Left_Hand_Small.png\" /></td><td><img id=\"ids"+i+"\" onclick=\"htImageZoom('ids"+i+"', '0%')\" src=\"images/HistoryTracers/"+right+"Right_Hand_Small.png\" /></td><td><img id=\"idt"+i+"\" onclick=\"htImageZoom('idt"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+i+".png\" /></td><td><span class=\"text_to_paint\">"+i+"</span></td>");
+        $(tableID+" "+rowID+i).html("<td><img id=\"idf"+i+"\" onclick=\"htImageZoom('idf"+i+"', '0%')\" src=\"images/HistoryTracers/"+left+"Left_Hand_Small.png\" alt=\"Left hand "+left+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" /></td><td><img id=\"ids"+i+"\" onclick=\"htImageZoom('ids"+i+"', '0%')\" src=\"images/HistoryTracers/"+right+"Right_Hand_Small.png\" alt=\"Right hand "+right+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" /></td><td><img id=\"idt"+i+"\" onclick=\"htImageZoom('idt"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+i+".png\" alt=\"Maya numeral "+i+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" /></td><td><span class=\"text_to_paint\">"+i+"</span></td>");
         if (i < 5) {
             right += 1;
         } else {
