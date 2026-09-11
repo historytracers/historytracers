@@ -182,8 +182,8 @@ function htSetImageForMembers(leftMember, leftImgSuffix, rightMember, rightImgSu
     }
 
     var htImgSrcPrefix = htGetImgSrcPrefix();
-    $(leftMember).attr('src', htImgSrcPrefix + 'images/HistoryTracers/'+leftValue+leftImgSuffix);
-    $(rightMember).attr('src', htImgSrcPrefix + 'images/HistoryTracers/'+rightValue+rightImgSuffix);
+    $(leftMember).attr('src', htImgSrcPrefix + 'images/HistoryTracers/'+leftValue+leftImgSuffix).attr('alt', 'Hand '+leftValue);
+    $(rightMember).attr('src', htImgSrcPrefix + 'images/HistoryTracers/'+rightValue+rightImgSuffix).attr('alt', 'Hand '+rightValue);
 }
 
 function htFillTableHandsFeet(id, min, max) {
@@ -205,7 +205,7 @@ function htFillTableHandsFeet(id, min, max) {
         } else {
             leftFoot = i - 15;
         }
-        $(id+" tr:last").after("<tr><td><img id=\"imgFTHFC0"+i+"\" onclick=\"htImageZoom('imgFTHFC0"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+leftHand+"Left_Hand_Small.png\" /></td><td><img id=\"imgFTHFC1"+i+"\" onclick=\"htImageZoom('imgFTHFC1"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+rightHand+"Right_Hand_Small.png\"/></td><td><img id=\"imgFTHFC2"+i+"\" onclick=\"htImageZoom('imgFTHFC2"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC3"+i+"\" onclick=\"htImageZoom('imgFTHFC3"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC4"+i+"\" onclick=\"htImageZoom('imgFTHFC4"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");
+        $(id+" tr:last").after("<tr><td><img id=\"imgFTHFC0"+i+"\" onclick=\"htImageZoom('imgFTHFC0"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+leftHand+"Left_Hand_Small.png\" alt=\"Hand "+leftHand+"\" /></td><td><img id=\"imgFTHFC1"+i+"\" onclick=\"htImageZoom('imgFTHFC1"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+rightHand+"Right_Hand_Small.png\" alt=\"Hand "+rightHand+"\"/></td><td><img id=\"imgFTHFC2"+i+"\" onclick=\"htImageZoom('imgFTHFC2"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+leftFoot+"LeftFoot.png\" alt=\"Foot "+leftFoot+"\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC3"+i+"\" onclick=\"htImageZoom('imgFTHFC3"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+rightFoot+"RightFoot.png\" alt=\"Foot "+rightFoot+"\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC4"+i+"\" onclick=\"htImageZoom('imgFTHFC4"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+i+".png\" alt=\"Maya numeral "+i+"\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");
     }
 }
 

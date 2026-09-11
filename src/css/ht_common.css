@@ -1021,6 +1021,36 @@ input[type=number]::-webkit-outer-spin-button {
   height: 8vh;
 }
 
+@media screen and (max-width: 600px) {
+  .scene {
+    width: 11vw;
+    height: 11vw;
+    perspective: 22vw;
+  }
+  .cardFace {
+    font-size: 5vw;
+  }
+  .smallFeet {
+    width: 11vw;
+    height: 11vw;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 991px) {
+  .scene {
+    width: 9vw;
+    height: 9vw;
+    perspective: 18vw;
+  }
+  .cardFace {
+    font-size: 3vw;
+  }
+  .smallFeet {
+    width: 9vw;
+    height: 9vw;
+  }
+}
+
 .upArrowWithFA {
   font-size: 4em;
   color: #0f0;

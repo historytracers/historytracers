@@ -35,7 +35,7 @@ function htSelectValue(selector)
             return ""+value;
     }
 
-    ret = "<img src=\""+prefix+"images/HistoryTracers/Maya_"+value+".png\" style=\"width:60%;height:auto;\"/>";
+    ret = "<img id=\"mayaCard"+selector+"\" onclick=\"htImageZoom('mayaCard"+selector+"', '0%')\" src=\""+prefix+"images/HistoryTracers/Maya_"+value+".png\" alt=\"Maya numeral "+value+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\"/>";
 
     return ret;
 }
@@ -83,10 +83,10 @@ function htMemorySetRepresentation(value)
         left = value - 5;
         right = 5;
     }
-    $("#tc6f1").html("<img id=\"imgtc6f1\" onclick=\"htImageZoom('imgtc6f1', '0%')\" src=\""+prefix+"images/HistoryTracers/"+left+"Left_Hand_Small.png\" />");
-    $("#tc7f1").html("<img id=\"imgtc7f1\" onclick=\"htImageZoom('imgtc7f1', '0%')\" src=\""+prefix+"images/HistoryTracers/"+right+"Right_Hand_Small.png\" />");
+    $("#tc6f1").html("<img id=\"imgtc6f1\" onclick=\"htImageZoom('imgtc6f1', '0%')\" src=\""+prefix+"images/HistoryTracers/"+left+"Left_Hand_Small.png\" alt=\"Hand "+left+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" />");
+    $("#tc7f1").html("<img id=\"imgtc7f1\" onclick=\"htImageZoom('imgtc7f1', '0%')\" src=\""+prefix+"images/HistoryTracers/"+right+"Right_Hand_Small.png\" alt=\"Hand "+right+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" />");
 
-    $("#tc6f2").html("<img id=\"imgtc6f2\" onclick=\"htImageZoom('imgtc6f2', '0%')\" src=\""+prefix+"images/HistoryTracers/Maya_"+value+".png\" />");
+    $("#tc6f2").html("<img id=\"imgtc6f2\" onclick=\"htImageZoom('imgtc6f2', '0%')\" src=\""+prefix+"images/HistoryTracers/Maya_"+value+".png\" alt=\"Maya numeral "+value+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" />");
 
     $("#tc6f4").html("<span class=\"text_to_paint\">"+value+"</span>");
 }
