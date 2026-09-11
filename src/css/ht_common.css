@@ -1023,31 +1023,31 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media screen and (max-width: 600px) {
   .scene {
-    width: 14vw;
-    height: 14vw;
-    perspective: 28vw;
+    width: 11vw;
+    height: 11vw;
+    perspective: 22vw;
   }
   .cardFace {
-    font-size: 6vw;
+    font-size: 5vw;
   }
   .smallFeet {
-    width: 14vw;
-    height: 14vw;
+    width: 11vw;
+    height: 11vw;
   }
 }
 
 @media screen and (min-width: 601px) and (max-width: 991px) {
   .scene {
-    width: 10vw;
-    height: 10vw;
-    perspective: 20vw;
+    width: 9vw;
+    height: 9vw;
+    perspective: 18vw;
   }
   .cardFace {
     font-size: 3vw;
   }
   .smallFeet {
-    width: 10vw;
-    height: 10vw;
+    width: 9vw;
+    height: 9vw;
   }
 }
 
