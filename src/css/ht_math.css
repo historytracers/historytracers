@@ -708,6 +708,26 @@
   margin: 0 auto;
 }
 
+/* Memory game (52dc6a73): make table and cards responsive on small screens */
+@media screen and (max-width: 600px) {
+  #yupana0.tawapukllay {
+    font-size: 0.65em;
+  }
+  #yupana0.tawapukllay td:nth-child(-n+4) {
+    width: 4.5em;
+    height: 4.5em;
+  }
+  #yupana0.tawapukllay td:nth-child(n+5) {
+    width: 4.5em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #yupana0.tawapukllay {
+    font-size: 0.55em;
+  }
+}
+
 .yupana-btn {
   cursor: pointer;
   background: ghostwhite;
