@@ -708,6 +708,42 @@
   margin: 0 auto;
 }
 
+/* Memory game (52dc6a73): make table and cards responsive on small screens */
+@media screen and (max-width: 600px) {
+  #yupana0.tawapukllay {
+    font-size: 0.72em;
+    table-layout: auto;
+    width: 100%;
+  }
+  #yupana0.tawapukllay td:nth-child(-n+4) {
+    width: 6em;
+    height: 6em;
+  }
+  #yupana0.tawapukllay td:nth-child(n+5) {
+    width: 6em;
+  }
+  #yupana0.mesoNumTable {
+    table-layout: auto;
+  }
+  #yupana0.mesoNumTable th:first-child,
+  #yupana0.mesoNumTable td:first-child {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #yupana0.tawapukllay {
+    font-size: 0.62em;
+  }
+  #yupana0.tawapukllay td:nth-child(-n+4) {
+    width: 5em;
+    height: 5em;
+  }
+  #yupana0.tawapukllay td:nth-child(n+5) {
+    width: 5em;
+  }
+}
+
 .yupana-btn {
   cursor: pointer;
   background: ghostwhite;
