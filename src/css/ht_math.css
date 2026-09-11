@@ -1411,3 +1411,244 @@ canvas {
   opacity: 0.3;
   pointer-events: none;
 }
+
+/* Counting with the bone game */
+.htBoneWrap {
+  text-align: center;
+  margin: 1em auto;
+}
+
+.htBonePrompt {
+  font-size: 1.05em;
+  margin: 0.4em auto 0.8em;
+}
+
+.htBoneLevels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0.8em auto;
+}
+
+.htBoneLevelsLabel {
+  font-weight: bold;
+}
+
+.htBoneTable {
+  margin: 0.6em auto;
+  border-collapse: separate;
+  border-spacing: 4px;
+  background: #ffffe0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+}
+
+.htBoneTable th {
+  background: #f8f8ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.htBoneTable td {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  vertical-align: middle;
+  padding: 6px 10px;
+}
+
+.htBoneHands {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-width: 130px;
+}
+
+.htBoneHandImg {
+  height: 84px;
+  max-width: 100%;
+  cursor: zoom-in;
+}
+
+.htBone {
+  width: min(56vw, 300px);
+  height: 52px;
+  margin: 6px auto;
+  background: #f0e0b8;
+  border-radius: 26px;
+  border: 3px solid #8a6d3b;
+  box-shadow: inset 0 0 0 3px #fdf4da, 0 2px 4px rgba(0, 0, 0, 0.18);
+  position: relative;
+}
+
+.htBone::before,
+.htBone::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e4cf9f;
+  border: 3px solid #8a6d3b;
+  transform: translateY(-50%);
+}
+
+.htBone::before {
+  left: -15px;
+}
+
+.htBone::after {
+  right: -15px;
+}
+
+.htBoneMark {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 2px;
+  background: #6b4f2f;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.htBoneCount {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.htBoneArrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 6px;
+}
+
+.htBoneArrow {
+  font-size: 2.8em;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  appearance: none;
+}
+
+.htBoneArrowUp {
+  color: #2e7d32;
+}
+
+.htBoneArrowDown {
+  color: #1565c0;
+}
+
+.htBoneArrowDisabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
+.htBoneCongrats {
+  font-size: 1.35em;
+  font-weight: bold;
+  color: #155724;
+  text-align: center;
+  margin: 0.6em auto;
+}
+
+.design-dark .htBoneTable {
+  background: #37474f;
+  color: #eceff1;
+}
+
+.design-dark .htBoneTable th {
+  background: #263238;
+  color: #eceff1;
+}
+
+.design-dark .htBoneTable td {
+  background: #1e272e;
+  color: #eceff1;
+}
+
+.design-dark .htBone {
+  background: #8a7453;
+  border-color: #e6d5ae;
+  box-shadow: inset 0 0 0 3px #69573c, 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.design-dark .htBone::before,
+.design-dark .htBone::after {
+  background: #6b5739;
+  border-color: #e6d5ae;
+}
+
+.design-dark .htBoneMark {
+  background: #f0e0b8;
+}
+
+.design-dark .htBoneArrowUp {
+  color: #81c784;
+}
+
+.design-dark .htBoneArrowDown {
+  color: #64b5f6;
+}
+
+.design-dark .htBoneCongrats {
+  color: #a5d6a7;
+}
+
+@media screen and (max-width: 600px) {
+  .htBoneTable {
+    font-size: 0.85em;
+  }
+
+  .htBoneHandImg {
+    height: 58px;
+  }
+
+  .htBone {
+    width: 74vw;
+    height: 46px;
+  }
+
+  .htBoneArrow {
+    font-size: 2.2em;
+  }
+}
+
+.htLevelsTable {
+  width: auto;
+  margin: 0.6em auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.htLevelsTable th,
+.htLevelsTable td {
+  border: 1px solid #555;
+  padding: 6px 16px;
+}
+
+.htLevelsTable th {
+  background: #f8f8ff;
+}
+
+.design-dark .htLevelsTable th {
+  background: #37474f;
+  color: #eceff1;
+}
+
+.design-dark .htLevelsTable td {
+  color: #eceff1;
+}
