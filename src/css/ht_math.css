@@ -168,6 +168,47 @@
   vertical-align: middle;
 }
 
+/* Small Yupana for interactive board after Table 2 (323c97e8 yupana1) — fits small screen */
+.tawapukllay.yupanaSmall {
+  width: auto;
+  max-width: 95%;
+  font-size: 0.75em;
+}
+.tawapukllay.yupanaSmall td:nth-child(-n+4) {
+  width: 5em;
+  height: 5em;
+}
+.tawapukllay.yupanaSmall td:nth-child(n+5) {
+  width: 6em;
+}
+@media screen and (max-width: 600px) {
+  .tawapukllay.yupanaSmall {
+    width: 100%;
+    font-size: 0.6em;
+  }
+  .tawapukllay.yupanaSmall td:nth-child(-n+4) {
+    width: 3.8em;
+    height: 3.8em;
+  }
+  .tawapukllay.yupanaSmall td:nth-child(n+5) {
+    width: 4.5em;
+    font-size: 0.85em;
+  }
+  .tawapukllay.yupanaSmall .dot {
+    width: 1.1vmin;
+    height: 1.1vmin;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 991px) {
+  .tawapukllay.yupanaSmall td:nth-child(-n+4) {
+    width: 4.5em;
+    height: 4.5em;
+  }
+  .tawapukllay.yupanaSmall td:nth-child(n+5) {
+    width: 5.5em;
+  }
+}
+
 .dot {
   display: block;
   width: 1.3vmin;
