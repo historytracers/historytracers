@@ -19,6 +19,7 @@ function htUpdateMesoScreen87b260d5(n) {
     mesoValue87b260d5 = htSetValue87b260d5(mesoValue87b260d5, n);
     htCleanMesoamericanVigesimalValues(2, null);
     htFillMesoamericanVigesimalValues(mesoValue87b260d5, 2, 1, undefined);
+    $("#tmc1l1, #tmc1l2").css({"max-width":"100%","height":"auto","display":"block","margin":"0 auto"});
     $("#mesoIndoArabic").html(mesoValue87b260d5);
 }
 
