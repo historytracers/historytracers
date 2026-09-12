@@ -147,6 +147,27 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
+/* Compact text tables (e.g. 323c97e8 Table 1 & 2) — cells sized to content */
+.tawapukllay.htCompact td:nth-child(-n+4),
+.tawapukllay.htCompact td:nth-child(n+5) {
+  height: auto;
+  min-height: 0;
+  padding: 8px 6px;
+  vertical-align: middle;
+}
+
+/* Auto-compact for any tawa table without dots (fallback for text-only tables) */
+.tawapukllay:not(:has(.dot)) td:nth-child(-n+4) {
+  height: auto;
+  min-height: 0;
+  padding: 8px 6px;
+  vertical-align: middle;
+}
+.tawapukllay:not(:has(.dot)) td:nth-child(n+5) {
+  padding: 8px 6px;
+  vertical-align: middle;
+}
+
 .dot {
   display: block;
   width: 1.3vmin;
