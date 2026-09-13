@@ -1615,7 +1615,7 @@ function htFillFamilies(page, table) {
         var prereqPrev = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[56]+"<br/>"+keywords[135]+"</a>";
         var prereqNext = hasIntroductionForPrereq ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+keywords[58]+"<br/>"+introLabelForPrereq+"</a>" : (hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+keywords[58]+"<br/>"+(keywords[79]||"Geography")+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;"));
         var prereqMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
-        var prereqNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;background-color:#d6eaf8;\"><tr style=\"background-color:#d6eaf8;\"><td style=\"width:33%;text-align:left;background-color:#d6eaf8;\">"+prereqPrev+"</td><td style=\"width:34%;text-align:center;background-color:#d6eaf8;\">"+prereqMiddle+"</td><td style=\"width:33%;text-align:right;background-color:#d6eaf8;\">"+prereqNext+"</td></tr></table></p>";
+        var prereqNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+prereqPrev+"</td><td style=\"width:34%;text-align:center;\">"+prereqMiddle+"</td><td style=\"width:33%;text-align:right;\">"+prereqNext+"</td></tr></table></p>";
         $("#paper-family-prerequisites").append(prereqNav);
     }
 
@@ -1656,7 +1656,7 @@ function htFillFamilies(page, table) {
         var geoLabelForIntro = keywords[79] || "Geography";
         var introNext = hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+keywords[58]+"<br/>"+geoLabelForIntro+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;");
         var introMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
-        var introNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;background-color:#d6eaf8;\"><tr style=\"background-color:#d6eaf8;\"><td style=\"width:33%;text-align:left;background-color:#d6eaf8;\">"+introPrev+"</td><td style=\"width:34%;text-align:center;background-color:#d6eaf8;\">"+introMiddle+"</td><td style=\"width:33%;text-align:right;background-color:#d6eaf8;\">"+introNext+"</td></tr></table></p>";
+        var introNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+introPrev+"</td><td style=\"width:34%;text-align:center;\">"+introMiddle+"</td><td style=\"width:33%;text-align:right;\">"+introNext+"</td></tr></table></p>";
         $("#paper-family-introduction").append(introNav);
     }
 
@@ -1680,7 +1680,7 @@ function htFillFamilies(page, table) {
         var geoPrev = hasIntroduction ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+keywords[56]+"<br/>"+introLabel+"</a>" : (hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+keywords[56]+"<br/>"+prereqLabelForGeo+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[56]+"<br/>"+keywords[135]+"</a>");
         var geoNext = validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;";
         var geoMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
-        var geoNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;background-color:#d6eaf8;\"><tr style=\"background-color:#d6eaf8;\"><td style=\"width:33%;text-align:left;background-color:#d6eaf8;\">"+geoPrev+"</td><td style=\"width:34%;text-align:center;background-color:#d6eaf8;\">"+geoMiddle+"</td><td style=\"width:33%;text-align:right;background-color:#d6eaf8;\">"+geoNext+"</td></tr></table></p>";
+        var geoNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+geoPrev+"</td><td style=\"width:34%;text-align:center;\">"+geoMiddle+"</td><td style=\"width:33%;text-align:right;\">"+geoNext+"</td></tr></table></p>";
         $("#paper-family-geography").append(geoNav);
     }
 
@@ -1747,7 +1747,7 @@ function htFillFamilies(page, table) {
             nextLink = "&nbsp;";
         }
         var middleLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
-        var bookNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;background-color:#d6eaf8;\"><tr style=\"background-color:#d6eaf8;\"><td style=\"width:33%;text-align:left;background-color:#d6eaf8;\">"+prevLink+"</td><td style=\"width:34%;text-align:center;background-color:#d6eaf8;\">"+middleLink+"</td><td style=\"width:33%;text-align:right;background-color:#d6eaf8;\">"+nextLink+"</td></tr></table></p>";
+        var bookNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+prevLink+"</td><td style=\"width:34%;text-align:center;\">"+middleLink+"</td><td style=\"width:33%;text-align:right;\">"+nextLink+"</td></tr></table></p>";
         $("#paper-family-"+family_id).append(bookNav);
     }
 

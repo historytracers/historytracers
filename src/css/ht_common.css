@@ -1371,13 +1371,17 @@ ul[id^="bottomList"] {
 }
 
 /* Internal book index at bottom of book region – only first row light blue to differ from main index (white/yellow) */
-#paper .book_navigation tr:first-child,
-#paper .book_navigation tr:first-child td,
-div[id^="paper-family-"] .book_navigation tr:first-child,
-div[id^="paper-family-"] .book_navigation tr:first-child td,
 #paper-familyNavBottom .book_navigation tr:first-child,
-#paper-familyNavBottom .book_navigation tr:first-child td {
+#paper-familyNavBottom .book_navigation tr:first-child td,
+div[id^="paper-family-"] .book_navigation tr:first-child,
+div[id^="paper-family-"] .book_navigation tr:first-child td {
   background-color: #d6eaf8 !important;
+}
+#paper-familyNavBottom .book_navigation tr:nth-child(2),
+#paper-familyNavBottom .book_navigation tr:nth-child(2) td,
+div[id^="paper-family-"] .book_navigation tr:nth-child(2),
+div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
+  background-color: #ffffff !important;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -1840,12 +1844,14 @@ div[id^="paper-family-"] .book_navigation tr:first-child td,
 .design-dark .family-bottom-index a,
 .design-dark div[id^="bottom"] a{color:#80cbc4!important}
 .design-dark ul[id^="bottomList"]{background:transparent!important}
-.design-dark #paper .book_navigation tr:first-child,
-.design-dark #paper .book_navigation tr:first-child td,
-.design-dark div[id^="paper-family-"] .book_navigation tr:first-child,
-.design-dark div[id^="paper-family-"] .book_navigation tr:first-child td,
 .design-dark #paper-familyNavBottom .book_navigation tr:first-child,
-.design-dark #paper-familyNavBottom .book_navigation tr:first-child td{background:#2c3e50!important;color:#eceff1!important}
+.design-dark #paper-familyNavBottom .book_navigation tr:first-child td,
+.design-dark div[id^="paper-family-"] .book_navigation tr:first-child,
+.design-dark div[id^="paper-family-"] .book_navigation tr:first-child td{background:#2c3e50!important;color:#eceff1!important}
+.design-dark #paper-familyNavBottom .book_navigation tr:nth-child(2),
+.design-dark #paper-familyNavBottom .book_navigation tr:nth-child(2) td,
+.design-dark div[id^="paper-family-"] .book_navigation tr:nth-child(2),
+.design-dark div[id^="paper-family-"] .book_navigation tr:nth-child(2) td{background:#37474f!important;color:#eceff1!important}
 
 @media screen and (max-width: 767px) {
     .side-bar { width: 55%; left: -55%; z-index: 1000; transition: left 0.3s ease; }
