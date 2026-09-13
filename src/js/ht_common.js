@@ -1612,9 +1612,9 @@ function htFillFamilies(page, table) {
         })();
         var introLabelForPrereq = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdu\u00e7\u00e3o"; if(lang.startsWith("es")) return "Introducci\u00f3n"; return "Introduction";})();
         $("#index_list").prepend("<li id=\"lnk-prerequisites\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabel+"</a></li>");
-        var prereqPrev = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[56]+"<br/>"+keywords[135]+"</a>";
-        var prereqNext = hasIntroductionForPrereq ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+keywords[58]+"<br/>"+introLabelForPrereq+"</a>" : (hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+keywords[58]+"<br/>"+(keywords[79]||"Geography")+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;"));
-        var prereqMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
+        var prereqPrev = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
+        var prereqNext = hasIntroductionForPrereq ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabelForPrereq+"</a>" : (hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+(keywords[79]||"Geography")+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;"));
+        var prereqMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
         var prereqNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+prereqPrev+"</td><td style=\"width:34%;text-align:center;\">"+prereqMiddle+"</td><td style=\"width:33%;text-align:right;\">"+prereqNext+"</td></tr></table></p>";
         $("#paper-family-prerequisites").append(prereqNav);
     }
@@ -1652,10 +1652,10 @@ function htFillFamilies(page, table) {
             $("#index_list").prepend("<li id=\"lnk-introduction\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabel+"</a></li>");
         }
         // navigation for introduction page (next goes to Geography if exists, else first family)
-        var introPrev = hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+keywords[56]+"<br/>"+prereqLabelForIntro+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[56]+"<br/>"+keywords[135]+"</a>";
+        var introPrev = hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelForIntro+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
         var geoLabelForIntro = keywords[79] || "Geography";
-        var introNext = hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+keywords[58]+"<br/>"+geoLabelForIntro+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;");
-        var introMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
+        var introNext = hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabelForIntro+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;");
+        var introMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
         var introNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+introPrev+"</td><td style=\"width:34%;text-align:center;\">"+introMiddle+"</td><td style=\"width:33%;text-align:right;\">"+introNext+"</td></tr></table></p>";
         $("#paper-family-introduction").append(introNav);
     }
@@ -1677,9 +1677,9 @@ function htFillFamilies(page, table) {
         }
         // navigation for geography page
         var prereqLabelForGeo = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Pr\u00e9-requisitos"; if(lang.startsWith("es")) return "Prerrequisitos"; return "Prerequisites";})();
-        var geoPrev = hasIntroduction ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+keywords[56]+"<br/>"+introLabel+"</a>" : (hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+keywords[56]+"<br/>"+prereqLabelForGeo+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[56]+"<br/>"+keywords[135]+"</a>");
-        var geoNext = validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+keywords[58]+"<br/>"+validFamilies[0].name+"</a>" : "&nbsp;";
-        var geoMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
+        var geoPrev = hasIntroduction ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabel+"</a>" : (hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelForGeo+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>");
+        var geoNext = validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;";
+        var geoMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
         var geoNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+geoPrev+"</td><td style=\"width:34%;text-align:center;\">"+geoMiddle+"</td><td style=\"width:33%;text-align:right;\">"+geoNext+"</td></tr></table></p>";
         $("#paper-family-geography").append(geoNav);
     }
@@ -1723,30 +1723,30 @@ function htFillFamilies(page, table) {
             }
         }
 
-        // per-family prev/next navigation (book) with middle link to patriarchs index
+        // per-family prev/next navigation (book) with middle link to patriarchs index – first row plain Previous/Route/Next, second row destination only (no Prev/Route/Next prefix)
         var prevLink = "", nextLink = "";
         if (fi > 0) {
             var prevF = validFamilies[fi-1];
-            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+prevF.id+"');\">"+keywords[56]+"<br/>"+prevF.name+"</a>";
+            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+prevF.id+"');\">"+prevF.name+"</a>";
         } else if (hasGeography) {
             var geoLabelPrev = keywords[79] || "Geography";
-            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+keywords[56]+"<br/>"+geoLabelPrev+"</a>";
+            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabelPrev+"</a>";
         } else if (hasIntroduction) {
             var introLabelPrev = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdução"; if(lang.startsWith("es")) return "Introducción"; return "Introduction"; })();
-            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+keywords[56]+"<br/>"+introLabelPrev+"</a>";
+            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabelPrev+"</a>";
         } else if (hasPrerequisites) {
             var prereqLabelPrev = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Pr\u00e9-requisitos"; if(lang.startsWith("es")) return "Prerrequisitos"; return "Prerequisites";})();
-            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+keywords[56]+"<br/>"+prereqLabelPrev+"</a>";
+            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelPrev+"</a>";
         } else {
             prevLink = "&nbsp;";
         }
         if (fi < validFamilies.length -1) {
             var nextF = validFamilies[fi+1];
-            nextLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+nextF.id+"');\">"+keywords[58]+"<br/>"+nextF.name+"</a>";
+            nextLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+nextF.id+"');\">"+nextF.name+"</a>";
         } else {
             nextLink = "&nbsp;";
         }
-        var middleLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[57]+"<br/>"+keywords[135]+"</a>";
+        var middleLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
         var bookNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+prevLink+"</td><td style=\"width:34%;text-align:center;\">"+middleLink+"</td><td style=\"width:33%;text-align:right;\">"+nextLink+"</td></tr></table></p>";
         $("#paper-family-"+family_id).append(bookNav);
     }
