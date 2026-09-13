@@ -1751,3 +1751,175 @@ canvas {
 .design-dark .htLevelsTable td {
   color: #eceff1;
 }
+
+/* Quipu game (7aec6487): knots represented as small circles. */
+.quipuBoard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2.5em;
+  margin: 1em auto;
+}
+
+.quipuString {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quipuTarget {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+}
+
+.quipuCord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6em 0;
+}
+
+.quipuOrder {
+  width: 3.4em;
+  min-height: 3.2em;
+  border: 1px solid #9e9e9e;
+  border-radius: 6px;
+  margin: 2px 0;
+  padding: 4px;
+  background: #fafafa;
+  position: relative;
+}
+
+.quipuKnots {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  min-height: 2.4em;
+}
+
+.quipuOrderLabel {
+  position: absolute;
+  bottom: 1px;
+  right: 3px;
+  font-size: 0.6em;
+  color: #757575;
+}
+
+.quipuKnot {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 50%;
+  background: #5d4037;
+}
+
+.quipuActive {
+  border-color: #1565c0;
+  box-shadow: 0 0 0 2px rgba(21, 101, 192, 0.35);
+  background: #e3f2fd;
+}
+
+.quipuFilled {
+  border-color: #2e7d32;
+}
+
+.quipuStringDone .quipuTarget {
+  color: #2e7d32;
+}
+
+.quipuControls {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 0.4em;
+}
+
+.quipuArrow {
+  border: none;
+  background: none;
+  font-size: 2em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.2em;
+}
+
+.quipuUp {
+  color: #2e7d32;
+}
+
+.quipuDown {
+  color: #1565c0;
+}
+
+.quipuMessage {
+  text-align: center;
+  font-weight: bold;
+  min-height: 1.2em;
+  margin: 0.4em auto;
+}
+
+.quipuCongrats {
+  text-align: center;
+  font-size: 1.35em;
+  font-weight: bold;
+  color: #155724;
+  margin: 0.6em auto;
+}
+
+.quipuLevelBtn,
+.quipuNewBtn {
+  margin: 0.2em;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+.quipuLevelBtn.quipuLevelActive {
+  background: #1565c0;
+  color: #fff;
+}
+
+.design-dark .quipuOrder {
+  background: #1e272e;
+  border-color: #607d8b;
+}
+
+.design-dark .quipuActive {
+  background: #263238;
+}
+
+.design-dark .quipuKnot {
+  background: #d7ccc8;
+}
+
+.design-dark .quipuTarget,
+.design-dark .quipuMessage {
+  color: #eceff1;
+}
+
+.design-dark .quipuCongrats {
+  color: #a5d6a7;
+}
+
+@media screen and (max-width: 600px) {
+  .quipuBoard {
+    gap: 1em;
+  }
+
+  .quipuOrder {
+    width: 2.6em;
+    min-height: 2.6em;
+  }
+
+  .quipuKnot {
+    width: 0.7em;
+    height: 0.7em;
+  }
+
+  .quipuArrow {
+    font-size: 1.7em;
+  }
+}
