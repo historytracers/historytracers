@@ -108,13 +108,14 @@ function htQuipuAllDone() {
 
 function htQuipuRender() {
     var cfg = localQuipu.cfg;
-    var html = "";
+    var targets = "";
+    var strings = "";
 
     for (var s = 0; s < localQuipu.strings.length; s++) {
         var state = localQuipu.strings[s];
-        html += "<div class=\"quipuString" + (state.done ? " quipuStringDone" : "") + "\">";
-        html += "<div class=\"quipuTarget\">" + state.target + "</div>";
-        html += "<div class=\"quipuCord\">";
+        targets += "<div class=\"quipuTarget" + (state.done ? " quipuTargetDone" : "") + "\">" + state.target + "</div>";
+        strings += "<div class=\"quipuString" + (state.done ? " quipuStringDone" : "") + "\">";
+        strings += "<div class=\"quipuCord\">";
         for (var p = cfg.positions - 1; p >= 0; p--) {
             var classes = "quipuOrder";
             if (p === state.active && !state.done) {
@@ -123,25 +124,32 @@ function htQuipuRender() {
             if (state.knots[p] === state.digits[p]) {
                 classes += " quipuFilled";
             }
-            html += "<div class=\"" + classes + "\">";
-            html += "<div class=\"quipuKnots\">";
+            strings += "<div class=\"" + classes + "\">";
+            strings += "<div class=\"quipuKnots\">";
             for (var k = 0; k < state.knots[p]; k++) {
-                html += "<span class=\"quipuKnot\"></span>";
+                strings += "<span class=\"quipuKnot\"></span>";
             }
             if (p === state.active && !state.done) {
-                html += "<span class=\"quipuKnot quipuKnotGhost\"></span>";
+                strings += "<span class=\"quipuKnot quipuKnotGhost\"></span>";
             }
-            html += "</div>";
-            html += "<span class=\"quipuOrderLabel\">" + htQuipuOrderName(p) + "</span>";
-            html += "</div>";
+            strings += "</div>";
+            strings += "<span class=\"quipuOrderLabel\">" + htQuipuOrderName(p) + "</span>";
+            strings += "</div>";
         }
-        html += "</div>";
-        html += "<div class=\"quipuControls\">";
-        html += "<button type=\"button\" class=\"quipuArrow quipuUp\" aria-label=\"+\" onclick=\"htQuipuAdd(" + s + ");\"><i class=\"fa-solid fa-caret-up\"></i></button>";
-        html += "<button type=\"button\" class=\"quipuArrow quipuDown\" aria-label=\"-\" onclick=\"htQuipuRemove(" + s + ");\"><i class=\"fa-solid fa-caret-down\"></i></button>";
-        html += "</div>";
-        html += "</div>";
+        strings += "</div>";
+        strings += "<div class=\"quipuControls\">";
+        strings += "<button type=\"button\" class=\"quipuArrow quipuUp\" aria-label=\"+\" onclick=\"htQuipuAdd(" + s + ");\"><i class=\"fa-solid fa-caret-up\"></i></button>";
+        strings += "<button type=\"button\" class=\"quipuArrow quipuDown\" aria-label=\"-\" onclick=\"htQuipuRemove(" + s + ");\"><i class=\"fa-solid fa-caret-down\"></i></button>";
+        strings += "</div>";
+        strings += "</div>";
     }
+
+    var html = "";
+    html += "<div class=\"quipuAssembly\">";
+    html += "<div class=\"quipuTargetsRow\">" + targets + "</div>";
+    html += "<div class=\"quipuMainCord\"></div>";
+    html += "<div class=\"quipuStrings\">" + strings + "</div>";
+    html += "</div>";
 
     $("#quipuBoard").html(html);
 }
@@ -164,9 +172,9 @@ function htQuipuAdd(stringIndex) {
     if (htQuipuAllDone()) {
         htQuipuSetMessage("");
         if (htQuipuIsLastLevel()) {
-            $("#quipuCongratsText").text($("#quipuMsgAllLevels").text());
+            $("#quipuCongratsText").html($("#quipuMsgAllLevels").html());
         } else {
-            $("#quipuCongratsText").text($("#quipuMsgLevel").text());
+            $("#quipuCongratsText").html($("#quipuMsgLevel").html());
         }
         $("#quipuCongrats").show();
     } else if (state.done) {

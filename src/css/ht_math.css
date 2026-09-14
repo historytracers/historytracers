@@ -1752,14 +1752,37 @@ canvas {
   color: #eceff1;
 }
 
-/* Quipu game (7aec6487): knots tied as circles onto a vertical cord. */
+/* Quipu game (7aec6487): knots tied as circles onto vertical cords hanging from a horizontal main cord. */
 .quipuBoard {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1em auto;
+}
+
+.quipuAssembly {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quipuTargetsRow {
+  display: flex;
+  justify-content: center;
+  gap: 2.5em;
+}
+
+.quipuMainCord {
+  align-self: stretch;
+  height: 6px;
+  background: #a1887f;
+  border-radius: 3px;
+}
+
+.quipuStrings {
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 2.5em;
-  margin: 1em auto;
 }
 
 .quipuString {
@@ -1771,6 +1794,8 @@ canvas {
 }
 
 .quipuTarget {
+  min-width: 10em;
+  text-align: center;
   font-size: 1.6em;
   font-weight: bold;
   margin-bottom: 0.4em;
@@ -1847,7 +1872,7 @@ canvas {
   color: #2e7d32;
 }
 
-.quipuStringDone .quipuTarget {
+.quipuTargetDone {
   color: #2e7d32;
 }
 
@@ -1904,6 +1929,10 @@ canvas {
   color: #fff;
 }
 
+.design-dark .quipuMainCord {
+  background: #8d6e63;
+}
+
 .design-dark .quipuCord::before {
   background: #8d6e63;
 }
@@ -1939,8 +1968,13 @@ canvas {
 }
 
 @media screen and (max-width: 600px) {
-  .quipuBoard {
+  .quipuTargetsRow,
+  .quipuStrings {
     gap: 1em;
+  }
+
+  .quipuTarget {
+    min-width: 8.5em;
   }
 
   .quipuString {

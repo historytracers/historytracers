@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789395904"
+      "1789405418"
    ],
    "authors": null,
    "reviewers": null,
@@ -323,7 +323,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Represent numbers with the Quipu</h3>It is your turn. Add knots with the arrows to build each number. Build the number from the units upward: when an order is complete, the game jumps immediately to the next order on the string. When a level is complete, click 'Next level' to move on or 'New number' to redo that level. Remember that the absence of a knot means zero.</p>",
+               "text": "<p><h3>Represent numbers with the Quipu</h3>It is your turn. Add knots with the arrows to build each number. Build the number from the units upward: when an order is complete, the game jumps immediately to the next order on the string. When a level is complete, click <b>Next level</b> to move on or <b>New number</b> to redo that level. Remember that the absence of a knot means zero.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -332,7 +332,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Level 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 New number</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Level</span><span id=\"quipuOrder0\" style=\"display: none;\">Units</span><span id=\"quipuOrder1\" style=\"display: none;\">Tens</span><span id=\"quipuOrder2\" style=\"display: none;\">Hundreds</span><span id=\"quipuMsgOrder\" style=\"display: none;\">Order complete! The game jumps to the next order.</span><span id=\"quipuMsgString\" style=\"display: none;\">Number complete! Now continue with the next string.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 Level complete! Click 'Next level' to continue or 'New number' to redo this level.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉 You built every number! Click 'Next level' to start again at level 1 or 'New number' to redo this level.</span>",
+               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Level 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 New number</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Level</span><span id=\"quipuOrder0\" style=\"display: none;\">Units</span><span id=\"quipuOrder1\" style=\"display: none;\">Tens</span><span id=\"quipuOrder2\" style=\"display: none;\">Hundreds</span><span id=\"quipuMsgOrder\" style=\"display: none;\">Order complete! The game jumps to the next order.</span><span id=\"quipuMsgString\" style=\"display: none;\">Number complete! Now continue with the next string.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 Level complete! Click <b>Next level</b> to continue or <b>New number</b> to redo this level.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉 You built every number! Click <b>Next level</b> to start again at level 1 or <b>New number</b> to redo this level.</span>",
                "source": null,
                "date_time": null,
                "isTable": false,

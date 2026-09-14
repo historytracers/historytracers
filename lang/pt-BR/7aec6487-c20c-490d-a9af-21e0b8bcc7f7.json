@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789395916"
+      "1789405453"
    ],
    "authors": null,
    "reviewers": null,
@@ -323,7 +323,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Represente números com o quipu</h3>É a sua vez. Adicione nós com as setas para construir cada número. Construa o número a partir das unidades para cima: quando uma ordem se completa, o jogo salta imediatamente para a próxima ordem na corda. Quando um nível for concluído, clique em 'Próximo nível' para avançar ou em 'Novo número' para refazer aquele nível. Lembre-se de que a ausência de um nó significa zero.</p>",
+               "text": "<p><h3>Represente números com o quipu</h3>É a sua vez. Adicione nós com as setas para construir cada número. Construa o número a partir das unidades para cima: quando uma ordem se completa, o jogo salta imediatamente para a próxima ordem na corda. Quando um nível for concluído, clique em <b>Próximo nível</b> para avançar ou em <b>Novo número</b> para refazer aquele nível. Lembre-se de que a ausência de um nó significa zero.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -332,7 +332,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Nível 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 Novo número</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Próximo nível</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Nível</span><span id=\"quipuOrder0\" style=\"display: none;\">Unidades</span><span id=\"quipuOrder1\" style=\"display: none;\">Dezenas</span><span id=\"quipuOrder2\" style=\"display: none;\">Centenas</span><span id=\"quipuMsgOrder\" style=\"display: none;\">Ordem completa! O jogo salta para a próxima ordem.</span><span id=\"quipuMsgString\" style=\"display: none;\">Número completo! Agora continue com a próxima corda.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 Nível completo! Clique em 'Próximo nível' para continuar ou em 'Novo número' para refazer este nível.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 TODOS OS NÍVEIS CONCLUÍDOS! 🏆🎉 Você construiu todos os números! Clique em 'Próximo nível' para começar de novo no nível 1 ou em 'Novo número' para refazer este nível.</span>",
+               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Nível 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 Novo número</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Próximo nível</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Nível</span><span id=\"quipuOrder0\" style=\"display: none;\">Unidades</span><span id=\"quipuOrder1\" style=\"display: none;\">Dezenas</span><span id=\"quipuOrder2\" style=\"display: none;\">Centenas</span><span id=\"quipuMsgOrder\" style=\"display: none;\">Ordem completa! O jogo salta para a próxima ordem.</span><span id=\"quipuMsgString\" style=\"display: none;\">Número completo! Agora continue com a próxima corda.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 Nível completo! Clique em <b>Próximo nível</b> para continuar ou em <b>Novo número</b> para refazer este nível.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 TODOS OS NÍVEIS CONCLUÍDOS! 🏆🎉 Você construiu todos os números! Clique em <b>Próximo nível</b> para começar de novo no nível 1 ou em <b>Novo número</b> para refazer este nível.</span>",
                "source": null,
                "date_time": null,
                "isTable": false,
