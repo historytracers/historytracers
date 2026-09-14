@@ -60,10 +60,26 @@ function htQuipuStartLevel(level) {
     }
 
     $("#quipuCongrats").hide();
-    $(".quipuLevelBtn").removeClass("quipuLevelActive");
-    $(".quipuLevelBtn[data-quipu-level='" + level + "']").addClass("quipuLevelActive");
+    $("#quipuLevelBadge").text(htQuipuLevelLabel() + " " + (level + 1));
     htQuipuSetMessage("");
     htQuipuRender();
+}
+
+function htQuipuLevelLabel() {
+    var label = $("#quipuLevelLabel");
+    return label.length ? label.text() : "";
+}
+
+function htQuipuIsLastLevel() {
+    return localQuipu.level >= quipuLevels.length - 1;
+}
+
+function htQuipuNextLevel() {
+    if (htQuipuIsLastLevel()) {
+        htQuipuStartLevel(0);
+    } else {
+        htQuipuStartLevel(localQuipu.level + 1);
+    }
 }
 
 function htQuipuUpdateActive(state) {
@@ -146,9 +162,13 @@ function htQuipuAdd(stringIndex) {
     htQuipuRender();
 
     if (htQuipuAllDone()) {
-        $("#quipuCongratsText").text($("#quipuMsgLevel").text());
+        htQuipuSetMessage("");
+        if (htQuipuIsLastLevel()) {
+            $("#quipuCongratsText").text($("#quipuMsgAllLevels").text());
+        } else {
+            $("#quipuCongratsText").text($("#quipuMsgLevel").text());
+        }
         $("#quipuCongrats").show();
-        htQuipuSetMessage("Level");
     } else if (state.done) {
         htQuipuSetMessage("String");
     } else if (filled && state.active > previousActive) {
@@ -180,13 +200,12 @@ function htQuipuRemove(stringIndex) {
 function htLoadContent() {
     localQuipu = { "level": 0, "cfg": quipuLevels[0], "strings": [] };
 
-    $(".quipuLevelBtn").on("click", function() {
-        var level = parseInt($(this).attr("data-quipu-level"));
-        htQuipuStartLevel(level);
-    });
-
     $("#quipuNewBtn").on("click", function() {
         htQuipuStartLevel(localQuipu.level);
+    });
+
+    $("#quipuNextLevelBtn").on("click", function() {
+        htQuipuNextLevel();
     });
 
     htSetImageSrc("imgQuipuPanel", "images/Caral/QuipuPanel.png");
