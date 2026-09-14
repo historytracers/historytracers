@@ -28,10 +28,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789419352"
+      "1789427074"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -332,7 +334,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Level 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 New number</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Level</span><span id=\"quipuOrder0\" style=\"display: none;\">Units</span><span id=\"quipuOrder1\" style=\"display: none;\">Tens</span><span id=\"quipuOrder2\" style=\"display: none;\">Hundreds</span><span id=\"quipuMsgOrder\" style=\"display: none;\">Order complete! The game jumps to the next order.</span><span id=\"quipuMsgString\" style=\"display: none;\">Number complete! Now continue with the next string.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 Level complete! Click <b>Next level</b> to continue or <b>New number</b> to redo this level.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉 You built every number! Click <b>Next level</b> to start again at level 1 or <b>New number</b> to redo this level.</span>",
+               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Level 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 New number</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" role=\"status\" aria-live=\"polite\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Level</span><span id=\"quipuOrder0\" style=\"display: none;\">Units</span><span id=\"quipuOrder1\" style=\"display: none;\">Tens</span><span id=\"quipuOrder2\" style=\"display: none;\">Hundreds</span><span id=\"quipuMsgOrder\" style=\"display: none;\">Order complete! The game jumps to the next order.</span><span id=\"quipuMsgString\" style=\"display: none;\">Number complete! Now continue with the next string.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 Level complete! Click <b>Next level</b> to continue or <b>New number</b> to redo this level.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉 You built every number! Click <b>Next level</b> to start again at level 1 or <b>New number</b> to redo this level.</span>",
                "source": null,
                "date_time": null,
                "isTable": false,

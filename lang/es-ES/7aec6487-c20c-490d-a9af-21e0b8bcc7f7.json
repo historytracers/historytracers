@@ -28,10 +28,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789419386"
+      "1789427087"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -187,7 +189,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>Un quipu tiene una cuerda principal de la cual cuelgan varias cuerdas. En cada cuerda, los números se registran con nudos colocados en <b>órdenes</b> desde abajo hacia arriba: el primer orden contiene las unidades (0 a 9), el siguiente orden contiene las decenas (10 a 99), luego las centenas (100 a 999), y así sucesivamente. La ausencia de un nudo en un orden significa cero, cada nudo añade una unidad a ese orden, y un solo orden nunca contiene más de nueve nudos (<htcite0> ; <htcite1>).</p>",
+               "text": "<p>Un quipu tiene una cuerda principal de la cual cuelgan varias cuerdas. En cada cuerda, los números se registran con nudos colocados en <b>órdenes</b> desde abajo hacia arriba: cada orden contiene de cero a nueve nudos y su posición determina el valor de la cifra (el primer orden corresponde a las unidades, el siguiente a las decenas, luego las centenas, y así sucesivamente). La ausencia de un nudo en un orden significa cero, cada nudo añade una unidad a ese orden, y un solo orden nunca contiene más de nueve nudos (<htcite0> ; <htcite1>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -332,7 +334,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Nivel 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 Nuevo número</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Siguiente nivel</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Nivel</span><span id=\"quipuOrder0\" style=\"display: none;\">Unidades</span><span id=\"quipuOrder1\" style=\"display: none;\">Decenas</span><span id=\"quipuOrder2\" style=\"display: none;\">Centenas</span><span id=\"quipuMsgOrder\" style=\"display: none;\">¡Orden completo! El juego salta al siguiente orden.</span><span id=\"quipuMsgString\" style=\"display: none;\">¡Número completo! Ahora continúa con la siguiente cuerda.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 ¡Nivel completo! Haz clic en <b>Siguiente nivel</b> para continuar o en <b>Nuevo número</b> para repetir este nivel.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 ¡TODOS LOS NIVELES COMPLETADOS! 🏆🎉 ¡Construiste todos los números! Haz clic en <b>Siguiente nivel</b> para empezar de nuevo en el nivel 1 o en <b>Nuevo número</b> para repetir este nivel.</span>",
+               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Nivel 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 Nuevo número</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Siguiente nivel</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" role=\"status\" aria-live=\"polite\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Nivel</span><span id=\"quipuOrder0\" style=\"display: none;\">Unidades</span><span id=\"quipuOrder1\" style=\"display: none;\">Decenas</span><span id=\"quipuOrder2\" style=\"display: none;\">Centenas</span><span id=\"quipuMsgOrder\" style=\"display: none;\">¡Orden completo! El juego salta al siguiente orden.</span><span id=\"quipuMsgString\" style=\"display: none;\">¡Número completo! Ahora continúa con la siguiente cuerda.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 ¡Nivel completo! Haz clic en <b>Siguiente nivel</b> para continuar o en <b>Nuevo número</b> para repetir este nivel.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 ¡TODOS LOS NIVELES COMPLETADOS! 🏆🎉 ¡Construiste todos los números! Haz clic en <b>Siguiente nivel</b> para empezar de nuevo en el nivel 1 o en <b>Nuevo número</b> para repetir este nivel.</span>",
                "source": null,
                "date_time": null,
                "isTable": false,
