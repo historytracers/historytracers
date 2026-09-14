@@ -1542,7 +1542,7 @@ function htFillFamilies(page, table) {
             var sel = $("#paper-family-"+familyId);
             if (sel.length) sel.show();
             // update location hash without reload - for index keep file id
-            try { if (familyId !== 'index' && familyId !== 'introduction' && familyId !== 'geography') htSetCurrentLinkBasis(table.title || page, familyId); } catch(e) {}
+            try { if (familyId !== 'index' && familyId !== 'introduction' && familyId !== 'geography') htSetCurrentLinkBasis(page, familyId); } catch(e) {}
             // scroll to selected page
             try { htScrollToID("#paper-family-"+familyId); } catch(e) {}
         };
