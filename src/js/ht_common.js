@@ -1760,13 +1760,15 @@ function htFillFamilies(page, table) {
         var initialFamily = 'index';
         var selDest = $("#selector").val();
         if (selDest && selDest.length > 1) {
-            // find family that contains this person
+            // find family matching selector directly, or family that contains this person
             for (var k=0;k<validFamilies.length;k++) {
                 var fam = validFamilies[k];
+                if (fam.id === selDest) { initialFamily = fam.id; break; }
                 if (fam.people) {
                     for (var p=0;p<fam.people.length;p++) {
                         if (fam.people[p].id === selDest) { initialFamily = fam.id; break; }
                     }
+                    if (initialFamily !== 'index') break;
                 }
             }
         }
