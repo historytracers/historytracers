@@ -1577,12 +1577,12 @@ canvas {
 
 .htBone {
   width: min(56vw, 300px);
-  height: 52px;
+  height: 64px;
   margin: 6px auto;
-  background: #f0e0b8;
-  border-radius: 26px;
-  border: 3px solid #8a6d3b;
-  box-shadow: inset 0 0 0 3px #fdf4da, 0 2px 4px rgba(0, 0, 0, 0.18);
+  padding: 21px 0;
+  box-sizing: border-box;
+  background: #8a6d3b;
+  background-clip: content-box;
   position: relative;
 }
 
@@ -1590,27 +1590,56 @@ canvas {
 .htBone::after {
   content: "";
   position: absolute;
-  top: 50%;
-  width: 22px;
-  height: 22px;
+  top: 9px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: #e4cf9f;
-  border: 3px solid #8a6d3b;
-  transform: translateY(-50%);
+  background: #8a6d3b;
+  box-shadow: 0 20px 0 #8a6d3b;
 }
 
 .htBone::before {
-  left: -15px;
+  left: -13px;
 }
 
 .htBone::after {
-  right: -15px;
+  right: -13px;
+}
+
+.htBoneFill {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: #f0e0b8;
+  z-index: 1;
+}
+
+.htBoneFill::before,
+.htBoneFill::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f0e0b8;
+  box-shadow: 0 20px 0 #f0e0b8;
+}
+
+.htBoneFill::before {
+  left: -10px;
+}
+
+.htBoneFill::after {
+  right: -10px;
 }
 
 .htBoneMark {
   position: absolute;
-  top: 14px;
-  bottom: 14px;
+  top: -6px;
+  bottom: -6px;
   width: 4px;
   border-radius: 2px;
   background: #6b4f2f;
@@ -1680,15 +1709,23 @@ canvas {
 }
 
 .design-dark .htBone {
-  background: #8a7453;
-  border-color: #e6d5ae;
-  box-shadow: inset 0 0 0 3px #69573c, 0 2px 4px rgba(0, 0, 0, 0.4);
+  background-color: #e6d5ae;
 }
 
 .design-dark .htBone::before,
 .design-dark .htBone::after {
-  background: #6b5739;
-  border-color: #e6d5ae;
+  background: #e6d5ae;
+  box-shadow: 0 20px 0 #e6d5ae;
+}
+
+.design-dark .htBoneFill {
+  background-color: #8a7453;
+}
+
+.design-dark .htBoneFill::before,
+.design-dark .htBoneFill::after {
+  background: #8a7453;
+  box-shadow: 0 20px 0 #8a7453;
 }
 
 .design-dark .htBoneMark {
@@ -1718,7 +1755,6 @@ canvas {
 
   .htBone {
     width: 74vw;
-    height: 46px;
   }
 
   .htBoneArrow {
