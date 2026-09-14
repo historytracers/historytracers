@@ -112,6 +112,9 @@ function htQuipuRender() {
             for (var k = 0; k < state.knots[p]; k++) {
                 html += "<span class=\"quipuKnot\"></span>";
             }
+            if (p === state.active && !state.done) {
+                html += "<span class=\"quipuKnot quipuKnotGhost\"></span>";
+            }
             html += "</div>";
             html += "<span class=\"quipuOrderLabel\">" + htQuipuOrderName(p) + "</span>";
             html += "</div>";
@@ -187,7 +190,6 @@ function htLoadContent() {
     });
 
     htSetImageSrc("imgQuipuPanel", "images/Caral/QuipuPanel.png");
-    htSetImageSrc("imgQuipuPanel2", "images/Caral/QuipuPanel.png");
 
     htQuipuStartLevel(0);
     htWriteNavigation();
