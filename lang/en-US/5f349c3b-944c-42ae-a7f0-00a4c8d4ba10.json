@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/kx0Ltle0ZUb",
+         "url": "https://open.spotify.com/episode/4bmUCgiaaRveVnFNj6G42q?si=wGHZcu0fROitEv2Bf6E4QA",
          "external": true,
          "spotify": true
       }
@@ -28,10 +28,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765765"
+      "1789349469"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -49,7 +51,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Prerequisites</h3>In this text, we reinfornce knowledge about the numerical systems. For more details, we recommend starting with:</p><p><ul><li><htcite0>: show how we change from our fingers to geometric pictures.</li><li><htcite1>: Illustrating the relationship between our ancestors and numbers.</li></ul></p>",
+               "text": "<p><h3>Prerequisites</h3>In this text, we reinforce knowledge about the numerical systems. For more details, we recommend starting with:</p><p><ul><li><b>Drawing to count</b>: show how we change from our fingers to geometric pictures (<htcite0>).</li><li><b>Numerical families</b>: Illustrating the relationship between our ancestors and numbers (<htcite1>).</li></ul></p>",
                "source": [
                   {
                      "type": 1,
@@ -102,13 +104,13 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>The game</h3>Select a level: <select id=\"sequenceOrder\"></select></p><p>Select a numerical system: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Hindu-Arabic <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamerican</p><p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controls</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp1\"><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp2\"><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\">The <i>Yupana</i> method used in this game is based on the <i>\"Yupana Inka Tawa Pukllay\"</i>, developed and published by Dhavit Prem (<htcite0>) of Associação Yupanki (<htcite1>).<br />The application of Mesoamerican numbers is grounded in the work of Orlando Josué Casares Contreras, José M. Gamboa Cetina and Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Additionally, we incorporate methods inspired by the work of Francisco Barriga Puente (<htcite4>).<br />Lastly, we employ various counting methods influenced by A. González Redondo <i>et al.</i> (<htcite5>).</p>",
+               "text": "<p><h3>The game</h3>Select a level: <select id=\"sequenceOrder\"></select></p><p>Select a numerical system: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Hindu-Arabic <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamerican</p><p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controls</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp1\"><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controls</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp2\"><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete the sequence</th><th colspan=\"2\">Controls</th></tr> </table></p><p class=\"desc\">The <i>Yupana</i> method used in this game is based on the <i>\"Yupana Inka Tawa Pukllay\"</i>, developed and published by Dhavit Prem (<htcite0>) of Yupanki Association (<htcite1>).<br />The application of Mesoamerican numbers is grounded in the work of Orlando Josué Casares Contreras, José M. Gamboa Cetina and Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Additionally, we incorporate methods inspired by the work of Francisco Barriga Puente (<htcite4>).<br />Lastly, we employ various counting methods influenced by Francisco A. González Redondo <i>et al.</i> (<htcite5>).</p>",
                "source": [
                   {
                      "type": 1,
                      "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
-                     "text": "Prem",
-                     "page": "Dhavit",
+                     "text": "Prem, Dhavit",
+                     "page": "",
                      "date_time": {
                         "type": "gregory",
                         "year": "2018",
@@ -144,7 +146,7 @@
                      "type": 1,
                      "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
                      "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
-                     "page": "(Revista)",
+                     "page": "(Magazine)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2022",
@@ -221,7 +223,7 @@
    "game_v2": [
       {
          "imagePath": "images/AntopologyPeru/CeramicaAntropologiaPeru.jpg",
-         "imageDesc": "Figure 1: Ceramic andian during formative period. Photo taken on <htdate0>, during a visit to the Antropological Museum in Lima, Peru.",
+         "imageDesc": "Figure 1: Andean ceramics from the formative period. Photo taken on <htdate0>, during a visit to the Anthropological Museum in Lima, Peru.",
          "date_time": [
             {
                "type": "gregory",
@@ -245,7 +247,7 @@
       },
       {
          "imagePath": "images/GuatemalaAntropologia/EstelaAntropologiaGuatemala.jpg",
-         "imageDesc": "Figure 3: Stela Maia. Photo taken on <htdate0>, during a visit to the Antropological Museum of de Ciudad de Guatemala, Guatemala.",
+         "imageDesc": "Figure 3: Mayan Stela. Photo taken on <htdate0>, during a visit to the Anthropological Museum of Ciudad de Guatemala, Guatemala.",
          "date_time": [
             {
                "type": "gregory",
@@ -257,7 +259,7 @@
       },
       {
          "imagePath": "images/GuatemalaKaminaljuyu/Kaminaljuyu.jpg",
-         "imageDesc": "Figure 4: Stela Maia. Photo taken on <htdate0>, during a visit to the Archaeological Site of Kaminaljuyu, Guatemala.",
+         "imageDesc": "Figure 4: Mayan Stela. Photo taken on <htdate0>, during a visit to the Archaeological Site of Kaminaljuyu, Guatemala.",
          "date_time": [
             {
                "type": "gregory",
@@ -269,7 +271,7 @@
       },
       {
          "imagePath": "images/SanJoseCRJade/MayaCRJade.jpg",
-         "imageDesc": "Figure 5: Maia text. Photo taken on <htdate0>, during a visit to the Museuum of Jade in San José, Costa Rica.",
+         "imageDesc": "Figure 5: Mayan text. Photo taken on <htdate0>, during a visit to the Museum of Jade in San José, Costa Rica.",
          "date_time": [
             {
                "type": "gregory",
@@ -293,7 +295,7 @@
       },
       {
          "imagePath": "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg",
-         "imageDesc": "Figure 7: Metate  to grind corn during Posclassico. Photo taken on <htdate0>, during a visit to the Antropological Museum in San José, Costa Rica.",
+         "imageDesc": "Figure 7: Metate to grind corn during Post-Classic. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San José, Costa Rica.",
          "date_time": [
             {
                "type": "gregory",
@@ -305,7 +307,7 @@
       },
       {
          "imagePath": "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg",
-         "imageDesc": "Figure 8: Metate  to grind corn during Posclassico. Photo taken on <htdate0>, during a visit to the Antropological Museum in San Salvador, El Salvador.",
+         "imageDesc": "Figure 8: Metate to grind corn during Post-Classic. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San Salvador, El Salvador.",
          "date_time": [
             {
                "type": "gregory",
@@ -317,7 +319,7 @@
       },
       {
          "imagePath": "images/Copan/StelaACopan.jpg",
-         "imageDesc": "Figure 9: Stela 'A' Maia. Photo taken on <htdate0>, during a visit to the Archaeological Site of Copan, Honduras.",
+         "imageDesc": "Figure 9: Mayan Stela 'A'. Photo taken on <htdate0>, during a visit to the Archaeological Site of Copan, Honduras.",
          "date_time": [
             {
                "type": "gregory",
@@ -329,7 +331,7 @@
       },
       {
          "imagePath": "images/SanJoseCRMuseo/MusicCR.jpg",
-         "imageDesc": "Figure 10: Musical instruments. Photo taken on <htdate0>, during a visit to the Antropological Museum in San José, Costa Rica.",
+         "imageDesc": "Figure 10: Musical instruments. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San José, Costa Rica.",
          "date_time": [
             {
                "type": "gregory",
