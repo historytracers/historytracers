@@ -3729,7 +3729,10 @@ function htInsertNumberField(id, min, max)
 }
 
 function htShowSlideDivs(x, index) {
-    if (x == undefined) {
+    if (x == undefined || x.length === 0) {
+        return;
+    }
+    if (index < 0 || index >= x.length) {
         return;
     }
 
@@ -3740,8 +3743,11 @@ function htShowSlideDivs(x, index) {
 }
 
 function htShowSlideDivsAuto(x, index, stopMax) {
-    if (x == undefined) {
+    if (x == undefined || x.length === 0) {
         return;
+    }
+    if (index < 0 || index >= x.length) {
+        index = 0;
     }
 
     for (let i = 0; i < x.length; i++) {
