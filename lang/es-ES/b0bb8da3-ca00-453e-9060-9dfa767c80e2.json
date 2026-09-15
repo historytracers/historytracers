@@ -29,12 +29,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1785617566"
+      "1789516379"
    ],
    "authors": [
       ""
    ],
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -94,7 +96,7 @@
          "id": "SECTION_sum",
          "text": [
             {
-               "text": "### Ejercitando con la *Yupana*\n\nPara poner en práctica el método *Yupana Inka Tawa Pukllay*, utilizaremos una Yupana con 4 filas para sumar dos números. Con esta configuración, puedes representar valores de hasta **4.999**. Puedes agregar más filas para trabajar con números mayores — no hay limitaciones.\n\n#### La Yupana en esta sección\n\nAl cargar la página, la Yupana comienza en el primer nivel (unidades) con dos números listos para ser sumados.\n\nEncima de la Yupana, encontrarás una barra de herramientas con los botones \"🎲 Nuevo Ejercicio\" y \"⭐ Siguiente Nivel\", junto con un área de estado que muestra la instrucción actual. Sigue la instrucción para realizar los movimientos requeridos en cada etapa. Cuando completes una etapa correctamente, aparecerá un mensaje de felicitación debajo de la Yupana.\n\nSigue cada paso hasta completar el cálculo. Para ingresar un número, haz clic en cualquier celda de la fila correspondiente. Cada clic alterna el dígito de 0 a 9.\n\nPuedes repetir cuantos ejercicios quieras en el mismo nivel — solo haz clic en \"🎲 Nuevo Ejercicio\" después de completar un cálculo.\n\nCuando te sientas listo, avanza al siguiente nivel con el botón \"⭐ Siguiente Nivel\" para profundizar tu comprensión.",
+               "text": "### Ejercitando con la *Yupana*\n\nPara poner en práctica el método *Yupana Inka Tawa Pukllay*, utilizaremos una Yupana con 4 filas para sumar dos números. Con esta configuración, puedes representar valores de hasta **9.999**. Puedes agregar más filas para trabajar con números mayores — no hay limitaciones.\n\n#### La Yupana en esta sección\n\nAl cargar la página, la Yupana comienza en el primer nivel (unidades) con dos números listos para ser sumados.\n\nEncima de la Yupana, encontrarás una barra de herramientas con los botones \"🎲 Nuevo Ejercicio\" y \"⭐ Siguiente Nivel\", junto con un área de estado que muestra la instrucción actual. Sigue la instrucción para realizar los movimientos requeridos en cada etapa. Cuando completes una etapa correctamente, aparecerá un mensaje de felicitación debajo de la Yupana.\n\nSigue cada paso hasta completar el cálculo. Para ingresar un número, haz clic en cualquier celda de la fila correspondiente para activarla o desactivarla. Las celdas activas representan colectivamente el valor del dígito.\n\nPuedes repetir cuantos ejercicios quieras en el mismo nivel — solo haz clic en \"🎲 Nuevo Ejercicio\" después de completar un cálculo.\n\nCuando te sientas listo, avanza al siguiente nivel con el botón \"⭐ Siguiente Nivel\" para profundizar tu comprensión.",
                "source": null,
                "date_time": null,
                "isTable": false,
