@@ -36,16 +36,17 @@ var addressBarJS = `
 		window.__ht_dev=true;
 		var _ce=console.error;
 		console.error=function(){
-			try{_ce.apply(console,arguments);var msg=Array.prototype.join.call(arguments,' ');fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(e){}
+			try{_ce.apply(console,arguments);var msg=Array.prototype.join.call(arguments,' ');if(_htShouldIgnore(msg,window.location.href)) return;var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(e){}
 		};
 		window.addEventListener('error',function(e){
-			try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(String(e.message||e.error||''))+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(ex){}
+			try{var m=String(e.message||e.error||'');if(_htShouldIgnore(m,window.location.href)) return;var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(m)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(ex){}
 		});
 		window.addEventListener('unhandledrejection',function(e){
-			try{var msg=e.reason&&e.reason.message||String(e.reason||'');fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(ex){}
+			try{var msg=e.reason&&e.reason.message||String(e.reason||'');if(_htShouldIgnore(msg,window.location.href)) return;var tk=_htToken();var hdr={'Content-Type':'application/x-www-form-urlencoded'};if(tk)hdr['X-HT-Token']=tk;fetch('/api/dev/log',{method:'POST',headers:hdr,body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()}).catch(function(){})}catch(ex){}
 		});
 		function _htToken(){var t=window.__ht_token;if(!t)try{t=parent.__ht_token}catch(e){}if(!t)try{t=sessionStorage.__ht_token}catch(e){}return t||''}
 		function _htSetToken(v){window.__ht_token=v;try{sessionStorage.__ht_token=v}catch(e){}try{if(parent&&parent.__ht_token!==undefined)parent.__ht_token=v}catch(e){}}
+		function _htShouldIgnore(msg,url){ try{ if(!msg) return false; if(msg.indexOf('Cannot define multiple custom elements')>=0) return true; if(msg.indexOf('ia-sentry')>=0) return true; if(msg.indexOf('donation-banner')>=0) return true; if(msg.indexOf('SoundManager')>=0) return true; if(msg.indexOf('NotSupportedError')>=0) return true; if(url&&url.indexOf('archive.org')>=0) return true; if(window.location.href.indexOf('archive.org')>=0 && msg.indexOf('custom elements')>=0) return true; }catch(e){} return false; }
 		var _of=window.fetch;
 		window.fetch=function(){
 			var a=arguments,url=a[0] instanceof Request?a[0].url:String(a[0]);
@@ -58,10 +59,10 @@ var addressBarJS = `
 			}
 			return _of.apply(this,a).then(function(r){
 				try{var nt=r.headers.get('X-HT-Next-Token');if(nt)_htSetToken(nt)}catch(e){}
-				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st})}catch(e){}
+				try{if(url.indexOf('archive.org')>=0) throw 0;fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st}).catch(function(){})}catch(e){}
 				return r;
 			}).catch(function(err){
-				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st})}catch(e){}
+				try{if(url.indexOf('archive.org')>=0) throw 0;fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st}).catch(function(){})}catch(e){}
 				throw err;
 			});
 		};
@@ -83,7 +84,7 @@ var addressBarJS = `
 				var st=Date.now(),su=x._du,sm=x._dm;
 				x.addEventListener('loadend',function(){
 					try{var nt=x.getResponseHeader('X-HT-Next-Token');if(nt)_htSetToken(nt)}catch(e){}
-					try{if(su&&su.indexOf('/api/dev/')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(su)+'&method='+encodeURIComponent(sm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-st)+'&time='+st})}catch(e){}
+					try{if(su&&su.indexOf('/api/dev/')<0&&su.indexOf('archive.org')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(su)+'&method='+encodeURIComponent(sm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-st)+'&time='+st}).catch(function(){})}catch(e){}
 				});
 				return _sd.apply(x,arguments);
 			};
@@ -96,7 +97,7 @@ var addressBarJS = `
 		// Inside iframe (new tab): ensure viewer-local image handling and layout fix for broken format/images.
 		try{window.htLocalImgSrc=true;}catch(e){}
 		try{
-			var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
+			var TAB_H=22,ADDR_H=48,BAR_H=ADDR_H+TAB_H;
 			var s=document.createElement('style');
 			s.textContent=__htViewerFixCSS(BAR_H);
 			if(document.documentElement) document.documentElement.appendChild(s);
@@ -109,7 +110,7 @@ var addressBarJS = `
 		try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
-		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
+		var TAB_H=22,ADDR_H=48,BAR_H=ADDR_H+TAB_H;
 		var loc='';
 		try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||''}catch(e){}
 		if(!loc)loc=window.__ht_lang||navigator.language||'en-US';
@@ -242,7 +243,7 @@ L['en']=L['en-US'];
 		h.id='__ht_home';
 		h.textContent='⌂';
 		h.title=l.homeTitle;
-		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;';
+		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 48px/1 monospace;padding:0 5px;color:#555;';
 		h.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=location.origin+'/index.html';if(g)u+='?lang='+encodeURIComponent(g);if(c)u+=(u.indexOf('?')>=0?'&':'?')+'cal='+encodeURIComponent(c);if(r)u+='&rec='+encodeURIComponent(r);location.href=u};
 		_el.push(h);
 		b.appendChild(h);
@@ -250,24 +251,24 @@ L['en']=L['en-US'];
 		r.id='__ht_rld';
 		r.textContent='⟳';
 		r.title=l.reloadTitle;
-		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 24px/1 monospace;padding:0 5px;color:#555;';
+		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;transform:translateY(3px);display:inline-block;';
 		r.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=new URL(window.location.href);if(g)u.searchParams.set('lang',g);if(c)u.searchParams.set('cal',c);if(r)u.searchParams.set('rec',r);location.href=u.toString()};
 		_el.push(r);
 		b.appendChild(r);
 		var prevBtn=document.createElement('button');
 		prevBtn.id='__ht_prev';
-		prevBtn.textContent='\u2190';
+		prevBtn.textContent='\u25C0';
 		prevBtn.title=l.prevTitle||'Back';
-		prevBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 20px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
+		prevBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
 		prevBtn.disabled=true;
 		prevBtn.onclick=function(){ goPrev(); };
 		_el.push(prevBtn);
 		b.appendChild(prevBtn);
 		var nextBtn=document.createElement('button');
 		nextBtn.id='__ht_next';
-		nextBtn.textContent='\u2192';
+		nextBtn.textContent='\u25B6';
 		nextBtn.title=l.nextTitle||'Forward';
-		nextBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 20px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
+		nextBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;opacity:0.4;';
 		nextBtn.disabled=true;
 		nextBtn.onclick=function(){ goNext(); };
 		_el.push(nextBtn);
@@ -301,18 +302,10 @@ L['en']=L['en-US'];
 				var win = isIframe ? tabs[active].iframe.contentWindow : window;
 				if(!doc) doc=document;
 				if(!win) win=window;
-				// First try to delegate to the page's own htPrintContent if available (best fidelity)
-				try{
-					// Propagate viewer marker to iframe so it uses viewer print path instead of popup fallback
-					try{ if(window.__ht_token) win.__ht_token=window.__ht_token; }catch(e){}
-					try{ win.htLocalImgSrc=true; win.__ht_localImgSrc=true; }catch(e){}
-					try{ if(window.external && !win.external) win.external=window.external; }catch(e){}
-					try{ if(sessionStorage.__ht_token) win.sessionStorage.__ht_token=sessionStorage.__ht_token; }catch(e){}
-					if(win.htPrintContent && typeof win.htPrintContent==='function'){
-						win.htPrintContent('#header', '#page_data');
-						return;
-					}
-				}catch(e){}
+				// Build printable HTML directly (do not delegate to iframe htPrintContent).
+				// Delegating to win.htPrintContent loses user gesture (popup blocked) when the
+				// viewer invokes it from the top bar. The direct path uses fetch+openTab without
+				// requiring window.open, so it is not blocked by popup blockers.
 				// Fallback: build printable HTML from visible elements
 				var header='', body='', sources='', headerStyle='';
 				try{
@@ -387,7 +380,18 @@ L['en']=L['en-US'];
 					var headerHtml = headerStyle ? '<div class="print-header" style="'+escapeHtmlAttr(headerStyle)+'text-align:center;margin-bottom:20px;">'+fh+'</div>' : '<h1>'+fh+'</h1>';
 					printDoc = '<!DOCTYPE html><html><head><meta charset="utf-8"><base href="'+window.location.origin+'/"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_common.css"><link rel="stylesheet" href="'+window.location.origin+'/css/ht_math.css"><link rel="stylesheet" href="'+window.location.origin+'/css/fa_6_5_2.min.css"><title>'+(doc.title||'Print')+'</title><style>body{font-family:Arial,sans-serif;line-height:1.6;margin:20px}.print-header{text-align:center;margin-bottom:20px;}h1{text-align:center;margin-bottom:20px}.cited-text{margin-top:30px;border-top:1px solid #ccc;padding-top:15px}#htPixQRCode,#htPixSideQRCode{display:block!important;visibility:visible!important;text-align:center;}#htPixQRCode img{width:10%!important;max-width:10%!important;height:auto!important;}#htPixSideQRCode img{width:25%!important;max-width:25%!important;height:auto!important;}.top-bar-right > *:not(#htPixSideQRCode):not(:has(#htPixSideQRCode)),#top-bar-right > *:not(#htPixSideQRCode){display:none!important;}i[class*="fa-"],span[class*="fa-"],i.fa-brands,i.fa-solid,span.fa-brands{visibility:visible!important;display:inline-block!important;font-style:normal!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}img{visibility:visible!important;height:auto;max-width:100%;break-inside:avoid;}#htPixQRCode img,#htPixSideQRCode img{break-inside:avoid;}@media print{body{margin:0}}</style></head><body>'+headerHtml+'<div>'+fb+'</div><div class="cited-text">'+fs+'</div><script>window.__ht_printGuard=false;function __ht_doPrint(){if(window.__ht_printGuard) return; window.__ht_printGuard=true; try{window.focus();}catch(e){} try{window.print();}catch(e){}}window.addEventListener(\'load\',function(){setTimeout(__ht_doPrint,500);});setTimeout(function(){if(document.readyState===\'complete\'){__ht_doPrint();}},900);</scr'+'ipt></body></html>';
 				}
-				// For viewer, use server-side print store + system browser (reliable) + tab preview
+				// For viewer, try popup preview first (supports native Print and Print to File),
+				// fallback to tab preview if popup blocked or fails.
+				try{
+					var pw=null;
+					try{ pw=window.open('', 'PRINT', 'height=600,width=800'); }catch(e){ pw=null; }
+					if(pw && !pw.closed && pw.document){
+						try{ pw.document.write(printDoc); pw.document.close(); return; }catch(e){
+							try{ if(pw && !pw.closed) pw.close(); }catch(e2){}
+						}
+					}
+				}catch(e){}
+				// Fallback: server-side store + tab preview
 				var tk=_htToken();
 				var hdr={'Content-Type':'text/html'};
 				if(tk) hdr['X-HT-Token']=tk;
@@ -412,7 +416,7 @@ L['en']=L['en-US'];
 		printBtn.id='__ht_print_btn';
 		printBtn.textContent='\uD83D\uDDA8';
 		printBtn.title=l.printTitle||'Print';
-		printBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:16px/1 monospace;padding:0 6px;color:#555;';
+		printBtn.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 28.8px/1 monospace;padding:0 5px;color:#555;';
 		printBtn.onclick=function(){ viewerPrintCurrentPage(); };
 		_el.push(printBtn);
 		b.appendChild(printBtn);
@@ -807,7 +811,7 @@ L['en']=L['en-US'];
 							if(tabs[0].histIdx < tabs[0].history.length-1) tabs[0].history=tabs[0].history.slice(0,tabs[0].histIdx+1);
 							tabs[0].history.push(_cur);
 							tabs[0].histIdx=tabs[0].history.length-1;
-							if(tabs[0].history.length>256){tabs[0].history.shift();tabs[0].histIdx--;}
+							if(tabs[0].history.length>10){tabs[0].history.shift();tabs[0].histIdx--;}
 						}
 						tabs[0].url=_cur;
 					}
@@ -820,10 +824,11 @@ L['en']=L['en-US'];
 			if(rec._navLock){rec._navLock=false;updateNavButtons();if(idx===0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){}}return;}
 			if(!rec.history){rec.history=[rec.url||url];rec.histIdx=0;}
 			if(rec.history[rec.histIdx]===url){rec.url=url;updateNavButtons();return;}
+			for(var _k=0;_k<rec.history.length;_k++){ if(rec.history[_k]===url){ rec.histIdx=_k; rec.url=url; if(idx===0) try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){} updateNavButtons(); return; } }
 			if(rec.histIdx < rec.history.length-1) rec.history=rec.history.slice(0,rec.histIdx+1);
 			rec.history.push(url);
 			rec.histIdx=rec.history.length-1;
-			if(rec.history.length>256){rec.history.shift();rec.histIdx--;}
+			if(rec.history.length>10){rec.history.shift();rec.histIdx--;}
 			rec.url=url;
 			if(idx===0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){}}
 			if(idx===active) updateNavButtons();

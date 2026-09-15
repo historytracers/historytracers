@@ -1335,6 +1335,55 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
 }
 
+.family-bottom-index,
+div[id^="bottom"] {
+  background-color: #d6eaf8 !important;
+  border: 1px solid #a9cce3 !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  margin: 15px 0 !important;
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+
+ul[id^="bottomList"] {
+  background-color: transparent !important;
+  margin: 8px 0 0 0 !important;
+  padding-left: 20px !important;
+}
+
+.family-bottom-index h3 {
+  margin: 0 0 8px 0;
+  color: #1a3a5c;
+  border-bottom: 1px solid #a9cce3;
+  padding-bottom: 6px;
+  font-size: 1.1rem;
+}
+
+.family-bottom-index ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.family-bottom-index li {
+  margin: 4px 0;
+}
+
+/* Internal book index at bottom of book region – only first row light blue to differ from main index (white/yellow) */
+#paper-familyNavBottom .book_navigation tr:first-child,
+#paper-familyNavBottom .book_navigation tr:first-child td,
+div[id^="paper-family-"] .book_navigation tr:first-child,
+div[id^="paper-family-"] .book_navigation tr:first-child td {
+  background-color: #d6eaf8 !important;
+}
+#paper-familyNavBottom .book_navigation tr:nth-child(2),
+#paper-familyNavBottom .book_navigation tr:nth-child(2) td,
+div[id^="paper-family-"] .book_navigation tr:nth-child(2),
+div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
+  background-color: #ffffff !important;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media screen and (max-width: 600px) {
     html {
@@ -1788,6 +1837,21 @@ input[type=number]::-webkit-outer-spin-button {
 .design-dark .htSlideGameTextBottom{background:#37474f;color:#eceff1}
 .design-dark .book_navigation,.design-dark .book_navigation th,.design-dark .book_navigation tr,.design-dark .book_navigation td{background:#37474f!important;color:#eceff1!important}
 .design-dark .numbers td,.design-dark .numbers th{color:#eceff1}
+.design-dark .family-bottom-index,
+.design-dark div[id^="bottom"]{background:#2c3e50!important;color:#eceff1!important;border-color:#4a6785!important}
+.design-dark .family-bottom-index h3,
+.design-dark div[id^="bottom"] h3{color:#80cbc4!important;border-bottom-color:#4a6785!important}
+.design-dark .family-bottom-index a,
+.design-dark div[id^="bottom"] a{color:#80cbc4!important}
+.design-dark ul[id^="bottomList"]{background:transparent!important}
+.design-dark #paper-familyNavBottom .book_navigation tr:first-child,
+.design-dark #paper-familyNavBottom .book_navigation tr:first-child td,
+.design-dark div[id^="paper-family-"] .book_navigation tr:first-child,
+.design-dark div[id^="paper-family-"] .book_navigation tr:first-child td{background:#2c3e50!important;color:#eceff1!important}
+.design-dark #paper-familyNavBottom .book_navigation tr:nth-child(2),
+.design-dark #paper-familyNavBottom .book_navigation tr:nth-child(2) td,
+.design-dark div[id^="paper-family-"] .book_navigation tr:nth-child(2),
+.design-dark div[id^="paper-family-"] .book_navigation tr:nth-child(2) td{background:#37474f!important;color:#eceff1!important}
 
 @media screen and (max-width: 767px) {
     .side-bar { width: 55%; left: -55%; z-index: 1000; transition: left 0.3s ease; }

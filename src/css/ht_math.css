@@ -1515,11 +1515,20 @@ canvas {
 .htBoneWrap {
   text-align: center;
   margin: 1em auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 4px;
 }
 
 .htBonePrompt {
   font-size: 1.05em;
   margin: 0.4em auto 0.8em;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 }
 
 .htBoneLevels {
@@ -1543,6 +1552,9 @@ canvas {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   padding: 8px;
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .htBoneTable th {
@@ -1550,6 +1562,8 @@ canvas {
   border-radius: 8px;
   padding: 8px 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  font-size: clamp(0.75em, 2.2vw, 0.95em);
+  white-space: nowrap;
 }
 
 .htBoneTable td {
@@ -1558,6 +1572,7 @@ canvas {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   vertical-align: middle;
   padding: 6px 10px;
+  box-sizing: border-box;
 }
 
 .htBoneHands {
@@ -1565,18 +1580,20 @@ canvas {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px;
-  min-width: 130px;
+  gap: clamp(2px, 1vw, 4px);
+  min-width: 0;
 }
 
 .htBoneHandImg {
-  height: 84px;
+  height: clamp(46px, 10vw, 84px);
   max-width: 100%;
   cursor: zoom-in;
+  width: auto;
+  object-fit: contain;
 }
 
 .htBone {
-  width: min(56vw, 300px);
+  width: clamp(170px, 56vw, 300px);
   height: 64px;
   margin: 6px auto;
   padding: 21px 0;
@@ -1584,6 +1601,7 @@ canvas {
   background: #8a6d3b;
   background-clip: content-box;
   position: relative;
+  max-width: 100%;
 }
 
 .htBone::before,
@@ -1657,7 +1675,7 @@ canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   padding: 0 6px;
 }
 
@@ -1665,24 +1683,37 @@ canvas {
   font-size: 2.8em;
   line-height: 1;
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.15em 0.35em;
   appearance: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  min-width: 1.4em;
+  transition: transform 0.08s, box-shadow 0.08s, opacity 0.15s;
 }
 
-.htBoneArrowUp {
-  color: #2e7d32;
+.htBoneArrow:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
-.htBoneArrowDown {
-  color: #1565c0;
-}
-
+.htBoneArrow:disabled,
 .htBoneArrowDisabled {
   opacity: 0.25;
   cursor: default;
   pointer-events: none;
+  box-shadow: none;
+}
+
+.htBoneArrowUp {
+  color: #2e7d32;
+  border-color: #a5d6a7;
+}
+
+.htBoneArrowDown {
+  color: #1565c0;
+  border-color: #90caf9;
 }
 
 .htBoneCongrats {
@@ -1691,6 +1722,10 @@ canvas {
   color: #155724;
   text-align: center;
   margin: 0.6em auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 8px;
+  overflow-wrap: break-word;
 }
 
 .design-dark .htBoneTable {
@@ -1732,21 +1767,103 @@ canvas {
   background: #f0e0b8;
 }
 
+.design-dark .htBoneArrow {
+  background: #37474f;
+  border-color: #546e7a;
+}
+
 .design-dark .htBoneArrowUp {
   color: #81c784;
+  border-color: #4a6b4a;
 }
 
 .design-dark .htBoneArrowDown {
   color: #64b5f6;
+  border-color: #4a5a6b;
 }
 
 .design-dark .htBoneCongrats {
   color: #a5d6a7;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 991px) {
   .htBoneTable {
+    width: 100%;
+    font-size: 0.92em;
+  }
+
+  .htBoneTable th {
+    padding: 7px 12px;
+  }
+
+  .htBoneHandImg {
+    height: 70px;
+  }
+
+  .htBoneArrow {
+    font-size: 2.4em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .htBoneWrap {
+    padding: 0 2px;
+  }
+
+  .htBoneTable {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-spacing: 0;
+    padding: 8px;
     font-size: 0.85em;
+  }
+
+  .htBoneTable thead {
+    display: none;
+  }
+
+  .htBoneTable tbody,
+  .htBoneTable tr {
+    display: block;
+    width: 100%;
+  }
+
+  .htBoneTable tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .htBoneTable td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 8px 6px;
+  }
+
+  .htBoneHandsCell {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .htBoneBoneCell {
+    flex: 1 1 0;
+    min-width: min(180px, 58vw);
+  }
+
+  .htBoneArrowCell {
+    flex: 0 0 auto;
+    min-width: 64px;
+  }
+
+  .htBoneHands {
+    gap: 3px;
   }
 
   .htBoneHandImg {
@@ -1754,11 +1871,164 @@ canvas {
   }
 
   .htBone {
-    width: 74vw;
+    width: clamp(150px, 62vw, 260px);
+    height: 56px;
+    padding: 18px 0;
+    margin: 4px auto;
+  }
+
+  .htBone::before,
+  .htBone::after {
+    width: 22px;
+    height: 22px;
+    top: 7px;
+    box-shadow: 0 17px 0 #8a6d3b;
+  }
+
+  .htBone::before {
+    left: -11px;
+  }
+
+  .htBone::after {
+    right: -11px;
+  }
+
+  .htBoneFill {
+    top: 20px;
+    height: 14px;
+  }
+
+  .htBoneFill::before,
+  .htBoneFill::after {
+    width: 18px;
+    height: 18px;
+    top: -10px;
+    box-shadow: 0 17px 0 #f0e0b8;
+  }
+
+  .htBoneFill::before {
+    left: -9px;
+  }
+
+  .htBoneFill::after {
+    right: -9px;
+  }
+
+  .htBoneArrows {
+    flex-direction: row;
+    gap: 8px;
+    padding: 4px 6px;
   }
 
   .htBoneArrow {
-    font-size: 2.2em;
+    font-size: 1.9em;
+    padding: 0.28em 0.5em;
+    min-width: 1.8em;
+  }
+
+  .htBoneCongrats {
+    font-size: 1.15em;
+  }
+
+  .design-dark .htBone::before,
+  .design-dark .htBone::after {
+    box-shadow: 0 17px 0 #e6d5ae;
+  }
+
+  .design-dark .htBoneFill::before,
+  .design-dark .htBoneFill::after {
+    box-shadow: 0 17px 0 #8a7453;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .htBoneTable {
+    padding: 6px;
+    border-spacing: 0;
+  }
+
+  .htBoneTable tr {
+    gap: 6px;
+  }
+
+  .htBoneTable td {
+    padding: 6px 4px;
+  }
+
+  .htBoneHandImg {
+    height: 46px;
+  }
+
+  .htBone {
+    width: clamp(130px, 60vw, 200px);
+    height: 48px;
+    padding: 15px 0;
+  }
+
+  .htBone::before,
+  .htBone::after {
+    width: 20px;
+    height: 20px;
+    top: 6px;
+    box-shadow: 0 15px 0 #8a6d3b;
+  }
+
+  .htBone::before {
+    left: -10px;
+  }
+
+  .htBone::after {
+    right: -10px;
+  }
+
+  .htBoneFill {
+    top: 18px;
+    height: 12px;
+  }
+
+  .htBoneFill::before,
+  .htBoneFill::after {
+    width: 16px;
+    height: 16px;
+    top: -9px;
+    box-shadow: 0 15px 0 #f0e0b8;
+  }
+
+  .htBoneFill::before {
+    left: -8px;
+  }
+
+  .htBoneFill::after {
+    right: -8px;
+  }
+
+  .htBoneArrows {
+    gap: 6px;
+  }
+
+  .htBoneArrow {
+    font-size: 1.6em;
+    padding: 0.25em 0.45em;
+    min-width: 1.6em;
+  }
+
+  .htBoneCongrats {
+    font-size: 1em;
+    padding: 0 4px;
+  }
+
+  .htBonePrompt {
+    font-size: 0.95em;
+  }
+
+  .design-dark .htBone::before,
+  .design-dark .htBone::after {
+    box-shadow: 0 15px 0 #e6d5ae;
+  }
+
+  .design-dark .htBoneFill::before,
+  .design-dark .htBoneFill::after {
+    box-shadow: 0 15px 0 #8a7453;
   }
 }
 
@@ -1791,20 +2061,30 @@ canvas {
 /* Quipu game (7aec6487): knots tied as circles onto vertical cords hanging from a horizontal main cord. */
 .quipuBoard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 1em auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .quipuAssembly {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100%;
+  width: 100%;
 }
 
 .quipuTargetsRow {
   display: flex;
   justify-content: center;
-  gap: 2.5em;
+  gap: clamp(0.4em, 2vw, 2.5em);
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .quipuMainCord {
@@ -1812,28 +2092,42 @@ canvas {
   height: 6px;
   background: #a1887f;
   border-radius: 3px;
+  width: 100%;
 }
 
 .quipuStrings {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 2.5em;
+  gap: clamp(0.4em, 2vw, 2.5em);
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .quipuString {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 10em;
+  min-width: clamp(5.2em, 26vw, 10em);
+  flex: 1 1 0;
+  max-width: 11em;
 }
 
 .quipuTarget {
-  min-width: 10em;
+  min-width: 0;
+  flex: 1 1 0;
+  max-width: 11em;
   text-align: center;
-  font-size: 1.6em;
+  font-size: clamp(1.1em, 4vw, 1.6em);
   font-weight: bold;
+  margin-bottom: 0.4em;
+  overflow-wrap: break-word;
+}
+
+.quipuString .quipuTarget {
+  flex: none;
+  width: 100%;
+  max-width: none;
   margin-bottom: 0.4em;
 }
 
@@ -1863,14 +2157,21 @@ canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.75em 0;
+  justify-content: center;
+  margin: 0.25em 0;
+  min-height: 9.2em;
+  height: 9.2em;
+  box-sizing: border-box;
 }
 
 .quipuKnots {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 4px;
+  min-height: 7.5em;
+  flex: 1;
 }
 
 .quipuOrderLabel {
@@ -1912,30 +2213,61 @@ canvas {
   color: #2e7d32;
 }
 
+.quipuStringActive {
+  outline: 2px solid #1565c0;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
 .quipuControls {
-  position: absolute;
-  left: 0.4em;
-  top: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.1em;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.quipuGlobalControls {
+  margin-top: 0;
+  margin-bottom: 0.9em;
+  flex-direction: row;
+  gap: 1.2em;
+  position: relative;
+  background: #fff;
 }
 
 .quipuArrow {
-  border: none;
-  background: none;
-  font-size: 2em;
+  border: 2px solid transparent;
+  background: #fff;
+  font-size: 1.9em;
   line-height: 1;
   cursor: pointer;
-  padding: 0 0.2em;
+  padding: 0.35em 0.7em;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  min-width: 2.4em;
+  transition: transform 0.08s, box-shadow 0.08s, opacity 0.15s;
+}
+
+.quipuArrow:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+}
+
+.quipuArrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+  box-shadow: none;
 }
 
 .quipuUp {
   color: #2e7d32;
+  border-color: #a5d6a7;
 }
 
 .quipuDown {
   color: #1565c0;
+  border-color: #90caf9;
 }
 
 .quipuMessage {
@@ -2003,27 +2335,62 @@ canvas {
   color: #a5d6a7;
 }
 
-@media screen and (max-width: 600px) {
-  .quipuTargetsRow,
-  .quipuStrings {
-    gap: 1em;
-  }
+.design-dark .quipuArrow {
+  background: #37474f;
+  color: #eceff1;
+  border-color: #546e7a;
+}
 
-  .quipuTarget {
-    min-width: 8.5em;
+.design-dark .quipuUp {
+  color: #81c784;
+  border-color: #4a6b4a;
+}
+
+.design-dark .quipuDown {
+  color: #64b5f6;
+  border-color: #4a5a6b;
+}
+
+.design-dark .quipuStringActive {
+  outline-color: #64b5f6;
+}
+
+.design-dark .quipuGlobalControls {
+  background: #37474f;
+}
+
+@media screen and (max-width: 991px) {
+  .quipuAssembly {
+    width: 100%;
   }
 
   .quipuString {
-    min-width: 8.5em;
+    max-width: 9.5em;
+  }
+
+  .quipuTarget {
+    max-width: 9.5em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .quipuTargetsRow,
+  .quipuStrings {
+    gap: 0.6em;
   }
 
   .quipuBoard {
-    max-width: 100%;
-    overflow-x: auto;
+    padding: 0 2px;
   }
 
-  .quipuControls {
-    left: 0.2em;
+  .quipuString {
+    min-width: clamp(4.6em, 28vw, 8.5em);
+    max-width: 8.5em;
+  }
+
+  .quipuTarget {
+    max-width: 8.5em;
+    font-size: 1.2em;
   }
 
   .quipuCord::before {
@@ -2041,6 +2408,76 @@ canvas {
   }
 
   .quipuArrow {
-    font-size: 1.7em;
+    font-size: 1.6em;
+    padding: 0.3em 0.6em;
+  }
+
+  .quipuOrder {
+    margin: 0.3em 0;
+    min-height: 7.8em;
+    height: 7.8em;
+  }
+
+  .quipuKnots {
+    min-height: 6.2em;
+  }
+
+  .quipuGlobalControls {
+    gap: 0.9em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .quipuTargetsRow,
+  .quipuStrings {
+    gap: 0.35em;
+  }
+
+  .quipuString {
+    min-width: clamp(4em, 30vw, 6em);
+    max-width: 6.2em;
+  }
+
+  .quipuTarget {
+    max-width: 6.2em;
+    font-size: 1.05em;
+  }
+
+  .quipuCord {
+    padding: 0.4em 0;
+  }
+
+  .quipuKnot {
+    width: 0.6em;
+    height: 0.6em;
+  }
+
+  .quipuOrderLabel {
+    font-size: 0.55em;
+    left: calc(50% + 0.6em);
+  }
+
+  .quipuArrow {
+    font-size: 1.35em;
+    padding: 0.28em 0.55em;
+  }
+
+  .quipuOrder {
+    min-height: 6.8em;
+    height: 6.8em;
+  }
+
+  .quipuKnots {
+    min-height: 5.4em;
+  }
+
+  .quipuMessage {
+    font-size: 0.9em;
+    padding: 0 4px;
+  }
+
+  .quipuCongrats {
+    font-size: 1.05em;
+    padding: 0 4px;
   }
 }
