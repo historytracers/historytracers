@@ -142,18 +142,17 @@ function htQuipuRemoveIndex() {
 
 function htQuipuRender() {
     var cfg = localQuipu.cfg;
-    var targets = "";
     var strings = "";
     var activeIndex = htQuipuActiveIndex();
 
     for (var s = 0; s < localQuipu.strings.length; s++) {
         var state = localQuipu.strings[s];
-        targets += "<div class=\"quipuTarget" + (state.done ? " quipuTargetDone" : "") + "\">" + state.target + "</div>";
         var strClasses = "quipuString" + (state.done ? " quipuStringDone" : "");
         if (s === activeIndex && !state.done) {
             strClasses += " quipuStringActive";
         }
         strings += "<div class=\"" + strClasses + "\">";
+        strings += "<div class=\"quipuTarget" + (state.done ? " quipuTargetDone" : "") + "\">" + state.target + "</div>";
         strings += "<div class=\"quipuCord\">";
         for (var p = cfg.positions - 1; p >= 0; p--) {
             var classes = "quipuOrder";
@@ -188,7 +187,6 @@ function htQuipuRender() {
     html += "<button type=\"button\" class=\"quipuArrow quipuUp\" aria-label=\"+\" onclick=\"htQuipuAdd();\"" + (canAdd ? "" : " disabled") + "><i class=\"fa-solid fa-caret-up\"></i></button>";
     html += "</div>";
     html += "<div class=\"quipuAssembly\">";
-    html += "<div class=\"quipuTargetsRow\">" + targets + "</div>";
     html += "<div class=\"quipuMainCord\"></div>";
     html += "<div class=\"quipuStrings\">" + strings + "</div>";
     html += "</div>";

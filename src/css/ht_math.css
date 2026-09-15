@@ -2124,6 +2124,13 @@ canvas {
   overflow-wrap: break-word;
 }
 
+.quipuString .quipuTarget {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0.4em;
+}
+
 .quipuCord {
   position: relative;
   display: flex;
@@ -2150,14 +2157,21 @@ canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.75em 0;
+  justify-content: center;
+  margin: 0.25em 0;
+  min-height: 9.2em;
+  height: 9.2em;
+  box-sizing: border-box;
 }
 
 .quipuKnots {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 4px;
+  min-height: 7.5em;
+  flex: 1;
 }
 
 .quipuOrderLabel {
@@ -2218,10 +2232,8 @@ canvas {
   margin-bottom: 0.9em;
   flex-direction: row;
   gap: 1.2em;
-  position: sticky;
-  top: 0.5em;
-  z-index: 2;
-  background: transparent;
+  position: relative;
+  background: #fff;
 }
 
 .quipuArrow {
@@ -2343,6 +2355,10 @@ canvas {
   outline-color: #64b5f6;
 }
 
+.design-dark .quipuGlobalControls {
+  background: #37474f;
+}
+
 @media screen and (max-width: 991px) {
   .quipuAssembly {
     width: 100%;
@@ -2397,7 +2413,13 @@ canvas {
   }
 
   .quipuOrder {
-    margin: 0.55em 0;
+    margin: 0.3em 0;
+    min-height: 7.8em;
+    height: 7.8em;
+  }
+
+  .quipuKnots {
+    min-height: 6.2em;
   }
 
   .quipuGlobalControls {
@@ -2438,6 +2460,15 @@ canvas {
   .quipuArrow {
     font-size: 1.35em;
     padding: 0.28em 0.55em;
+  }
+
+  .quipuOrder {
+    min-height: 6.8em;
+    height: 6.8em;
+  }
+
+  .quipuKnots {
+    min-height: 5.4em;
   }
 
   .quipuMessage {
