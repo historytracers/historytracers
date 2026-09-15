@@ -1791,10 +1791,25 @@ function htFillFamilies(page, table) {
         $("#paper-family-"+family_id).append(bookNav);
     }
 
-    // Always land on Patriarch/Matriarch list (index) with surrounding indexes visible
+    // show patriarchs index as first page by default, or family matching selector/person_id
     if (validFamilies.length > 0) {
+        var initialFamily = 'index';
+        var selDest = $("#selector").val();
+        if (selDest && selDest.length > 1) {
+            // find family matching selector directly, or family that contains this person
+            for (var k=0;k<validFamilies.length;k++) {
+                var fam = validFamilies[k];
+                if (fam.id === selDest) { initialFamily = fam.id; break; }
+                if (fam.people) {
+                    for (var p=0;p<fam.people.length;p++) {
+                        if (fam.people[p].id === selDest) { initialFamily = fam.id; break; }
+                    }
+                    if (initialFamily !== 'index') break;
+                }
+            }
+        }
         $("[id^='paper-family-']").not("#paper-familyNavBottom").hide();
-        $("#paper-family-index").show();
+        $("#paper-family-"+initialFamily).show();
     }
 
     genealogicalStats.people = totalPeople;
@@ -1803,7 +1818,10 @@ function htFillFamilies(page, table) {
     var destination = $("#selector").val();
     if (destination != undefined && destination != null && destination.length > 1) {
         var localObject = $("#name-"+destination).val();
-        if (localObject != undefined) {
+        // #name-xxx is an h3 element, not an input, so .val() is undefined.
+        // Fallback to checking existence via jQuery length.
+        var hasTarget = (localObject != undefined) || $("#name-"+destination).length > 0;
+        if (hasTarget) {
             htScrollToID("#name-"+destination);
             htFillTree(destination);
         }
