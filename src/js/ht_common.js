@@ -1687,6 +1687,29 @@ function htFillFamilies(page, table) {
         $("#paper-family-geography").append(geoNav);
     }
 
+    // --- Patriarch/Matriarch list as an index with surrounding navigation ---
+    (function(){
+        var idxNext = "";
+        var idxPrev = "&nbsp;";
+        var idxMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
+        if (hasPrerequisites) {
+            var prereqLabelIdx = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Pr\u00e9-requisitos"; if(lang.startsWith("es")) return "Prerrequisitos"; return "Prerequisites";})();
+            idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelIdx+"</a>";
+        } else if (hasIntroduction) {
+            var introLabelIdx = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdu\u00e7\u00e3o"; if(lang.startsWith("es")) return "Introducci\u00f3n"; return "Introduction";})();
+            idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabelIdx+"</a>";
+        } else if (hasGeography) {
+            idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+(keywords[79]||"Geography")+"</a>";
+        } else if (validFamilies.length>0) {
+            idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>";
+        } else {
+            idxNext = "&nbsp;";
+        }
+        var idxNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+idxPrev+"</td><td style=\"width:34%;text-align:center;\">"+idxMiddle+"</td><td style=\"width:33%;text-align:right;\">"+idxNext+"</td></tr></table></p>";
+        $("#paper-family-index").prepend(idxNav);
+        $("#paper-family-index").append(idxNav);
+    })();
+
     for (var fi = 0; fi < validFamilies.length; fi++) {
         var family = validFamilies[fi];
         var family_id = family.id;
@@ -1755,26 +1778,10 @@ function htFillFamilies(page, table) {
         $("#paper-family-"+family_id).append(bookNav);
     }
 
-    // show patriarchs index as first page by default, or family matching selector/person_id
+    // Always land on Patriarch/Matriarch list (index) with surrounding indexes visible
     if (validFamilies.length > 0) {
-        var initialFamily = 'index';
-        var selDest = $("#selector").val();
-        if (selDest && selDest.length > 1) {
-            // find family matching selector directly, or family that contains this person
-            for (var k=0;k<validFamilies.length;k++) {
-                var fam = validFamilies[k];
-                if (fam.id === selDest) { initialFamily = fam.id; break; }
-                if (fam.people) {
-                    for (var p=0;p<fam.people.length;p++) {
-                        if (fam.people[p].id === selDest) { initialFamily = fam.id; break; }
-                    }
-                    if (initialFamily !== 'index') break;
-                }
-            }
-        }
-        // hide all then show initial (index) - bottom nav not yet created
         $("[id^='paper-family-']").not("#paper-familyNavBottom").hide();
-        $("#paper-family-"+initialFamily).show();
+        $("#paper-family-index").show();
     }
 
     genealogicalStats.people = totalPeople;
@@ -1806,6 +1813,7 @@ function htFillFamilies(page, table) {
     }
 
     $("#loading_msg").hide();
+    if (typeof htWriteNavigation !== "undefined") htWriteNavigation();
 }
 
 //
@@ -2897,6 +2905,10 @@ function htLoadPage(page, ext, arg, reload) {
     var unixEpoch = Date.now();
     if (ext === "html") {
         htOnlyLoadHtml(appendPage, page, ext, unixEpoch);
+        if (page === "tree" && typeof htWriteNavigation !== "undefined") {
+            setTimeout(function(){ htWriteNavigation(); }, 300);
+            setTimeout(function(){ htWriteNavigation(); }, 1200);
+        }
 
         return false;
     }
