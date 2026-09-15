@@ -1,0 +1,385 @@
+{
+   "title": "O quipu: os números em ordem",
+   "header": "O quipu: os números em ordem",
+   "sources": [
+      "7aec6487-c20c-490d-a9af-21e0b8bcc7f7"
+   ],
+   "scripts": [
+      "7aec6487-c20c-490d-a9af-21e0b8bcc7f7"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/7aec6487-c20c-490d-a9af-21e0b8bcc7f7_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0UUR69YOfTiVV3shxAu2Sq?si=mqwzbH6XQYy6L370KTV76Q",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1789427099"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Pré-requisitos</h3>Neste texto aprenderemos como o quipu representa números. Antes de começar, recomendamos ler:</p><p><ul><li><b>Mudança de direção (Parte I)</b>: apresenta a ideia indígena de que os números crescem para cima, a mesma ideia que o quipu usa para suas ordens (<htcite0>).</li><li><b>Mudança de direção (Parte II)</b>: mostra como os números grandes são construídos ordem por ordem na Yupana e no sistema mesoamericano (<htcite1>).</li></ul></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e92e3d06-886e-4d3c-811f-bcbcce9aa832",
+                     "text": "History Tracers Team",
+                     "page": "Mudança de direção (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6fd2997b-caf1-4620-a58f-1140388ab8c1",
+                     "text": "History Tracers Team",
+                     "page": "Mudança de direção (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>O que é um quipu?</h3>Um <i>quipu</i> (também escrito <i>khipu</i>) é um sistema de cordas com nós usado nos Andes para registrar e transmitir informações. Sua origem é provavelmente antiga, e as investigações sugerem que pode já ter sido usado em Caral, no atual Peru (<htcite0> ; <htcite1> ; <htcite2>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
+                     "text": "Ruta Caral",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "11",
+                        "day": "02"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "03c3743c-d268-4730-ba8e-d36b5c49e781",
+                     "text": "Youtube - Caral Perú Oficial",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "11",
+                        "day": "02"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c2ff41fc-7833-4dc2-8882-eaed12a065b7",
+                     "text": "Mann, Charles C.",
+                     "page": "pp. 1008",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2005",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgQuipuPanel\" onclick=\"htImageZoom('imgQuipuPanel', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Painel do sítio arqueológico de Caral, © ZonaArqueólogicaCaral (<htcite0> ; <htcite1>). Foto tirada em <htdate2>, durante uma visita ao sítio arqueológico de Caral.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
+                     "text": "Ruta Caral",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "11",
+                        "day": "02"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "03c3743c-d268-4730-ba8e-d36b5c49e781",
+                     "text": "Youtube - Caral Perú Oficial",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "11",
+                        "day": "02"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "6",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Painel do sítio arqueológico de Caral mostrando uma pessoa segurando um quipu e uma tábua de Yupana.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Um quipu tem uma corda principal da qual pendem várias cordas. Em cada corda, os números são registrados com nós colocados em <b>ordens</b> de baixo para cima: cada ordem contém de zero a nove nós e a sua posição determina o valor do dígito (a primeira ordem corresponde às unidades, a ordem seguinte às dezenas, depois as centenas, e assim por diante). A ausência de um nó em uma ordem significa zero, cada nó acrescenta uma unidade àquela ordem, e uma única ordem nunca contém mais de nove nós (<htcite0> ; <htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4f8542c9-f060-4d3c-8a67-971b6d63e1ff",
+                     "text": "Ascher, M., & Ascher, R.",
+                     "page": "pp. 29 - 32",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6e9bef8c-6ec5-4c04-b583-aea8e6bbec5b",
+                     "text": "Quesada, Eugenio de",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "08",
+                        "day": "04"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>A <b>ordem</b> de cada nó é o que lhe dá seu valor. Um nó na primeira ordem vale um, mas o mesmo nó na ordem seguinte vale dez, e na ordem acima vale cem. Por essa razão, a ordem é o que permite ao quipu representar um número preciso: quatro nós na ordem das dezenas e sete na ordem das unidades significam 47, enquanto sete dezenas e quatro unidades significam 74. Manter a ordem correta é o que torna o número exato (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4f8542c9-f060-4d3c-8a67-971b6d63e1ff",
+                     "text": "Ascher, M., & Ascher, R.",
+                     "page": "pp. 29 - 32",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_quipu_text",
+         "text": [
+            {
+               "text": "<p><h4>Quipus e escrita</h4>Durante muito tempo pensou-se que os Andes não tinham escrita. Hoje, vários pesquisadores propõem que os <i>quipus</i> podem ter registrado muito mais do que números: também podem ter guardado palavras e narrativas, ou seja, uma forma de escrita (<htcite0> ; <htcite1> ; <htcite2> ; <htcite3> ; <htcite4>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c2ff41fc-7833-4dc2-8882-eaed12a065b7",
+                     "text": "Mann, Charles C.",
+                     "page": "pp. 1008",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2005",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2ebd3420-941b-4f17-b5bc-17bb39ef37a0",
+                     "text": "Hyland, S.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b74bf294-c758-4a48-88c9-399ca4f021f6",
+                     "text": "Cartwright, M.",
+                     "page": "Quipu",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "05",
+                        "day": "08"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6ff52558-f4fb-49cd-a737-0e2f3863ae7b",
+                     "text": "Laurencich Minelli, L.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "75ca7e93-6ffd-4303-b21d-b669592dcde3",
+                     "text": "Urton, G.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Represente números com o quipu</h3>É a sua vez. Adicione nós com as setas para construir cada número. Construa o número a partir das unidades para cima: quando uma ordem se completa, o jogo salta imediatamente para a próxima ordem na corda. Quando um nível for concluído, clique em <b>Próximo nível</b> para avançar ou em <b>Novo número</b> para refazer aquele nível. Lembre-se de que a ausência de um nó significa zero.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"quipuLevelBadge\" class=\"level-badge\">Nível 1</span> <button type=\"button\" id=\"quipuNewBtn\" class=\"reset-tutor-btn\">🎲 Novo número</button> <button type=\"button\" id=\"quipuNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Próximo nível</button></p><div id=\"quipuBoard\" class=\"quipuBoard\"></div><p id=\"quipuMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"quipuCongrats\" class=\"quipuCongrats\" role=\"status\" aria-live=\"polite\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"quipuCongratsText\"></span></p><span id=\"quipuLevelLabel\" style=\"display: none;\">Nível</span><span id=\"quipuOrder0\" style=\"display: none;\">Unidades</span><span id=\"quipuOrder1\" style=\"display: none;\">Dezenas</span><span id=\"quipuOrder2\" style=\"display: none;\">Centenas</span><span id=\"quipuMsgOrder\" style=\"display: none;\">Ordem completa! O jogo salta para a próxima ordem.</span><span id=\"quipuMsgString\" style=\"display: none;\">Número completo! Agora continue com a próxima corda.</span><span id=\"quipuMsgLevel\" style=\"display: none;\">🎉 Nível completo! Clique em <b>Próximo nível</b> para continuar ou em <b>Novo número</b> para refazer este nível.</span><span id=\"quipuMsgAllLevels\" style=\"display: none;\">🎉🏆 TODOS OS NÍVEIS CONCLUÍDOS! 🏆🎉 Você construiu todos os números! Clique em <b>Próximo nível</b> para começar de novo no nível 1 ou em <b>Novo número</b> para refazer este nível.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">As regras para representar números com nós seguem a descrição de Marcia Ascher e Robert Ascher (<htcite0>), e a ordem vertical estudada em <i>Mudança de direção (Parte II)</i> (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4f8542c9-f060-4d3c-8a67-971b6d63e1ff",
+                     "text": "Ascher, M., & Ascher, R.",
+                     "page": "pp. 29 - 32",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6fd2997b-caf1-4620-a58f-1140388ab8c1",
+                     "text": "History Tracers Team",
+                     "page": "Mudança de direção (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

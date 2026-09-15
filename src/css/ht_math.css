@@ -1577,12 +1577,12 @@ canvas {
 
 .htBone {
   width: min(56vw, 300px);
-  height: 52px;
+  height: 64px;
   margin: 6px auto;
-  background: #f0e0b8;
-  border-radius: 26px;
-  border: 3px solid #8a6d3b;
-  box-shadow: inset 0 0 0 3px #fdf4da, 0 2px 4px rgba(0, 0, 0, 0.18);
+  padding: 21px 0;
+  box-sizing: border-box;
+  background: #8a6d3b;
+  background-clip: content-box;
   position: relative;
 }
 
@@ -1590,27 +1590,56 @@ canvas {
 .htBone::after {
   content: "";
   position: absolute;
-  top: 50%;
-  width: 22px;
-  height: 22px;
+  top: 9px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: #e4cf9f;
-  border: 3px solid #8a6d3b;
-  transform: translateY(-50%);
+  background: #8a6d3b;
+  box-shadow: 0 20px 0 #8a6d3b;
 }
 
 .htBone::before {
-  left: -15px;
+  left: -13px;
 }
 
 .htBone::after {
-  right: -15px;
+  right: -13px;
+}
+
+.htBoneFill {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: #f0e0b8;
+  z-index: 1;
+}
+
+.htBoneFill::before,
+.htBoneFill::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f0e0b8;
+  box-shadow: 0 20px 0 #f0e0b8;
+}
+
+.htBoneFill::before {
+  left: -10px;
+}
+
+.htBoneFill::after {
+  right: -10px;
 }
 
 .htBoneMark {
   position: absolute;
-  top: 14px;
-  bottom: 14px;
+  top: -6px;
+  bottom: -6px;
   width: 4px;
   border-radius: 2px;
   background: #6b4f2f;
@@ -1680,15 +1709,23 @@ canvas {
 }
 
 .design-dark .htBone {
-  background: #8a7453;
-  border-color: #e6d5ae;
-  box-shadow: inset 0 0 0 3px #69573c, 0 2px 4px rgba(0, 0, 0, 0.4);
+  background-color: #e6d5ae;
 }
 
 .design-dark .htBone::before,
 .design-dark .htBone::after {
-  background: #6b5739;
-  border-color: #e6d5ae;
+  background: #e6d5ae;
+  box-shadow: 0 20px 0 #e6d5ae;
+}
+
+.design-dark .htBoneFill {
+  background-color: #8a7453;
+}
+
+.design-dark .htBoneFill::before,
+.design-dark .htBoneFill::after {
+  background: #8a7453;
+  box-shadow: 0 20px 0 #8a7453;
 }
 
 .design-dark .htBoneMark {
@@ -1718,7 +1755,6 @@ canvas {
 
   .htBone {
     width: 74vw;
-    height: 46px;
   }
 
   .htBoneArrow {
@@ -1750,4 +1786,261 @@ canvas {
 
 .design-dark .htLevelsTable td {
   color: #eceff1;
+}
+
+/* Quipu game (7aec6487): knots tied as circles onto vertical cords hanging from a horizontal main cord. */
+.quipuBoard {
+  display: flex;
+  justify-content: center;
+  margin: 1em auto;
+}
+
+.quipuAssembly {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quipuTargetsRow {
+  display: flex;
+  justify-content: center;
+  gap: 2.5em;
+}
+
+.quipuMainCord {
+  align-self: stretch;
+  height: 6px;
+  background: #a1887f;
+  border-radius: 3px;
+}
+
+.quipuStrings {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5em;
+}
+
+.quipuString {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 10em;
+}
+
+.quipuTarget {
+  min-width: 10em;
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+}
+
+.quipuCord {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6em 0;
+}
+
+.quipuCord::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: #a1887f;
+  border-radius: 2px;
+}
+
+.quipuOrder {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.75em 0;
+}
+
+.quipuKnots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.quipuOrderLabel {
+  position: absolute;
+  left: calc(50% + 0.9em);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7em;
+  color: #757575;
+  white-space: nowrap;
+}
+
+.quipuKnot {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  background: #5d4037;
+  position: relative;
+  z-index: 1;
+}
+
+.quipuKnotGhost {
+  background: transparent;
+  border: 2px dashed #1565c0;
+  box-sizing: border-box;
+}
+
+.quipuActive .quipuOrderLabel {
+  color: #1565c0;
+  font-weight: bold;
+}
+
+.quipuFilled .quipuOrderLabel {
+  color: #2e7d32;
+}
+
+.quipuTargetDone {
+  color: #2e7d32;
+}
+
+.quipuControls {
+  position: absolute;
+  left: 0.4em;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+.quipuArrow {
+  border: none;
+  background: none;
+  font-size: 2em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.2em;
+}
+
+.quipuUp {
+  color: #2e7d32;
+}
+
+.quipuDown {
+  color: #1565c0;
+}
+
+.quipuMessage {
+  text-align: center;
+  font-weight: bold;
+  min-height: 1.2em;
+  margin: 0.4em auto;
+}
+
+.quipuCongrats {
+  text-align: center;
+  font-size: 1.35em;
+  font-weight: bold;
+  color: #155724;
+  margin: 0.6em auto;
+}
+
+.quipuLevelBtn,
+.quipuNewBtn {
+  margin: 0.2em;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+.quipuLevelBtn.quipuLevelActive {
+  background: #1565c0;
+  color: #fff;
+}
+
+.design-dark .quipuMainCord {
+  background: #8d6e63;
+}
+
+.design-dark .quipuCord::before {
+  background: #8d6e63;
+}
+
+.design-dark .quipuKnot {
+  background: #d7ccc8;
+}
+
+.design-dark .quipuKnotGhost {
+  background: transparent;
+  border-color: #64b5f6;
+}
+
+.design-dark .quipuOrderLabel {
+  color: #90a4ae;
+}
+
+.design-dark .quipuActive .quipuOrderLabel {
+  color: #64b5f6;
+}
+
+.design-dark .quipuFilled .quipuOrderLabel {
+  color: #a5d6a7;
+}
+
+.design-dark .quipuTarget,
+.design-dark .quipuMessage {
+  color: #eceff1;
+}
+
+.design-dark .quipuCongrats {
+  color: #a5d6a7;
+}
+
+@media screen and (max-width: 600px) {
+  .quipuTargetsRow,
+  .quipuStrings {
+    gap: 1em;
+  }
+
+  .quipuTarget {
+    min-width: 8.5em;
+  }
+
+  .quipuString {
+    min-width: 8.5em;
+  }
+
+  .quipuBoard {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .quipuControls {
+    left: 0.2em;
+  }
+
+  .quipuCord::before {
+    width: 3px;
+  }
+
+  .quipuKnot {
+    width: 0.68em;
+    height: 0.68em;
+  }
+
+  .quipuOrderLabel {
+    font-size: 0.6em;
+    left: calc(50% + 0.7em);
+  }
+
+  .quipuArrow {
+    font-size: 1.7em;
+  }
 }

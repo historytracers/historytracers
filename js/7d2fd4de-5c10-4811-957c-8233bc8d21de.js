@@ -7,6 +7,8 @@ var localBoneGame = {
     won: false
 };
 
+var boneLevels = 4;
+
 function htBoneHandSides(level) {
     var sides = [];
     for (let i = 0; i < level; i++) {
@@ -22,8 +24,26 @@ function htBoneDrawChallenge(level) {
     localBoneGame.marks = 0;
     localBoneGame.won = false;
     localBoneGame.target = htGetRandomArbitrary(min, max + 1);
+    $("#htBoneLevelBadge").text(htBoneLevelLabel() + " " + level);
     htBoneRenderHands();
     htBoneRender();
+}
+
+function htBoneLevelLabel() {
+    var label = $("#htBoneLevelLabel");
+    return label.length ? label.text() : "";
+}
+
+function htBoneIsLastLevel() {
+    return localBoneGame.level >= boneLevels;
+}
+
+function htBoneNextLevel() {
+    if (htBoneIsLastLevel()) {
+        htBoneDrawChallenge(1);
+    } else {
+        htBoneDrawChallenge(localBoneGame.level + 1);
+    }
 }
 
 function htBoneRenderHands() {
@@ -100,21 +120,13 @@ function htBoneRemoveMark() {
     return false;
 }
 
-function htBoneSelectLevel(level) {
-    $(".htBoneLevelBtn").removeClass("active");
-    $(".htBoneLevelBtn[data-level='" + level + "']").addClass("active");
-    htBoneDrawChallenge(level);
-}
-
 function htLoadContent() {
     $("#htBoneAdd").on("click", htBoneAddMark);
     $("#htBoneRemove").on("click", htBoneRemoveMark);
     $("#htBoneNewNumber").on("click", function() {
         htBoneDrawChallenge(localBoneGame.level);
     });
-    $(".htBoneLevelBtn").on("click", function() {
-        htBoneSelectLevel(parseInt($(this).attr("data-level"), 10));
-    });
+    $("#htBoneNextLevel").on("click", htBoneNextLevel);
 
     htBoneDrawChallenge(1);
     htSetImageSrc("imgBone", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");

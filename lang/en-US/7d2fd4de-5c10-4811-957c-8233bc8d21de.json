@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789068621"
+      "1789423070"
    ],
    "authors": null,
    "reviewers": [
@@ -227,7 +227,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Objective and rules</h3><p>Choose which hands will raise fingers using the buttons above the table. Look at the raised fingers. Then use the arrows on the side of the bone to place marks. The up arrow (<i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i>) adds a mark, and the down arrow (<i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i>) removes a mark. The game stops as soon as the bone shows the same number of marks as raised fingers.</p><p>To keep practicing, start a new round or choose a different set of hands.</p></p>",
+               "text": "<p><h3>Objective and rules</h3><p>Look at the raised fingers. Then use the arrows on the side of the bone to place marks. The up arrow (<i class=\"fa-solid fa-caret-up\" style=\"color:#2e7d32;\"></i>) adds a mark, and the down arrow (<i class=\"fa-solid fa-caret-down\" style=\"color:#1565c0;\"></i>) removes a mark. The game stops as soon as the bone shows the same number of marks as raised fingers.</p><p>When you finish a stage, click <b>Next level</b> to move on or <b>New round</b> to redo that stage.</p></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -236,7 +236,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htBoneWrap\"><div class=\"htBoneLevels\" id=\"htBoneLevelsBar\"><span class=\"htBoneLevelsLabel\" id=\"htBoneLevelsLabel\">Hands:</span><button type=\"button\" class=\"yupana-btn htBoneLevelBtn active\" data-level=\"1\">Left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"2\">Left and right hands</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"3\">Both hands and a friend's left hand</button><button type=\"button\" class=\"yupana-btn htBoneLevelBtn\" data-level=\"4\">Both people's hands</button></div><p class=\"htBonePrompt\" id=\"htBonePrompt\">Count the raised fingers, then place the same quantity of marks on the bone.</p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><span id=\"htBoneMarks\"></span></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Add one mark\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remove one mark\"></button></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The marks on the bone match the raised fingers! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New round</button></p><p class=\"desc\">The arrows beside the bone add or remove marks.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span></div></p>",
+               "text": "<p><div class=\"htBoneWrap\"><p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"htBoneLevelBadge\" class=\"level-badge\">Level 1</span> <button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New round</button> <button type=\"button\" id=\"htBoneNextLevel\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">Next level</button></p><p class=\"htBonePrompt\" id=\"htBonePrompt\">Count the raised fingers, then place the same quantity of marks on the bone.</p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><div class=\"htBoneFill\"><span id=\"htBoneMarks\"></span></div></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Add one mark\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remove one mark\"></button></div></td></tr></tbody></table><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The marks on the bone match the raised fingers! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p class=\"desc\">The arrows beside the bone add or remove marks.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span><span id=\"htBoneLevelLabel\" class=\"text-store\">Level</span></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
