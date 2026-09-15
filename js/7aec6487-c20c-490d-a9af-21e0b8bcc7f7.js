@@ -106,15 +106,54 @@ function htQuipuAllDone() {
     return true;
 }
 
+function htQuipuActiveIndex() {
+    for (var s = 0; s < localQuipu.strings.length; s++) {
+        if (!localQuipu.strings[s].done) {
+            return s;
+        }
+    }
+    return -1;
+}
+
+function htQuipuHasKnots() {
+    for (var s = 0; s < localQuipu.strings.length; s++) {
+        var st = localQuipu.strings[s];
+        for (var p = 0; p < st.knots.length; p++) {
+            if (st.knots[p] > 0) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function htQuipuRemoveIndex() {
+    // Last string that still has knots (allows undoing completed strings)
+    for (var s = localQuipu.strings.length - 1; s >= 0; s--) {
+        var st = localQuipu.strings[s];
+        for (var p = 0; p < st.knots.length; p++) {
+            if (st.knots[p] > 0) {
+                return s;
+            }
+        }
+    }
+    return -1;
+}
+
 function htQuipuRender() {
     var cfg = localQuipu.cfg;
     var targets = "";
     var strings = "";
+    var activeIndex = htQuipuActiveIndex();
 
     for (var s = 0; s < localQuipu.strings.length; s++) {
         var state = localQuipu.strings[s];
         targets += "<div class=\"quipuTarget" + (state.done ? " quipuTargetDone" : "") + "\">" + state.target + "</div>";
-        strings += "<div class=\"quipuString" + (state.done ? " quipuStringDone" : "") + "\">";
+        var strClasses = "quipuString" + (state.done ? " quipuStringDone" : "");
+        if (s === activeIndex && !state.done) {
+            strClasses += " quipuStringActive";
+        }
+        strings += "<div class=\"" + strClasses + "\">";
         strings += "<div class=\"quipuCord\">";
         for (var p = cfg.positions - 1; p >= 0; p--) {
             var classes = "quipuOrder";
@@ -137,14 +176,17 @@ function htQuipuRender() {
             strings += "</div>";
         }
         strings += "</div>";
-        strings += "<div class=\"quipuControls\">";
-        strings += "<button type=\"button\" class=\"quipuArrow quipuUp\" aria-label=\"+\" onclick=\"htQuipuAdd(" + s + ");\"><i class=\"fa-solid fa-caret-up\"></i></button>";
-        strings += "<button type=\"button\" class=\"quipuArrow quipuDown\" aria-label=\"-\" onclick=\"htQuipuRemove(" + s + ");\"><i class=\"fa-solid fa-caret-down\"></i></button>";
-        strings += "</div>";
         strings += "</div>";
     }
 
+    var canAdd = activeIndex >= 0 && !htQuipuAllDone();
+    var canRemove = htQuipuHasKnots();
+
     var html = "";
+    html += "<div class=\"quipuControls quipuGlobalControls\">";
+    html += "<button type=\"button\" class=\"quipuArrow quipuDown\" aria-label=\"-\" onclick=\"htQuipuRemove();\"" + (canRemove ? "" : " disabled") + "><i class=\"fa-solid fa-caret-down\"></i></button>";
+    html += "<button type=\"button\" class=\"quipuArrow quipuUp\" aria-label=\"+\" onclick=\"htQuipuAdd();\"" + (canAdd ? "" : " disabled") + "><i class=\"fa-solid fa-caret-up\"></i></button>";
+    html += "</div>";
     html += "<div class=\"quipuAssembly\">";
     html += "<div class=\"quipuTargetsRow\">" + targets + "</div>";
     html += "<div class=\"quipuMainCord\"></div>";
@@ -155,7 +197,14 @@ function htQuipuRender() {
 }
 
 function htQuipuAdd(stringIndex) {
-    var state = localQuipu.strings[stringIndex];
+    var s = stringIndex;
+    if (typeof s !== "number") {
+        s = htQuipuActiveIndex();
+    }
+    if (s < 0) {
+        return;
+    }
+    var state = localQuipu.strings[s];
     if (!state || state.done) {
         return;
     }
@@ -187,7 +236,26 @@ function htQuipuAdd(stringIndex) {
 }
 
 function htQuipuRemove(stringIndex) {
-    var state = localQuipu.strings[stringIndex];
+    var s = stringIndex;
+    if (typeof s !== "number") {
+        s = htQuipuRemoveIndex();
+        // Prefer active string if it has knots; otherwise use last with knots
+        var active = htQuipuActiveIndex();
+        if (active >= 0) {
+            var ast = localQuipu.strings[active];
+            var hasKnotActive = false;
+            for (var p = 0; p < ast.knots.length; p++) {
+                if (ast.knots[p] > 0) { hasKnotActive = true; break; }
+            }
+            if (hasKnotActive) {
+                s = active;
+            }
+        }
+    }
+    if (s < 0) {
+        return;
+    }
+    var state = localQuipu.strings[s];
     if (!state) {
         return;
     }

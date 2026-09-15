@@ -1791,20 +1791,30 @@ canvas {
 /* Quipu game (7aec6487): knots tied as circles onto vertical cords hanging from a horizontal main cord. */
 .quipuBoard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 1em auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .quipuAssembly {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100%;
+  width: 100%;
 }
 
 .quipuTargetsRow {
   display: flex;
   justify-content: center;
-  gap: 2.5em;
+  gap: clamp(0.4em, 2vw, 2.5em);
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .quipuMainCord {
@@ -1812,29 +1822,36 @@ canvas {
   height: 6px;
   background: #a1887f;
   border-radius: 3px;
+  width: 100%;
 }
 
 .quipuStrings {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 2.5em;
+  gap: clamp(0.4em, 2vw, 2.5em);
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .quipuString {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 10em;
+  min-width: clamp(5.2em, 26vw, 10em);
+  flex: 1 1 0;
+  max-width: 11em;
 }
 
 .quipuTarget {
-  min-width: 10em;
+  min-width: 0;
+  flex: 1 1 0;
+  max-width: 11em;
   text-align: center;
-  font-size: 1.6em;
+  font-size: clamp(1.1em, 4vw, 1.6em);
   font-weight: bold;
   margin-bottom: 0.4em;
+  overflow-wrap: break-word;
 }
 
 .quipuCord {
@@ -1912,30 +1929,63 @@ canvas {
   color: #2e7d32;
 }
 
+.quipuStringActive {
+  outline: 2px solid #1565c0;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
 .quipuControls {
-  position: absolute;
-  left: 0.4em;
-  top: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.1em;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.quipuGlobalControls {
+  margin-top: 0;
+  margin-bottom: 0.9em;
+  flex-direction: row;
+  gap: 1.2em;
+  position: sticky;
+  top: 0.5em;
+  z-index: 2;
+  background: transparent;
 }
 
 .quipuArrow {
-  border: none;
-  background: none;
-  font-size: 2em;
+  border: 2px solid transparent;
+  background: #fff;
+  font-size: 1.9em;
   line-height: 1;
   cursor: pointer;
-  padding: 0 0.2em;
+  padding: 0.35em 0.7em;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  min-width: 2.4em;
+  transition: transform 0.08s, box-shadow 0.08s, opacity 0.15s;
+}
+
+.quipuArrow:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+}
+
+.quipuArrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+  box-shadow: none;
 }
 
 .quipuUp {
   color: #2e7d32;
+  border-color: #a5d6a7;
 }
 
 .quipuDown {
   color: #1565c0;
+  border-color: #90caf9;
 }
 
 .quipuMessage {
@@ -2003,27 +2053,58 @@ canvas {
   color: #a5d6a7;
 }
 
-@media screen and (max-width: 600px) {
-  .quipuTargetsRow,
-  .quipuStrings {
-    gap: 1em;
-  }
+.design-dark .quipuArrow {
+  background: #37474f;
+  color: #eceff1;
+  border-color: #546e7a;
+}
 
-  .quipuTarget {
-    min-width: 8.5em;
+.design-dark .quipuUp {
+  color: #81c784;
+  border-color: #4a6b4a;
+}
+
+.design-dark .quipuDown {
+  color: #64b5f6;
+  border-color: #4a5a6b;
+}
+
+.design-dark .quipuStringActive {
+  outline-color: #64b5f6;
+}
+
+@media screen and (max-width: 991px) {
+  .quipuAssembly {
+    width: 100%;
   }
 
   .quipuString {
-    min-width: 8.5em;
+    max-width: 9.5em;
+  }
+
+  .quipuTarget {
+    max-width: 9.5em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .quipuTargetsRow,
+  .quipuStrings {
+    gap: 0.6em;
   }
 
   .quipuBoard {
-    max-width: 100%;
-    overflow-x: auto;
+    padding: 0 2px;
   }
 
-  .quipuControls {
-    left: 0.2em;
+  .quipuString {
+    min-width: clamp(4.6em, 28vw, 8.5em);
+    max-width: 8.5em;
+  }
+
+  .quipuTarget {
+    max-width: 8.5em;
+    font-size: 1.2em;
   }
 
   .quipuCord::before {
@@ -2041,6 +2122,61 @@ canvas {
   }
 
   .quipuArrow {
-    font-size: 1.7em;
+    font-size: 1.6em;
+    padding: 0.3em 0.6em;
+  }
+
+  .quipuOrder {
+    margin: 0.55em 0;
+  }
+
+  .quipuGlobalControls {
+    gap: 0.9em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .quipuTargetsRow,
+  .quipuStrings {
+    gap: 0.35em;
+  }
+
+  .quipuString {
+    min-width: clamp(4em, 30vw, 6em);
+    max-width: 6.2em;
+  }
+
+  .quipuTarget {
+    max-width: 6.2em;
+    font-size: 1.05em;
+  }
+
+  .quipuCord {
+    padding: 0.4em 0;
+  }
+
+  .quipuKnot {
+    width: 0.6em;
+    height: 0.6em;
+  }
+
+  .quipuOrderLabel {
+    font-size: 0.55em;
+    left: calc(50% + 0.6em);
+  }
+
+  .quipuArrow {
+    font-size: 1.35em;
+    padding: 0.28em 0.55em;
+  }
+
+  .quipuMessage {
+    font-size: 0.9em;
+    padding: 0 4px;
+  }
+
+  .quipuCongrats {
+    font-size: 1.05em;
+    padding: 0 4px;
   }
 }
