@@ -1,0 +1,138 @@
+{
+   "title": "Ler o quipu na yupana",
+   "header": "Ler o quipu na yupana",
+   "sources": [
+      "0b6ac947-9ec3-4406-a329-54ca128b5e90"
+   ],
+   "scripts": [
+      "0b6ac947-9ec3-4406-a329-54ca128b5e90",
+      "ht_yupana"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1789511027"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Ler o quipu na yupana</h3>Em um <i>quipu</i>, os números são escritos com nós: cada ordem leva de 0 a 9 nós, e a ausência de um nó significa zero (<htcite0>). A <i>yupana</i> é um tabuleiro usado para construir esses mesmos números colocando marcas em suas fileiras (<htcite1>). Neste jogo aparece um quipu com um número em cada corda. Leia os nós e represente o mesmo número na yupana abaixo.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "37c3bba9-4fa7-4fe5-8816-a059e9f73001",
+                     "text": "History Tracers Team",
+                     "page": "O quipu: os números em ordem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0a727c2c-6d7f-4bbd-8be1-40c4d881c15a",
+                     "text": "History Tracers Team",
+                     "page": "Exercitando com a Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Leia e represente o número</h3>A corda destacada é o número que você deve representar. Use a fileira de baixo da yupana para as unidades, a seguinte para as dezenas e a de cima para as centenas. Clique em um quadrado para adicionar uma marca; clique novamente para removê-la. Uma fileira sem marcas significa zero. Quando o número da yupana coincidir com o da corda, o jogo marcará a corda como concluída e passará para a próxima. Complete todas as cordas do nível para vencer.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><span id=\"qyLevelBadge\" class=\"level-badge\">Nível 1</span> <button type=\"button\" id=\"qyNewBtn\" class=\"reset-tutor-btn\">🎲 Novo número</button> <button type=\"button\" id=\"qyNextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Próximo nível</button></p><div id=\"qyBoard\" class=\"quipuBoard\"></div><p id=\"qyMessage\" class=\"quipuMessage\" aria-live=\"polite\"></p><p id=\"qyCongrats\" class=\"quipuCongrats\" role=\"status\" aria-live=\"polite\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> <span id=\"qyCongratsText\"></span></p><span id=\"qyLevelLabel\" style=\"display: none;\">Nível</span><span id=\"qyOrder0\" style=\"display: none;\">Unidades</span><span id=\"qyOrder1\" style=\"display: none;\">Dezenas</span><span id=\"qyOrder2\" style=\"display: none;\">Centenas</span><span id=\"qyMsgStart\" style=\"display: none;\">Leia a corda destacada e represente o número dela na yupana.</span><span id=\"qyMsgReading\" style=\"display: none;\">Continue: represente o número que a corda destacada mostra.</span><span id=\"qyMsgString\" style=\"display: none;\">✅ Correto! Agora leia a próxima corda.</span><span id=\"qyMsgLevel\" style=\"display: none;\">🎉 Nível concluído! Clique em <b>Próximo nível</b> para continuar ou em <b>Novo número</b> para refazer este nível.</span><span id=\"qyMsgAllLevels\" style=\"display: none;\">🎉🏆 TODOS OS NÍVEIS CONCLUÍDOS! 🏆🎉 Você leu todos os quipus! Clique em <b>Próximo nível</b> para começar de novo no nível 1 ou em <b>Novo número</b> para refazer este nível.</span><span id=\"qyMsgOverflow\" style=\"display: none;\">⚠️ Transbordo! A fileira de {place} não pode ter mais de 9. Remova algumas marcas e tente novamente.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay yupanaSmall\"><tr><th colspan=\"4\"><i>Yupana</i></th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">A forma como os nós registram os números segue a descrição do quipu (<htcite0>), e o uso da yupana segue a prática da adição com a yupana (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "37c3bba9-4fa7-4fe5-8816-a059e9f73001",
+                     "text": "History Tracers Team",
+                     "page": "O quipu: os números em ordem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0a727c2c-6d7f-4bbd-8be1-40c4d881c15a",
+                     "text": "History Tracers Team",
+                     "page": "Exercitando com a Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
