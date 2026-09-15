@@ -2481,3 +2481,38 @@ canvas {
     padding: 0 4px;
   }
 }
+
+/* Quipu + Yupana side-by-side layout (0b6ac947): one quipu cord next to the Yupana board. */
+.quipuYupanaLayout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75em, 3vw, 2.5em);
+  width: 100%;
+  margin: 0.75em auto 0.25em;
+}
+
+.quipuYupanaLayout .quipuBoard {
+  flex: 1 1 16em;
+  min-width: 11em;
+  width: auto;
+  margin: 0;
+}
+
+.quipuYupanaLayout .quipuYupanaBoard {
+  flex: 0 1 auto;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .quipuYupanaLayout {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .quipuYupanaLayout .quipuBoard {
+    width: 100%;
+  }
+}
