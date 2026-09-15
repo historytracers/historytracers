@@ -1535,22 +1535,35 @@ function htFillFamilies(page, table) {
     genealogicalStats.families = validFamilies.length;
     var totalPeople = 0;
 
+    // Clear previous family data to avoid cross-file contamination when
+    // navigating from one tree (e.g. bef0d876...) to another (376a5f3c...).
+    // Without this, personNameMap/familyMap retain entries from the previous
+    // file and internal links can be rendered with stale ids.
+    personNameMap.clear();
+    familyMap.clear();
+
     // helper to show one family page at a time (book) - also handles index page
-    if (typeof window.htShowFamily !== 'function') {
-        window.htShowFamily = function(familyId) {
-            $("[id^='paper-family-']").not("#paper-familyNavBottom").hide();
-            var sel = $("#paper-family-"+familyId);
-            if (sel.length) sel.show();
-            // update location hash without reload - for index keep file id
-            try { if (familyId !== 'index' && familyId !== 'introduction' && familyId !== 'geography') htSetCurrentLinkBasis(page, familyId); } catch(e) {}
-            // scroll to selected page
-            try { htScrollToID("#paper-family-"+familyId); } catch(e) {}
-        };
-    }
+    // Always (re)define so the closure captures the current `page` (file id,
+    // e.g. 376a5f3c...) instead of the first loaded file (bef0d876...).
+    window.htShowFamily = function(familyId) {
+        $("[id^='paper-family-']").not("#paper-familyNavBottom").hide();
+        var sel = $("#paper-family-"+familyId);
+        if (sel.length) sel.show();
+        // Use the current file id from #loading (most reliable) with fallback
+        // to the `page` captured for this htFillFamilies invocation.
+        var curFileId = (function(){
+            try {
+                var v = $("#loading").val();
+                if (v && v.length >= 36) return v.split('&')[0];
+            } catch(e) {}
+            return page;
+        })();
+        try { if (familyId !== 'index' && familyId !== 'introduction' && familyId !== 'geography') htSetCurrentLinkBasis(curFileId, familyId); } catch(e) {}
+        // scroll to selected page
+        try { htScrollToID("#paper-family-"+familyId); } catch(e) {}
+    };
     // also allow returning to patriarchs index via htShowFamily('index')
-    if (typeof window.htShowFamilyIndex !== 'function') {
-        window.htShowFamilyIndex = function(){ window.htShowFamily('index'); };
-    }
+    window.htShowFamilyIndex = function(){ window.htShowFamily('index'); };
 
     // book pages start at 0 - top navigation is the existing #dnavigationup outside #paper
     var paperIdx = 0;
