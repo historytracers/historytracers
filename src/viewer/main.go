@@ -195,6 +195,21 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 		if entry.Time == 0 {
 			entry.Time = time.Now().UnixMilli()
 		}
+		// Filter noisy external errors (archive.org BookReader etc.) that are not viewer bugs
+		if entry.Type == "error" {
+			if strings.Contains(entry.Message, "Cannot define multiple custom elements") || strings.Contains(entry.Message, "ia-sentry") || strings.Contains(entry.Message, "donation-banner") || strings.Contains(entry.Message, "SoundManager") || strings.Contains(entry.Message, "NotSupportedError") {
+				w.WriteHeader(http.StatusNoContent)
+				return
+			}
+			if strings.Contains(entry.URL, "archive.org") && (strings.Contains(entry.Message, "custom elements") || strings.Contains(entry.Message, "Sentry") || strings.Contains(entry.Message, "SoundManager")) {
+				w.WriteHeader(http.StatusNoContent)
+				return
+			}
+		}
+		if entry.Type == "network" && strings.Contains(entry.URL, "archive.org") {
+			w.WriteHeader(http.StatusNoContent)
+			return
+		}
 		devMu.Lock()
 		devLog = append(devLog, entry)
 		if len(devLog) > devMax {
