@@ -217,5 +217,7 @@ function htLoadContent() {
     htQyStartLevel(0);
     htWriteNavigation();
 
+    htSetImageSrc("ArmsAntonio", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_0362.jpg");
+
     return false;
 }
