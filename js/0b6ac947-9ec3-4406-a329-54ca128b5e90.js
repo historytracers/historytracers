@@ -100,11 +100,26 @@ function htQyRender() {
         strings += "<div class=\"" + strClasses + "\">";
         strings += "<div class=\"quipuCord\">";
         for (var p = cfg.positions - 1; p >= 0; p--) {
-            var orderClasses = "quipuOrder" + (isDone ? " quipuFilled" : "");
+            var target = digits[p];
+            var marked = isDone ? target : htYupanaStateGetRowDigit(localQuipuYupana.state, p);
+            var orderClasses = "quipuOrder";
+            if (isDone || (marked > 0 && marked === target)) {
+                orderClasses += " quipuFilled quipuOrderMatch";
+            } else if (marked > target) {
+                orderClasses += " quipuOrderOver";
+            }
             strings += "<div class=\"" + orderClasses + "\">";
             strings += "<div class=\"quipuKnots\">";
-            for (var k = 0; k < digits[p]; k++) {
-                strings += "<span class=\"quipuKnot\"></span>";
+            for (var k = 0; k < target; k++) {
+                var knotClasses = "quipuKnot";
+                if (isDone) {
+                    knotClasses += " quipuKnotMatched";
+                } else if (marked > target) {
+                    knotClasses += " quipuKnotOver";
+                } else if (k < marked) {
+                    knotClasses += (marked === target) ? " quipuKnotMatched" : " quipuKnotMarked";
+                }
+                strings += "<span class=\"" + knotClasses + "\"></span>";
             }
             strings += "</div>";
             strings += "<span class=\"quipuOrderLabel\">" + htQyOrderName(p) + "</span>";
@@ -136,6 +151,7 @@ function htQyCellClick(rowIdx, colIdx) {
         htQySetMessage(htQyText("qyMsgOverflow")
             .replace("{place}", htQyOrderName(overflow.row))
             .replace("{digit}", overflow.digit));
+        htQyRender();
         return;
     }
 
@@ -143,6 +159,7 @@ function htQyCellClick(rowIdx, colIdx) {
         htQyCompleteString();
     } else {
         htQySetMessage(htQyText("qyMsgReading"));
+        htQyRender();
     }
 }
 
