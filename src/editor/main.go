@@ -1153,7 +1153,10 @@ func normalizeImagesPath(p string) string {
 }
 
 func getImagesRoot() string {
-	p := strings.TrimSpace(savedOptions.ImagesPath)
+	optionsMu.Lock()
+	imagesPath := savedOptions.ImagesPath
+	optionsMu.Unlock()
+	p := strings.TrimSpace(imagesPath)
 	if p == "" {
 		return filepath.Join(rootDir, "images")
 	}

@@ -2596,7 +2596,13 @@ async function insertImageJs(idRandom,imagePath){
 		}
 		// if tab for js is open, update its content
 		var jsTabIdx=findTab(jsPath);
-		await fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(jsPath)+'&content='+encodeURIComponent(newContent)});
+		if(jsTabIdx>=0&&tabs[jsTabIdx]&&tabs[jsTabIdx].modified){
+			return;
+		}
+		var saveResp=await fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(jsPath)+'&content='+encodeURIComponent(newContent)});
+		if(!saveResp||!saveResp.ok){
+			return;
+		}
 		if(jsTabIdx>=0&&tabs[jsTabIdx]){
 			tabs[jsTabIdx].content=newContent;
 			tabs[jsTabIdx].originalContent=newContent;
@@ -2614,24 +2620,7 @@ async function confirmImageInsert(){
 	var dir=window.__imgSelectedDir;
 	var file=window.__imgSelectedFile;
 	if(!dir||!file)return;
-	var cfgPath="";
-	try{
-		var ro=await fetch('/api/editor/options');
-		var jo=await ro.json();
-		cfgPath=(jo.images_path||"").trim();
-		window.__ht_editor_opts=jo;
-	}catch(e){
-		var opts=window.__ht_editor_opts||{};
-		cfgPath=(opts.images_path||"").trim();
-	}
-	var prefix;
-	if(cfgPath){
-		prefix=cfgPath.replace(/\/+$/,'');
-		if(!prefix) prefix='images';
-	}else{
-		prefix='images';
-	}
-	var imagePath=prefix+'/'+dir+'/'+file;
+	var imagePath='images/'+dir+'/'+file;
 	var area=document.getElementById('editorArea');
 	if(area.style.display==='none'||currentTab<0){ toast(tr('selectFile'),'info'); return; }
 	var val=area.value;
@@ -2639,7 +2628,7 @@ async function confirmImageInsert(){
 	var label=(lang==='en-US'?'Figure':'Figura');
 	var figNum=getNextFigureNumber(val);
 	var idRandom=generateImageId(val);
-	var html='<center><span class="desc"><img id="'+idRandom+'" class="imgcenter" onclick="htImageZoom(\''+idRandom+'\', \'0%\')" /><b>'+label+' '+figNum+'</b>: </center>';
+	var html='<center><span class="desc"><img id="'+idRandom+'" class="imgcenter" src="'+imagePath+'" onclick="htImageZoom(\''+idRandom+'\', \'0%\')" /><b>'+label+' '+figNum+'</b>: </center>';
 	var obj={text:html,source:null,date_time:null,isTable:false,imgdesc:"",format:"html",PostMention:""};
 	var tpl=JSON.stringify(obj,null,3);
 	var pos=area.selectionStart;
