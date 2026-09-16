@@ -1689,6 +1689,7 @@ func main() {
 	mux.HandleFunc("/api/editor/find-source", findSourceHandler)
 	mux.HandleFunc("/api/editor/link-source", linkSourceHandler)
 	mux.HandleFunc("/api/editor/source-formats", sourceFormatsHandler)
+	mux.HandleFunc("/api/editor/images", imagesHandler)
 	mux.HandleFunc("/api/editor/create-source", createSourceHandler)
 	mux.HandleFunc("/api/editor/history", historyHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
@@ -2297,6 +2298,84 @@ func sourceFormatsHandler(w http.ResponseWriter, r *http.Request) {
 		result = append(result, map[string]string{"sfo_id": sfoID, "sfo_name": sfoName})
 	}
 	json.NewEncoder(w).Encode(result)
+}
+
+func imagesHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	dirParam := r.URL.Query().Get("dir")
+	imagesRoot := filepath.Join(rootDir, "images")
+	if dirParam == "" {
+		entries, err := os.ReadDir(imagesRoot)
+		if err != nil {
+			json.NewEncoder(w).Encode(map[string]interface{}{"dirs": []string{}})
+			return
+		}
+		dirs := []string{}
+		for _, e := range entries {
+			if !e.IsDir() {
+				continue
+			}
+			name := e.Name()
+			if strings.HasPrefix(name, ".") {
+				continue
+			}
+			dirs = append(dirs, name)
+		}
+		// sort already by ReadDir but ensure
+		// use simple sort
+		for i := 0; i < len(dirs); i++ {
+			for j := i + 1; j < len(dirs); j++ {
+				if strings.ToLower(dirs[j]) < strings.ToLower(dirs[i]) {
+					dirs[i], dirs[j] = dirs[j], dirs[i]
+				}
+			}
+		}
+		json.NewEncoder(w).Encode(map[string]interface{}{"dirs": dirs})
+		return
+	}
+	clean := path.Clean(dirParam)
+	if strings.Contains(clean, "..") || strings.Contains(clean, "/") || strings.Contains(clean, "\\") {
+		http.Error(w, "invalid dir", http.StatusBadRequest)
+		return
+	}
+	target := filepath.Join(imagesRoot, clean)
+	info, err := os.Stat(target)
+	if err != nil || !info.IsDir() {
+		http.Error(w, "not found", http.StatusNotFound)
+		return
+	}
+	entries, err := os.ReadDir(target)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]interface{}{"files": []string{}})
+		return
+	}
+	allowed := map[string]bool{".jpg": true, ".jpeg": true, ".png": true, ".gif": true, ".webp": true, ".svg": true, ".bmp": true, ".avif": true, ".JPG": true, ".JPEG": true, ".PNG": true}
+	files := []string{}
+	for _, e := range entries {
+		if e.IsDir() {
+			continue
+		}
+		name := e.Name()
+		if strings.HasPrefix(name, ".") {
+			continue
+		}
+		ext := strings.ToLower(path.Ext(name))
+		if !allowed[ext] && !allowed[strings.ToUpper(ext)] {
+			// check lowercased
+			if !allowed[ext] {
+				continue
+			}
+		}
+		files = append(files, name)
+	}
+	for i := 0; i < len(files); i++ {
+		for j := i + 1; j < len(files); j++ {
+			if strings.ToLower(files[j]) < strings.ToLower(files[i]) {
+				files[i], files[j] = files[j], files[i]
+			}
+		}
+	}
+	json.NewEncoder(w).Encode(map[string]interface{}{"dir": clean, "files": files})
 }
 
 // dateRE matches the YYYY-MM-DD date format used by the sources table.
