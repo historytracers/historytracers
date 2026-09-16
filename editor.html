@@ -2501,17 +2501,24 @@ function selectImageFile(file,el){
 	if(el)el.classList.add('sel');
 	var dir=window.__imgSelectedDir||'';
 	var path='images/'+dir+'/'+file;
+	var opts=window.__ht_editor_opts||{};
+	var cfgPath=(opts.images_path||"").trim();
+	var displayPath=path;
+	if(cfgPath){
+		var p=cfgPath.replace(/\/+$/,'');
+		if(p) displayPath=p+'/'+dir+'/'+file;
+	}
 	var prev=document.getElementById('imgPreview');
 	if(prev){
 		prev.innerHTML='';
 		var img=document.createElement('img');
-		img.src='/'+path;
+		img.src='/api/editor/image?dir='+encodeURIComponent(dir)+'&file='+encodeURIComponent(file);
 		img.alt=file;
 		img.onerror=function(){prev.innerHTML='<span class="img-preview-empty">'+tr('readError')+'</span>'};
 		prev.appendChild(img);
 	}
 	var info=document.getElementById('imgInfo');
-	if(info)info.textContent=path;
+	if(info)info.textContent=displayPath;
 	var btn=document.getElementById('imgInsertBtn');
 	if(btn)btn.disabled=false;
 }
@@ -2607,7 +2614,24 @@ async function confirmImageInsert(){
 	var dir=window.__imgSelectedDir;
 	var file=window.__imgSelectedFile;
 	if(!dir||!file)return;
-	var imagePath='images/'+dir+'/'+file;
+	var cfgPath="";
+	try{
+		var ro=await fetch('/api/editor/options');
+		var jo=await ro.json();
+		cfgPath=(jo.images_path||"").trim();
+		window.__ht_editor_opts=jo;
+	}catch(e){
+		var opts=window.__ht_editor_opts||{};
+		cfgPath=(opts.images_path||"").trim();
+	}
+	var prefix;
+	if(cfgPath){
+		prefix=cfgPath.replace(/\/+$/,'');
+		if(!prefix) prefix='images';
+	}else{
+		prefix='images';
+	}
+	var imagePath=prefix+'/'+dir+'/'+file;
 	var area=document.getElementById('editorArea');
 	if(area.style.display==='none'||currentTab<0){ toast(tr('selectFile'),'info'); return; }
 	var val=area.value;

@@ -1063,6 +1063,7 @@ type optionsData struct {
 	Design           string `json:"design"`
 	MyName           string `json:"my_name"`
 	SmartphonePrefix string `json:"smartphone_prefix"`
+	ImagesPath       string `json:"images_path"`
 }
 
 func initDataDir() {
@@ -1140,6 +1141,54 @@ func validateEditorOptions(data *optionsData) {
 		data.TLSKey = ""
 	}
 	data.SmartphonePrefix = normalizeSmartphonePrefix(data.SmartphonePrefix)
+	data.ImagesPath = normalizeImagesPath(data.ImagesPath)
+}
+
+func normalizeImagesPath(p string) string {
+	p = strings.TrimSpace(p)
+	if p == "" || p == "." {
+		return ""
+	}
+	return p
+}
+
+func getImagesRoot() string {
+	p := strings.TrimSpace(savedOptions.ImagesPath)
+	if p == "" {
+		return filepath.Join(rootDir, "images")
+	}
+	clean := filepath.Clean(p)
+	// Treat "/images" as web path alias for local images directory
+	if clean == "/images" || clean == "images" {
+		return filepath.Join(rootDir, "images")
+	}
+	if filepath.IsAbs(p) {
+		if info, err := os.Stat(p); err == nil && info.IsDir() {
+			return filepath.Clean(p)
+		}
+		if filepath.IsAbs(clean) && clean == "/images" {
+			return filepath.Join(rootDir, "images")
+		}
+		// If absolute path does not exist as directory, fallback to local for web prefix "/images"
+		if strings.HasPrefix(p, "/") {
+			// Check if p is exactly "/images" or starts with "/images/" but filesystem not exists -> fallback
+			// Use local to avoid empty listing for web path.
+			if p == "/images" || strings.HasPrefix(p, "/images/") {
+				return filepath.Join(rootDir, "images")
+			}
+		}
+		return filepath.Clean(p)
+	}
+	// relative path - check existence
+	candidate := filepath.Join(rootDir, filepath.Clean(p))
+	if info, err := os.Stat(candidate); err == nil && info.IsDir() {
+		return candidate
+	}
+	// If relative does not exist and is "images", fallback to local
+	if clean == "images" {
+		return filepath.Join(rootDir, "images")
+	}
+	return candidate
 }
 
 func normalizeSmartphonePrefix(p string) string {
@@ -1381,6 +1430,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		} else if _, ok := r.Form["smartphone_prefix"]; ok {
 			data.SmartphonePrefix = ""
 		}
+		if v := r.FormValue("images_path"); v != "" {
+			data.ImagesPath = v
+		} else if _, ok := r.Form["images_path"]; ok {
+			data.ImagesPath = ""
+		}
 		writeEditorOptions(data)
 		optionsMu.Lock()
 		savedOptions = data
@@ -1428,6 +1482,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		curDesign = "default"
 	}
 	curSmartphonePrefix := data.SmartphonePrefix
+	curImagesPath := data.ImagesPath
 	defaultTLSDir := "/etc/historytracers/"
 	if runtime.GOOS == "windows" {
 		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
@@ -1463,10 +1518,11 @@ var token=window.__ht_token||'';
 var openNewFiles=%q;
 var curDesign=%q;
 var smartphonePrefixVal=%q;
+var imagesPathVal=%q;
 var L={};
-L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro',smartphonePrefixLabel:'Prefixo do caminho Smartphone',smartphonePrefixNote:'Prefixa o caminho padr\u00e3o src/smartphone. Por exemplo, MYSMARTPHONE.'};
-L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro',smartphonePrefixLabel:'Prefijo de ruta Smartphone',smartphonePrefixNote:'Prefija la ruta predeterminada src/smartphone. Por ejemplo, MYSMARTPHONE.'};
-L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light',smartphonePrefixLabel:'Smartphone path prefix',smartphonePrefixNote:'Prefixes the default path src/smartphone. For example, MYSMARTPHONE.'};
+L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro',smartphonePrefixLabel:'Prefixo do caminho Smartphone',smartphonePrefixNote:'Prefixa o caminho padr\u00e3o src/smartphone. Por exemplo, MYSMARTPHONE.',imagesPathLabel:'Caminho das imagens',imagesPathNote:'Caminho completo para /images. Deixe vazio para usar o diret\u00f3rio local images/. Exemplo: /images ou /home/user/images'};
+L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro',smartphonePrefixLabel:'Prefijo de ruta Smartphone',smartphonePrefixNote:'Prefija la ruta predeterminada src/smartphone. Por ejemplo, MYSMARTPHONE.',imagesPathLabel:'Ruta de im\u00e1genes',imagesPathNote:'Ruta completa a /images. Dejar vac\u00edo para usar el directorio local images/. Ejemplo: /images o /home/user/images'};
+L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light',smartphonePrefixLabel:'Smartphone path prefix',smartphonePrefixNote:'Prefixes the default path src/smartphone. For example, MYSMARTPHONE.',imagesPathLabel:'Images path',imagesPathNote:'Whole path to /images. Leave empty for local images/ directory. Example: /images or /home/user/images'};
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
@@ -1486,6 +1542,8 @@ html+='<div class="form-group"><label>'+l.designLabel+'</label><select id="opt_d
 html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
 html+='<div class="form-group"><label>'+l.smartphonePrefixLabel+'</label><input type="text" id="opt_smartphone_prefix" placeholder="MYSMARTPHONE" value="'+smartphonePrefixVal+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.smartphonePrefixNote+'</div>';
+html+='<div class="form-group"><label>'+l.imagesPathLabel+'</label><input type="text" id="opt_images_path" placeholder="/images" value="'+imagesPathVal+'"></div>';
+html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.imagesPathNote+'</div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
 html+='<div id="opt_status"></div>';
@@ -1505,9 +1563,13 @@ document.getElementById('opt_apply').onclick=function(){
 	var nd=document.getElementById('opt_design').value;
 	var nm=document.getElementById('opt_my_name').value;
 	var sp=document.getElementById('opt_smartphone_prefix').value;
+	var ip=document.getElementById('opt_images_path').value;
 	localStorage.setItem('ht_my_name',nm);
-	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)+'&smartphone_prefix='+encodeURIComponent(sp)}).then(function(r){
-		if(r.ok&&window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
+	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)+'&smartphone_prefix='+encodeURIComponent(sp)+'&images_path='+encodeURIComponent(ip)}).then(function(r){
+		if(r.ok){
+			if(window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
+			if(window.parent&&window.parent.__ht_editor_opts){window.parent.__ht_editor_opts.smartphone_prefix=sp;window.parent.__ht_editor_opts.images_path=ip;}
+		}
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
 	}).catch(function(e){
@@ -1526,7 +1588,7 @@ document.getElementById('opt_import').onclick=function(){
 	});
 };
 </script>
-</body></html>`, viewerToken, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, fmt.Sprint(openNewFiles), curDesign, curSmartphonePrefix)
+</body></html>`, viewerToken, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, fmt.Sprint(openNewFiles), curDesign, curSmartphonePrefix, curImagesPath)
 }
 
 func init() {
@@ -1690,6 +1752,7 @@ func main() {
 	mux.HandleFunc("/api/editor/link-source", linkSourceHandler)
 	mux.HandleFunc("/api/editor/source-formats", sourceFormatsHandler)
 	mux.HandleFunc("/api/editor/images", imagesHandler)
+	mux.HandleFunc("/api/editor/image", imageFileHandler)
 	mux.HandleFunc("/api/editor/create-source", createSourceHandler)
 	mux.HandleFunc("/api/editor/history", historyHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
@@ -2303,7 +2366,7 @@ func sourceFormatsHandler(w http.ResponseWriter, r *http.Request) {
 func imagesHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	dirParam := r.URL.Query().Get("dir")
-	imagesRoot := filepath.Join(rootDir, "images")
+	imagesRoot := getImagesRoot()
 	if dirParam == "" {
 		entries, err := os.ReadDir(imagesRoot)
 		if err != nil {
@@ -2376,6 +2439,60 @@ func imagesHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	json.NewEncoder(w).Encode(map[string]interface{}{"dir": clean, "files": files})
+}
+
+func imageFileHandler(w http.ResponseWriter, r *http.Request) {
+	dirParam := r.URL.Query().Get("dir")
+	fileParam := r.URL.Query().Get("file")
+	if dirParam == "" || fileParam == "" {
+		// also support ?path=images/dir/file
+		if p := r.URL.Query().Get("path"); p != "" {
+			clean := path.Clean(p)
+			if strings.Contains(clean, "..") {
+				http.Error(w, "invalid path", http.StatusBadRequest)
+				return
+			}
+			// remove leading images/ or /images/ prefix if present
+			trimmed := strings.TrimPrefix(clean, "images/")
+			trimmed = strings.TrimPrefix(trimmed, "/images/")
+			trimmed = strings.TrimPrefix(trimmed, "/")
+			parts := strings.SplitN(trimmed, "/", 2)
+			if len(parts) == 2 {
+				dirParam = parts[0]
+				fileParam = parts[1]
+			} else {
+				http.Error(w, "invalid path", http.StatusBadRequest)
+				return
+			}
+		} else {
+			http.Error(w, "missing dir/file", http.StatusBadRequest)
+			return
+		}
+	}
+	cleanDir := path.Clean(dirParam)
+	cleanFile := path.Clean(fileParam)
+	if strings.Contains(cleanDir, "..") || strings.Contains(cleanDir, "/") || strings.Contains(cleanDir, "\\") {
+		http.Error(w, "invalid dir", http.StatusBadRequest)
+		return
+	}
+	if strings.Contains(cleanFile, "..") || strings.Contains(cleanFile, "/") || strings.Contains(cleanFile, "\\") {
+		http.Error(w, "invalid file", http.StatusBadRequest)
+		return
+	}
+	imagesRoot := getImagesRoot()
+	target := filepath.Join(imagesRoot, cleanDir, cleanFile)
+	info, err := os.Stat(target)
+	if err != nil || info.IsDir() {
+		http.Error(w, "not found", http.StatusNotFound)
+		return
+	}
+	ext := strings.ToLower(path.Ext(cleanFile))
+	allowed := map[string]bool{".jpg": true, ".jpeg": true, ".png": true, ".gif": true, ".webp": true, ".svg": true, ".bmp": true, ".avif": true}
+	if !allowed[ext] {
+		http.Error(w, "not allowed", http.StatusForbidden)
+		return
+	}
+	http.ServeFile(w, r, target)
 }
 
 // dateRE matches the YYYY-MM-DD date format used by the sources table.
