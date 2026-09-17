@@ -2200,6 +2200,18 @@ canvas {
   box-sizing: border-box;
 }
 
+.quipuKnotMarked {
+  background: #1565c0;
+}
+
+.quipuKnotMatched {
+  background: #2e7d32;
+}
+
+.quipuKnotOver {
+  background: #c62828;
+}
+
 .quipuActive .quipuOrderLabel {
   color: #1565c0;
   font-weight: bold;
@@ -2207,6 +2219,19 @@ canvas {
 
 .quipuFilled .quipuOrderLabel {
   color: #2e7d32;
+}
+
+.quipuYupanaLayout .quipuOrder {
+  padding: 0 0.45em;
+  border-radius: 10px;
+}
+
+.quipuOrderMatch {
+  background: #e8f5e9;
+}
+
+.quipuOrderOver {
+  background: #ffebee;
 }
 
 .quipuTargetDone {
@@ -2314,6 +2339,18 @@ canvas {
   border-color: #64b5f6;
 }
 
+.design-dark .quipuKnotMarked {
+  background: #64b5f6;
+}
+
+.design-dark .quipuKnotMatched {
+  background: #a5d6a7;
+}
+
+.design-dark .quipuKnotOver {
+  background: #ef9a9a;
+}
+
 .design-dark .quipuOrderLabel {
   color: #90a4ae;
 }
@@ -2324,6 +2361,14 @@ canvas {
 
 .design-dark .quipuFilled .quipuOrderLabel {
   color: #a5d6a7;
+}
+
+.design-dark .quipuOrderMatch {
+  background: rgba(165, 214, 167, 0.18);
+}
+
+.design-dark .quipuOrderOver {
+  background: rgba(229, 115, 115, 0.2);
 }
 
 .design-dark .quipuTarget,
@@ -2479,5 +2524,40 @@ canvas {
   .quipuCongrats {
     font-size: 1.05em;
     padding: 0 4px;
+  }
+}
+
+/* Quipu + Yupana side-by-side layout (0b6ac947): one quipu cord next to the Yupana board. */
+.quipuYupanaLayout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75em, 3vw, 2.5em);
+  width: 100%;
+  margin: 0.75em auto 0.25em;
+}
+
+.quipuYupanaLayout .quipuBoard {
+  flex: 1 1 16em;
+  min-width: 11em;
+  width: auto;
+  margin: 0;
+}
+
+.quipuYupanaLayout .quipuYupanaBoard {
+  flex: 0 1 auto;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .quipuYupanaLayout {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .quipuYupanaLayout .quipuBoard {
+    width: 100%;
   }
 }
