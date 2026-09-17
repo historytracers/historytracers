@@ -24,8 +24,9 @@ const HT_COMMON_PATH = path.join(__dirname, 'ht_common.js');
 const CALENDAR_SRC = fs.readFileSync(CALENDAR_PATH, 'utf8');
 const HT_COMMON_SRC = fs.readFileSync(HT_COMMON_PATH, 'utf8');
 
-// Same value as lang/*/common_keywords.json keywords[144].
+// Same values as lang/*/common_keywords.json keywords[144] and keywords[146].
 const CODE_RABBIT_LINK = '<a href="https://www.coderabbit.ai/" target="_blank">CodeRabbit</a>';
+const QODO_LINK = '<a href="https://www.qodo.ai/" target="_blank">Qodo</a>';
 
 function createSandbox() {
   const calls = [];
@@ -43,7 +44,8 @@ function createSandbox() {
       off() { calls.push(['off', ...arguments]); return obj; },
       each() { calls.push(['each', ...arguments]); return obj; },
       hide() { return obj; },
-      show() { return obj; }
+      show() { return obj; },
+      remove() { return obj; },
     };
     return obj;
   };
@@ -103,6 +105,7 @@ function createSandbox() {
     keywords[41] = 'JD';
     keywords[43] = 'BC';
     keywords[144] = ${JSON.stringify(CODE_RABBIT_LINK)};
+    keywords[146] = ${JSON.stringify(QODO_LINK)};
   `, sandbox);
 
   const run = (expr) => vm.runInContext(expr, sandbox);
@@ -253,4 +256,25 @@ test('htFillWebPage joins array reviewers and substitutes CodeRabbit', () => {
   assert.equal(reviewersOf('CodeRabbit, CodeRabbit and Team'), CODE_RABBIT_LINK + ', ' + CODE_RABBIT_LINK + ' and Team');
   assert.equal(reviewersOf(null), 'Reviewers of History Tracers');
   assert.equal(reviewersOf([]), 'Reviewers of History Tracers');
+});
+
+test('htFillWebPage joins array reviewers and substitutes Qodo', () => {
+  const { run } = createSandbox();
+  run(`
+    captured = [];
+    htFillClassContentV2 = function (table, last_update, page_authors, page_reviewers, index) {
+      captured.push(page_reviewers);
+    };
+  `);
+
+  function reviewersOf(reviewers) {
+    run(`captured.length = 0; htFillWebPage('p', { title: 'T', last_update: 1787192329, authors: null, reviewers: ${JSON.stringify(reviewers)}, type: 'class', version: 2, index: 0 });`);
+    return run(`captured[0]`);
+  }
+
+  assert.equal(reviewersOf(['Qodo']), QODO_LINK);
+  assert.equal(reviewersOf(['Alice', 'Qodo']), 'Alice, ' + QODO_LINK);
+  assert.equal(reviewersOf('Qodo'), QODO_LINK);
+  assert.equal(reviewersOf('Qodo and Team'), QODO_LINK + ' and Team');
+  assert.equal(reviewersOf(['Alice', 'CodeRabbit', 'Qodo']), 'Alice, ' + CODE_RABBIT_LINK + ', ' + QODO_LINK);
 });
