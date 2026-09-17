@@ -17,6 +17,7 @@ function htLoadContent() {
     htSetImageSrc("imgLL", "images/Archive/LucreciaLeme.png");
     htSetImageSrc("imgPD", "images/Archive/PedroDias.png");
     htSetImageSrc("Experiment", "images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg");
+    htSetImageSrc("imgPoma", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_0362.jpg");
     htPlusDivs(0);
 
     return false;
