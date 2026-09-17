@@ -30,12 +30,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789655266"
+      "1789672790"
    ],
    "authors": [
       ""
    ],
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -437,7 +439,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Adding with complements on the abacus\n\nTo add two values whose result is greater than 9, complements are necessary. This is because abacuses cannot display numbers greater than 9 in a single column — there is not enough space to position the markers (<htcite0>; <htcite1>).",
+               "text": "### Adding with complements on the abacus\n\nTo add two values whose result is greater than 9, complements are necessary. This is because each decimal place on the abacus represents a single digit from 0 to 9, so values above 9 in any column require carrying to the next column (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,

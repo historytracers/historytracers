@@ -28,10 +28,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789653574"
+      "1789672819"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -104,7 +106,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><b>Tabuada:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select></p><p class=\"htSequenceGame\" id=\"cmp0\"><div id=\"parent\" style=\"position: relative;\"><div id=\"history\" style=\"visibility: hidden; display: none; border: 3px solid black; position: absolute; z-index: 100; left: 30%; width: 60%; background-color: white;\"><br /><a href=\"#\" onclick=\"closeDiv(); return false;\" />Fechar</a><center><img src=\"\" id=\"imgSeqGame\" onclick=\"htImageZoom('imgSeqGame', '0%')\" style=\"width: 30%;\" /></center><br /><center><span id=\"desc\"></span></center></div><table id=\"yupana0\" class=\"tawapukllay\"><tr><th>Multiplicação</th><th>Estrelas</th><th colspan=\"2\">Controles</th><th colspan=\"4\">Gráfico</th></tr> <tr><td id=\"exercise\"> </td><td rowspan=\"3\" style=\"background-color:lightblue;\" id=\"visual\"></td><td rowspan=\"3\" style=\"background-color:white;\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"moveUp\" onclick=\"htSequenceUpdateValue(1);\"></i></td><td rowspan=\"3\" style=\"background-color:white;\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"moveDown\" onclick=\"htSequenceUpdateValue(-1);\"></i></td><td colspan=\"4\" rowspan=\"3\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:100% !important; max-width:30em; height:auto !important; aspect-ratio:3/2;\"></canvas></td></tr> <tr><td style=\"height: 5px; background-color: white;\" style=\"background-color:white;\"></td> </tr> <tr><td><span id=\"finalResult\" class=\"text_to_paint\"></span></td></tr> </table></div></p><p class=\"desc\"><b>Tabela 1</b>: Exercício de Multiplicação de números.</p>",
+               "text": "<p><b>Tabuada:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select></p><div class=\"htSequenceGame\" id=\"cmp0\"><div id=\"parent\" style=\"position: relative;\"><div id=\"history\" style=\"visibility: hidden; display: none; border: 3px solid black; position: absolute; z-index: 100; left: 30%; width: 60%; background-color: white;\"><br /><a href=\"#\" onclick=\"closeDiv(); return false;\" />Fechar</a><center><img src=\"\" id=\"imgSeqGame\" onclick=\"htImageZoom('imgSeqGame', '0%')\" style=\"width: 30%;\" /></center><br /><center><span id=\"desc\"></span></center></div><table id=\"yupana0\" class=\"tawapukllay\"><tr><th>Multiplicação</th><th>Estrelas</th><th colspan=\"2\">Controles</th><th colspan=\"4\">Gráfico</th></tr> <tr><td id=\"exercise\"> </td><td rowspan=\"3\" style=\"background-color:lightblue;\" id=\"visual\"></td><td rowspan=\"3\" style=\"background-color:white;\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"moveUp\" onclick=\"htSequenceUpdateValue(1);\"></i></td><td rowspan=\"3\" style=\"background-color:white;\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"moveDown\" onclick=\"htSequenceUpdateValue(-1);\"></i></td><td colspan=\"4\" rowspan=\"3\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:100% !important; max-width:30em; height:auto !important; aspect-ratio:3/2;\"></canvas></td></tr> <tr><td style=\"height: 5px; background-color: white;\" style=\"background-color:white;\"></td> </tr> <tr><td><span id=\"finalResult\" class=\"text_to_paint\"></span></td></tr> </table></div></div><p class=\"desc\"><b>Tabela 1</b>: Exercício de Multiplicação de números.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,

@@ -30,12 +30,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1789655299"
+      "1789672818"
    ],
    "authors": [
       ""
    ],
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -437,7 +439,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Somando com complementos no ábaco\n\nPara somar dois valores cujo resultado é maior que 9, os complementos são necessários. Isso ocorre porque os ábacos não podem exibir números maiores que 9 em uma única coluna — não há espaço suficiente para posicionar os marcadores (<htcite0>; <htcite1>).",
+               "text": "### Somando com complementos no ábaco\n\nPara somar dois valores cujo resultado é maior que 9, os complementos são necessários. Isso ocorre porque cada posição decimal no ábaco representa um único dígito de 0 a 9, de modo que valores acima de 9 em qualquer coluna exigem um transporte para a próxima coluna (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,
