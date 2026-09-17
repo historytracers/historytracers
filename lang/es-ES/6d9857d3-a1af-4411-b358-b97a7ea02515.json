@@ -30,14 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788576545"
+      "1789655286"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [
-      ""
-   ],
+   "reviewers": null,
    "type": "class",
    "version": 2,
    "editing": false,
@@ -82,7 +80,7 @@
          "id": "SECTION_intrduction",
          "text": [
             {
-               "text": "### Introducción\n\nEn la primera parte de nuestro estudio sobre cómo sumar números utilizando los ábacos desarrollados en China (Zhongguo, 中國), en Japón (Nippon-koku o Nihon-koku, 日本国) y en Rusia, observamos que la suma de valores en el intervalo de 0 a 9 se realiza mediante movimientos de marcadores (<htcite0>).\n\nTambién vimos anteriormente que los ábacos no se limitan a una sola columna (<htcite1>). De esta forma, podemos representar cualquier número en estos instrumentos, bastando con añadir nuevas columnas.\n\nOtro aspecto ya estudiado sobre los ábacos (Soroban y Suanpan (算盤)) son las semejanzas que comparten con la Yupana (<htcite2>), lo que nos lleva a la siguiente reflexión inicial:",
+               "text": "### Introducción\n\nEn la primera parte de nuestro estudio sobre cómo sumar números utilizando los ábacos desarrollados en China (Zhongguo, 中國), en Japón (Nippon-koku o Nihon-koku, 日本国) y en Rusia, observamos que la suma de valores en el intervalo de 0 a 9 se realiza mediante movimientos de marcadores (<htcite0>).\n\nTambién vimos anteriormente que los ábacos no se limitan a una sola columna (<htcite1>). De esta forma, podemos representar cualquier número en estos instrumentos, bastando con añadir nuevas columnas.\n\nOtro aspecto ya estudiado sobre los ábacos (Soroban, Suanpan (算盤) y Schyoty (счёты)) es la semejanza que comparten con la Yupana (<htcite2>), lo que nos lleva a la siguiente reflexión inicial:",
                "source": [
                   {
                      "type": 1,
@@ -167,7 +165,7 @@
          "id": "SECTION_indigenous",
          "text": [
             {
-               "text": "### La *Yupana*\n\nComo estudiamos anteriormente, durante el cálculo en la *Yupana*, aprendimos que, según el método *Yupana Inka Tawa Pukllay*, existen diferentes movimientos que realizamos. Entre esos movimientos se encuentra el movimiento *PIQSA* que transfiere al orden inmediatamente superior un marcador (<htcite0>; <htcite1>).\n\nPara recordarlo, seleccione, en la parte superior de la **Tabla 1** un movimiento. Luego, utilice la flecha de avance (<i class=\"fa-solid fa-arrows-left-right\"  style=\"color:#0f0;\"></i>) para visualizar el movimiento y, posteriormente, la flecha de retorno (<i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i>), para volver a la posición original.",
+               "text": "### La *Yupana*\n\nComo estudiamos anteriormente, durante el cálculo en la *Yupana*, aprendimos que, según el método *Yupana Inka Tawa Pukllay*, existen varios movimientos que podemos realizar. Entre esos movimientos se encuentra el movimiento *PIQSA*, que transfiere al orden inmediatamente superior un marcador (<htcite0>; <htcite1>).\n\nPara refrescar su memoria, seleccione en la parte superior de la **Tabla 1** un movimiento. Luego, utilice la flecha de avance (<i class=\"fa-solid fa-arrows-left-right\"  style=\"color:#0f0;\"></i>) para visualizar el movimiento y, posteriormente, la flecha de retorno (<i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i>) para volver a la posición original.",
                "source": [
                   {
                      "type": 1,
@@ -223,7 +221,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como podemos observar en la **Tabla 1**, cuando la suma alcanza el valor de diez, debemos mover un marcador al orden superior, eliminando todos los marcadores del orden inferior.",
+               "text": "Como podemos observar en la **Tabla 1**, cuando la suma alcanza diez, debemos mover un marcador al orden superior y eliminar todos los marcadores del orden inferior.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -237,7 +235,7 @@
          "id": "SECTION_abacus",
          "text": [
             {
-               "text": "### Complemento\n\nEl primer paso para realizar cálculos con números cuyos resultados serán mayores que 10 es comprender el concepto de complemento, que, por definición, es el número que falta para alcanzar otro número.\n\n#### El complemento de 5\n\nComo primer paso, trabajaremos el complemento de valores en una sola mano, es decir, el complemento de 5. Para hacer este concepto más claro, utilizaremos nuestras manos como recurso visual.\n\nEn la **Tabla 2**, use las flechas laterales para definir el número representado por los dedos de la mano izquierda. Observe que, a medida que los números se cambian en la mano izquierda, aparecerá, en las columnas **Complemento** y **Mano derecha**, el valor que, al ser sumado al número representado en la mano izquierda, da como resultado 5.",
+               "text": "### Complemento\n\nEl primer paso para realizar cálculos con números cuyos resultados serán mayores que 10 es comprender el concepto de complemento, que, por definición, es el número necesario para alcanzar otro número.\n\n#### El complemento de 5\n\nComo primer paso, trabajaremos el complemento de valores en una sola mano, es decir, el complemento de 5. Para hacer este concepto más claro, utilizaremos nuestras manos como recurso visual.\n\nEn la **Tabla 2**, use las flechas laterales para definir el número representado por los dedos de la mano izquierda. Observe que, a medida que los números se cambian en la mano izquierda, aparecerá, en las columnas **Complemento** y **Mano derecha**, el valor que, al ser sumado al número representado en la mano izquierda, da como resultado 5.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -268,7 +266,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### El complemento de 10\n\nPara visualizar el complemento de 10, necesitamos usar ambas manos. Antes de eso, veamos los cálculos posibles para alcanzar el resultado 10:",
+               "text": "#### El complemento de 10\n\nPara visualizar el complemento de 10, necesitamos usar ambas manos. Primero, revisemos los cálculos posibles que dan como resultado 10:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -286,7 +284,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ahora, use las flechas de la **Tabla 3** para bajar los dedos y visualizar el complemento, presentado en formato numérico. Este complemento, cuando se suma a la cantidad de dedos levantados, dará como resultado 10.",
+               "text": "Ahora, use las flechas de la **Tabla 3** para bajar los dedos y ver el complemento en formato numérico. Este complemento, cuando se suma a la cantidad de dedos levantados, dará como resultado 10.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -340,7 +338,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Una lectura común\n\nEn el primer texto donde hablamos de la suma, mencionamos que sumar sería como dar pasos avanzando entre los números. En ese texto, también aprendimos que solo podemos tener resultados entre 0 y 9 en cada orden que sumamos (<htcite0>).\n\nOtra forma de observar la suma es a través de los complementos. Hagamos un ejemplo práctico al sumar 7 + 8.",
+               "text": "#### Una lectura común\n\nEn nuestro primer texto sobre la suma, mencionamos que sumar es como dar pasos avanzando entre los números. También aprendimos que cada orden solo puede contener resultados entre 0 y 9 (<htcite0>).\n\nOtra forma de entender la suma es a través de los complementos. Hagamos un ejemplo práctico: sumar 7 + 8.",
                "source": [
                   {
                      "type": 1,
@@ -371,7 +369,7 @@
                "PostMention": ""
             },
             {
-               "text": "Muchas veces, el **Cálculo 2** se lee de la siguiente manera: \"Al sumar 7 a 8, el resultado de las unidades es 5 y llevamos 1. Luego, como no hay números en las decenas, entendemos que había 0. Por lo tanto, al sumar 1 a 0 en las decenas, llegamos al resultado 15\".\n\nEsta lectura esconde algo más que está ocurriendo o, si lo prefiere, esconde otra interpretación.\n\n#### Una lectura diferente\n\nOtra forma de interpretar el **Cálculo 2** es a través del complemento. Primeramente, aislamos del **Cálculo 1**, el complemento de 8.",
+               "text": "A menudo, el **Cálculo 2** se lee de la siguiente manera: \"Al sumar 7 a 8, el resultado de las unidades es 5 y llevamos 1. Luego, como no hay números en las decenas, entendemos que había 0. Por lo tanto, al sumar 1 a 0 en las decenas, llegamos al resultado 15.\"\n\nEsta lectura esconde algo más que está ocurriendo — o, si lo prefiere, oculta otra interpretación.\n\n#### Una lectura diferente\n\nOtra forma de interpretar el **Cálculo 2** es a través del complemento. Primero, aislamos del **Cálculo 1** el complemento de 8.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -389,7 +387,7 @@
                "PostMention": ""
             },
             {
-               "text": "El número 2 es más que un número en este escenario. Es exactamente el valor que hará desaparecer al 8 del resultado, porque se unirá a él formando 10. Es también el valor que retrocederemos en el \"camino\" numérico (**Gráfico 1**), alcanzando el valor 5, pues, como sabemos: 5 + 2 = 7.",
+               "text": "El número 2 es más que un número en este escenario. Es exactamente el valor que hará desaparecer al 8 del resultado, porque se unirá a él formando 10. Es también el valor que retrocedemos en el \"camino\" numérico (**Gráfico 1**), alcanzando 5, pues, como sabemos: 5 + 2 = 7.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -407,7 +405,7 @@
                "PostMention": ""
             },
             {
-               "text": "Es decir, a través del complemento, podemos interpretar la suma de la siguiente manera: \"Como la suma de los números será mayor que 9, también tendremos números en las decenas. Con ello, extraemos del 7 el valor 2, que es el complemento de 8 para llegar a 10, haciendo que el 7 se convierta en 5. Por último, sumamos 10 + 5, llegando al resultado 15.\"\n\nEl **Cálculo 4** a continuación muestra la interpretación mencionada.",
+               "text": "Es decir, a través del complemento, podemos interpretar la suma de la siguiente manera: \"Como la suma de los números será mayor que 9, también tendremos números en las decenas. Con ello, extraemos del 7 el valor 2, que es el complemento de 8 para llegar a 10, haciendo que el 7 se convierta en 5. Por último, sumamos 10 + 5, llegando al resultado 15.\"\n\nEl **Cálculo 4** a continuación muestra esta interpretación.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -425,7 +423,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para visualizar mejor esta interpretación, usaremos los ábacos a continuación.",
+               "text": "Para visualizar mejor esta interpretación, usemos los ábacos a continuación.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -439,7 +437,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Sumando con complementos en el ábaco\n\nPara realizar la suma de dos valores cuyo resultado es mayor que 9, los complementos son necesarios, ya que los ábacos no permiten marcar números mayores que 9 por columna, debido a la falta de espacio para colocar los marcadores (<htcite0>; <htcite1>).",
+               "text": "### Sumando con complementos en el ábaco\n\nPara sumar dos valores cuyo resultado es mayor que 9, los complementos son necesarios. Esto se debe a que los ábacos no pueden mostrar números mayores que 9 en una sola columna — no hay suficiente espacio para colocar los marcadores (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -539,7 +537,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, se nos presentó el concepto de número complementario, que nos ayuda a realizar operaciones matemáticas, como la suma.\n\nAdemás, observamos que, al igual que el método *Yupana Inka Tawa Pukllay* (<htcite0>; <htcite1>) tiene un movimiento específico para pasar la decena, el *PISQA*, el número complementario también actúa como un conjunto de movimientos que nos permite mantener los números correctamente representados y realizar sumas.",
+               "text": "### Conclusión\n\nEn este texto, se nos presentó el concepto de número complementario, que nos ayuda a realizar operaciones matemáticas como la suma.\n\nTambién observamos que, al igual que el método *Yupana Inka Tawa Pukllay* (<htcite0>; <htcite1>) tiene un movimiento específico para pasar la decena — el *PISQA* —, el número complementario también actúa como un conjunto de movimientos que nos permite mantener los números correctamente representados y realizar sumas.",
                "source": [
                   {
                      "type": 1,
