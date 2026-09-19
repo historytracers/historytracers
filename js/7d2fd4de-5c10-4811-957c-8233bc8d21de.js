@@ -129,7 +129,7 @@ function htLoadContent() {
     $("#htBoneNextLevel").on("click", htBoneNextLevel);
 
     htBoneDrawChallenge(1);
-    htSetImageSrc("imgBone", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");
+    htSetImageSrc("imgBone", "images/GonzalesRedondo/Figura-9-Hueso-de-Lebombo.png");
     htWriteNavigation();
 
     return false;
