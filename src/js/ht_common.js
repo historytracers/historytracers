@@ -81,6 +81,14 @@ function htSetImageSrc(imgId, imgPath) {
     $("[id='" + imgId + "']").attr("src", fullPath);
 }
 
+function htSetBackgroundImageSrc(imgId, imgPath) {
+    let fullPath = imgPath;
+    if (!htLocalImgSrc) {
+        fullPath = "https://www.historytracers.org/" + imgPath;
+    }
+    $("[id='" + imgId + "']").css("background-image", "url('" + fullPath + "')");
+}
+
 function htGetImgSrcPrefix() {
     return htLocalImgSrc ? "" : "https://www.historytracers.org/";
 }
