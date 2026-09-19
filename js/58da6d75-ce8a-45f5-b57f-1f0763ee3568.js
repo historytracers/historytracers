@@ -11,6 +11,7 @@ function htLoadExercise() {
 
     htSetImageSrc("img2", "images/HistoryTracers/RHand_Grape.jpg");
     htSetImageSrc("img1", "images/HistoryTracers/Hand_Grape.jpg");
+    htSetBackgroundImageSrc("imgCaralGrid", "images/Caral/CaralPiramideH1.jpg");
     return false;
 }
 

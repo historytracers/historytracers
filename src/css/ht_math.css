@@ -2561,3 +2561,32 @@ canvas {
     width: 100%;
   }
 }
+
+/* Responsive fixes for fs_grammar12 screens (clamp + fluid media) */
+.htSequenceGame {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+.tawapukllay canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.tawapukllay td img {
+  max-width: 100%;
+  height: auto;
+}
+p.desc svg {
+  max-width: 100%;
+  height: auto;
+}
+#parentGame {
+  max-width: 100%;
+}
+#parentGame img#imgGame {
+  max-width: 100%;
+  height: auto;
+}
+#imgText {
+  max-width: 100%;
+}

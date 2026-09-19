@@ -77,6 +77,7 @@ function htLoadExercise() {
     htSetImageSrc("imgTeotihuacanGeneral", "images/Teotihuacan/TeotihuacanGeneral.jpg")
     htSetImageSrc("lefthand", "images/HistoryTracers/0Left_Hand_Small.png")
     htSetImageSrc("righthand", "images/HistoryTracers/0Right_Hand_Small.png")
+    htSetBackgroundImageSrc("imgCaralGrid", "images/Caral/CaralPiramideH1.jpg");
     return false;
 }
 

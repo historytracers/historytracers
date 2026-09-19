@@ -28,10 +28,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765771"
+      "1789672802"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "Qodo",
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -96,7 +99,7 @@
          "id": "SECTION_rules",
          "text": [
             {
-               "text": "### Reglas\n\nEl objetivo principal de este juego es reforzar la idea de que, incluso cuando realizamos sumas de números grandes o consecutivas, siempre sumamos dos números a la vez.\n\nPara jugar, utiliza las flechas laterales (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\"></i>) para realizar las sumas; sin embargo, sugerimos que intentes calcularlas primero.\n\nCon cada resultado correcto, la operación se desplazará hacia un lado y se mostrará una parte de un sitio arqueológico o un museo.\n\nAl finalizar, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás realizar un nuevo cálculo haciendo clic en el botón correspondiente (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "text": "### Reglas\n\nEl objetivo principal de este juego es reforzar la idea de que, incluso cuando sumamos números grandes o consecutivos, siempre sumamos dos números a la vez.\n\nPara jugar, utiliza las flechas laterales (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\"></i>) para realizar las sumas. Sin embargo, intenta calcularlas primero antes de verificar.\n\nCon cada resultado correcto, la operación se desplazará hacia un lado y se revelará una parte de un sitio arqueológico o un museo.\n\nAl finalizar, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás pasar al siguiente problema haciendo clic en la flecha (<i class=\"fa-solid fa-chevron-right\"></i>).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -105,7 +108,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\"><div id=\"parentGame\" style=\"position: relative;\">  <img src=\"\" id=\"imgGame\" onclick=\"htImageZoom('imgGame', '0%')\" style=\"width: 60%;\" /><br /><span id=\"imgText\" style=\"display: inline-block; width: 250px; font-size: 0.8em\"></span> </div></p>",
+               "text": "<p class=\"htSequenceGame\"><div id=\"parentGame\" style=\"position: relative;\">  <img src=\"\" id=\"imgGame\" onclick=\"htImageZoom('imgGame', '0%')\" style=\"width: 60%; max-width: 100%;\" /><br /><span id=\"imgText\" style=\"display: inline-block; width: 250px; max-width: 100%; font-size: 0.8em\"></span> </div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -120,7 +123,7 @@
    "game_v2": [
       {
          "imagePath": "images/MachuPicchu/MachuPicchu.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Machu Picchu, Perú.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Machu Picchu, Perú.",
          "date_time": [
             {
                "type": "gregory",
@@ -132,7 +135,7 @@
       },
       {
          "imagePath": "images/Xunantunich/WitzXunantunich.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Xunantunich, Belize.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Xunantunich, Belize.",
          "date_time": [
             {
                "type": "gregory",
@@ -144,7 +147,7 @@
       },
       {
          "imagePath": "images/Teotihuacan/TeotihuacanGeneral.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Teotihuacan, México.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Teotihuacán, México.",
          "date_time": [
             {
                "type": "gregory",
@@ -156,7 +159,7 @@
       },
       {
          "imagePath": "images/CahalPech/CahalPechPyramid.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Cahal Pech, Belize.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Cahal Pech, Belize.",
          "date_time": [
             {
                "type": "gregory",
@@ -168,7 +171,7 @@
       },
       {
          "imagePath": "images/Caracol/CaracolWitz.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Caracol, Belize.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Caracol, Belize.",
          "date_time": [
             {
                "type": "gregory",
@@ -180,7 +183,7 @@
       },
       {
          "imagePath": "images/JoyaCeren/JoyaCeren.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Joya de Cerén, El Salvador.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Joya de Cerén, El Salvador.",
          "date_time": [
             {
                "type": "gregory",
@@ -192,7 +195,7 @@
       },
       {
          "imagePath": "images/SanAndres/SanAndresPyramid.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de San Andres, El Salvador.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de San Andrés, El Salvador.",
          "date_time": [
             {
                "type": "gregory",
@@ -204,7 +207,7 @@
       },
       {
          "imagePath": "images/Tikal/NecropoleTikal.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Tikal, Guatemala.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Tikal, Guatemala.",
          "date_time": [
             {
                "type": "gregory",
@@ -216,7 +219,7 @@
       },
       {
          "imagePath": "images/Tula/CiudadTula.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Tula, México.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Tula, México.",
          "date_time": [
             {
                "type": "gregory",
@@ -228,7 +231,7 @@
       },
       {
          "imagePath": "images/PeruPucllana/Huaca.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Huaca Pucllana, Perú.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Huaca Pucllana, Perú.",
          "date_time": [
             {
                "type": "gregory",
@@ -240,7 +243,7 @@
       },
       {
          "imagePath": "images/MiPueblito/MiPueblito.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante uma visita al complejo turístico de Mi Pueblito, Panama.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al centro cultural y turístico de Mi Pueblito, Panamá.",
          "date_time": [
             {
                "type": "gregory",
@@ -252,7 +255,7 @@
       },
       {
          "imagePath": "images/Copan/CopanAltarGenealogy0.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Copán, Honduras.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Copán, Honduras.",
          "date_time": [
             {
                "type": "gregory",
@@ -264,7 +267,7 @@
       },
       {
          "imagePath": "images/Copan/CopanAltarGenealogy1.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Copán, Honduras.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Copán, Honduras.",
          "date_time": [
             {
                "type": "gregory",
@@ -276,7 +279,7 @@
       },
       {
          "imagePath": "images/Copan/CopanAltarGenealogy2.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Copán, Honduras.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Copán, Honduras.",
          "date_time": [
             {
                "type": "gregory",
@@ -288,7 +291,7 @@
       },
       {
          "imagePath": "images/Copan/CopanAltarGenealogy3.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Copán, Honduras.",
+         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sitio arqueológico de Copán, Honduras.",
          "date_time": [
             {
                "type": "gregory",

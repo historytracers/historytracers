@@ -28,10 +28,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765765"
+      "1789672790"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "Qodo",
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -96,7 +99,7 @@
          "id": "SECTION_rules",
          "text": [
             {
-               "text": "### Rules\n\nThe main objective of this game is to reinforce the idea that even when we perform additions with large or consecutive numbers, we always add two numbers at a time.\n\nTo play, use the side arrows (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\"></i>) to perform the additions; however, we suggest trying to calculate them first.\n\nWith each correct result, the operation will shift to the side, and a part of an archaeological site or museum will be displayed.\n\nUpon completion, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can perform a new calculation by clicking the corresponding button (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "text": "### Rules\n\nThe main goal of this game is to reinforce the idea that even when we add large or consecutive numbers, we always add two numbers at a time.\n\nTo play, use the side arrows (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\"></i>) to perform the additions. However, try to calculate them first before checking.\n\nWith each correct result, the operation will shift to the side, and a part of an archaeological site or museum will be revealed.\n\nWhen you finish, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can move to the next problem by clicking the arrow (<i class=\"fa-solid fa-chevron-right\"></i>).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -105,7 +108,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\"><div id=\"parentGame\" style=\"position: relative;\">  <img src=\"\" id=\"imgGame\" onclick=\"htImageZoom('imgGame', '0%')\" style=\"width: 60%;\" /><br /><span id=\"imgText\" style=\"display: inline-block; width: 250px; font-size: 0.8em\"></span> </div></p>",
+               "text": "<p class=\"htSequenceGame\"><div id=\"parentGame\" style=\"position: relative;\">  <img src=\"\" id=\"imgGame\" onclick=\"htImageZoom('imgGame', '0%')\" style=\"width: 60%; max-width: 100%;\" /><br /><span id=\"imgText\" style=\"display: inline-block; width: 250px; max-width: 100%; font-size: 0.8em\"></span> </div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -120,7 +123,7 @@
    "game_v2": [
       {
          "imagePath": "images/MachuPicchu/MachuPicchu.jpg",
-         "imageDesc": "Photo taken on <htdate0>, during a visit to the archaeological site of Machu Picchu, Perú).",
+         "imageDesc": "Photo taken on <htdate0>, during a visit to the archaeological site of Machu Picchu, Perú.",
          "date_time": [
             {
                "type": "gregory",
@@ -240,7 +243,7 @@
       },
       {
          "imagePath": "images/MiPueblito/MiPueblito.jpg",
-         "imageDesc": "Photo taken on <htdate0>, during a visit to the archaeological site of Mi Pueblito , Panama.",
+         "imageDesc": "Photo taken on <htdate0>, during a visit to the Mi Pueblito cultural and tourist center, Panamá.",
          "date_time": [
             {
                "type": "gregory",

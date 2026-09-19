@@ -81,6 +81,14 @@ function htSetImageSrc(imgId, imgPath) {
     $("[id='" + imgId + "']").attr("src", fullPath);
 }
 
+function htSetBackgroundImageSrc(imgId, imgPath) {
+    let fullPath = imgPath;
+    if (!htLocalImgSrc) {
+        fullPath = "https://www.historytracers.org/" + imgPath;
+    }
+    $("[id='" + imgId + "']").css("background-image", "url('" + fullPath + "')");
+}
+
 function htGetImgSrcPrefix() {
     return htLocalImgSrc ? "" : "https://www.historytracers.org/";
 }
@@ -3198,11 +3206,13 @@ function htFillWebPage(page, data)
 
     if (Array.isArray(page_reviewers)) {
         const reviewersText = page_reviewers.join(", ");
-        page_reviewers = reviewersText.indexOf("CodeRabbit") >= 0
-            ? reviewersText.replace(/CodeRabbit/g, keywords[144])
-            : reviewersText;
-    } else if (String(page_reviewers).indexOf("CodeRabbit") >= 0) {
-        page_reviewers = String(page_reviewers).replace(/CodeRabbit/g, keywords[144]);
+        page_reviewers = reviewersText
+            .replace(/CodeRabbit/g, keywords[144])
+            .replace(/Qodo/g, keywords[146]);
+    } else {
+        page_reviewers = String(page_reviewers)
+            .replace(/CodeRabbit/g, keywords[144])
+            .replace(/Qodo/g, keywords[146]);
     }
 
     if ($("#extpaper").length && page_last_update > 0) {
