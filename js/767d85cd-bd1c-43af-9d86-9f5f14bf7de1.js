@@ -21,11 +21,11 @@ function htLoadContent() {
     htSetImageSrc("CWest", "images/Copan/CopanStelaCBeard.jpg");
     htSetImageSrc("imgCopanWholeTextSA", "images/Copan/CopanWholeTextStelaAltar.png");
     htSetImageSrc("Copan", "images/Copan/JuegoDePelotaCopan.jpg");
-    htSetImageSrc("imgCopanTemple2", "images/Copan/RosalilaReconstruction.jpg");
+    htSetImageSrc("imgCopanRosalila", "images/Copan/RosalilaReconstruction.jpg");
     htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
     htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png");
     htSetImageSrc("imgCopanTemple3", "images/Copan/Temple16External.jpg");
-    htSetImageSrc("imgCopanTemple2", "images/Copan/Templo16Inside.jpg");
+    htSetImageSrc("imgCopanTempleInside", "images/Copan/Templo16Inside.jpg");
     htPlusDivs(0);
 
     return false;

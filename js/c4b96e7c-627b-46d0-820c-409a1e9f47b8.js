@@ -203,7 +203,7 @@ function htExecuteMult() {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("img9", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");
+    htSetImageSrc("img9", "images/GonzalesRedondo/Figura-9-Hueso-de-Lebombo.png");
     htSetImageSrc("imgHNaledi", "images/eLife/elife-09560-fig1-v1.jpg");
 
     local = { 
