@@ -2953,7 +2953,9 @@ function htLoadPage(page, ext, arg, reload) {
     }
 
     $("#loading_msg").show();
-    $.ajax({
+    // Returning the jqXHR lets callers wait for configuration loads (for
+    // example img_options) before rendering page content that depends on them.
+    return $.ajax({
         type: 'GET',
         url: URL,
         contentType: 'application/json; charset=utf-8',
@@ -2975,8 +2977,6 @@ function htLoadPage(page, ext, arg, reload) {
             return false;
         },
     });
-
-    return false;
 }
 
 function htFillClassWithText(className, text)
