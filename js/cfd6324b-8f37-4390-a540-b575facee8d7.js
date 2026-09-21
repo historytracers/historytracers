@@ -3,24 +3,27 @@
 var universeSlideIndex = 0;
 var UNIVERSE_FALLBACK_WIDTH = 5305;
 var UNIVERSE_FALLBACK_HEIGHT = 2342;
+var UNIVERSE_MAX_LAYOUT_ATTEMPTS = 40;
+var htUniverseLayoutAttempts = 0;
+var htUniverseLayoutTimer = 0;
 
 function htLayoutUniverseFrame(frame) {
     if (!frame) {
-        return;
+        return false;
     }
 
     var clip = frame.getElementsByClassName("htUniverseClip")[0];
     var img = frame.getElementsByClassName("htUniverseImg")[0];
 
     if (!clip || !img) {
-        return;
+        return false;
     }
 
     var x0 = parseFloat(img.getAttribute("data-x0"));
     var x1 = parseFloat(img.getAttribute("data-x1"));
 
     if (isNaN(x0) || isNaN(x1) || x1 <= x0) {
-        return;
+        return false;
     }
 
     var span = x1 - x0;
@@ -28,7 +31,7 @@ function htLayoutUniverseFrame(frame) {
     var frameHeight = frame.clientHeight;
 
     if (frameWidth <= 0 || frameHeight <= 0) {
-        return;
+        return false;
     }
 
     var naturalWidth = img.naturalWidth > 0 ? img.naturalWidth : UNIVERSE_FALLBACK_WIDTH;
@@ -45,6 +48,8 @@ function htLayoutUniverseFrame(frame) {
     img.style.height = drawHeight + "px";
     img.style.left = (-x0 * scale) + "px";
     img.style.top = "0px";
+
+    return true;
 }
 
 function htShowUniverseSlide(index) {
@@ -64,8 +69,12 @@ function htShowUniverseSlide(index) {
     universeSlideIndex = index;
     htShowSlideDivs(slides, index);
 
-    var frame = slides[index].getElementsByClassName("htUniverseFrame")[0];
-    htLayoutUniverseFrame(frame);
+    htUniverseLayoutAttempts = 0;
+    if (htUniverseLayoutTimer !== 0) {
+        window.clearTimeout(htUniverseLayoutTimer);
+        htUniverseLayoutTimer = 0;
+    }
+    htUniverseRelayout();
 }
 
 function htPlusDivs(n) {
@@ -80,7 +89,26 @@ function htUniverseRelayout() {
     }
 
     var frame = slides[universeSlideIndex].getElementsByClassName("htUniverseFrame")[0];
-    htLayoutUniverseFrame(frame);
+
+    if (!htLayoutUniverseFrame(frame)) {
+        // Chromium may report a zero-sized frame when the slide is shown before
+        // the page (or viewer window) has completed its first layout. Keep
+        // trying for a short while so the visible slide is scaled correctly
+        // instead of silently keeping an unlaid-out image.
+        htScheduleUniverseRelayout();
+    }
+}
+
+function htScheduleUniverseRelayout() {
+    if (htUniverseLayoutTimer !== 0 || htUniverseLayoutAttempts >= UNIVERSE_MAX_LAYOUT_ATTEMPTS) {
+        return;
+    }
+
+    htUniverseLayoutAttempts++;
+    htUniverseLayoutTimer = window.setTimeout(function() {
+        htUniverseLayoutTimer = 0;
+        htUniverseRelayout();
+    }, 50);
 }
 
 function htLoadContent() {
@@ -100,12 +128,10 @@ function htLoadContent() {
         image.style.maxHeight = "none";
 
         image.onload = function() {
-            var parentFrame = this.parentNode.parentNode;
-            var currentSlides = document.getElementsByClassName("htSlide");
-
-            if (currentSlides.length > 0 && currentSlides[universeSlideIndex] === parentFrame.parentNode) {
-                htLayoutUniverseFrame(parentFrame);
-            }
+            // The real intrinsic size is only known once the bitmap is ready,
+            // so re-scale the visible slide even if it was rendered earlier
+            // with the fallback dimensions.
+            htUniverseRelayout();
         };
 
         image.src = prefix + "images/ESA/Planck_history_of_Universe.jpg";
@@ -132,6 +158,7 @@ function htLoadContent() {
     htShowUniverseSlide(0);
 
     window.addEventListener("resize", htUniverseRelayout);
+    document.addEventListener("visibilitychange", htUniverseRelayout);
 
     return false;
 }

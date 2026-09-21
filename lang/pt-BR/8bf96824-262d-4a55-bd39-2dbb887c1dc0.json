@@ -35,7 +35,7 @@
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -254,7 +254,7 @@
          "id": "SECTION_complement",
          "text": [
             {
-               "text": "### Complementando os complementos\n\nAo trabalharmos com qualquer versão do ábaco — o Soroban, o Suanpan (算盤) ou o Schyoty (счёты) — podemos observar padrões nas somas consecutivas de números:\n- Quanto menor o valor (mais próximo de 1) (<htcite0>), menos somas produzirão resultados que nos obriguem a trocar de ordem e, por consequência, menos complementos precisaremos utilizar.\n- Ao somar 5 consecutivamente, sempre atingiremos a próxima ordem — a dezena, em nossos exemplos (<htcite1>) — quando somarmos 5 a um valor que já tenha cinco na casa das unidades. Por exemplo: 15 + 5 = 20.\n- Sempre que somarmos números consecutivos (ou seja, ao multiplicar), avançar para a próxima ordem implica levar o complemento do número que estamos somando de uma coluna para a seguinte.\n\nCom base nessas observações, podemos concluir que, ao somar 4 consecutivamente, também utilizaremos seu complemento, 6, quando necessário, conforme mostrado no **Cálculo 1**. Para reforçar esse entendimento, apresentamos novamente os complementos necessários para chegar a 10 (<htcite2>):",
+               "text": "### Complementando os complementos\n\nAo trabalharmos com qualquer versão do ábaco — o Soroban, o Suanpan (算盤) ou o Schyoty (счёты) — podemos observar padrões nas somas consecutivas de números:\n- Quanto menor o valor (mais próximo de 1) (<htcite0>), menos somas produzirão resultados que nos obriguem a trocar de ordem e, por consequência, menos complementos precisaremos utilizar.\n- Ao somar 5 consecutivamente, sempre atingiremos a próxima ordem — a dezena, em nossos exemplos (<htcite1>) — quando somarmos 5 a um valor que já tenha cinco na casa das unidades. Por exemplo: 15 + 5 = 20.\n- Sempre que somarmos números consecutivos (ou seja, ao multiplicar), avançar para a próxima ordem utiliza o complemento na coluna atual e leva 1 para a coluna seguinte.\n\nCom base nessas observações, podemos concluir que, ao somar 4 consecutivamente, também utilizaremos seu complemento, 6, quando necessário, conforme mostrado no **Cálculo 1**. Para reforçar esse entendimento, apresentamos novamente os complementos necessários para chegar a 10 (<htcite2>):",
                "source": [
                   {
                      "type": 1,
