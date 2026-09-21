@@ -90,7 +90,11 @@ function htParseIndexRequest() {
     htLoadPage('index','json', '', false);
     htLoadPage('language','json', '', false);
     htLoadPage('lang_list','json', '', false);
-    htLoadPage('img_options','json', '', false);
+    // Keep a handle on the img_options request so page content is only
+    // rendered once htLocalImgSrc has been initialized. Otherwise images
+    // configured in a content script may fall back to the production URL,
+    // breaking offline access.
+    var imgOptionsLoad = htLoadPage('img_options','json', '', false);
     htLoadPage('calendars','json', '', false);
     htLoadPage('common_keywords','json', '', false);
     htLoadPage('math_keywords','json', '', false);
@@ -104,62 +108,70 @@ function htParseIndexRequest() {
         htReloadCurrentPage();
     });
 
-    if (urlParams.has('page')) {
-        var page = urlParams.get('page');
-        switch(page) {
-            case 'genealogical_map':
-                htLoadPage('historical_events','html', page, false);
-                break;
-            case 'main':
-            case 'acknowledgement':
-            case 'partnership':
-            case 'sources':
-            case 'genealogical_faq':
-            case 'genealogical_first_steps':
-                htLoadPage('class_content','html', page, false);
-                break;
-            case 'license':
-            case 'contact':
-            case 'physics':
-            case 'philosophy':
-            case 'historical_events':
-            case 'biology':
-            case 'chemistry':
-            case 'history':
-            case 'families':
-            case 'myths_believes':
-            case 'first_steps_menu':
-            case 'first_steps':
-            case 'first_steps_volume2':
-            case 'shapes':
-            case 'indigenous_who':
-            case 'indigenous_time':
-            case 'math_games':
-            case 'release':
-            case 'literature':
-            case 'atlas':
-            case 'gallery':
-                htLoadPage(page, 'html', '', false);
-                break;
-            case 'tree':
-            case 'class_content':
-                if (urlParams.has('arg')) {
-                    var larg = urlParams.get('arg');
-                    var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
-                    var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
-                    if (urlParams.has('level')) {
-                        $("#ScientificGameLevel").val(urlParams.get('level'));
+    var loadRequestedPage = function() {
+        if (urlParams.has('page')) {
+            var page = urlParams.get('page');
+            switch(page) {
+                case 'genealogical_map':
+                    htLoadPage('historical_events','html', page, false);
+                    break;
+                case 'main':
+                case 'acknowledgement':
+                case 'partnership':
+                case 'sources':
+                case 'genealogical_faq':
+                case 'genealogical_first_steps':
+                    htLoadPage('class_content','html', page, false);
+                    break;
+                case 'license':
+                case 'contact':
+                case 'physics':
+                case 'philosophy':
+                case 'historical_events':
+                case 'biology':
+                case 'chemistry':
+                case 'history':
+                case 'families':
+                case 'myths_believes':
+                case 'first_steps_menu':
+                case 'first_steps':
+                case 'first_steps_volume2':
+                case 'shapes':
+                case 'indigenous_who':
+                case 'indigenous_time':
+                case 'math_games':
+                case 'release':
+                case 'literature':
+                case 'atlas':
+                case 'gallery':
+                    htLoadPage(page, 'html', '', false);
+                    break;
+                case 'tree':
+                case 'class_content':
+                    if (urlParams.has('arg')) {
+                        var larg = urlParams.get('arg');
+                        var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
+                        var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
+                        if (urlParams.has('level')) {
+                            $("#ScientificGameLevel").val(urlParams.get('level'));
+                        }
+                        htLoadPage(page,'html', finalArg, false);
+                    } else {
+                        htLoadPage(page,'html', '', false);
                     }
-                    htLoadPage(page,'html', finalArg, false);
-                } else {
-                    htLoadPage(page,'html', '', false);
-                }
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            htLoadPage('class_content','html', 'main', false);
         }
+    };
+
+    if (imgOptionsLoad != null && typeof imgOptionsLoad.always === "function") {
+        imgOptionsLoad.always(loadRequestedPage);
     } else {
-        htLoadPage('class_content','html', 'main', false);
+        loadRequestedPage();
     }
 }
 
