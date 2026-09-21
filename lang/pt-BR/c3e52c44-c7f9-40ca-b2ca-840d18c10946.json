@@ -1,0 +1,157 @@
+{
+   "title": "Construindo como etrusco-romanos",
+   "header": "Construindo como etrusco-romanos",
+   "sources": [
+      "c3e52c44-c7f9-40ca-b2ca-840d18c10946"
+   ],
+   "scripts": [
+      "c3e52c44-c7f9-40ca-b2ca-840d18c10946"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/c3e52c44-c7f9-40ca-b2ca-840d18c10946_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1790021969"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Pré-requisitos</h3>Este jogo ajuda você a praticar os números etrusco-romanos, também conhecidos como números latinos. Antes de começar, sugerimos revisar os textos anteriores sobre sua origem (<htcite0>), sobre como escrever os números entre 1 e 10 (<htcite1>) e sobre como escrever números grandes (<htcite2>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "886ccce8-3be8-4aba-bc86-94864e96b355",
+                     "text": "History Tracers Team",
+                     "page": "Texto ou número?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5fc193f7-7226-4852-82d1-706a44de71ec",
+                     "text": "History Tracers Team",
+                     "page": "E os números que faltam?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9cf2c23-7f0f-4e73-9ba2-2b53c7b60f05",
+                     "text": "History Tracers Team",
+                     "page": "Números etrusco-romanos grandes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Regras gerais</h3>O jogo tem cinco níveis. Em cada nível, a tabela mostra vinte números etrusco-romanos organizados em cinco linhas e quatro colunas, e um número de cada linha fica oculto. Seu objetivo é tocar nas células ocultas para revelar os números. Quando revelar todos, você completará o nível e poderá passar para o próximo. No último nível, os números vão de 81 a 99.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Construindo como etrusco-romanos</h3>Toque nas células ocultas para revelar os números etrusco-romanos. Para começar uma nova combinação, toque no botão <button id=\"buildingEtrReset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"buildingEtrLevel\" class=\"level-badge\"></span></p><p><table id=\"buildingEtr\" class=\"tableTen tableTenBgBlue buildingTable\"><tr><th colspan=\"4\"><i>Números etrusco-romanos</i></th></tr></table></p><p id=\"buildingEtrCompleteMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você revelou todos os números etrusco-romanos!<br />Ótimo trabalho!</p><p id=\"buildingEtrCongratsMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PARABÉNS! 🎉🎉🎉<br />Você completou todos os níveis!<br />Excelente trabalho!</p><p style=\"text-align: center\"><button id=\"buildingEtrNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"buildingEtrWordLevel\" style=\"display: none\">Nível</span><span id=\"buildingEtrWordNextLevel\" style=\"display: none\">Próximo nível</span><span id=\"buildingEtrWordPlayAgain\" style=\"display: none\">Jogar novamente</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Os números seguem as regras dos números etrusco-romanos apresentados em <i>Números etrusco-romanos grandes</i> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b9cf2c23-7f0f-4e73-9ba2-2b53c7b60f05",
+                     "text": "History Tracers Team",
+                     "page": "Números etrusco-romanos grandes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
