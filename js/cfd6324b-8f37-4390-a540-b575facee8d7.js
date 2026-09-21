@@ -6,6 +6,7 @@ var UNIVERSE_FALLBACK_HEIGHT = 2342;
 var UNIVERSE_MAX_LAYOUT_ATTEMPTS = 40;
 var htUniverseLayoutAttempts = 0;
 var htUniverseLayoutTimer = 0;
+var htUniverseResizeObserver = null;
 
 function htLayoutUniverseFrame(frame) {
     if (!frame) {
@@ -111,6 +112,23 @@ function htScheduleUniverseRelayout() {
     }, 50);
 }
 
+function htObserveUniverseFrames() {
+    if (typeof ResizeObserver === "undefined") {
+        return;
+    }
+
+    htUniverseResizeObserver = new ResizeObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            htLayoutUniverseFrame(entries[i].target);
+        }
+    });
+
+    var frames = document.getElementsByClassName("htUniverseFrame");
+    for (var j = 0; j < frames.length; j++) {
+        htUniverseResizeObserver.observe(frames[j]);
+    }
+}
+
 function htLoadContent() {
     htWriteNavigation();
 
@@ -156,6 +174,13 @@ function htLoadContent() {
     }
 
     htShowUniverseSlide(0);
+
+    // The class may load inside a hidden viewer tab/iframe and only be shown
+    // later. In that case the frames have no size when the first slide is
+    // shown, and no resize/visibilitychange event fires when the container
+    // becomes visible (Chromium keeps the unlaid-out image). A ResizeObserver
+    // lays the frame out as soon as it actually gets a size.
+    htObserveUniverseFrames();
 
     window.addEventListener("resize", htUniverseRelayout);
     document.addEventListener("visibilitychange", htUniverseRelayout);
