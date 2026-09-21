@@ -8,5 +8,6 @@ function htLoadContent() {
     htSetImageSrc("img0", "images/BritishMuseum/mid_00404485_001.jpg");
     htSetImageSrc("img1", "images/Mapswire/mapswire-world-political-white-equal_earth_babylon.png");
     htSetImageSrc("img3", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
     return false;
 }
