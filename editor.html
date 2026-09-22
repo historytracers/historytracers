@@ -1724,13 +1724,12 @@ function searchPrev(keepFocus){
 function searchKeydown(e){
 	if(e.key==='Enter'){
 		e.preventDefault();
+		e.stopPropagation();
 		if(e.shiftKey)searchPrev();else searchNext();
 	}else if(e.key==='Escape'){
 		e.preventDefault();
+		e.stopPropagation();
 		closeSearch();
-	}else if(e.key==='F3'){
-		e.preventDefault();
-		if(e.shiftKey)searchPrev();else searchNext();
 	}
 }
 (function(){
@@ -1739,10 +1738,12 @@ function searchKeydown(e){
 		a.addEventListener('scroll', syncSearchScroll);
 		a.addEventListener('input', function(){
 			if(document.getElementById('searchBar').classList.contains('open')){
+				var _prevIndex=searchIndex;
 				doSearch();
-				if(searchMatches.length>0){
-					searchIndex=-1;
-					searchNext(true);
+				if(_prevIndex>=0 && _prevIndex < searchMatches.length){
+					searchIndex=_prevIndex;
+					document.getElementById('searchCount').textContent=(searchIndex+1)+' of '+searchMatches.length;
+					updateSearchHighlight();
 				}
 			} else updateSearchHighlight();
 		});
