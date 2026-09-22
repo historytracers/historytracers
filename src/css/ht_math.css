@@ -590,6 +590,65 @@
   color: #155724;
 }
 
+/* Building games (Mesoamerican / Etruscan-Roman): reveal-the-hidden-numeral tables */
+.buildingTable {
+  width: 100%;
+  max-width: 460px;
+  table-layout: fixed;
+}
+
+.buildingTable td {
+  width: auto;
+  height: 9vh;
+  min-height: 44px;
+  vertical-align: middle;
+  padding: 2px;
+}
+
+.buildingTable td img.buildingGlyph {
+  max-width: 90%;
+  max-height: 8vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.buildingTable td .buildingRoman {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #5a3f2c;
+  letter-spacing: 0.02em;
+}
+
+.buildingTable td.buildingEmpty {
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.game-next-btn {
+  background: #2e7d32;
+  border: none;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 35px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: 0.08s linear;
+}
+
+.game-next-btn:active {
+  transform: translateY(1px);
+}
+
+.game-next-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.design-dark .buildingTable td .buildingRoman {
+  color: #ffefcf;
+}
+
 /* Sequence game (fb9dca2c): compact Yupana tables side by side.
    The three <table>s share one wrapper (.htSequenceYupanaTables). The layout
    class htSeqYupana is toggled by JS only while the "Yupana" system is active,
