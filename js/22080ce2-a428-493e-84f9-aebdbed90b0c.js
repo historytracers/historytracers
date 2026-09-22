@@ -9,5 +9,6 @@ function htLoadContent() {
     htSetImageSrc("img1", "images/Mapswire/mapswire-world-political-white-equal_earth_babylon.png");
     htSetImageSrc("img3", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
     htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
+    htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg");
     return false;
 }
