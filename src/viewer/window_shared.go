@@ -1494,6 +1494,16 @@ L['en']=L['en-US'];
 			try{
 				if(!doc||doc.__ht_findAttached) return;
 				doc.__ht_findAttached=true;
+				try{
+					if(doc && doc.createElement && !doc.getElementById('__ht_find_style')){
+						var fss=doc.createElement('style');
+						fss.id='__ht_find_style';
+						fss.textContent='mark.__ht_find_mark{background:#ffcc80;border-radius:2px}mark.__ht_find_mark_current{background:#ff9800;outline:1px solid #e65100}';
+						var target=doc.documentElement||doc.head||doc.body;
+						if(target) target.appendChild(fss);
+						else doc.addEventListener('DOMContentLoaded', function(){ try{ (doc.documentElement||doc.head).appendChild(fss); }catch(e){} });
+					}
+				}catch(e){}
 				doc.addEventListener('keydown', function(e){
 					if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='f'){
 						e.preventDefault();
@@ -1647,9 +1657,22 @@ L['en']=L['en-US'];
 			}catch(e){}
 		})();
 		try{
-			// aliases to match editor's find API (editor.html)
-			window.searchMatches = __ht_findMatches;
-			window.searchIndex = __ht_findIndex;
+			// aliases to match editor's find API (editor.html) - live accessors so reassigns stay in sync
+			try{
+				Object.defineProperty(window, 'searchMatches', {
+					get: function(){ return __ht_findMatches; },
+					set: function(v){ __ht_findMatches=v; },
+					configurable: true
+				});
+				Object.defineProperty(window, 'searchIndex', {
+					get: function(){ return __ht_findIndex; },
+					set: function(v){ __ht_findIndex=v; },
+					configurable: true
+				});
+			}catch(e){
+				window.searchMatches = __ht_findMatches;
+				window.searchIndex = __ht_findIndex;
+			}
 			window.openSearch = __ht_findOpen;
 			window.closeSearch = __ht_findClose;
 			window.doSearch = __ht_findDoSearch;

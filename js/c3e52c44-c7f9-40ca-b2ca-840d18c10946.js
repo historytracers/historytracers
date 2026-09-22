@@ -57,7 +57,7 @@ function htBuildingEtrFillTable() {
                 row += "<td class=\"buildingEmpty\"></td>";
             } else {
                 var value = startValue + idx;
-                row += "<td id=\"be" + idx + "\" data-num=\"" + idx + "\" data-value=\"" + value + "\" class=\"mngCell romanCell\" onclick=\"htBuildingEtrReveal(" + idx + ");\">" + htBuildingEtrRomanCellHtml(value) + "</td>";
+                row += "<td id=\"be" + idx + "\" data-num=\"" + idx + "\" data-value=\"" + value + "\" class=\"mngCell romanCell\"><button type=\"button\" class=\"mngCellBtn\" aria-label=\"Reveal Etruscan-Roman numeral " + value + "\" onclick=\"htBuildingEtrReveal(" + idx + ");\" style=\"all:inherit;display:block;width:100%;height:100%;border:none;background:transparent;cursor:pointer;padding:0;\">" + htBuildingEtrRomanCellHtml(value) + "</button></td>";
             }
         }
         row += "</tr>";
@@ -77,7 +77,7 @@ function htBuildingEtrFillTable() {
         }
         var chosen = choices[htGetRandomArbitrary(0, choices.length)];
         localBuildingEtr.hidden.push(chosen);
-        $("#be" + chosen).addClass("mngEmpty").html("<span class=\"mngQuestion\">?</span>");
+        $("#be" + chosen).addClass("mngEmpty").html("<button type=\"button\" class=\"mngCellBtn\" aria-label=\"Reveal Etruscan-Roman numeral " + $("#be" + chosen).attr("data-value") + "\" onclick=\"htBuildingEtrReveal(" + chosen + ");\" style=\"all:inherit;display:block;width:100%;height:100%;border:none;background:transparent;cursor:pointer;padding:0;\"><span class=\"mngQuestion\">?</span></button>");
     }
 
     $("#buildingEtrCompleteMsg").hide();

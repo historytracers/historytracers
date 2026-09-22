@@ -21,7 +21,7 @@ function htBuildingMesoFillTable() {
     for (let r = 0; r < HT_BUILDING_MESO_ROWS; r++) {
         var row = "<tr>";
         for (let c = 0; c < HT_BUILDING_MESO_COLUMNS; c++, idx++) {
-            row += "<td id=\"bm" + idx + "\" data-num=\"" + idx + "\" class=\"mngCell\" onclick=\"htBuildingMesoReveal(" + idx + ");\">" + htBuildingMesoGlyphCellHtml(idx) + "</td>";
+            row += "<td id=\"bm" + idx + "\" data-num=\"" + idx + "\" class=\"mngCell\"><button type=\"button\" class=\"mngCellBtn\" aria-label=\"Reveal Mesoamerican numeral " + idx + "\" onclick=\"htBuildingMesoReveal(" + idx + ");\" style=\"all:inherit;display:block;width:100%;height:100%;border:none;background:transparent;cursor:pointer;padding:0;\">" + htBuildingMesoGlyphCellHtml(idx) + "</button></td>";
         }
         row += "</tr>";
         $("#buildingMeso tr:last").after(row);
@@ -39,7 +39,7 @@ function htBuildingMesoFillTable() {
         for (let k = 0; k < columns.length; k++) {
             var num = r * HT_BUILDING_MESO_COLUMNS + columns[k];
             localBuildingMeso.hidden.push(num);
-            $("#bm" + num).addClass("mngEmpty").html("<span class=\"mngQuestion\">?</span>");
+            $("#bm" + num).addClass("mngEmpty").html("<button type=\"button\" class=\"mngCellBtn\" aria-label=\"Reveal Mesoamerican numeral " + num + "\" onclick=\"htBuildingMesoReveal(" + num + ");\" style=\"all:inherit;display:block;width:100%;height:100%;border:none;background:transparent;cursor:pointer;padding:0;\"><span class=\"mngQuestion\">?</span></button>");
         }
     }
 

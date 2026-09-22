@@ -253,20 +253,6 @@ L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'De
 	addBar();
 	// --- Editor Find parity with viewer (Ctrl+F lowerCase, F3, Escape, selection prefill handled in editor.html) ---
 	try{
-		if(!window.__ht_editorFindKeysRegistered){
-			window.__ht_editorFindKeysRegistered=true;
-			document.addEventListener('keydown', function(e){
-				try{
-					if(window.__ht_editorFindHandled) return;
-					if((e.ctrlKey||e.metaKey) && e.key && e.key.toLowerCase()==='f'){
-						if(typeof openSearch==='function'){ e.preventDefault(); openSearch(); }
-					} else if(e.key==='Escape'){
-						var _b2=document.getElementById('searchBar');
-						if(_b2 && _b2.classList.contains('open')){ e.preventDefault(); if(typeof closeSearch==='function') closeSearch(); }
-					}
-				}catch(ex){}
-			});
-		}
 		// attach to config/view iframes for find parity
 		try{
 			var _attachFrameFind=function(fr){

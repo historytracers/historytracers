@@ -90,15 +90,15 @@ select#langSelect option{color:#000;background:#fff}
 #editor .actions button:hover{background:#546e7a}
 #editor .actions button.primary{background:#00897b;color:#fff}
 #editor .actions button.primary:hover{background:#26a69a}
-#searchBar{display:none;align-items:center;gap:6px;padding:4px 8px;background:#37474f;border-bottom:1px solid #455a64;flex-shrink:0;font:13px/1.4 sans-serif}
+#searchBar{position:fixed;top:36px;right:12px;display:none;align-items:center;gap:6px;padding:6px 8px;background:#fff;border:1px solid #999;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:2147483647;font:13px/1.4 sans-serif}
 #searchBar.open{display:flex}
-#searchBar input{flex:1;background:#1e272e;border:1px solid #546e7a;color:#eceff1;padding:3px 6px;border-radius:3px;font:13px/1.4 monospace;outline:none;min-width:100px}
-#searchBar input:focus{border-color:#80cbc4}
-#searchBar .scount{color:#78909c;font-size:12px;white-space:nowrap;min-width:50px;text-align:center}
-#searchBar button{background:#455a64;border:none;color:#eceff1;cursor:pointer;padding:2px 8px;border-radius:3px;font:12px/1.4 sans-serif;white-space:nowrap}
-#searchBar button:hover{background:#546e7a}
-#searchBar .sclose{font-size:16px;line-height:1;padding:0 4px;color:#78909c;cursor:pointer}
-#searchBar .sclose:hover{color:#f48771}
+#searchBar input{width:200px;padding:4px 6px;border:1px solid #ccc;border-radius:3px;font:13px/1.4 monospace;outline:none;min-width:100px;background:#fff;color:#000}
+#searchBar input:focus{border-color:#4fc3f7}
+#searchBar .scount{color:#666;font-size:12px;white-space:nowrap;min-width:50px;text-align:center}
+#searchBar button{padding:2px 8px;border:1px solid #ccc;background:#f5f5f5;color:#333;border-radius:3px;cursor:pointer;font:12px/1.4 sans-serif;white-space:nowrap}
+#searchBar button:hover{background:#e0e0e0}
+#searchBar .sclose{font-size:18px;line-height:1;padding:0 4px;color:#999;cursor:pointer;border:none;background:transparent}
+#searchBar .sclose:hover{color:#c00}
 #insertPanel{width:220px;min-width:180px;background:#2b3b45;border-left:1px solid #455a64;display:none;flex-direction:column;overflow:hidden;flex-shrink:0}
 #insertPanel.open{display:flex}
 #insertPanel h3,#newPanel h3,#findPanel h3{padding:8px 10px;font-size:13px;color:#b0bec5;border-bottom:1px solid #455a64;flex-shrink:0}
@@ -1643,10 +1643,6 @@ function openSearch(){
 	inp.focus();
 	try{ inp.select(); }catch(e){}
 	doSearch();
-	if(searchMatches.length>0){
-		searchIndex=-1;
-		searchNext(true);
-	}
 }
 
 function closeSearch(){
@@ -1752,10 +1748,6 @@ function searchKeydown(e){
 	if(inp){
 		inp.addEventListener('input', function(){
 			doSearch();
-			if(searchMatches.length>0){
-				searchIndex=-1;
-				searchNext(true);
-			}
 		});
 	}
 })();
