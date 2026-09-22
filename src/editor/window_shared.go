@@ -251,6 +251,56 @@ L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'De
 		}
 	}
 	addBar();
+	// --- Editor Find parity with viewer (Ctrl+F lowerCase, F3, Escape, selection prefill handled in editor.html) ---
+	try{
+		document.addEventListener('keydown', function(e){
+			try{
+				if((e.ctrlKey||e.metaKey) && e.key && e.key.toLowerCase()==='f'){
+					if(typeof openSearch==='function'){ e.preventDefault(); openSearch(); }
+				} else if(e.key==='F3'){
+					var _b=document.getElementById('searchBar');
+					if(_b && _b.classList.contains('open')){ e.preventDefault(); if(e.shiftKey){ if(typeof searchPrev==='function') searchPrev(); } else { if(typeof searchNext==='function') searchNext(); } }
+				} else if(e.key==='Escape'){
+					var _b2=document.getElementById('searchBar');
+					if(_b2 && _b2.classList.contains('open')){ e.preventDefault(); if(typeof closeSearch==='function') closeSearch(); }
+				}
+			}catch(ex){}
+		});
+		// attach to config/view iframes for find parity
+		try{
+			var _attachFrameFind=function(fr){
+				try{
+					if(!fr) return;
+					fr.addEventListener('load', function(){
+						try{
+							var d=fr.contentDocument||fr.contentWindow.document;
+							if(!d||d.__ht_findAttached) return;
+							d.__ht_findAttached=true;
+							d.addEventListener('keydown', function(ev){
+								try{
+									if((ev.ctrlKey||ev.metaKey) && ev.key && ev.key.toLowerCase()==='f'){ ev.preventDefault(); try{ parent.openSearch&&parent.openSearch(); }catch(ex){} }
+									else if(ev.key==='F3'){ ev.preventDefault(); try{ if(ev.shiftKey) parent.searchPrev&&parent.searchPrev(); else parent.searchNext&&parent.searchNext(); }catch(ex){} }
+									else if(ev.key==='Escape'){ try{ var _pb=parent.document.getElementById('searchBar'); if(_pb&&_pb.classList.contains('open')){ ev.preventDefault(); parent.closeSearch&&parent.closeSearch(); } }catch(ex){} }
+								}catch(ex){}
+							});
+						}catch(ex){}
+					});
+				}catch(ex){}
+			};
+			_attachFrameFind(document.getElementById('configFrame'));
+			_attachFrameFind(document.getElementById('viewFrame'));
+		}catch(ex){}
+		// aliases to match viewer find API
+		try{
+			window.__ht_findMatches = window.searchMatches;
+			window.__ht_findIndex = window.searchIndex;
+			window.__ht_findOpen = window.openSearch;
+			window.__ht_findClose = window.closeSearch;
+			window.__ht_findDoSearch = window.doSearch;
+			window.__ht_findNext = window.searchNext;
+			window.__ht_findPrev = window.searchPrev;
+		}catch(ex){}
+	}catch(e){}
 	try{
 		try{ if(sessionStorage.getItem('__ht_splashShown')) return; }catch(e){}
 		try{ sessionStorage.setItem('__ht_splashShown','1'); }catch(e){}

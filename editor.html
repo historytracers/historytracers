@@ -275,7 +275,7 @@ input[type="date"]{color-scheme:dark}
 </div>
 </div>
 <div id="searchBar">
-<input type="text" id="searchInput" placeholder="Find..." oninput="doSearch()" onkeydown="searchKeydown(event)">
+<input type="text" id="searchInput" placeholder="Find..." onkeydown="searchKeydown(event)">
 <span class="scount" id="searchCount"></span>
 <button onclick="searchPrev()" id="searchPrevBtn">&uarr;</button>
 <button onclick="searchNext()" id="searchNextBtn">&darr;</button>
@@ -1626,12 +1626,27 @@ function openSearch(){
 	var sb=document.getElementById('searchBar');
 	sb.classList.add('open');
 	var inp=document.getElementById('searchInput');
-	inp.value='';
+	try{
+		var area=document.getElementById('editorArea');
+		var sel='';
+		if(area && area.selectionStart!==area.selectionEnd){
+			sel=area.value.substring(area.selectionStart, area.selectionEnd);
+		}
+		if(!sel){
+			try{ sel=window.getSelection().toString(); }catch(e){}
+		}
+		if(sel){
+			sel=sel.trim().split('\n')[0].substring(0,120);
+			if(sel) inp.value=sel;
+		}
+	}catch(e){}
 	inp.focus();
-	searchMatches=[];
-	searchIndex=-1;
-	document.getElementById('searchCount').textContent='';
-	updateSearchHighlight();
+	try{ inp.select(); }catch(e){}
+	doSearch();
+	if(searchMatches.length>0){
+		searchIndex=-1;
+		searchNext(true);
+	}
 }
 
 function closeSearch(){
@@ -1660,6 +1675,7 @@ function doSearch(){
 		if(pos===-1)break;
 		searchMatches.push(pos);
 		idx=pos+query.length;
+		if(idx>=val.length) break;
 	}
 	if(searchMatches.length>0){
 		searchIndex=-1;
@@ -1671,7 +1687,7 @@ function doSearch(){
 	updateSearchHighlight();
 }
 
-function selectSearchMatch(focusArea){
+function selectSearchMatch(keepFocus){
 	var area=document.getElementById('editorArea');
 	var query=document.getElementById('searchInput').value;
 	if(searchIndex<0||searchIndex>=searchMatches.length){
@@ -1680,7 +1696,6 @@ function selectSearchMatch(focusArea){
 		return
 	}
 	var pos=searchMatches[searchIndex];
-	if(focusArea)area.focus();
 	area.setSelectionRange(pos,pos+query.length);
 	var textBefore=area.value.substring(0,pos);
 	var lines=textBefore.split('\n').length-1;
@@ -1689,19 +1704,21 @@ function selectSearchMatch(focusArea){
 	document.getElementById('searchCount').textContent=(searchIndex+1)+' of '+searchMatches.length;
 	syncSearchScroll();
 	updateSearchHighlight();
-	if(!focusArea) document.getElementById('searchInput').focus();
+	if(!keepFocus){
+		try{ document.getElementById('searchInput').focus(); }catch(e){}
+	}
 }
 
-function searchNext(){
+function searchNext(keepFocus){
 	if(searchMatches.length===0)return;
 	searchIndex=(searchIndex+1)%searchMatches.length;
-	selectSearchMatch(false);
+	selectSearchMatch(keepFocus);
 }
 
-function searchPrev(){
+function searchPrev(keepFocus){
 	if(searchMatches.length===0)return;
 	searchIndex=(searchIndex-1+searchMatches.length)%searchMatches.length;
-	selectSearchMatch(false);
+	selectSearchMatch(keepFocus===true?true:false);
 }
 
 function searchKeydown(e){
@@ -1709,7 +1726,11 @@ function searchKeydown(e){
 		e.preventDefault();
 		if(e.shiftKey)searchPrev();else searchNext();
 	}else if(e.key==='Escape'){
+		e.preventDefault();
 		closeSearch();
+	}else if(e.key==='F3'){
+		e.preventDefault();
+		if(e.shiftKey)searchPrev();else searchNext();
 	}
 }
 (function(){
@@ -1717,8 +1738,23 @@ function searchKeydown(e){
 	if(a){
 		a.addEventListener('scroll', syncSearchScroll);
 		a.addEventListener('input', function(){
-			if(document.getElementById('searchBar').classList.contains('open')) doSearch();
-			else updateSearchHighlight();
+			if(document.getElementById('searchBar').classList.contains('open')){
+				doSearch();
+				if(searchMatches.length>0){
+					searchIndex=-1;
+					searchNext(true);
+				}
+			} else updateSearchHighlight();
+		});
+	}
+	var inp=document.getElementById('searchInput');
+	if(inp){
+		inp.addEventListener('input', function(){
+			doSearch();
+			if(searchMatches.length>0){
+				searchIndex=-1;
+				searchNext(true);
+			}
 		});
 	}
 })();
@@ -3348,12 +3384,25 @@ function openConfig(){
 	var treeEl=document.getElementById('tree');
 	var gitEl=document.getElementById('gitPanel');
 	document.addEventListener('keydown',function(e){
-		if((e.ctrlKey||e.metaKey)&&e.key==='s'){
+		if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){
 			e.preventDefault();
 			saveFile();
-		}else if((e.ctrlKey||e.metaKey)&&e.key==='f'){
+		}else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='f'){
 			e.preventDefault();
 			openSearch();
+		}else if(e.key==='F3'){
+			var _bar=document.getElementById('searchBar');
+			if(_bar && _bar.classList.contains('open')){
+				e.preventDefault();
+				if(e.shiftKey)searchPrev();else searchNext();
+			}
+		}else if(e.key==='Escape'){
+			var _bar2=document.getElementById('searchBar');
+			if(_bar2 && _bar2.classList.contains('open')){
+				e.preventDefault();
+				closeSearch();
+				return;
+			}
 		}else if((e.ctrlKey||e.metaKey)&&e.key==='PageUp'){
 			e.preventDefault();
 			if(currentTab>0)switchTab(currentTab-1);
