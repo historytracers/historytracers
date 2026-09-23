@@ -216,6 +216,8 @@ var allowedEditExts = map[string]bool{
 	".md": true, ".txt": true,
 }
 
+const maxEditableFileSize = 5 * 1024 * 1024 // 5MB limit for editable files
+
 func isAllowedEditFile(filePath string) bool {
 	ext := strings.ToLower(path.Ext(filePath))
 	return allowedEditExts[ext]
@@ -347,6 +349,10 @@ func editorReadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	if len(data) > maxEditableFileSize {
+		http.Error(w, fmt.Sprintf("file too large (%d bytes, limit %d)", len(data), maxEditableFileSize), http.StatusRequestEntityTooLarge)
+		return
+	}
 	h := sha256.Sum256(data)
 	hash := hex.EncodeToString(h[:])
 	w.Header().Set("Content-Type", "application/json")
@@ -413,6 +419,10 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	content = strings.ReplaceAll(content, "\r\n", "\n")
+	if len(content) > maxEditableFileSize {
+		http.Error(w, fmt.Sprintf("content too large (%d bytes, limit %d)", len(content), maxEditableFileSize), http.StatusRequestEntityTooLarge)
+		return
+	}
 
 	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
 		uuidStr := strings.TrimSuffix(filepath.Base(fileParam), ".json")

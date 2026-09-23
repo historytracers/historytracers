@@ -1015,7 +1015,7 @@ async function restoreSession(){
 			try{
 				var rr=await fetch('/api/editor/read?file='+encodeURIComponent(s.path),{headers:{'X-HT-Session':window.__ht_session}});
 				var rd=await rr.json();
-				tabs.push({id:createTabId(),path:s.path,content:rd.content,originalContent:rd.content,hash:rd.hash||'',originalHash:rd.hash||'',lastExternalHash:rd.hash||'',modified:false,cursorPos:s.cursorPos,scrollPos:s.scrollPos,undoStack:[rd.content],redoStack:[],errorLines:[]});
+				tabs.push({id:createTabId(),path:s.path,content:rd.content,originalContent:rd.content,hash:rd.hash||'',originalHash:rd.hash||'',lastExternalHash:rd.hash||'',modified:false,cursorPos:s.cursorPos,scrollPos:s.scrollPos,undoStack:[{content:rd.content,cursorPos:s.cursorPos||0,scrollPos:s.scrollPos||0}],redoStack:[],errorLines:[]});
 				if(rd.locked)toast(tr('fileLocked')+rd.lockedBy,'error',true);
 			}catch(e){}
 		}
@@ -1083,7 +1083,7 @@ async function openFile(path){
 		var r=await fetch('/api/editor/read?file='+encodeURIComponent(path),{headers:{'X-HT-Session':window.__ht_session}});
 		var data=await r.json();
 		saveEditorState();
-		tabs.push({id:createTabId(),path:path,content:data.content,originalContent:data.content,hash:data.hash||'',originalHash:data.hash||'',lastExternalHash:data.hash||'',modified:false,undoStack:[data.content],redoStack:[],errorLines:[]});
+		tabs.push({id:createTabId(),path:path,content:data.content,originalContent:data.content,hash:data.hash||'',originalHash:data.hash||'',lastExternalHash:data.hash||'',modified:false,undoStack:[{content:data.content,cursorPos:0,scrollPos:0}],redoStack:[],errorLines:[]});
 		currentTab=tabs.length-1;
 		loadEditorState(currentTab);
 		refreshTabBar();
@@ -1486,8 +1486,8 @@ function formatFile(){
 		toast(tr('saved'),'info');
 		return;
 	}
-	t.undoStack.push(area.value);
-	if(t.undoStack.length>10)t.undoStack.shift();
+	t.undoStack.push({content:area.value,cursorPos:area.selectionStart,scrollPos:area.scrollTop});
+	enforceUndoBudget(t);
 	t.redoStack=[];
 	area.value=formatted;
 	t.content=formatted;
@@ -1496,23 +1496,63 @@ function formatFile(){
 	refreshTabBar();
 }
 
+const UNDO_BYTE_BUDGET = 8 * 1024 * 1024;
+function undoBytesForTab(t){
+	var total=0;
+	for(var i=0;i<t.undoStack.length;i++){
+		var e=t.undoStack[i];
+		var c=typeof e==='string'? e : (e.content||'');
+		total+=c.length;
+	}
+	for(var i=0;i<t.redoStack.length;i++){
+		var e=t.redoStack[i];
+		var c=typeof e==='string'? e : (e.content||'');
+		total+=c.length;
+	}
+	return total;
+}
+function enforceUndoBudget(t){
+	while(t.undoStack.length>256 || undoBytesForTab(t) > UNDO_BYTE_BUDGET){
+		if(t.undoStack.length<=1) break;
+		t.undoStack.shift();
+	}
+	while(t.redoStack.length>256 || undoBytesForTab(t) > UNDO_BYTE_BUDGET){
+		if(t.redoStack.length===0) break;
+		t.redoStack.shift();
+	}
+	while(undoBytesForTab(t) > UNDO_BYTE_BUDGET && (t.undoStack.length>1 || t.redoStack.length>0)){
+		if(t.redoStack.length>0) t.redoStack.shift();
+		else if(t.undoStack.length>1) t.undoStack.shift();
+		else break;
+	}
+}
+
 function undoFile(){
 	var area=document.getElementById('editorArea');
 	if(area.style.display!=='none'&&currentTab>=0){
 		var t=tabs[currentTab];
 		if(t.undoStack.length>0){
-			t.redoStack.push(area.value);
+			t.redoStack.push({content:area.value,cursorPos:area.selectionStart,scrollPos:area.scrollTop});
+			enforceUndoBudget(t);
 			var prev=t.undoStack.pop();
-			area.value=prev;
-			t.content=prev;
-			t.modified=prev!==t.originalContent;
+			var prevContent=typeof prev==='string'? prev : prev.content;
+			var prevCursor=typeof prev==='string'? 0 : (prev.cursorPos||0);
+			var prevScroll=typeof prev==='string'? 0 : (prev.scrollPos||0);
+			area.value=prevContent;
+			t.content=prevContent;
+			t.modified=prevContent!==t.originalContent;
+			t.cursorPos=prevCursor;
+			t.scrollPos=prevScroll;
 			updateStatus(currentTab);
 			refreshTabBar();
 			updateLineNumbers();
-			var pos=area.selectionStart||0;
-			if(pos>prev.length)pos=prev.length;
-			area.selectionStart=area.selectionEnd=pos;
 			area.focus();
+			var pos=prevCursor;
+			if(pos>prevContent.length)pos=prevContent.length;
+			if(pos<0)pos=0;
+			area.selectionStart=area.selectionEnd=pos;
+			area.scrollTop=prevScroll||0;
+			saveEditorState();
 		}
 	}
 }
@@ -1522,19 +1562,27 @@ function redoFile(){
 	if(area.style.display!=='none'&&currentTab>=0){
 		var t=tabs[currentTab];
 		if(t.redoStack.length>0){
-			t.undoStack.push(area.value);
-			if(t.undoStack.length>10)t.undoStack.shift();
+			t.undoStack.push({content:area.value,cursorPos:area.selectionStart,scrollPos:area.scrollTop});
+			enforceUndoBudget(t);
 			var next=t.redoStack.pop();
-			area.value=next;
-			t.content=next;
-			t.modified=next!==t.originalContent;
+			var nextContent=typeof next==='string'? next : next.content;
+			var nextCursor=typeof next==='string'? nextContent.length : (next.cursorPos||0);
+			var nextScroll=typeof next==='string'? 0 : (next.scrollPos||0);
+			area.value=nextContent;
+			t.content=nextContent;
+			t.modified=nextContent!==t.originalContent;
+			t.cursorPos=nextCursor;
+			t.scrollPos=nextScroll;
 			updateStatus(currentTab);
 			refreshTabBar();
 			updateLineNumbers();
-			var pos=area.selectionStart||0;
-			if(pos>next.length)pos=next.length;
-			area.selectionStart=area.selectionEnd=pos;
 			area.focus();
+			var pos=nextCursor;
+			if(pos>nextContent.length)pos=nextContent.length;
+			if(pos<0)pos=0;
+			area.selectionStart=area.selectionEnd=pos;
+			area.scrollTop=nextScroll||0;
+			saveEditorState();
 		}
 	}
 }
@@ -3458,15 +3506,26 @@ function openConfig(){
 		clearErrorLines();
 		updateLineNumbers();
 	});
-	// capture content snapshots before each change for custom undo
+ // capture content snapshots before each change for custom undo
 	document.getElementById('editorArea').addEventListener('beforeinput',function(){
 		if(currentTab>=0&&currentTab<tabs.length){
 			var t=tabs[currentTab];
-			if(t.undoStack.length===0||t.undoStack[t.undoStack.length-1]!==this.value){
-				t.undoStack.push(this.value);
-				if(t.undoStack.length>10)t.undoStack.shift();
+			var curContent=this.value;
+			var curCursor=this.selectionStart;
+			var curScroll=this.scrollTop;
+			var last=t.undoStack.length? t.undoStack[t.undoStack.length-1] : null;
+			var lastContent=last? (typeof last==='string'? last : last.content) : null;
+			if(!last || lastContent!==curContent){
+				t.undoStack.push({content:curContent,cursorPos:curCursor,scrollPos:curScroll});
+				enforceUndoBudget(t);
+			} else if(typeof last!=='string'){
+				last.cursorPos=curCursor;
+				last.scrollPos=curScroll;
+			} else {
+				t.undoStack[t.undoStack.length-1]={content:curContent,cursorPos:curCursor,scrollPos:curScroll};
 			}
 			t.redoStack=[];
+			enforceUndoBudget(t);
 		}
 	});
 	// sync line numbers scroll with textarea
