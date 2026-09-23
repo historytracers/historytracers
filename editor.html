@@ -1487,7 +1487,7 @@ function formatFile(){
 		return;
 	}
 	t.undoStack.push({content:area.value,cursorPos:area.selectionStart,scrollPos:area.scrollTop});
-	if(t.undoStack.length>256)t.undoStack.shift();
+	enforceUndoBudget(t);
 	t.redoStack=[];
 	area.value=formatted;
 	t.content=formatted;
@@ -1496,12 +1496,44 @@ function formatFile(){
 	refreshTabBar();
 }
 
+const UNDO_BYTE_BUDGET = 8 * 1024 * 1024;
+function undoBytesForTab(t){
+	var total=0;
+	for(var i=0;i<t.undoStack.length;i++){
+		var e=t.undoStack[i];
+		var c=typeof e==='string'? e : (e.content||'');
+		total+=c.length;
+	}
+	for(var i=0;i<t.redoStack.length;i++){
+		var e=t.redoStack[i];
+		var c=typeof e==='string'? e : (e.content||'');
+		total+=c.length;
+	}
+	return total;
+}
+function enforceUndoBudget(t){
+	while(t.undoStack.length>256 || undoBytesForTab(t) > UNDO_BYTE_BUDGET){
+		if(t.undoStack.length<=1) break;
+		t.undoStack.shift();
+	}
+	while(t.redoStack.length>256 || undoBytesForTab(t) > UNDO_BYTE_BUDGET){
+		if(t.redoStack.length===0) break;
+		t.redoStack.shift();
+	}
+	while(undoBytesForTab(t) > UNDO_BYTE_BUDGET && (t.undoStack.length>1 || t.redoStack.length>0)){
+		if(t.redoStack.length>0) t.redoStack.shift();
+		else if(t.undoStack.length>1) t.undoStack.shift();
+		else break;
+	}
+}
+
 function undoFile(){
 	var area=document.getElementById('editorArea');
 	if(area.style.display!=='none'&&currentTab>=0){
 		var t=tabs[currentTab];
 		if(t.undoStack.length>0){
 			t.redoStack.push({content:area.value,cursorPos:area.selectionStart,scrollPos:area.scrollTop});
+			enforceUndoBudget(t);
 			var prev=t.undoStack.pop();
 			var prevContent=typeof prev==='string'? prev : prev.content;
 			var prevCursor=typeof prev==='string'? 0 : (prev.cursorPos||0);
@@ -1531,7 +1563,7 @@ function redoFile(){
 		var t=tabs[currentTab];
 		if(t.redoStack.length>0){
 			t.undoStack.push({content:area.value,cursorPos:area.selectionStart,scrollPos:area.scrollTop});
-			if(t.undoStack.length>256)t.undoStack.shift();
+			enforceUndoBudget(t);
 			var next=t.redoStack.pop();
 			var nextContent=typeof next==='string'? next : next.content;
 			var nextCursor=typeof next==='string'? nextContent.length : (next.cursorPos||0);
@@ -3485,9 +3517,15 @@ function openConfig(){
 			var lastContent=last? (typeof last==='string'? last : last.content) : null;
 			if(!last || lastContent!==curContent){
 				t.undoStack.push({content:curContent,cursorPos:curCursor,scrollPos:curScroll});
-				if(t.undoStack.length>256)t.undoStack.shift();
+				enforceUndoBudget(t);
+			} else if(typeof last!=='string'){
+				last.cursorPos=curCursor;
+				last.scrollPos=curScroll;
+			} else {
+				t.undoStack[t.undoStack.length-1]={content:curContent,cursorPos:curCursor,scrollPos:curScroll};
 			}
 			t.redoStack=[];
+			enforceUndoBudget(t);
 		}
 	});
 	// sync line numbers scroll with textarea
