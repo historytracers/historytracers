@@ -4,6 +4,8 @@
 - When asked to refactor or move code, only perform the specific changes requested. Do not create new files (games, content, etc.) unless explicitly asked.
 - Verify existing functionality is preserved after changes.
 - Always edit source files under `src/css/` and `src/js/` (e.g., `src/css/ht_math.css`, `src/js/ht_yupana.js`) instead of their minified/compiled counterparts in `css/` and `js/`. The compiled versions are generated during the build process.
+- No AI is allowed to do direct commits. All AI-generated changes must be submitted via pull request / branch and receive review and approval from human developers before merging. Do not run `git commit`, `git push`, or `gh pr merge` directly.
+- All files must use Unix/Linux line endings (LF, `\n`). Never use Windows line endings (CRLF, `\r\n`). When writing or editing files, ensure the content uses LF only. After writing a file, verify with a binary check that no `\r\n` sequences are present.
 
 ## Adding new content (a new UUID group of files)
 
@@ -17,9 +19,15 @@ A "group of files" is identified by a single UUID, e.g. `e0380670-cd02-46e8-abb8
    - `lang/<lang>/first_steps.json`
    - `lang/<lang>/math_games.json` (for games/exercises)
    Add a `group-list` entry object with `id`, `name`, `desc`, `date_time: null`, matching the surrounding entries.
-6. Register in the sources DB `lang/sources/history_tracers.db`:
-   - `INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES ('<uuid>', '<title>');`
-   - For every cited source in the content: `INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES ('<uuid>', '<src-uuid>', 1);` (type 1 = reference).
+6. Register in the sources DB `lang/sources/history_tracers.db` (do this even if the content JSON was created first):
+   1. Add one row to `files` for the new UUID using the **English** `title`:
+      - `INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES ('<uuid>', '<English title>');`
+   2. For **every** distinct source cited in the content, add a row to `citation` that links the file (the `fil_id` just added to `files`) with the source (`src_id` as it exists in the `sources` table). `cit_type` must match the JSON `source[].type` used in the content (0 = primary source, 1 = reference):
+      - `INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES ('<uuid>', '<src-uuid>', 1);`
+      - To find the list of cited sources automatically, collect the distinct `source[].uuid` values from `content[].text[].source[]` across `lang/{en-US,es-ES,pt-BR}/<uuid>.json`.
+      - If a cited uuid is **not** present in the `sources` table, add it first (same pattern as other History Tracers content rows, e.g. `INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES ('<uuid>', 'a1b2c3d4-0000-4000-8000-000000000001', 'History Tracers Team (<year>). <Title>', '<created>', '<published>', '');`).
+   3. Verify every mention is linked with a join against `sources`:
+      - `SELECT c.fil_id, f.fil_desc, c.src_id, s.src_citation, c.cit_type FROM citation c LEFT JOIN files f ON f.fil_id = c.fil_id LEFT JOIN sources s ON s.src_id = c.src_id WHERE c.fil_id = '<uuid>';`
 7. Validate with the prebuilt publisher (`build/historytracers-publisher`):
    - `build/historytracers-publisher -langtest en-US:<uuid>` — checks JSON and line-count consistency.
    - `build/historytracers-publisher -globalangtest` — checks all UUID files.
@@ -114,6 +122,65 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
    - `wc -l` all three files must match.
    - Verify the `next` chain: each screen's `next` must point to a valid screen UUID (or `""` for the last).
 
+## Content JSON conventions
+
+- `exercise_v2[].yesNoAnswer` must always be the literal string `"Yes"` or `"No"` (English). These values are used by the application algorithm, not displayed to the user. Never translate them to `"Sí"`, `"Sim"`, or any other language.
+
+## Source evaluation
+
+- Always evaluate `sources` using the database `lang/sources/history_tracers.db` (tables `files`, `sources`, `citation`) as the single source of truth. Do not infer or validate `sources` from `lang/<lang>/<uuid>.json` `sources` arrays, `lang/<lang>/gallery*.json` group lists, or generated `lang/sources/*.json`.
+- When a citation appears broken (e.g., `js/ht_common.js:refSourceMap` missing entry or nested citation not resolving), fix the DB so that regeneration recreates the correct state. Use `INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (...)`, `INSERT OR IGNORE INTO sources (src_id, ...) VALUES (...)`, `INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (...)` and `UPDATE files SET fil_desc='Title' WHERE fil_desc=''` as needed; then regenerate with `build/historytracers-publisher -minify`. Do not patch the JSON `sources` array to work around a missing DB row.
+
+## Fixing gallery pages (`index: ["gallery"]`, e.g. `6487ffc3-0a2d-44f4-b377-37ad553750e2` British Museum)
+
+Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images from one source (e.g. British Museum, ANTT, Bing Zhao). Reference pattern is `fe5d0b8a-5782-41ee-b6a8-cde4808044a7.json` (ANTT) and `ac5f2361-7824-466e-954c-2adfe798975e.json` (Bing Zhao) — each `htSlide` has caption with single `Trustees ... (<htciteN>)` and `htSlideRefs` with `Page Name - Description (<htciteM>)` per related file. Fixes below were applied to British Museum (`6487ffc3...` 25/26 slides) and `e3215ef1...` (Our Week) and must be repeated for other galleries:
+
+1. **Identify missing related content via JS image reuse** (user-visible “Related content” list):
+   - `grep -r "images/<Gallery>/" js/*.js` → map `htSetImageSrc("imgX","images/...")` per `js/<uuid>.js`.
+   - For each image in `js/6487...js` (e.g. `mid_00032581_001.jpg`), `image_to_uuids[image] = [other js files containing that path]`. Every such `other` file must appear as `htSlideRefs` for that slide.
+   - `mid_00034725_001.jpg` and `mid_C_161.jpg` had 0 others → correctly no `htSlideRefs`; all others must have ≥1.
+
+2. **Fix `htCite` duplicates — each citation needs unique index** (otherwise some links show no `enlace` on right side):
+   - `content[1].text[1].text` contains `(<htciteN>)` in captions and related. `content[1].text[1].source` must have one entry per occurrence, even if same `uuid` repeats (Bing Zhao has `75d612d6` at 1,2,3). For `6487...` `38` `<li>` + `25` captions = `63` total `htCite` occurrences, `45` unique before dedup → `18` extra, `3` uncited (empty `Trustees ()` captions) → rebuilt `source` in appearance order and renumbered `txt` sequentially `0..N-1` so `len(source)==len(cites)` (`63`) and `Counter(cites)` has no duplicates, `uncited==0`. Validate `python3 -c "import re; cites=re.findall(r'<htcite\d+>', txt); print(len(cites), len(set(cites)), len(src), len(src)-len(set(int(re.search(r'\d+',c).group(0)) for c in cites)))"`.
+
+3. **Image removal and counting**:
+   - If `images/<Gallery>/X.jpg` deleted (e.g. `mid_00034725`), remove `htSetImageSrc("imgBritishMuseum0",...)` from `js/<uuid>.js` and the entire `<div class="htSlide">...imgBritishMuseum0...</div>` from all three `lang/*/<uuid>.json`, then renumber `htSlideCounter` to `1 / 25 … 25 / 25` (was `1 / 26`).
+
+4. **Arrow position** (`fa-chevron-left/right htSlidePrev/Next`):
+   - Must be inside `htSlides` after last `htSlide`: `...<div class="htSlide">...</div></div><i class="fa-solid...Prev..."></i><i class="fa-solid...Next..."></i></div></p>` (refs `</div>` + slide `</div>` + arrows + `</div></p>`). Extra `</div>` before arrows (e.g. `</div></div></div><i`) moves arrows outside container → fix by ensuring `prefix="<p><div class=\"htSlides\">"` + `slides*"</div>"` + `suffix="<i...></i><i...></i></div></p>"` and `closeCount==1+25+25+25+refs`.
+
+5. **Image loading via JS** (e.g. `e3215ef1` Figure 2 `mid_C_161.jpg`):
+   - JSON must be `<img src="" id="imgH" onclick="htImageZoom('imgH','0%')" .../>` (empty `src` or no `src`), not `src="images/..."`. `js/<uuid>.js` `htLoadContent()` must contain `htSetImageSrc("imgH","images/BritishMuseum/mid_C_161.jpg");` after `htWriteNavigation();`. This makes `grep -r mid_C_161 js/*.js` find `e3215` as related for `BritishMuseum1` slide, which then gets `Our Week` in its `htSlideRefs`.
+
+6. **Missing description between page name and link**:
+   - `htSlideRefs` `li` must be `Name - Desc (<htciteN>)` where `Desc` is from the index that lists the page (e.g. `literature.json`, `families.json`), not from `myths_believes.json` (content page). For `2c7a1281`/`6808a4de`/`baa7e16f`/`cde96120`/`f899e6cf` the gallery had `Has there never been a flood?` etc. from `myths_believes`, correct is `Texts with Sciences (Conclusion)` etc. from `literature.json`. Use `find_other()` excluding `myths_believes` and replace `src[].text` and `li` inner.
+
+7. **Second image in `Related content`** (`3 / 25`):
+   - `baa7e16f` desc from index contains embedded `:</p><p class="desc"><img src="images/BritishMuseum/mid_00107404_001.jpg" id="imgGilgamesh"...><b>Figure 1</b>...</p>` causing a second visible image when arrowing. Strip `:</p><p class="desc"><img src="images/BritishMuseum/mid_00107404_001.jpg"[^>]*>.*?</p>`→`)` before `(<htcite` for that `li` in all three langs. Only main `imgAtra` should remain visible.
+
+8. **Two links per line in `5 / 25`** (`Is it possible...` and `Sumerians - The Dynasties...`):
+   - `desc` from index contains embedded `<a href="#" onclick="htCleanSources...">...</a>` (e.g. `History Tracers Team, Atlas` and `Mark, J.J., Gilgamesh`). Gallery `li` should have only the final `(<htciteN>)` for the page name, so remove any `(<a href="#"[^>]*>.*?</a>)` (and trailing `).`) inside `li` before `(<htcite`. Verified `len(re.findall(r'<a href', li))==0` for all `38` lis.
+
+9. **Empty `Trustees British Museum ()` captions** (`4 / 25` Flood Tablet, `18 / 25` Clovis, `20 / 25` Prism):
+   - Add distinct `type0` British Museum `primary_sources` entries (not generic duplicate `5f4ae6cf`) and matching `(<htciteN>)` in caption:
+     - `4 / 25` `bab0a6a1-d2a4-46b3-8d86-f33e3ad035d6` `The Flood Tablet. <i>The British Museum</i>` `W_K-3375`
+     - `18 / 25` `8e3c4eca-abc0-4178-b097-ea1740b73d2d` `clovis point; projectile point. Am1983,39.1797...` `E_Am1983-39-1797`
+     - `20 / 25` `185c4ec2-7d57-4a74-b0a1-e748795beb2f` `Prism (Museum number 121006). The British Museum` `W_1929-1012-2`
+   - Insert at `60,61,62` so `len(source)==len(cites)==63` (later `60` after `e3215` addition) and `top` updated.
+
+10. **DB `citation` missing links** (`lang/sources/history_tracers.db` is source of truth; `lang/sources/*.json` are generated via `historytracers-installer.sh` → `build/historytracers-publisher -minify`, so fix DB directly):
+    - For each `lang/XX-YY/<uuid>.json` `content[].text[].source[]` `(uuid,type)`, ensure `SELECT 1 FROM citation WHERE fil_id='<uuid>' AND src_id='<src_uuid>' AND cit_type=<type>` exists; otherwise `INSERT OR IGNORE INTO citation (fil_id,src_id,cit_type) VALUES (...)` and `UPDATE files SET fil_desc='Title' WHERE fil_desc=''`.
+    - Example missing: `e3215` `9222b3a4(0)`, `ac5f2361` `ac5f2361(0)`, `fdb0a7ff` `4d0b579d(0)`, etc. After fix `SELECT COUNT(*) FROM citation` `5018`, `globalangtest` still PASS. Do not hand-edit `lang/sources/*.json`; they are rebuilt.
+
+11. **Internal `History Tracers Team` sources have `text`/`page` swapped** (`fe5d0b8a` ANTT, `ea34a7b6` Archive, `fdb0a7ff` Ashmolean, `71c1c1b7` BND, `ac5f2361` Bing Zhao, `6487ffc3` British Museum – 165 entries):
+    - In gallery JSON (`index: ["gallery"]`) `content[1].text[1].source[]` entries with `type: 1` that reference internal History Tracers content are identified by `sources.src_url` containing `index.html?page=` (see `lang/sources/history_tracers.db:246`). They must be `{"text":"History Tracers Team","page":"<title>","date_time":{...}}` where `page` is the title of the referenced file in the **same language** (`lang/<lang>/<fid>.json:2` `title`, fallback `files.fil_desc`). Bug was `{"text":"<title>","page":""}` – titles copied from the `UUID.json` `title` into `text`.
+    - Detect: iterate `lang/<lang>/<gallery-uuid>.json` `content[1].text[1].source[]`; for each `s` with `s.type==1 and s.page=="" and s.text!="History Tracers Team"`, run `SELECT src_url FROM sources WHERE src_id=s.uuid`; if `index.html?page=` in url, extract `fid = re.search(r'arg=([a-f0-9-]+)', url).group(1)` and compare `s.text` vs `json.load(open(f"lang/{lang}/{fid}.json"))["title"]`. In `6487ffc3` all 45 per lang were swapped; `ea34a7b6` 2, `fe5d0b8a` 4→ `12` across langs, etc.
+    - Fix: for each hit set `s.text = "History Tracers Team"` and `s.page = title` (language-specific – e.g. `b1dc538f` page `Playing with Consonants and Vowels` in `en-US` vs `Jogando com Consoantes e Vogais` in `pt-BR`). Re-serialize all three `lang/*/<gallery-uuid>.json` with `json.dump(..., ensure_ascii=False, indent=3)` + LF (`newline='\n'`), preserving `len(source)==len(cites)` and `wc -l` identity. Validate `python3 -c "import json; json.load(open(...))"` and `build/historytracers-publisher -langtest en-US:<gallery-uuid>` / `-globalangtest` PASS (285). Do not translate `History Tracers Team`.
+
+12. **`<htdateN>` sequential vector** (`767d85cd-bd1c-43af-9d86-9f5f14bf7de1` Copan – 13 slides, previously limited to 2 values):
+    - Gallery `content[1].text[1].text` uses `<htdateN>` placeholders replaced via `content[1].text[1].date_time` vector (`htOverwriteHTDateWithText` in `src/js/ht_common.js:2426` loops `0..len-1`). Vector was `[{"year":"2015","month":"04","day":"26"}×2]` reused as `<htdate0>` (slide 1) and `<htdate1>` (slides 2-13) plus `12` hidden occurrences in `Related content` `Indigenous (Copan) (<htdate0> - <htdate1>)` → `25` occurrences but only `2` distinct, `N=2` not sequential beyond `2`.
+    - Algorithm expects sequential `0..N-1` with `N>2` (one entry per `<htdateN>` distinct). Fix: assign each `htSlideCaption` a distinct `<htdate{i}>` (`0..12` for 13 slides, `13× {"type":"gregory","year":"2015","month":"04","day":"26"}`), and for each `Indigenous (Copan)` `htSlideRefs` `li` keep distinct ` (<htdate13> - <htdate14>)`, ` (<htdate15> - <htdate16>)`, ` (<htdate17> - <htdate18>)`, ` (<htdate19> - <htdate20>)`, ` (<htdate21> - <htdate22>)`, ` (<htdate23> - <htdate24>)` with period dates `{"type":"gregory","year":"378","month":"-1","day":"-1"}` and `{"type":"gregory","year":"810","month":"-1","day":"-1"}` alternating. Final vector `25×` = `13× 2015-04-26` + `12× 378/810`, distinct `25` (`0..24`), total occurrences `25` (`13` captions + `6×2` related), no reuse. Validate `python3 -c "import re,json; txt=json.load(open('lang/en-US/<uuid>.json'))['content'][1]['text'][1]['text']; dts=json.load(open('lang/en-US/<uuid>.json'))['content'][1]['text'][1]['date_time']; cites=set(re.findall(r'<htdate\\d+>',txt)); print(len(dts), len(cites), sorted(cites), len(dts)==len(cites) and cites==set(f'<htdate{i}>' for i in range(len(dts))))"` → `25 25 True`, and `wc -l` identity across `en-US/es-ES/pt-BR` (now `1013` lines).
+
 ## Rebasing/merging the sources DB (binary conflicts)
 
 `lang/sources/history_tracers.db` is a SQLite file and cannot be auto-merged. During `git merge`/`rebase` it appears as `both modified` (or deleted/modified). To resolve, union the two datasets:
@@ -127,5 +194,133 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
    - Note: `main` is a reserved schema name in SQLite — use a different attach alias like `mdb`.
    - Check for unexpected changes too: rows the merge would drop (e.g. a file/citation present in ours but not in theirs) are deliberate branch content and must be kept.
 4. Verify the union: re-diff each table against both original versions; the merged DB should be a strict superset of each side (no rows lost from either).
-5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db`, then commit.
-6. The `src/common` submodule pointer is also often updated by the merge — stage and commit it too (its working tree should be clean and detached).
+5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db` — **stop here for AI**. A human maintainer must review `git status`/`git diff --stat` and commit the staged changes.
+6. The `src/common` submodule pointer is also often updated by the merge — stage it (`git add src/common`); a human maintainer must commit it (working tree should be clean and detached).
+
+### Windows-specific steps
+
+On Windows, `sqlite3` CLI is typically not installed and PowerShell corrupts binary data when piping `git show` output. Use Python instead (Python's `sqlite3` module is built-in).
+
+**Step 1 — Extract both DB versions** (PowerShell cannot pipe binary from `git show`; use a Python helper):
+
+```python
+# extract_db.py
+import subprocess, tempfile, os
+
+work_dir = tempfile.mkdtemp(prefix="ht_merge_")
+
+def extract_git_blob(ref_path, output_path):
+    result = subprocess.run(['git', 'show', ref_path], capture_output=True)
+    if result.returncode != 0:
+        stderr = result.stderr.decode(errors='replace')
+        if 'does not exist in' not in stderr and 'exists at' not in stderr:
+            raise RuntimeError(f"git show failed for {ref_path}: {stderr}")
+        # File was deleted in this ref — create an empty schema-compatible DB
+        import sqlite3 as _sqlite3
+        conn = _sqlite3.connect(output_path)
+        conn.executescript("""
+            CREATE TABLE source_format (sfo_id TEXT NOT NULL PRIMARY KEY, sfo_name TEXT NOT NULL, sfo_description TEXT NOT NULL);
+            CREATE TABLE sources (src_id TEXT NOT NULL PRIMARY KEY, sfo_id TEXT NOT NULL, src_citation TEXT NOT NULL, src_date TEXT NOT NULL, src_publish_date TEXT NOT NULL, src_url TEXT NOT NULL);
+            CREATE TABLE files (fil_id TEXT NOT NULL PRIMARY KEY, fil_desc TEXT NOT NULL);
+            CREATE TABLE citation (fil_id TEXT NOT NULL, src_id TEXT NOT NULL, cit_type TINYINT NOT NULL, PRIMARY KEY (fil_id, src_id, cit_type));
+            CREATE INDEX idx_sources_src_citation ON sources (src_citation);
+        """)
+        conn.close()
+        print(f"Warning: {ref_path} not found (deleted); created empty DB at {output_path}")
+        return
+    with open(output_path, 'wb') as f:
+        f.write(result.stdout)
+    print(f"Extracted {ref_path} -> {output_path} ({len(result.stdout)} bytes)")
+
+# ours_ref: HEAD during merge, upstream/base during rebase
+# theirs_ref: the incoming branch (e.g. origin/main)
+ours_ref = "HEAD"
+theirs_ref = "origin/main"
+db_path = "lang/sources/history_tracers.db"
+
+extract_git_blob(f"{ours_ref}:{db_path}", os.path.join(work_dir, "ours.db"))
+extract_git_blob(f"{theirs_ref}:{db_path}", os.path.join(work_dir, "theirs.db"))
+print(f"Work directory: {work_dir}")
+```
+
+Run: `python extract_db.py`
+
+**Step 2 — Diff, merge, and verify** (use Python's `sqlite3` module):
+
+```python
+# merge_db.py
+import sqlite3, shutil, sys, os
+
+# Pass work_dir as argument, or set it here from extract_db.py output
+work_dir = sys.argv[1] if len(sys.argv) > 1 else input("Work directory from extract_db.py: ").strip()
+
+def get_tables(db_path):
+    conn = sqlite3.connect(db_path)
+    tables = [t[0] for t in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
+    conn.close()
+    return tables
+
+def dump_table(db_path, table):
+    conn = sqlite3.connect(db_path)
+    rows = conn.execute(f"SELECT * FROM [{table}] ORDER BY 1").fetchall()
+    conn.close()
+    return rows
+
+ours = os.path.join(work_dir, "ours.db")
+theirs = os.path.join(work_dir, "theirs.db")
+merged = os.path.join(work_dir, "merged.db")
+
+# Diff each table
+for t in get_tables(ours):
+    ours_set = set(dump_table(ours, t))
+    theirs_set = set(dump_table(theirs, t))
+    only_ours = ours_set - theirs_set
+    only_theirs = theirs_set - ours_set
+    if only_ours or only_theirs:
+        print(f"{t}: only-in-ours={len(only_ours)}, only-in-theirs={len(only_theirs)}")
+        for r in only_ours: print(f"  ours:   {r}")
+        for r in only_theirs: print(f"  theirs: {r}")
+
+# Build union: copy ours, INSERT OR IGNORE from theirs
+shutil.copy2(ours, merged)
+conn = sqlite3.connect(merged)
+for t in get_tables(theirs):
+    cols = len(conn.execute(f"PRAGMA table_info([{t}])").fetchall())
+    theirs_rows = sqlite3.connect(theirs).execute(f"SELECT * FROM [{t}]").fetchall()
+    ours_rows = set(conn.execute(f"SELECT * FROM [{t}]").fetchall())
+    inserted = sum(1 for r in theirs_rows if r not in ours_rows
+                   and conn.execute(f"INSERT OR IGNORE INTO [{t}] VALUES ({','.join('?'*cols)})", r))
+    if inserted: print(f"{t}: inserted {inserted} rows from theirs")
+conn.commit(); conn.close()
+
+# Verify superset
+for t in get_tables(merged):
+    merged_set = set(dump_table(merged, t))
+    missing_ours = set(dump_table(ours, t)) - merged_set
+    missing_theirs = set(dump_table(theirs, t)) - merged_set
+    if missing_ours:
+        raise RuntimeError(f"{t}: missing {len(missing_ours)} rows from ours")
+    if missing_theirs:
+        raise RuntimeError(f"{t}: missing {len(missing_theirs)} rows from theirs")
+    print(f"{t}: OK")
+```
+
+Run: `python merge_db.py`
+
+**Step 3 — Copy and stage** (PowerShell, replace `$workDir` with the path printed by extract_db.py):
+
+```powershell
+$ErrorActionPreference = "Stop"
+$workDir = "C:\Users\<user>\AppData\Local\Temp\ht_merge_<random>"
+Copy-Item -Path "$workDir\merged.db" -Destination "lang\sources\history_tracers.db" -Force
+git add lang/sources/history_tracers.db
+if ($LASTEXITCODE -ne 0) { throw "git add failed with exit code $LASTEXITCODE" }
+# Stop here for AI — human maintainer must review git status/diff, create the commit, and then run Step 4
+```
+
+**Step 4 — Clean up (human, after commit)** temp scripts and work directory:
+
+```powershell
+Remove-Item extract_db.py, merge_db.py
+Remove-Item -Recurse -Force $workDir
+```

@@ -29,7 +29,7 @@ function htTranslationLoadHA(tableID, field, selector, value)
 function htTranslationLoadIndigenous(tableID, field, selector, value)
 {
    var htImgSrcPrefix = htGetImgSrcPrefix();
-   $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value+".png\" />" : "&nbsp;");
+   $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value+".png\" alt=\"Maya numeral "+value+"\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" />" : "&nbsp;");
 }
 
 function htTranslationFillRandomVector(min, max, end)
@@ -177,10 +177,8 @@ function htLoadContent() {
     $("#firstMethod").html(mathKeywords[8]);
     $("#secondMethod").html(mathKeywords[9]);
     $("#playButton").val(mathKeywords[10]);
-    $("#htChinaZhongguo").html(keywords[137]);
-    $("#htJapanNipponNihonKoku").html(keywords[139]);
 
-    htSetImageSrc("img9", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");
+    htSetImageSrc("img9", "images/GonzalesRedondo/Figura-9-Hueso-de-Lebombo.png");
 
     for (let i = 0, j = 1; i < local.maxValue; i++, j++) {
         $("#yupana1 #tc"+j+"f2").html(htInsertNumberField("num"+i, 0, 9));

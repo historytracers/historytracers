@@ -30,7 +30,9 @@
       "1782765763"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -58,8 +60,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -75,7 +77,7 @@
          "id": "introduction_section",
          "text": [
             {
-               "text": "### Introduction\n\nWhen studying the addition operation, we learn that numbers follow the commutative property. This means that the result remains the same regardless of the order in which the numbers are added",
+               "text": "### Introduction\n\nWhen studying the addition operation, we learn that addition has the commutative property. This means that the result remains the same regardless of the order in which the numbers are added",
                "source": [
                   {
                      "type": 1,
@@ -85,8 +87,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -97,7 +99,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Inheritance of Properties</b><br /><br />Addition is commutative.<br /><br />Multiplication is a sequence of additions.<br /><br />Given these two premises, can we expect multiplication to also preserve its result when the numbers are reversed?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Inheritance of Properties</b><br /><br />Addition is commutative.<br /><br />Multiplication is a sequence of additions.<br /><br />Given these two premises, can we expect multiplication to also preserve the commutative property when we reverse the order of its factors?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -121,8 +123,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -152,8 +154,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2020",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   },
                   {
@@ -163,9 +165,9 @@
                      "page": "",
                      "date_time": {
                         "type": "gregory",
-                        "year": "-1",
-                        "month": "-1",
-                        "day": "-1"
+                        "year": "",
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -179,8 +181,8 @@
                   {
                      "type": "gregory",
                      "year": "2020",
-                     "month": "-1",
-                     "day": "-1"
+                     "month": "",
+                     "day": ""
                   }
                ],
                "isTable": false,
@@ -189,7 +191,7 @@
                "PostMention": ""
             },
             {
-               "text": "On Altar Q in Copán, we can observe four ajawob (kings) on each side. Thus, regardless of order, we are always multiplying 4 by 4\n\nTo make this operation clearer, we will represent it using squares, each with a side length of one unit",
+               "text": "On Altar Q in Copán, we can observe four ajawob (kings) on each side. Thus, regardless of order, we are always multiplying 4 by 4.\n\nTo see this more clearly, we will represent the operation using squares, each with a side length of one unit",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -207,7 +209,7 @@
                "PostMention": ""
             },
             {
-               "text": "We use squares to demonstrate multiplication for a specific reason. In addition to the visual representation in Chart 1, the result of multiplying a number by itself is also called a square",
+               "text": "Our choice of squares to illustrate multiplication is not arbitrary. Beyond the visual representation in Chart 1, the result of multiplying a number by itself is also called a square",
                "source": [
                   {
                      "type": 1,
@@ -295,7 +297,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Comparing</b><br /><br />Compare Chart 2 and Chart 3. Is it possible for the multiplication (the sum of squares in groups) to yield a result different from eight (8)?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Comparing</b><br /><br />Compare Chart 2 and Chart 3. Is it possible for the multiplication — that is, the sum of squares in groups — to yield a result different from eight (8)?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -304,7 +306,7 @@
                "PostMention": ""
             },
             {
-               "text": "Answering the reflection: Despite the visual difference when we invert the order of the numbers, the number of elements being multiplied (or added) remains the same. Thus, multiplication—like addition—also possesses the commutative property.\n\nThe commutativity of multiplication is known as a mathematical axiom, and it can be expressed as",
+               "text": "Answering the reflection: despite the visual difference when we invert the order of the numbers, the number of elements being multiplied (or added) remains the same. Thus, multiplication — like addition — also possesses the commutative property.\n\nThe commutativity of multiplication is known as a mathematical axiom, and it can be expressed as",
                "source": [
                   {
                      "type": 1,
@@ -349,7 +351,7 @@
          "id": "result_section",
          "text": [
             {
-               "text": "### Equal results\n\nBefore concluding this text, we propose one final reflection",
+               "text": "### Equal Results\n\nBefore concluding this text, we propose one final reflection",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -385,7 +387,7 @@
                "PostMention": ""
             },
             {
-               "text": "These comparisons conceal important details—known as context—which, if ignored, can lead to incorrect conclusions, much like comparing two similar-looking images that are not actually the same.\n\nAs we saw in this text (and in the previous one), the results are the same because, on both sides of the equation, we are performing equivalent mathematical operations—either directly or indirectly—through addition",
+               "text": "These comparisons conceal important details — known as context — which, if ignored, can lead to incorrect conclusions, much like comparing two similar-looking images that are not actually the same.\n\nAs we saw in this text (and in the previous one), the results are the same because, on both sides of the equation, we are performing equivalent mathematical operations — either directly or indirectly — through addition",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -399,7 +401,7 @@
          "id": "conclusion_section",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we reinforced our understanding of multiplication by visualizing commutativity through geometric representations. Additionally, we observed the direct relationship between addition and multiplication, consolidating the idea that the order of numbers does not affect the final result",
+               "text": "### Conclusion\n\nIn this text, we reinforced our understanding of multiplication by visualizing commutativity through geometric representations. We also observed the direct relationship between addition and multiplication, reinforcing the idea that the order of the factors does not affect the final result",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -419,7 +421,7 @@
       {
          "question": "Is multiplication a commutative operation?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Like addition, multiplication is also commutative - meaning the order in which we perform the operation (which represents repeated addition) does not affect the final result."
+         "additionalInfo": "Like addition, multiplication is also commutative — meaning the order in which we perform the operation (which represents repeated addition) does not affect the final result."
       }
    ],
    "game_v2": null,

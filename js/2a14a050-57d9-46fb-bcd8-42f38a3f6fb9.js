@@ -163,8 +163,6 @@ function htLoadRandomTranslation() {
 
 function htLoadContent() {
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
-    $("#htJapanNipponNihonKoku").html(keywords[139]);
 
     local = { "gameTranslationVector": [], "gameTranslationAns": [0, 0, 0, 0], "gameTranslationModify": -1, "gameTranslationCurrentValue": -1, "gameTranslationModel": "", "gameEnd": false, "gameChecking": false, "gameTranslationRandomVector": [], "gameTranslationCurrentLevel": -1, "gameRandomEnd": false, "gameUseTranslationImages": [], "gameVector": [], "gameUseVector": [], "maxValue": 2 }; 
 

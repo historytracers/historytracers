@@ -147,6 +147,68 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
+/* Compact text tables (e.g. 323c97e8 Table 1 & 2) — cells sized to content */
+.tawapukllay.htCompact td:nth-child(-n+4),
+.tawapukllay.htCompact td:nth-child(n+5) {
+  height: auto;
+  min-height: 0;
+  padding: 8px 6px;
+  vertical-align: middle;
+}
+
+/* Auto-compact for any tawa table without dots (fallback for text-only tables) */
+.tawapukllay:not(:has(.dot)) td:nth-child(-n+4) {
+  height: auto;
+  min-height: 0;
+  padding: 8px 6px;
+  vertical-align: middle;
+}
+.tawapukllay:not(:has(.dot)) td:nth-child(n+5) {
+  padding: 8px 6px;
+  vertical-align: middle;
+}
+
+/* Small Yupana for interactive board after Table 2 (323c97e8 yupana1) — fits small screen */
+.tawapukllay.yupanaSmall {
+  width: auto;
+  max-width: 95%;
+  font-size: 0.75em;
+}
+.tawapukllay.yupanaSmall td:nth-child(-n+4) {
+  width: 5em;
+  height: 5em;
+}
+.tawapukllay.yupanaSmall td:nth-child(n+5) {
+  width: 6em;
+}
+@media screen and (max-width: 600px) {
+  .tawapukllay.yupanaSmall {
+    width: 100%;
+    font-size: 0.6em;
+  }
+  .tawapukllay.yupanaSmall td:nth-child(-n+4) {
+    width: 3.8em;
+    height: 3.8em;
+  }
+  .tawapukllay.yupanaSmall td:nth-child(n+5) {
+    width: 4.5em;
+    font-size: 0.85em;
+  }
+  .tawapukllay.yupanaSmall .dot {
+    width: 1.1vmin;
+    height: 1.1vmin;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 991px) {
+  .tawapukllay.yupanaSmall td:nth-child(-n+4) {
+    width: 4.5em;
+    height: 4.5em;
+  }
+  .tawapukllay.yupanaSmall td:nth-child(n+5) {
+    width: 5.5em;
+  }
+}
+
 .dot {
   display: block;
   width: 1.3vmin;
@@ -528,6 +590,160 @@
   color: #155724;
 }
 
+/* Building games (Mesoamerican / Etruscan-Roman): reveal-the-hidden-numeral tables */
+.buildingTable {
+  width: 100%;
+  max-width: 460px;
+  table-layout: fixed;
+}
+
+.buildingTable td {
+  width: auto;
+  height: 9vh;
+  min-height: 44px;
+  vertical-align: middle;
+  padding: 2px;
+}
+
+.buildingTable td img.buildingGlyph {
+  max-width: 90%;
+  max-height: 8vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.buildingTable td .buildingRoman {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #5a3f2c;
+  letter-spacing: 0.02em;
+}
+
+.buildingTable td.buildingEmpty {
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.game-next-btn {
+  background: #2e7d32;
+  border: none;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 35px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: 0.08s linear;
+}
+
+.game-next-btn:active {
+  transform: translateY(1px);
+}
+
+.game-next-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.design-dark .buildingTable td .buildingRoman {
+  color: #ffefcf;
+}
+
+/* Sequence game (fb9dca2c): compact Yupana tables side by side.
+   The three <table>s share one wrapper (.htSequenceYupanaTables). The layout
+   class htSeqYupana is toggled by JS only while the "Yupana" system is active,
+   so the Hindu-Arabic / Mesoamerican views keep their normal single table. */
+.htSequenceYupanaTables {
+  text-align: center;
+}
+
+.htSequenceYupanaTables.htSeqYupana {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  width: auto;
+  font-size: 0.62em;
+  border-spacing: 2px;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr:first-child {
+  display: none;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+  width: 4.5em;
+  height: 4.5em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+  width: 1em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+  font-size: 2.6em;
+  cursor: pointer;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr.htYupanaControlsRow td {
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay tr.htYupanaControlsRow button.htYupanaControl {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0 0.3em;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.htSequenceYupanaTables.htSeqYupana .tawapukllay .desc {
+  font-size: 1em;
+}
+
+/* Wide screens: let the three Yupana tables sit side by side and stretch to
+   fill ~90% of the lesson column (same footprint as the single Mesoamerican
+   table). Board/cell sizes then scale with the available width (container
+   query units), so they grow on large monitors instead of staying small. */
+@media screen and (min-width: 1200px) {
+    .htSequenceYupanaTables.htSeqYupana {
+        display: grid;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        container-type: inline-size;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        display: block;
+        width: 100%;
+        margin: 0;
+        font-size: 1.55cqw;
+    }
+}
 
 /* Small screens (600px) */
 @media screen and (max-width: 600px) {
@@ -555,6 +771,99 @@
         width: 2vmin;
         height: 2vmin;
     }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        font-size: 0.5em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+        width: 4em;
+        height: 4em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+        width: 2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+        width: 0.55em;
+        height: 0.55em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+        font-size: 2em;
+    }
+}
+
+/* Mesoamerican numerals in the numeral-system comparison tables (.tableTen) */
+.mesoNumTable td img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Narrow and portrait screens: let the columns and the Maya glyphs scale to fit */
+@media screen and (max-width: 767px), screen and (orientation: portrait) {
+  .mesoNumTable {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .mesoNumTable th,
+  .mesoNumTable td {
+    overflow-wrap: break-word;
+  }
+
+  .mesoNumTable th:first-child,
+  .mesoNumTable td:first-child {
+    width: 25%;
+  }
+}
+
+/* Sequence game Mesoamerican (fb9dca2c): same responsive Maya images as 07666919 */
+.tawapukllay.mesoNumTable td img,
+.htSequenceYupanaTables.mesoNumTable td img,
+.mesoamerican.mesoNumTable td img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Memory game (52dc6a73): make table and cards responsive on small screens */
+@media screen and (max-width: 600px) {
+  #yupana0.tawapukllay {
+    font-size: 0.72em;
+    table-layout: auto;
+    width: 100%;
+  }
+  #yupana0.tawapukllay td:nth-child(-n+4) {
+    width: 6em;
+    height: 6em;
+  }
+  #yupana0.tawapukllay td:nth-child(n+5) {
+    width: 6em;
+  }
+  #yupana0.mesoNumTable {
+    table-layout: auto;
+  }
+  #yupana0.mesoNumTable th:first-child,
+  #yupana0.mesoNumTable td:first-child {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #yupana0.tawapukllay {
+    font-size: 0.62em;
+  }
+  #yupana0.tawapukllay td:nth-child(-n+4) {
+    width: 5em;
+    height: 5em;
+  }
+  #yupana0.tawapukllay td:nth-child(n+5) {
+    width: 5em;
+  }
 }
 
 .yupana-btn {
@@ -632,6 +941,29 @@
     .dot {
         width: 1.8vmin;
         height: 1.8vmin;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay {
+        font-size: 0.55em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(-n+4) {
+        width: 4.2em;
+        height: 4.2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay td:nth-child(n+5) {
+        width: 2.2em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .dot {
+        width: 0.5em;
+        height: 0.5em;
+    }
+
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .upArrowWithFA,
+    .htSequenceYupanaTables.htSeqYupana .tawapukllay .downArrowWithFA {
+        font-size: 2.2em;
     }
 }
 
@@ -1072,4 +1404,1248 @@ canvas {
   .problem-box {
     font-size: 1rem;
   }
+}
+
+/* Equal, group or different? game */
+.compGame {
+  text-align: center;
+  margin: 1vh auto;
+}
+
+.compLevel {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #5a3f2c;
+}
+
+.compItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4vh;
+  margin: 2vh 0;
+  flex-wrap: wrap;
+}
+
+.compFigureSlot {
+  width: 18vh;
+  height: 18vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compFigure {
+  width: 14vh;
+  height: 14vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.35vh solid #444;
+  border-radius: 1vh;
+  background-color: #fff;
+}
+
+.compShape {
+  border: none;
+  width: 12vh;
+  height: 12vh;
+}
+
+.compFigureImg {
+  max-width: 17vh;
+  max-height: 17vh;
+}
+
+.compNumber {
+  font-size: 4.4vh;
+  font-weight: bold;
+  color: #5a3f2c;
+  white-space: nowrap;
+}
+
+.compNumberSmall {
+  font-size: 2.6vh;
+}
+
+.compButtons {
+  margin: 1.5vh 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1vh;
+}
+
+.compButton {
+  border: 0.35vh solid #444;
+  border-radius: 1.2vh;
+  font-size: 1.05rem;
+  font-weight: bold;
+  padding: 1.2vh 2vh;
+  cursor: pointer;
+  color: #2e241f;
+  transition: 0.08s linear;
+}
+
+.compButton:active {
+  transform: translateY(1px);
+}
+
+.compButton:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.compEqual {
+  background-color: #b9f6ca;
+}
+
+.compGroup {
+  background-color: #fff9c4;
+}
+
+.compNeither {
+  background-color: #ffcdd2;
+}
+
+.compFeedback {
+  min-height: 3.5vh;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.compMsgCorrect {
+  color: #2e7d32;
+}
+
+.compMsgWrong {
+  color: #c62828;
+}
+
+.compMsgFinish {
+  color: #b8860b;
+  font-size: 1.3rem;
+}
+
+.compProgress {
+  font-weight: bold;
+  color: #5a3f2c;
+}
+
+.compScore {
+  font-weight: bold;
+  color: #5a3f2c;
+}
+
+.compNext {
+  background: #5a3f2c;
+  border: none;
+  color: #ffefcf;
+  padding: 4px 12px;
+  border-radius: 35px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85rem;
+  transition: 0.08s linear;
+}
+
+.compNext:active {
+  transform: translateY(1px);
+}
+
+.compInstr {
+  font-size: 1rem;
+  color: #5a3f2c;
+  margin: 1vh auto;
+  max-width: 90%;
+}
+
+.tawapukllay td.htAxiomEditableCell {
+  background: #fff3b0;
+  border: 2px dashed #b8860b;
+}
+
+.htAxiomArrowStopped {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Counting with the bone game */
+.htBoneWrap {
+  text-align: center;
+  margin: 1em auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 4px;
+}
+
+.htBonePrompt {
+  font-size: 1.05em;
+  margin: 0.4em auto 0.8em;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.htBoneLevels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0.8em auto;
+}
+
+.htBoneLevelsLabel {
+  font-weight: bold;
+}
+
+.htBoneTable {
+  margin: 0.6em auto;
+  border-collapse: separate;
+  border-spacing: 4px;
+  background: #ffffe0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.htBoneTable th {
+  background: #f8f8ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  font-size: clamp(0.75em, 2.2vw, 0.95em);
+  white-space: nowrap;
+}
+
+.htBoneTable td {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  vertical-align: middle;
+  padding: 6px 10px;
+  box-sizing: border-box;
+}
+
+.htBoneHands {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(2px, 1vw, 4px);
+  min-width: 0;
+}
+
+.htBoneHandImg {
+  height: clamp(46px, 10vw, 84px);
+  max-width: 100%;
+  cursor: zoom-in;
+  width: auto;
+  object-fit: contain;
+}
+
+.htBone {
+  width: clamp(170px, 56vw, 300px);
+  height: 64px;
+  margin: 6px auto;
+  padding: 21px 0;
+  box-sizing: border-box;
+  background: #8a6d3b;
+  background-clip: content-box;
+  position: relative;
+  max-width: 100%;
+}
+
+.htBone::before,
+.htBone::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #8a6d3b;
+  box-shadow: 0 20px 0 #8a6d3b;
+}
+
+.htBone::before {
+  left: -13px;
+}
+
+.htBone::after {
+  right: -13px;
+}
+
+.htBoneFill {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: #f0e0b8;
+  z-index: 1;
+}
+
+.htBoneFill::before,
+.htBoneFill::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f0e0b8;
+  box-shadow: 0 20px 0 #f0e0b8;
+}
+
+.htBoneFill::before {
+  left: -10px;
+}
+
+.htBoneFill::after {
+  right: -10px;
+}
+
+.htBoneMark {
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  width: 4px;
+  border-radius: 2px;
+  background: #6b4f2f;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.htBoneCount {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.htBoneArrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+}
+
+.htBoneArrow {
+  font-size: 2.8em;
+  line-height: 1;
+  cursor: pointer;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.15em 0.35em;
+  appearance: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  min-width: 1.4em;
+  transition: transform 0.08s, box-shadow 0.08s, opacity 0.15s;
+}
+
+.htBoneArrow:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.htBoneArrow:disabled,
+.htBoneArrowDisabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.htBoneArrowUp {
+  color: #2e7d32;
+  border-color: #a5d6a7;
+}
+
+.htBoneArrowDown {
+  color: #1565c0;
+  border-color: #90caf9;
+}
+
+.htBoneCongrats {
+  font-size: 1.35em;
+  font-weight: bold;
+  color: #155724;
+  text-align: center;
+  margin: 0.6em auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 8px;
+  overflow-wrap: break-word;
+}
+
+.design-dark .htBoneTable {
+  background: #37474f;
+  color: #eceff1;
+}
+
+.design-dark .htBoneTable th {
+  background: #263238;
+  color: #eceff1;
+}
+
+.design-dark .htBoneTable td {
+  background: #1e272e;
+  color: #eceff1;
+}
+
+.design-dark .htBone {
+  background-color: #e6d5ae;
+}
+
+.design-dark .htBone::before,
+.design-dark .htBone::after {
+  background: #e6d5ae;
+  box-shadow: 0 20px 0 #e6d5ae;
+}
+
+.design-dark .htBoneFill {
+  background-color: #8a7453;
+}
+
+.design-dark .htBoneFill::before,
+.design-dark .htBoneFill::after {
+  background: #8a7453;
+  box-shadow: 0 20px 0 #8a7453;
+}
+
+.design-dark .htBoneMark {
+  background: #f0e0b8;
+}
+
+.design-dark .htBoneArrow {
+  background: #37474f;
+  border-color: #546e7a;
+}
+
+.design-dark .htBoneArrowUp {
+  color: #81c784;
+  border-color: #4a6b4a;
+}
+
+.design-dark .htBoneArrowDown {
+  color: #64b5f6;
+  border-color: #4a5a6b;
+}
+
+.design-dark .htBoneCongrats {
+  color: #a5d6a7;
+}
+
+@media screen and (max-width: 991px) {
+  .htBoneTable {
+    width: 100%;
+    font-size: 0.92em;
+  }
+
+  .htBoneTable th {
+    padding: 7px 12px;
+  }
+
+  .htBoneHandImg {
+    height: 70px;
+  }
+
+  .htBoneArrow {
+    font-size: 2.4em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .htBoneWrap {
+    padding: 0 2px;
+  }
+
+  .htBoneTable {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-spacing: 0;
+    padding: 8px;
+    font-size: 0.85em;
+  }
+
+  .htBoneTable thead {
+    display: none;
+  }
+
+  .htBoneTable tbody,
+  .htBoneTable tr {
+    display: block;
+    width: 100%;
+  }
+
+  .htBoneTable tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .htBoneTable td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 8px 6px;
+  }
+
+  .htBoneHandsCell {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .htBoneBoneCell {
+    flex: 1 1 0;
+    min-width: min(180px, 58vw);
+  }
+
+  .htBoneArrowCell {
+    flex: 0 0 auto;
+    min-width: 64px;
+  }
+
+  .htBoneHands {
+    gap: 3px;
+  }
+
+  .htBoneHandImg {
+    height: 58px;
+  }
+
+  .htBone {
+    width: clamp(150px, 62vw, 260px);
+    height: 56px;
+    padding: 18px 0;
+    margin: 4px auto;
+  }
+
+  .htBone::before,
+  .htBone::after {
+    width: 22px;
+    height: 22px;
+    top: 7px;
+    box-shadow: 0 17px 0 #8a6d3b;
+  }
+
+  .htBone::before {
+    left: -11px;
+  }
+
+  .htBone::after {
+    right: -11px;
+  }
+
+  .htBoneFill {
+    top: 20px;
+    height: 14px;
+  }
+
+  .htBoneFill::before,
+  .htBoneFill::after {
+    width: 18px;
+    height: 18px;
+    top: -10px;
+    box-shadow: 0 17px 0 #f0e0b8;
+  }
+
+  .htBoneFill::before {
+    left: -9px;
+  }
+
+  .htBoneFill::after {
+    right: -9px;
+  }
+
+  .htBoneArrows {
+    flex-direction: row;
+    gap: 8px;
+    padding: 4px 6px;
+  }
+
+  .htBoneArrow {
+    font-size: 1.9em;
+    padding: 0.28em 0.5em;
+    min-width: 1.8em;
+  }
+
+  .htBoneCongrats {
+    font-size: 1.15em;
+  }
+
+  .design-dark .htBone::before,
+  .design-dark .htBone::after {
+    box-shadow: 0 17px 0 #e6d5ae;
+  }
+
+  .design-dark .htBoneFill::before,
+  .design-dark .htBoneFill::after {
+    box-shadow: 0 17px 0 #8a7453;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .htBoneTable {
+    padding: 6px;
+    border-spacing: 0;
+  }
+
+  .htBoneTable tr {
+    gap: 6px;
+  }
+
+  .htBoneTable td {
+    padding: 6px 4px;
+  }
+
+  .htBoneHandImg {
+    height: 46px;
+  }
+
+  .htBone {
+    width: clamp(130px, 60vw, 200px);
+    height: 48px;
+    padding: 15px 0;
+  }
+
+  .htBone::before,
+  .htBone::after {
+    width: 20px;
+    height: 20px;
+    top: 6px;
+    box-shadow: 0 15px 0 #8a6d3b;
+  }
+
+  .htBone::before {
+    left: -10px;
+  }
+
+  .htBone::after {
+    right: -10px;
+  }
+
+  .htBoneFill {
+    top: 18px;
+    height: 12px;
+  }
+
+  .htBoneFill::before,
+  .htBoneFill::after {
+    width: 16px;
+    height: 16px;
+    top: -9px;
+    box-shadow: 0 15px 0 #f0e0b8;
+  }
+
+  .htBoneFill::before {
+    left: -8px;
+  }
+
+  .htBoneFill::after {
+    right: -8px;
+  }
+
+  .htBoneArrows {
+    gap: 6px;
+  }
+
+  .htBoneArrow {
+    font-size: 1.6em;
+    padding: 0.25em 0.45em;
+    min-width: 1.6em;
+  }
+
+  .htBoneCongrats {
+    font-size: 1em;
+    padding: 0 4px;
+  }
+
+  .htBonePrompt {
+    font-size: 0.95em;
+  }
+
+  .design-dark .htBone::before,
+  .design-dark .htBone::after {
+    box-shadow: 0 15px 0 #e6d5ae;
+  }
+
+  .design-dark .htBoneFill::before,
+  .design-dark .htBoneFill::after {
+    box-shadow: 0 15px 0 #8a7453;
+  }
+}
+
+.htLevelsTable {
+  width: auto;
+  margin: 0.6em auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.htLevelsTable th,
+.htLevelsTable td {
+  border: 1px solid #555;
+  padding: 6px 16px;
+}
+
+.htLevelsTable th {
+  background: #f8f8ff;
+}
+
+.design-dark .htLevelsTable th {
+  background: #37474f;
+  color: #eceff1;
+}
+
+.design-dark .htLevelsTable td {
+  color: #eceff1;
+}
+
+/* Quipu game (7aec6487): knots tied as circles onto vertical cords hanging from a horizontal main cord. */
+.quipuBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.quipuAssembly {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.quipuTargetsRow {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.4em, 2vw, 2.5em);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.quipuMainCord {
+  align-self: stretch;
+  height: 6px;
+  background: #a1887f;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.quipuStrings {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(0.4em, 2vw, 2.5em);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.quipuString {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: clamp(5.2em, 26vw, 10em);
+  flex: 1 1 0;
+  max-width: 11em;
+}
+
+.quipuTarget {
+  min-width: 0;
+  flex: 1 1 0;
+  max-width: 11em;
+  text-align: center;
+  font-size: clamp(1.1em, 4vw, 1.6em);
+  font-weight: bold;
+  margin-bottom: 0.4em;
+  overflow-wrap: break-word;
+}
+
+.quipuString .quipuTarget {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0.4em;
+}
+
+.quipuCord {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6em 0;
+}
+
+.quipuCord::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: #a1887f;
+  border-radius: 2px;
+}
+
+.quipuOrder {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.25em 0;
+  min-height: 9.2em;
+  height: 9.2em;
+  box-sizing: border-box;
+}
+
+.quipuKnots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 7.5em;
+  flex: 1;
+}
+
+.quipuOrderLabel {
+  position: absolute;
+  left: calc(50% + 0.9em);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7em;
+  color: #757575;
+  white-space: nowrap;
+}
+
+.quipuKnot {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  background: #5d4037;
+  position: relative;
+  z-index: 1;
+}
+
+.quipuKnotGhost {
+  background: transparent;
+  border: 2px dashed #1565c0;
+  box-sizing: border-box;
+}
+
+.quipuKnotMarked {
+  background: #1565c0;
+}
+
+.quipuKnotMatched {
+  background: #2e7d32;
+}
+
+.quipuKnotOver {
+  background: #c62828;
+}
+
+.quipuActive .quipuOrderLabel {
+  color: #1565c0;
+  font-weight: bold;
+}
+
+.quipuFilled .quipuOrderLabel {
+  color: #2e7d32;
+}
+
+.quipuYupanaLayout .quipuOrder {
+  padding: 0 0.45em;
+  border-radius: 10px;
+}
+
+.quipuOrderMatch {
+  background: #e8f5e9;
+}
+
+.quipuOrderOver {
+  background: #ffebee;
+}
+
+.quipuTargetDone {
+  color: #2e7d32;
+}
+
+.quipuStringActive {
+  outline: 2px solid #1565c0;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.quipuControls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.quipuGlobalControls {
+  margin-top: 0;
+  margin-bottom: 0.9em;
+  flex-direction: row;
+  gap: 1.2em;
+  position: relative;
+  background: #fff;
+}
+
+.quipuArrow {
+  border: 2px solid transparent;
+  background: #fff;
+  font-size: 1.9em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.35em 0.7em;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  min-width: 2.4em;
+  transition: transform 0.08s, box-shadow 0.08s, opacity 0.15s;
+}
+
+.quipuArrow:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+}
+
+.quipuArrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+  box-shadow: none;
+}
+
+.quipuUp {
+  color: #2e7d32;
+  border-color: #a5d6a7;
+}
+
+.quipuDown {
+  color: #1565c0;
+  border-color: #90caf9;
+}
+
+.quipuMessage {
+  text-align: center;
+  font-weight: bold;
+  min-height: 1.2em;
+  margin: 0.4em auto;
+}
+
+.quipuCongrats {
+  text-align: center;
+  font-size: 1.35em;
+  font-weight: bold;
+  color: #155724;
+  margin: 0.6em auto;
+}
+
+.quipuLevelBtn,
+.quipuNewBtn {
+  margin: 0.2em;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+.quipuLevelBtn.quipuLevelActive {
+  background: #1565c0;
+  color: #fff;
+}
+
+.design-dark .quipuMainCord {
+  background: #8d6e63;
+}
+
+.design-dark .quipuCord::before {
+  background: #8d6e63;
+}
+
+.design-dark .quipuKnot {
+  background: #d7ccc8;
+}
+
+.design-dark .quipuKnotGhost {
+  background: transparent;
+  border-color: #64b5f6;
+}
+
+.design-dark .quipuKnotMarked {
+  background: #64b5f6;
+}
+
+.design-dark .quipuKnotMatched {
+  background: #a5d6a7;
+}
+
+.design-dark .quipuKnotOver {
+  background: #ef9a9a;
+}
+
+.design-dark .quipuOrderLabel {
+  color: #90a4ae;
+}
+
+.design-dark .quipuActive .quipuOrderLabel {
+  color: #64b5f6;
+}
+
+.design-dark .quipuFilled .quipuOrderLabel {
+  color: #a5d6a7;
+}
+
+.design-dark .quipuOrderMatch {
+  background: rgba(165, 214, 167, 0.18);
+}
+
+.design-dark .quipuOrderOver {
+  background: rgba(229, 115, 115, 0.2);
+}
+
+.design-dark .quipuTarget,
+.design-dark .quipuMessage {
+  color: #eceff1;
+}
+
+.design-dark .quipuCongrats {
+  color: #a5d6a7;
+}
+
+.design-dark .quipuArrow {
+  background: #37474f;
+  color: #eceff1;
+  border-color: #546e7a;
+}
+
+.design-dark .quipuUp {
+  color: #81c784;
+  border-color: #4a6b4a;
+}
+
+.design-dark .quipuDown {
+  color: #64b5f6;
+  border-color: #4a5a6b;
+}
+
+.design-dark .quipuStringActive {
+  outline-color: #64b5f6;
+}
+
+.design-dark .quipuGlobalControls {
+  background: #37474f;
+}
+
+@media screen and (max-width: 991px) {
+  .quipuAssembly {
+    width: 100%;
+  }
+
+  .quipuString {
+    max-width: 9.5em;
+  }
+
+  .quipuTarget {
+    max-width: 9.5em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .quipuTargetsRow,
+  .quipuStrings {
+    gap: 0.6em;
+  }
+
+  .quipuBoard {
+    padding: 0 2px;
+  }
+
+  .quipuString {
+    min-width: clamp(4.6em, 28vw, 8.5em);
+    max-width: 8.5em;
+  }
+
+  .quipuTarget {
+    max-width: 8.5em;
+    font-size: 1.2em;
+  }
+
+  .quipuCord::before {
+    width: 3px;
+  }
+
+  .quipuKnot {
+    width: 0.68em;
+    height: 0.68em;
+  }
+
+  .quipuOrderLabel {
+    font-size: 0.6em;
+    left: calc(50% + 0.7em);
+  }
+
+  .quipuArrow {
+    font-size: 1.6em;
+    padding: 0.3em 0.6em;
+  }
+
+  .quipuOrder {
+    margin: 0.3em 0;
+    min-height: 7.8em;
+    height: 7.8em;
+  }
+
+  .quipuKnots {
+    min-height: 6.2em;
+  }
+
+  .quipuGlobalControls {
+    gap: 0.9em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .quipuTargetsRow,
+  .quipuStrings {
+    gap: 0.35em;
+  }
+
+  .quipuString {
+    min-width: clamp(4em, 30vw, 6em);
+    max-width: 6.2em;
+  }
+
+  .quipuTarget {
+    max-width: 6.2em;
+    font-size: 1.05em;
+  }
+
+  .quipuCord {
+    padding: 0.4em 0;
+  }
+
+  .quipuKnot {
+    width: 0.6em;
+    height: 0.6em;
+  }
+
+  .quipuOrderLabel {
+    font-size: 0.55em;
+    left: calc(50% + 0.6em);
+  }
+
+  .quipuArrow {
+    font-size: 1.35em;
+    padding: 0.28em 0.55em;
+  }
+
+  .quipuOrder {
+    min-height: 6.8em;
+    height: 6.8em;
+  }
+
+  .quipuKnots {
+    min-height: 5.4em;
+  }
+
+  .quipuMessage {
+    font-size: 0.9em;
+    padding: 0 4px;
+  }
+
+  .quipuCongrats {
+    font-size: 1.05em;
+    padding: 0 4px;
+  }
+}
+
+/* Quipu + Yupana side-by-side layout (0b6ac947): one quipu cord next to the Yupana board. */
+.quipuYupanaLayout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75em, 3vw, 2.5em);
+  width: 100%;
+  margin: 0.75em auto 0.25em;
+}
+
+.quipuYupanaLayout .quipuBoard {
+  flex: 1 1 16em;
+  min-width: 11em;
+  width: auto;
+  margin: 0;
+}
+
+.quipuYupanaLayout .quipuYupanaBoard {
+  flex: 0 1 auto;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .quipuYupanaLayout {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .quipuYupanaLayout .quipuBoard {
+    width: 100%;
+  }
+}
+
+/* Responsive fixes for fs_grammar12 screens (clamp + fluid media) */
+.htSequenceGame {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+.tawapukllay canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.tawapukllay td img {
+  max-width: 100%;
+  height: auto;
+}
+p.desc svg {
+  max-width: 100%;
+  height: auto;
+}
+#parentGame {
+  max-width: 100%;
+}
+#parentGame img#imgGame {
+  max-width: 100%;
+  height: auto;
+}
+#imgText {
+  max-width: 100%;
 }

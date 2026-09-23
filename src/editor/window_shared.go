@@ -251,5 +251,70 @@ L['en-US']={homeTitle:'Home page',menuTitle:'Menu',exitTitle:'Exit',devTitle:'De
 		}
 	}
 	addBar();
+	// --- Editor Find parity with viewer (Ctrl+F lowerCase, F3, Escape, selection prefill handled in editor.html) ---
+	try{
+		// attach to config/view iframes for find parity
+		try{
+			var _attachFrameFind=function(fr){
+				try{
+					if(!fr) return;
+					fr.addEventListener('load', function(){
+						try{
+							var d=fr.contentDocument||fr.contentWindow.document;
+							if(!d||d.__ht_findAttached) return;
+							d.__ht_findAttached=true;
+							d.addEventListener('keydown', function(ev){
+								try{
+									if((ev.ctrlKey||ev.metaKey) && ev.key && ev.key.toLowerCase()==='f'){ ev.preventDefault(); try{ parent.openSearch&&parent.openSearch(); }catch(ex){} }
+									else if(ev.key==='F3'){ ev.preventDefault(); try{ if(ev.shiftKey) parent.searchPrev&&parent.searchPrev(); else parent.searchNext&&parent.searchNext(); }catch(ex){} }
+									else if(ev.key==='Escape'){ try{ var _pb=parent.document.getElementById('searchBar'); if(_pb&&_pb.classList.contains('open')){ ev.preventDefault(); parent.closeSearch&&parent.closeSearch(); } }catch(ex){} }
+								}catch(ex){}
+							});
+						}catch(ex){}
+					});
+				}catch(ex){}
+			};
+			_attachFrameFind(document.getElementById('configFrame'));
+			_attachFrameFind(document.getElementById('viewFrame'));
+		}catch(ex){}
+		// aliases to match viewer find API
+		try{
+			window.__ht_findMatches = window.searchMatches;
+			window.__ht_findIndex = window.searchIndex;
+			window.__ht_findOpen = window.openSearch;
+			window.__ht_findClose = window.closeSearch;
+			window.__ht_findDoSearch = window.doSearch;
+			window.__ht_findNext = window.searchNext;
+			window.__ht_findPrev = window.searchPrev;
+		}catch(ex){}
+	}catch(e){}
+	try{
+		try{ if(sessionStorage.getItem('__ht_splashShown')) return; }catch(e){}
+		try{ sessionStorage.setItem('__ht_splashShown','1'); }catch(e){}
+		var _splash=document.createElement('div');
+		_splash.id='__ht_splash';
+		_splash.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:2147483647;transition:opacity 0.5s;';
+		var _stitle=document.createElement('h1');
+		_stitle.textContent='History Tracers';
+		_stitle.style.cssText='color:#000;font-size:clamp(32px,8vw,96px);font-weight:bold;letter-spacing:2px;margin:0;font-family:verdana,arial,helvetica;';
+		_splash.appendChild(_stitle);
+		var _sub=document.createElement('p');
+		_sub.style.cssText='color:#555;font-size:16px;margin:16px 0 0;font-family:verdana,arial,helvetica;text-align:center;';
+		_sub.textContent='Create content that builds the future.';
+		_splash.appendChild(_sub);
+		var _sub2=document.createElement('p');
+		_sub2.style.cssText='color:#555;font-size:16px;margin:8px 0 0;font-family:verdana,arial,helvetica;text-align:center;';
+		_sub2.textContent='Crea contenido que construye el futuro.';
+		_splash.appendChild(_sub2);
+		var _sub3=document.createElement('p');
+		_sub3.style.cssText='color:#555;font-size:16px;margin:8px 0 0;font-family:verdana,arial,helvetica;text-align:center;';
+		_sub3.textContent='Crie conteúdo que constrói o futuro.';
+		_splash.appendChild(_sub3);
+		document.documentElement.appendChild(_splash);
+		setTimeout(function(){
+			_splash.style.opacity='0';
+			setTimeout(function(){try{_splash.remove()}catch(e){}},500);
+		},2000);
+	}catch(e){}
 })();
 `

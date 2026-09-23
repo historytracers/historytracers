@@ -15,7 +15,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/jnmpom18UUb",
+         "url": "https://open.spotify.com/episode/6vwlNAfRgmkOFTQc6quRDI?si=NBQY7z0nSxa0hKvI_KQl2g",
          "external": true,
          "spotify": true
       }
@@ -29,13 +29,15 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1786052441"
+      "1790012250"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      "Dhavit Prem"
+      "Dhavit Prem",
+      "Qodo",
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -54,7 +56,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nWe suggest you read the previous text and the one about addition with the *Yupana*. Also read their prerequisites before continuing",
+               "text": "### Prerequisites\n\nWe recommend reading the previous text and the text on addition with the *Yupana*. Also, read their prerequisites before continuing",
                "source": [
                   {
                      "type": 1,
@@ -64,8 +66,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   },
                   {
@@ -76,8 +78,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -93,7 +95,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nIn the two previous texts about multiplication, we learned that people created a new operation to make repeated addition easier. This leads us to the following reflection",
+               "text": "### Introduction\n\nIn the two previous texts on multiplication, we learned that civilizations developed a new operation to simplify repeated addition. This leads us to the following reflection",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -154,14 +156,14 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
                      "text": "Mapswire",
                      "page": "",
                      "date_time": {
                         "type": "gregory",
-                        "year": "-1",
-                        "month": "-1",
-                        "day": "-1"
+                        "year": "",
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -169,8 +171,8 @@
                   {
                      "type": "gregory",
                      "year": "2022",
-                     "month": "-1",
-                     "day": "-1"
+                     "month": "",
+                     "day": ""
                   }
                ],
                "isTable": false,
@@ -189,8 +191,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "1615",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   },
                   {
@@ -201,8 +203,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2018",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   },
                   {
@@ -225,14 +227,27 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"margin: auto; width: 100%;\"><iframe src=\"https://archive.org/details/primer-nueva-coronica-y-buen-gobierno-manuscrito/page/n361/mode/2up\" width=\"100%\" height=\"560\" frameborder=\"0\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" allowfullscreen></iframe></p><p class=\"desc\"><b>Book 1</b>: Page 362, Felipe Guaman Poma de Ayala's book.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"ArmsAntonio\" onclick=\"htImageZoom('ArmsAntonio', '0%')\" class=\"imgcenter\"/><b>Book 1</b>: Page 362 of Felipe Guaman Poma de Ayala's book (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1615",
+                        "month": "02",
+                        "day": "13"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
-                     "year": "2015",
-                     "month": "4",
-                     "day": "26"
+                     "year": "1615",
+                     "month": "",
+                     "day": ""
                   }
                ],
                "isTable": false,
@@ -251,8 +266,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2018",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   },
                   {
@@ -275,8 +290,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   }
                ],
@@ -292,7 +307,7 @@
          "id": "SECTION_yupana",
          "text": [
             {
-               "text": "### Multiplying with the *Yupana*\n\nTo understand the *Yupana Inka Tawa Pukllay* method better, we will use a Yupana with 4 rows. We will multiply one number by another using repeated addition. With this setup, we can show values up to **9,999**. But we can add more rows to multiply bigger numbers. There is no limit.\n\n#### The Yupana in this section\n\nAs soon as the page loads, the Yupana starts with the first level and with a multiplication to do.\n\nBetween the bar with the buttons \"🎲 New Exercise\" and \"⭐ Next Level\" and the button \"➡️ Next Step\", you will see an instruction. It shows the movements to do at the current stage. When you finish the stage correctly, a message will appear at the bottom of the Yupana to congratulate you.\n\nFollow the steps until you finish the calculation. First, put the number to multiply on the Yupana. Then, add it as many times as the multiplier says. To enter a number, click on any cell of the row on the Yupana. Each click changes the digit of that row from 0 to 9, over and over.\n\nYou can do as many exercises as you want at the same level. To do that, just click \"🎲 New Exercise\" after you finish a calculation.\n\nIf you already feel good about the current level, you can learn more by going to the next level. Use the \"⭐ Next Level\" button.",
+               "text": "### Multiplying with the *Yupana*\n\nTo understand the *Yupana Inka Tawa Pukllay* method better, we will use a Yupana with 4 rows. We will multiply one number by another using repeated addition. With this setup, we can show values up to **9,999**. But we can add more rows to multiply larger numbers. There is no limit.\n\n#### The Yupana in this section\n\nAs soon as the page loads, the Yupana starts with the first level and with a multiplication to do.\n\nBetween the bar with the buttons \"🎲 New Exercise\" and \"⭐ Next Level\" and the button \"➡️ Next Step\", you will see an instruction. It shows the movements to do at the current stage. When you finish the stage correctly, a message will appear at the bottom of the Yupana to congratulate you.\n\nFollow the steps until you finish the calculation. First, put the number to multiply on the Yupana. Then, add it as many times as the multiplier says. To enter a number, toggle the individual cells of the row on the Yupana. Combine their values (5, 3, 2, and 1) to form the required digit.\n\nYou can do as many exercises as you want at the same level. To do that, just click \"🎲 New Exercise\" after you finish a calculation.\n\nIf you already feel good about the current level, you can learn more by going to the next level. Use the \"⭐ Next Level\" button.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -301,7 +316,7 @@
                "PostMention": "."
             },
             {
-               "text": "<style>.yupana-panel { background: #2e241f; border-radius: 50px; padding: 8px 18px; margin-bottom: 15px; margin-top: 15px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .yupana-panel .exercise-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; } .level-badge { background: #ffb347; color: #1f2a0e; font-weight: bold; padding: 4px 14px; border-radius: 30px; font-size: clamp(0.8rem, 3vw, 1rem); white-space: nowrap; } .problem-display { background: #f2ecd8; padding: 4px 16px; border-radius: 35px; font-family: 'Courier New', monospace; font-weight: bold; font-size: clamp(1rem, 4vw, 1.5rem); color: #1f2a0e; white-space: nowrap; } .ex-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 2.5vw, 0.9rem); font-family: inherit; padding: 6px 14px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .ex-btn:hover { background: #a58a6a; transform: scale(1.03); } .ex-btn.hidden { display: none; } .step-panel { padding: 8px 0; color: #ffefcf; font-size: clamp(0.8rem, 2.5vw, 1rem); } .step-status { font-size: clamp(0.7rem, 2vw, 0.85rem); opacity: 0.9; margin-top: 4px; color: #ffefcf; } .feedback-area { text-align: center; margin: 10px 0; font-size: clamp(0.9rem, 3vw, 1.2rem); } .congrats { color: #2e7d32; font-weight: bold; } .success-message { color: #1565c0; } .mult-table { color: #ffefcf; font-family: 'Courier New', monospace; font-weight: bold; font-size: clamp(0.8rem, 2.5vw, 1rem); text-align: center; margin: 6px 0; } .mult-table .mult-row { padding: 2px 0; } .mult-table .mult-row strong { color: #ffb347; } .next-step-btn { display: block; margin: 10px auto; background: #2e7d32; border: none; color: white; font-weight: bold; font-size: clamp(0.9rem, 3vw, 1.1rem); font-family: inherit; padding: 10px 30px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .next-step-btn:hover { background: #388e3c; transform: scale(1.03); } .next-step-btn.hidden { display: none; } #yupana1 { zoom: 0.7; }</style>",
+               "text": "<style>.yupana-panel { background: #2e241f; border-radius: 50px; padding: 8px 18px; margin-bottom: 15px; margin-top: 15px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .yupana-panel .exercise-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; } .level-badge { background: #ffb347; color: #1f2a0e; font-weight: bold; padding: 4px 14px; border-radius: 30px; font-size: clamp(0.8rem, 3vw, 1rem); white-space: nowrap; } .problem-display { background: #f2ecd8; padding: 4px 16px; border-radius: 35px; font-family: 'Courier New', monospace; font-weight: bold; font-size: clamp(1rem, 4vw, 1.5rem); color: #1f2a0e; white-space: nowrap; } .ex-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 2.5vw, 0.9rem); font-family: inherit; padding: 6px 14px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .ex-btn:hover { background: #a58a6a; transform: scale(1.03); } .ex-btn.hidden { display: none; } .step-panel { padding: 8px 0; color: #ffefcf; font-size: clamp(0.8rem, 2.5vw, 1rem); } .step-status { font-size: clamp(0.7rem, 2vw, 0.85rem); opacity: 0.9; margin-top: 4px; color: #ffefcf; } .feedback-area { text-align: center; margin: 10px 0; font-size: clamp(0.9rem, 3vw, 1.2rem); } .congrats { color: #2e7d32; font-weight: bold; } .success-message { color: #ffffff; } .mult-table { color: #ffefcf; font-family: 'Courier New', monospace; font-weight: bold; font-size: clamp(0.8rem, 2.5vw, 1rem); text-align: center; margin: 6px 0; } .mult-table .mult-row { padding: 2px 0; } .mult-table .mult-row strong { color: #ffb347; } .next-step-btn { display: block; margin: 10px auto; background: #2e7d32; border: none; color: white; font-weight: bold; font-size: clamp(0.9rem, 3vw, 1.1rem); font-family: inherit; padding: 10px 30px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .next-step-btn:hover { background: #388e3c; transform: scale(1.03); } .next-step-btn.hidden { display: none; } #yupana1 { zoom: 0.7; }</style>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -350,14 +365,14 @@
                   {
                      "type": "gregory",
                      "year": "2018",
-                     "month": "-1",
-                     "day": "-1"
+                     "month": "",
+                     "day": ""
                   },
                   {
                      "type": "gregory",
                      "year": "1615",
-                     "month": "-1",
-                     "day": "-1"
+                     "month": "",
+                     "day": ""
                   }
                ],
                "isTable": false,
@@ -375,7 +390,7 @@
                "PostMention": ""
             },
             {
-               "text": "We also suggest watching the videos on the *Yupana Inka* channel. This way you can learn more about the work of Dhavit Prem and the Yupana Inka Association",
+               "text": "We also recommend watching the videos on the *Yupana Inka* channel. This way, you can learn more about the work of Dhavit Prem and the Yupana Inka Association",
                "source": [
                   {
                      "type": 1,
@@ -402,7 +417,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we studied another part of the *Yupana Inka Tawa Pukllay* method made by Dhavit Prem (<htcite0>; <htcite1>). This study suggests that the people of *Tawantinsuyu* may have reached the same math conclusions as other civilizations about the link between multiplication and addition.",
+               "text": "### Conclusion\n\nIn this text, we studied another part of the *Yupana Inka Tawa Pukllay* method created by Dhavit Prem (<htcite0>; <htcite1>). This study suggests that the people of *Tawantinsuyu* may have reached the same mathematical conclusions as other civilizations about the relationship between multiplication and addition.",
                "source": [
                   {
                      "type": 1,
@@ -412,8 +427,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2018",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "",
+                        "day": ""
                      }
                   },
                   {

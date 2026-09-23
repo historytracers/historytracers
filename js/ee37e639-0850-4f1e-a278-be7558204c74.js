@@ -2,7 +2,6 @@
 
 function htLoadContent() {
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
 
     htSetImageSrc("imgMWPWEEC", "images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png");
     htSetImageSrc("imgChinese", "images/BritishMuseum/mid_RRC5932_14.jpg");

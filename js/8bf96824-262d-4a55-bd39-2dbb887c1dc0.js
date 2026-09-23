@@ -2,15 +2,17 @@
 
 function htLoadContent() {
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
-    $("#htJapanNipponNihonKoku").html(keywords[139]);
 
-    for (let i = 1 ; i< 9; i++) {
+    for (let i = 1 ; i< 10; i++) {
         $('#repeatNumbers').append($('<option>', {
             value: i,
             text: i
         }));
     }
+
+    $('#repeatNumbers').on('change', function() {
+        htSorobanResetSoroban();
+    });
 
     return false;
 }

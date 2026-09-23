@@ -5,7 +5,6 @@ $(document).ready(function(){
 });
 
 function htLoadContent() {
-    $("#htChinaZhongguo").html(keywords[137]);
 
     return false;
 }

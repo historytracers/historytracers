@@ -34,6 +34,17 @@ var tlsCertFile string
 var tlsKeyFile string
 var useTLS bool
 
+var appVersion = "1.0.0"
+
+func versionHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Cache-Control", "no-store")
+	json.NewEncoder(w).Encode(map[string]string{
+		"version":      appVersion,
+		"releases_url": "https://github.com/historytracers/historytracers/releases",
+	})
+}
+
 type historyEntry struct {
 	Page    string `json:"page"`
 	ArgUUID string `json:"arg"`
@@ -58,14 +69,17 @@ var (
 )
 
 type optionsData struct {
-	Lang    string `json:"lang"`
-	Cal     string `json:"cal"`
-	Recreio string `json:"recreio"`
-	Port    string `json:"port"`
-	Home    string `json:"home"`
-	TLSCert string `json:"tls_cert"`
-	TLSKey  string `json:"tls_key"`
-	MyName  string `json:"my_name"`
+	Lang            string `json:"lang"`
+	Cal             string `json:"cal"`
+	Recreio         string `json:"recreio"`
+	Port            string `json:"port"`
+	Home            string `json:"home"`
+	TLSCert         string `json:"tls_cert"`
+	TLSKey          string `json:"tls_key"`
+	MyName          string `json:"my_name"`
+	OpenLastPage    bool   `json:"open_last_page"`
+	OpenLastPageSet bool   `json:"-"`
+	LastPage        string `json:"last_page"`
 }
 
 var validLangs = map[string]bool{
@@ -181,6 +195,21 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 		if entry.Time == 0 {
 			entry.Time = time.Now().UnixMilli()
 		}
+		// Filter noisy external errors (archive.org BookReader etc.) that are not viewer bugs
+		if entry.Type == "error" {
+			if strings.Contains(entry.Message, "Cannot define multiple custom elements") || strings.Contains(entry.Message, "ia-sentry") || strings.Contains(entry.Message, "donation-banner") || strings.Contains(entry.Message, "SoundManager") || strings.Contains(entry.Message, "NotSupportedError") {
+				w.WriteHeader(http.StatusNoContent)
+				return
+			}
+			if strings.Contains(entry.URL, "archive.org") && (strings.Contains(entry.Message, "custom elements") || strings.Contains(entry.Message, "Sentry") || strings.Contains(entry.Message, "SoundManager")) {
+				w.WriteHeader(http.StatusNoContent)
+				return
+			}
+		}
+		if entry.Type == "network" && strings.Contains(entry.URL, "archive.org") {
+			w.WriteHeader(http.StatusNoContent)
+			return
+		}
 		devMu.Lock()
 		devLog = append(devLog, entry)
 		if len(devLog) > devMax {
@@ -213,6 +242,101 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 	default:
 		http.Error(w, "Method not allowed", 405)
 	}
+}
+
+var (
+	printMu         sync.Mutex
+	printStore      = map[string]string{}
+	printOrder      = map[string]int64{}
+	printSeq        int64
+	printTotalBytes int
+)
+
+func printStoreHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	if !checkToken(r) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 5*1024*1024+1024)
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "bad request", http.StatusBadRequest)
+		return
+	}
+	if len(body) == 0 {
+		http.Error(w, "missing body", http.StatusBadRequest)
+		return
+	}
+	if len(body) > 5*1024*1024 {
+		http.Error(w, "body too large", http.StatusRequestEntityTooLarge)
+		return
+	}
+	buf := make([]byte, 8)
+	if _, err := rand.Read(buf); err != nil {
+		http.Error(w, "cannot generate id", 500)
+		return
+	}
+	id := hex.EncodeToString(buf)
+	printMu.Lock()
+	printSeq++
+	printStore[id] = string(body)
+	printOrder[id] = printSeq
+	printTotalBytes += len(body)
+	const maxEntries = 20
+	const maxTotalBytes = 20 * 5 * 1024 * 1024
+	for len(printStore) > maxEntries || printTotalBytes > maxTotalBytes {
+		var oldest string
+		var oldestSeq int64 = 1<<62 - 1
+		for k, seq := range printOrder {
+			if seq < oldestSeq {
+				oldestSeq = seq
+				oldest = k
+			}
+		}
+		if oldest == "" {
+			break
+		}
+		if s, ok := printStore[oldest]; ok {
+			printTotalBytes -= len(s)
+			delete(printStore, oldest)
+		}
+		delete(printOrder, oldest)
+		if oldest == id {
+			break
+		}
+	}
+	printMu.Unlock()
+	w.Header().Set("Content-Type", "text/plain")
+	fmt.Fprint(w, "/api/print/view?id="+url.QueryEscape(id))
+}
+
+func printViewHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	id := r.URL.Query().Get("id")
+	if id == "" {
+		http.Error(w, "missing id", 400)
+		return
+	}
+	printMu.Lock()
+	html, ok := printStore[id]
+	printMu.Unlock()
+	if !ok {
+		http.Error(w, "not found", 404)
+		return
+	}
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	// Ensure self-print script is present even if caller omitted it
+	if !strings.Contains(html, "window.print") {
+		html = strings.Replace(html, "</body>", "<script>setTimeout(function(){try{window.print();}catch(e){}},400);</script></body>", 1)
+	}
+	fmt.Fprint(w, html)
 }
 
 func devPageHandler(w http.ResponseWriter, r *http.Request) {
@@ -351,7 +475,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 	case http.MethodGet:
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
-		data := readOptions()
+		data, err := readOptions()
+		if err != nil {
+			log.Printf("Warning: cannot read options: %v", err)
+			data = savedOptions
+		}
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(data)
 
@@ -362,7 +490,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
-		data := readOptions()
+		data, err := readOptions()
+		if err != nil {
+			log.Printf("Warning: cannot read options: %v", err)
+			data = savedOptions
+		}
 		if home := r.FormValue("home"); home != "" {
 			trimmed := strings.TrimLeft(home, "/")
 			if !strings.HasPrefix(trimmed, "index.html") {
@@ -384,6 +516,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 				data.Port = v
 			}
 		}
+		if v := r.FormValue("open_last_page"); v != "" {
+			b := v == "1" || v == "true" || v == "on"
+			data.OpenLastPage = b
+			data.OpenLastPageSet = true
+		}
 		if v := r.FormValue("tls_cert"); v != "" {
 			data.TLSCert = v
 		} else if _, ok := r.Form["tls_cert"]; ok {
@@ -399,7 +536,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		} else if _, ok := r.Form["my_name"]; ok {
 			data.MyName = ""
 		}
-		writeOptionsLocked(data)
+		if err := writeOptionsLocked(data); err != nil {
+			log.Printf("Warning: cannot write options: %v", err)
+			http.Error(w, "Failed to save options", http.StatusInternalServerError)
+			return
+		}
 		savedOptions = data
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -421,7 +562,11 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	optionsMu.Lock()
-	data := readOptions()
+	data, err := readOptions()
+	if err != nil {
+		log.Printf("Warning: cannot read options: %v", err)
+		data = savedOptions
+	}
 	optionsMu.Unlock()
 
 	var curLang, curCal, curRecreio, curPort, curHome string
@@ -449,6 +594,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	if curHome == "" {
 		curHome = "/index.html"
 	}
+	curOpenLast := isOpenLastPage(data)
 
 	defaultTLSDir := "/etc/historytracers/"
 	if runtime.GOOS == "windows" {
@@ -479,11 +625,11 @@ select{height:30px}
 var lang=%q;
 var cal=%q;
 var L={};
-L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
+L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',openLastLabel:'Abrir \u00faltima p\u00e1gina visitada ao iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
 L['pt']=L['pt-BR'];
-L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
+L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',openLastLabel:'Abrir la \u00faltima p\u00e1gina visitada al iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
 L['es']=L['es-ES'];
-L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
+L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',openLastLabel:'Open last visited page on startup',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
 L['en']=L['en-US'];
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
@@ -494,6 +640,7 @@ var homeVal=%q;
 var tlsCertVal=%q;
 var tlsKeyVal=%q;
 var certDir=%q;
+var openLastVal=%v;
 
 var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
 var langs=['pt-BR','en-US','es-ES'];
@@ -516,6 +663,7 @@ for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(Stri
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
 html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
+html+='<div class="form-group"><label><input type="checkbox" id="opt_open_last" '+(openLastVal?'checked':'')+'> '+l.openLastLabel+'</label></div>';
 html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
 html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
@@ -540,7 +688,8 @@ document.getElementById('opt_apply').onclick=function(){
 	if(window.__ht_token)hdr['X-HT-Token']=window.__ht_token;
 	var nm=document.getElementById('opt_my_name').value;
 	localStorage.setItem('ht_my_name',nm);
-	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)}).then(function(r){
+	var ol=document.getElementById('opt_open_last').checked?'1':'0';
+	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)+'&open_last_page='+ol}).then(function(r){
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
 		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);parent.location.href=pu.toString()}catch(e){}
@@ -549,7 +698,14 @@ document.getElementById('opt_apply').onclick=function(){
 	});
 };
 </script>
-</body></html>`, viewerToken, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir)
+</body></html>`, viewerToken, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir, curOpenLast)
+}
+
+func isOpenLastPage(d optionsData) bool {
+	if !d.OpenLastPageSet {
+		return true
+	}
+	return d.OpenLastPage
 }
 
 func validateOptions(data *optionsData) {
@@ -577,38 +733,74 @@ func validateOptions(data *optionsData) {
 		data.TLSCert = ""
 		data.TLSKey = ""
 	}
+	if !data.OpenLastPageSet {
+		data.OpenLastPage = true
+		data.OpenLastPageSet = true
+	}
+	if data.LastPage != "" {
+		trimmed := strings.TrimLeft(data.LastPage, "/")
+		if !strings.HasPrefix(trimmed, "index.html") {
+			data.LastPage = ""
+		} else {
+			u, err := url.Parse(data.LastPage)
+			if err != nil {
+				data.LastPage = ""
+			} else {
+				pg := u.Query().Get("page")
+				if pg != "" && !allowedPage(pg) {
+					data.LastPage = ""
+				}
+			}
+		}
+	}
 }
 
-func readOptions() optionsData {
+func readOptions() (optionsData, error) {
 	var data optionsData
 	if optionsFile == "" {
-		return data
+		validateOptions(&data)
+		return data, nil
 	}
 	f, err := os.Open(optionsFile)
 	if err != nil {
-		return data
+		if os.IsNotExist(err) {
+			validateOptions(&data)
+			return data, nil
+		}
+		return data, err
 	}
 	defer f.Close()
 	if err := gob.NewDecoder(f).Decode(&data); err != nil {
-		log.Printf("Warning: cannot decode options: %v", err)
+		return data, err
 	}
 	validateOptions(&data)
-	return data
+	return data, nil
 }
 
-func writeOptionsLocked(data optionsData) {
+func writeOptionsLocked(data optionsData) error {
 	if optionsFile == "" {
-		return
+		return fmt.Errorf("no options file")
 	}
-	f, err := os.Create(optionsFile)
+	dir := filepath.Dir(optionsFile)
+	tmp, err := os.CreateTemp(dir, "options-*.tmp")
 	if err != nil {
-		log.Printf("Warning: cannot write options: %v", err)
-		return
+		return err
 	}
-	defer f.Close()
-	if err := gob.NewEncoder(f).Encode(data); err != nil {
-		log.Printf("Warning: cannot encode options: %v", err)
+	tmpName := tmp.Name()
+	if err := gob.NewEncoder(tmp).Encode(data); err != nil {
+		tmp.Close()
+		_ = os.Remove(tmpName)
+		return err
 	}
+	if err := tmp.Close(); err != nil {
+		_ = os.Remove(tmpName)
+		return err
+	}
+	if err := os.Rename(tmpName, optionsFile); err != nil {
+		_ = os.Remove(tmpName)
+		return err
+	}
+	return nil
 }
 
 func allowedPage(name string) bool {
@@ -623,6 +815,76 @@ func allowedPage(name string) bool {
 		return true
 	}
 	return false
+}
+
+func safeContentKey(key string) bool {
+	if key == "" || key == "." || key == ".." {
+		return false
+	}
+	if strings.ContainsAny(key, "/\\") {
+		return false
+	}
+	return true
+}
+
+var contentTitleCache sync.Map // "lang|key" -> resolved title (may be "")
+
+func resolveContentTitle(page, arg, lang string) string {
+	key := arg
+	if key == "" {
+		key = page
+	}
+	if !safeContentKey(key) {
+		return ""
+	}
+	cacheKey := lang + "|" + key
+	if v, ok := contentTitleCache.Load(cacheKey); ok {
+		return v.(string)
+	}
+	title := resolveContentTitleUncached(key, lang)
+	contentTitleCache.Store(cacheKey, title)
+	return title
+}
+
+func resolveContentTitleUncached(key, lang string) string {
+	langs := []string{"en-US", "pt-BR", "es-ES"}
+	if validLangs[lang] {
+		withLang := []string{lang}
+		for _, l := range langs {
+			if l != lang {
+				withLang = append(withLang, l)
+			}
+		}
+		langs = withLang
+	}
+	for _, l := range langs {
+		b, err := os.ReadFile(filepath.Join(contentDir, "lang", l, key+".json"))
+		if err != nil {
+			continue
+		}
+		var data map[string]interface{}
+		if err := json.Unmarshal(b, &data); err != nil {
+			continue
+		}
+		if title, ok := data["title"]; ok {
+			if s, ok := title.(string); ok && s != "" {
+				return s
+			}
+		}
+		if header, ok := data["header"]; ok {
+			if s, ok := header.(string); ok && s != "" {
+				return s
+			}
+		}
+	}
+	return ""
+}
+
+func contentTitle(page, arg, lang, stored string) string {
+	if t := resolveContentTitle(page, arg, lang); t != "" {
+		return t
+	}
+	return stored
 }
 
 func historyAddHandler(w http.ResponseWriter, r *http.Request) {
@@ -645,13 +907,12 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	arg := r.FormValue("arg")
 	people := r.FormValue("people")
-	title := r.FormValue("title")
 	lang := r.FormValue("lang")
+	title := contentTitle(page, arg, lang, r.FormValue("title"))
 	cal := r.FormValue("cal")
 	now := time.Now().Unix()
 
 	historyMu.Lock()
-	defer historyMu.Unlock()
 
 	entries := readHistoryLocked()
 	// Remove existing entry with the same page+arg+people to avoid duplicates
@@ -668,7 +929,40 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	writeHistoryLocked(entries)
 	rotateToken()
-	w.Header().Set("X-HT-Next-Token", viewerToken)
+	nextToken := viewerToken
+
+	// Persist last visited page for startup restore (keep within historyMu critical section)
+	optionsMu.Lock()
+	data, err := readOptions()
+	if err != nil {
+		log.Printf("Warning: cannot read options: %v", err)
+		data = savedOptions
+	}
+	last := "/index.html?page=" + url.QueryEscape(page)
+	if arg != "" {
+		last += "&arg=" + url.QueryEscape(arg)
+	}
+	if people != "" {
+		last += "&people=" + url.QueryEscape(people)
+	}
+	if lang != "" {
+		last += "&lang=" + url.QueryEscape(lang)
+	}
+	if cal != "" {
+		last += "&cal=" + url.QueryEscape(cal)
+	}
+	data.LastPage = last
+	if err := writeOptionsLocked(data); err != nil {
+		log.Printf("Warning: cannot write options: %v", err)
+	} else {
+		savedOptions = data
+	}
+	optionsMu.Unlock()
+
+	historyMu.Unlock()
+
+	w.Header().Set("X-HT-Next-Token", nextToken)
+	return
 }
 
 func historyListHandler(w http.ResponseWriter, r *http.Request) {
@@ -683,6 +977,10 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 	sort.Slice(entries, func(i, j int) bool {
 		return entries[i].Time > entries[j].Time
 	})
+
+	for i := range entries {
+		entries[i].Title = contentTitle(entries[i].Page, entries[i].ArgUUID, entries[i].Lang, entries[i].Title)
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(entries)
@@ -773,8 +1071,8 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 	page := r.FormValue("page")
 	arg := r.FormValue("arg")
 	people := r.FormValue("people")
-	title := r.FormValue("title")
 	lang := r.FormValue("lang")
+	title := contentTitle(page, arg, lang, r.FormValue("title"))
 	cal := r.FormValue("cal")
 
 	favoritesMu.Lock()
@@ -816,6 +1114,10 @@ func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
 	sort.Slice(entries, func(i, j int) bool {
 		return entries[i].Time > entries[j].Time
 	})
+
+	for i := range entries {
+		entries[i].Title = contentTitle(entries[i].Page, entries[i].ArgUUID, entries[i].Lang, entries[i].Title)
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(entries)
@@ -1103,7 +1405,13 @@ func main() {
 	initDataDir()
 	initUUID()
 	initOptions()
-	savedOptions = readOptions()
+	if data, err := readOptions(); err != nil {
+		log.Printf("Warning: cannot read options: %v", err)
+		validateOptions(&data)
+		savedOptions = data
+	} else {
+		savedOptions = data
+	}
 
 	// Apply saved TLS options if not overridden by CLI
 	if tlsCertFile == "" && savedOptions.TLSCert != "" {
@@ -1133,6 +1441,30 @@ func main() {
 	addr := resolveAddr(effectivePort)
 	if *class != "" {
 		pageURL = buildPageURL(addr, *class, *lang, *cal)
+	} else if isOpenLastPage(savedOptions) && savedOptions.LastPage != "" {
+		trimmed := strings.TrimLeft(savedOptions.LastPage, "/")
+		if strings.HasPrefix(trimmed, "index.html") {
+			if u2, err := url.Parse(savedOptions.LastPage); err == nil {
+				pg := u2.Query().Get("page")
+				if pg == "" || allowedPage(pg) {
+					lp := savedOptions.LastPage
+					if !strings.HasPrefix(lp, "/") {
+						lp = "/" + lp
+					}
+					scheme := "http"
+					if useTLS {
+						scheme = "https"
+					}
+					pageURL = fmt.Sprintf("%s://%s%s", scheme, addr, lp)
+				} else {
+					pageURL = buildPageURL(addr, "", *lang, *cal)
+				}
+			} else {
+				pageURL = buildPageURL(addr, "", *lang, *cal)
+			}
+		} else {
+			pageURL = buildPageURL(addr, "", *lang, *cal)
+		}
 	} else if savedOptions.Home != "" && strings.HasPrefix(strings.TrimLeft(savedOptions.Home, "/"), "index.html") {
 		trimmed := strings.TrimLeft(savedOptions.Home, "/")
 		scheme := "http"
@@ -1193,10 +1525,13 @@ func main() {
 	mux.HandleFunc("/api/favorites/list", favoritesListHandler)
 	mux.HandleFunc("/api/favorites/page", favoritesPageHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
+	mux.HandleFunc("/api/print/store", printStoreHandler)
+	mux.HandleFunc("/api/print/view", printViewHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.HandleFunc("/api/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/options", optionsHandler)
+	mux.HandleFunc("/api/version", versionHandler)
 	mux.HandleFunc("/metrics", metricsHandler)
 	mux.Handle("/csv/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		clean := path.Clean(r.URL.Path)

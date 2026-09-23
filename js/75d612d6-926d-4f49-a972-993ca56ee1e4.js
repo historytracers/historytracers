@@ -23,7 +23,6 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
 
     htSetImageSrc("imgBZ0", "images/BingZhao/img-5.jpg");
     htSetImageSrc("imgBZ24", "images/BingZhao/img-24.jpg");

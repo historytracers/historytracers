@@ -21,15 +21,23 @@ var (
 	procGetWindowLongPtrW   = modUser32.NewProc("GetWindowLongPtrW")
 	procSetWindowLongPtrW   = modUser32.NewProc("SetWindowLongPtrW")
 	procCallWindowProcW     = modUser32.NewProc("CallWindowProcW")
+	procLoadImageW          = modUser32.NewProc("LoadImageW")
+	procSendMessageW        = modUser32.NewProc("SendMessageW")
+	procSetClassLongPtrW    = modUser32.NewProc("SetClassLongPtrW")
 )
 
 const (
-	_HWND_TOPMOST   = ^uintptr(0)
-	_HWND_NOTOPMOST = ^uintptr(1)
-	_SWP_NOMOVE     = 0x0002
-	_SWP_NOSIZE     = 0x0001
-	_SWP_NOACTIVATE = 0x0010
-	_WM_CLOSE       = 0x0010
+	_HWND_TOPMOST    = ^uintptr(0)
+	_HWND_NOTOPMOST  = ^uintptr(1)
+	_SWP_NOMOVE      = 0x0002
+	_SWP_NOSIZE      = 0x0001
+	_SWP_NOACTIVATE  = 0x0010
+	_WM_CLOSE        = 0x0010
+	_WM_SETICON      = 0x0080
+	_ICON_SMALL      = 0
+	_ICON_BIG        = 1
+	_IMAGE_ICON      = 1
+	_LR_LOADFROMFILE = 0x0010
 )
 
 var (
@@ -44,6 +52,25 @@ func bringToFront(hwnd unsafe.Pointer) {
 	procSetWindowPos.Call(h, _HWND_TOPMOST, 0, 0, 0, 0, _SWP_NOMOVE|_SWP_NOSIZE)
 	procSetWindowPos.Call(h, _HWND_NOTOPMOST, 0, 0, 0, 0, _SWP_NOMOVE|_SWP_NOSIZE)
 	procSetForegroundWindow.Call(h)
+}
+
+func setWindowIcon(hwnd unsafe.Pointer, icoPath string) {
+	if hwnd == nil || icoPath == "" {
+		return
+	}
+	p, err := syscall.UTF16PtrFromString(icoPath)
+	if err != nil {
+		return
+	}
+	hIcon, _, _ := procLoadImageW.Call(0, uintptr(unsafe.Pointer(p)), _IMAGE_ICON, 0, 0, _LR_LOADFROMFILE)
+	if hIcon == 0 {
+		return
+	}
+	h := uintptr(hwnd)
+	procSendMessageW.Call(h, _WM_SETICON, _ICON_BIG, hIcon)
+	procSendMessageW.Call(h, _WM_SETICON, _ICON_SMALL, hIcon)
+	procSetClassLongPtrW.Call(h, ^uintptr(13), hIcon)
+	procSetClassLongPtrW.Call(h, ^uintptr(33), hIcon)
 }
 
 func runWindow() {
@@ -68,6 +95,12 @@ func runWindow() {
 	defer w.Destroy()
 
 	theView = w
+
+	_, icoPath := writeTempIcon()
+	if icoPath != "" {
+		setWindowIcon(w.Window(), icoPath)
+		_ = os.RemoveAll(filepath.Dir(icoPath))
+	}
 
 	w.Init(editorBarJS)
 	w.Bind("closeWindow", func() {

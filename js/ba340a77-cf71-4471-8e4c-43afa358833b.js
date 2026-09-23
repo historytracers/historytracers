@@ -29,9 +29,6 @@ function htLoadContent() {
         htFillYupanaDecimalValues('#yupana0', localCounterba340a77, 1, 'red_dot_right_up');
     });
 
-    $("#htChinaZhongguo").html(keywords[137]);
-    $("#htJapanNipponNihonKoku").html(keywords[139]);
-
     htSetImageSrc("imgSoroban", "images/Tohoku/Soroban.png");
     htSetImageSrc("imgSuanpan", "images/BritishMuseum/mid_01381495_001.jpg");
     htSetImageSrc("imgSchyoty", "images/BritishMuseum/289044001.jpg");

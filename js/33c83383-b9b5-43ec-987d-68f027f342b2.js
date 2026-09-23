@@ -24,7 +24,6 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
     htAddTreeReflection("#myFirstReflection", 55);
-    $("#htChinaZhongguo").html(keywords[137]);
 
     htSetImageSrc("catsCirusUrraca", "images/HistoryTracers/CatsCirusUrraca.jpg");
     htSetImageSrc("dogFadinha", "images/HistoryTracers/CadelaOwner.jpg");

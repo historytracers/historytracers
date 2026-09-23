@@ -3,6 +3,7 @@ package main
 
 import (
 	"crypto/rand"
+	"crypto/sha256"
 	"database/sql"
 	"encoding/gob"
 	"encoding/hex"
@@ -41,6 +42,17 @@ var viewerToken string
 var tlsCertFile string
 var tlsKeyFile string
 var useTLS bool
+
+var appVersion = "1.0.0"
+
+func versionHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Cache-Control", "no-store")
+	json.NewEncoder(w).Encode(map[string]string{
+		"version":      appVersion,
+		"releases_url": "https://github.com/historytracers/historytracers/releases",
+	})
+}
 
 func checkToken(r *http.Request) bool {
 	return r.Header.Get("X-HT-Token") == viewerToken
@@ -204,6 +216,8 @@ var allowedEditExts = map[string]bool{
 	".md": true, ".txt": true,
 }
 
+const maxEditableFileSize = 5 * 1024 * 1024 // 5MB limit for editable files
+
 func isAllowedEditFile(filePath string) bool {
 	ext := strings.ToLower(path.Ext(filePath))
 	return allowedEditExts[ext]
@@ -335,11 +349,56 @@ func editorReadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	if len(data) > maxEditableFileSize {
+		http.Error(w, fmt.Sprintf("file too large (%d bytes, limit %d)", len(data), maxEditableFileSize), http.StatusRequestEntityTooLarge)
+		return
+	}
+	h := sha256.Sum256(data)
+	hash := hex.EncodeToString(h[:])
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"content": string(data),
 		"path":    fileParam,
 		"locked":  false,
+		"hash":    hash,
+	})
+}
+
+func fileStatHandler(w http.ResponseWriter, r *http.Request) {
+	fileParam := r.URL.Query().Get("file")
+	if fileParam == "" {
+		http.Error(w, "missing file", http.StatusBadRequest)
+		return
+	}
+	var absPath string
+	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
+		absPath = filepath.Join(getCacheDir(), filepath.Base(fileParam))
+	} else {
+		var err error
+		absPath, err = validateEditPath(fileParam)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+	}
+	data, err := os.ReadFile(absPath)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusNotFound)
+		return
+	}
+	h := sha256.Sum256(data)
+	hash := hex.EncodeToString(h[:])
+	info, _ := os.Stat(absPath)
+	var mtime int64
+	if info != nil {
+		mtime = info.ModTime().UnixMilli()
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"path":  fileParam,
+		"hash":  hash,
+		"mtime": mtime,
+		"size":  len(data),
 	})
 }
 
@@ -360,6 +419,10 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	content = strings.ReplaceAll(content, "\r\n", "\n")
+	if len(content) > maxEditableFileSize {
+		http.Error(w, fmt.Sprintf("content too large (%d bytes, limit %d)", len(content), maxEditableFileSize), http.StatusRequestEntityTooLarge)
+		return
+	}
 
 	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
 		uuidStr := strings.TrimSuffix(filepath.Base(fileParam), ".json")
@@ -373,8 +436,11 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 			log.Printf("ERROR writing cache file: %v", err)
 		}
 		rotateToken()
+		h := sha256.Sum256([]byte(content))
+		hash := hex.EncodeToString(h[:])
+		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("X-HT-Next-Token", viewerToken)
-		w.WriteHeader(http.StatusNoContent)
+		json.NewEncoder(w).Encode(map[string]string{"hash": hash})
 		return
 	}
 
@@ -383,14 +449,24 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if err := validateHTTextFormat(content); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	content = adjustSMGameScores(content)
+
 	if err := os.WriteFile(absPath, []byte(content), 0644); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	addHistory(fileParam)
 	rotateToken()
+	h := sha256.Sum256([]byte(content))
+	hash := hex.EncodeToString(h[:])
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
-	w.WriteHeader(http.StatusNoContent)
+	json.NewEncoder(w).Encode(map[string]string{"hash": hash})
 }
 
 // validateSMGameSmile rejects sm_game files that contain a content block with
@@ -416,6 +492,68 @@ func validateSMGameSmile(content string) error {
 	}
 	if len(missing) > 0 {
 		return fmt.Errorf("sm_game content blocks with empty smile: %s", strings.Join(missing, ", "))
+	}
+	return nil
+}
+
+// adjustSMGameScores sets score to 2 for any sm_game content block whose
+// answer is non-null but score is still 1.
+func adjustSMGameScores(content string) string {
+	var data common.SMGameFile
+	if err := json.Unmarshal([]byte(content), &data); err != nil {
+		return content
+	}
+	if data.Type != "sm_game" {
+		return content
+	}
+	changed := false
+	for i, block := range data.Content {
+		if block.Answer != nil && block.Score == 1 {
+			data.Content[i].Score = 2
+			changed = true
+		}
+	}
+	if !changed {
+		return content
+	}
+	out, err := json.MarshalIndent(data, "", "   ")
+	if err != nil {
+		return content
+	}
+	return string(out) + "\n"
+}
+
+// validateHTTextFormat checks that every object with a "format" field
+// (i.e. HTText objects) has a value of "html", "text", or "markdown".
+func validateHTTextFormat(content string) error {
+	var parsed interface{}
+	if err := json.Unmarshal([]byte(content), &parsed); err != nil {
+		return nil
+	}
+	var invalid []string
+	var walk func(obj interface{}, path string)
+	walk = func(obj interface{}, path string) {
+		switch v := obj.(type) {
+		case map[string]interface{}:
+			if fmt, ok := v["format"].(string); ok {
+				if fmt != "html" && fmt != "text" && fmt != "markdown" {
+					invalid = append(invalid, path+": \""+fmt+"\"")
+				}
+			}
+			for k, child := range v {
+				if k != "format" {
+					walk(child, path+"."+k)
+				}
+			}
+		case []interface{}:
+			for i, child := range v {
+				walk(child, path+"["+strconv.Itoa(i)+"]")
+			}
+		}
+	}
+	walk(parsed, "")
+	if len(invalid) > 0 {
+		return fmt.Errorf("invalid format value in HTText object (allowed: html, text, markdown): %s", strings.Join(invalid, ", "))
 	}
 	return nil
 }
@@ -798,17 +936,31 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 	tpl.Levels = []common.SMGameLevel{}
 	tpl.DateTime = []common.HTDate{}
 
+	var createdFiles []string
 	for _, lang := range editorLangs {
 		smartphoneDir := smartphoneDirForLang(lang)
 		if err := os.MkdirAll(smartphoneDir, 0755); err != nil {
 			log.Printf("ERROR createSmartphone: mkdir %s: %v", smartphoneDir, err)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		tplFile := filepath.Join(smartphoneDir, strID+".json")
-		fp, err := os.Create(tplFile)
+		fp, err := os.OpenFile(tplFile, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0644)
 		if err != nil {
+			if os.IsExist(err) {
+				for _, f := range createdFiles {
+					os.Remove(f)
+				}
+				http.Error(w, "uuid already exists", http.StatusConflict)
+				return
+			}
 			log.Printf("ERROR createSmartphone: create %s: %v", tplFile, err)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -818,15 +970,30 @@ func createSmartphoneHandler(w http.ResponseWriter, r *http.Request) {
 		if err := e.Encode(tpl); err != nil {
 			fp.Close()
 			os.Remove(tplFile)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
 			log.Printf("ERROR createSmartphone: encode %s: %v", tplFile, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		fp.Close()
+		if err := fp.Close(); err != nil {
+			os.Remove(tplFile)
+			for _, f := range createdFiles {
+				os.Remove(f)
+			}
+			log.Printf("ERROR createSmartphone: close %s: %v", tplFile, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		createdFiles = append(createdFiles, tplFile)
 	}
 
 	if err := htInsertSourceFileEntry(strID, strID); err != nil {
 		log.Printf("ERROR createSmartphone: insert source entry: %v", err)
+		for _, f := range createdFiles {
+			os.Remove(f)
+		}
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -906,6 +1073,7 @@ type optionsData struct {
 	Design           string `json:"design"`
 	MyName           string `json:"my_name"`
 	SmartphonePrefix string `json:"smartphone_prefix"`
+	ImagesPath       string `json:"images_path"`
 }
 
 func initDataDir() {
@@ -983,6 +1151,57 @@ func validateEditorOptions(data *optionsData) {
 		data.TLSKey = ""
 	}
 	data.SmartphonePrefix = normalizeSmartphonePrefix(data.SmartphonePrefix)
+	data.ImagesPath = normalizeImagesPath(data.ImagesPath)
+}
+
+func normalizeImagesPath(p string) string {
+	p = strings.TrimSpace(p)
+	if p == "" || p == "." {
+		return ""
+	}
+	return p
+}
+
+func getImagesRoot() string {
+	optionsMu.Lock()
+	imagesPath := savedOptions.ImagesPath
+	optionsMu.Unlock()
+	p := strings.TrimSpace(imagesPath)
+	if p == "" {
+		return filepath.Join(rootDir, "images")
+	}
+	clean := filepath.Clean(p)
+	// Treat "/images" as web path alias for local images directory
+	if clean == "/images" || clean == "images" {
+		return filepath.Join(rootDir, "images")
+	}
+	if filepath.IsAbs(p) {
+		if info, err := os.Stat(p); err == nil && info.IsDir() {
+			return filepath.Clean(p)
+		}
+		if filepath.IsAbs(clean) && clean == "/images" {
+			return filepath.Join(rootDir, "images")
+		}
+		// If absolute path does not exist as directory, fallback to local for web prefix "/images"
+		if strings.HasPrefix(p, "/") {
+			// Check if p is exactly "/images" or starts with "/images/" but filesystem not exists -> fallback
+			// Use local to avoid empty listing for web path.
+			if p == "/images" || strings.HasPrefix(p, "/images/") {
+				return filepath.Join(rootDir, "images")
+			}
+		}
+		return filepath.Clean(p)
+	}
+	// relative path - check existence
+	candidate := filepath.Join(rootDir, filepath.Clean(p))
+	if info, err := os.Stat(candidate); err == nil && info.IsDir() {
+		return candidate
+	}
+	// If relative does not exist and is "images", fallback to local
+	if clean == "images" {
+		return filepath.Join(rootDir, "images")
+	}
+	return candidate
 }
 
 func normalizeSmartphonePrefix(p string) string {
@@ -1224,6 +1443,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		} else if _, ok := r.Form["smartphone_prefix"]; ok {
 			data.SmartphonePrefix = ""
 		}
+		if v := r.FormValue("images_path"); v != "" {
+			data.ImagesPath = v
+		} else if _, ok := r.Form["images_path"]; ok {
+			data.ImagesPath = ""
+		}
 		writeEditorOptions(data)
 		optionsMu.Lock()
 		savedOptions = data
@@ -1271,6 +1495,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		curDesign = "default"
 	}
 	curSmartphonePrefix := data.SmartphonePrefix
+	curImagesPath := data.ImagesPath
 	defaultTLSDir := "/etc/historytracers/"
 	if runtime.GOOS == "windows" {
 		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
@@ -1306,10 +1531,11 @@ var token=window.__ht_token||'';
 var openNewFiles=%q;
 var curDesign=%q;
 var smartphonePrefixVal=%q;
+var imagesPathVal=%q;
 var L={};
-L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro',smartphonePrefixLabel:'Prefixo do caminho Smartphone',smartphonePrefixNote:'Prefixa o caminho padr\u00e3o src/smartphone. Por exemplo, MYSMARTPHONE.'};
-L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro',smartphonePrefixLabel:'Prefijo de ruta Smartphone',smartphonePrefixNote:'Prefija la ruta predeterminada src/smartphone. Por ejemplo, MYSMARTPHONE.'};
-L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light',smartphonePrefixLabel:'Smartphone path prefix',smartphonePrefixNote:'Prefixes the default path src/smartphone. For example, MYSMARTPHONE.'};
+L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro',smartphonePrefixLabel:'Prefixo do caminho Smartphone',smartphonePrefixNote:'Prefixa o caminho padr\u00e3o src/smartphone. Por exemplo, MYSMARTPHONE.',imagesPathLabel:'Caminho das imagens',imagesPathNote:'Caminho completo para /images. Deixe vazio para usar o diret\u00f3rio local images/. Exemplo: /images ou /home/user/images'};
+L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro',smartphonePrefixLabel:'Prefijo de ruta Smartphone',smartphonePrefixNote:'Prefija la ruta predeterminada src/smartphone. Por ejemplo, MYSMARTPHONE.',imagesPathLabel:'Ruta de im\u00e1genes',imagesPathNote:'Ruta completa a /images. Dejar vac\u00edo para usar el directorio local images/. Ejemplo: /images o /home/user/images'};
+L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light',smartphonePrefixLabel:'Smartphone path prefix',smartphonePrefixNote:'Prefixes the default path src/smartphone. For example, MYSMARTPHONE.',imagesPathLabel:'Images path',imagesPathNote:'Whole path to /images. Leave empty for local images/ directory. Example: /images or /home/user/images'};
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
@@ -1329,6 +1555,8 @@ html+='<div class="form-group"><label>'+l.designLabel+'</label><select id="opt_d
 html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
 html+='<div class="form-group"><label>'+l.smartphonePrefixLabel+'</label><input type="text" id="opt_smartphone_prefix" placeholder="MYSMARTPHONE" value="'+smartphonePrefixVal+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.smartphonePrefixNote+'</div>';
+html+='<div class="form-group"><label>'+l.imagesPathLabel+'</label><input type="text" id="opt_images_path" placeholder="/images" value="'+imagesPathVal+'"></div>';
+html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.imagesPathNote+'</div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
 html+='<div id="opt_status"></div>';
@@ -1348,9 +1576,13 @@ document.getElementById('opt_apply').onclick=function(){
 	var nd=document.getElementById('opt_design').value;
 	var nm=document.getElementById('opt_my_name').value;
 	var sp=document.getElementById('opt_smartphone_prefix').value;
+	var ip=document.getElementById('opt_images_path').value;
 	localStorage.setItem('ht_my_name',nm);
-	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)+'&smartphone_prefix='+encodeURIComponent(sp)}).then(function(r){
-		if(r.ok&&window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
+	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)+'&smartphone_prefix='+encodeURIComponent(sp)+'&images_path='+encodeURIComponent(ip)}).then(function(r){
+		if(r.ok){
+			if(window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
+			if(window.parent&&window.parent.__ht_editor_opts){window.parent.__ht_editor_opts.smartphone_prefix=sp;window.parent.__ht_editor_opts.images_path=ip;}
+		}
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
 	}).catch(function(e){
@@ -1369,7 +1601,7 @@ document.getElementById('opt_import').onclick=function(){
 	});
 };
 </script>
-</body></html>`, viewerToken, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, fmt.Sprint(openNewFiles), curDesign, curSmartphonePrefix)
+</body></html>`, viewerToken, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, fmt.Sprint(openNewFiles), curDesign, curSmartphonePrefix, curImagesPath)
 }
 
 func init() {
@@ -1517,6 +1749,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/editor/tree", editorTreeHandler)
 	mux.HandleFunc("/api/editor/read", editorReadHandler)
+	mux.HandleFunc("/api/editor/file-stat", fileStatHandler)
 	mux.HandleFunc("/api/editor/save", editorSaveHandler)
 	mux.HandleFunc("/api/editor/unlock", editorUnlockHandler)
 	mux.HandleFunc("/api/editor/create-class", createClassHandler)
@@ -1531,11 +1764,15 @@ func main() {
 	mux.HandleFunc("/api/editor/find-source", findSourceHandler)
 	mux.HandleFunc("/api/editor/link-source", linkSourceHandler)
 	mux.HandleFunc("/api/editor/source-formats", sourceFormatsHandler)
+	mux.HandleFunc("/api/editor/images", imagesHandler)
+	mux.HandleFunc("/api/editor/image", imageFileHandler)
 	mux.HandleFunc("/api/editor/create-source", createSourceHandler)
 	mux.HandleFunc("/api/editor/history", historyHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)
 	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
+	mux.HandleFunc("/api/version", versionHandler)
+	mux.HandleFunc("/api/editor/version", versionHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
@@ -1673,6 +1910,10 @@ func htSaveSourceFileToDB(uuid string, data []byte) error {
 	}
 	defer db.Close()
 
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
+
 	tx, err := db.Begin()
 	if err != nil {
 		return fmt.Errorf("failed to begin transaction: %w", err)
@@ -1709,7 +1950,8 @@ func htSaveSourceFileToDB(uuid string, data []byte) error {
 			if sfoID == "" {
 				sfoID = apaUUID
 			}
-			srcStmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, elem.URL)
+			trimmedURL := strings.TrimSpace(elem.URL)
+			srcStmt.Exec(elem.ID, sfoID, elem.Citation, elem.Date, elem.PublishDate, trimmedURL)
 			citStmt.Exec(uuid, elem.ID, citType)
 		}
 	}
@@ -1783,7 +2025,12 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			// smartphone files live under <prefix>/src/smartphone/<lang>/
 			smartCandidate := filepath.Join(smartphoneDirForLang(langName), uuidStr+".json")
 			if info, err := os.Stat(smartCandidate); err == nil && !info.IsDir() {
-				if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
+				if absPrefix := smartphonePrefixAbs(); absPrefix != "" {
+					result = append(result, map[string]string{
+						"path":  filepath.ToSlash(smartCandidate),
+						"label": langName,
+					})
+				} else if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
 					result = append(result, map[string]string{
 						"path":  filepath.ToSlash(rel),
 						"label": langName,
@@ -1953,7 +2200,7 @@ func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 	if _, err := uuid.Parse(q); err == nil {
 		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
 	} else {
-		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? ORDER BY s.src_id", likeQ)
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
 	}
 	if err != nil {
 		json.NewEncoder(w).Encode([]map[string]string{})
@@ -2017,7 +2264,7 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 	srcCitation := r.FormValue("src_citation")
 	srcDate := r.FormValue("src_date")
 	srcPublishDate := r.FormValue("src_publish_date")
-	srcURL := r.FormValue("src_url")
+	srcURL := strings.TrimSpace(r.FormValue("src_url"))
 	citTypeStr := r.FormValue("cit_type")
 
 	if fileUUID == "" || srcID == "" {
@@ -2047,6 +2294,10 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer db.Close()
+
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
 
 	tx, err := db.Begin()
 	if err != nil {
@@ -2125,30 +2376,293 @@ func sourceFormatsHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(result)
 }
 
+func imagesHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	dirParam := r.URL.Query().Get("dir")
+	imagesRoot := getImagesRoot()
+	if dirParam == "" {
+		entries, err := os.ReadDir(imagesRoot)
+		if err != nil {
+			json.NewEncoder(w).Encode(map[string]interface{}{"dirs": []string{}})
+			return
+		}
+		dirs := []string{}
+		for _, e := range entries {
+			if !e.IsDir() {
+				continue
+			}
+			name := e.Name()
+			if strings.HasPrefix(name, ".") {
+				continue
+			}
+			dirs = append(dirs, name)
+		}
+		// sort already by ReadDir but ensure
+		// use simple sort
+		for i := 0; i < len(dirs); i++ {
+			for j := i + 1; j < len(dirs); j++ {
+				if strings.ToLower(dirs[j]) < strings.ToLower(dirs[i]) {
+					dirs[i], dirs[j] = dirs[j], dirs[i]
+				}
+			}
+		}
+		json.NewEncoder(w).Encode(map[string]interface{}{"dirs": dirs})
+		return
+	}
+	clean := path.Clean(dirParam)
+	if strings.Contains(clean, "..") || strings.Contains(clean, "/") || strings.Contains(clean, "\\") {
+		http.Error(w, "invalid dir", http.StatusBadRequest)
+		return
+	}
+	target := filepath.Join(imagesRoot, clean)
+	info, err := os.Stat(target)
+	if err != nil || !info.IsDir() {
+		http.Error(w, "not found", http.StatusNotFound)
+		return
+	}
+	entries, err := os.ReadDir(target)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]interface{}{"files": []string{}})
+		return
+	}
+	allowed := map[string]bool{".jpg": true, ".jpeg": true, ".png": true, ".gif": true, ".webp": true, ".svg": true, ".bmp": true, ".avif": true, ".JPG": true, ".JPEG": true, ".PNG": true}
+	files := []string{}
+	for _, e := range entries {
+		if e.IsDir() {
+			continue
+		}
+		name := e.Name()
+		if strings.HasPrefix(name, ".") {
+			continue
+		}
+		ext := strings.ToLower(path.Ext(name))
+		if !allowed[ext] && !allowed[strings.ToUpper(ext)] {
+			// check lowercased
+			if !allowed[ext] {
+				continue
+			}
+		}
+		files = append(files, name)
+	}
+	for i := 0; i < len(files); i++ {
+		for j := i + 1; j < len(files); j++ {
+			if strings.ToLower(files[j]) < strings.ToLower(files[i]) {
+				files[i], files[j] = files[j], files[i]
+			}
+		}
+	}
+	json.NewEncoder(w).Encode(map[string]interface{}{"dir": clean, "files": files})
+}
+
+func imageFileHandler(w http.ResponseWriter, r *http.Request) {
+	dirParam := r.URL.Query().Get("dir")
+	fileParam := r.URL.Query().Get("file")
+	if dirParam == "" || fileParam == "" {
+		// also support ?path=images/dir/file
+		if p := r.URL.Query().Get("path"); p != "" {
+			clean := path.Clean(p)
+			if strings.Contains(clean, "..") {
+				http.Error(w, "invalid path", http.StatusBadRequest)
+				return
+			}
+			// remove leading images/ or /images/ prefix if present
+			trimmed := strings.TrimPrefix(clean, "images/")
+			trimmed = strings.TrimPrefix(trimmed, "/images/")
+			trimmed = strings.TrimPrefix(trimmed, "/")
+			parts := strings.SplitN(trimmed, "/", 2)
+			if len(parts) == 2 {
+				dirParam = parts[0]
+				fileParam = parts[1]
+			} else {
+				http.Error(w, "invalid path", http.StatusBadRequest)
+				return
+			}
+		} else {
+			http.Error(w, "missing dir/file", http.StatusBadRequest)
+			return
+		}
+	}
+	cleanDir := path.Clean(dirParam)
+	cleanFile := path.Clean(fileParam)
+	if strings.Contains(cleanDir, "..") || strings.Contains(cleanDir, "/") || strings.Contains(cleanDir, "\\") {
+		http.Error(w, "invalid dir", http.StatusBadRequest)
+		return
+	}
+	if strings.Contains(cleanFile, "..") || strings.Contains(cleanFile, "/") || strings.Contains(cleanFile, "\\") {
+		http.Error(w, "invalid file", http.StatusBadRequest)
+		return
+	}
+	imagesRoot := getImagesRoot()
+	target := filepath.Join(imagesRoot, cleanDir, cleanFile)
+	info, err := os.Stat(target)
+	if err != nil || info.IsDir() {
+		http.Error(w, "not found", http.StatusNotFound)
+		return
+	}
+	ext := strings.ToLower(path.Ext(cleanFile))
+	allowed := map[string]bool{".jpg": true, ".jpeg": true, ".png": true, ".gif": true, ".webp": true, ".svg": true, ".bmp": true, ".avif": true}
+	if !allowed[ext] {
+		http.Error(w, "not allowed", http.StatusForbidden)
+		return
+	}
+	http.ServeFile(w, r, target)
+}
+
 // dateRE matches the YYYY-MM-DD date format used by the sources table.
+// yearRE matches the YYYY format also accepted for sources.
 var dateRE = regexp.MustCompile(`^[0-9]{4}-[0-9]{2}-[0-9]{2}$`)
+var yearRE = regexp.MustCompile(`^[0-9]{4}$`)
 
 // validSourceDate reports whether the given date is empty or uses the
-// YYYY-MM-DD format expected by the sources table.
+// YYYY-MM-DD or YYYY format expected by the sources table.
 func validSourceDate(value string) bool {
 	if value == "" {
 		return true
 	}
-	return dateRE.MatchString(value)
+	if yearRE.MatchString(value) {
+		return true
+	}
+	if !dateRE.MatchString(value) {
+		return false
+	}
+	// Validate month/day when full date is provided.
+	parts := strings.Split(value, "-")
+	if len(parts) != 3 {
+		return false
+	}
+	y, _ := strconv.Atoi(parts[0])
+	m, _ := strconv.Atoi(parts[1])
+	d, _ := strconv.Atoi(parts[2])
+	if m < 1 || m > 12 {
+		return false
+	}
+	dim := []int{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+	if (y%4 == 0 && y%100 != 0) || y%400 == 0 {
+		dim[1] = 29
+	}
+	return d >= 1 && d <= dim[m-1]
 }
 
-// createSourceHandler inserts a new row into the sources table. The src_id is
-// generated here (UUID); all other fields come from the editor form.
+func isUniqueConstraintError(err error) bool {
+	if err == nil {
+		return false
+	}
+	msg := err.Error()
+	return strings.Contains(msg, "UNIQUE constraint failed") || strings.Contains(msg, "unique constraint")
+}
+
+func htMigrateSourceURLs(db *sql.DB) error {
+	if _, err := db.Exec(`UPDATE sources SET src_url = TRIM(src_url) WHERE src_url != TRIM(src_url)`); err != nil {
+		if !strings.Contains(err.Error(), "no such table") {
+			return fmt.Errorf("trim src_url: %w", err)
+		}
+	}
+	// Audit: capture all UUIDs with duplicated src_url before dedup so callers
+	// can reconcile HTSource objects in lang/* JSON files that reference the
+	// discarded IDs. Keep IF NOT EXISTS to preserve pre-dedup audit on later runs.
+	if _, err := db.Exec(`CREATE TABLE IF NOT EXISTS temp_sources (src_id TEXT PRIMARY KEY, src_url TEXT NOT NULL, normalized_url TEXT NOT NULL)`); err != nil {
+		return fmt.Errorf("create temp_sources table: %w", err)
+	}
+	var cnt int
+	if err := db.QueryRow(`SELECT COUNT(*) FROM temp_sources`).Scan(&cnt); err == nil && cnt == 0 {
+		if _, err := db.Exec(`INSERT INTO temp_sources (src_id, src_url, normalized_url) SELECT s.src_id, s.src_url, TRIM(s.src_url) FROM sources s WHERE TRIM(s.src_url) != '' AND TRIM(s.src_url) IN (SELECT TRIM(src_url) FROM sources WHERE TRIM(src_url) != '' GROUP BY TRIM(src_url) HAVING COUNT(*) > 1)`); err != nil {
+			if !strings.Contains(err.Error(), "no such table") {
+				return fmt.Errorf("populate temp_sources: %w", err)
+			}
+		}
+	}
+	// Select best source per duplicated URL (most info in sources table) and
+	// store in temp_keep_source. This will be used as the keeper during dedup
+	// instead of arbitrary lexicographic order. Keep IF NOT EXISTS to preserve
+	// pre-dedup audit on subsequent runs.
+	if _, err := db.Exec(`CREATE TABLE IF NOT EXISTS temp_keep_source (normalized_url TEXT PRIMARY KEY, keep_src_id TEXT NOT NULL)`); err != nil {
+		return fmt.Errorf("create temp_keep_source: %w", err)
+	}
+	var cntKeep int
+	if err := db.QueryRow(`SELECT COUNT(*) FROM temp_keep_source`).Scan(&cntKeep); err == nil && cntKeep == 0 {
+		if _, err := db.Exec(`INSERT INTO temp_keep_source (normalized_url, keep_src_id)
+			SELECT normalized_url, src_id FROM (
+				SELECT TRIM(s.src_url) AS normalized_url, s.src_id,
+					ROW_NUMBER() OVER (PARTITION BY TRIM(s.src_url) ORDER BY
+						(CASE WHEN s.src_citation != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.src_date != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.src_publish_date != '' THEN 1 ELSE 0 END +
+						 CASE WHEN s.sfo_id != '' THEN 1 ELSE 0 END) DESC,
+						length(s.src_citation) DESC,
+						length(s.src_url) DESC,
+						s.src_id ASC) AS rn
+				FROM sources s
+				WHERE TRIM(s.src_url) != '' AND TRIM(s.src_url) IN (
+					SELECT TRIM(src_url) FROM sources WHERE TRIM(src_url) != '' GROUP BY TRIM(src_url) HAVING COUNT(*) > 1
+				)
+			) WHERE rn=1`); err != nil {
+			return fmt.Errorf("populate temp_keep_source: %w", err)
+		}
+	}
+	rows, err := db.Query(`SELECT tks.normalized_url, tks.keep_src_id, GROUP_CONCAT(ts.src_id) as ids
+		FROM temp_keep_source tks
+		JOIN temp_sources ts ON ts.normalized_url = tks.normalized_url
+		GROUP BY tks.normalized_url, tks.keep_src_id`)
+	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			return nil
+		}
+		return fmt.Errorf("query duplicates: %w", err)
+	}
+	defer rows.Close()
+	type dupGroup struct {
+		norm string
+		keep string
+		ids  string
+	}
+	var groups []dupGroup
+	for rows.Next() {
+		var g dupGroup
+		if err := rows.Scan(&g.norm, &g.keep, &g.ids); err != nil {
+			continue
+		}
+		groups = append(groups, g)
+	}
+	rows.Close()
+	for _, g := range groups {
+		ids := strings.Split(g.ids, ",")
+		keep := g.keep
+		for _, dup := range ids {
+			if dup == keep {
+				continue
+			}
+			// Only overwrite the duplicate UUID with the keeper UUID; do not
+			// remove any citation or source row. The keeper UUID overwrites the
+			// discarded one in referencing data, preserving citation count.
+			// No DELETE is performed here per requirement to keep all citations.
+			log.Printf("[OVERWRITE] duplicate src_url %q: would overwrite %s with %s (most info) – no rows deleted", g.norm, dup, keep)
+		}
+	}
+	if _, err := db.Exec(`CREATE UNIQUE INDEX IF NOT EXISTS idx_sources_src_url_unique ON sources(src_url) WHERE src_url != ''`); err != nil {
+		if strings.Contains(err.Error(), "UNIQUE constraint failed") || strings.Contains(err.Error(), "already exists") {
+			log.Printf("WARNING: cannot create unique index on src_url – duplicate URLs remain (%v). Skipping index creation.", err)
+			return nil
+		}
+		return fmt.Errorf("create unique index: %w", err)
+	}
+	return nil
+}
+
+// createSourceHandler inserts a new row into the sources table and links it to
+// the current file in the citation table. The src_id is generated here (UUID);
+// all other fields come from the editor form.
 func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
+	fileUUID := r.FormValue("file_uuid")
 	sfoID := r.FormValue("sfo_id")
 	srcCitation := strings.TrimSpace(r.FormValue("src_citation"))
 	srcDate := r.FormValue("src_date")
 	srcPublishDate := r.FormValue("src_publish_date")
 	srcURL := r.FormValue("src_url")
+	citTypeStr := r.FormValue("cit_type")
 
 	if srcCitation == "" {
 		json.NewEncoder(w).Encode(map[string]string{"error": "src_citation is required"})
@@ -2156,12 +2670,12 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !validSourceDate(srcDate) {
-		json.NewEncoder(w).Encode(map[string]string{"error": "src_date must use the YYYY-MM-DD format"})
+		json.NewEncoder(w).Encode(map[string]string{"error": "src_date must use the YYYY-MM-DD or YYYY format"})
 		return
 	}
 
 	if !validSourceDate(srcPublishDate) {
-		json.NewEncoder(w).Encode(map[string]string{"error": "src_publish_date must use the YYYY-MM-DD format"})
+		json.NewEncoder(w).Encode(map[string]string{"error": "src_publish_date must use the YYYY-MM-DD or YYYY format"})
 		return
 	}
 
@@ -2169,6 +2683,22 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	if sfoID == "" {
 		sfoID = "a1b2c3d4-0000-4000-8000-000000000001"
 	}
+
+	citType := 0
+	if citTypeStr != "" {
+		v, err := strconv.Atoi(citTypeStr)
+		if err != nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "cit_type must be an integer"})
+			return
+		}
+		if v < 0 || v > 3 {
+			json.NewEncoder(w).Encode(map[string]string{"error": "cit_type must be between 0 and 3"})
+			return
+		}
+		citType = v
+	}
+
+	srcURL = strings.TrimSpace(srcURL)
 
 	dbPath := filepath.Join(rootDir, "lang", "sources", "history_tracers.db")
 	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
@@ -2183,11 +2713,57 @@ func createSourceHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
+	if err := htMigrateSourceURLs(db); err != nil {
+		log.Printf("WARNING migrate sources: %v", err)
+	}
+
+	if srcURL != "" {
+		var existingID string
+		err := db.QueryRow(`SELECT src_id FROM sources WHERE src_url = ? LIMIT 1`, srcURL).Scan(&existingID)
+		if err == nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "src_url already exists", "src_id": existingID})
+			return
+		} else if err != sql.ErrNoRows {
+			json.NewEncoder(w).Encode(map[string]string{"error": "failed to check duplicate src_url"})
+			return
+		}
+	}
+
+	tx, err := db.Begin()
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to begin transaction"})
+		return
+	}
+	defer tx.Rollback()
+
 	srcID := uuid.New().String()
-	_, err = db.Exec(`INSERT OR IGNORE INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
+	_, err = tx.Exec(`INSERT INTO sources (src_id, sfo_id, src_citation, src_date, src_publish_date, src_url) VALUES (?, ?, ?, ?, ?, ?)`,
 		srcID, sfoID, srcCitation, srcDate, srcPublishDate, srcURL)
 	if err != nil {
+		if isUniqueConstraintError(err) && srcURL != "" {
+			var existingID string
+			_ = db.QueryRow(`SELECT src_id FROM sources WHERE src_url = ? LIMIT 1`, srcURL).Scan(&existingID)
+			json.NewEncoder(w).Encode(map[string]string{"error": "src_url already exists", "src_id": existingID})
+			return
+		}
 		json.NewEncoder(w).Encode(map[string]string{"error": "failed to insert source"})
+		return
+	}
+
+	if fileUUID != "" {
+		if _, err := tx.Exec(`INSERT OR IGNORE INTO files (fil_id, fil_desc) VALUES (?, ?)`, fileUUID, ""); err != nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "failed to insert file"})
+			return
+		}
+		if _, err := tx.Exec(`INSERT OR IGNORE INTO citation (fil_id, src_id, cit_type) VALUES (?, ?, ?)`,
+			fileUUID, srcID, citType); err != nil {
+			json.NewEncoder(w).Encode(map[string]string{"error": "failed to link source to file"})
+			return
+		}
+	}
+
+	if err := tx.Commit(); err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"error": "failed to commit transaction"})
 		return
 	}
 

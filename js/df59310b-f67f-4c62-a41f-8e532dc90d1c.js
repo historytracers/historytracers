@@ -21,8 +21,19 @@ function htPlusDivs(n) {
 }
 
 function htLoadExercise() {
-    htAddAlterQImages(".htSlides");
-    htPlusDivs(0);
+    htSetImageSrc("CEast", "images/Copan/CopanStelaC.jpg");
+    htSetImageSrc("CWest", "images/Copan/CopanStelaCBeard.jpg");
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
+    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png");
+    htSetImageSrc("imgCopanTemple2", "images/Copan/RosalilaReconstruction.jpg");
+    htSetImageSrc("imgCopanWholeTextSA", "images/Copan/CopanWholeTextStelaAltar.png");
+
+    try {
+        htAddAlterQImages(".htSlides");
+        htPlusDivs(0);
+    } catch (e) {
+        console.error("Slides failed", e);
+    }
     htAddTreeReflection("#myFirstReflection", 55);
 
     if (localAnswerVector == undefined) {
@@ -33,12 +44,6 @@ function htLoadExercise() {
 
     htWriteNavigation();
 
-    htSetImageSrc("CEast", "images/Copan/CopanStelaC.jpg");
-    htSetImageSrc("CWest", "images/Copan/CopanStelaCBeard.jpg");
-    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
-    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png");
-    htSetImageSrc("imgCopanTemple2", "images/Copan/RosalilaReconstruction.jpg");
-    htSetImageSrc("imgCopanWholeTextSA", "images/Copan/CopanWholeTextStelaAltar.png");
     return false;
 }
 

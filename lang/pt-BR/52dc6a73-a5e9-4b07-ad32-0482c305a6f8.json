@@ -5,7 +5,8 @@
       "52dc6a73-a5e9-4b07-ad32-0482c305a6f8"
    ],
    "scripts": [
-      "52dc6a73-a5e9-4b07-ad32-0482c305a6f8"
+      "52dc6a73-a5e9-4b07-ad32-0482c305a6f8",
+      "ht_yupana"
    ],
    "audio": [
       {
@@ -28,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765777"
+      "1789090341"
    ],
    "authors": null,
    "reviewers": null,
@@ -49,7 +50,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Pré-requisitos</h3>Este jogo tem como objetivo reforçar os conhecimentos sobre os sistemas numéricos indígenas e os sistemas que usamos atualmente. Antes de começar, é recomendado estudar as seguintes páginas anteriores:</p><p><ul><li><htcite0>: mostra-se que seu corpo tem simetria.</li> <li><htcite1>: introduzimos a ideia de contagem a partir do próprio corpo.</li> <li><htcite2>: explorando as limitações e a necessidade de novas ferramentas para contar.</li></ul></p>",
+               "text": "<p><h3>Pré-requisitos</h3>O jogo desta página reforça seus conhecimentos sobre os sistemas numéricos indígenas e os sistemas que usamos atualmente. Antes de começar, sugerimos estudar as seguintes lições:</p><p><ul><li><b>Nossos lados são iguais</b>: nesta primeira lição, você descobrirá a simetria do seu próprio corpo (<htcite0>).</li> <li><b>Contando</b>: você aprenderá a ideia de contar usando seu corpo (<htcite1>).</li> <li><b>Além dos Dedos</b>: você explorará as limitações da contagem corporal e a necessidade de novas ferramentas (<htcite2>).</li></ul></p>",
                "source": [
                   {
                      "type": 1,
@@ -100,7 +101,7 @@
          "id": "SECTION_rules",
          "text": [
             {
-               "text": "<p><h3>Regras gerais</h3>Os quadrados com interrogação escondem diferentes imagens. Seu objetivo é encontrar os pares correspondentes. Cada vez que encontrar um par, o número total de pares encontrados será atualizado no lado direito da tela. Ao encontrar todos os pares, você receberá duas medalhas (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i> <i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p>",
+               "text": "<p><h3>Regras gerais</h3>Por trás de cada quadrado com interrogação, há uma imagem escondida. Seu objetivo é encontrar os pares que combinam. Cada vez que encontrar um par, o contador do lado direito será atualizado. Quando encontrar todos os pares, você ganhará duas medalhas (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i> <i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -114,7 +115,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "<p><h3>Jogo de memória</h3>Ao completar o jogo, você poderá reiniciá-lo clicando em <input id=\"playButton\" type=\"button\" />.</p>",
+               "text": "<p><h3>Jogo de memória</h3>Ao completar o jogo, você poderá jogar novamente clicando em <input id=\"playButton\" type=\"button\" />.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -123,7 +124,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Jogo de memória</th><th>Contagem</th><th colspan=\"2\">Representação</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"></td> <td id=\"tc2f1\"></td> <td id=\"tc3f1\"></td> <td id=\"tc4f1\"></td> <td id=\"tc5f1\">Com as mãos<td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"></td> <td id=\"tc2f2\"></td> <td id=\"tc3f2\"></td> <td id=\"tc4f2\"></td><td id=\"tc5f2\" rowspan=\"2\">Indígena americano</td><td id=\"tc6f2\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"></td> <td id=\"tc2f3\"></td> <td id=\"tc3f3\"></td> <td id=\"tc4f3\"></td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"></td> <td id=\"tc2f4\"></td> <td id=\"tc3f4\"></td> <td id=\"tc4f4\"></td><td id=\"tc5f4\" rowspan=\"2\">Hindú-arábico</td><td id=\"tc6f4\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf5\"></td> <td id=\"tc1f5\"></td> <td id=\"tc2f5\"></td> <td id=\"tc3f5\"></td> <td id=\"tc4f5\"></td></tr></table>",
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay mesoNumTable\"><tr><th colspan=\"4\">Jogo de memória</th><th>Contagem</th><th colspan=\"2\">Representação</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"></td> <td id=\"tc2f1\"></td> <td id=\"tc3f1\"></td> <td id=\"tc4f1\"></td> <td id=\"tc5f1\">Com as mãos<td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"></td> <td id=\"tc2f2\"></td> <td id=\"tc3f2\"></td> <td id=\"tc4f2\"></td><td id=\"tc5f2\" rowspan=\"2\">Indígena americano</td><td id=\"tc6f2\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"></td> <td id=\"tc2f3\"></td> <td id=\"tc3f3\"></td> <td id=\"tc4f3\"></td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"></td> <td id=\"tc2f4\"></td> <td id=\"tc3f4\"></td> <td id=\"tc4f4\"></td><td id=\"tc5f4\" rowspan=\"2\">Hindú-arábico</td><td id=\"tc6f4\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf5\"></td> <td id=\"tc1f5\"></td> <td id=\"tc2f5\"></td> <td id=\"tc3f5\"></td> <td id=\"tc4f5\"></td></tr></table>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -132,7 +133,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<htcite0>) da Associação Yupanki (<htcite1>).<br />A aplicação dos números mesoamericanos é baseada no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Além disso, incorporamos dados dos trabalhos de Francisco Barriga Puente e Ximena Catepillán (<htcite4> ; <htcite5>).<br />Por fim, empregamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<htcite6>).<br />O código do jogo foi inicialmente inspirado no código fonte presente em CodePEN (<htcite7>).</p>",
+               "text": "<p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<htcite0>) da Associação Yupanki (<htcite1>).<br />Os números mesoamericanos são baseados no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Além disso, incorporamos as contribuições de Francisco Barriga Puente e Ximena Catepillán (<htcite4> ; <htcite5>).<br />Por fim, usamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<htcite6>).<br />O código do jogo foi inspirado por um projeto disponível no CodePen (<htcite7>).</p>",
                "source": [
                   {
                      "type": 1,

@@ -126,12 +126,12 @@ function htSelectRows()
     return currentSelection;
 }
 
-function htSequenceAddCommonTable(id, hasLevels, isHA)
+function htSequenceAddCommonTable(id, hasLevels, isHA, noArrows)
 {
     var end = htSelectRows();
     for (let i =1; i <= end; i++) {
         var controls = "";
-        if (i == 1) {
+        if (i == 1 && !noArrows) {
             controls = "<td id=\"tc5f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp"+id+"\" onclick=\"htSequenceUpdateValue(+1);\"></i> </td><td id=\"tc6f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown"+id+"\" onclick=\"htSequenceUpdateValue(-1);\"></i></td>";
         }
         $("#yupana"+id+" tr:last").after("<tr id=\"tf"+i+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+i+"\">&nbsp;</td> <td id=\"tc2f"+i+"\">&nbsp;</td> <td id=\"tc3f"+i+"\">&nbsp;</td> <td id=\"tc4f"+i+"\">&nbsp;</td>"+controls+"</tr>");
@@ -142,6 +142,26 @@ function htSequenceAddImageRow(id, hasLevels)
 {
     var imgID = htSelectRows() + 1;
     $("#yupana"+id+" tr:last").after("<tr id=\"tf"+imgID+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+imgID+"\" colspan=\"4\"><span id=\"gameImage"+id+"\"></span></td><td id=\"tc5f"+imgID+"\" style=\"background-color: white;\" colspan=\"2\"><i class=\"fa-solid fa-chevron-right\" style=\"font-size:3.0em;\" onclick=\"htSequenceGoNext();\"></i></td></tr>");
+}
+
+function htSequenceArrowLabel(dir)
+{
+    var lang = $("#site_language").val();
+    if (lang == "es-ES") {
+        return (dir > 0) ? "Aumentar" : "Disminuir";
+    }
+    if (lang == "pt-BR") {
+        return (dir > 0) ? "Aumentar" : "Diminuir";
+    }
+    return (dir > 0) ? "Increase" : "Decrease";
+}
+
+function htSequenceAddBottomControls(id)
+{
+    var ctrlRow = htSelectRows() + 2;
+    var upLabel = htSequenceArrowLabel(1);
+    var downLabel = htSequenceArrowLabel(-1);
+    $("#yupana"+id).append("<tr id=\"tf"+ctrlRow+"\" class=\"trCanBeRemoved htYupanaControlsRow\"><td colspan=\"6\" style=\"text-align:center; background-color: white;\"><button type=\"button\" class=\"htYupanaControl\" id=\"traineeUp"+id+"\" aria-label=\""+upLabel+"\" onclick=\"htSequenceUpdateValue(+1);\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" aria-hidden=\"true\"></i></button> <button type=\"button\" class=\"htYupanaControl\" id=\"traineeDown"+id+"\" aria-label=\""+downLabel+"\" onclick=\"htSequenceUpdateValue(-1);\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" aria-hidden=\"true\"></i></button></td></tr>");
 }
 
 function htUpdateHAValues()
@@ -166,7 +186,7 @@ function htUpdateMesoamericanValues()
     var rows = htSelectRows();
     for (let i = 1; i < 4; i++) {
         for (let j = 1; j <= rows; j++) {
-            $("#tc"+i+"f"+j).html("<img src=\""+prefix+"\" id=\"tmc"+i+"l"+j+"\" />");
+            $("#tc"+i+"f"+j).html("<img src=\""+prefix+"\" id=\"tmc"+i+"l"+j+"\" alt=\"Maya numeral 0\" onclick=\"htImageZoom('tmc"+i+"l"+j+"', '0%')\" style=\"max-width:100%;height:auto;display:block;margin:auto;\" />");
         }
     }
 
@@ -224,10 +244,11 @@ function htSequenceFillYupana()
     $("#yupana1").removeClass("htSlideGameMenuHidden");
     $("#yupana2").removeClass("htSlideGameMenuHidden");
 
+    var compactLayout = (document.querySelector(".htSequenceYupanaTables") != null);
     var hasLevel = ($("#sequenceOrder").length > 0) ? true: false;
     var end = currentSelection + 1;
     for (let i = 0; i < 3; i++) {
-        htSequenceAddCommonTable(i, hasLevel, false);
+        htSequenceAddCommonTable(i, hasLevel, false, compactLayout);
         for (let j = 1; j <= end; j++) {
             $("#yupana"+i+" #tc1f"+j).html(htYupanaDrawFirstSquare());
             $("#yupana"+i+" #tc2f"+j).html(htYupanaDrawSecondSquare());
@@ -236,6 +257,9 @@ function htSequenceFillYupana()
         }
 
         htSequenceAddImageRow(i, hasLevel, false);
+        if (compactLayout && i == updatingIdx) {
+            htSequenceAddBottomControls(i);
+        }
     }
     htUpdateYupanaValues();
 }
@@ -308,6 +332,21 @@ function htUpdateSequenceOrder()
     }
 }
 
+function htSequenceToggleYupanaLayout()
+{
+    var wrapper = document.querySelector(".htSequenceYupanaTables");
+    if (!wrapper) {
+        return;
+    }
+    var selected = $("input[name='htNumericalSystem']:checked").val();
+    wrapper.classList.toggle("htSeqYupana", selected == "yupana");
+    wrapper.classList.toggle("mesoNumTable", selected == "mesoamerican");
+    var tables = wrapper.querySelectorAll(".tawapukllay");
+    tables.forEach(function(tbl){
+        tbl.classList.toggle("mesoNumTable", selected == "mesoamerican");
+    });
+}
+
 function htLoadContent()
 {
     $("input[name='htNumericalSystem']").on( "change", function() {
@@ -316,7 +355,9 @@ function htLoadContent()
         currentLevel = 0;
         htSequenceSetFactor();
         htLoadTest(sel);
+        htSequenceToggleYupanaLayout();
     });
+    htSequenceToggleYupanaLayout();
 
     localGameVectorfb9dca2c = htLoadGameData();
 

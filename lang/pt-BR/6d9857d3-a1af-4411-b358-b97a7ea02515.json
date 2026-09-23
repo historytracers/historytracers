@@ -16,7 +16,7 @@
          "spotify": false
       },
       {
-         "url": "https://open.spotify.com/episode/7wmifuiNHFbP4uAPpsTdD6?si=YG4qwsEDS4OCMnHWZeQApg",
+         "url": "https://open.spotify.com/episode/3XtxbpDDkx9RvQbAlQ13FP?si=EpcWVbBqTDObO_sQZYmHRg",
          "external": true,
          "spotify": true
       }
@@ -30,13 +30,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1785770542"
+      "1789775935"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -82,7 +82,7 @@
          "id": "SECTION_intrduction",
          "text": [
             {
-               "text": "### Introdução\n\nNa primeira parte de nosso estudo sobre como somar números utilizando os ábacos desenvolvidos na China (Zhongguo 中國), no Japão (Nippon koku ou Nihon koku, 日本国) e na Rússia, observamos que a soma de valores no intervalo de 0 a 9 é realizada por meio de movimentos de marcadores (<htcite0>).\n\nTambém vimos anteriormente que os ábacos não se limitam a uma única coluna (<htcite1>). Dessa forma, podemos representar qualquer número nesses instrumentos, bastando acrescentar novas colunas.\n\nOutro aspecto já estudado sobre os ábacos (Soroban e Suanpan (算盤)) são as semelhanças que eles compartilham com a Yupana (<htcite2>), o que nos leva à seguinte reflexão inicial:",
+               "text": "### Introdução\n\nNa primeira parte de nosso estudo sobre como somar números utilizando os ábacos desenvolvidos na China (Zhongguo 中國), no Japão (Nippon koku ou Nihon koku, 日本国) e na Rússia, observamos que a soma de valores no intervalo de 0 a 9 é realizada por meio de movimentos de marcadores (<htcite0>).\n\nTambém vimos anteriormente que os ábacos não se limitam a uma única coluna (<htcite1>). Dessa forma, podemos representar qualquer número nesses instrumentos, bastando acrescentar novas colunas.\n\nOutro aspecto já estudado sobre os ábacos (Soroban, Suanpan (算盤) e Schyoty (счёты)) é a semelhança que eles compartilham com a Yupana (<htcite2>), o que nos leva à seguinte reflexão inicial:",
                "source": [
                   {
                      "type": 1,
@@ -98,7 +98,7 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "d7a249ed-cc2d-40e0-adec-ca3e9738e5d3",
+                     "uuid": "4dc32200-392c-4d20-ae2d-0089b3c288bb",
                      "text": "History Tracers Team",
                      "page": "Ordens maiores com Soroban, Suanpan (算盤) e Schyoty (счёты)",
                      "date_time": {
@@ -167,7 +167,7 @@
          "id": "SECTION_indigenous",
          "text": [
             {
-               "text": "### A *Yupana*\n\nComo estudamos anteriormente, durante o cálculo na *Yupana*, aprendemos que, de acordo com o método *Yupana Inka Tawa Pukllay*, há diferentes movimentos que realizamos. Entre esses movimentos, está o movimento *PIQSA* que transfere para a ordem imediatamente superior um marcador (<htcite0>; <htcite1>).\n\nPara relembrarmos, selecione, no topo da **Tabela 1** um movimento. Em seguida, utilize a seta de avanço (<i class=\"fa-solid fa-arrows-left-right\"  style=\"color:#0f0;\"></i>) para visualizar o movimento e, posteriormente, a seta de retorno (<i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i>), para voltar à posição original.",
+               "text": "### A *Yupana*\n\nComo estudamos anteriormente, durante o cálculo na *Yupana*, aprendemos que, de acordo com o método *Yupana Inka Tawa Pukllay*, há vários movimentos que podemos realizar. Entre esses movimentos está o movimento *PIQSA*, que transfere para a ordem imediatamente superior um marcador (<htcite0>; <htcite1>).\n\nPara relembrar, selecione no topo da **Tabela 1** um movimento. Em seguida, utilize a seta de avanço (<i class=\"fa-solid fa-arrows-left-right\"  style=\"color:#0f0;\"></i>) para visualizar o movimento e, posteriormente, a seta de retorno (<i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i>) para voltar à posição original.",
                "source": [
                   {
                      "type": 1,
@@ -223,7 +223,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como podemos observar na **Tabela 1**, quando a soma atinge o valor de dez, devemos mover um marcador para a ordem superior, removendo todos os marcadores da ordem inferior.",
+               "text": "Como podemos observar na **Tabela 1**, quando a soma atinge dez, devemos mover um marcador para a ordem superior e remover todos os marcadores da ordem inferior.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -237,7 +237,7 @@
          "id": "SECTION_abacus",
          "text": [
             {
-               "text": "### Complemento\n\nA primeira etapa para realizarmos cálculos com números cujos resultados serão maiores que 10 é compreender o conceito de complemento, que, por definição, é o número que falta para atingir outro número.\n\n#### O complemento de 5\n\nComo primeiro passo, iremos trabalhar o complemento de valores em uma única mão, ou seja, o complemento de 5. Para tornar esse conceito mais claro, utilizaremos nossas mãos como recurso visual.\n\nNa **Tabela 2**, utilize as setas laterais para definir o número representado pelos dedos da mão esquerda. Observe que, à medida que os números são alterados na mão esquerda, aparecerá, nas colunas **Complemento** e **Mão direita**, o valor que, ao ser somado ao número representado na mão esquerda, resulta em 5.",
+               "text": "### Complemento\n\nA primeira etapa para realizarmos cálculos com números cujos resultados serão maiores que 10 é compreender o conceito de complemento, que, por definição, é o número necessário para atingir outro número.\n\n#### O complemento de 5\n\nComo primeiro passo, iremos trabalhar o complemento de valores em uma única mão, ou seja, o complemento de 5. Para tornar esse conceito mais claro, utilizaremos nossas mãos como recurso visual.\n\nNa **Tabela 2**, utilize as setas laterais para definir o número representado pelos dedos da mão esquerda. Observe que, à medida que os números são alterados na mão esquerda, aparecerá, nas colunas **Complemento** e **Mão direita**, o valor que, ao ser somado ao número representado na mão esquerda, resulta em 5.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -268,7 +268,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### O complemento de 10\n\nPara visualizarmos o complemento de 10, precisamos utilizar as duas mãos. Antes disso, vejamos os cálculos possíveis para atingir o resultado 10:",
+               "text": "#### O complemento de 10\n\nPara visualizarmos o complemento de 10, precisamos utilizar as duas mãos. Primeiro, vejamos os cálculos possíveis que resultam em 10:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -286,7 +286,7 @@
                "PostMention": ""
             },
             {
-               "text": "Agora, utilize as setas da **Tabela 3** para abaixar os dedos e visualizar o complemento, apresentado em formato numérico. Esse complemento, quando somado à quantidade de dedos levantados, terá como resultado 10.",
+               "text": "Agora, utilize as setas da **Tabela 3** para abaixar os dedos e ver o complemento em formato numérico. Esse complemento, quando somado à quantidade de dedos levantados, terá como resultado 10.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -295,7 +295,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"yupana2\" class=\"tawapukllay\"><th>Mão esquerda</th><th>Mão Direita</th><th>Complemento</th><th>Setas</th></tr> <td id=\"tc2f1\"><img id=\"leftHandImg2\" onclick=\"htImageZoom('leftHandImg2', '0%')\"  /></td> <td id=\"tc4f1\"><img id=\"rightHandImg2\" onclick=\"htImageZoom('rightHandImg2', '0%')\"  /> </td> <td id=\"tc3f1\"><span class=\"text_to_paint\" id=\"txtValue2\" >0</span> </td> <td id=\"tc5f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp2\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown2\"></td></tr></table></p><p class=\"desc\"><b>Tabela 3</b>: Complemento do número 10. CSS inspirado no código de <htcite0>.</p>",
+               "text": "<p><table id=\"yupana2\" class=\"tawapukllay\"><tr><th>Mão esquerda</th><th>Mão Direita</th><th>Complemento</th><th>Setas</th></tr> <td id=\"tc2f1\"><img id=\"leftHandImg2\" onclick=\"htImageZoom('leftHandImg2', '0%')\"  /></td> <td id=\"tc4f1\"><img id=\"rightHandImg2\" onclick=\"htImageZoom('rightHandImg2', '0%')\"  /> </td> <td id=\"tc3f1\"><span class=\"text_to_paint\" id=\"txtValue2\" >0</span> </td> <td id=\"tc5f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp2\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown2\"></td></tr></table></p><p class=\"desc\"><b>Tabela 3</b>: Complemento do número 10. CSS inspirado no código de <htcite0>.</p>",
                "source": [
                   {
                      "type": 1,
@@ -340,16 +340,16 @@
                "PostMention": ""
             },
             {
-               "text": "#### Uma leitura comum\n\nNo primeiro texto em que falamos sobre soma, mencionamos que somar seria como dar passos avançando entre os números. Nesse texto, também aprendemos que só podemos ter resultados entre 0 e 9 em cada ordem que somamos (<htcite0>).\n\nUma outra maneira de observar a soma é por meio dos complementos. Façamos um exemplo prático ao somarmos 7 + 8.",
+               "text": "#### Uma leitura comum\n\nNo nosso primeiro texto sobre soma, mencionamos que somar é como dar passos avançando entre os números. Também aprendemos que cada ordem só pode conter resultados entre 0 e 9 (<htcite0>).\n\nUma outra maneira de entender a soma é por meio dos complementos. Façamos um exemplo prático: somar 7 + 8.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "uuid": "92b5d15c-d26a-4ad9-82af-3262649cf2e4",
                      "text": "History Tracers Team",
                      "page": "Caminhando entre os números",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2025",
+                        "year": "2024",
                         "month": "",
                         "day": ""
                      }
@@ -371,7 +371,7 @@
                "PostMention": ""
             },
             {
-               "text": "Muitas vezes, o **Cálculo 2** é lido da seguinte maneira: \"Ao adicionar 7 a 8, o resultado das unidades é 5 e levamos 1. Na sequência, como não há números nas dezenas, entendemos que havia 0. Logo, ao somarmos 1 a 0 nas dezenas, chegamos ao resultado 15.\".\n\nEssa leitura esconde algo mais que está ocorrendo ou, se preferir, esconde uma outra interpretação.\n\n#### Uma leitura diferente\n\nUma outra maneira de interpretar o **Cálculo 2** é por meio do complemento. Primeiramente, vamos isolar, do **Cálculo 1**, o complemento de 8.",
+               "text": "Frequentemente, o **Cálculo 2** é lido da seguinte maneira: \"Ao adicionar 7 a 8, o resultado das unidades é 5 e levamos 1. Na sequência, como não há números nas dezenas, entendemos que havia 0. Logo, ao somarmos 1 a 0 nas dezenas, chegamos ao resultado 15.\"\n\nEssa leitura esconde algo mais que está ocorrendo — ou, se preferir, oculta uma outra interpretação.\n\n#### Uma leitura diferente\n\nUma outra maneira de interpretar o **Cálculo 2** é por meio do complemento. Primeiramente, vamos isolar do **Cálculo 1** o complemento de 8.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -389,7 +389,7 @@
                "PostMention": ""
             },
             {
-               "text": "O número 2 é mais do que um número nesse cenário. Ele é exatamente o valor que fará o 8 desaparecer do resultado, pois se juntará a ele, formando 10. É também o valor que voltaremos no \"caminho\" numérico (**Gráfico 1**), atingindo o valor 5, pois, como sabemos: 5 + 2 = 7.",
+               "text": "O número 2 é mais do que um número nesse cenário. Ele é exatamente o valor que fará o 8 desaparecer do resultado, pois se juntará a ele, formando 10. É também o valor que voltamos no \"caminho\" numérico (**Gráfico 1**), atingindo 5, pois, como sabemos: 5 + 2 = 7.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -398,7 +398,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><svg width=\"450\" height=\"100\"  fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"15\" x2=\"400\" y2=\"15\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"40\" font-size=\"1.5em\">0</text> <text x=\"40\" y=\"40\" font-size=\"1.5em\">1</text> <text x=\"80\" y=\"40\" font-size=\"1.5em\">2</text> <text x=\"120\" y=\"40\" font-size=\"1.5em\">3</text> <text x=\"160\" y=\"40\" font-size=\"1.5em\">4</text> <text x=\"200\" y=\"50\" font-size=\"2.4em\">5</text> <text x=\"240\" y=\"40\" font-size=\"1.5em\">6</text> <text x=\"280\" y=\"50\" font-size=\"2.4em\" >7</text> <text x=\"320\" y=\"40\" font-size=\"1.5em\">8</text> <text x=\"360\" y=\"40\" font-size=\"1.5em\">9</text> <line x1=\"5\" y1=\"15\" x2=\"5\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"15\" x2=\"85\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"125\" y1=\"15\" x2=\"125\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"165\" y1=\"15\" x2=\"165\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"205\" y1=\"15\" x2=\"205\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"245\" y1=\"15\" x2=\"245\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"285\" y1=\"15\" x2=\"285\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"325\" y1=\"15\" x2=\"325\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"365\" y1=\"15\" x2=\"365\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" />  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Destacamos neste eixo os números 5 e 7.</p>",
+               "text": "<p class=\"desc\"><svg width=\"450\" height=\"100\" viewBox=\"0 0 450 100\" style=\"width:100%; max-width:450px; height:auto;\" fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"15\" x2=\"400\" y2=\"15\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"40\" font-size=\"1.5em\">0</text> <text x=\"40\" y=\"40\" font-size=\"1.5em\">1</text> <text x=\"80\" y=\"40\" font-size=\"1.5em\">2</text> <text x=\"120\" y=\"40\" font-size=\"1.5em\">3</text> <text x=\"160\" y=\"40\" font-size=\"1.5em\">4</text> <text x=\"200\" y=\"50\" font-size=\"2.4em\">5</text> <text x=\"240\" y=\"40\" font-size=\"1.5em\">6</text> <text x=\"280\" y=\"50\" font-size=\"2.4em\" >7</text> <text x=\"320\" y=\"40\" font-size=\"1.5em\">8</text> <text x=\"360\" y=\"40\" font-size=\"1.5em\">9</text> <line x1=\"5\" y1=\"15\" x2=\"5\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"15\" x2=\"85\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"125\" y1=\"15\" x2=\"125\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"165\" y1=\"15\" x2=\"165\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"205\" y1=\"15\" x2=\"205\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"245\" y1=\"15\" x2=\"245\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"285\" y1=\"15\" x2=\"285\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"325\" y1=\"15\" x2=\"325\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"365\" y1=\"15\" x2=\"365\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" />  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Destacamos neste eixo os números 5 e 7.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -407,7 +407,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ou seja, por meio do complemento, podemos interpretar a soma da seguinte maneira: \"Como a soma dos números será maior que 9, passaremos a ter números nas dezenas também. Com isso, extraímos do 7 o valor 2, que é o complemento de 8 para chegar a 10, fazendo com que o 7 se torne 5. Por último, somamos 10 + 5, chegando ao resultado 15.\"\n\nO **Cálculo 4** na sequência mostra a interpretação mencionada.",
+               "text": "Ou seja, por meio do complemento, podemos interpretar a soma da seguinte maneira: \"Como a soma dos números será maior que 9, passaremos a ter números nas dezenas também. Com isso, extraímos do 7 o valor 2, que é o complemento de 8 para chegar a 10, fazendo com que o 7 se torne 5. Por último, somamos 10 + 5, chegando ao resultado 15.\"\n\nO **Cálculo 4** a seguir mostra esta interpretação.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -425,7 +425,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para visualizarmos melhor essa interpretação, utilizaremos os ábacos na sequência.",
+               "text": "Para visualizarmos melhor essa interpretação, usemos os ábacos a seguir.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -439,7 +439,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Somando com complementos no ábaco\n\nPara realizarmos a soma de dois valores cujo resultado é maior que 9, os complementos são necessários, pois os ábacos não permitem a marcação de números maiores que 9 por coluna, devido à falta de espaços para posicionar os marcadores (<htcite0>; <htcite1>).",
+               "text": "### Somando com complementos no ábaco\n\nPara somar dois valores cujo resultado é maior que 9, os complementos são necessários. Isso ocorre porque cada posição decimal no ábaco representa um único dígito de 0 a 9, de modo que valores acima de 9 em qualquer coluna exigem um transporte para a próxima coluna (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -539,7 +539,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, fomos apresentados ao conceito de número complementar, que nos auxilia na realização de operações matemáticas, como a soma.\n\nAlém disso, observamos que, assim como o método *Yupana Inka Tawa Pukllay* (<htcite0>; <htcite1>) possui um movimento específico passar a dezena, o *PISQA*, o número complementar também atua como um conjunto de movimentos que nos permite manter os números corretamente representados e realizar somas.",
+               "text": "### Conclusão\n\nNeste texto, fomos apresentados ao conceito de número complementar, que nos auxilia na realização de operações matemáticas como a soma.\n\nTambém observamos que, assim como o método *Yupana Inka Tawa Pukllay* (<htcite0>; <htcite1>) possui um movimento específico para passar a dezena — o *PISQA* —, o número complementar também atua como um conjunto de movimentos que nos permite manter os números corretamente representados e realizar somas.",
                "source": [
                   {
                      "type": 1,

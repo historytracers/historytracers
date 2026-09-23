@@ -6,7 +6,9 @@ import (
 	"log"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"strings"
+	"sync"
 	"testing"
 	"time"
 )
@@ -243,4 +245,113 @@ func init() {
 	metricsResBytesTotal = 0
 	metricsDurationSumNs = 0
 	metricsMu.Unlock()
+}
+
+func TestViewerWindowOpenOverride(t *testing.T) {
+	js := addressBarJS
+	if !strings.Contains(js, "isPrintWindow") {
+		t.Errorf("expected isPrintWindow check in addressBarJS")
+	}
+	// Regression: window.open shim should handle print preview and normal tabs
+	if !strings.Contains(js, "openTab") {
+		t.Errorf("expected openTab in window.open override")
+	}
+	// Check that print preview handles _closed guard
+	if !strings.Contains(js, "_closed") {
+		t.Errorf("expected _closed guard in print preview")
+	}
+}
+
+func TestViewerPrintWindowNavigable(t *testing.T) {
+	// Regression for viewer print: window.open('about:blank') may return shim without location
+	data, err := os.ReadFile("../../src/js/ht_common.js")
+	if err != nil {
+		t.Fatalf("failed to read ht_common.js: %v", err)
+	}
+	content := string(data)
+	if !strings.Contains(content, "typeof printWindow.location") {
+		t.Errorf("expected location check for printWindow in ht_common.js")
+	}
+	if !strings.Contains(content, "printWindow.close()") {
+		t.Errorf("expected close handling for non-navigable printWindow")
+	}
+	if !strings.Contains(content, "htBuildPrintDocument") {
+		t.Errorf("expected htBuildPrintDocument usage")
+	}
+	// Ensure viewer print does not leave empty preview
+	if !strings.Contains(content, "window.open('about:blank'") {
+		t.Errorf("expected placeholder window.open for viewer print")
+	}
+}
+
+func TestContentTitlePrefersJSONTitle(t *testing.T) {
+	contentDir = "../../www"
+	contentTitleCache = sync.Map{}
+	defer func() {
+		contentDir = ""
+		contentTitleCache = sync.Map{}
+	}()
+
+	tests := []struct {
+		name   string
+		page   string
+		arg    string
+		lang   string
+		stored string
+		want   string
+	}{
+		{
+			name:   "index page resolves title over project name",
+			page:   "physics",
+			stored: "History Tracers",
+			want:   "Universe",
+		},
+		{
+			name:   "class content resolves by arg",
+			page:   "class_content",
+			arg:    "acknowledgement",
+			stored: "History Tracers",
+			want:   "Acknowledgement",
+		},
+		{
+			name:   "family tree resolves by arg uuid",
+			page:   "tree",
+			arg:    "33c83383-b9b5-43ec-987d-68f027f342b2",
+			stored: "History Tracers",
+			want:   "Humans",
+		},
+		{
+			name:   "stale stored title is overridden by JSON title",
+			page:   "math_games",
+			stored: "Universe",
+			want:   "Mathematical Games",
+		},
+		{
+			name:   "title field preferred over header field",
+			page:   "families",
+			stored: "History Tracers",
+			want:   "Families",
+		},
+		{
+			name:   "unresolvable page falls back to stored",
+			page:   "license",
+			stored: "History Tracers",
+			want:   "History Tracers",
+		},
+		{
+			name:   "unsafe key falls back to stored",
+			page:   "class_content",
+			arg:    "../evil",
+			stored: "History Tracers",
+			want:   "History Tracers",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := contentTitle(tt.page, tt.arg, tt.lang, tt.stored)
+			if got != tt.want {
+				t.Errorf("contentTitle(%q, %q, %q, %q) = %q, want %q", tt.page, tt.arg, tt.lang, tt.stored, got, tt.want)
+			}
+		})
+	}
 }

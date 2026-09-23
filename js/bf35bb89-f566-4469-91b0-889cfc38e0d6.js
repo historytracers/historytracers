@@ -23,8 +23,6 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
-    $("#htChinaZhongguo").html(keywords[137]);
-
     
     htSetImageSrc("imgPeabiru", "images/Mapswire/world-physical-map-graticules-mercator-v1_Peabiru.jpg");
     htSetImageSrc("CEast", "images/Copan/CopanStelaC.jpg")

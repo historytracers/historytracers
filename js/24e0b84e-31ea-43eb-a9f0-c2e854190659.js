@@ -12,6 +12,7 @@ function htLoadExercise() {
 
 function htLoadContent() {
     htWriteNavigation();
+    htSetImageSrc("imgBering", "images/ElSalvadorMuseo/Bering.jpg");
 
     return false;
 }

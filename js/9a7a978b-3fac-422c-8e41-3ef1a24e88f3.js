@@ -573,6 +573,9 @@ function showLevelCongrats(msg) {
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgTawantsuyu", "images/Mapswire/mapswire-continent_sa-printable-map-south-america-lambert-az-hemi-271_Tawantsuyu.jpg");
+    htSetImageSrc("ArmsAntonio", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_0362.jpg");
+
     localYupanaController.TextManager = {
         get: tm,
         format: function(t, d) {

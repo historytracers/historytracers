@@ -102,9 +102,6 @@ function htLoadContent() {
     $("#rightHandImg2").attr("src", local.prefix+"images/HistoryTracers/5Right_Hand_Small.png");
     $("#leftHandImg2").attr("src", local.prefix+"images/HistoryTracers/5Left_Hand_Small.png");
 
-    $("#htChinaZhongguo").html(keywords[137]);
-    $("#htJapanNipponNihonKoku").html(keywords[139]);
-
     $( "input[name='yupanaradio']" ).on( "change", function() {
         local.yupanaSelected = $(this).val();
         htResetValues6d9857d3();

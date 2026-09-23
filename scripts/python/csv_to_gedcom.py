@@ -11,6 +11,7 @@ import shlex
 import sys
 import tempfile
 import argparse
+import re
 
 CSV_DIR = Path("csv")
 
@@ -30,6 +31,29 @@ def convert_file(csv_path):
     print("\n=== Processing:", csv_path.name, "=>", ged_path)
     cmd = f"python3 /usr/bin/gramps --import {csv_path} --format csv --export {ged_path} --options format=gedcom"
     run(cmd)
+    # Post-process: strip anything before /gedcom/ from FILE lines (e.g. /mnt/.../gedcom/uuid_en-US.ged -> /gedcom/uuid_en-US.ged)
+    try:
+        ged_file = Path(ged_path)
+        if ged_file.exists():
+            text = ged_file.read_text(encoding="utf-8", errors="ignore")
+            lines = text.splitlines()
+            changed = False
+            new_lines = []
+            for line in lines:
+                if "FILE" in line and "/gedcom/" in line:
+                    idx = line.find("/gedcom/")
+                    m = re.match(r"^(\s*\d+\s+FILE\s+).*", line)
+                    if m:
+                        new_line = m.group(1) + line[idx:]
+                        if new_line != line:
+                            changed = True
+                            line = new_line
+                new_lines.append(line)
+            if changed:
+                ged_file.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
+                print(f"  Sanitized FILE path in {ged_path}")
+    except Exception as e:
+        print(f"  Warning: failed to sanitize {ged_path}: {e}")
 
 def main():
     parser = argparse.ArgumentParser(description="Convert CSV files to GEDCOM.")
