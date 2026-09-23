@@ -1487,7 +1487,7 @@ function formatFile(){
 		return;
 	}
 	t.undoStack.push({content:area.value,cursorPos:area.selectionStart,scrollPos:area.scrollTop});
-	if(t.undoStack.length>10)t.undoStack.shift();
+	if(t.undoStack.length>256)t.undoStack.shift();
 	t.redoStack=[];
 	area.value=formatted;
 	t.content=formatted;
@@ -1531,7 +1531,7 @@ function redoFile(){
 		var t=tabs[currentTab];
 		if(t.redoStack.length>0){
 			t.undoStack.push({content:area.value,cursorPos:area.selectionStart,scrollPos:area.scrollTop});
-			if(t.undoStack.length>10)t.undoStack.shift();
+			if(t.undoStack.length>256)t.undoStack.shift();
 			var next=t.redoStack.pop();
 			var nextContent=typeof next==='string'? next : next.content;
 			var nextCursor=typeof next==='string'? nextContent.length : (next.cursorPos||0);
@@ -3485,7 +3485,7 @@ function openConfig(){
 			var lastContent=last? (typeof last==='string'? last : last.content) : null;
 			if(!last || lastContent!==curContent){
 				t.undoStack.push({content:curContent,cursorPos:curCursor,scrollPos:curScroll});
-				if(t.undoStack.length>10)t.undoStack.shift();
+				if(t.undoStack.length>256)t.undoStack.shift();
 			}
 			t.redoStack=[];
 		}
