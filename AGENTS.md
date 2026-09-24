@@ -100,9 +100,10 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
 
 Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images from one source (e.g. British Museum, ANTT, Bing Zhao). Reference pattern is `fe5d0b8a-5782-41ee-b6a8-cde4808044a7.json` (ANTT) and `ac5f2361-7824-466e-954c-2adfe798975e.json` (Bing Zhao) — each `htSlide` has caption with single `Trustees ... (<htciteN>)` and `htSlideRefs` with `Page Name - Description (<htciteM>)` per related file. Fixes below were applied to British Museum (`6487ffc3...` 25/26 slides) and `e3215ef1...` (Our Week) and must be repeated for other galleries:
 
-1. **Identify missing related content via JS image reuse** (user-visible “Related content” list):
+1. **Identify missing related content via JS image reuse and game `imagePath` vector** (user-visible “Related content” list):
    - `grep -r "images/<Gallery>/" js/*.js` → map `htSetImageSrc("imgX","images/...")` per `js/<uuid>.js`.
-   - For each image in `js/6487...js` (e.g. `mid_00032581_001.jpg`), `image_to_uuids[image] = [other js files containing that path]`. Every such `other` file must appear as `htSlideRefs` for that slide.
+   - `grep -r "images/<Gallery>/" lang/en-US/*.json` (or `lang/*/*.json`) → map `"imagePath": "images/..."` per `game_v2[]` in `lang/<lang>/<uuid>.json` (e.g., `052e06b9`, `4f0474ba`, `5f349c3b`, `fb9dca2c` for `GuatemalaAntropologia/EstelaAntropologiaGuatemala.jpg` in `3ff47bc4...`).
+   - Union both maps: for each image in `js/<gallery>.js` (e.g. `mid_00032581_001.jpg`), `image_to_uuids[image] = [other js files containing that path] ∪ [other JSON files where `game_v2[].imagePath` equals that path]`. Every such `other` file must appear as `htSlideRefs` for that slide.
    - `mid_00034725_001.jpg` and `mid_C_161.jpg` had 0 others → correctly no `htSlideRefs`; all others must have ≥1.
 
 2. **Fix `htCite` duplicates — each citation needs unique index** (otherwise some links show no `enlace` on right side):
@@ -145,6 +146,26 @@ Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images f
 12. **`<htdateN>` sequential vector** (`767d85cd-bd1c-43af-9d86-9f5f14bf7de1` Copan – 13 slides, previously limited to 2 values):
     - Gallery `content[1].text[1].text` uses `<htdateN>` placeholders replaced via `content[1].text[1].date_time` vector (`htOverwriteHTDateWithText` in `src/js/ht_common.js:2426` loops `0..len-1`). Vector was `[{"year":"2015","month":"04","day":"26"}×2]` reused as `<htdate0>` (slide 1) and `<htdate1>` (slides 2-13) plus `12` hidden occurrences in `Related content` `Indigenous (Copan) (<htdate0> - <htdate1>)` → `25` occurrences but only `2` distinct, `N=2` not sequential beyond `2`.
     - Algorithm expects sequential `0..N-1` with `N>2` (one entry per `<htdateN>` distinct). Fix: assign each `htSlideCaption` a distinct `<htdate{i}>` (`0..12` for 13 slides, `13× {"type":"gregory","year":"2015","month":"04","day":"26"}`), and for each `Indigenous (Copan)` `htSlideRefs` `li` keep distinct ` (<htdate13> - <htdate14>)`, ` (<htdate15> - <htdate16>)`, ` (<htdate17> - <htdate18>)`, ` (<htdate19> - <htdate20>)`, ` (<htdate21> - <htdate22>)`, ` (<htdate23> - <htdate24>)` with period dates `{"type":"gregory","year":"378","month":"-1","day":"-1"}` and `{"type":"gregory","year":"810","month":"-1","day":"-1"}` alternating. Final vector `25×` = `13× 2015-04-26` + `12× 378/810`, distinct `25` (`0..24`), total occurrences `25` (`13` captions + `6×2` related), no reuse. Validate `python3 -c "import re,json; txt=json.load(open('lang/en-US/<uuid>.json'))['content'][1]['text'][1]['text']; dts=json.load(open('lang/en-US/<uuid>.json'))['content'][1]['text'][1]['date_time']; cites=set(re.findall(r'<htdate\\d+>',txt)); print(len(dts), len(cites), sorted(cites), len(dts)==len(cites) and cites==set(f'<htdate{i}>' for i in range(len(dts))))"` → `25 25 True`, and `wc -l` identity across `en-US/es-ES/pt-BR` (now `1013` lines).
+
+13. **`SECTION_prerequisites` minimal content** (e.g. `3ff47bc4-4eac-4667-8a79-380ea1687bd0` Guatemala Antropologia):
+   - Gallery `content[0]` (`SECTION_prerequisites`) must be exactly:
+     ```json
+     {
+        "id": "SECTION_prerequisites",
+        "text": [
+           {
+              "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+              "source": null,
+              "date_time": null,
+              "isTable": false,
+              "imgdesc": "",
+              "format": "html",
+              "PostMention": ""
+           }
+        ]
+     }
+     ```
+     with `source:null` and `date_time:null` (single entry, no citations). This is the correct state for all galleries **unless** the gallery text explicitly mentions China (`htChinaZhongguo`), Japan (`htJapanNipponNihonKoku`) and Abya Yala (`htAmericaAbyaYalaMsg`/`htAgeMsg`) – in that case the full block with those spans and its citation (e.g. British Museum `6487ffc3` retains `<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAgeMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>`) must be kept. For `3ff47bc4` the cleanup to the minimal block is correct and must not be restored.
 
 ## Rebasing/merging the sources DB (binary conflicts)
 
