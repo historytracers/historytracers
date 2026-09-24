@@ -8,6 +8,7 @@ function htLoadContent() {
     htSetImageSrc("img0", "images/BritishMuseum/mid_00404485_001.jpg");
     htSetImageSrc("img1", "images/Mapswire/mapswire-world-political-white-equal_earth_babylon.png");
     htSetImageSrc("img3", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
+    htSetImageSrc("imgRomeWorld", "images/Mapswire/world-political-white-equal_earth_Roma.png");
     htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
     htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg");
     return false;
