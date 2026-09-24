@@ -11,5 +11,6 @@ function htLoadContent() {
     htSetImageSrc("imgRomeWorld", "images/Mapswire/world-political-white-equal_earth_Roma.png");
     htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
     htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg");
+		htSetImageSrc('imgGeo8', 'images/Tohoku/MatteoRicci.png');
     return false;
 }
