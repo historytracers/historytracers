@@ -4,12 +4,12 @@ set -e
 case "$1" in
     remove)
         # Stop and disable service on package removal
-        systemctl stop historytracers.service >/dev/null 2>&1 || true
-        systemctl disable historytracers.service >/dev/null 2>&1 || true
+        deb-systemd-invoke stop historytracers.service >/dev/null 2>&1 || true
+        deb-systemd-helper disable historytracers.service >/dev/null 2>&1 || true
     ;;
     upgrade)
         # Stop service before upgrade; do not disable
-        systemctl stop historytracers.service >/dev/null 2>&1 || true
+        deb-systemd-invoke stop historytracers.service >/dev/null 2>&1 || true
     ;;
 esac
 

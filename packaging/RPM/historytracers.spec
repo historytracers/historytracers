@@ -4,6 +4,7 @@ Release: 1%{?dist}
 Summary: A free and open-source teaching tool
 License: GPL-3.0-or-later
 URL: https://historytracers.org/
+Source0: %{name}-%{version}.tar.gz
 
 BuildRequires: systemd-rpm-macros
 BuildRequires: golang
@@ -122,7 +123,7 @@ fi
 %{_unitdir}/historytracers.service
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/historytracers.conf
-%dir %{_localstatedir}/log/%{name}
+%attr(0750,historytracers,historytracers) %dir %{_localstatedir}/log/%{name}
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/www
 %{_datadir}/%{name}/www/*

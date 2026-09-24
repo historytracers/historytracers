@@ -14,24 +14,24 @@ case "$1" in
                     --gecos "History Tracers User" historytracers
         fi
 
-        # Set ownership on runtime directories
-        chown historytracers:historytracers /usr/share/historytracers
-        chown -R historytracers:historytracers /usr/share/historytracers/www
-        chown historytracers:historytracers /usr/bin/historytracers
-        chown historytracers:historytracers /etc/historytracers
+        # Keep package-owned paths root:root; only mutable log dir is service-owned
+        chown root:root /usr/share/historytracers
+        chown -R root:root /usr/share/historytracers/www
+        chown root:root /usr/bin/historytracers
+        chown root:root /etc/historytracers
         chown historytracers:historytracers /var/log/historytracers
 
         # Set directory permissions
         chmod 755 /usr/share/historytracers
 
-        # Reload systemd and enable/start service
-        systemctl daemon-reload >/dev/null 2>&1 || true
+        # Reload systemd and enable/start service via Debian helpers
+        deb-systemd-invoke daemon-reload >/dev/null 2>&1 || true
 
-        if systemctl is-enabled historytracers.service >/dev/null 2>&1; then
-            systemctl restart historytracers.service || true
+        if deb-systemd-helper is-enabled historytracers.service >/dev/null 2>&1; then
+            deb-systemd-invoke restart historytracers.service >/dev/null 2>&1 || true
         else
-            systemctl enable historytracers.service >/dev/null 2>&1 || true
-            systemctl start historytracers.service >/dev/null 2>&1 || true
+            deb-systemd-helper enable historytracers.service >/dev/null 2>&1 || true
+            deb-systemd-invoke start historytracers.service >/dev/null 2>&1 || true
         fi
     ;;
 

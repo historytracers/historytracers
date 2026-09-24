@@ -28,7 +28,7 @@ override_dh_install:
 	# Binary, service, config
 	install -D -m 755 $(CURDIR)/build/historytracers debian/historytracers/usr/bin/historytracers
 	install -D -m 644 $(CURDIR)/packaging/service/historytracers.service debian/historytracers/lib/systemd/system/historytracers.service
-	install -D -m 644 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf.new
+	install -D -m 644 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf
 
 	# Web content: everything from www/ except images/
 	install -d debian/historytracers/usr/share/historytracers/www
