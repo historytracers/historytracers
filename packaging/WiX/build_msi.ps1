@@ -1,13 +1,12 @@
 <# .SYNOPSIS
-    Builds the HistoryTracers MSI installer using WiX Toolset v5.
+    Builds the HistoryTracers MSI installer using WiX Toolset v5+.
 .DESCRIPTION
-    This script uses wix.exe (WiX v5 single-binary toolset) to:
-    1. Harvest www/ content (excluding images/) into a WiX fragment
-    2. Harvest images/ content (excluding img_options.json) into a WiX fragment
-    3. Build the MSI from the .wxs files
+    This script generates WiX fragment files and builds the MSI installer.
+    It supports both WiX v5 (with `wix harvest`) and later versions (manual
+    fragment generation).
 
     Prerequisites:
-      - WiX Toolset v5.x installed (https://wixtoolset.org/)
+      - WiX Toolset v5.x or later (https://wixtoolset.org/)
       - Build directory with historytracers.exe and historytracers-publisher.exe
       - www/ directory populated
 .PARAMETER ProjectDir
@@ -51,6 +50,9 @@ function Find-WixExe {
   }
   $fromPath = Get-Command "wix.exe" -ErrorAction SilentlyContinue
   if ($fromPath) { return $fromPath.Source }
+  # Check .NET tool install
+  $dotnetTool = Get-Command "wix" -ErrorAction SilentlyContinue
+  if ($dotnetTool) { return $dotnetTool.Source }
   return $null
 }
 
@@ -61,7 +63,7 @@ if (-not $wix) {
 }
 Write-Host "WiX Toolset found: $wix"
 
-# Detect version (v5 has 'harvest' command, v6 does not)
+# Detect version (v5 has 'harvest' command, later versions may not)
 $hasHarvest = $false
 $null = & $wix harvest --help 2>$null
 if ($LASTEXITCODE -eq 0) { $hasHarvest = $true }
@@ -78,6 +80,14 @@ if (-not (Test-Path $wwwDir)) {
   exit 1
 }
 
+# ---- Read version from WXS ----
+$wxsPath = Join-Path $WixDir "historytracers.wxs"
+[xml]$wxs = Get-Content $wxsPath -Encoding UTF8
+$version = $wxs.Wix.Package.Version
+if (-not $version) { $version = "1.0.0.0" }
+$versionShort = ($version -split '\.')[0..2] -join '.'
+Write-Host "Building version: $version (short: $versionShort)"
+
 # ---- Create output directory ----
 if (-not (Test-Path $OutputDir)) {
   New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null
@@ -87,15 +97,14 @@ $wwwHarvest      = Join-Path $WixDir "www-fragment.wxs"
 $imgHarvest      = Join-Path $WixDir "images-fragment.wxs"
 $buildHarvest    = Join-Path $WixDir "build-fragment.wxs"
 $optionsHarvest  = Join-Path $WixDir "options-fragment.wxs"
-#$editorHarvest   = Join-Path $WixDir "editor-fragment.wxs"
 $excludeImagesXsl = Join-Path $WixDir "exclude-images.xsl"
 $excludeOptionsXsl = Join-Path $WixDir "exclude-options.xsl"
 $buildDir        = Join-Path $ProjectDir "build"
 $wwwSource       = $wwwDir
 $imagesSource    = Join-Path $wwwDir "images"
-$msiOut          = Join-Path $OutputDir "HistoryTracers-1.0.0.msi"
+$msiOut          = Join-Path $OutputDir "HistoryTracers-$versionShort.msi"
 
-# ---- Helper: directory-aware ID generation for v6 fragments ----
+# ---- Helper: directory-aware ID generation for manual fragments ----
 function Get-DirId {
     param([string]$relDir, [hashtable]$knownMap, [hashtable]$generated)
     if ($knownMap.ContainsKey($relDir)) { return $knownMap[$relDir] }
@@ -122,18 +131,19 @@ function Get-DirId {
     return $safeId
 }
 
-# ---- Helper: generate a simple ID for a file name (used by v6 fragments) ----
+# ---- Helper: generate a simple ID for a file name ----
 function Get-FileId {
     param([string]$rel, [string]$prefix)
     $bytes = [System.Text.Encoding]::UTF8.GetBytes($rel)
     $hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)
     $hash = [System.BitConverter]::ToString($hashBytes).Replace('-','').Substring(0,8)
     $raw = $prefix + ($rel -replace '[^a-zA-Z0-9]','_')
-    if ($raw.Length -gt 63) { $raw = $raw.Substring(0, 63) }
+    # Cap so that 'fil_' + raw + '_' + 8-char hash <= 72 (WiX identifier limit)
+    if ($raw.Length -gt 59) { $raw = $raw.Substring(0, 59) }
     return @{ cid = ($raw + '_' + $hash); fid = ('fil_' + $raw + '_' + $hash) }
 }
 
-# ---- Step 0: Generate build-fragment.wxs (build/ dir → INSTALLDIR) ----
+# ---- Step 0: Generate build-fragment.wxs (build/ dir -> INSTALLDIR) ----
 Write-Host "Generating build/ fragment..."
 $buildFiles = Get-ChildItem -File $buildDir
 $lines = @()
@@ -157,16 +167,15 @@ if ($pubFile) {
 }
 $lines += "  </Fragment>"
 $lines += '</Wix>'
-$lines -join "`r`n" | Set-Content $buildHarvest -NoNewline
+[System.IO.File]::WriteAllText($buildHarvest, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 if (-not (Test-Path $buildHarvest)) {
     Write-Error "Failed to generate build-fragment.wxs"
     exit 1
 }
 
-# Editor fragment generation skipped — editor not shipped in this release
-# See commit history for the full editor-fragment.wxs generation block
+# Editor fragment generation skipped -- editor not shipped in this release
 
-# ---- Step 0b: Generate options-fragment.wxs (img_options.json → WWW_IMAGES) ----
+# ---- Step 0b: Generate options-fragment.wxs (img_options.json -> WWW_IMAGES) ----
 Write-Host "Generating options fragment..."
 $optionsFile = Join-Path $wwwSource "images\img_options.json"
 if (Test-Path $optionsFile) {
@@ -181,12 +190,15 @@ if (Test-Path $optionsFile) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $optionsHarvest -NoNewline
+    [System.IO.File]::WriteAllText($optionsHarvest, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 }
 if (-not (Test-Path $optionsHarvest)) {
     Write-Error "Failed to generate options-fragment.wxs"
     exit 1
 }
+
+# ---- Step 1: Harvest www/ content (exclude images/) ----
+Write-Host "Harvesting www/ content..."
 if ($hasHarvest) {
     & $wix harvest dir $wwwSource `
         -o $wwwHarvest `
@@ -196,8 +208,8 @@ if ($hasHarvest) {
         -t $excludeImagesXsl
     if ($LASTEXITCODE -ne 0) { Write-Error "wix harvest failed for www/"; exit 1 }
 } else {
-    # WiX v6: generate fragment WXS by enumerating files
-    $excludeDirs = @('images','Images')
+    # Manual fragment generation for versions without `wix harvest`
+    $excludeDirs = @('images')
     $knownDirMap = @{
         ''        = 'WWWDIR'
         'bodies'  = 'WWW_BODIES'
@@ -214,24 +226,17 @@ if ($hasHarvest) {
 
     Get-ChildItem -Recurse -File $wwwSource | Where-Object {
         $rel = $_.FullName.Substring($wwwSource.Length+1).Replace('\','/')
-        -not ($excludeDirs | Where-Object { $rel -eq $_ -or $rel.StartsWith("$_/") })
+        $topDir = ($rel -split '/')[0]
+        $topDir -notin $excludeDirs
     } | ForEach-Object {
         $rel = $_.FullName.Substring($wwwSource.Length+1).Replace('\','/')
         $relDir = [System.IO.Path]::GetDirectoryName($rel).Replace('\','/')
         if ($relDir -eq '.') { $relDir = '' }
         $dirId = Get-DirId -relDir $relDir -knownMap $knownDirMap -generated $generatedDirIds
 
-        $bytes = [System.Text.Encoding]::UTF8.GetBytes($rel)
-        $hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)
-        $hash = [System.BitConverter]::ToString($hashBytes).Replace('-','').Substring(0,8)
-        $raw = 'cmp_' + ($rel -replace '[^a-zA-Z0-9]','_')
-        if ($raw.Length -gt 63) { $raw = $raw.Substring(0, 63) }
-        $cid = $raw + '_' + $hash
-        $fid = 'fil_' + ($rel -replace '[^a-zA-Z0-9]','_')
-        if ($fid.Length -gt 63) { $fid = $fid.Substring(0, 63) }
-        $fid = $fid + '_' + $hash
+        $ids = Get-FileId -rel $rel -prefix 'cmp_'
         $src = "`$(var.WwwDir)\$rel"
-        $componentLines += "    <Component Id='$cid' Directory='$dirId' Guid='*'><File Id='$fid' Source='$src'/></Component>"
+        $componentLines += "    <Component Id='$($ids.cid)' Directory='$dirId' Guid='*'><File Id='$($ids.fid)' Source='$src'/></Component>"
     }
 
     $lines = @()
@@ -248,14 +253,14 @@ if ($hasHarvest) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $wwwHarvest -NoNewline
+    [System.IO.File]::WriteAllText($wwwHarvest, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 }
 if (-not (Test-Path $wwwHarvest)) {
     Write-Error "Failed to generate www-fragment.wxs"
     exit 1
 }
 
-# ---- Step 2: Harvest images/ content (exclude img_options.json) ----
+# ---- Step 2: Harvest images/ content (exclude img_options.json and READMEs) ----
 Write-Host "Harvesting images/ content..."
 if ($hasHarvest) {
     & $wix harvest dir $imagesSource `
@@ -266,28 +271,22 @@ if ($hasHarvest) {
         -t $excludeOptionsXsl
     if ($LASTEXITCODE -ne 0) { Write-Error "wix harvest failed for images/"; exit 1 }
 } else {
-    # WiX v6: generate images fragment WXS
+    # Manual fragment generation for versions without `wix harvest`
     $knownDirMap = @{ '' = 'WWW_IMAGES' }
     $generatedDirIds = @{}
     $componentLines = @()
 
-    Get-ChildItem -Recurse -File $imagesSource | Where-Object { $_.Name -ne 'img_options.json' } | ForEach-Object {
+    Get-ChildItem -Recurse -File $imagesSource | Where-Object {
+        $_.Name -ne 'img_options.json' -and $_.Name -notmatch '^README'
+    } | ForEach-Object {
         $rel = $_.FullName.Substring($imagesSource.Length+1).Replace('\','/')
         $relDir = [System.IO.Path]::GetDirectoryName($rel).Replace('\','/')
         if ($relDir -eq '.') { $relDir = '' }
         $dirId = Get-DirId -relDir $relDir -knownMap $knownDirMap -generated $generatedDirIds
 
-        $bytes = [System.Text.Encoding]::UTF8.GetBytes($rel)
-        $hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)
-        $hash = [System.BitConverter]::ToString($hashBytes).Replace('-','').Substring(0,8)
-        $raw = 'cmp_img_' + ($rel -replace '[^a-zA-Z0-9]','_')
-        if ($raw.Length -gt 62) { $raw = $raw.Substring(0, 62) }
-        $cid = $raw + '_' + $hash
-        $fid = 'fil_img_' + ($rel -replace '[^a-zA-Z0-9]','_')
-        if ($fid.Length -gt 62) { $fid = $fid.Substring(0, 62) }
-        $fid = $fid + '_' + $hash
+        $ids = Get-FileId -rel $rel -prefix 'cmp_img_'
         $src = "`$(var.ImagesDir)\$rel"
-        $componentLines += "    <Component Id='$cid' Directory='$dirId' Guid='*'><File Id='$fid' Source='$src'/></Component>"
+        $componentLines += "    <Component Id='$($ids.cid)' Directory='$dirId' Guid='*'><File Id='$($ids.fid)' Source='$src'/></Component>"
     }
 
     $lines = @()
@@ -304,14 +303,14 @@ if ($hasHarvest) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $imgHarvest -NoNewline
+    [System.IO.File]::WriteAllText($imgHarvest, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 }
 if (-not (Test-Path $imgHarvest)) {
     Write-Error "Failed to generate images-fragment.wxs"
     exit 1
 }
 
-# ---- Step 3: Build MSI with wix.exe build ----
+# ---- Step 3: Build MSI with wix build ----
 Write-Host "Building MSI..."
 & $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest `
     -o $msiOut `
@@ -328,7 +327,6 @@ if (-not $KeepFragments) {
   Remove-Item $imgHarvest -Force -ErrorAction SilentlyContinue
   Remove-Item $buildHarvest -Force -ErrorAction SilentlyContinue
   Remove-Item $optionsHarvest -Force -ErrorAction SilentlyContinue
-  #Remove-Item $editorHarvest -Force -ErrorAction SilentlyContinue
 }
 
 Write-Host "MSI built successfully: $msiOut"

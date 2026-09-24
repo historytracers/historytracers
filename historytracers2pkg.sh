@@ -737,7 +737,8 @@ ht_msi_cleanup() {
     if [ -f images/img_options.json ]; then
         sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json 2>/dev/null || true
     fi
-    rm -rf "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" 2>/dev/null || true
+    rm -f "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" \
+          "${WIXDIR}/build-fragment.wxs" "${WIXDIR}/options-fragment.wxs" 2>/dev/null || true
 }
 
 ht_build_msi() {
@@ -835,7 +836,11 @@ ht_build_msi() {
     BUILD_DIR="${PROJECT_DIR}/build"
     WWW_DIR="${PROJECT_DIR}/www"
     IMAGES_DIR="${WWW_DIR}/images"
-    OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers-1.0.0.msi"
+
+    # Read version from WXS and derive short form (X.Y.Z) for filename
+    WXS_VERSION=$(sed -n 's/.*Version="\([^"]*\)".*/\1/p' "${WIXDIR}/historytracers.wxs" | head -1)
+    WXS_VERSION_SHORT=$(echo "$WXS_VERSION" | cut -d. -f1-3)
+    OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers-${WXS_VERSION_SHORT}.msi"
 
     # Write PowerShell fragment generator to a temp file (avoids bash escaping issues)
     PS_GEN="$(mktemp -t wix_gen_XXXXXX.ps1 2>/dev/null || echo "${TMPDIR:-/tmp}/wix_gen_$$.ps1")"
@@ -886,7 +891,9 @@ $componentLines = @()
 Get-ChildItem -Recurse -File $dir | Where-Object {
     $rel = $_.FullName.Substring($dir.Length+1).Replace('\','/')
     if ($excludeList.Count -gt 0) {
-        -not ($excludeList | Where-Object { $rel -eq $_ -or $rel.StartsWith("$_/") })
+        $base = Split-Path -Leaf $rel
+        $topDir = ($rel -split '[/\\]')[0]
+        -not ($excludeList | Where-Object { $base -like $_ -or $topDir -like $_ })
     } else { $true }
 } | ForEach-Object {
     $rel = $_.FullName.Substring($dir.Length+1).Replace('\','/')
@@ -921,7 +928,7 @@ $lines += $componentLines -join "`r`n"
 $lines += "    </ComponentGroup>"
 $lines += "  </Fragment>"
 $lines += '</Wix>'
-$lines -join "`r`n" | Set-Content $out -NoNewline
+[System.IO.File]::WriteAllText($out, ($lines -join "`r`n"), [System.Text.UTF8Encoding]::new($false))
 PSEOF
 
     # Convert MSYS paths to Windows paths for PowerShell
@@ -952,7 +959,7 @@ PSEOF
             \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
             \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
             \$raw = 'cmp_bin_' + (\$rel -replace '[^a-zA-Z0-9]','_');
-            if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+            if (\$raw.Length -gt 59) { \$raw = \$raw.Substring(0, 59) };
             \$cid = \$raw + '_' + \$hash;
             \$fid = 'fil_' + \$raw + '_' + \$hash;
             \$wixSrc = '\$(var.BuildDir)\' + \$rel;
@@ -965,7 +972,7 @@ PSEOF
             \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
             \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
             \$raw = 'cmp_bin_' + (\$rel -replace '[^a-zA-Z0-9]','_');
-            if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+            if (\$raw.Length -gt 59) { \$raw = \$raw.Substring(0, 59) };
             \$cid = \$raw + '_' + \$hash;
             \$fid = 'fil_' + \$raw + '_' + \$hash;
             \$wixSrc = '\$(var.BuildDir)\' + \$rel;
@@ -975,7 +982,7 @@ PSEOF
         }
         \$lines += '  </Fragment>';
         \$lines += '</Wix>';
-        \$lines -join \"\`r\`n\" | Set-Content '$WIXDIR_WIN\\build-fragment.wxs' -NoNewline
+        [System.IO.File]::WriteAllText('$WIXDIR_WIN\\build-fragment.wxs', (\$lines -join \"\`r\`n\"), [System.Text.UTF8Encoding]::new(\$false))
     "
     if [ ! -f "${WIXDIR}/build-fragment.wxs" ]; then
         echo "ERROR: Failed to generate build-fragment.wxs"
@@ -991,7 +998,7 @@ PSEOF
         \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
         \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
         \$raw = 'cmp_opt_' + (\$rel -replace '[^a-zA-Z0-9]','_');
-        if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+        if (\$raw.Length -gt 59) { \$raw = \$raw.Substring(0, 59) };
         \$cid = \$raw + '_' + \$hash;
         \$fid = 'fil_' + \$raw + '_' + \$hash;
         \$wixSrc = '\$(var.WwwDir)\images\img_options.json';
@@ -1004,7 +1011,7 @@ PSEOF
         \$lines += '    </ComponentGroup>';
         \$lines += '  </Fragment>';
         \$lines += '</Wix>';
-        \$lines -join \"\`r\`n\" | Set-Content '$WIXDIR_WIN\\options-fragment.wxs' -NoNewline
+        [System.IO.File]::WriteAllText('$WIXDIR_WIN\\options-fragment.wxs', (\$lines -join \"\`r\`n\"), [System.Text.UTF8Encoding]::new(\$false))
     "
     if [ ! -f "${WIXDIR}/options-fragment.wxs" ]; then
         echo "ERROR: Failed to generate options-fragment.wxs"
@@ -1032,7 +1039,7 @@ PSEOF
             -cgId "CG_WWW" \
             -dirRef "WWWDIR" \
             -varName "WwwDir" \
-            -excludeDirs "images;Images"
+            -excludeDirs "images"
         if [ ! -f "${WIXDIR}/www-fragment.wxs" ]; then
             echo "ERROR: Failed to generate www-fragment.wxs"
             rm -f "$PS_GEN"
@@ -1057,7 +1064,7 @@ PSEOF
             -cgId "CG_IMAGES" \
             -dirRef "WWW_IMAGES" \
             -varName "ImagesDir" \
-            -excludeDirs "img_options.json"
+            -excludeDirs "img_options.json;README*"
         if [ ! -f "${WIXDIR}/images-fragment.wxs" ]; then
             echo "ERROR: Failed to generate images-fragment.wxs"
             rm -f "$PS_GEN"
@@ -1075,7 +1082,6 @@ PSEOF
         "${WIXDIR}/images-fragment.wxs" \
         "${WIXDIR}/build-fragment.wxs" \
         "${WIXDIR}/options-fragment.wxs" \
-        #"${WIXDIR}/editor-fragment.wxs" \
         -o "$OUTPUT_MSI" \
         -arch x64 \
         -d BuildDir="$BUILD_DIR" \

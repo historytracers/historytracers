@@ -2,9 +2,9 @@ Source: historytracers
 Section: utils
 Priority: optional
 Maintainer: Thiago Marques <historytracers@gmail.com>
-Build-Depends: debhelper-compat (= 13), systemd
+Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.6.2
-Homepage: https://github.com/historytracers/historytracers
+Homepage: https://historytracers.org/
 
 Package: historytracers
 Architecture: amd64
@@ -15,7 +15,7 @@ Description: Teaching is often a daily challenge for both students and teachers,
 
 Package: historytracers-images
 Architecture: all
-Depends: historytracers (= ${binary:Version})
+Depends: historytracers (= ${binary:Version}), ${misc:Depends}
 Description: Images for History Tracers
  Provides the image files used by the History Tracers viewer,
  excluding the img_options.json configuration file.
@@ -25,5 +25,7 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: Development files for History Tracers
  Source code and development files for the History Tracers
- teaching tool.  Contains the complete repository source tree
- excluding the pre-built www/ directory.
+ teaching tool.  Contains the repository source tree excluding
+ generated and packaging content: the pre-built www/ and build/
+ directories, the packaging/ and debian/ directories, and VCS
+ metadata (.git/).

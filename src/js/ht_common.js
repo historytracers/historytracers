@@ -46,6 +46,7 @@ var htPhysicsIdx = new Map();
 var htPhilosophyIdx = new Map();
 var htFamilyIdx = new Map();
 var htGalleryIdx = new Map();
+var htDocumentationIdx = new Map();
 
 var extLatexIdx = 0;
 
@@ -180,7 +181,8 @@ function htResetAllIndexes()
         htPhysicsIdx,
         htPhilosophyIdx,
         htAtlasIdx,
-        htGalleryIdx
+        htGalleryIdx,
+        htDocumentationIdx
     ];
 
     indexMaps.forEach(map => {
@@ -2117,7 +2119,8 @@ function htSelectIndexMap(index)
         chemistry: htChemicalIdx,
         biology: htBiologyIdx,
         atlas: htAtlasIdx,
-        gallery: htGalleryIdx
+        gallery: htGalleryIdx,
+        documentation: htDocumentationIdx
     };
 
     return map[index];
@@ -2141,6 +2144,7 @@ function htSelectIndexName(index) {
         historical_events: keywords[130],
         philosophy: keywords[138],
         gallery: keywords[143],
+        documentation: keywords[147],
     };
 
     return map[index] || "Undefined";
@@ -3135,7 +3139,7 @@ function htFillStringOnPage(data, idx, page)
         "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry",
-        "philosophy", "atlas", "gallery", "shapes"
+        "philosophy", "atlas", "gallery", "shapes", "documentation"
     ];
 
     if (allowedPages.includes(page) && item.target) {
@@ -3570,7 +3574,8 @@ function htLoadIndex(data, arg, page)
         philosophy: htPhilosophyIdx,
         atlas: htAtlasIdx,
         shapes: htShapesIdx,
-        gallery: htGalleryIdx
+        gallery: htGalleryIdx,
+        documentation: htDocumentationIdx
     };
 
     if (page && pageConfig[page] && !pageConfig[page].has(page)) {
@@ -3698,9 +3703,6 @@ function htWriteQuestions(table, later, idx)
         let item = table[i];
         questions += "<li>"+item.question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+item.additionalInfo+"</span></li>";
         tmpAnswers += (item.yesNoAnswer == "Yes") ? 1+";" : 0+";";
-        total = i;
-    }
-    if (total > 0) {
         total++;
     }
     questions += "</ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\""+keywords[29]+"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\""+keywords[30]+"\" /></p>";
