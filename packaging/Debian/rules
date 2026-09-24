@@ -30,6 +30,9 @@ override_dh_install:
 	install -D -m 644 $(CURDIR)/packaging/service/historytracers.service debian/historytracers/lib/systemd/system/historytracers.service
 	install -D -m 644 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf
 
+	# Man page
+	install -D -m 644 $(CURDIR)/packaging/man/historytracers.1 debian/historytracers/usr/share/man/man1/historytracers.1
+
 	# Web content: everything from www/ except images/
 	install -d debian/historytracers/usr/share/historytracers/www
 	for item in $(CURDIR)/www/*; do \

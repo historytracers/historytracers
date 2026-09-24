@@ -56,6 +56,7 @@ make $NUMJOBS all
 
 # Create package directory structure
 mkdir -p $PKG/usr/bin
+mkdir -p $PKG/usr/man/man1
 mkdir -p $PKG/usr/share/$PRGNAM/www/images
 mkdir -p $PKG/usr/doc/$PRGNAM
 mkdir -p $PKG/etc/$PRGNAM
@@ -64,6 +65,9 @@ mkdir -p $PKG/install
 
 # Install binaries
 install -m 755 build/historytracers $PKG/usr/bin/historytracers
+
+# Install man page (gzip-compressed, as customary on Slackware)
+gzip -9c packaging/man/historytracers.1 > $PKG/usr/man/man1/historytracers.1.gz
 
 # Install web content from www/
 if [ -d "www/" ]; then

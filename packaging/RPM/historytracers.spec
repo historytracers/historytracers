@@ -65,6 +65,9 @@ install -m 644 packaging/service/historytracers.service %{buildroot}%{_unitdir}/
 # Install the binary
 install -m 755 build/historytracers %{buildroot}%{_bindir}/historytracers
 
+# Install the man page
+install -D -m 644 packaging/man/historytracers.1 %{buildroot}%{_mandir}/man1/historytracers.1
+
 # Install configuration file as .new (preserve user modifications on upgrade)
 install -m 644 packaging/conf/historytracers.conf %{buildroot}%{_sysconfdir}/%{name}/historytracers.conf
 
@@ -120,6 +123,7 @@ fi
 %license LICENSE
 %doc README.md
 %{_bindir}/historytracers
+%{_mandir}/man1/historytracers.1*
 %{_unitdir}/historytracers.service
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/historytracers.conf
