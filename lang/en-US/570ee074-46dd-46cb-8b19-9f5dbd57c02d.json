@@ -1,0 +1,157 @@
+{
+   "title": "Sequence game (Orders)",
+   "header": "Sequence game (Orders)",
+   "sources": [
+      "570ee074-46dd-46cb-8b19-9f5dbd57c02d"
+   ],
+   "scripts": [
+      "570ee074-46dd-46cb-8b19-9f5dbd57c02d"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/570ee074-46dd-46cb-8b19-9f5dbd57c02d_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1790374867"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Prerequisites</h3>In this game, we reinforce the relationship between a number and its order. To make the most of this activity, we recommend reviewing first:</p><p><ul><li><b>Sequence game (Part II)</b>: in this game, sequences are present up to the billion order (<htcite0>).</li><li><b>Numerical families (Part II)</b>: we continue exploring our family generations and their connection to numbers (<htcite1>).</li></ul></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "21bb2948-249d-4645-a512-26209b8e529a",
+                     "text": "History Tracers Team",
+                     "page": "Sequence game (Part II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Numerical families (Part II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Rules</h3>The goal of the game is to pair each number with the name of its order. In each round, six orders are drawn at random from the ten possible orders, from units to billions. On the left, six numbers appear, each one belonging to a different order. On the right, the names of these same six orders appear in a different order. Select a number and then select the name of its order; if the pair is correct, both buttons are highlighted and stay in place. When you match all six pairs, a congratulations message is displayed. You can start a new round at any time by clicking the button <b>New Game</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Sequence game (Orders)</h3>Connect each number on the left with the name of its order on the right. Select a number, then select its name to form the pair.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"orderGame\" class=\"orderGame\"><div class=\"orderGameCol\" id=\"orderLeftCol\"></div><div class=\"orderGameCol\" id=\"orderRightCol\"></div></div></p><p id=\"orderCongrats\" class=\"orderCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> PERFECT! You matched all the numbers with their order names!</p><p><button type=\"button\" id=\"orderResetBtn\" class=\"reset-tutor-btn\">🎲 New Game</button></p><div id=\"orderNames\" style=\"display: none;\"><span id=\"htOrderName0\">Units</span><span id=\"htOrderName1\">Tens</span><span id=\"htOrderName2\">Hundreds</span><span id=\"htOrderName3\">Thousands</span><span id=\"htOrderName4\">Ten Thousands</span><span id=\"htOrderName5\">Hundred Thousands</span><span id=\"htOrderName6\">Millions</span><span id=\"htOrderName7\">Ten Millions</span><span id=\"htOrderName8\">Hundred Millions</span><span id=\"htOrderName9\">Billions</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">The relationship between numbers and their orders is studied in <i>Sequence game (Part II)</i> (<htcite0>) and in <i>Numerical families (Part II)</i> (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "21bb2948-249d-4645-a512-26209b8e529a",
+                     "text": "History Tracers Team",
+                     "page": "Sequence game (Part II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Numerical families (Part II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

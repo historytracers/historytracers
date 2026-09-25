@@ -1,0 +1,157 @@
+{
+   "title": "Jogo de sequência (Ordens)",
+   "header": "Jogo de sequência (Ordens)",
+   "sources": [
+      "570ee074-46dd-46cb-8b19-9f5dbd57c02d"
+   ],
+   "scripts": [
+      "570ee074-46dd-46cb-8b19-9f5dbd57c02d"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/570ee074-46dd-46cb-8b19-9f5dbd57c02d_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1790374867"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Pré-requisitos</h3>Neste jogo, reforçamos a relação entre um número e a sua ordem. Para aproveitar melhor esta atividade, recomendamos rever primeiro:</p><p><ul><li><b>Jogo de sequência (Parte II)</b>: neste jogo, as sequências estão presentes até à ordem dos bilhões (<htcite0>).</li><li><b>Famílias numéricas (Parte II)</b>: continuamos a explorar as gerações da nossa família e a sua ligação com os números (<htcite1>).</li></ul></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "21bb2948-249d-4645-a512-26209b8e529a",
+                     "text": "History Tracers Team",
+                     "page": "Jogo de sequência (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Famílias numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Regras</h3>O objetivo do jogo é associar cada número ao nome da sua ordem. Em cada ronda, seis ordens são sorteadas aleatoriamente entre as dez possíveis, das unidades aos bilhões. À esquerda aparecem seis números, cada um pertencente a uma ordem diferente. À direita aparecem os nomes dessas mesmas seis ordens, numa ordem diferente. Selecione um número e depois selecione o nome da sua ordem; se o par estiver correto, ambos os botões ficam destacados e permanecem no lugar. Quando associar os seis pares, é apresentada uma mensagem de congratulações. Pode começar uma nova ronda a qualquer momento clicando no botão <b>Novo Jogo</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Jogo de sequência (Ordens)</h3>Ligue cada número à esquerda ao nome da sua ordem à direita. Selecione um número e depois selecione o nome para formar o par.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"orderGame\" class=\"orderGame\"><div class=\"orderGameCol\" id=\"orderLeftCol\"></div><div class=\"orderGameCol\" id=\"orderRightCol\"></div></div></p><p id=\"orderCongrats\" class=\"orderCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> PERFEITO! Você associou todos os números aos nomes das suas ordens!</p><p><button type=\"button\" id=\"orderResetBtn\" class=\"reset-tutor-btn\">🎲 Novo Jogo</button></p><div id=\"orderNames\" style=\"display: none;\"><span id=\"htOrderName0\">Unidades</span><span id=\"htOrderName1\">Dezenas</span><span id=\"htOrderName2\">Centenas</span><span id=\"htOrderName3\">Milhares</span><span id=\"htOrderName4\">Dezenas de milhar</span><span id=\"htOrderName5\">Centenas de milhar</span><span id=\"htOrderName6\">Milhões</span><span id=\"htOrderName7\">Dezenas de milhões</span><span id=\"htOrderName8\">Centenas de milhões</span><span id=\"htOrderName9\">Bilhões</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">A relação entre os números e as suas ordens é estudada em <i>Jogo de sequência (Parte II)</i> (<htcite0>) e em <i>Famílias numéricas (Parte II)</i> (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "21bb2948-249d-4645-a512-26209b8e529a",
+                     "text": "History Tracers Team",
+                     "page": "Jogo de sequência (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Famílias numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

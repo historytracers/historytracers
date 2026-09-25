@@ -2649,3 +2649,103 @@ p.desc svg {
 #imgText {
   max-width: 100%;
 }
+
+/* Sequence game (Orders): match each number with the name of its order. */
+.orderGame {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(1em, 4vw, 3em);
+  width: 100%;
+  margin: 0.75em auto;
+}
+
+.orderGameCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  flex: 0 1 auto;
+}
+
+.orderGameBtn {
+  min-width: 9em;
+  padding: 0.55em 1em;
+  border: 2px solid #5a3f2c;
+  border-radius: 16px;
+  background: #fff8e7;
+  color: #2e241f;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.12s linear, transform 0.08s linear;
+}
+
+.orderGameBtn:hover {
+  background: #ffe9b8;
+}
+
+.orderGameBtn:active {
+  transform: translateY(1px);
+}
+
+.orderGameBtnSelected {
+  background: #4a90d9;
+  border-color: #2c5f8f;
+  color: #ffffff;
+}
+
+.orderGameBtnMatched {
+  background: #d4edda;
+  border-color: #155724;
+  color: #155724;
+  cursor: default;
+}
+
+.orderCongrats {
+  text-align: center;
+  font-weight: bold;
+  color: #155724;
+}
+
+.design-dark .orderGameBtn {
+  background: #37474f;
+  color: #eceff1;
+  border-color: #90a4ae;
+}
+
+.design-dark .orderGameBtn:hover {
+  background: #455a64;
+}
+
+.design-dark .orderGameBtnSelected {
+  background: #1565c0;
+  border-color: #42a5f5;
+  color: #ffffff;
+}
+
+.design-dark .orderGameBtnMatched {
+  background: #1b5e20;
+  border-color: #66bb6a;
+  color: #e8f5e9;
+}
+
+.design-dark .orderCongrats {
+  color: #a5d6a7;
+}
+
+@media screen and (max-width: 700px) {
+  .orderGame {
+    gap: 1em;
+  }
+
+  .orderGameCol {
+    flex: 1 1 8em;
+  }
+
+  .orderGameBtn {
+    min-width: 0;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
