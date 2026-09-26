@@ -66,7 +66,7 @@
                   {
                      "type": 1,
                      "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
-                     "text": "Hitory Tracers Team",
+                     "text": "History Tracers Team",
                      "page": "Primeiros Passos",
                      "date_time": {
                         "type": "gregory",
@@ -194,7 +194,7 @@
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc": "Um quadrado maior composto por dezesseis quadrados menores. No lado esquerdo, os quadrados são numerados de 1 a 4 (da base até o topo). Na parte inferior, a numeração segue de 1 a 4 (da esquerda para a direita)",
+               "imgdesc": "Um quadrado maior composto por dezesseis quadrados menores. No lado esquerdo, os quadrados são numerados de 1 a 4 (da base até o topo). Na parte inferior, a numeração segue de 1 a 4 (da esquerda para a direita).",
                "format": "html",
                "PostMention": ""
             },
@@ -244,7 +244,7 @@
          "id": "SECTION_eight",
          "text": [
             {
-               "text": "### Multiplicando por Oito (8)\n\nO número oito (8), como resultado do volume calculado, não foi escolhido por acaso. Entre os números de zero (0) a nove (9) que estudamos até o momento, ele é o único, além do um (1), que é resultado cúbico de um número inteiro — no caso, o dois: **2 × 2 × 2 = 8**",
+               "text": "### Multiplicando por Oito (8)\n\nO número oito (8), como resultado do volume calculado, não foi escolhido por acaso. Entre os números de zero (0) a nove (9) que estudamos até o momento, ele é o único, além do um (1), que representa o cubo de outro número inteiro — no caso, o dois: **2 × 2 × 2 = 8**",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -280,7 +280,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Desenhando a Tabuada\n\nNovamente, desenhamos pontos e os unimos em um único gráfico:",
+               "text": "#### Desenhando a Tabuada\n\nNovamente, desenhamos os pontos e os unimos em um único gráfico:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -289,7 +289,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: pontos da tabuada de oito conectados, formando uma reta. gráfico gerado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Pontos da tabuada de oito conectados, formando uma reta. Gráfico gerado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -298,7 +298,7 @@
                "PostMention": ""
             },
             {
-               "text": "Um último reforço que gostaríamos de fazer, relacionado à ligação entre o quadrado de dois, o número quatro (4), e o cubo de dois, o número oito (8), é que, devido à relação de múltiplos entre eles:\n- Ao multiplicarmos qualquer número da tabuada de dois (2) por dois (2), temos a tabuada de quatro (4).\n- Por sua vez, ao multiplicarmos a de quatro por dois, temos a de oito (8).\n\nDe forma equivalente, ao multiplicarmos a tabuada de dois por quatro, obtemos os mesmos valores da tabuada de oito:",
+               "text": "Um último reforço que gostaríamos de fazer, relacionado à ligação entre o quadrado de dois, o número quatro (4), e o cubo de dois, o número oito (8), é que existe uma relação de múltiplos entre eles:\n- Ao multiplicarmos qualquer número da tabuada de dois (2) por dois (2), temos a tabuada de quatro (4).\n- Por sua vez, ao multiplicarmos a de quatro por dois, temos a de oito (8).\n\nDe forma equivalente, ao multiplicarmos a tabuada de dois por quatro, obtemos os mesmos valores da tabuada de oito:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -307,7 +307,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: pontos da tabuada de dois, quatro e oito conectados, formando uma reta. gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Pontos da tabuada de dois, quatro e oito conectados, formando uma reta. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -321,7 +321,7 @@
          "id": "SECTION_tikal",
          "text": [
             {
-               "text": "### O Uso dos Números\n\nÀ medida que avançamos no entendimento da natureza, aprendemos que certos números sempre estarão presentes. Por exemplo, sempre que conectamos os pontos que formam a tabuada (excluindo a tabuada de zero), formamos a imagem de um triângulo retângulo que apresenta uma conexão entre uma linha horizontal e uma vertical, formando um ângulo de 90 graus (representado como um quadrado no **Gráfico 5**) (<htdate0>).\n\nPor outro lado, também não é incomum encontrarmos situações em que a humanidade propôs utilização de números, mas nunca os comprovou a proposta.",
+               "text": "### O Uso dos Números\n\nÀ medida que avançamos no entendimento da natureza, aprendemos que certos números sempre estarão presentes. Por exemplo, sempre que conectamos os pontos que formam a tabuada (excluindo a tabuada de zero), formamos a imagem de um triângulo retângulo que apresenta uma conexão entre uma linha horizontal e uma vertical, formando um ângulo de 90 graus (representado como um quadrado no **Gráfico 5**) (<htcite0>).\n\nPor outro lado, também não é incomum encontrarmos situações em que a humanidade propôs conceitos numéricos que nunca comprovou.",
                "source": [
                   {
                      "type": 1,
@@ -352,7 +352,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### O Eixo do Mundo na Mesoamérica\n\nDe acordo com crenças ancestrais mesoamericanas, o universo teria três níveis (Inframundo, Terra e Céu) (<htcite0>), sendo dois deles subdivididos da seguinte maneira:\n- **Céu**: Composto de 13 níveis.\n- **Inframundo**: Composto por 9 níveis.\n\nEssas subdivisões eram diretamente refletidas em suas construções, como no *Templo Grande Jaguar* de Tikal, Guatemala, representado na **Figura 2**, que possui nove níveis principais representando os níveis do Inframundo  (<htcite1>; <htcite2>).",
+               "text": "#### O Eixo do Mundo na Mesoamérica\n\nDe acordo com crenças ancestrais mesoamericanas, o universo teria três níveis (Inframundo, Terra e Céu) (<htcite0>), sendo dois deles subdivididos da seguinte maneira:\n- **Céu**: Composto de 13 níveis.\n- **Inframundo**: Composto de 9 níveis.\n\nEssas subdivisões eram diretamente refletidas em suas construções, como no *Templo Grande Jaguar* de Tikal, Guatemala, representado na **Figura 2**, que possui nove níveis principais representando os níveis do Inframundo (<htcite1>; <htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -398,7 +398,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figura 2</b>: Templo Grande Jaguar em Tikal, Guatemala (<htcite0>). Foto tirada em <htdate0>, durante uma visita ao sitio.</p>",
+               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figura 2</b>: Templo Grande Jaguar em Tikal, Guatemala (<htcite0>). Foto tirada em <htdate0>, durante uma visita ao sítio.</p>",
                "source": [
                   {
                      "type": 1,
@@ -449,7 +449,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<ul class=\"citation\"><li><i>\"...as quadras de jogo simbolizavam o universo, sendo o movimento da bola uma metáfora para os corpos celestes - especialmente o Sol, a Lua e Vênus. A passagem da bola representava o sol (a luz, o día, a vida) viajando dentro e fora do inframundo...\"</i></li> </ul>",
+               "text": "<ul class=\"citation\"><li><i>\"...as quadras de jogo simbolizavam o universo, sendo o movimento da bola uma metáfora para os corpos celestes - especialmente o Sol, a Lua e Vênus. A passagem da bola representava o sol (a luz, o dia, a vida) viajando dentro e fora do inframundo...\"</i></li> </ul>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -680,12 +680,12 @@
       {
          "question": "Existe relação entre comprimento, área e volume?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Estas unidades de medida estão relacionadas por medirem comprimentos em diferentes superfícies. Como consequência disso, podemos aplicar multiplicações (somas consecutivas) para medi-las."
+         "additionalInfo": "Estas unidades de medida estão relacionadas, pois medem comprimentos em diferentes superfícies. Como consequência disso, podemos aplicar multiplicações (somas consecutivas) para medi-las."
       },
       {
          "question": "No passado, diferentes civilizações interpretavam o céu e a terra como níveis distintos?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Por não possuírem o conhecimento do universo que temos atualmente, encontramos diferentes definições para o céu e a terra, tendo em comum a concepção de níveis distintos."
+         "additionalInfo": "Por não possuírem o conhecimento do universo que temos atualmente, encontraram diferentes definições para o céu e a terra, tendo em comum a concepção de níveis distintos."
       },
       {
          "question": "Tanto o 8 quanto o 9 são quadrados de números no sistema decimal, mas apenas o 8 é um cubo?",
