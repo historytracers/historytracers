@@ -13,8 +13,8 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("JC", "images/JoyaCeren/JoyaCeren.jpg");
-    htSetImageSrc("JC", "images/JoyaCeren/JoyaCerenCocina.jpg");
+    htSetImageSrc("imgJoyaCeren0", "images/JoyaCeren/JoyaCeren.jpg");
+    htSetImageSrc("imgJoyaCeren1", "images/JoyaCeren/JoyaCerenCocina.jpg");
     htPlusDivs(0);
 
     return false;
