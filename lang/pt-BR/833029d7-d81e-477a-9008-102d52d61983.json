@@ -95,7 +95,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nNeste texto, exploraremos duas tabuadas que formam a base do nosso sistema de tempo. Para alcançar esse objetivo, não utilizaremos inicialmente os conhecimentos de *Abya Yala* (América). Atravessaremos o mundo, indo para a Mesopotâmia, a fim de estudar como sumérios e babilônios utilizaram esses números no passado – e como nós ainda os empregamos hoje.\n\nAntes de prosseguirmos com o texto, façamos uma reflexão:",
+               "text": "### Introdução\n\nNeste texto, exploraremos duas tabuadas que formam a base do nosso sistema de medição do tempo. Para alcançar esse objetivo, não utilizaremos inicialmente os conhecimentos de *Abya Yala* (América). Atravessaremos o mundo, indo para a Mesopotâmia, a fim de estudar como os sumérios e os babilônios utilizaram esses números no passado – e como nós ainda os empregamos hoje.\n\nAntes de prosseguirmos com o texto, façamos uma reflexão:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -104,7 +104,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: A tabuada diária</b><br /><br />Alguma vez você já pensou que, a cada segundo, minuto, dia, semana, mês, ou ano que passa, está usando uma tabuada?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: A tabuada diária</b><br /><br />Você já pensou que, a cada segundo, minuto, dia, semana, mês ou ano que passa, está usando uma tabuada?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -118,7 +118,7 @@
          "id": "SECTION_sexagesimal",
          "text": [
             {
-               "text": "### Sistema sexagesimal\n\nQuando um minuto passa, também se passaram 60 segundos. Por sua vez, o número sessenta é um múltiplo de seis, que é um dos números que vamos estudar neste texto.\n\nAté agora, mencionamos os sistemas decimais e vigesimais, mas esses não são os únicos sistemas numéricos utilizados na Antiguidade. O sistema sexagesimal, encontrado na Suméria, possivelmente foi criado antes da escrita, há milhares de anos",
+               "text": "### Sistema sexagesimal\n\nQuando um minuto passa, também passam 60 segundos. Por sua vez, o número sessenta é um múltiplo de seis, que é um dos números que vamos estudar neste texto.\n\nAté agora, temos mencionado os sistemas decimais e vigesimais, mas esses não são os únicos sistemas numéricos utilizados na Antiguidade. O sistema sexagesimal, originário da Suméria, possivelmente foi criado há milhares de anos, antes mesmo da escrita",
                "source": [
                   {
                      "type": 1,
@@ -140,7 +140,7 @@
                "PostMention": ""
             },
             {
-               "text": "O sistema sexagesimal estava perfeitamente adaptado a forma como os textos eram escritos. Podemos encontrar um exemplo de textos que utilizam números em Tello (antiga Girsu), atual Iraque, exposto no Museu Britânico (<htcite0>). Nele, há a descrição dos materiais usados para a construção dos barcos de Magan, por volta do século XXI A.E.C., de acordo com o calendário gregoriano (<htcite1>; <htcite2>):",
+               "text": "O sistema sexagesimal estava perfeitamente adaptado à forma como os textos eram escritos. Podemos encontrar um exemplo de textos que utilizam números em Tello (antiga Girsu), no atual Iraque, exposto no Museu Britânico (<htcite0>). Nele, há a descrição dos materiais usados para a construção dos barcos de Magan, por volta do século XXI A.E.C., de acordo com o calendário gregoriano (<htcite1>; <htcite2>):",
                "source": [
                   {
                      "type": 0,
@@ -275,7 +275,7 @@
                "PostMention": "."
             },
             {
-               "text": "#### Montando a Tabuada\n\nPara entendermos melhor a tabuada do seis (6), fundamental para medição do tempo, vamos aplicar a **Fórmula 1**, atribuindo ao fator **a** o valor seis (6), obtendo os seguintes resultados:",
+               "text": "#### Montando a Tabuada\n\nPara entendermos melhor a tabuada do seis (6), fundamental para a medição do tempo, vamos aplicar a **Fórmula 1**, atribuindo ao fator **a** o valor seis (6), obtendo os seguintes resultados:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -302,7 +302,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Desenhando a Tabuada\n\nNovamente, desenhamos pontos e os unimos em um único gráfico:",
+               "text": "#### Desenhando a Tabuada\n\nNovamente, desenhamos os pontos e os unimos em um único gráfico:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -342,12 +342,12 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: pontos da tabuada de dois, três e seis conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Pontos da tabuada de dois, três e seis conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
                      "uuid": "6efe7632-faed-4080-a5aa-38463d43e6d7",
-                     "text": "chart js",
+                     "text": "Chart JS",
                      "page": "",
                      "date_time": {
                         "type": "gregory",
@@ -364,7 +364,7 @@
                "PostMention": ""
             },
             {
-               "text": "Considerando o que já estudamos, destacamos no **Gráfico 2**:\n\n- Exceto pelo zero (resultado comum às tabuadas), todo resultado na tabuada de seis (6) equivale ao resultado da tabuada de dois (2) multiplicado por três (3), e vice-versa. Por exemplo: **6 = 6 × 1**, **6 = (3 × 2) × 1**, e **6 = (2 × 3) × 1**.\n- Alguns números são múltiplos simultâneos de 2, 3 e 6. Por exemplo, doze (12) é múltiplo de dois (2), três (3) e seis (6): **12 = 3 x 4 =  4 × 3 = 6 × 2**.",
+               "text": "Considerando o que já estudamos, destacamos no **Gráfico 2**:\n\n- Exceto pelo zero (resultado comum às tabuadas), todo resultado na tabuada de seis (6) equivale ao resultado da tabuada de dois (2) multiplicado por três (3), e vice-versa. Por exemplo: **6 = 6 × 1**, **6 = (3 × 2) × 1**, e **6 = (2 × 3) × 1**.\n- Alguns números são múltiplos simultâneos de 2, 3 e 6. Por exemplo, doze (12) é múltiplo de dois (2), três (3) e seis (6): **12 = 3 × 4 = 4 × 3 = 6 × 2**.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -378,7 +378,7 @@
          "id": "SECTION_calendar",
          "text": [
             {
-               "text": "### Nosso Calendário\n\nVimos que os sumérios criaram as nossas bases para medir o tempo, mas nunca chegaram a definir os segundos. Por outro lado, graças a seus avanços, definimos meses contendo nome e 30 dias presentes em Girsu e outras regiões da Mesopotamia",
+               "text": "### Nosso Calendário\n\nVimos que os sumérios sentaram as bases para medir o tempo, mas nunca chegaram a definir os segundos. Por outro lado, graças aos seus avanços, eles estabeleceram meses com nome e 30 dias, como se observa em Girsu e em outras regiões da Mesopotâmia",
                "source": [
                   {
                      "type": 1,
@@ -400,7 +400,7 @@
                "PostMention": "."
             },
             {
-               "text": "Nosso calendário atual está mais relacionado a crenças e cultura do que à própria natureza. O formato vigente foi estabelecido por Júlio César em <htdate0>, rompendo com a tradição romana, em que os calendários eram baseados na Lua, como na Mesopotâmia. Como o calendário juliano apresentava falhas que afetavam festividades religiosas, em <htdate1>, o papa Gregório XIII o reformou. No entanto, sua aceitação completa só ocorreu em <htdate2>",
+               "text": "Nosso calendário atual está mais relacionado a crenças e cultura do que à própria natureza. O formato vigente foi estabelecido por Júlio César em <htdate0>, rompendo com a tradição romana, em que os calendários eram baseados na Lua, como na Mesopotâmia. Como o calendário juliano apresentava falhas que afetavam as festividades religiosas, o papa Gregório XIII o reformou em <htdate1>. No entanto, sua aceitação completa só ocorreu em <htdate2>",
                "source": [
                   {
                      "type": 1,
@@ -450,7 +450,7 @@
                "PostMention": ""
             },
             {
-               "text": "Inicialmente, alguns associaram as semanas às fases da Lua, mas essa ideia enfrenta dificuldades, pois uma fase lunar não corresponde exatamente a 7 dias. Para compreender melhor, recorremos a textos antigos por meio do trabalho de Lewy Hildegard e Lewy Julius (<htcite0>), que, apesar de não ser consenso (<htcite1>), traz informações relevantes para este estudo, como as que destacamos a seguir:",
+               "text": "Inicialmente, alguns associaram as semanas às fases da Lua, mas essa ideia enfrenta dificuldades, pois uma fase lunar não corresponde exatamente a 7 dias. Para compreender melhor, recorremos a textos antigos por meio do trabalho de Lewy Hildegard e Lewy Julius (<htcite0>), que, apesar de não contar com consenso universal (<htcite1>), traz informações relevantes para este estudo, como as que destacamos a seguir:",
                "source": [
                   {
                      "type": 1,
@@ -484,7 +484,7 @@
                "PostMention": ""
             },
             {
-               "text": "- Os assírios determinavam que os dias 7, 14, 19, 21 e 28 eram dias em que as pessoas deveriam abster-se de certas atividades. Exceto pelo dia 19, observa-se uma tentativa de padronização com múltiplos de 7.\n- O conceito de \"dia\", base para a definição da semana, não era o mesmo que hoje, com alguns povos associando-o diretamente ao vento.\n- Havia um sistema de divisão com sete direções, além das quatro cardeais.\n- Textos antigos mencionam \"sete ventos\", alguns relacionados a sete deuses do universo.\n- O número 50 (sete vezes sete mais um) aparece em diversos calendários orientais, sendo mais comum na Assíria.\n- O calendário baseado em sete períodos de 50 dias, chamado calendário pentecostal, foi usado na Assíria, Babilônia e Palestina. No entanto, esse calendário ainda incluía um período adicional, conhecido como *šapattum*, para completar o ano.\n- O antigo calendário amorita sobreviveu em Israel e pode ser identificado no Pentateuco (Levítico 23:10-11 e 15-16).\n- O termo *šapattum* evoluiu para designar um período de 15 dias ou o décimo quinto dia, enquanto, para os hebreus, passou a significar um período de 7 dias ou o sétimo dia. O problema é que usar apenas sete dias tornaria o calendário inviável, motivo pelo quais ajustes foram feitos, como evidenciado no Pentateuco.\n- Diante das evidências, conclui-se que a semana de sete dias está ligada a uma tradição milenar remontando aos sumérios. Havia interrupções de trabalho nos dias 7, 14, 21, 28, 35 e 49 do período de 50 dias, devido à superstição de que trabalhar nesses dias poderia trazer problemas. Também se sugere que motivos religiosos justificavam essas pausas.\n- Os dois significados atribuídos ao período de sete dias levaram ao abandono da contagem dos 50 dias, mantendo-se apenas a contagem semanal.\n- Como apontam os pesquisadores, a semana e o *Sabbath* estavam interligados, mas as reformas de <htdate1> alteraram isso temporariamente. Esdras instituiu a \"grande primavera\", e os festivais de outono abandonaram definitivamente o sistema pentecostal, que só foi restaurado em <htdate0>.",
+               "text": "- Os assírios determinavam que os dias 7, 14, 19, 21 e 28 eram dias em que as pessoas deveriam abster-se de certas atividades. Exceto pelo dia 19, observa-se uma tentativa de padronização com múltiplos de 7.\n- O conceito de \"dia\", base para a definição da semana, não era o mesmo que o de hoje, com alguns povos associando-o diretamente aos ventos.\n- Havia um sistema de divisão com sete direções, além das quatro cardeais.\n- Textos antigos mencionam \"sete ventos\", alguns relacionados a sete deuses do universo.\n- O número 50 (sete vezes sete mais um) aparece em diversos calendários orientais, sendo mais comum na Assíria.\n- O calendário baseado em sete períodos de 50 dias, chamado calendário pentecostal, foi usado na Assíria, Babilônia e Palestina. No entanto, esse calendário ainda incluía um período adicional, conhecido como *šapattum*, para completar o ano.\n- O antigo calendário amorita sobreviveu em Israel e pode ser identificado no Pentateuco (Levítico 23:10-11 e 15-16).\n- O termo *šapattum* evoluiu para designar um período de 15 dias ou o décimo quinto dia, enquanto, para os hebreus, passou a significar um período de 7 dias ou o sétimo dia. O problema era que usar apenas sete dias tornava o calendário inviável, motivo pelo qual ajustes foram feitos, como evidenciado no Pentateuco.\n- Diante das evidências, conclui-se que a semana de sete dias está ligada a uma tradição milenar que remonta aos sumérios. Havia interrupções de trabalho nos dias 7, 14, 21, 28, 35 e 49 do período de 50 dias, devido à superstição de que trabalhar nesses dias poderia trazer problemas. Motivos religiosos também podem ter justificado essas pausas.\n- Os dois significados atribuídos ao período de sete dias levaram ao abandono da contagem dos 50 dias, mantendo-se apenas a contagem semanal.\n- Como apontam os pesquisadores, a semana e o *Sabbath* estavam interligados, mas as reformas de <htdate0> alteraram isso temporariamente. Esdras instituiu a \"grande primavera\", e os festivais de outono abandonaram definitivamente o sistema pentecostal, que só foi restaurado em <htdate1>.",
                "source": null,
                "date_time": [
                   {
@@ -506,7 +506,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ao analisar os dados e estudar as festas judaicas, Lewy Hildegard e Lewy Julius concluem que o calendário amorita introduziu o período do *šapattum*. Sua presença é observada em Levítico 23:11 e 15 (<htcite0>), mas com durações variadas (7 e 8 dias). Houve uma tentativa inicial de criar dois *šapattum* de 7 dias, mas isso resultou em um ano incorreto. Ezequias, então, estabeleceu o ano como tendo 365 dias, utilizando os *šapattum* originais de 7 e 8 dias. Somente no período pós-exílio o calendário amorita foi completamente abandonado (<htcite1>).",
+               "text": "Ao analisar os dados e estudar as festas judaicas, Lewy Hildegard e Lewy Julius concluem que o calendário amorita introduziu o período do *šapattum*. Sua presença é observada em Levítico 23:11 e 15 (<htcite0>), mas com durações variadas (7 e 8 dias). Houve uma tentativa inicial de criar dois *šapattum* de 7 dias, mas isso resultou em um ano incorreto. Ezequias, então, estabeleceu um ano de 365 dias, utilizando os *šapattum* originais de 7 e 8 dias. Somente no período pós-exílio o calendário amorita foi completamente abandonado (<htcite1>).",
                "source": [
                   {
                      "type": 2,
@@ -648,7 +648,7 @@
          "id": "SECTION_natural_calendar",
          "text": [
             {
-               "text": "### Calendários e a Natureza\n\nQuando Esdras reformou o calendário, observamos que ele implementou a \"Grande Primavera\" para adaptar seu calendário à duração correta do ano. Não apenas a questão dos dias faltantes chama atenção nesta reforma, mas também o fato de que os calendários, antes das reformas romanas, ainda estavam alinhados com eventos naturais",
+               "text": "### Calendários e a Natureza\n\nQuando Esdras reformou o calendário, podemos observar que ele implementou a \"Grande Primavera\" para adaptar seu calendário à duração correta do ano. Não apenas a questão dos dias faltantes chama atenção nesta reforma, mas também o fato de que os calendários, antes das reformas romanas, ainda estavam alinhados com eventos naturais",
                "source": [
                   {
                      "type": 1,
@@ -732,7 +732,7 @@
                "PostMention": ""
             },
             {
-               "text": "Além dos complexos Tipo E, também observamos diferentes sistemas calendáricos, como a Pedra do Sol Asteca, que oferece uma representação visual do calendário anual de 365 dias utilizado por eles, além de um calendário ritualístico de 260 dias e a contagem de 52 anos - período necessário para que os dois calendários retornem à mesma posição inicial",
+               "text": "Além dos complexos Tipo E, também observamos diferentes sistemas calendáricos, como a Pedra do Sol Asteca, que oferece uma representação visual do calendário anual de 365 dias utilizado por eles, além de um calendário ritual de 260 dias e a contagem de 52 anos - período necessário para que os dois calendários retornem à mesma posição inicial",
                "source": [
                   {
                      "type": 1,
@@ -820,7 +820,7 @@
       {
          "question": "O número 6 é múltiplo de 2 e 3?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Ao multiplicarmos os números 2 e 3 (em qualquer ordem), obtemos o número 6, o que o torna um múltiplo comum de ambos. Consequentemente, qualquer produto das tabuadas do 2 por 3 e do 3 por 2 corresponderá necessariamente a um valor presente na tabuada do 6."
+         "additionalInfo": "Ao multiplicarmos os números 2 e 3 (em qualquer ordem), obtemos o número 6, o que o torna um múltiplo comum de ambos. Consequentemente, todo produto de 2 × 3 e de 3 × 2 corresponderá necessariamente a um valor presente na tabuada do 6."
       },
       {
          "question": "Apenas os povos do Oriente Médio conseguiram medir o tempo?",
