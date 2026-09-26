@@ -2749,3 +2749,19 @@ p.desc svg {
     font-size: 0.9rem;
   }
 }
+
+/* I Represent You (83f8c143): match Etruscan-Roman numerals with Hindu-Arabic numbers.
+   Reuses the .orderGame two-column matching layout. Thousands are drawn with an
+   overline over the Roman symbols. */
+.representOverline {
+  text-decoration: overline;
+  text-decoration-thickness: 2px;
+}
+
+.representRomanBtn {
+  letter-spacing: 0.06em;
+}
+
+.design-dark .representOverline {
+  text-decoration-color: #eceff1;
+}

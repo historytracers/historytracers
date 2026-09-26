@@ -1,0 +1,157 @@
+{
+   "title": "I Represent You",
+   "header": "I Represent You",
+   "sources": [
+      "83f8c143-65ca-4f0e-a271-f6290f96efbf"
+   ],
+   "scripts": [
+      "83f8c143-65ca-4f0e-a271-f6290f96efbf"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/83f8c143-65ca-4f0e-a271-f6290f96efbf_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1790380859"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Prerequisites</h3>This game helps you practice matching Etruscan-Roman numerals with their Hindu-Arabic equivalents. Before you start, we suggest reviewing the previous lessons about their origin (<htcite0>), about how to write numbers from 1 to 10 (<htcite1>), and about how to write large numbers (<htcite2>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "886ccce8-3be8-4aba-bc86-94864e96b355",
+                     "text": "History Tracers Team",
+                     "page": "Text or number?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5fc193f7-7226-4852-82d1-706a44de71ec",
+                     "text": "History Tracers Team",
+                     "page": "And the missing numbers?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9cf2c23-7f0f-4e73-9ba2-2b53c7b60f05",
+                     "text": "History Tracers Team",
+                     "page": "Large Etruscan-Roman numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>General rules</h3>The game has four levels. In each level, five Etruscan-Roman numerals appear on the left and five Hindu-Arabic numbers on the right, shuffled. Select a numeral and then select its Hindu-Arabic number; if the pair is correct, both remain highlighted. When you match all five pairs, you complete the level and can move on to the next one. In the first level, the numbers go from 1 to 10; in the second, from 10 to 99; in the third, from 100 to 999; and in the last, from 1000 to 9999, where the thousands are written with a bar above the symbols.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>I Represent You</h3>Match each Roman numeral on the left with its Hindu-Arabic number on the right. Select one from each column to form the pair.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"representLevel\" class=\"level-badge\"></span></p><p><div id=\"representGame\" class=\"orderGame\"><div class=\"orderGameCol\" id=\"representLeftCol\"></div><div class=\"orderGameCol\" id=\"representRightCol\"></div></div></p><p id=\"representCompleteMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the numbers in this level!<br />Great job!</p><p id=\"representCongratsMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the numbers!<br />Excellent work!</p><p style=\"text-align: center\"><button id=\"representReset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"representNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"representWordLevel\" style=\"display: none\">Level</span><span id=\"representWordNextLevel\" style=\"display: none\">Next level</span><span id=\"representWordPlayAgain\" style=\"display: none\">Play again</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">The numerals follow the rules of the Etruscan-Roman numeral system presented in <i>Large Etruscan-Roman numbers</i> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b9cf2c23-7f0f-4e73-9ba2-2b53c7b60f05",
+                     "text": "History Tracers Team",
+                     "page": "Large Etruscan-Roman numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

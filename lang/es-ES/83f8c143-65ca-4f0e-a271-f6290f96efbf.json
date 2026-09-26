@@ -1,0 +1,157 @@
+{
+   "title": "Yo Te Represento",
+   "header": "Yo Te Represento",
+   "sources": [
+      "83f8c143-65ca-4f0e-a271-f6290f96efbf"
+   ],
+   "scripts": [
+      "83f8c143-65ca-4f0e-a271-f6290f96efbf"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/83f8c143-65ca-4f0e-a271-f6290f96efbf_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1790380859"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Requisitos previos</h3>Este juego te ayuda a practicar la correspondencia entre los números etrusco-romanos y sus equivalentes indoárabes. Antes de comenzar, te sugerimos repasar las lecciones anteriores sobre su origen (<htcite0>), sobre cómo escribir los números del 1 al 10 (<htcite1>) y sobre cómo escribir números grandes (<htcite2>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "886ccce8-3be8-4aba-bc86-94864e96b355",
+                     "text": "History Tracers Team",
+                     "page": "¿Texto o número?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5fc193f7-7226-4852-82d1-706a44de71ec",
+                     "text": "History Tracers Team",
+                     "page": "¿Y los números que faltan?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9cf2c23-7f0f-4e73-9ba2-2b53c7b60f05",
+                     "text": "History Tracers Team",
+                     "page": "Números etrusco-romanos grandes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Reglas generales</h3>El juego tiene cuatro niveles. En cada nivel, cinco números etrusco-romanos aparecen a la izquierda y cinco números indoárabes a la derecha, mezclados. Selecciona un número y luego selecciona su número indoárabe; si la pareja es correcta, ambos permanecen resaltados. Cuando emparejas las cinco parejas, completas el nivel y puedes pasar al siguiente. En el primer nivel, los números van del 1 al 10; en el segundo, del 10 al 99; en el tercero, del 100 al 999; y en el último, del 1000 al 9999, donde los millares se escriben con una barra sobre los símbolos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Yo Te Represento</h3>Empareja cada número romano de la izquierda con su número indoárabe de la derecha. Selecciona uno de cada columna para formar la pareja.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"representLevel\" class=\"level-badge\"></span></p><p><div id=\"representGame\" class=\"orderGame\"><div class=\"orderGameCol\" id=\"representLeftCol\"></div><div class=\"orderGameCol\" id=\"representRightCol\"></div></div></p><p id=\"representCompleteMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡CORRECTO! 🎉🎉🎉<br />¡Emparejaste todos los números de este nivel!<br />¡Gran trabajo!</p><p id=\"representCongratsMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br />¡Emparejaste todos los números!<br />¡Excelente trabajo!</p><p style=\"text-align: center\"><button id=\"representReset\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button></p><p style=\"text-align: center\"><button id=\"representNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"representWordLevel\" style=\"display: none\">Nivel</span><span id=\"representWordNextLevel\" style=\"display: none\">Siguiente nivel</span><span id=\"representWordPlayAgain\" style=\"display: none\">Jugar de nuevo</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Los números siguen las reglas del sistema numérico etrusco-romano presentadas en <i>Números etrusco-romanos grandes</i> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b9cf2c23-7f0f-4e73-9ba2-2b53c7b60f05",
+                     "text": "History Tracers Team",
+                     "page": "Números etrusco-romanos grandes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
