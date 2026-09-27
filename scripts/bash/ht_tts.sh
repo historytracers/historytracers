@@ -40,7 +40,7 @@ ht_download_models() {
 
 ht_select_model() {
     FILE=".ht_tts_${1}"
-    SELECTOR=$(cat "${FILE}")
+    SELECTOR=$(cat "${FILE}" 2>/dev/null || true)
     if [ "${1}" == "pt-BR" ]; then
         echo "pt_BR-faber-medium"
         return
@@ -111,15 +111,13 @@ ht_error() {
 
 
 target_dir="models"
-case $(ht_check_or_create_dir "$target_dir") in
-    0)
-        if ! ht_cmd_exists "pip3"; then
-            echo "Cannot install models"
-            exit 1
-        fi
-        ht_download_models
-        ;;
-esac
+if ht_check_or_create_dir "$target_dir"; then
+    if ! ht_cmd_exists "pip3"; then
+        echo "Cannot install models"
+        exit 1
+    fi
+    ht_download_models
+fi
 
 if [ $# -ne 1 ]; then
     ht_error
