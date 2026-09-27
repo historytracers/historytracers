@@ -20,8 +20,17 @@ function htLayoutUniverseFrame(frame) {
         return false;
     }
 
-    var x0 = parseFloat(img.getAttribute("data-x0"));
-    var x1 = parseFloat(img.getAttribute("data-x1"));
+    var naturalWidth = img.naturalWidth > 0 ? img.naturalWidth : UNIVERSE_FALLBACK_WIDTH;
+    var naturalHeight = img.naturalHeight > 0 ? img.naturalHeight : UNIVERSE_FALLBACK_HEIGHT;
+
+    // data-x0/data-x1 are pixel coordinates in the full-resolution image
+    // (UNIVERSE_FALLBACK_WIDTH). Some hosts/CDNs deliver a downscaled copy of
+    // the same picture, so scale the crop window to the delivered resolution
+    // to keep the visible region identical at any size.
+    var coordScale = naturalWidth / UNIVERSE_FALLBACK_WIDTH;
+
+    var x0 = parseFloat(img.getAttribute("data-x0")) * coordScale;
+    var x1 = parseFloat(img.getAttribute("data-x1")) * coordScale;
 
     if (isNaN(x0) || isNaN(x1) || x1 <= x0) {
         return false;
@@ -34,9 +43,6 @@ function htLayoutUniverseFrame(frame) {
     if (frameWidth <= 0 || frameHeight <= 0) {
         return false;
     }
-
-    var naturalWidth = img.naturalWidth > 0 ? img.naturalWidth : UNIVERSE_FALLBACK_WIDTH;
-    var naturalHeight = img.naturalHeight > 0 ? img.naturalHeight : UNIVERSE_FALLBACK_HEIGHT;
 
     var scale = Math.min(frameWidth / span, frameHeight / naturalHeight);
     var drawWidth = naturalWidth * scale;
