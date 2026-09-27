@@ -30,7 +30,9 @@
       "1782765775"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -680,7 +682,7 @@
       {
          "question": "Existe relação entre comprimento, área e volume?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Estas unidades de medida estão relacionadas, pois medem comprimentos em diferentes superfícies. Como consequência disso, podemos aplicar multiplicações (somas consecutivas) para medi-las."
+         "additionalInfo": "Comprimento, área e volume são grandezas diferentes: o comprimento mede uma distância, a área mede uma superfície e o volume mede o espaço ocupado. Elas estão relacionadas pela multiplicação, pois a área e o volume são obtidos multiplicando comprimentos (somas consecutivas)."
       },
       {
          "question": "No passado, diferentes civilizações interpretavam o céu e a terra como níveis distintos?",
