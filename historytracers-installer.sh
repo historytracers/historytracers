@@ -84,10 +84,19 @@ compile() {
         LOCALPATH=$(cygpath -m "$LOCALPATH")
         LOGPATH=$(cygpath -m "$LOGPATH")
     fi
-    ./configure --with-conf-path="packaging/conf/dev.conf" \
-                --with-src-path="${LOCALPATH}/" \
-                --with-content-path="${LOCALPATH}/www/" \
-                --with-log-path="${LOGPATH}"
+    CONFIGURE_ARGS=(
+        --with-conf-path="packaging/conf/dev.conf"
+        --with-src-path="${LOCALPATH}/"
+        --with-content-path="${LOCALPATH}/www/"
+        --with-log-path="${LOGPATH}"
+    )
+    if [ "$DISABLE_EDITOR" = "1" ]; then
+        CONFIGURE_ARGS+=(--disable-editor)
+    fi
+    if [ "$DISABLE_VIEWER" = "1" ]; then
+        CONFIGURE_ARGS+=(--disable-viewer)
+    fi
+    ./configure "${CONFIGURE_ARGS[@]}"
     echo "=== configure done ==="
 
     make clean
@@ -117,14 +126,23 @@ compile() {
     echo "=== publisher run complete (see historytracers.log) ==="
 }
 
+DISABLE_EDITOR=0
+DISABLE_VIEWER=0
+
 for arg in "$@"; do
     case "$arg" in
         --update-submodules|-u)
             update_submodules
             ;;
+        --disable-editor)
+            DISABLE_EDITOR=1
+            ;;
+        --disable-viewer)
+            DISABLE_VIEWER=1
+            ;;
         *)
             echo "Unknown option: $arg"
-            echo "Usage: $0 [--update-submodules|-u]"
+            echo "Usage: $0 [--update-submodules|-u] [--disable-editor] [--disable-viewer]"
             exit 1
             ;;
     esac
