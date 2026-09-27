@@ -254,6 +254,16 @@ AS_IF([test "x$enable_editor" != "xno"], [
 ])
 AM_CONDITIONAL([BUILD_EDITOR], [test "x$build_editor" = "xyes"])
 
+# Viewer build option
+AC_ARG_ENABLE([viewer],
+    [AS_HELP_STRING([--disable-viewer], [Disable building the viewer])],
+    [enable_viewer=$enableval],
+    [enable_viewer=yes])
+
+build_viewer=no
+AS_IF([test "x$enable_viewer" != "xno"], [build_viewer=yes])
+AM_CONDITIONAL([BUILD_VIEWER], [test "x$build_viewer" = "xyes"])
+
  # Set default installation paths
 AC_PREFIX_DEFAULT(/usr)
 

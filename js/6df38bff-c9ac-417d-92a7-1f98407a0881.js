@@ -13,9 +13,9 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("imgLVR", "images/Louvre/0000166561_OG.JPG");
-    htSetImageSrc("imgLVR", "images/Louvre/0000226857_OG.JPG");
-    htSetImageSrc("imgLVR", "images/Louvre/0001315485_OG.JPG");
+    htSetImageSrc("imgLouvre0", "images/Louvre/0000166561_OG.JPG");
+    htSetImageSrc("imgLouvre1", "images/Louvre/0000226857_OG.JPG");
+    htSetImageSrc("imgLouvre2", "images/Louvre/0001315485_OG.JPG");
     htPlusDivs(0);
 
     return false;
