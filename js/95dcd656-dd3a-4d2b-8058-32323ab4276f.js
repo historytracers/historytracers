@@ -13,8 +13,8 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("imgAtlatl", "images/MetropolitanMuseum/1987.394.70.jpeg");
-    htSetImageSrc("imgPottery2", "images/MetropolitanMuseum/DP23088.jpg");
+    htSetImageSrc("imgMetropolitan0", "images/MetropolitanMuseum/1987.394.70.jpeg");
+    htSetImageSrc("imgMetropolitan1", "images/MetropolitanMuseum/DP23088.jpg");
     htPlusDivs(0);
 
     return false;

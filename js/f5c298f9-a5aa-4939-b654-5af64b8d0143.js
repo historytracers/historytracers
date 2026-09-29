@@ -13,10 +13,10 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("imgd700", "images/MexicoCityMuseo/Cuauhxicalli.jpg");
-    htSetImageSrc("imgHs3", "images/MexicoCityMuseo/HomoSapiens.jpg");
-    htSetImageSrc("mamut", "images/MexicoCityMuseo/Mamute.jpg");
-    htSetImageSrc("imgOaxaca", "images/MexicoCityMuseo/Oaxaca.jpg");
+    htSetImageSrc("imgMexicoCityMuseo0", "images/MexicoCityMuseo/Cuauhxicalli.jpg");
+    htSetImageSrc("imgMexicoCityMuseo1", "images/MexicoCityMuseo/HomoSapiens.jpg");
+    htSetImageSrc("imgMexicoCityMuseo2", "images/MexicoCityMuseo/Mamute.jpg");
+    htSetImageSrc("imgMexicoCityMuseo3", "images/MexicoCityMuseo/Oaxaca.jpg");
     htPlusDivs(0);
 
     return false;

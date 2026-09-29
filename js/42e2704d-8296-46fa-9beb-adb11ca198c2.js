@@ -13,9 +13,9 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("mp", "images/MachuPicchu/MachuPicchu.jpg");
-    htSetImageSrc("mp", "images/MachuPicchu/MachuPicchu2.jpg");
-    htSetImageSrc("mp1", "images/MachuPicchu/MachuPicchu3.jpg");
+    htSetImageSrc("imgMachuPicchu0", "images/MachuPicchu/MachuPicchu.jpg");
+    htSetImageSrc("imgMachuPicchu1", "images/MachuPicchu/MachuPicchu2.jpg");
+    htSetImageSrc("imgMachuPicchu2", "images/MachuPicchu/MachuPicchu3.jpg");
     htPlusDivs(0);
 
     return false;
