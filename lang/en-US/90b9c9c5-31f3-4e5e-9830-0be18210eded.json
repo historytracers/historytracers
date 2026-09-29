@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765765"
+      "1790704873"
    ],
    "authors": null,
    "reviewers": null,
@@ -50,12 +50,12 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text establishes a relationship with concepts previously studied. Thus, we recommend that the reader review the previous texts from the four chapters before proceeding",
+               "text": "### Prerequisites\n\nThis text builds on concepts studied earlier. We therefore recommend that the reader review the texts of the previous chapters before continuing.",
                "source": [
                   {
                      "type": 1,
                      "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
-                     "text": "Hitory Tracers Team",
+                     "text": "History Tracers Team",
                      "page": "First Steps",
                      "date_time": {
                         "type": "gregory",
@@ -77,7 +77,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nAfter four chapters dedicated to studying the different ways humanity developed counting methods—whether through addition or multiplication—we cannot claim the subject is exhausted. On many occasions, we perform sums and multiplications indirectly without even noticing.\n\nWith this in mind, reflect before proceeding:",
+               "text": "### Introduction\n\nIn the previous chapters we studied the different ways humanity developed counting methods—whether through addition or multiplication—and still cannot claim that the subject is exhausted. In daily life we often add and multiply without even noticing.\n\nThis text shows that reading and writing are already mathematical activities. We will count the symbols of a poem, measure the syllables of its verses, and read the hieroglyphs of a Maya stela.\n\nWith this in mind, reflect before proceeding:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -100,7 +100,7 @@
          "id": "SECTION_overview",
          "text": [
             {
-               "text": "### An Overview\n\nWhenever we read or write something, we are performing mathematical operations that, being so natural, go unnoticed. Let us explore this in more detail.\n\n#### The Sum in Text\n\nOften, because we are so focused on understanding what we're reading, we don't notice that we're summing letters to reach a final result: the comprehension of a word or text (<htcite0>). One possible reason we don't observe this summation could be that we don't use the addition symbol (+) during reading.\n\n#### Multiplication\n\nWhen we combine letter by letter to write or read a word, we're also applying the multiplication table of 1 (<htcite1>). As with summation, we don't insert the multiplication symbol (×) in this interpretation, though it is implicit.\n\nMultiplication also helps us navigate through text. As mentioned in the first text of Chapter 4, to multiply is to perform repeated addition of a quantity (<htcite2>). Since texts are organized in lines - sometimes called verses (<htcite3>)— when moving from one line to another, we can interpret this as performing multiplication. An example of text in verses is Gustavo Dourado's poem *LABUTA*, presented below (<htcite4>; <htcite5>):",
+               "text": "### An Overview\n\nWhenever we read or write something, we are performing mathematical operations that, being so natural, go unnoticed. Let us explore this in more detail.\n\n#### The Sum in Text\n\nOften, because we are so focused on understanding what we're reading, we don't notice that we're summing letters to reach a final result: the comprehension of a word or text (<htcite0>). One possible reason we don't observe this summation could be that we don't use the addition symbol (+) during reading.\n\n#### Multiplication\n\nWhen we combine letter by letter to write or read a word, we're also applying the multiplication table of 1 (<htcite1>). As with summation, we don't insert the multiplication symbol (×) in this interpretation, though it is implicit.\n\nMultiplication also helps us navigate through text. As mentioned in the first text of the chapter on multiplication, to multiply is to perform repeated addition of a quantity (<htcite2>). Since texts are organized in lines — sometimes called verses (<htcite3>) — moving from one line to the next can be interpreted as performing a multiplication. An example of text in verses is Gustavo Dourado's poem *LABUTA*, presented below (<htcite4>; <htcite5>):",
                "source": [
                   {
                      "type": 0,
@@ -191,12 +191,12 @@
                "PostMention": ""
             },
             {
-               "text": "#### Plotting the Letter Count\n\nIn the last text of the previous chapter (<htcite0>), it was stated that when working with the real world, we cannot limit number multiplication to 10. In these first sections of this text, we already encounter a scenario that demonstrates the need for expansion. To count all the letters written so far, we cannot restrict our count to ten.\n\nFor example, let us plot the twelve symbols (11 letters and two points) present in the first verse of the poem *LABUTA* (<htcite1>; <htcite2>):",
+               "text": "#### Plotting the Symbol Count\n\nIn the last text of the previous chapter (<htcite0>), it was stated that when working with the real world we cannot limit multiplication to the times table of 10. In these first sections of this text we already meet a scenario that demands that expansion: to count all the letters written so far, our count cannot stop at ten.\n\nFor example, the first verse of the poem *LABUTA* holds twelve symbols: 11 letters and a colon. Let us plot them (<htcite1>; <htcite2>):",
                "source": [
                   {
                      "type": 1,
                      "uuid": "23ac6920-69b1-4d9c-99ef-082e387f2ddf",
-                     "text": "Hitory Tracers Team",
+                     "text": "History Tracers Team",
                      "page": "Understanding the Multiplication Tables (Summary)",
                      "date_time": {
                         "type": "gregory",
@@ -237,7 +237,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 1</b>: Letter Count in the First Verse. Chart created with <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 1</b>: Symbols in the First Verse (11 letters + 1 colon = 12). Chart created with the <htcite0> library.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -259,7 +259,7 @@
                "PostMention": ""
             },
             {
-               "text": "In addition to these examples, multiplication also appears implicitly in poems' syllables, as we will see in the next section.",
+               "text": "Besides these examples, multiplication also appears implicitly in the syllables of poems, as we will see in the next section.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -273,7 +273,7 @@
          "id": "SECTION_poem",
          "text": [
             {
-               "text": "### Poems\n\nWhen writing a poem, the author may choose between free composition or adherence to a metrical structure (<htcite0>).\n\n#### Defining Meter\n\nIf a specific meter is selected, each verse of the poem must contain the same number of metrical syllables. Note that metrical conventions vary across languages. For simplicity, this text adopts the Portuguese language’s definitions and examples. However, readers may consult the University of Pennsylvania (<htcite1>).\n\nIn Portuguese, metrical syllables are counted up to the last stressed syllable—the most emphatically pronounced syllable—rather than the total number of syllables in a verse (<htcite2>).\n\nThe poem *\"Voltas\"* consists of 5-syllable verses, known in Portuguese as *redondilhas menores* (<htcite3>). Below is the reproduced text (<htcite4>):",
+               "text": "### Poems\n\nWhen writing a poem, the author may choose between free composition and adherence to a metrical structure (<htcite0>).\n\n#### Defining Meter\n\nIf a specific meter is selected, each verse of the poem must contain the same number of metrical syllables. Note that metrical conventions vary across languages. For simplicity, this text adopts the definitions and examples of Portuguese. Readers who wish to compare them may consult the article on meter published by the University of Pennsylvania (<htcite1>).\n\nIn Portuguese, metrical syllables are counted up to the last stressed syllable—the most emphatically pronounced syllable—rather than up to the total number of syllables in a verse (<htcite2>).\n\nThe poem *\"Voltas\"* consists of 5-syllable verses, known in Portuguese as *redondilhas menores* (<htcite3>). Below we reproduce that text (<htcite4>):",
                "source": [
                   {
                      "type": 1,
@@ -352,7 +352,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### The Multiplication Table of *Voltas*\n\nBefore analyzing the poem’s syllables, let us highlight key features:\n\n- Each verse (line) of 'Voltas' contains exactly 5 Portuguese metrical syllables.\n- Each strophe—a group of verses separated by empty lines (<htcite0>)—comprises 7 verses.\n- The poem contains two strophes.\n\nGiven this structure, the total metrical syllables can be calculated through different mathematical operations:",
+               "text": "#### The Multiplication Table of *Voltas*\n\nBefore analyzing the poem’s syllables, let us highlight key features:\n\n- Each verse (line) of *Voltas* contains exactly 5 Portuguese metrical syllables.\n- Each strophe — a group of verses separated by a blank line (<htcite0>) — comprises 7 verses.\n- The poem contains two strophes.\n\nGiven this structure, the total number of metrical syllables can be calculated in three different ways:",
                "source": [
                   {
                      "type": 1,
@@ -374,7 +374,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\">\n\n**Sum of individual syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>70</mn></mrow></munderover><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>1 × (70)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n **Sum per strophe**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>35</mi></math>.\n\nWith two strophes: 35 + 35 = 2 × (35) = 70\n\n **Sum across all verses**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>14</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n*This last method will be explored in detail in another text.*</div></div></center>\n\n#### Verse Chart\n\nSince the number of metrical syllables is constant for all verses, a graphical representation would show a flat line on the vertical axis:",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\">\n\n**1. Individual syllables: add 1 for each of the 70 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>70</mn></mrow></munderover><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>1 × (70)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n**2. Per strophe: 7 verses × 5 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>35</mi></math>.\n\n*Each strophe gives 7 × 5 = 35 syllables. With two strophes we double that result:* 35 + 35 = 2 × (35) = 70\n\n**3. Across all verses: 14 verses × 5 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>14</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n*All three methods give the same total: 70 syllables. The third method will be explored in detail in another text.*</div></div></center>\n\n#### Verse Chart\n\nBecause every verse contains the same number of metrical syllables (5), all the points of the graph sit at the same height, producing a flat, horizontal line:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -383,7 +383,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Syllables per verse in <i>Voltas</i>. Chart created using the <i>Voltas</i>. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Metrical syllables per verse in <i>Voltas</i>. Chart created with the <htcite0> library.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -410,7 +410,7 @@
          "id": "SECTION_hieroglyphics",
          "text": [
             {
-               "text": "### The Mathematics in Hieroglyphics\n\nIn addition to the alphabets we use today, humanity has also developed different writing systems (<htcite0>), where mathematics is also present.\n\n#### The Mesoamerican Texts\n\nLooking at **Figure 1**, which shows part of Stela A located in the archaeological site of Copán, Honduras, we can observe two columns of hieroglyphs displayed in nine lines on the stela's side.",
+               "text": "### The Mathematics in Hieroglyphics\n\nIn addition to the alphabets we use today, humanity has also developed different writing systems (<htcite0>), where mathematics is likewise present.\n\n#### The Mesoamerican Texts\n\nLooking at **Figure 1**, which shows part of Stela A located in the archaeological site of Copán, Honduras, we can observe two columns of hieroglyphs displayed in nine lines on the stela's side.",
                "source": [
                   {
                      "type": 1,
@@ -432,7 +432,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figure 1</b>: Stela A at the Copán Archaeological Museum, featuring inscriptions referencing Copán, Tikal, Calakmul, and Palenque in sequence (<htcite0>). Photo taken on <htdate1> during site visit.</p>",
+               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figure 1</b>: Stela A at the Copán Archaeological Museum, featuring inscriptions referencing Copán, Tikal, Calakmul, and Palenque in sequence (<htcite0>). Photo taken on <htdate1> during a visit to the site.</p>",
                "source": [
                   {
                      "type": 1,
@@ -467,7 +467,7 @@
                "PostMention": ""
             },
             {
-               "text": "The counting of hieroglyphs follows a logic analogous to counting meter syllables in verses. With this, we have a total of 18 hieroglyphs (2 × 9) visible in **Figure 1**.\n\n#### Chart of Hieroglyphs\n\nIn **Chart 3**, we represent the hieroglyph sample by line. Compared to **Chart 2**, we observe a constant quantity; therefore, in this scenario, all points have a value of 2, in contrast to the value of 5 in the previous chart.",
+               "text": "Counting hieroglyphs follows the same logic as counting metrical syllables in verses: each line carries a fixed number of signs. Thus, **Figure 1** shows a total of 18 hieroglyphs (2 columns × 9 lines = 18).\n\n#### Chart of Hieroglyphs\n\nIn **Chart 3** we plot the number of hieroglyphs per line. Compared with **Chart 2**, we again see a constant quantity: every point has the value 2 instead of the value 5 of the previous chart.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -503,7 +503,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we observed that mathematics appears in texts in explicit ways (such as in counting syllables) and implicit ways (when we combine letters to form words and move between lines). Essentially, applying these concepts to text leads us to a final reflection:",
+               "text": "### Conclusion\n\nIn this text we have seen that mathematics appears in texts explicitly (when we count syllables) and implicitly (when we combine letters to form words, or move from one line to the next). Applying these concepts to texts leads us to a final reflection:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -521,7 +521,7 @@
                "PostMention": ""
             },
             {
-               "text": "In the next text, we will answer this reflection in detail.",
+               "text": "In the next text we will answer this reflection in detail.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -534,19 +534,19 @@
    ],
    "exercise_v2": [
       {
-         "question": "Is the sentence <i>\"Texts never mix with math\"</i> correct?",
+         "question": "Is the following statement correct: <i>\"Texts never mix with math\"</i>?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Mathematics is present in all areas of our lives, often appearing in implicit ways."
+         "additionalInfo": "Mathematics is present in every area of life, usually in implicit ways: reading a word, moving from one line to the next, or counting the syllables of a verse are all mathematical operations."
       },
       {
-         "question": "Can we count syllable meter with multiplication?",
+         "question": "Can we count metrical syllables with multiplication?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "When counting the meter syllables of a verse, we use the multiplication table of 1. If the poem maintains the same meter in all its verses, we can multiply the number of syllables per verse by the number of verses to obtain the total number of syllables in the text."
+         "additionalInfo": "Counting the metrical syllables of a verse uses the multiplication table of 1. If every verse of the poem keeps the same meter, we can multiply instead of adding: 14 verses × 5 syllables = 70 syllables in total."
       },
       {
          "question": "Can we apply multiplication to hieroglyphs?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "We cannot exclude mathematics from our lives. Therefore, we can also apply multiplication to study hieroglyphs."
+         "additionalInfo": "The stela shows 2 columns of hieroglyphs across 9 lines, so 2 × 9 = 18 hieroglyphs. Whenever the same quantity repeats a fixed number of times, multiplication gives the total directly."
       }
    ],
    "game_v2": null,
