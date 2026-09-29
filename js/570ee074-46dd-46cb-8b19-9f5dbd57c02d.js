@@ -155,8 +155,9 @@ function htOrderGameCheckComplete() {
 function htLoadContent() {
     htOrderGameBuild();
 
-    $("#orderResetBtn").off("click").on("click", function() {
+    $(document).off("click.htOrderGameReset", "#orderResetBtn").on("click.htOrderGameReset", "#orderResetBtn", function() {
         htOrderGameBuild();
+        return false;
     });
 
     htWriteNavigation();
