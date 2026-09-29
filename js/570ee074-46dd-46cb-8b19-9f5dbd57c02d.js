@@ -52,8 +52,17 @@ function htOrderGameRenderColumn(target, items, side) {
     $(target).html(html);
 }
 
+function htOrderGameShowFeedback(message) {
+    $("#orderFeedback").text(message).show();
+}
+
+function htOrderGameClearFeedback() {
+    $("#orderFeedback").hide().text("");
+}
+
 function htOrderGameBuild() {
     $("#orderCongrats").hide();
+    htOrderGameClearFeedback();
     let orderIds = htOrderGameRandomOrders();
     let orderNames = htOrderGameOrderNames();
 
@@ -61,6 +70,7 @@ function htOrderGameBuild() {
     localOrderGame.matched = {};
     localOrderGame.selectedLeft = null;
     localOrderGame.selectedRight = null;
+    localOrderGame.firstSide = null;
 
     let leftItems = [];
     let rightItems = [];
@@ -79,6 +89,11 @@ function htOrderGameBuild() {
 function htOrderGameSelect(side, orderId) {
     if (localOrderGame.matched[orderId]) {
         return false;
+    }
+
+    if (localOrderGame.firstSide == null) {
+        htOrderGameClearFeedback();
+        localOrderGame.firstSide = side;
     }
 
     if (side == "Left") {
@@ -112,12 +127,22 @@ function htOrderGameEvaluatePair() {
         $("#orderRight" + rightId).removeClass("orderGameBtnSelected").addClass("orderGameBtnMatched").prop("disabled", true);
         localOrderGame.selectedLeft = null;
         localOrderGame.selectedRight = null;
+        localOrderGame.firstSide = null;
         htOrderGameCheckComplete();
     } else {
+        if (localOrderGame.firstSide == "Left") {
+            let numberText = $("#orderLeft" + leftId).text();
+            let numberDesc = $("#htOrderNumberDesc" + leftId).text();
+            htOrderGameShowFeedback(numberText + " " + numberDesc + ".");
+        } else {
+            let nameDesc = $("#htOrderNameDesc" + rightId).text();
+            htOrderGameShowFeedback(nameDesc + ".");
+        }
         $("#orderLeft" + leftId).removeClass("orderGameBtnSelected");
         $("#orderRight" + rightId).removeClass("orderGameBtnSelected");
         localOrderGame.selectedLeft = null;
         localOrderGame.selectedRight = null;
+        localOrderGame.firstSide = null;
     }
 }
 
