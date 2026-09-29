@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790714948"
+      "1790724820"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -319,7 +321,7 @@
          "id": "SECTION_order",
          "text": [
             {
-               "text": "### Numerical Order\n\nWhen we talk about number families (<htcite0>; <htcite1>), we learned that in each position where we write a digit we can only use values from **0 to 9** (**0, 1, 2, 3, 4, 5, 6, 7, 8, and 9**). Whenever we reach the maximum value (9), we carry over to the position on the left, which belongs to a higher order. But what is the relationship between the multiplication table of 10 and that carry-over?\n\n#### Reinterpreting Multi-Digit Multiplication\n\nThe multiplication of numbers with more than one digit cannot be understood simply as \"we multiply the units digit and then the tens digit\", because that interpretation omits something important: the order. To make this clearer, let’s multiply 11 × 2:",
+               "text": "### Numerical Order\n\nWhen we talk about number families (<htcite0>; <htcite1>), we learned that in each position where we write a digit we can only use values from **0 to 9** (**0, 1, 2, 3, 4, 5, 6, 7, 8, and 9**). Whenever we reach ten units in a position, we exchange them for one unit in the position to its left, which belongs to a higher order. But what is the relationship between the multiplication table of 10 and that carry-over?\n\n#### Reinterpreting Multi-Digit Multiplication\n\nThe multiplication of numbers with more than one digit cannot be understood simply as \"we multiply the units digit and then the tens digit\", because that interpretation omits something important: the order. To make this clearer, let’s multiply 11 × 2:",
                "source": [
                   {
                      "type": 1,

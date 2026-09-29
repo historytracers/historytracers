@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790714962"
+      "1790724852"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -319,7 +321,7 @@
          "id": "SECTION_order",
          "text": [
             {
-               "text": "### Orden numérico\n\nAl hablar de las familias numéricas (<htcite0>; <htcite1>), aprendimos que, en cada posición en la que escribimos una cifra, solo podemos usar los valores del **0 al 9** (**0, 1, 2, 3, 4, 5, 6, 7, 8 y 9**). Siempre que alcanzamos el valor máximo (9), pasamos a la posición de la izquierda, que pertenece a un orden superior. Pero, ¿cuál es la relación entre la tabla de multiplicar del 10 y ese cambio de orden?\n\n#### Reinterpretando la multiplicación de múltiples dígitos\n\nLa multiplicación de números con más de un dígito no puede entenderse solo como “multiplicamos la cifra de las unidades y luego la de las decenas”, ya que esa interpretación omite algo importante: el orden. Para dejarlo más claro, vamos a multiplicar 11 × 2:",
+               "text": "### Orden numérico\n\nAl hablar de las familias numéricas (<htcite0>; <htcite1>), aprendimos que, en cada posición en la que escribimos una cifra, solo podemos usar los valores del **0 al 9** (**0, 1, 2, 3, 4, 5, 6, 7, 8 y 9**). Siempre que alcanzamos diez unidades en una posición, las intercambiamos por una unidad en la posición de su izquierda, que pertenece a un orden superior. Pero, ¿cuál es la relación entre la tabla de multiplicar del 10 y ese cambio de orden?\n\n#### Reinterpretando la multiplicación de múltiples dígitos\n\nLa multiplicación de números con más de un dígito no puede entenderse solo como “multiplicamos la cifra de las unidades y luego la de las decenas”, ya que esa interpretación omite algo importante: el orden. Para dejarlo más claro, vamos a multiplicar 11 × 2:",
                "source": [
                   {
                      "type": 1,

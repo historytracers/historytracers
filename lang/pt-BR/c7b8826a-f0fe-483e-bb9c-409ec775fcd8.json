@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790714982"
+      "1790724878"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -319,7 +321,7 @@
          "id": "SECTION_order",
          "text": [
             {
-               "text": "### Ordem numérica\n\nAo falarmos das famílias numéricas (<htcite0>; <htcite1>), aprendemos que, em cada posição em que escrevemos um dígito, só podemos usar os valores de **0 a 9** (**0, 1, 2, 3, 4, 5, 6, 7, 8 e 9**). Sempre que atingimos o valor máximo (9), passamos para a posição à esquerda, que pertence a uma ordem superior. Mas qual é a relação entre a tabuada do 10 e essa mudança de ordem?\n\n#### Reinterpretando a multiplicação de múltiplos dígitos\n\nA multiplicação de números com mais de um dígito não pode ser entendida apenas como \"multiplicamos o dígito da unidade e depois o da dezena\", pois essa interpretação omite algo importante: a ordem. Para deixar mais claro, vamos multiplicar 11 × 2:",
+               "text": "### Ordem numérica\n\nAo falarmos das famílias numéricas (<htcite0>; <htcite1>), aprendemos que, em cada posição em que escrevemos um dígito, só podemos usar os valores de **0 a 9** (**0, 1, 2, 3, 4, 5, 6, 7, 8 e 9**). Sempre que atingimos dez unidades em uma posição, trocamos por uma unidade na posição à sua esquerda, que pertence a uma ordem superior. Mas qual é a relação entre a tabuada do 10 e essa mudança de ordem?\n\n#### Reinterpretando a multiplicação de múltiplos dígitos\n\nA multiplicação de números com mais de um dígito não pode ser entendida apenas como \"multiplicamos o dígito da unidade e depois o da dezena\", pois essa interpretação omite algo importante: a ordem. Para deixar mais claro, vamos multiplicar 11 × 2:",
                "source": [
                   {
                      "type": 1,

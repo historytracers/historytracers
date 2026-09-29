@@ -44,7 +44,7 @@ The following subdirectories are available in this directory:
 - `MexicoCityMuseo`: Contains photos taken during a trip to [Mexico City](https://www.inah.gob.mx), Mexico.
 - `MiPueblito`: Contains photos taken during a trip to [Mi Pueblito](https://mipueblito.mupa.gob.pa/), Panama.
 - `Nature`: Contains original images from [Nature Open Access](https://www.nature.com/nature-portfolio/open-access).
-- `PeruPucllana`: [Sítio de Pucllana](https://museos.cultura.pe/museos/museo-de-sitio-pucllana), Peru.
+- `PeruPucllana`: [Pucllana site](https://museos.cultura.pe/museos/museo-de-sitio-pucllana), Peru.
 - `PLOS`: Contains original images from [PLOS](https://journals.plos.org/).
 - `ResearchGate`: Contains original images from [ResearchGate](http://researchgate.net/).
 - `Sadomba`: Contains original images from Dr. Zvakanyorwa Wilbert Sadomba paper [Zvakanyorwa Wilbert Sadomba (2024)](https://journalofmathematicsandculture.wordpress.com/wp-content/uploads/2024/08/17-sadomba.pdf).
