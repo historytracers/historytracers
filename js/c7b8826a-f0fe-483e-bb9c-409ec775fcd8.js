@@ -2,7 +2,21 @@
 
 var localAnswerVector = undefined;
 
+// Must exist on this page: the loader calls htLoadContent() before
+// htLoadExercise(), and without this definition the function left behind by the
+// previously visited text runs here, throws, and skips htLoadExercise().
+function htLoadContent() {
+    htWriteNavigation();
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png");
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
+    return false;
+}
+
 function htLoadExercise() {
+    // Set before anything that can throw, so the hands in Figure 1 always load.
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png");
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
+
     if (localAnswerVector == undefined) {
         localAnswerVector = htLoadAnswersFromExercise();
     } else {
@@ -44,9 +58,6 @@ function htLoadExercise() {
     htWriteMultiplicationTable("#mParent10", 10);
     htFillMultiplicationTable("chart1", 10, 10, false, true);
 
-    
-    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png")
-    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png")
     return false;
 }
 
