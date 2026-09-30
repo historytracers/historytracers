@@ -162,11 +162,6 @@ function atwCreateStepper(container, tool, words) {
     controls.appendChild(valueSpan);
     controls.appendChild(incBtn);
 
-    var levelLine = atwElement("p", "atw-levelline");
-    var levelBadge = atwElement("span", "level-badge");
-    levelLine.appendChild(levelBadge);
-    wrap.appendChild(levelLine);
-
     var correct = atwElement("p", "atw-correct");
     correct.style.display = "none";
     correct.textContent = words.correct;
@@ -174,38 +169,25 @@ function atwCreateStepper(container, tool, words) {
 
     var buttons = atwElement("p", "atw-buttons");
     var newBtn = atwButton(words.newRound || "New round");
-    var nextBtn = atwButton(words.nextLevel || "Next level", "game-next-btn");
     buttons.appendChild(newBtn);
-    buttons.appendChild(nextBtn);
     wrap.appendChild(buttons);
 
-    var state = { level: 1, target: 1, value: 0 };
-
-    function levelRange(level) {
-        return [level * 5 - 4, level * 5];
-    }
+    var state = { target: 1, value: 0 };
 
     function render() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         draw(ctx, canvas.width, canvas.height, state.value);
         targetSpan.textContent = state.target;
         valueSpan.textContent = (words.value || "Value") + ": " + state.value;
-        levelBadge.textContent = (words.level || "Level") + " " + state.level + "/4";
         decBtn.disabled = state.value <= 0;
-        incBtn.disabled = state.value >= 20;
+        incBtn.disabled = state.value >= 10;
         correct.style.display = state.value === state.target ? "block" : "none";
     }
 
     function newRound() {
-        var range = levelRange(state.level);
-        state.target = atwRandom(range[0], range[1]);
+        state.target = atwRandom(1, 10);
         state.value = 0;
         render();
-    }
-
-    function nextLevel() {
-        state.level = state.level >= 4 ? 1 : state.level + 1;
-        newRound();
     }
 
     decBtn.addEventListener("click", function () {
@@ -215,13 +197,12 @@ function atwCreateStepper(container, tool, words) {
         }
     });
     incBtn.addEventListener("click", function () {
-        if (state.value < 20) {
+        if (state.value < 10) {
             state.value++;
             render();
         }
     });
     newBtn.addEventListener("click", newRound);
-    nextBtn.addEventListener("click", nextLevel);
 
     newRound();
 }
@@ -262,7 +243,7 @@ function atwCreateSequence(container, words) {
         var options = [];
         for (var o = 0; o < offsets.length; o++) {
             var candidate = correctValue + offsets[o];
-            if (candidate >= 1 && options.indexOf(candidate) === -1) {
+            if (candidate >= 0 && candidate <= 10 && options.indexOf(candidate) === -1) {
                 options.push(candidate);
             }
         }
@@ -306,11 +287,11 @@ function atwCreateSequence(container, words) {
     }
 
     function newRound() {
-        state.step = atwRandom(1, 5);
-        var start = atwRandom(1, 6);
+        state.step = 1;
+        var start = atwRandom(0, 6);
         state.values = [];
         for (var i = 0; i < 5; i++) {
-            state.values.push(start + i * state.step);
+            state.values.push(start + i);
         }
         state.missing = atwRandom(1, 4);
         state.selected = null;
@@ -334,8 +315,6 @@ var localBoneGame = {
     won: false
 };
 
-var boneLevels = 4;
-
 function htBoneHandSides(level) {
     var sides = [];
     for (let i = 0; i < level; i++) {
@@ -344,33 +323,13 @@ function htBoneHandSides(level) {
     return sides;
 }
 
-function htBoneDrawChallenge(level) {
-    var min = level * 5 - 4;
-    var max = level * 5;
-    localBoneGame.level = level;
+function atwBoneNewRound() {
+    localBoneGame.target = atwRandom(1, 10);
     localBoneGame.marks = 0;
     localBoneGame.won = false;
-    localBoneGame.target = htGetRandomArbitrary(min, max + 1);
-    $("#htBoneLevelBadge").text(htBoneLevelLabel() + " " + level);
+    localBoneGame.level = localBoneGame.target <= 5 ? 1 : 2;
     htBoneRenderHands();
     htBoneRender();
-}
-
-function htBoneLevelLabel() {
-    var label = $("#htBoneLevelLabel");
-    return label.length ? label.text() : "";
-}
-
-function htBoneIsLastLevel() {
-    return localBoneGame.level >= boneLevels;
-}
-
-function htBoneNextLevel() {
-    if (htBoneIsLastLevel()) {
-        htBoneDrawChallenge(1);
-    } else {
-        htBoneDrawChallenge(localBoneGame.level + 1);
-    }
 }
 
 function htBoneRenderHands() {
@@ -450,12 +409,9 @@ function htBoneRemoveMark() {
 function atwInitBone() {
     $("#htBoneAdd").on("click", htBoneAddMark);
     $("#htBoneRemove").on("click", htBoneRemoveMark);
-    $("#htBoneNewNumber").on("click", function () {
-        htBoneDrawChallenge(localBoneGame.level);
-    });
-    $("#htBoneNextLevel").on("click", htBoneNextLevel);
+    $("#htBoneNewNumber").on("click", atwBoneNewRound);
 
-    htBoneDrawChallenge(1);
+    atwBoneNewRound();
 }
 
 //
@@ -786,17 +742,7 @@ function htRomanAbacusFillGame() {
 
     htRomanAbacusHideSuccess();
 
-    const lvl = localRomanAbacusController.gameLvl || 0;
-    localRomanAbacusController.currentTargetLevel = lvl;
-
-    const minV = [1, 10, 100, 1000, 10000, 100000][lvl];
-    const maxV = [9, 99, 999, 9999, 99999, 999999][lvl];
-    cmp.innerText = (Math.floor(Math.random() * (maxV - minV + 1)) + minV).toString();
-
-    localRomanAbacusController.gameLvl = lvl + 1;
-    if (localRomanAbacusController.gameLvl >= localRomanAbacusController.LEVELS) {
-        localRomanAbacusController.gameLvl = 0;
-    }
+    cmp.innerText = String(atwRandom(1, 10));
 }
 
 function htRomanAbacusUpdateDisplay() {
@@ -814,11 +760,6 @@ function htRomanAbacusUpdateDisplay() {
         if (cmp.innerText.trim() === val.toString()) {
             sv.style.display = 'inline-block';
             sv.style.visibility = 'visible';
-            if (localRomanAbacusController.currentTargetLevel === localRomanAbacusController.LEVELS - 1) {
-                const fb = document.getElementById('romanAbacusFeedback');
-                const msg = document.getElementById('txt_romanAbacusFinalMessage');
-                if (fb && msg) fb.innerHTML = '<div class="roman-abacus-congrats">' + msg.innerHTML + '</div>';
-            }
         } else {
             htRomanAbacusHideSuccess();
         }
@@ -920,8 +861,6 @@ function htRomanAbacusInit() {
 }
 
 function atwInitRoman() {
-    localRomanAbacusController.gameLvl = 0;
-    localRomanAbacusController.currentTargetLevel = 0;
     htRomanAbacusInit();
 }
 
@@ -948,7 +887,7 @@ function atwInitAbacus(container) {
     var correctEl = container.querySelector(".atw-abacus-correct");
 
     var ctrl = null;
-    var state = { target: 0, level: 1 };
+    var state = { target: 0 };
 
     function buildController() {
         if (mode === "schyoty") {
@@ -1031,9 +970,7 @@ function atwInitAbacus(container) {
     }
 
     function newRound() {
-        var ranges = [[1, 9], [10, 99], [100, 999]];
-        var range = ranges[state.level - 1] || ranges[0];
-        state.target = atwRandom(range[0], range[1]);
+        state.target = atwRandom(1, 10);
         if (targetEl) {
             targetEl.textContent = String(state.target);
         }
@@ -1130,9 +1067,9 @@ function atwInitYupana(container) {
     function render() {
         htSetImageForMembers("#leftHandImg", "Left_Hand_Small.png",
             "#rightHandImg", "Right_Hand_Small.png", value);
-        htCleanYupanaDecimalValues("#yupana0", 1);
+        htCleanYupanaDecimalValues("#yupana0", 2);
         if (value > 0) {
-            htFillYupanaDecimalValues("#yupana0", value, 1, "red_dot_right_up");
+            htFillYupanaDecimalValues("#yupana0", value, 2, "red_dot_right_up");
         }
         if (correctEl) {
             correctEl.style.display = (value === target) ? "block" : "none";
@@ -1140,7 +1077,7 @@ function atwInitYupana(container) {
     }
 
     function newRound() {
-        target = atwRandom(1, 9);
+        target = atwRandom(1, 10);
         value = 0;
         if (targetEl) {
             targetEl.textContent = String(target);
@@ -1149,7 +1086,7 @@ function atwInitYupana(container) {
     }
 
     $("#traineeUp0").off("click").on("click", function () {
-        if (value < 9) {
+        if (value < 10) {
             value++;
             render();
         }
