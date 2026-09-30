@@ -13,8 +13,8 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("img0", "images/SanJoseCRMuseo/MusicCR.jpg");
-    htSetImageSrc("img0", "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg");
+    htSetImageSrc("imgSanJoseCR0", "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg");
+    htSetImageSrc("imgSanJoseCR1", "images/SanJoseCRMuseo/MusicCR.jpg");
     htPlusDivs(0);
 
     return false;
