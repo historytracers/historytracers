@@ -49,6 +49,7 @@ function htLoadContent() {
     htSetImageSrc("imgZhongguo", "images/Mapswire/world-physical-map-graticules-mercator-v1_China.jpg");
     htSetImageSrc("imgPeabiru", "images/Mapswire/world-physical-map-graticules-mercator-v1_Peabiru.jpg");
     htSetImageSrc("imgMapswire7", "images/Mapswire/world-political-white-equal_earth_dias.png");
+    htSetImageSrc("imgRomeWorld", "images/Mapswire/world-political-white-equal_earth_Roma.png");
     htPlusDivs(0);
 
     return false;

@@ -43,7 +43,7 @@ Los siguientes subdirectorios están disponibles en este directorio:
 - `MetropolitanMuseum`: Contiene imágenes originales del [Metropolitan Museum of Art](https://www.metmuseum.org/).
 - `MexicoCityMuseo`: Contiene fotos tomadas durante un viaje a [Ciudad de México](https://www.inah.gob.mx), México.
 - `MiPueblito`: Contiene fotos tomadas durante un viaje a [Mi Pueblito](https://mipueblito.mupa.gob.pa/), Panamá.
-- `PeruPucllana`: Contiene fotos tomadas durante un viaje a [Sítio de Pucllana](http://researchgate.net/), Perú.
+- `PeruPucllana`: [Sítio de Pucllana](https://museos.cultura.pe/museos/museo-de-sitio-pucllana), Perú.
 - `Nature`: Contiene imágenes originales de [Nature Open Access](https://www.nature.com/nature-portfolio/open-access).
 - `PLOS`: Contiene imágenes originales de [PLOS](https://journals.plos.org/).
 - `ResearchGate`: Contiene imágenes originales de [ResearchGate](http://researchgate.net/).

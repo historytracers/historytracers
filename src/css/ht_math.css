@@ -2708,6 +2708,13 @@ p.desc svg {
   color: #155724;
 }
 
+.orderFeedback {
+  text-align: center;
+  font-weight: bold;
+  color: #b45309;
+  margin: 0.5em auto;
+}
+
 .design-dark .orderGameBtn {
   background: #37474f;
   color: #eceff1;
@@ -2732,6 +2739,10 @@ p.desc svg {
 
 .design-dark .orderCongrats {
   color: #a5d6a7;
+}
+
+.design-dark .orderFeedback {
+  color: #ffcc80;
 }
 
 @media screen and (max-width: 700px) {
