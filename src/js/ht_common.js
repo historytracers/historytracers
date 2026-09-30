@@ -2174,11 +2174,6 @@ function htUpdateNavigationTitle(currentIdx, title, indexName)
     $("#header").html(pageHeader);
 }
 
-function htNavigationRowBackground(rowHtml)
-{
-    return (rowHtml.indexOf("<a ") >= 0 || rowHtml.indexOf("<a\n") >= 0 || rowHtml.indexOf("<a>") >= 0) ? "#FFFFFF" : "#FFFFE0";
-}
-
 var htNavigationHoverBound = false;
 
 function htBindNavigationHover()
@@ -2194,7 +2189,7 @@ function htBindNavigationHover()
     });
 }
 
-function htBuildNavigationSteps(ptr, idx, index, idxName)
+function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
 {
     var prev = "";
     var pageName = "";
@@ -2233,15 +2228,13 @@ function htBuildNavigationSteps(ptr, idx, index, idxName)
         next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
     }
 
-    var navigation = "<tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
-    var bgColor = htNavigationRowBackground(navigation);
     var rowClass = (bgColor == "#FFFFFF") ? " class=\"ht_nav_white\"" : "";
-    navigation = navigation.replace("<tr>", "<tr"+rowClass+" style=\"background-color: "+bgColor+";\">");
+    var navigation = "<tr"+rowClass+" style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
 
     return navigation;
 }
 
-function htBuildNavigation(index, currentIdx)
+function htBuildNavigation(index, currentIdx, initialBgColor)
 {
     var urlParams = new URLSearchParams(window.location.search);
     if (!urlParams.has('arg')) {
@@ -2259,7 +2252,7 @@ function htBuildNavigation(index, currentIdx)
 
     var idxName = htSelectIndexName(index);
     // htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
-    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
+    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
 
     if (loadedIdx.length == 1) {
         return navigation;
@@ -2274,7 +2267,7 @@ function htBuildNavigation(index, currentIdx)
             break;
         }
         // htUpdateNavigationTitle(j+1, ptr.name, idxName);
-        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
+        navigation += htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
     }
 
     return navigation;
@@ -2283,6 +2276,14 @@ function htBuildNavigation(index, currentIdx)
 var htPendingIndexes = [];
 var htNavigationRetry = null;
 var htNavigationRetryChecks = 0;
+
+// Independent guard that confirms the navigation placeholders that are already
+// present in the page actually received the built menu. The retry loop above
+// only tracks indexes that are still in flight, so it can stop before the
+// navigation placeholders exist in the DOM (or before a late index is written).
+// This checker keeps re-writing until the menu is present in every placeholder.
+var htNavigationCheckTimer = null;
+var htNavigationCheckAttempts = 0;
 
 function htWriteNavigation()
 {
@@ -2315,6 +2316,52 @@ function htWriteNavigation()
         clearInterval(htNavigationRetry);
         htNavigationRetry = null;
     }
+
+    htCheckNavigationBuilt();
+}
+
+function htNavigationMenuBuilt()
+{
+    var menus = $(".dynamicNavigation");
+    if (menus.length == 0) {
+        return false;
+    }
+
+    var built = true;
+    menus.each(function() {
+        if ($(this).find("table.book_navigation").length == 0) {
+            built = false;
+            return false;
+        }
+    });
+
+    return built;
+}
+
+function htCheckNavigationBuilt()
+{
+    if (htNavigationCheckTimer != null) {
+        return;
+    }
+
+    // Nothing to wait for: the page has no navigation placeholder, no loaded
+    // index, and no index still being fetched.
+    if ($(".dynamicNavigation").length == 0 && loadedIdx.length == 0 && htPendingIndexes.length == 0) {
+        return;
+    }
+
+    htNavigationCheckAttempts = 0;
+    htNavigationCheckTimer = setInterval(function() {
+        htNavigationCheckAttempts++;
+
+        if (htNavigationMenuBuilt() || htNavigationCheckAttempts >= 40) {
+            clearInterval(htNavigationCheckTimer);
+            htNavigationCheckTimer = null;
+            return;
+        }
+
+        htWriteNavigationInternal();
+    }, 250);
 }
 
 function htWriteNavigationInternal()
@@ -2336,7 +2383,7 @@ function htWriteNavigationInternal()
 
     var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in sortedIdx) {
-        navigation += htBuildNavigation(sortedIdx[i], i);
+        navigation += htBuildNavigation(sortedIdx[i], i, "#FFFFFF");
     }
     navigation += "</table></p>";
     $(".dynamicNavigation").attr('data-after-content', keywords[132]);
