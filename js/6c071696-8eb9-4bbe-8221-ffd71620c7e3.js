@@ -2,8 +2,9 @@
 
 // Around the World (Counting)
 // Interactive tour of the first counting tools created by humanity.
-// The tool mirrors the Android "Around the World (Counting)" application:
-// each region presents a counting instrument and a small practice game.
+// The abacus, yupana and bone practice games reuse the same design and code
+// already present in the project: ht_abacus.js (Soroban/Suanpan/Schyoty),
+// ht_yupana.js, the Roman abacus page (1aacf33a) and the bone page (7d2fd4de).
 
 function atwWord(id, fallback) {
     var el = document.getElementById(id);
@@ -48,7 +49,7 @@ function atwButton(label, cls) {
 }
 
 //
-// Shared canvas helpers
+// Quipu / Meso canvas helpers ("represent the number" steppers kept as canvas)
 //
 
 function atwCanvas(width, height) {
@@ -57,49 +58,6 @@ function atwCanvas(width, height) {
     c.width = width;
     c.height = height;
     return c;
-}
-
-function atwDrawBone(ctx, W, H, value) {
-    var bone = "#efe4c8";
-    var boneEdge = "#c9b489";
-    var mark = "#5d4037";
-    var cy = H * 0.55;
-    var half = W * 0.32;
-    var cx = W * 0.5;
-    var thickness = H * 0.20;
-    var knob = H * 0.13;
-
-    ctx.fillStyle = bone;
-    ctx.strokeStyle = boneEdge;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(cx - half, cy - thickness / 2);
-    ctx.lineTo(cx + half, cy - thickness / 2);
-    ctx.lineTo(cx + half, cy + thickness / 2);
-    ctx.lineTo(cx - half, cy + thickness / 2);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    [-1, 1].forEach(function (dir) {
-        [-1, 1].forEach(function (v) {
-            ctx.beginPath();
-            ctx.arc(cx + dir * half, cy + v * thickness * 0.32, knob, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.stroke();
-        });
-    });
-
-    ctx.strokeStyle = mark;
-    ctx.lineWidth = Math.max(2, W * 0.008);
-    var count = Math.max(0, Math.min(20, value));
-    for (var i = 0; i < count; i++) {
-        var x = cx - half + (i + 0.5) * ((2 * half) / 20);
-        ctx.beginPath();
-        ctx.moveTo(x, cy - thickness * 0.33);
-        ctx.lineTo(x, cy + thickness * 0.33);
-        ctx.stroke();
-    }
 }
 
 function atwDrawQuipu(ctx, W, H, value) {
@@ -174,58 +132,10 @@ function atwDrawMeso(ctx, W, H, value) {
     }
 }
 
-function atwDrawYupana(ctx, W, H, value) {
-    var frame = "#8d6e63";
-    var seed = "#c62828";
-    var margin = W * 0.08;
-    var cols = 4;
-    var rows = 2;
-    var gridW = W - 2 * margin;
-    var gridH = H * 0.78;
-    var top = H * 0.10;
-    var colW = gridW / cols;
-    var rowH = gridH / rows;
-
-    ctx.strokeStyle = frame;
-    ctx.lineWidth = 2;
-    for (var r = 0; r <= rows; r++) {
-        ctx.beginPath();
-        ctx.moveTo(margin, top + r * rowH);
-        ctx.lineTo(margin + gridW, top + r * rowH);
-        ctx.stroke();
-    }
-    for (var c = 0; c <= cols; c++) {
-        ctx.beginPath();
-        ctx.moveTo(margin + c * colW, top);
-        ctx.lineTo(margin + c * colW, top + gridH);
-        ctx.stroke();
-    }
-
-    var digits = [Math.floor(value / 10), value % 10];
-    ctx.fillStyle = seed;
-    for (var row = 0; row < rows; row++) {
-        var digit = Math.min(9, digits[row]);
-        var cy = top + row * rowH + rowH / 2;
-        var radius = Math.min(colW, rowH) * 0.12;
-        for (var i = 0; i < digit; i++) {
-            var cx = margin + (i + 0.5) * (gridW / 10) + (i * colW * 0.02);
-            ctx.beginPath();
-            ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-}
-
-//
-// "Represent the number" games (bones, quipu, meso, yupana)
-//
-
 function atwCreateStepper(container, tool, words) {
     var draw = {
-        bones: atwDrawBone,
         quipu: atwDrawQuipu,
-        meso: atwDrawMeso,
-        yupana: atwDrawYupana
+        meso: atwDrawMeso
     }[tool];
 
     var wrap = atwElement("div", "atw-game-inner");
@@ -263,8 +173,8 @@ function atwCreateStepper(container, tool, words) {
     wrap.appendChild(correct);
 
     var buttons = atwElement("p", "atw-buttons");
-    var newBtn = atwButton(words.newRound);
-    var nextBtn = atwButton(words.nextLevel, "game-next-btn");
+    var newBtn = atwButton(words.newRound || "New round");
+    var nextBtn = atwButton(words.nextLevel || "Next level", "game-next-btn");
     buttons.appendChild(newBtn);
     buttons.appendChild(nextBtn);
     wrap.appendChild(buttons);
@@ -279,8 +189,8 @@ function atwCreateStepper(container, tool, words) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         draw(ctx, canvas.width, canvas.height, state.value);
         targetSpan.textContent = state.target;
-        valueSpan.textContent = words.value + ": " + state.value;
-        levelBadge.textContent = words.level + " " + state.level + "/4";
+        valueSpan.textContent = (words.value || "Value") + ": " + state.value;
+        levelBadge.textContent = (words.level || "Level") + " " + state.level + "/4";
         decBtn.disabled = state.value <= 0;
         incBtn.disabled = state.value >= 20;
         correct.style.display = state.value === state.target ? "block" : "none";
@@ -313,471 +223,6 @@ function atwCreateStepper(container, tool, words) {
     newBtn.addEventListener("click", newRound);
     nextBtn.addEventListener("click", nextLevel);
 
-    newRound();
-}
-
-//
-// Abacus games (calculi, suanpan, soroban)
-//
-
-function atwAbacusConfig(tool) {
-    if (tool === "calculi") {
-        return {
-            headings: ["(((I)))", "((I))", "(I)", "C", "X", "I"],
-            places: [100000, 10000, 1000, 100, 10, 1],
-            upper: 1,
-            lower: 4,
-            maxTarget: 999
-        };
-    }
-    if (tool === "suanpan") {
-        return {
-            headings: ["", "", "", "", ""],
-            places: [10000, 1000, 100, 10, 1],
-            upper: 2,
-            lower: 5,
-            maxTarget: 999
-        };
-    }
-    return {
-        headings: ["", "", "", "", ""],
-        places: [10000, 1000, 100, 10, 1],
-        upper: 1,
-        lower: 4,
-        maxTarget: 999
-    };
-}
-
-function atwCreateAbacus(container, tool, words) {
-    var cfg = atwAbacusConfig(tool);
-    var columns = cfg.places.length;
-
-    var wrap = atwElement("div", "atw-game-inner");
-    container.appendChild(wrap);
-
-    var instruction = atwElement("p", "atw-instruction");
-    wrap.appendChild(instruction);
-    var targetSpan = atwElement("span", "atw-target");
-    instruction.appendChild(document.createTextNode(words.represent + " "));
-    instruction.appendChild(targetSpan);
-
-    var canvas = atwCanvas(420, 300);
-    wrap.appendChild(canvas);
-    var ctx = canvas.getContext("2d");
-
-    var readout = atwElement("p", "atw-readout");
-    var valueSpan = atwElement("span", "atw-value");
-    readout.appendChild(valueSpan);
-    wrap.appendChild(readout);
-
-    var levelLine = atwElement("p", "atw-levelline");
-    var levelBadge = atwElement("span", "level-badge");
-    levelLine.appendChild(levelBadge);
-    wrap.appendChild(levelLine);
-
-    var correct = atwElement("p", "atw-correct");
-    correct.style.display = "none";
-    correct.textContent = words.correct;
-    wrap.appendChild(correct);
-
-    var buttons = atwElement("p", "atw-buttons");
-    var newBtn = atwButton(words.newRound);
-    var nextBtn = atwButton(words.nextLevel, "game-next-btn");
-    buttons.appendChild(newBtn);
-    buttons.appendChild(nextBtn);
-    wrap.appendChild(buttons);
-
-    var state = {
-        level: 1,
-        target: 1,
-        cols: []
-    };
-    for (var i = 0; i < columns; i++) {
-        state.cols.push({ upper: 0, lower: 0 });
-    }
-
-    var layout = {};
-
-    function computeLayout() {
-        layout.W = canvas.width;
-        layout.H = canvas.height;
-        layout.margin = 26;
-        layout.colW = (layout.W - 2 * layout.margin) / columns;
-        layout.startX = layout.margin + layout.colW / 2;
-        layout.trackY = layout.H * 0.5;
-        layout.trackTop = layout.trackY - 22;
-        layout.trackBottom = layout.trackY + 22;
-        layout.step = 22;
-        layout.radius = Math.max(6, Math.min(layout.colW * 0.30, 10));
-        layout.upperPos = [];
-        for (var u = 0; u < cfg.upper; u++) {
-            layout.upperPos.push({
-                active: layout.trackTop - 10 - u * layout.step,
-                inactive: layout.trackTop - 48 - u * layout.step * 0.9
-            });
-        }
-        layout.lowerPos = [];
-        for (var l = 0; l < cfg.lower; l++) {
-            layout.lowerPos.push({
-                active: layout.trackBottom + 10 + l * layout.step,
-                inactive: layout.trackBottom + 34 + l * layout.step
-            });
-        }
-    }
-
-    function columnValue(c) {
-        return (state.cols[c].upper * 5 + state.cols[c].lower) * cfg.places[c];
-    }
-
-    function totalValue() {
-        var total = 0;
-        for (var c = 0; c < columns; c++) {
-            total += columnValue(c);
-        }
-        return total;
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, layout.W, layout.H);
-        ctx.fillStyle = "#fef5e0";
-        ctx.fillRect(0, 0, layout.W, layout.H);
-
-        ctx.fillStyle = "#e5c28e";
-        ctx.fillRect(0, layout.trackY - 5, layout.W, 10);
-
-        ctx.textAlign = "center";
-        for (var c = 0; c < columns; c++) {
-            var x = layout.startX + c * layout.colW;
-            ctx.strokeStyle = "#b08054";
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(x, 70);
-            ctx.lineTo(x, layout.H - 24);
-            ctx.stroke();
-
-            ctx.font = "bold 13px Georgia, serif";
-            ctx.fillStyle = "#40280f";
-            ctx.fillText(cfg.headings[c], x, 26);
-            ctx.font = "10px Verdana, sans-serif";
-            ctx.fillStyle = "#7a4a24";
-            ctx.fillText(String(cfg.places[c]), x, 44);
-
-            var col = state.cols[c];
-            for (var u = 0; u < cfg.upper; u++) {
-                var pos = layout.upperPos[u];
-                var y = u < col.upper ? pos.active : pos.inactive;
-                ctx.beginPath();
-                ctx.arc(x, y, layout.radius, 0, Math.PI * 2);
-                ctx.fillStyle = "#c0392b";
-                ctx.fill();
-                ctx.strokeStyle = "#6b1f14";
-                ctx.lineWidth = 1.2;
-                ctx.stroke();
-            }
-            for (var l = 0; l < cfg.lower; l++) {
-                var lpos = layout.lowerPos[l];
-                var ly = l < col.lower ? lpos.active : lpos.inactive;
-                ctx.beginPath();
-                ctx.arc(x, ly, layout.radius, 0, Math.PI * 2);
-                ctx.fillStyle = "#3a6068";
-                ctx.fill();
-                ctx.strokeStyle = "#1a3a3a";
-                ctx.lineWidth = 1.2;
-                ctx.stroke();
-            }
-        }
-    }
-
-    function hitTest(mx, my) {
-        var colIdx = -1;
-        for (var c = 0; c < columns; c++) {
-            var centerX = layout.startX + c * layout.colW;
-            if (Math.abs(mx - centerX) < layout.colW * 0.45) {
-                colIdx = c;
-                break;
-            }
-        }
-        if (colIdx === -1) {
-            return null;
-        }
-        var col = state.cols[colIdx];
-        var centerX = layout.startX + colIdx * layout.colW;
-        for (var u = 0; u < cfg.upper; u++) {
-            var pos = layout.upperPos[u];
-            var y = u < col.upper ? pos.active : pos.inactive;
-            if (Math.abs(mx - centerX) < layout.radius + 8 && Math.abs(my - y) < layout.radius + 8) {
-                return { type: "upper", col: colIdx, bead: u };
-            }
-        }
-        for (var l = 0; l < cfg.lower; l++) {
-            var lpos = layout.lowerPos[l];
-            var ly = l < col.lower ? lpos.active : lpos.inactive;
-            if (Math.abs(mx - centerX) < layout.radius + 8 && Math.abs(my - ly) < layout.radius + 8) {
-                return { type: "lower", col: colIdx, bead: l };
-            }
-        }
-        return null;
-    }
-
-    function update() {
-        var val = totalValue();
-        valueSpan.textContent = words.value + ": " + val;
-        correct.style.display = val === state.target ? "block" : "none";
-    }
-
-    function handlePointer(clientX, clientY) {
-        var rect = canvas.getBoundingClientRect();
-        var scaleX = canvas.width / rect.width;
-        var scaleY = canvas.height / rect.height;
-        var hit = hitTest((clientX - rect.left) * scaleX, (clientY - rect.top) * scaleY);
-        if (!hit) {
-            return;
-        }
-        var col = state.cols[hit.col];
-        if (hit.type === "upper") {
-            col.upper = hit.bead < col.upper ? hit.bead : hit.bead + 1;
-            if (col.upper > cfg.upper) {
-                col.upper = cfg.upper;
-            }
-        } else {
-            col.lower = hit.bead < col.lower ? hit.bead : hit.bead + 1;
-            if (col.lower > cfg.lower) {
-                col.lower = cfg.lower;
-            }
-        }
-        draw();
-        update();
-    }
-
-    function levelRange(level) {
-        if (level === 2) {
-            return [10, 99];
-        }
-        if (level === 3) {
-            return [100, Math.min(999, cfg.maxTarget)];
-        }
-        return [1, 9];
-    }
-
-    function newRound() {
-        var range = levelRange(state.level);
-        state.target = atwRandom(range[0], range[1]);
-        for (var c = 0; c < columns; c++) {
-            state.cols[c].upper = 0;
-            state.cols[c].lower = 0;
-        }
-        targetSpan.textContent = state.target;
-        levelBadge.textContent = words.level + " " + state.level + "/3";
-        draw();
-        update();
-    }
-
-    function nextLevel() {
-        state.level = state.level >= 3 ? 1 : state.level + 1;
-        newRound();
-    }
-
-    canvas.addEventListener("mousedown", function (e) {
-        handlePointer(e.clientX, e.clientY);
-    });
-    canvas.addEventListener("touchstart", function (e) {
-        if (e.touches.length > 0) {
-            e.preventDefault();
-            handlePointer(e.touches[0].clientX, e.touches[0].clientY);
-        }
-    }, { passive: false });
-    newBtn.addEventListener("click", newRound);
-    nextBtn.addEventListener("click", nextLevel);
-
-    computeLayout();
-    newRound();
-}
-
-//
-// Schyoty (horizontal rods)
-//
-
-function atwCreateSchyoty(container, words) {
-    var places = [10000, 1000, 100, 10, 1];
-    var rods = places.length;
-    var beadsPerRod = 10;
-
-    var wrap = atwElement("div", "atw-game-inner");
-    container.appendChild(wrap);
-
-    var instruction = atwElement("p", "atw-instruction");
-    wrap.appendChild(instruction);
-    var targetSpan = atwElement("span", "atw-target");
-    instruction.appendChild(document.createTextNode(words.represent + " "));
-    instruction.appendChild(targetSpan);
-
-    var canvas = atwCanvas(420, 300);
-    wrap.appendChild(canvas);
-    var ctx = canvas.getContext("2d");
-
-    var readout = atwElement("p", "atw-readout");
-    var valueSpan = atwElement("span", "atw-value");
-    readout.appendChild(valueSpan);
-    wrap.appendChild(readout);
-
-    var levelLine = atwElement("p", "atw-levelline");
-    var levelBadge = atwElement("span", "level-badge");
-    levelLine.appendChild(levelBadge);
-    wrap.appendChild(levelLine);
-
-    var correct = atwElement("p", "atw-correct");
-    correct.style.display = "none";
-    correct.textContent = words.correct;
-    wrap.appendChild(correct);
-
-    var buttons = atwElement("p", "atw-buttons");
-    var newBtn = atwButton(words.newRound);
-    var nextBtn = atwButton(words.nextLevel, "game-next-btn");
-    buttons.appendChild(newBtn);
-    buttons.appendChild(nextBtn);
-    wrap.appendChild(buttons);
-
-    var state = { level: 1, target: 1, digits: [] };
-    for (var i = 0; i < rods; i++) {
-        state.digits.push(0);
-    }
-
-    var layout = {};
-
-    function computeLayout() {
-        layout.W = canvas.width;
-        layout.H = canvas.height;
-        layout.left = layout.W * 0.10;
-        layout.right = layout.W * 0.90;
-        layout.top = 60;
-        layout.bottom = layout.H - 30;
-        layout.rodGap = (layout.bottom - layout.top) / rods;
-        layout.beadGap = (layout.right - layout.left) / (beadsPerRod - 1);
-        layout.radius = Math.min(layout.rodGap * 0.28, layout.beadGap * 0.35);
-    }
-
-    function totalValue() {
-        var total = 0;
-        for (var i = 0; i < rods; i++) {
-            total += state.digits[i] * places[i];
-        }
-        return total;
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, layout.W, layout.H);
-        ctx.fillStyle = "#f6efe2";
-        ctx.fillRect(0, 0, layout.W, layout.H);
-        ctx.textAlign = "center";
-
-        for (var i = 0; i < rods; i++) {
-            var y = layout.top + i * layout.rodGap + layout.rodGap * 0.5;
-            ctx.strokeStyle = "#8d6e63";
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(layout.left - layout.beadGap * 0.5, y);
-            ctx.lineTo(layout.right + layout.beadGap * 0.5, y);
-            ctx.stroke();
-
-            ctx.font = "10px Verdana, sans-serif";
-            ctx.fillStyle = "#7a4a24";
-            ctx.fillText(String(places[i]), layout.W - 14, y + 3);
-
-            for (var b = 0; b < beadsPerRod; b++) {
-                var x = layout.left + b * layout.beadGap;
-                ctx.beginPath();
-                ctx.arc(x, y, layout.radius, 0, Math.PI * 2);
-                ctx.fillStyle = b < state.digits[i] ? "#c0392b" : "#cfc3a8";
-                ctx.fill();
-                ctx.strokeStyle = "#6b5b3e";
-                ctx.lineWidth = 1;
-                ctx.stroke();
-            }
-        }
-    }
-
-    function pointerToBead(clientX, clientY) {
-        var rect = canvas.getBoundingClientRect();
-        var scaleX = canvas.width / rect.width;
-        var scaleY = canvas.height / rect.height;
-        var mx = (clientX - rect.left) * scaleX;
-        var my = (clientY - rect.top) * scaleY;
-        for (var i = 0; i < rods; i++) {
-            var y = layout.top + i * layout.rodGap + layout.rodGap * 0.5;
-            if (Math.abs(my - y) > layout.rodGap * 0.5) {
-                continue;
-            }
-            for (var b = 0; b < beadsPerRod; b++) {
-                var x = layout.left + b * layout.beadGap;
-                if (Math.abs(mx - x) < layout.beadGap * 0.5) {
-                    return { rod: i, bead: b };
-                }
-            }
-        }
-        return null;
-    }
-
-    function update() {
-        var val = totalValue();
-        valueSpan.textContent = words.value + ": " + val;
-        correct.style.display = val === state.target ? "block" : "none";
-    }
-
-    function handlePointer(clientX, clientY) {
-        var hit = pointerToBead(clientX, clientY);
-        if (!hit) {
-            return;
-        }
-        var current = state.digits[hit.rod];
-        if (hit.bead < current) {
-            state.digits[hit.rod] = hit.bead;
-        } else {
-            state.digits[hit.rod] = hit.bead + 1;
-        }
-        draw();
-        update();
-    }
-
-    function levelRange(level) {
-        if (level === 2) {
-            return [10, 99];
-        }
-        if (level === 3) {
-            return [100, 999];
-        }
-        return [1, 9];
-    }
-
-    function newRound() {
-        var range = levelRange(state.level);
-        state.target = atwRandom(range[0], range[1]);
-        for (var i = 0; i < rods; i++) {
-            state.digits[i] = 0;
-        }
-        targetSpan.textContent = state.target;
-        levelBadge.textContent = words.level + " " + state.level + "/3";
-        draw();
-        update();
-    }
-
-    function nextLevel() {
-        state.level = state.level >= 3 ? 1 : state.level + 1;
-        newRound();
-    }
-
-    canvas.addEventListener("mousedown", function (e) {
-        handlePointer(e.clientX, e.clientY);
-    });
-    canvas.addEventListener("touchstart", function (e) {
-        if (e.touches.length > 0) {
-            e.preventDefault();
-            handlePointer(e.touches[0].clientX, e.touches[0].clientY);
-        }
-    }, { passive: false });
-    newBtn.addEventListener("click", newRound);
-    nextBtn.addEventListener("click", nextLevel);
-
-    computeLayout();
     newRound();
 }
 
@@ -879,6 +324,847 @@ function atwCreateSequence(container, words) {
 }
 
 //
+// Bone game -- same design/code as "Counting with the bone" (7d2fd4de)
+//
+
+var localBoneGame = {
+    level: 1,
+    target: 0,
+    marks: 0,
+    won: false
+};
+
+var boneLevels = 4;
+
+function htBoneHandSides(level) {
+    var sides = [];
+    for (let i = 0; i < level; i++) {
+        sides.push((i % 2 === 0) ? "Left" : "Right");
+    }
+    return sides;
+}
+
+function htBoneDrawChallenge(level) {
+    var min = level * 5 - 4;
+    var max = level * 5;
+    localBoneGame.level = level;
+    localBoneGame.marks = 0;
+    localBoneGame.won = false;
+    localBoneGame.target = htGetRandomArbitrary(min, max + 1);
+    $("#htBoneLevelBadge").text(htBoneLevelLabel() + " " + level);
+    htBoneRenderHands();
+    htBoneRender();
+}
+
+function htBoneLevelLabel() {
+    var label = $("#htBoneLevelLabel");
+    return label.length ? label.text() : "";
+}
+
+function htBoneIsLastLevel() {
+    return localBoneGame.level >= boneLevels;
+}
+
+function htBoneNextLevel() {
+    if (htBoneIsLastLevel()) {
+        htBoneDrawChallenge(1);
+    } else {
+        htBoneDrawChallenge(localBoneGame.level + 1);
+    }
+}
+
+function htBoneRenderHands() {
+    var level = localBoneGame.level;
+    var digits = [];
+    var sides = htBoneHandSides(level);
+    var i;
+    for (i = 0; i < level; i++) {
+        digits.push(5);
+    }
+    digits[level - 1] = localBoneGame.target - 5 * (level - 1);
+
+    var prefix = htGetImgSrcPrefix();
+    var altTpl = $("#htBoneHandAltTpl").text() || "Hand with {n} raised fingers";
+    var html = "";
+    for (i = 0; i < level; i++) {
+        var alt = altTpl.split("{n}").join(digits[i]);
+        html += "<img id=\"htBoneHandImg" + i + "\" class=\"htBoneHandImg\" alt=\"" + alt +
+            "\" onclick=\"htImageZoom('htBoneHandImg" + i + "', '0%')\" src=\"" + prefix +
+            "images/HistoryTracers/" + digits[i] + sides[i] + "_Hand_Small.png\" />";
+    }
+    $("#htBoneHands").html(html);
+}
+
+function htBoneRender() {
+    var container = $("#htBoneMarks");
+    container.empty();
+    var total = localBoneGame.marks;
+    for (let i = 0; i < total; i++) {
+        var left = 5 + i * (90 / 19);
+        container.append("<span class=\"htBoneMark\" style=\"left:" + left + "%\"></span>");
+    }
+
+    var up = $("#htBoneAdd");
+    var down = $("#htBoneRemove");
+    up.removeClass("htBoneArrowDisabled");
+    down.removeClass("htBoneArrowDisabled");
+    if (localBoneGame.won || total >= localBoneGame.target) {
+        up.addClass("htBoneArrowDisabled");
+    }
+    if (localBoneGame.won || total <= 0) {
+        down.addClass("htBoneArrowDisabled");
+    }
+
+    if (localBoneGame.won) {
+        $("#htBoneCongrats").show();
+    } else {
+        $("#htBoneCongrats").hide();
+    }
+}
+
+function htBoneAddMark() {
+    if (localBoneGame.won) {
+        return false;
+    }
+    if (localBoneGame.marks < localBoneGame.target) {
+        localBoneGame.marks++;
+    }
+    if (localBoneGame.marks === localBoneGame.target) {
+        localBoneGame.won = true;
+    }
+    htBoneRender();
+    return false;
+}
+
+function htBoneRemoveMark() {
+    if (localBoneGame.won) {
+        return false;
+    }
+    if (localBoneGame.marks > 0) {
+        localBoneGame.marks--;
+    }
+    htBoneRender();
+    return false;
+}
+
+function atwInitBone() {
+    $("#htBoneAdd").on("click", htBoneAddMark);
+    $("#htBoneRemove").on("click", htBoneRemoveMark);
+    $("#htBoneNewNumber").on("click", function () {
+        htBoneDrawChallenge(localBoneGame.level);
+    });
+    $("#htBoneNextLevel").on("click", htBoneNextLevel);
+
+    htBoneDrawChallenge(1);
+}
+
+//
+// Roman abacus (calculi) -- same design/code as "Roman abacus" (1aacf33a)
+//
+
+var localRomanAbacusController = {};
+
+localRomanAbacusController.HEADINGS = ["(((I)))", "((I))", "(I)", "C", "X", "I"];
+localRomanAbacusController.PLACES = [100000, 10000, 1000, 100, 10, 1];
+localRomanAbacusController.LEVELS = 6;
+
+function htRomanAbacusInitState() {
+    localRomanAbacusController.state = [];
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        localRomanAbacusController.state.push({ upper: 0, lower: 0 });
+    }
+}
+
+function htRomanAbacusColumnValue(c) {
+    const col = localRomanAbacusController.state[c];
+    return (col.upper * 5 + col.lower) * localRomanAbacusController.PLACES[c];
+}
+
+function htRomanAbacusComputeValue() {
+    let value = 0;
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        value += htRomanAbacusColumnValue(c);
+    }
+    return value;
+}
+
+function htRomanAbacusRomanOf(n) {
+    if (n <= 0) return "";
+    const table = [[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
+                   [100, "C"], [90, "XC"], [50, "L"], [40, "XL"],
+                   [10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]];
+    let roman = "";
+    let rest = n;
+    for (let i = 0; i < table.length; i++) {
+        while (rest >= table[i][0]) {
+            roman += table[i][1];
+            rest -= table[i][0];
+        }
+    }
+    return roman;
+}
+
+function htRomanAbacusRomanHTML(value) {
+    if (value <= 0) return "";
+    const upper = Math.floor(value / 1000);
+    const lower = value % 1000;
+    let html = "";
+    if (upper > 0) {
+        html += '<span class="roman-abacus-overline">' + htRomanAbacusRomanOf(upper) + '</span>';
+    }
+    if (lower > 0) {
+        html += htRomanAbacusRomanOf(lower);
+    }
+    return html;
+}
+
+function htRomanAbacusComputeLayout() {
+    const cvs = localRomanAbacusController.canvas;
+    localRomanAbacusController.canvasWidth = cvs.width;
+    localRomanAbacusController.canvasHeight = cvs.height;
+
+    const horizontalMargin = 24;
+    const totalColSpace = localRomanAbacusController.canvasWidth - (horizontalMargin * 2);
+    localRomanAbacusController.colWidth = totalColSpace / localRomanAbacusController.HEADINGS.length;
+    localRomanAbacusController.startX = horizontalMargin + localRomanAbacusController.colWidth / 2;
+
+    localRomanAbacusController.decimalTrackY = localRomanAbacusController.canvasHeight * 0.5;
+    localRomanAbacusController.decimalTrackTop = localRomanAbacusController.decimalTrackY - 30;
+    localRomanAbacusController.decimalTrackBottom = localRomanAbacusController.decimalTrackY + 30;
+    localRomanAbacusController.barY = localRomanAbacusController.decimalTrackY;
+
+    const upperMax = 1;
+    const lowerMax = 4;
+    const verticalStep = 26;
+
+    const upperBaseActive = localRomanAbacusController.decimalTrackTop - 8;
+    const upperStartInactive = localRomanAbacusController.decimalTrackTop - 52;
+    localRomanAbacusController.upperPositions = [];
+    for (let i = 0; i < upperMax; i++) {
+        let activeY = upperBaseActive - (i * verticalStep);
+        let inactiveY = upperStartInactive - (i * verticalStep * 0.8);
+        if (inactiveY < 20) inactiveY = 20 + i * 5;
+        localRomanAbacusController.upperPositions.push({ activeY: activeY, inactiveY: inactiveY });
+    }
+
+    const lowerBaseActive = localRomanAbacusController.decimalTrackBottom + 8;
+    const lowerInactiveDrop = 30;
+    localRomanAbacusController.lowerPositions = [];
+    for (let i = 0; i < lowerMax; i++) {
+        let activeY = lowerBaseActive + (i * verticalStep);
+        let inactiveY = activeY + lowerInactiveDrop;
+        localRomanAbacusController.lowerPositions.push({ activeY: activeY, inactiveY: inactiveY });
+    }
+
+    let maxRadiusByWidth = localRomanAbacusController.colWidth * 0.38;
+    let maxRadiusByVertical = verticalStep * 0.45;
+    localRomanAbacusController.ballRadius = Math.min(maxRadiusByWidth, maxRadiusByVertical, 13);
+    localRomanAbacusController.ballRadius = Math.max(localRomanAbacusController.ballRadius, 9);
+}
+
+function htRomanAbacusDrawTrack() {
+    const ctx = localRomanAbacusController.ctx;
+    ctx.fillStyle = "#dac894";
+    ctx.globalAlpha = 0.4;
+    ctx.fillRect(6, localRomanAbacusController.decimalTrackTop,
+                 localRomanAbacusController.canvasWidth - 12,
+                 localRomanAbacusController.decimalTrackBottom - localRomanAbacusController.decimalTrackTop);
+    ctx.globalAlpha = 1;
+
+    ctx.strokeStyle = "#b59762";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(7, localRomanAbacusController.decimalTrackTop + 2,
+                   localRomanAbacusController.canvasWidth - 14,
+                   (localRomanAbacusController.decimalTrackBottom - localRomanAbacusController.decimalTrackTop) - 4);
+
+    ctx.fillStyle = '#c9a86b';
+    ctx.fillRect(5, localRomanAbacusController.barY - 6, localRomanAbacusController.canvasWidth - 10, 12);
+    ctx.fillStyle = '#e5c28e';
+    ctx.fillRect(5, localRomanAbacusController.barY - 4, localRomanAbacusController.canvasWidth - 10, 8);
+    ctx.fillStyle = '#f5e2b0';
+    ctx.fillRect(5, localRomanAbacusController.barY - 2, localRomanAbacusController.canvasWidth - 10, 4);
+}
+
+function htRomanAbacusDrawColumn(idx) {
+    const ctx = localRomanAbacusController.ctx;
+    const x = localRomanAbacusController.startX + idx * localRomanAbacusController.colWidth;
+    const col = localRomanAbacusController.state[idx];
+    const lowerCount = col.lower;
+    const upperCount = col.upper;
+
+    ctx.beginPath();
+    ctx.moveTo(x, 78);
+    ctx.lineTo(x, localRomanAbacusController.canvasHeight - 28);
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#b08054';
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x - 1, 76);
+    ctx.lineTo(x - 1, localRomanAbacusController.canvasHeight - 26);
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = '#e9c48b';
+    ctx.stroke();
+
+    for (let u = 0; u < 1; u++) {
+        const isActive = (u < upperCount);
+        const pos = localRomanAbacusController.upperPositions[u];
+        if (!pos) continue;
+        const beadY = isActive ? pos.activeY : pos.inactiveY;
+        let gradUp = ctx.createRadialGradient(x - 4, beadY - 3, 3, x, beadY, localRomanAbacusController.ballRadius);
+        gradUp.addColorStop(0, '#f06a50');
+        gradUp.addColorStop(1, '#c03a28');
+        ctx.beginPath();
+        ctx.arc(x, beadY, localRomanAbacusController.ballRadius, 0, Math.PI * 2);
+        ctx.fillStyle = gradUp;
+        ctx.fill();
+        ctx.strokeStyle = '#4a2018';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x - 3, beadY - 3, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffead4';
+        ctx.fill();
+    }
+
+    for (let b = 0; b < 4; b++) {
+        const isActive = (b < lowerCount);
+        const pos = localRomanAbacusController.lowerPositions[b];
+        if (!pos) continue;
+        const beadY = isActive ? pos.activeY : pos.inactiveY;
+        let gradLow = ctx.createLinearGradient(x - 5, beadY - 4, x + 5, beadY + 4);
+        gradLow.addColorStop(0, '#7da0ae');
+        gradLow.addColorStop(1, '#3a6068');
+        ctx.beginPath();
+        ctx.arc(x, beadY, localRomanAbacusController.ballRadius - 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = gradLow;
+        ctx.fill();
+        ctx.strokeStyle = '#1a3a3a';
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x - 2.5, beadY - 2.5, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#c8e2ec';
+        ctx.fill();
+    }
+}
+
+function htRomanAbacusDrawLabels() {
+    const ctx = localRomanAbacusController.ctx;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        const x = localRomanAbacusController.startX + c * localRomanAbacusController.colWidth;
+        ctx.font = 'bold 16px Georgia, "Times New Roman", serif';
+        ctx.fillStyle = '#40280f';
+        ctx.fillText(localRomanAbacusController.HEADINGS[c], x, 36);
+        ctx.font = '10px Verdana, sans-serif';
+        ctx.fillStyle = '#7a4a24';
+        ctx.fillText(localRomanAbacusController.PLACES[c].toString(), x, 56);
+    }
+}
+
+function htRomanAbacusDrawFrame() {
+    const ctx = localRomanAbacusController.ctx;
+    ctx.strokeStyle = '#f9eec7';
+    ctx.lineWidth = 2.5;
+    ctx.strokeRect(5, 5, localRomanAbacusController.canvasWidth - 10, localRomanAbacusController.canvasHeight - 10);
+    ctx.strokeStyle = '#b48b5a';
+    ctx.lineWidth = 1.8;
+    ctx.strokeRect(3, 3, localRomanAbacusController.canvasWidth - 6, localRomanAbacusController.canvasHeight - 6);
+}
+
+function htRomanAbacusRender() {
+    const ctx = localRomanAbacusController.ctx;
+    if (!ctx) return;
+    const W = localRomanAbacusController.canvasWidth;
+    const H = localRomanAbacusController.canvasHeight;
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = '#fef5e0';
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.globalAlpha = 0.2;
+    for (let i = 0; i < 60; i++) {
+        ctx.beginPath();
+        ctx.moveTo(0, i * 8);
+        ctx.lineTo(W, i * 8 + 3);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#c8b280';
+        ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    htRomanAbacusDrawTrack();
+    htRomanAbacusDrawLabels();
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        htRomanAbacusDrawColumn(c);
+    }
+    htRomanAbacusDrawFrame();
+}
+
+function htRomanAbacusGetHitRegion(mouseX, mouseY) {
+    let colIdx = -1;
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        const centerX = localRomanAbacusController.startX + c * localRomanAbacusController.colWidth;
+        if (Math.abs(mouseX - centerX) < localRomanAbacusController.colWidth * 0.45) {
+            colIdx = c;
+            break;
+        }
+    }
+    if (colIdx === -1) return null;
+
+    const col = localRomanAbacusController.state[colIdx];
+    const centerX = localRomanAbacusController.startX + colIdx * localRomanAbacusController.colWidth;
+    const radius = localRomanAbacusController.ballRadius;
+
+    for (let u = 0; u < 1; u++) {
+        const pos = localRomanAbacusController.upperPositions[u];
+        if (!pos) continue;
+        const beadY = (u < col.upper) ? pos.activeY : pos.inactiveY;
+        if (Math.abs(mouseY - beadY) < radius + 8 && Math.hypot(mouseX - centerX, mouseY - beadY) < radius + 6) {
+            if (mouseY < localRomanAbacusController.decimalTrackTop - 2) {
+                return { type: 'upper', col: colIdx, beadIdx: u };
+            }
+        }
+    }
+
+    for (let b = 0; b < 4; b++) {
+        const pos = localRomanAbacusController.lowerPositions[b];
+        if (!pos) continue;
+        const beadY = (b < col.lower) ? pos.activeY : pos.inactiveY;
+        if (Math.abs(mouseY - beadY) < radius + 8 && Math.hypot(mouseX - centerX, mouseY - beadY) < radius + 6) {
+            if (mouseY > localRomanAbacusController.decimalTrackBottom + 2) {
+                return { type: 'lower', col: colIdx, beadIdx: b };
+            }
+        }
+    }
+    return null;
+}
+
+function htRomanAbacusToggleUpper(col, beadIdx) {
+    const colState = localRomanAbacusController.state[col];
+    const currentUpper = colState.upper;
+    if (beadIdx < currentUpper) {
+        colState.upper = beadIdx;
+    } else {
+        colState.upper = beadIdx + 1;
+    }
+    if (colState.upper > 1) colState.upper = 1;
+    if (colState.upper < 0) colState.upper = 0;
+    htRomanAbacusRender();
+    htRomanAbacusUpdateDisplay();
+}
+
+function htRomanAbacusHandleLowerClick(col, beadIdx) {
+    const colState = localRomanAbacusController.state[col];
+    const currentLower = colState.lower;
+    const isActive = (beadIdx < currentLower);
+    if (isActive) {
+        let newLower = beadIdx;
+        if (newLower < 0) newLower = 0;
+        colState.lower = newLower;
+    } else {
+        let newLower = beadIdx + 1;
+        if (newLower > 4) newLower = 4;
+        colState.lower = newLower;
+    }
+    htRomanAbacusRender();
+    htRomanAbacusUpdateDisplay();
+}
+
+function htRomanAbacusHideSuccess() {
+    const sv = document.getElementById('romanAbacusSuccess');
+    if (sv) {
+        sv.style.display = 'none';
+        sv.style.visibility = 'hidden';
+    }
+}
+
+function htRomanAbacusFillGame() {
+    const cmp = document.getElementById('romanAbacusCMP');
+    if (!cmp) return;
+
+    htRomanAbacusHideSuccess();
+
+    const lvl = localRomanAbacusController.gameLvl || 0;
+    localRomanAbacusController.currentTargetLevel = lvl;
+
+    const minV = [1, 10, 100, 1000, 10000, 100000][lvl];
+    const maxV = [9, 99, 999, 9999, 99999, 999999][lvl];
+    cmp.innerText = (Math.floor(Math.random() * (maxV - minV + 1)) + minV).toString();
+
+    localRomanAbacusController.gameLvl = lvl + 1;
+    if (localRomanAbacusController.gameLvl >= localRomanAbacusController.LEVELS) {
+        localRomanAbacusController.gameLvl = 0;
+    }
+}
+
+function htRomanAbacusUpdateDisplay() {
+    const val = htRomanAbacusComputeValue();
+
+    const vEl = document.getElementById('romanAbacusValue');
+    if (vEl) vEl.innerText = val.toString();
+
+    const rEl = document.getElementById('romanAbacusRoman');
+    if (rEl) rEl.innerHTML = htRomanAbacusRomanHTML(val);
+
+    const cmp = document.getElementById('romanAbacusCMP');
+    const sv = document.getElementById('romanAbacusSuccess');
+    if (cmp && sv) {
+        if (cmp.innerText.trim() === val.toString()) {
+            sv.style.display = 'inline-block';
+            sv.style.visibility = 'visible';
+            if (localRomanAbacusController.currentTargetLevel === localRomanAbacusController.LEVELS - 1) {
+                const fb = document.getElementById('romanAbacusFeedback');
+                const msg = document.getElementById('txt_romanAbacusFinalMessage');
+                if (fb && msg) fb.innerHTML = '<div class="roman-abacus-congrats">' + msg.innerHTML + '</div>';
+            }
+        } else {
+            htRomanAbacusHideSuccess();
+        }
+    }
+}
+
+function htRomanAbacusReset() {
+    for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
+        localRomanAbacusController.state[c].upper = 0;
+        localRomanAbacusController.state[c].lower = 0;
+    }
+    const fb = document.getElementById('romanAbacusFeedback');
+    if (fb) fb.innerHTML = '';
+    htRomanAbacusFillGame();
+    htRomanAbacusRender();
+    htRomanAbacusUpdateDisplay();
+}
+
+function htRomanAbacusHandleCanvasStart(e) {
+    const cvs = localRomanAbacusController.canvas;
+    if (!cvs) return;
+    const rect = cvs.getBoundingClientRect();
+    const scaleX = cvs.width / rect.width;
+    const scaleY = cvs.height / rect.height;
+    let clientX, clientY;
+    if (e.touches) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+        e.preventDefault();
+    } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+    }
+    const canvasX = (clientX - rect.left) * scaleX;
+    const canvasY = (clientY - rect.top) * scaleY;
+    const hit = htRomanAbacusGetHitRegion(canvasX, canvasY);
+    if (!hit) return;
+    if (hit.type === 'upper') htRomanAbacusToggleUpper(hit.col, hit.beadIdx);
+    else if (hit.type === 'lower') htRomanAbacusHandleLowerClick(hit.col, hit.beadIdx);
+}
+
+function htRomanAbacusHandleKeydown(e) {
+    const headings = localRomanAbacusController.HEADINGS;
+    if (!localRomanAbacusController.focusedCol && localRomanAbacusController.focusedCol !== 0) {
+        localRomanAbacusController.focusedCol = 0;
+    }
+    let col = localRomanAbacusController.focusedCol;
+    if (e.key === 'ArrowLeft') {
+        localRomanAbacusController.focusedCol = Math.max(0, col - 1);
+        e.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+        localRomanAbacusController.focusedCol = Math.min(headings.length - 1, col + 1);
+        e.preventDefault();
+    } else if (e.key === 'ArrowUp' || e.key === '5') {
+        htRomanAbacusToggleUpper(col, 0);
+        e.preventDefault();
+    } else if (e.key === 'ArrowDown' || e.key === '1') {
+        const colState = localRomanAbacusController.state[col];
+        const nextLower = colState.lower < 4 ? colState.lower : 3;
+        htRomanAbacusHandleLowerClick(col, nextLower);
+        e.preventDefault();
+    } else if (e.key === '0') {
+        localRomanAbacusController.state[col].upper = 0;
+        localRomanAbacusController.state[col].lower = 0;
+        htRomanAbacusRender();
+        htRomanAbacusUpdateDisplay();
+        e.preventDefault();
+    }
+}
+
+function htRomanAbacusAttachEvents() {
+    const cvs = localRomanAbacusController.canvas;
+    if (!cvs) return;
+    cvs.addEventListener('mousedown', htRomanAbacusHandleCanvasStart);
+    cvs.addEventListener('touchstart', htRomanAbacusHandleCanvasStart, { passive: false });
+    cvs.addEventListener('keydown', htRomanAbacusHandleKeydown);
+
+    const rb = document.getElementById('romanAbacusResetBtn');
+    if (rb) rb.addEventListener('click', htRomanAbacusReset);
+
+    window.addEventListener('resize', function () {
+        htRomanAbacusComputeLayout();
+        htRomanAbacusRender();
+    });
+}
+
+function htRomanAbacusInit() {
+    localRomanAbacusController.canvas = document.getElementById('romanAbacusCanvas');
+    if (!localRomanAbacusController.canvas) return;
+    localRomanAbacusController.ctx = localRomanAbacusController.canvas.getContext('2d');
+    if (!localRomanAbacusController.ctx) return;
+
+    htRomanAbacusInitState();
+    htRomanAbacusComputeLayout();
+    htRomanAbacusAttachEvents();
+    htRomanAbacusRender();
+    htRomanAbacusFillGame();
+    htRomanAbacusUpdateDisplay();
+}
+
+function atwInitRoman() {
+    localRomanAbacusController.gameLvl = 0;
+    localRomanAbacusController.currentTargetLevel = 0;
+    htRomanAbacusInit();
+}
+
+//
+// Abacus (Suanpan / Soroban / Schyoty) -- same design/code as ht_abacus.js.
+// ht_abacus.js renders a single abacus through the global localSorobanController,
+// so each section keeps its own controller and swaps it in while rendering.
+//
+
+function atwInitAbacus(container) {
+    var mode = $(container).attr("data-atw") || "suanpan";
+    var canvas = container.querySelector("canvas");
+    if (!canvas) {
+        return;
+    }
+    var ctx = canvas.getContext("2d");
+    if (!ctx) {
+        return;
+    }
+    var columns = parseInt($(container).attr("data-columns") || "9", 10);
+    var decimalCol = parseInt($(container).attr("data-decimal") || String(columns - 1), 10);
+    var valueEl = container.querySelector(".atw-abacus-value");
+    var targetEl = container.querySelector(".atw-abacus-target");
+    var correctEl = container.querySelector(".atw-abacus-correct");
+
+    var ctrl = null;
+    var state = { target: 0, level: 1 };
+
+    function buildController() {
+        if (mode === "schyoty") {
+            ctrl = {
+                abacusMode: "schyoty",
+                canvas: canvas,
+                ctx: ctx,
+                canvasWidth: canvas.width,
+                canvasHeight: canvas.height,
+                schyotyWireL: 14
+            };
+        } else {
+            ctrl = {
+                abacusMode: mode,
+                COLUMNS: columns,
+                state: [],
+                decimalMarkerCol: decimalCol,
+                canvas: canvas,
+                ctx: ctx,
+                canvasWidth: canvas.width,
+                canvasHeight: canvas.height,
+                margin: { top: 48, bottom: 48 },
+                verticalStep: 22
+            };
+        }
+    }
+
+    function withCtrl(fn) {
+        var saved = window.localSorobanController;
+        window.localSorobanController = ctrl;
+        try {
+            return fn();
+        } finally {
+            window.localSorobanController = saved;
+        }
+    }
+
+    function reset() {
+        buildController();
+        withCtrl(function () {
+            if (mode === "schyoty") {
+                htSchyotyInitState();
+                htSchyotyComputeLayout();
+                htSchyotyRender();
+            } else {
+                htSorobanInitState();
+                htSorobanComputeLayout();
+                htSorobanRender();
+            }
+        });
+    }
+
+    function currentValue() {
+        return withCtrl(function () {
+            if (mode === "schyoty") {
+                return htSchyotyGetNumericValue();
+            }
+            var digits = [];
+            for (var i = 0; i < ctrl.COLUMNS; i++) {
+                var v = ctrl.state[i].upper * 5 + ctrl.state[i].lower;
+                if (v > 9) v = 9;
+                digits.push(v);
+            }
+            var val = 0;
+            for (var j = 0; j <= ctrl.decimalMarkerCol; j++) {
+                val = val * 10 + digits[j];
+            }
+            return val;
+        });
+    }
+
+    function update() {
+        var val = currentValue();
+        if (valueEl) {
+            valueEl.textContent = String(val);
+        }
+        if (correctEl) {
+            correctEl.style.display = (String(val) === String(state.target)) ? "block" : "none";
+        }
+    }
+
+    function newRound() {
+        var ranges = [[1, 9], [10, 99], [100, 999]];
+        var range = ranges[state.level - 1] || ranges[0];
+        state.target = atwRandom(range[0], range[1]);
+        if (targetEl) {
+            targetEl.textContent = String(state.target);
+        }
+        reset();
+        update();
+    }
+
+    function handlePointer(e) {
+        var rect = canvas.getBoundingClientRect();
+        var scaleX = canvas.width / rect.width;
+        var scaleY = canvas.height / rect.height;
+        var clientX, clientY;
+        if (e.touches) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+        var x = (clientX - rect.left) * scaleX;
+        var y = (clientY - rect.top) * scaleY;
+
+        withCtrl(function () {
+            if (mode === "schyoty") {
+                var hit = htSchyotyGetHitRegion(x, y);
+                if (!hit) {
+                    return;
+                }
+                var current = ctrl.schyotyState[hit.row];
+                if (hit.isActive) {
+                    ctrl.schyotyState[hit.row] = hit.position;
+                } else {
+                    var inactiveCount = 10 - current;
+                    ctrl.schyotyState[hit.row] = current + (inactiveCount - hit.position);
+                }
+                htSchyotyRender();
+            } else {
+                var bead = htSorobanGetHitRegion(x, y);
+                if (!bead) {
+                    return;
+                }
+                var col = ctrl.state[bead.col];
+                if (bead.type === "upper") {
+                    col.upper = (bead.beadIdx < col.upper) ? bead.beadIdx : bead.beadIdx + 1;
+                    if (col.upper > col.upperMax) col.upper = col.upperMax;
+                } else if (bead.type === "lower") {
+                    col.lower = (bead.beadIdx < col.lower) ? bead.beadIdx : bead.beadIdx + 1;
+                    if (col.lower > col.lowerMax) col.lower = col.lowerMax;
+                }
+                htSorobanRender();
+            }
+        });
+        update();
+    }
+
+    canvas.addEventListener("mousedown", handlePointer);
+    canvas.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        handlePointer(e);
+    }, { passive: false });
+
+    $(container).find(".atw-abacus-reset").on("click", newRound);
+    $(container).find("[data-atw-mode]").on("click", function () {
+        var selected = $(this).attr("data-atw-mode");
+        if (selected === mode) {
+            return;
+        }
+        mode = selected;
+        $(container).find("[data-atw-mode]").removeClass("active");
+        $(this).addClass("active");
+        newRound();
+    });
+
+    newRound();
+}
+
+//
+// Yupana -- same design as ht_yupana.js (arrows + hands + tawapukllay table)
+//
+
+function atwInitYupana(container) {
+    var value = 0;
+    var target = 1;
+    var targetEl = container.querySelector(".atw-yupana-target");
+    var correctEl = container.querySelector(".atw-yupana-correct");
+
+    if ($("#leftHandImg").length) {
+        htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
+    }
+    if ($("#rightHandImg").length) {
+        htSetImageSrc("rightHandImg", "images/HistoryTracers/0Right_Hand_Small.png");
+    }
+
+    function render() {
+        htSetImageForMembers("#leftHandImg", "Left_Hand_Small.png",
+            "#rightHandImg", "Right_Hand_Small.png", value);
+        htCleanYupanaDecimalValues("#yupana0", 1);
+        if (value > 0) {
+            htFillYupanaDecimalValues("#yupana0", value, 1, "red_dot_right_up");
+        }
+        if (correctEl) {
+            correctEl.style.display = (value === target) ? "block" : "none";
+        }
+    }
+
+    function newRound() {
+        target = atwRandom(1, 9);
+        value = 0;
+        if (targetEl) {
+            targetEl.textContent = String(target);
+        }
+        render();
+    }
+
+    $("#traineeUp0").off("click").on("click", function () {
+        if (value < 9) {
+            value++;
+            render();
+        }
+    });
+    $("#traineeDown0").off("click").on("click", function () {
+        if (value > 0) {
+            value--;
+            render();
+        }
+    });
+
+    newRound();
+}
+
+//
 // Initialization
 //
 
@@ -890,14 +1176,18 @@ function atwInitGames() {
             return;
         }
         this.setAttribute("data-atw-ready", "1");
-        if (tool === "bones" || tool === "quipu" || tool === "meso" || tool === "yupana") {
+        if (tool === "quipu" || tool === "meso") {
             atwCreateStepper(this, tool, words);
-        } else if (tool === "calculi" || tool === "suanpan" || tool === "soroban") {
-            atwCreateAbacus(this, tool, words);
-        } else if (tool === "schyoty") {
-            atwCreateSchyoty(this, words);
         } else if (tool === "sequence") {
             atwCreateSequence(this, words);
+        } else if (tool === "bones") {
+            atwInitBone(this);
+        } else if (tool === "yupana") {
+            atwInitYupana(this);
+        } else if (tool === "calculi") {
+            atwInitRoman(this);
+        } else if (tool === "suanpan" || tool === "soroban" || tool === "schyoty") {
+            atwInitAbacus(this);
         }
     });
 }
@@ -921,6 +1211,7 @@ function atwSetImages() {
             htSetImageSrc(id, images[id]);
         }
     }
+    htSetImageSrc("imgBone", "images/GonzalesRedondo/Figura-9-Hueso-de-Lebombo.png");
 }
 
 function htLoadContent() {
