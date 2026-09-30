@@ -1,0 +1,802 @@
+{
+   "title": "Ao redor do mundo (contando)",
+   "header": "Ao redor do mundo (contando)",
+   "sources": [
+      "6c071696-8eb9-4bbe-8221-ffd71620c7e3"
+   ],
+   "scripts": [
+      "6c071696-8eb9-4bbe-8221-ffd71620c7e3"
+   ],
+   "audio": [],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1790796057"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><div class=\"text-store\" style=\"display:none\"><span id=\"atwWordRepresent\">Represente o número:</span><span id=\"atwWordMissing\">Qual número está faltando na sequência?</span><span id=\"atwWordValue\">Valor</span><span id=\"atwWordLevel\">Nível</span><span id=\"atwWordNewRound\">Nova rodada</span><span id=\"atwWordNextLevel\">Próximo nível</span><span id=\"atwWordRestart\">Reiniciar</span><span id=\"atwWordCorrect\">&#10003; Correto!</span><span id=\"atwWordAdd\">Adicionar um</span><span id=\"atwWordRemove\">Remover um</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nNesta aula fazemos um passeio por algumas das primeiras ferramentas de contagem criadas pela humanidade. Antes de começar, sugerimos estudar as aulas anteriores de Primeiros Passos, especialmente **Nossos lados são iguais** (<htcite0>), **Contando** (<htcite1>) e **Além dos dedos** (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "20b14681-88c0-438a-a273-a0902ae5db38",
+                     "text": "History Tracers Team",
+                     "page": "Nossos lados são iguais",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3874d1e8-0f76-4432-9ee2-d8c8c9dccf53",
+                     "text": "History Tracers Team",
+                     "page": "Contando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cc8c1467-a6af-4f9c-ba60-ab6df35aba05",
+                     "text": "History Tracers Team",
+                     "page": "Além dos dedos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nA humanidade se espalhou pelo mundo ao longo de quase 2 milhões de anos. Se considerarmos apenas a nossa espécie, *Homo sapiens*, essa expansão é muito mais curta: menos de 300.000 anos (<htcite0>).\n\nAo longo desse caminho, povos diferentes criaram as suas próprias formas de contar. Nesta aula fazemos um passeio por algumas dessas primeiras ferramentas e pelas regiões onde elas surgiram.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Uma origem ou muitas?</b><br /><br />Você acha que o conhecimento matemático surgiu em um único lugar e depois se espalhou, ou apareceu de forma independente em regiões diferentes?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mathematics",
+         "text": [
+            {
+               "text": "### A evolução da matemática\n\nO conhecimento matemático se desenvolveu de forma independente em lugares diferentes e só mais tarde foi unificado pela nossa espécie (<htcite0>). Nesta aula destacamos mapas e os períodos aproximados em que cada sistema numérico surgiu, de acordo com o nosso entendimento atual.\n\nO mapa abaixo mostra o caminho da nossa espécie pelo mundo (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgJourney\" onclick=\"htImageZoom('atwImgJourney', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: O caminho do <i>Homo sapiens</i> pelo mundo. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_africa",
+         "text": [
+            {
+               "text": "### Na África: contando com ossos\n\nO primeiro sistema de contagem que conhecemos surgiu na África, há cerca de 37.000 anos. Ele foi inspirado nas nossas mãos e registrado com marcas feitas em ossos (<htcite0>). Estudiosos como Francisco A. González Redondo estudam essas marcas para entender quando a contagem começou.\n\nO jogo abaixo usa a mesma ideia: observe o número e coloque a mesma quantidade de marcas no osso.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAfrica\" onclick=\"htImageZoom('atwImgAfrica', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: A África no mapa-múndi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"bones\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_quipu",
+         "text": [
+            {
+               "text": "### Na América: os quipus\n\nO segundo sistema de contagem que estudamos não surgiu perto do primeiro. As evidências mais antigas datam de cerca de 5.000 anos, em Caral, no Peru, embora os pesquisadores ainda debatam a idade dos quipus (<htcite0>).\n\nO quipu é lido nos cordões verticais que pendem do cordão principal, e cada nó representa uma contagem. Adicione nós até que o cordão mostre o número proposto.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4f8542c9-f060-4d3c-8a67-971b6d63e1ff",
+                     "text": "Ascher, M., & Ascher, R.",
+                     "page": "Mathematics of the Incas: Code of the Quipu",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgSouthAmerica\" onclick=\"htImageZoom('atwImgSouthAmerica', '0%')\" class=\"imgcenter\"/><b>Figura 3</b>: A América do Sul no mapa-múndi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"quipu\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mesoamerica",
+         "text": [
+            {
+               "text": "### Na América: os números mesoamericanos\n\nPesquisas recentes sugerem que um sistema numérico começou a se desenvolver na Mesoamérica por volta de <htdate0>. Isso pode ampliar o nosso entendimento anterior, que situava o seu uso por volta de 300 a.C. (<htcite0>; <htcite1>).\n\nNo sistema mesoamericano, um ponto vale 1 e uma barra vale 5. Represente o número proposto com pontos e barras.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "Tsik: Los números y la numerología entre los mayas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando, et al.",
+                     "page": "Matemáticas Mayas: hechos, mitos y lo que sabemos desde la arqueología",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-600",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgMesoamerica\" onclick=\"htImageZoom('atwImgMesoamerica', '0%')\" class=\"imgcenter\"/><b>Figura 4</b>: A Mesoamérica no mapa da América do Norte. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"meso\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_europe",
+         "text": [
+            {
+               "text": "### Na Europa: os calculi\n\nQuipus e ábacos antigos não são fáceis de preservar, por isso é difícil saber exatamente onde algumas ferramentas foram usadas pela primeira vez. Por esse motivo, começamos a parte europeia do passeio com os *calculi*, cujo uso as fontes que consultamos datam de cerca de <htdate0> (<htcite0>; <htcite1>).\n\nNos calculi, cada coluna tem um valor posicional diferente. As marcas abaixo da barra valem 1 e as marcas acima da barra valem 5. Mova as marcas para representar o número proposto.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d30b6fee-4def-401b-b5f1-b5c96f1b9d16",
+                     "text": "Sugden, K. F.",
+                     "page": "A history of the abacus",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1981",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6d1b7315-7910-40c1-877e-c7d75b02a149",
+                     "text": "Turner, J. H.",
+                     "page": "Roman Elementary Mathematics the Operations",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1951",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-300",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgEurope\" onclick=\"htImageZoom('atwImgEurope', '0%')\" class=\"imgcenter\"/><b>Figura 5</b>: A Europa no mapa-múndi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"calculi\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_india",
+         "text": [
+            {
+               "text": "### Na Ásia (Índia): os algarismos hindu-arábicos\n\nNão podemos ter certeza de quando os algarismos hindu-arábicos surgiram. A escrita chegou à Índia há apenas cerca de 2.300 anos, embora os números possam ter existido antes disso. Eles aparecem nas inscrições de Ashoka, datadas de <htdate0> e <htdate1> (<htcite0>).\n\nEm uma sequência, cada número segue o anterior por um passo fixo. Observe a sequência e escolha o número que está faltando.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                     "text": "Musa, Auwalu",
+                     "page": "Origin of Modern Mathematical Numeral",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-268",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-232",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAsia1\" onclick=\"htImageZoom('atwImgAsia1', '0%')\" class=\"imgcenter\"/><b>Figura 6</b>: A Ásia no mapa-múndi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"sequence\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_china",
+         "text": [
+            {
+               "text": "### Na Ásia (China): o suanpan\n\nPor volta de <htdate0> temos as primeiras informações sobre o *suanpan* (算盤), o ábaco chinês. Esse ábaco difere dos *calculi* porque tem um número diferente de contas (<htcite0>).\n\nEscreva o número proposto no suanpan movendo as contas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-190",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAsia2\" onclick=\"htImageZoom('atwImgAsia2', '0%')\" class=\"imgcenter\"/><b>Figura 7</b>: A Ásia no mapa-múndi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"suanpan\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_yupana",
+         "text": [
+            {
+               "text": "### Na América: a yupana\n\nVoltando à América (*Abya Yala*), sabemos que os incas — durante os séculos XV e XVI, segundo o calendário gregoriano — criaram uma ferramenta para fazer matemática. Há também evidências de que a *yupana* era usada junto com os *quipus* (<htcite0>; <htcite1>).\n\nNa yupana, cada linha guarda um dígito e as sementes são colocadas sobre a grade. Use os botões para representar o número proposto.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5dbd2e9f-5631-407e-9b80-e3a5d4f8838f",
+                     "text": "Prem, Dhavit",
+                     "page": "Matemática Inka y la Yupana",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgYupana\" onclick=\"htImageZoom('atwImgYupana', '0%')\" class=\"imgcenter\"/><b>Figura 8</b>: A América do Sul (Tawantinsuyu) no mapa. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"yupana\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_japan",
+         "text": [
+            {
+               "text": "### Na Ásia (Japão): o soroban\n\nDurante o século XVI, segundo o calendário gregoriano, o *suanpan* (算盤) chegou ao Japão, onde ficou conhecido como *soroban* (算盤). Esse soroban é a aproximação mais próxima dos *calculi* romanos que vimos antes nesta aula (<htcite0>).\n\nEscreva o número proposto no soroban movendo as contas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAsia3\" onclick=\"htImageZoom('atwImgAsia3', '0%')\" class=\"imgcenter\"/><b>Figura 9</b>: A Ásia no mapa-múndi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"soroban\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_russia",
+         "text": [
+            {
+               "text": "### Na Rússia: o schyoty\n\nPor volta de <htdate0>, na Rússia, foi desenvolvida outra ferramenta para representar números: o *schyoty* (счёты). Embora algumas pessoas o chamem de ábaco, não podemos avaliar possíveis ligações entre ele e os ábacos anteriores que estudamos aqui (<htcite0>).\n\nEscreva o número proposto no schyoty movendo as contas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1aad8822-1ace-45fd-954e-833799836d1a",
+                     "text": "History Tracers Team",
+                     "page": "Schyoty (счёты), ou o ábaco vertical",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1618",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAsia4\" onclick=\"htImageZoom('atwImgAsia4', '0%')\" class=\"imgcenter\"/><b>Figura 10</b>: A Ásia no mapa-múndi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "https://mapswire.com",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"schyoty\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNesta aula revisamos diferentes sistemas numéricos e observamos que a época em que foram criados não segue o caminho da ocupação humana do mundo.\n\nComo resultado, podemos tirar algumas conclusões:\n- Somos todos humanos, e o conhecimento não surgiu em um só lugar para depois se espalhar pelo mundo.\n- A base da matemática sempre esteve em toda parte.\n- Podemos chegar às mesmas conclusões representando números de formas diferentes.\n\nNas próximas aulas, aprenderemos a trabalhar com esses números.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
