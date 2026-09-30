@@ -3544,6 +3544,14 @@ function htIsIndexLoaded(idx) {
 
 function htFillTopIdx(idx, data, first)
 {
+    // Source files and other JSON payloads that are not actual index content
+    // must not be registered as an index. Doing so would mark the index as
+    // loaded while only the synthetic top entry exists, leaving the navigation
+    // table without its data rows.
+    if (!data || !Array.isArray(data.content)) {
+        return;
+    }
+
     htUpdateLoadedIdx(first);
 
     const localLang = $("#site_language").val();
@@ -3607,6 +3615,14 @@ function htRemovePendingIndex(indexName)
 
 function htLoadIndex(data, arg, page)
 {
+    // Source files are loaded through htLoadPage(..., "source") and share the
+    // page argument. They must never be interpreted as an index, otherwise a
+    // page whose name matches an index (e.g. "first_steps") would register an
+    // empty index and the navigation table would stay without rows.
+    if (arg === "source") {
+        return;
+    }
+
     if (data != undefined && data.index != undefined) {
         if (data.index.constructor === vectorConstructor) {
             // Preserve the order in which the page declares its indexes so the
