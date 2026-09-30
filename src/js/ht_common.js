@@ -2174,7 +2174,27 @@ function htUpdateNavigationTitle(currentIdx, title, indexName)
     $("#header").html(pageHeader);
 }
 
-function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
+function htNavigationRowBackground(rowHtml)
+{
+    return (rowHtml.indexOf("<a ") >= 0 || rowHtml.indexOf("<a\n") >= 0 || rowHtml.indexOf("<a>") >= 0) ? "#FFFFFF" : "#FFFFE0";
+}
+
+var htNavigationHoverBound = false;
+
+function htBindNavigationHover()
+{
+    if (htNavigationHoverBound) {
+        return;
+    }
+    htNavigationHoverBound = true;
+    $(document).on('mouseenter', '.book_navigation tr.ht_nav_white', function() {
+        $(this).css('background-color', '#e4e4e4');
+    }).on('mouseleave', '.book_navigation tr.ht_nav_white', function() {
+        $(this).css('background-color', '#FFFFFF');
+    });
+}
+
+function htBuildNavigationSteps(ptr, idx, index, idxName)
 {
     var prev = "";
     var pageName = "";
@@ -2213,12 +2233,15 @@ function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
         next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
     }
 
-    var navigation = "<tr style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
+    var navigation = "<tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
+    var bgColor = htNavigationRowBackground(navigation);
+    var rowClass = (bgColor == "#FFFFFF") ? " class=\"ht_nav_white\"" : "";
+    navigation = navigation.replace("<tr>", "<tr"+rowClass+" style=\"background-color: "+bgColor+";\">");
 
     return navigation;
 }
 
-function htBuildNavigation(index, currentIdx, initialBgColor)
+function htBuildNavigation(index, currentIdx)
 {
     var urlParams = new URLSearchParams(window.location.search);
     if (!urlParams.has('arg')) {
@@ -2236,7 +2259,7 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 
     var idxName = htSelectIndexName(index);
     // htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
-    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
+    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
 
     if (loadedIdx.length == 1) {
         return navigation;
@@ -2244,7 +2267,6 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 
     var end = ptr.total+2;
     for (let i = 0; i < end; i++) {
-        var color = (i % 2) ? "#FFFFE0" : initialBgColor;
         var j = ptr.total+1;
         var next = arg+":"+j;
         ptr = idx.get(next);
@@ -2252,7 +2274,7 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
             break;
         }
         // htUpdateNavigationTitle(j+1, ptr.name, idxName);
-        navigation += htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
+        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
     }
 
     return navigation;
@@ -2301,6 +2323,8 @@ function htWriteNavigationInternal()
         return;
     }
 
+    htBindNavigationHover();
+
     var sortedIdx;
     if (htIndexesOrder.length > 0) {
         sortedIdx = htIndexesOrder.filter(function(idx) {
@@ -2312,8 +2336,7 @@ function htWriteNavigationInternal()
 
     var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in sortedIdx) {
-        var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
-        navigation += htBuildNavigation(sortedIdx[i], i, color);
+        navigation += htBuildNavigation(sortedIdx[i], i);
     }
     navigation += "</table></p>";
     $(".dynamicNavigation").attr('data-after-content', keywords[132]);
