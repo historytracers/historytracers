@@ -141,17 +141,30 @@ function htRepresentClearFeedback() {
     $("#representFeedback").hide().html("");
 }
 
-// Explain what the selected Roman numeral is, in words.
-function htRepresentShowFeedback(leftId) {
+// Explain the first selection in words: a Hindu-Arabic number is shown as the
+// Roman numerals that build it, a Roman numeral is shown as its number.
+function htRepresentShowFeedback(leftId, rightId, firstSide) {
+    if (firstSide === "Left") {
+        var leftTemplate = $("#representWordWrongPairLeft").text();
+        if (leftTemplate === "") {
+            return;
+        }
+        var leftMessage = leftTemplate
+            .split("%ROMAN%").join(htRepresentRomanHtml(leftId))
+            .split("%VALUE%").join("" + leftId);
+        $("#representFeedback").html(leftMessage).show();
+        return;
+    }
+
     var template = $("#representWordWrongPair").text();
     if (template === "") {
         return;
     }
 
     var message = template
-        .split("%ROMAN%").join(htRepresentRomanHtml(leftId))
-        .split("%VALUE%").join("" + leftId)
-        .split("%EXPLANATION%").join(htRepresentExplain(leftId));
+        .split("%VALUE%").join("" + rightId)
+        .split("%EXPLANATION%").join(htRepresentExplain(rightId))
+        .split("%ROMAN%").join(htRepresentRomanHtml(rightId));
 
     $("#representFeedback").html(message).show();
 }
@@ -228,6 +241,7 @@ function htRepresentBuild() {
     localRepresent.matched = {};
     localRepresent.selectedLeft = null;
     localRepresent.selectedRight = null;
+    localRepresent.firstSide = null;
 
     var values = htRepresentGenerateValues(localRepresent.level);
     localRepresent.values = values;
@@ -263,6 +277,10 @@ function htRepresentSelect(side, id) {
 
     htRepresentClearFeedback();
 
+    if (localRepresent.firstSide == null) {
+        localRepresent.firstSide = side;
+    }
+
     if (side == "Left") {
         if (localRepresent.selectedLeft != null) {
             $("#representLeft" + localRepresent.selectedLeft).removeClass("orderGameBtnSelected");
@@ -294,13 +312,15 @@ function htRepresentEvaluatePair() {
         $("#representRight" + rightId).removeClass("orderGameBtnSelected").addClass("orderGameBtnMatched").prop("disabled", true);
         localRepresent.selectedLeft = null;
         localRepresent.selectedRight = null;
+        localRepresent.firstSide = null;
         htRepresentCheckComplete();
     } else {
-        htRepresentShowFeedback(leftId);
+        htRepresentShowFeedback(leftId, rightId, localRepresent.firstSide);
         $("#representLeft" + leftId).removeClass("orderGameBtnSelected");
         $("#representRight" + rightId).removeClass("orderGameBtnSelected");
         localRepresent.selectedLeft = null;
         localRepresent.selectedRight = null;
+        localRepresent.firstSide = null;
     }
 }
 
@@ -321,7 +341,7 @@ function htRepresentCheckComplete() {
 }
 
 function htLoadContent() {
-    localRepresent = { "level": 1, "matched": {}, "selectedLeft": null, "selectedRight": null, "values": [] };
+    localRepresent = { "level": 1, "matched": {}, "selectedLeft": null, "selectedRight": null, "firstSide": null, "values": [] };
 
     $("#representReset").off("click").on("click", function() {
         htRepresentBuild();
