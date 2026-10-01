@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790817243"
+      "1790890411"
    ],
    "authors": [
       ""
@@ -223,7 +223,7 @@
                "PostMention": ""
             },
             {
-               "text": "En el **Soroban (1x4)**, cada columna solo puede representar los valores entre 0 y 9, que corresponden al menor y al mayor valor posible en un solo orden del sistema decimal en uso (<htcite0>).\n\nEstos dos grupos de marcadores también revelan otra información importante. El marcador superior —también conocido como marcador del cielo (<htcite1>)— tiene un valor de 5, un valor que no se puede obtener solo sumando los marcadores inferiores, que, cuando todos se apoyan en la barra de conteo, suman 4. De este modo, combinar ambos grupos nos permite representar todos los valores de 0 a 9 sin avanzar al siguiente orden.\n\n#### Avanzando un orden\n\nAdemás de leer las posiciones superior e inferior del ábaco como nuestras manos, también podemos leerlas como dos números que se suman. Mientras la suma quepa en la misma columna (hasta el valor 9), el orden no cambia, es decir, no necesitaremos más de una columna del ábaco.\n\nSi, por otro lado, estamos sumando dos números cuya suma sea 10 o mayor, deberemos usar la siguiente columna. Este procedimiento se conoce comúnmente como \"llevar una\".\n\n**En resumen:** si la suma cabe entre 0 y 9, permanezca en la misma columna; si la suma llega a 10 o más, pase a la siguiente columna.\n\nObserve algunos ejemplos en el **Cálculo 1**:",
+               "text": "En el **Soroban (1x4)**, cada columna solo puede representar los valores entre 0 y 9, que corresponden al menor y al mayor valor posible en un solo orden del sistema decimal en uso (<htcite0>).\n\nEstos dos grupos de marcadores también revelan otra información importante. El marcador superior —también conocido como marcador del cielo (<htcite1>)— tiene un valor de 5, un valor que no se puede obtener solo sumando los marcadores inferiores, que, cuando todos se apoyan en la barra de conteo, suman 4. De este modo, combinar ambos grupos nos permite representar todos los valores de 0 a 9 sin avanzar al siguiente orden.\n\n#### Avanzando un orden\n\nAdemás de leer las posiciones superior e inferior del ábaco como nuestras manos, también podemos leerlas como dos números que se suman. Cuando esa suma ya no cabe en la columna en la que empezó, tiene que pasar a la siguiente.\n\nLa regla que decide cuándo ocurre esto — válida para cualquier herramienta que sume, no solo para el ábaco — se presenta en un texto propio: **Avanzando un orden y el complemento** (<htcite2>).\n\nPruébelo en el Soroban (算盤) de arriba: sume dos números y observe cuáles sumas permanecen en una sola columna y cuáles necesitan la siguiente.",
                "source": [
                   {
                      "type": 1,
@@ -248,40 +248,12 @@
                         "month": "",
                         "day": ""
                      }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <p class=\"desc\"><b>Cálculo 1</b>: Adición de dos números cuyos resultados son mayores o iguales a 10.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Y el complemento?</b><br /><br />Cuando tenemos levantados todos los dedos de las dos manos (diez dedos) —o, si lo prefiere, cuando necesitamos más marcadores de los que caben en una columna del Soroban (算盤)—, sabremos que nuestro cálculo saldrá obligatoriamente del orden de las unidades y necesitará un nuevo orden (o más manos, o incluso más columnas).<br /><br />¿Significa esto que, para permanecer sin \"llevar una\", debemos sumar un número menor que el complemento del otro número?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "#### El complemento como límite\n\nAl estudiar los complementos numéricos y su uso en las sumas (<htcite0>), vimos que podemos alcanzar un determinado resultado sumando el complemento a un número. Por ejemplo, si queremos llegar a 10 y tenemos 6, basta con sumar su complemento, 4, ya que 6 + 4 = 10.\n\nAhora podemos ir más allá y entender el complemento como el límite máximo antes del cambio a un nuevo orden. En otras palabras, siempre que sumemos un número menor que el complemento permaneceremos en el mismo orden; cuando sumemos el complemento o un número mayor, será necesario avanzar al orden siguiente (o a la siguiente columna).\n\n**La regla en una sola frase:** si suma menos que el complemento, nada pasa a la siguiente columna; si suma el complemento o más, la siguiente columna se ve implicada.\n\nTomemos como ejemplo los complementos de 6 para aclarar esta idea:",
-               "source": [
+                  },
                   {
                      "type": 1,
-                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
                      "text": "History Tracers Team",
-                     "page": "Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) (Parte 2)",
+                     "page": "Avanzando un orden y el complemento",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -297,7 +269,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>6</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi></math><br /><p class=\"desc\"><b>Cálculo 2</b>: Suma de los números de 0 a 9 al número 6.</p></div></div></center>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Y el complemento?</b><br /><br />Cuando tenemos levantados todos los dedos de las dos manos (diez dedos) —o, si lo prefiere, cuando necesitamos más marcadores de los que caben en una columna del Soroban (算盤)—, sabremos que nuestro cálculo saldrá obligatoriamente del orden de las unidades y necesitará un nuevo orden (o más manos, o incluso más columnas).<br /><br />¿Significa esto que, para permanecer sin \"llevar una\", debemos sumar un número menor que el complemento del otro número?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -306,8 +278,33 @@
                "PostMention": ""
             },
             {
-               "text": "Si lo desea, puede cambiar el ábaco de arriba al modo **Suanpan (2x5)** o **Schyoty (счёты)** y resolver allí el **Cálculo 2**.\n\nEn el **Cálculo 2**, podemos observar que:\n- hasta alcanzar el complemento de 6, que es 4, todas las sumas permanecen en el orden de las unidades;\n- a partir del momento en que alcanzamos el complemento, todas las sumas comienzan a involucrar también el orden de las decenas.\n\nAnte este escenario, podemos llegar a importantes conclusiones sobre cómo los complementos y los límites nos ayudan a verificar si nuestros cálculos podrían contener algún error:\n- al sumar un número menor que el complemento, no es posible obtener un resultado que alcance el orden de las decenas;\n- a partir del momento en que sumamos el complemento o un número mayor, el resultado obligatoriamente comienza a involucrar un nuevo orden.\n\nCon estas conclusiones sobre la suma en mente, reflexionemos sobre nuestros próximos pasos.",
-               "source": null,
+               "text": "#### El complemento como límite\n\nEl complemento, y el límite que impone a una suma, se presentan en un texto propio: **Avanzando un orden y el complemento** (<htcite0>), que vale para cualquier herramienta que sume. En el Soroban (算盤) solo necesitamos su consecuencia —cada columna se detiene en 9—, y el complemento también se trabaja con las manos en **Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) (Parte 2)** (<htcite1>).\n\nPruébelo también arriba: sume 0, 1, 2 … al 6. Todo permanece en la columna de las unidades hasta 6 + 4, donde la suma llega a 10: en ese punto los marcadores de la columna de las unidades deben llevarse a cero y debe colocarse uno en la columna de las decenas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Avanzando un orden y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team",
+                     "page": "Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) (Parte 2)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -513,7 +510,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto hemos aprendido que el complemento de un número hasta 10 no solo nos dice qué valor movemos en el ábaco al sumar o al multiplicar, sino que también nos ayuda a comprobar si vamos por el camino correcto durante un cálculo.\n\nTambién hemos aprendido que empezar un cálculo procurando comprender lo que los números nos muestran, en lugar de resolver las operaciones sin más, puede ayudarnos, entre otras cosas, a imaginar el orden de magnitud del resultado antes de calcularlo.\n\nPor último, conviene señalar que usar esta información no garantiza que siempre acertemos. Estos análisis, que también pueden hacerse después de terminar el cálculo, nos ayudan a verificar que hemos seguido el camino correcto.\n\n**En resumen:**\n- si suma menos que el complemento, la suma permanece en la misma columna;\n- si suma el complemento o más, lleve a la siguiente columna;\n- un producto solo alcanza el orden siguiente cuando llega a 10, así que 2 × n necesita las decenas a partir de n = 5.",
+               "text": "### Conclusión\n\nEn este texto hemos aprendido que el complemento de un número hasta 10 no solo nos dice qué valor movemos en el ábaco al sumar o al multiplicar, sino que también nos ayuda a comprobar si vamos por el camino correcto durante un cálculo.\n\nTambién hemos aprendido que empezar un cálculo procurando comprender lo que los números nos muestran, en lugar de resolver las operaciones sin más, puede ayudarnos, entre otras cosas, a imaginar el orden de magnitud del resultado antes de calcularlo.\n\nPor último, conviene señalar que usar esta información no garantiza que siempre acertemos. Estos análisis, que también pueden hacerse después de terminar el cálculo, nos ayudan a verificar que hemos seguido el camino correcto.\n",
                "source": [],
                "date_time": null,
                "isTable": false,
