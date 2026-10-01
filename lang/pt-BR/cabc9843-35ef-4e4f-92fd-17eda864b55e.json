@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790881350"
+      "1790892640"
    ],
    "authors": null,
    "reviewers": null,
@@ -211,7 +211,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto damos um nome a um movimento que já estava presente em cada soma que havíamos escrito — **avançar uma ordem** — e damos um nome ao número que decide quando esse movimento começa: o **complemento**.\n\nEm resumo:\n- se a soma de uma coluna couber entre 0 e 9, permanecemos na mesma ordem;\n- o complemento de um número até 10 é o maior valor que ainda podemos somar sem sair da ordem atual;\n- somar o complemento ou mais sempre envolve a ordem seguinte, de modo que o complemento nos diz de antemano se um resultado é possível.\n\nEssas duas ideias pertencem à soma em si e não a nenhuma ferramenta em particular: funcionam no papel, nas nossas mãos, num ábaco, numa yupana ou em qualquer calculadora.",
+               "text": "### Conclusão\n\nNeste texto damos um nome a um movimento que já estava presente em cada soma que havíamos escrito — **avançar uma ordem** — e damos um nome ao número que decide quando esse movimento começa: o **complemento**.\n\nEm resumo:\n- se a soma de uma coluna couber entre 0 e 9, permanecemos na mesma ordem;\n- o complemento de um número até 10 é o maior valor que ainda podemos somar sem sair da ordem atual;\n- somar o complemento ou mais sempre envolve a ordem seguinte, de modo que o complemento nos diz de antemão se um resultado é possível.\n\nEssas duas ideias pertencem à soma em si e não a nenhuma ferramenta em particular: funcionam no papel, nas nossas mãos, num ábaco, numa yupana ou em qualquer calculadora.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -234,7 +234,7 @@
          "additionalInfo": "O complemento é exatamente o valor que alcança a ordem seguinte: 6 + 4 = 10. Somar o complemento ou mais sempre envolve a próxima ordem."
       },
       {
-         "question": "O complemento pode nos dizer de antemano se o resultado de uma soma é possível?",
+         "question": "O complemento pode nos dizer de antemão se uma soma terá de levar um número para a próxima ordem?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Se somarmos um número menor que o complemento, o resultado não pode alcançar a ordem seguinte; se somarmos o complemento ou mais, pode. Por isso o complemento serve como uma verificação rápida de um cálculo."
       }
