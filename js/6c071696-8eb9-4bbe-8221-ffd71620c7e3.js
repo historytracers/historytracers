@@ -14,6 +14,39 @@ function atwWord(id, fallback) {
     return fallback;
 }
 
+// Like atwWord, but keeps the HTML markup (e.g. <br>) of a hidden template.
+function atwWordHTML(id, fallback) {
+    var el = document.getElementById(id);
+    if (el && el.innerHTML && el.innerHTML.trim().length > 0) {
+        return el.innerHTML;
+    }
+    return fallback;
+}
+
+// Fills the {button} placeholder of a congratulations template with the
+// localized label of the control the player uses to start another round.
+function atwCongrats(template, buttonLabel) {
+    if (!template) {
+        return "";
+    }
+    if (!buttonLabel) {
+        return template;
+    }
+    return template.split("{button}").join(buttonLabel);
+}
+
+// Reads a button label, dropping a leading decorative glyph (e.g. "⟳ Reset").
+function atwControlLabel(el) {
+    if (!el) {
+        return "";
+    }
+    var parts = (el.textContent || "").trim().split(/\s+/);
+    if (parts.length > 1 && !/[0-9A-Za-zÀ-ÿ]/.test(parts[0])) {
+        parts.shift();
+    }
+    return parts.join(" ");
+}
+
 function atwRandom(min, max) {
     return htGetRandomArbitrary(min, max + 1);
 }
@@ -29,7 +62,10 @@ function atwWords() {
         restart: atwWord("atwWordRestart", "Restart"),
         correct: atwWord("atwWordCorrect", "\u2713 Correct!"),
         add: atwWord("atwWordAdd", "Add one"),
-        remove: atwWord("atwWordRemove", "Remove one")
+        remove: atwWord("atwWordRemove", "Remove one"),
+        congrats: atwWordHTML("atwWordCongrats", "🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You represented the number correctly!<br>Click '{button}' to practice more!"),
+        congratsSequence: atwWordHTML("atwWordCongratsSequence", "🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You completed the sequence!<br>Click '{button}' to practice more!"),
+        congratsNoAction: atwWordHTML("atwWordCongratsNoAction", "🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You represented the number correctly!")
     };
 }
 
@@ -164,7 +200,7 @@ function atwCreateStepper(container, tool, words) {
 
     var correct = atwElement("p", "atw-correct");
     correct.style.display = "none";
-    correct.textContent = words.correct;
+    correct.innerHTML = atwCongrats(words.congrats, words.newRound);
     wrap.appendChild(correct);
 
     var buttons = atwElement("p", "atw-buttons");
@@ -179,9 +215,10 @@ function atwCreateStepper(container, tool, words) {
         draw(ctx, canvas.width, canvas.height, state.value);
         targetSpan.textContent = state.target;
         valueSpan.textContent = (words.value || "Value") + ": " + state.value;
-        decBtn.disabled = state.value <= 0;
-        incBtn.disabled = state.value >= 10;
-        correct.style.display = state.value === state.target ? "block" : "none";
+        var reached = state.value === state.target;
+        decBtn.disabled = reached || state.value <= 0;
+        incBtn.disabled = reached || state.value >= 10;
+        correct.style.display = reached ? "block" : "none";
     }
 
     function newRound() {
@@ -191,13 +228,13 @@ function atwCreateStepper(container, tool, words) {
     }
 
     decBtn.addEventListener("click", function () {
-        if (state.value > 0) {
+        if (state.value > 0 && state.value < state.target) {
             state.value--;
             render();
         }
     });
     incBtn.addEventListener("click", function () {
-        if (state.value < 10) {
+        if (state.value < state.target) {
             state.value++;
             render();
         }
@@ -227,7 +264,7 @@ function atwCreateSequence(container, words) {
 
     var correct = atwElement("p", "atw-correct");
     correct.style.display = "none";
-    correct.textContent = words.correct;
+    correct.innerHTML = atwCongrats(words.congratsSequence, words.newRound);
     wrap.appendChild(correct);
 
     var buttons = atwElement("p", "atw-buttons");
@@ -860,7 +897,12 @@ function htRomanAbacusInit() {
     htRomanAbacusUpdateDisplay();
 }
 
-function atwInitRoman() {
+function atwInitRoman(container, words) {
+    var successEl = document.getElementById("romanAbacusSuccess");
+    if (successEl) {
+        successEl.style.whiteSpace = "normal";
+        successEl.innerHTML = atwCongrats(words.congrats, atwControlLabel(document.getElementById("romanAbacusResetBtn")));
+    }
     htRomanAbacusInit();
 }
 
@@ -870,7 +912,7 @@ function atwInitRoman() {
 // so each section keeps its own controller and swaps it in while rendering.
 //
 
-function atwInitAbacus(container) {
+function atwInitAbacus(container, words) {
     var mode = $(container).attr("data-atw") || "suanpan";
     var canvas = container.querySelector("canvas");
     if (!canvas) {
@@ -885,6 +927,9 @@ function atwInitAbacus(container) {
     var valueEl = container.querySelector(".atw-abacus-value");
     var targetEl = container.querySelector(".atw-abacus-target");
     var correctEl = container.querySelector(".atw-abacus-correct");
+    if (correctEl) {
+        correctEl.innerHTML = atwCongrats(words.congrats, atwControlLabel(container.querySelector(".atw-abacus-reset")));
+    }
 
     var ctrl = null;
     var state = { target: 0 };
@@ -1051,11 +1096,14 @@ function atwInitAbacus(container) {
 // Yupana -- same design as ht_yupana.js (arrows + hands + tawapukllay table)
 //
 
-function atwInitYupana(container) {
+function atwInitYupana(container, words) {
     var value = 0;
     var target = 1;
     var targetEl = container.querySelector(".atw-yupana-target");
     var correctEl = container.querySelector(".atw-yupana-correct");
+    if (correctEl) {
+        correctEl.innerHTML = words.congratsNoAction;
+    }
 
     if ($("#leftHandImg").length) {
         htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
@@ -1120,11 +1168,11 @@ function atwInitGames() {
         } else if (tool === "bones") {
             atwInitBone(this);
         } else if (tool === "yupana") {
-            atwInitYupana(this);
+            atwInitYupana(this, words);
         } else if (tool === "calculi") {
-            atwInitRoman(this);
+            atwInitRoman(this, words);
         } else if (tool === "suanpan" || tool === "soroban" || tool === "schyoty") {
-            atwInitAbacus(this);
+            atwInitAbacus(this, words);
         }
     });
 }
