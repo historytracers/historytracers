@@ -2174,6 +2174,21 @@ function htUpdateNavigationTitle(currentIdx, title, indexName)
     $("#header").html(pageHeader);
 }
 
+var htNavigationHoverBound = false;
+
+function htBindNavigationHover()
+{
+    if (htNavigationHoverBound) {
+        return;
+    }
+    htNavigationHoverBound = true;
+    $(document).on('mouseenter', '.book_navigation tr.ht_nav_white', function() {
+        $(this).css('background-color', '#e4e4e4');
+    }).on('mouseleave', '.book_navigation tr.ht_nav_white', function() {
+        $(this).css('background-color', '#FFFFFF');
+    });
+}
+
 function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
 {
     var prev = "";
@@ -2213,7 +2228,8 @@ function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
         next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
     }
 
-    var navigation = "<tr style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
+    var rowClass = (bgColor == "#FFFFFF") ? " class=\"ht_nav_white\"" : "";
+    var navigation = "<tr"+rowClass+" style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
 
     return navigation;
 }
@@ -2244,7 +2260,6 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 
     var end = ptr.total+2;
     for (let i = 0; i < end; i++) {
-        var color = (i % 2) ? "#FFFFE0" : initialBgColor;
         var j = ptr.total+1;
         var next = arg+":"+j;
         ptr = idx.get(next);
@@ -2261,6 +2276,14 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 var htPendingIndexes = [];
 var htNavigationRetry = null;
 var htNavigationRetryChecks = 0;
+
+// Independent guard that confirms the navigation placeholders that are already
+// present in the page actually received the built menu. The retry loop above
+// only tracks indexes that are still in flight, so it can stop before the
+// navigation placeholders exist in the DOM (or before a late index is written).
+// This checker keeps re-writing until the menu is present in every placeholder.
+var htNavigationCheckTimer = null;
+var htNavigationCheckAttempts = 0;
 
 function htWriteNavigation()
 {
@@ -2293,6 +2316,52 @@ function htWriteNavigation()
         clearInterval(htNavigationRetry);
         htNavigationRetry = null;
     }
+
+    htCheckNavigationBuilt();
+}
+
+function htNavigationMenuBuilt()
+{
+    var menus = $(".dynamicNavigation");
+    if (menus.length == 0) {
+        return false;
+    }
+
+    var built = true;
+    menus.each(function() {
+        if ($(this).find("table.book_navigation").length == 0) {
+            built = false;
+            return false;
+        }
+    });
+
+    return built;
+}
+
+function htCheckNavigationBuilt()
+{
+    if (htNavigationCheckTimer != null) {
+        return;
+    }
+
+    // Nothing to wait for: the page has no navigation placeholder, no loaded
+    // index, and no index still being fetched.
+    if ($(".dynamicNavigation").length == 0 && loadedIdx.length == 0 && htPendingIndexes.length == 0) {
+        return;
+    }
+
+    htNavigationCheckAttempts = 0;
+    htNavigationCheckTimer = setInterval(function() {
+        htNavigationCheckAttempts++;
+
+        if (htNavigationMenuBuilt() || htNavigationCheckAttempts >= 40) {
+            clearInterval(htNavigationCheckTimer);
+            htNavigationCheckTimer = null;
+            return;
+        }
+
+        htWriteNavigationInternal();
+    }, 250);
 }
 
 function htWriteNavigationInternal()
@@ -2300,6 +2369,8 @@ function htWriteNavigationInternal()
     if (loadedIdx.length == 0) {
         return;
     }
+
+    htBindNavigationHover();
 
     var sortedIdx;
     if (htIndexesOrder.length > 0) {
@@ -2312,8 +2383,7 @@ function htWriteNavigationInternal()
 
     var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in sortedIdx) {
-        var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
-        navigation += htBuildNavigation(sortedIdx[i], i, color);
+        navigation += htBuildNavigation(sortedIdx[i], i, "#FFFFFF");
     }
     navigation += "</table></p>";
     $(".dynamicNavigation").attr('data-after-content', keywords[132]);
@@ -3474,6 +3544,14 @@ function htIsIndexLoaded(idx) {
 
 function htFillTopIdx(idx, data, first)
 {
+    // Source files and other JSON payloads that are not actual index content
+    // must not be registered as an index. Doing so would mark the index as
+    // loaded while only the synthetic top entry exists, leaving the navigation
+    // table without its data rows.
+    if (!data || !Array.isArray(data.content)) {
+        return;
+    }
+
     htUpdateLoadedIdx(first);
 
     const localLang = $("#site_language").val();
@@ -3537,6 +3615,14 @@ function htRemovePendingIndex(indexName)
 
 function htLoadIndex(data, arg, page)
 {
+    // Source files are loaded through htLoadPage(..., "source") and share the
+    // page argument. They must never be interpreted as an index, otherwise a
+    // page whose name matches an index (e.g. "first_steps") would register an
+    // empty index and the navigation table would stay without rows.
+    if (arg === "source") {
+        return;
+    }
+
     if (data != undefined && data.index != undefined) {
         if (data.index.constructor === vectorConstructor) {
             // Preserve the order in which the page declares its indexes so the

@@ -29,13 +29,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1785114466"
+      "1790817243"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -54,7 +54,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nCuando sumamos consecutivamente un mismo valor, es decir, cuando multiplicamos números (<htcite0>), podemos terminar alterando el orden de los factores, dependiendo de los números con los que estemos trabajando. Para comprender mejor estos cambios, recomendamos el estudio de todo el capítulo sobre tablas de multiplicar en la sección *Primeros Pasos*, además del texto sobre la relectura de los números (<htcite1>; <htcite2>).",
+               "text": "### Prerrequisitos\n\nCuando sumamos un mismo valor una y otra vez, es decir, cuando multiplicamos números (<htcite0>), podemos terminar alterando el orden de los factores, dependiendo de los números con los que estemos trabajando. Para comprender mejor estos cambios, recomendamos estudiar todo el capítulo sobre tablas de multiplicar de la sección *Primeros Pasos*, además del texto sobre la relectura de los números (<htcite1>; <htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -105,7 +105,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nComo bien señala Dhavit Prem en una de sus presentaciones sobre la Yupana Inca, uno de los problemas que las personas enfrentan durante el proceso de aprendizaje es el temor a cometer errores (<htcite0>), a pesar de que los errores forman parte de ese proceso.\n\nUna de las posibles explicaciones para este temor al error puede residir en el hecho de que, desde pequeños, no comprendemos por completo aquello que estamos estudiando. Así, dejamos de percibir que el propio proceso de estudio puede indicarnos si vamos por buen camino o si nos hemos equivocado en algún momento, lo que naturalmente puede llevarnos a cometer errores.",
+               "text": "### Introducción\n\nComo bien señala Dhavit Prem en una de sus presentaciones sobre la Yupana Inca, uno de los problemas que las personas enfrentan durante el proceso de aprendizaje es el temor a cometer errores (<htcite0>), a pesar de que los errores forman parte de ese proceso.\n\nUna de las posibles explicaciones para este temor a equivocarnos puede residir en el hecho de que, desde pequeños, no comprendemos por completo aquello que estamos estudiando. Así, dejamos de percibir que el propio proceso de estudio puede indicarnos si vamos por buen camino o dónde nos hemos equivocado, y no percibirlo puede llevarnos, de forma natural, a cometer más errores.\n\nEste texto muestra justamente cómo hacerlo: aprenderá a leer un cálculo mientras lo realiza, de modo que sean los propios números los que le digan si va por buen camino.",
                "source": [
                   {
                      "type": 1,
@@ -127,7 +127,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre los Errores</b><br /><br />¿Le gustaría que los cálculos matemáticos, al menos, le dijeran si el camino que está recorriendo es correcto o erróneo?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre los Errores</b><br /><br />¿Le gustaría que los cálculos matemáticos, al menos, le dijeran si el camino que está recorriendo es correcto o equivocado?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -141,7 +141,7 @@
          "id": "SECTION_limits",
          "text": [
             {
-               "text": "### Los límites y los complementos en las sumas\n\nHasta este momento, en la sección *Primeros Pasos* (<htcite0>), hemos estudiado los números y cómo nos movemos entre ellos, ya sea sumando o multiplicando.\n\nTambién hemos observado que estas dos operaciones están conectadas, siendo la multiplicación interpretada como la suma repetida de un mismo número (<htcite1>).\n\nSin embargo, estos no son los únicos conceptos estudiados hasta ahora. También hemos estudiado el concepto inicial de límites en la naturaleza (<htcite2>), que ha estado siempre presente en estas operaciones, aunque aún no hayamos hablado de él directamente.\n\nPor lo tanto, antes de continuar, reflexione:",
+               "text": "### Los límites y los complementos en las sumas\n\nHasta este momento, en la sección *Primeros Pasos* (<htcite0>), hemos estudiado los números y cómo nos movemos entre ellos, ya sea sumando o multiplicando.\n\nTambién hemos observado que estas dos operaciones están conectadas, siendo la multiplicación interpretada como la suma repetida de un mismo número (<htcite1>).\n\nSin embargo, estos no son los únicos conceptos que hemos estudiado. También nos hemos acercado por primera vez al concepto de límites en la naturaleza (<htcite2>), que ha estado presente en todas estas operaciones desde el principio, aunque nunca lo hayamos nombrado directamente.\n\nAntes de continuar, entonces, reflexione:",
                "source": [
                   {
                      "type": 1,
@@ -196,7 +196,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Límites en la suma (máximos y mínimos)\n\nPara visualizar mejor el concepto de límite en las operaciones estudiadas, utilizaremos inicialmente herramientas desarrolladas en China (Zhongguo 中國), Japón (Nippon koku o Nihon koku, 日本国) y Rusia, conocidas, en general, como ábacos.\n\nComenzaremos usando la versión japonesa, el **Soroban (1×4)**. Por lo tanto, haga clic en él para continuar.",
+               "text": "#### Límites en la suma (máximos y mínimos)\n\nPara percibir mejor el concepto de límite en las operaciones que hemos estudiado, utilizaremos en primer lugar herramientas desarrolladas en China (Zhongguo 中國), Japón (Nippon koku o Nihon koku, 日本国) y Rusia, conocidas en general como ábacos.\n\nComenzaremos con la versión japonesa, el **Soroban (1×4)**. Elija ese modo con el botón **Soroban (1×4)** del ábaco de abajo y, después, siga leyendo.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -223,7 +223,7 @@
                "PostMention": ""
             },
             {
-               "text": "En el **Soroban (1x4)**, cada columna puede representar únicamente los valores entre 0 y 9, que corresponden al menor y al mayor valor posible en un solo orden del sistema decimal utilizado actualmente (<htcite0>).\n\nEstos grupos de marcadores también revelan otra información importante. El marcador superior —también conocido como (<htcite1>)— tiene un valor de 5, un valor que no se puede obtener únicamente mediante la suma de los marcadores inferiores, que, cuando todos están apoyados en la barra de conteo, suman 4. De esta forma, la combinación de los marcadores permite representar todos los valores de 0 a 9 sin necesidad de avanzar al siguiente orden.\n\n#### Avanzando un orden\n\nAdemás de interpretar las posiciones superior e inferior del ábaco como nuestras manos, también podemos entenderlas como dos números que estamos sumando. Mientras la suma pueda representarse en la misma columna (hasta el valor 9), no habrá cambio de orden, es decir, no necesitaremos utilizar más de una columna del ábaco.\n\nPor otro lado, si estamos sumando dos números cuya suma sea mayor o igual a 10, obligatoriamente necesitaremos usar la siguiente columna. Este procedimiento se conoce popularmente como \"llevar una\". Observe algunos ejemplos en el **Cálculo 1**:",
+               "text": "En el **Soroban (1x4)**, cada columna solo puede representar los valores entre 0 y 9, que corresponden al menor y al mayor valor posible en un solo orden del sistema decimal en uso (<htcite0>).\n\nEstos dos grupos de marcadores también revelan otra información importante. El marcador superior —también conocido como marcador del cielo (<htcite1>)— tiene un valor de 5, un valor que no se puede obtener solo sumando los marcadores inferiores, que, cuando todos se apoyan en la barra de conteo, suman 4. De este modo, combinar ambos grupos nos permite representar todos los valores de 0 a 9 sin avanzar al siguiente orden.\n\n#### Avanzando un orden\n\nAdemás de leer las posiciones superior e inferior del ábaco como nuestras manos, también podemos leerlas como dos números que se suman. Mientras la suma quepa en la misma columna (hasta el valor 9), el orden no cambia, es decir, no necesitaremos más de una columna del ábaco.\n\nSi, por otro lado, estamos sumando dos números cuya suma sea 10 o mayor, deberemos usar la siguiente columna. Este procedimiento se conoce comúnmente como \"llevar una\".\n\n**En resumen:** si la suma cabe entre 0 y 9, permanezca en la misma columna; si la suma llega a 10 o más, pase a la siguiente columna.\n\nObserve algunos ejemplos en el **Cálculo 1**:",
                "source": [
                   {
                      "type": 1,
@@ -266,7 +266,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Y el complemento?</b><br /><br />A partir del momento en que tenemos todos los dedos de las manos levantados (diez dedos), o, si lo prefiere, a partir del momento en que necesitamos usar más marcadores de los que existen en una columna del Soroban (算盤), sabemos que nuestros cálculos excederán obligatoriamente el orden de las unidades y, por lo tanto, necesitarán un nuevo orden (o más manos, o incluso más columnas).<br /><br />¿Significa esto que el límite para permanecer sin \"llevar una\" es sumar un número menor que el complemento del otro número?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Y el complemento?</b><br /><br />Cuando tenemos levantados todos los dedos de las dos manos (diez dedos) —o, si lo prefiere, cuando necesitamos más marcadores de los que caben en una columna del Soroban (算盤)—, sabremos que nuestro cálculo saldrá obligatoriamente del orden de las unidades y necesitará un nuevo orden (o más manos, o incluso más columnas).<br /><br />¿Significa esto que, para permanecer sin \"llevar una\", debemos sumar un número menor que el complemento del otro número?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -275,7 +275,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### El complemento como límite\n\nAl estudiar los complementos numéricos y su uso para realizar sumas (<htcite0>), vimos que podemos alcanzar un determinado resultado sumando el complemento a un número. Por ejemplo, si queremos llegar a 10 y tenemos 6, basta con sumar su complemento, 4, ya que 6 + 4 = 10.\n\nAhora, utilizando nuevamente los complementos, podemos ir más allá. Podemos entender el complemento como el límite máximo antes del cambio a un nuevo orden. En otras palabras, siempre que sumemos un número menor que el complemento, permaneceremos en el mismo orden. Cuando sumemos el complemento o un valor mayor, será necesario avanzar al orden siguiente (o a la siguiente columna).\n\nHagamos el ejemplo de los complementos de 6 para aclarar esta idea:",
+               "text": "#### El complemento como límite\n\nAl estudiar los complementos numéricos y su uso en las sumas (<htcite0>), vimos que podemos alcanzar un determinado resultado sumando el complemento a un número. Por ejemplo, si queremos llegar a 10 y tenemos 6, basta con sumar su complemento, 4, ya que 6 + 4 = 10.\n\nAhora podemos ir más allá y entender el complemento como el límite máximo antes del cambio a un nuevo orden. En otras palabras, siempre que sumemos un número menor que el complemento permaneceremos en el mismo orden; cuando sumemos el complemento o un número mayor, será necesario avanzar al orden siguiente (o a la siguiente columna).\n\n**La regla en una sola frase:** si suma menos que el complemento, nada pasa a la siguiente columna; si suma el complemento o más, la siguiente columna se ve implicada.\n\nTomemos como ejemplo los complementos de 6 para aclarar esta idea:",
                "source": [
                   {
                      "type": 1,
@@ -297,7 +297,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>6</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi></math><br /><p class=\"desc\"><b>Cálculo 6</b>: Suma de los números de 0 a 9 al número 6.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>6</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi></math><br /><p class=\"desc\"><b>Cálculo 2</b>: Suma de los números de 0 a 9 al número 6.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -306,7 +306,7 @@
                "PostMention": ""
             },
             {
-               "text": "Si lo desea, puede cambiar el ábaco de arriba al modo **Suanpan (2x5)** o **Schyoty (счёты)** y ejecutar el **Cálculo 2** en él.\n\nEn el **Cálculo 2**, podemos observar que:\n- hasta alcanzar el complemento de 6, que es 4, todas las sumas permanecen en el orden de las unidades;\n- a partir del momento en que alcanzamos el complemento, todas las sumas comienzan a involucrar también el orden de las decenas.\n\nAnte este escenario, podemos llegar a importantes conclusiones sobre cómo los complementos y los límites nos ayudan a verificar si nuestros cálculos podrían contener algún error:\n- al sumar un número menor que el complemento, no es posible obtener un resultado que alcance el orden de las decenas;\n- a partir del momento en que sumamos el complemento o un número mayor, el resultado obligatoriamente comienza a involucrar un nuevo orden.\n\nCon estas conclusiones sobre la adición, podemos reflexionar sobre nuestros próximos pasos.",
+               "text": "Si lo desea, puede cambiar el ábaco de arriba al modo **Suanpan (2x5)** o **Schyoty (счёты)** y resolver allí el **Cálculo 2**.\n\nEn el **Cálculo 2**, podemos observar que:\n- hasta alcanzar el complemento de 6, que es 4, todas las sumas permanecen en el orden de las unidades;\n- a partir del momento en que alcanzamos el complemento, todas las sumas comienzan a involucrar también el orden de las decenas.\n\nAnte este escenario, podemos llegar a importantes conclusiones sobre cómo los complementos y los límites nos ayudan a verificar si nuestros cálculos podrían contener algún error:\n- al sumar un número menor que el complemento, no es posible obtener un resultado que alcance el orden de las decenas;\n- a partir del momento en que sumamos el complemento o un número mayor, el resultado obligatoriamente comienza a involucrar un nuevo orden.\n\nCon estas conclusiones sobre la suma en mente, reflexionemos sobre nuestros próximos pasos.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -315,7 +315,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: ¿Y la multiplicación?</b><br /><br />Con lo que hemos visto hasta ahora en esta página, ¿cómo podríamos verificar si los resultados de una multiplicación van por el camino correcto?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: ¿Y la multiplicación?</b><br /><br />Con lo que hemos visto hasta ahora en esta página, ¿cómo podríamos comprobar si el resultado de una multiplicación va por el camino correcto?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -329,7 +329,7 @@
          "id": "SECTION_mult",
          "text": [
             {
-               "text": "### Analizando la Multiplicación\n\nCuando realizamos multiplicación mediante los ábacos, destacamos el hecho de que al realizar la multiplicación, deberíamos siempre mover de la columna de las unidades el valor del complemento cuando la multiplicación se realizara (<htcite0>), pero este no es el único movimiento al que debemos prestar atención cuando realizamos la multiplicación, principalmente cuando multiplicamos números con más de un dígito.\n\nA partir de este momento, utilizaremos la tabla del 2 (<htcite3>) como ejemplo.",
+               "text": "### Analizando la Multiplicación\n\nEn el texto sobre multiplicación con ábacos vimos que, cada vez que una multiplicación nos obliga a avanzar de orden, retiramos el complemento de la columna de las unidades y llevamos 1 a la columna siguiente (<htcite0>). Ese, sin embargo, no es el único movimiento al que debemos prestar atención al multiplicar, sobre todo cuando los números implicados tienen más de un dígito.\n\nA partir de este momento, utilizaremos la tabla del 2 (<htcite1>) como ejemplo.",
                "source": [
                   {
                      "type": 1,
@@ -372,7 +372,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### El complemento en la multiplicación\n\nComo la multiplicación son sumas consecutivas de un mismo número (<htcite0>), lo que ya vimos para la suma también se aplicará en la multiplicación. Esto quiere decir que solamente será necesario utilizar la siguiente orden cuando los valores de la orden actual sean mayores que el complemento.\n\nPara el caso de la tabla del 2, que tiene como complemento 8 (2 + 8 = 10), esto significa que solo avanzamos algún número a la siguiente orden si la multiplicación por 2 es mayor o igual a 5. Puedes visualizar esta transformación a través de la **Tabla del 2** y del **Cálculo 1** a continuación.",
+               "text": "#### El complemento en la multiplicación\n\nComo la multiplicación es la suma consecutiva de un mismo número (<htcite0>), todo lo que ya vimos para la suma también se aplica a la multiplicación. Por lo tanto, solo necesitaremos el orden siguiente cuando el valor que ya está en el orden actual haya alcanzado el complemento.\n\nEn la tabla del 2, el complemento del 2 es 8 (2 + 8 = 10). La columna de las unidades puede mostrar 0, 2, 4, 6 y 8; si a 8 le sumamos 2 obtenemos 10, así que a partir de ese momento el resultado ocupa también las decenas. En otras palabras, 5 × 2 = 10 es el primer producto que necesita un segundo orden. Puede seguir esta transformación en la **Tabla del 2** y en el **Cálculo 1** a continuación.",
                "source": [
                   {
                      "type": 1,
@@ -403,7 +403,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Multiplicando en el Soroban, Suanpan (算盤) y Schyoty (счёты) (6 × 2)</b><br />Este ejercicio está basado en otro texto de History Tracers, si no lo has estudiado, sería mejor revisarlo primero: <htcite0>.<br /><br />1. Elige un modelo de ábaco (\"Soroban (1×4)\", \"Suanpan (2×5)\" o \"Schyoty (счёты)\").<br /><br />2. Suma de 2 en 2 hasta visualizar el número 12. Es decir, suma 2 seis veces.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Multiplicando en el Soroban, Suanpan (算盤) y Schyoty (счёты) (6 × 2)</b><br />Este ejercicio se basa en otro texto de History Tracers. Si aún no lo ha estudiado, le recomendamos revisarlo primero: <htcite0>.<br /><br />1. Elija un modelo de ábaco (\"Soroban (1×4)\", \"Suanpan (2×5)\" o \"Schyoty (счёты)\").<br /><br />2. Sume de 2 en 2 hasta llegar a 12, es decir, sume 2 exactamente seis veces.<br /><br />3. Anote en qué suma sale el resultado de la columna de las unidades y compárelo con el complemento del 2.</div></div></p>",
                "source": [
                   {
                      "type": 1,
@@ -425,7 +425,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### El tamaño del resultado de la multiplicación\n\nEntender los números que estamos multiplicando también nos ayuda a ver si durante nuestros cálculos, el resultado tiene el tamaño esperado, o si nuestras cuentas tienen menos dígitos de los deseados.\n\nPor ejemplo, cualquier multiplicación de 2 por un número menor que 5, tendrá solo un resultado con unidades (<htcite0>). Por otro lado, a partir del momento en que multiplicamos por 5 o un valor mayor, obligatoriamente nuestro resultado tendrá, además de las unidades, decenas, como en el **Cálculo 1**.\n\n#### El tamaño en la práctica\n\nObserva el **Cálculo 2** y reflexiona:",
+               "text": "#### El tamaño del resultado de la multiplicación\n\nEntender los números que estamos multiplicando también nos ayuda a ver si el resultado tiene el tamaño esperado o si nuestra respuesta termina con menos dígitos de los que debería.\n\nPor ejemplo, multiplicar 2 por cualquier número menor que 5 da un resultado solo con unidades (<htcite0>). A partir del 5, en cambio, es decir, al multiplicar por 5 o por cualquier número mayor, el resultado alcanza necesariamente las decenas, como en el **Cálculo 1**.\n\n#### El tamaño en la práctica\n\nObserve el **Cálculo 2** y reflexione:",
                "source": [
                   {
                      "type": 1,
@@ -456,7 +456,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 5: Paso a paso</b><br /><br />Al ver un cálculo como el propuesto, ¿empiezas a hacerlo directamente? ¿O analizas lo que esperas de él?<br /><br />Si analizas lo que el cálculo está proponiendo, ¿no sería más fácil estimar y verificar posibles errores?<br /><br />¿Alguna vez habías pensado que los cálculos te dicen qué esperar de ellos antes de calcular?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 5: Paso a paso</b><br /><br />Al ver un cálculo como este, ¿empieza a resolverlo directamente o analiza primero lo que espera de él?<br /><br />Si analiza lo que el cálculo propone, ¿no le resultaría más fácil estimar el resultado y detectar posibles errores?<br /><br />¿Ha pensado alguna vez que un cálculo le dice qué esperar de él antes de que siquiera empiece a resolverlo?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -465,7 +465,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para dejar más claro lo que la reflexión nos dice, lo haremos mediante una práctica.",
+               "text": "Hagamos concreto el mensaje de la reflexión mediante un ejercicio práctico.",
                "source": [],
                "date_time": [],
                "isTable": false,
@@ -474,7 +474,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Multiplicando en el Soroban, Suanpan (算盤) y Schyoty (счёты) (52 × 2)</b><br />En primer lugar, debemos recordar que el número 52, que deseamos repetir dos veces, puede reescribirse como: 50 + 2 (<htcite0>). Con esto, podemos analizar el número por separado:<br /><br />- Cuando multiplicamos 0 por 2, sabemos que esto resultará en 0, ya que estamos repitiendo nada varias veces (<htcite1>). Al multiplicar el 5, como el resultado es igual a 10, esto nos indica que el resultado final de la multiplicación irá más allá de las decenas que inicialmente propusimos, es decir, el resultado final tendrá tres dígitos.<br /><br />Sabiendo que nuestro resultado tendrá tres dígitos debido a un componente (las decenas), necesitamos ver cómo las unidades afectarán el otro resultado.<br /><br />- Como 2 es menor que 5, podemos concluir que no será necesaria otra orden — la decena — para escribir el resultado.<br /><br />Después de analizar los números mediante la lectura de los componentes iniciales (decenas y unidades) por separado, podemos realizar el cálculo final usando el ábaco de la siguiente manera:<br /><br />- Haz clic en el botón <b>Reiniciar</b> del ábaco.<br />- Como el orden de la suma no altera el resultado, comenzaremos multiplicando la decena, es decir, 50 × 2;<br />- No alteraremos las unidades, ya que 0 × 2 = 0;<br />- Ahora, muévete a las decenas y suma 5 dos veces, es decir, haremos 5 × 2 = 10. No olvides que solo podemos representar números entre 0 y 9 en cada columna, por lo que el resultado final tendrá 1 en la centena, 0 en la decena y 0 en la unidad.<br />- Ahora, pasamos a multiplicar las unidades. Para ello, coloca el número 4 en el ábaco, ya que 2 × 2 = 4.<br /><br />Al finalizar estos pasos, tu ábaco debería mostrar el resultado 104.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Multiplicando en el Soroban, Suanpan (算盤) y Schyoty (счёты) (52 × 2)</b><br />En primer lugar, recordemos que 52, el número que queremos repetir dos veces, puede reescribirse como 50 + 2 (<htcite0>). Eso nos permite examinar por separado las dos partes del número:<br /><br />- Multiplicar 0 por 2 da 0, porque sumar nada cualquier número de veces sigue dando nada (<htcite1>). Multiplicar el 5 (la cifra de las decenas) por 2 da 10 decenas, es decir, 100, lo que ya nos lleva más allá de las decenas con las que empezamos: en otras palabras, la respuesta final tendrá tres dígitos.<br /><br />Sabiendo que la respuesta tendrá tres dígitos gracias a las decenas, aún nos queda ver cómo intervienen las unidades en el resto del resultado.<br /><br />- Como 2 es menor que 5, multiplicar las unidades no necesitará un orden propio: 2 × 2 = 4 cabe en una sola columna.<br /><br />Una vez leídas por separado las dos partes (decenas y unidades), podemos realizar el cálculo en el ábaco paso a paso:<br /><br />- Haga clic en el botón <b>Reiniciar</b> del ábaco.<br />- Como el orden de la suma no altera el resultado, empezamos por las decenas, es decir, 50 × 2.<br />- Dejamos todavía sin tocar las unidades, porque 0 × 2 = 0.<br />- Después, pase a la columna de las decenas y sume 5 dos veces, es decir, 5 × 2 = 10. Recuerde que cada columna solo puede mostrar de 0 a 9, por lo que esta parte deja 1 en las centenas, 0 en las decenas y 0 en las unidades.<br />- Por último, multiplique las unidades: coloque 4 en el ábaco, porque 2 × 2 = 4.<br /><br />Al final de estos pasos, su ábaco debería mostrar 104.</div></div></p>",
                "source": [
                   {
                      "type": 1,
@@ -513,7 +513,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, aprendemos que el complemento de un número hasta 10, además de indicarnos el valor que movemos en el ábaco en una multiplicación o suma, también nos ayuda a verificar si vamos por el camino correcto durante un cálculo.\n\nAdemás, aprendemos que iniciar un cálculo buscando comprender lo que los números nos muestran, en lugar de simplemente resolver las operaciones sin más, puede ayudarnos, entre otras cosas, a visualizar el orden de magnitud del resultado incluso antes de realizarlo.\n\nPor último, debemos señalar que el uso de la información presentada no significa, necesariamente, que siempre acertaremos un cálculo. Por otro lado, estos análisis, que también pueden hacerse después de realizar los cálculos, nos ayudan a verificar si hemos seguido el camino correcto.",
+               "text": "### Conclusión\n\nEn este texto hemos aprendido que el complemento de un número hasta 10 no solo nos dice qué valor movemos en el ábaco al sumar o al multiplicar, sino que también nos ayuda a comprobar si vamos por el camino correcto durante un cálculo.\n\nTambién hemos aprendido que empezar un cálculo procurando comprender lo que los números nos muestran, en lugar de resolver las operaciones sin más, puede ayudarnos, entre otras cosas, a imaginar el orden de magnitud del resultado antes de calcularlo.\n\nPor último, conviene señalar que usar esta información no garantiza que siempre acertemos. Estos análisis, que también pueden hacerse después de terminar el cálculo, nos ayudan a verificar que hemos seguido el camino correcto.\n\n**En resumen:**\n- si suma menos que el complemento, la suma permanece en la misma columna;\n- si suma el complemento o más, lleve a la siguiente columna;\n- un producto solo alcanza el orden siguiente cuando llega a 10, así que 2 × n necesita las decenas a partir de n = 5.",
                "source": [],
                "date_time": null,
                "isTable": false,
