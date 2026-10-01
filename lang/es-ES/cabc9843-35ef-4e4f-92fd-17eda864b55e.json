@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790878555"
+      "1790881331"
    ],
    "authors": null,
    "reviewers": null,
@@ -152,7 +152,25 @@
          "id": "SECTION_complement",
          "text": [
             {
-               "text": "### El complemento como límite\n\nEl **complemento** de un número hasta 10 es el número necesario para alcanzar 10: por ejemplo, si queremos llegar a 10 y tenemos 6, basta con sumar su complemento, 4, ya que 6 + 4 = 10.\n\nAhora podemos ir más allá y entender el complemento como el límite máximo antes del cambio a un nuevo orden. En otras palabras, siempre que sumemos un número menor que el complemento permaneceremos en el mismo orden; cuando sumemos el complemento o un número mayor, será necesario avanzar al orden siguiente (o a la siguiente columna).\n\n**La regla en una sola frase:** si suma menos que el complemento, nada pasa a la siguiente columna; si suma el complemento o más, la siguiente columna se ve implicada.\n\nTomemos como ejemplo los complementos de 6 para aclarar esta idea:",
+               "text": "### El complemento como límite\n\nEl **complemento** de un número hasta 10 es el número necesario para alcanzar 10: por ejemplo, si queremos llegar a 10 y tenemos 6, basta con sumar su complemento, 4, ya que 6 + 4 = 10. La **Figura 1** dibuja este par: los seis cuadrados azul claro son el número que ya tenemos y los cuatro cuadrados amarillo claro son el complemento que completa las diez.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 56\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Six light blue squares followed by four light yellow squares\"><title>Six light blue squares and four light yellow squares, ten in all</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figura 1</b>: El número 6 (azul claro) y su complemento 4 (amarillo claro), los diez cuadrados juntos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora podemos ir más allá y entender el complemento como el límite máximo antes del cambio a un nuevo orden. En otras palabras, siempre que sumemos un número menor que el complemento permaneceremos en el mismo orden; cuando sumemos el complemento o un número mayor, será necesario avanzar al orden siguiente (o a la siguiente columna).\n\n**La regla en una sola frase:** si suma menos que el complemento, nada pasa a la siguiente columna; si suma el complemento o más, la siguiente columna se ve implicada.\n\nTomemos como ejemplo los complementos de 6 para aclarar esta idea:",
                "source": null,
                "date_time": null,
                "isTable": false,
