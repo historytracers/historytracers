@@ -272,7 +272,7 @@ function atwCreateSequence(container, words) {
     buttons.appendChild(newBtn);
     wrap.appendChild(buttons);
 
-    var state = { step: 1, values: [], missing: 0, selected: null };
+    var state = { step: 1, values: [], missing: 0, selected: null, won: false };
 
     function buildChoices() {
         var correctValue = state.values[state.missing];
@@ -295,6 +295,9 @@ function atwCreateSequence(container, words) {
             (function (num) {
                 var b = atwButton(String(num), "atw-choice");
                 b.addEventListener("click", function () {
+                    if (state.won) {
+                        return;
+                    }
                     state.selected = num;
                     render();
                 });
@@ -320,7 +323,8 @@ function atwCreateSequence(container, words) {
                 buttonsList[b].classList.remove("atw-choice-selected");
             }
         }
-        correct.style.display = state.selected === missing ? "block" : "none";
+        state.won = (state.selected === missing);
+        correct.style.display = state.won ? "block" : "none";
     }
 
     function newRound() {
@@ -332,6 +336,7 @@ function atwCreateSequence(container, words) {
         }
         state.missing = atwRandom(1, 4);
         state.selected = null;
+        state.won = false;
         buildChoices();
         render();
     }
@@ -1119,6 +1124,7 @@ function atwInitAbacus(container, words) {
 function atwInitYupana(container, words) {
     var value = 0;
     var target = 1;
+    var won = false;
     var targetEl = container.querySelector(".atw-yupana-target");
     var correctEl = container.querySelector(".atw-yupana-correct");
     if (correctEl) {
@@ -1145,13 +1151,15 @@ function atwInitYupana(container, words) {
             htFillYupanaDecimalValues("#yupana0", value, 2, "red_dot_right_up");
         }
         if (correctEl) {
-            correctEl.style.display = (value === target) ? "block" : "none";
+            won = (value === target);
+            correctEl.style.display = won ? "block" : "none";
         }
     }
 
     function newRound() {
         target = atwRandom(1, 10);
         value = 0;
+        won = false;
         if (targetEl) {
             targetEl.textContent = String(target);
         }
@@ -1159,12 +1167,18 @@ function atwInitYupana(container, words) {
     }
 
     $("#traineeUp0").off("click").on("click", function () {
+        if (won) {
+            return;
+        }
         if (value < 10) {
             value++;
             render();
         }
     });
     $("#traineeDown0").off("click").on("click", function () {
+        if (won) {
+            return;
+        }
         if (value > 0) {
             value--;
             render();
