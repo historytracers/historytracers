@@ -877,7 +877,38 @@ L['en']=L['en-US'];
 			t.style.cssText='padding:2px 6px;cursor:pointer;border-right:1px solid #999;display:flex;align-items:center;white-space:nowrap;';
 			return t;
 		}
+		function htTabScrollWin(idx){
+			try{
+				if(idx==0) return window;
+				var rec=tabs[idx];
+				if(rec&&rec.iframe&&rec.iframe.contentWindow) return rec.iframe.contentWindow;
+			}catch(e){}
+			return null;
+		}
+		function htTabSaveScroll(idx){
+			try{
+				if(idx===undefined||idx===null) return;
+				var rec=tabs[idx];
+				if(idx!==0&&!rec) return;
+				var w=htTabScrollWin(idx);
+				if(!w) return;
+				var x=w.scrollX||w.pageXOffset||0, y=w.scrollY||w.pageYOffset||0;
+				if(idx===0){tabs[0].sx=x;tabs[0].sy=y;}else{rec.sx=x;rec.sy=y;}
+			}catch(e){}
+		}
+		function htTabRestoreScroll(idx){
+			try{
+				var rec=tabs[idx];
+				if(!rec) return;
+				var x=rec.sx||0, y=rec.sy||0;
+				if(!x&&!y) return;
+				var w=htTabScrollWin(idx);
+				if(!w) return;
+				w.scrollTo(x,y);
+			}catch(e){}
+		}
 		function selTab(idx){
+			if(idx!==active) htTabSaveScroll(active);
 			for(var k in tabs){
 				if(tabs[k].el){
 					tabs[k].el.style.background=(k==idx?'#f5f5f5':'#d0d0d0');
@@ -887,6 +918,7 @@ L['en']=L['en-US'];
 			}
 			document.body.style.display=(idx==0?'':'none');
 			active=idx;
+			htTabRestoreScroll(idx);
 			var e=document.getElementById('__ht_url');
 			if(e&&tabs[idx])e.value=tabs[idx].url||window.location.href;
 			checkFavStar(tabs[idx]?tabs[idx].url:window.location.href);
