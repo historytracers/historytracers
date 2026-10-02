@@ -57,7 +57,7 @@ function atwWords() {
         missing: atwWord("atwWordMissing", "Which number is missing in the sequence?"),
         value: atwWord("atwWordValue", "Value"),
         level: atwWord("atwWordLevel", "Level"),
-        newRound: atwWord("atwWordNewRound", "New round"),
+        newRound: atwWord("atwWordNewRound", "New practice"),
         nextLevel: atwWord("atwWordNextLevel", "Next level"),
         restart: atwWord("atwWordRestart", "Restart"),
         correct: atwWord("atwWordCorrect", "\u2713 Correct!"),
@@ -204,7 +204,7 @@ function atwCreateStepper(container, tool, words) {
     wrap.appendChild(correct);
 
     var buttons = atwElement("p", "atw-buttons");
-    var newBtn = atwButton(words.newRound || "New round");
+    var newBtn = atwButton(words.newRound || "New practice");
     buttons.appendChild(newBtn);
     wrap.appendChild(buttons);
 
@@ -463,6 +463,7 @@ localRomanAbacusController.LEVELS = 6;
 
 function htRomanAbacusInitState() {
     localRomanAbacusController.state = [];
+    localRomanAbacusController.won = false;
     for (let c = 0; c < localRomanAbacusController.HEADINGS.length; c++) {
         localRomanAbacusController.state.push({ upper: 0, lower: 0 });
     }
@@ -735,6 +736,7 @@ function htRomanAbacusGetHitRegion(mouseX, mouseY) {
 }
 
 function htRomanAbacusToggleUpper(col, beadIdx) {
+    if (localRomanAbacusController.won) return;
     const colState = localRomanAbacusController.state[col];
     const currentUpper = colState.upper;
     if (beadIdx < currentUpper) {
@@ -749,6 +751,7 @@ function htRomanAbacusToggleUpper(col, beadIdx) {
 }
 
 function htRomanAbacusHandleLowerClick(col, beadIdx) {
+    if (localRomanAbacusController.won) return;
     const colState = localRomanAbacusController.state[col];
     const currentLower = colState.lower;
     const isActive = (beadIdx < currentLower);
@@ -795,11 +798,15 @@ function htRomanAbacusUpdateDisplay() {
     const sv = document.getElementById('romanAbacusSuccess');
     if (cmp && sv) {
         if (cmp.innerText.trim() === val.toString()) {
+            localRomanAbacusController.won = true;
             sv.style.display = 'inline-block';
             sv.style.visibility = 'visible';
         } else {
+            localRomanAbacusController.won = false;
             htRomanAbacusHideSuccess();
         }
+    } else {
+        localRomanAbacusController.won = false;
     }
 }
 
@@ -816,6 +823,10 @@ function htRomanAbacusReset() {
 }
 
 function htRomanAbacusHandleCanvasStart(e) {
+    if (localRomanAbacusController.won) {
+        if (e.preventDefault) e.preventDefault();
+        return;
+    }
     const cvs = localRomanAbacusController.canvas;
     if (!cvs) return;
     const rect = cvs.getBoundingClientRect();
@@ -850,6 +861,9 @@ function htRomanAbacusHandleKeydown(e) {
     } else if (e.key === 'ArrowRight') {
         localRomanAbacusController.focusedCol = Math.min(headings.length - 1, col + 1);
         e.preventDefault();
+    } else if (localRomanAbacusController.won) {
+        e.preventDefault();
+        return;
     } else if (e.key === 'ArrowUp' || e.key === '5') {
         htRomanAbacusToggleUpper(col, 0);
         e.preventDefault();
@@ -932,7 +946,7 @@ function atwInitAbacus(container, words) {
     }
 
     var ctrl = null;
-    var state = { target: 0 };
+    var state = { target: 0, won: false };
 
     function buildController() {
         if (mode === "schyoty") {
@@ -1006,16 +1020,18 @@ function atwInitAbacus(container, words) {
 
     function update() {
         var val = currentValue();
+        state.won = (String(val) === String(state.target));
         if (valueEl) {
             valueEl.textContent = String(val);
         }
         if (correctEl) {
-            correctEl.style.display = (String(val) === String(state.target)) ? "block" : "none";
+            correctEl.style.display = state.won ? "block" : "none";
         }
     }
 
     function newRound() {
         state.target = atwRandom(1, 10);
+        state.won = false;
         if (targetEl) {
             targetEl.textContent = String(state.target);
         }
@@ -1024,6 +1040,10 @@ function atwInitAbacus(container, words) {
     }
 
     function handlePointer(e) {
+        if (state.won) {
+            if (e.preventDefault) e.preventDefault();
+            return;
+        }
         var rect = canvas.getBoundingClientRect();
         var scaleX = canvas.width / rect.width;
         var scaleY = canvas.height / rect.height;
@@ -1102,8 +1122,13 @@ function atwInitYupana(container, words) {
     var targetEl = container.querySelector(".atw-yupana-target");
     var correctEl = container.querySelector(".atw-yupana-correct");
     if (correctEl) {
-        correctEl.innerHTML = words.congratsNoAction;
+        correctEl.innerHTML = atwCongrats(words.congrats, words.newRound);
     }
+
+    var buttons = atwElement("p", "atw-buttons");
+    var newBtn = atwButton(words.newRound || "New practice");
+    buttons.appendChild(newBtn);
+    container.appendChild(buttons);
 
     if ($("#leftHandImg").length) {
         htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
@@ -1145,6 +1170,8 @@ function atwInitYupana(container, words) {
             render();
         }
     });
+
+    newBtn.addEventListener("click", newRound);
 
     newRound();
 }
