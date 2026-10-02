@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790892640"
+      "1790898906"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "Qodo"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -129,7 +131,7 @@
                "PostMention": ""
             },
             {
-               "text": "No **Cálculo 1**, a primeira soma (5 + 5) é a menor que sai da ordem das unidades, e todas as somas seguintes também saem dela. A ordem avançou exatamente uma vez em cada linha, e o dígito escrito na ordem das unidades nunca é 0 nem maior que 9.\n\nEssa regra basta para conferir uma coluna enquanto ainda a escrevemos, mas ainda não diz *até onde* podemos ir antes de o movimento começar. Para isso, precisamos de um número.",
+               "text": "No **Cálculo 1**, a primeira soma (5 + 5) é a menor que sai da ordem das unidades, e todas as somas seguintes também saem dela. A ordem avançou exatamente uma vez em cada linha, e o dígito escrito na ordem das unidades está sempre entre 0 e 9: pode ser 0, como em 5 + 5 = 10, mas nunca é maior que 9.\n\nEssa regra basta para conferir uma coluna enquanto ainda a escrevemos, mas ainda não diz *até onde* podemos ir antes de o movimento começar. Para isso, precisamos de um número.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -211,7 +213,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto damos um nome a um movimento que já estava presente em cada soma que havíamos escrito — **avançar uma ordem** — e damos um nome ao número que decide quando esse movimento começa: o **complemento**.\n\nEm resumo:\n- se a soma de uma coluna couber entre 0 e 9, permanecemos na mesma ordem;\n- o complemento de um número até 10 é o maior valor que ainda podemos somar sem sair da ordem atual;\n- somar o complemento ou mais sempre envolve a ordem seguinte, de modo que o complemento nos diz de antemão se um resultado é possível.\n\nEssas duas ideias pertencem à soma em si e não a nenhuma ferramenta em particular: funcionam no papel, nas nossas mãos, num ábaco, numa yupana ou em qualquer calculadora.",
+               "text": "### Conclusão\n\nNeste texto damos um nome a um movimento que já estava presente em cada soma que havíamos escrito — **avançar uma ordem** — e damos um nome ao número que decide quando esse movimento começa: o **complemento**.\n\nEm resumo:\n- se a soma de uma coluna couber entre 0 e 9, permanecemos na mesma ordem;\n- o complemento de um número até 10 é o primeiro valor que podemos somar e que alcança a ordem seguinte; somar um valor menor nos mantém na ordem atual;\n- somar o complemento ou mais sempre envolve a ordem seguinte, de modo que o complemento nos diz de antemão se um resultado é possível.\n\nEssas duas ideias pertencem à soma em si e não a nenhuma ferramenta em particular: funcionam no papel, nas nossas mãos, num ábaco, numa yupana ou em qualquer calculadora.",
                "source": null,
                "date_time": null,
                "isTable": false,

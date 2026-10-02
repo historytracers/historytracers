@@ -94,7 +94,8 @@ function htRepresentDecomposeParts(value) {
             parts.push({
                 "kind": "additive",
                 "html": htRepresentRepeat(symbol, count),
-                "count": count
+                "count": count,
+                "value": symbolValue
             });
             remaining -= count * symbolValue;
         }
@@ -103,14 +104,25 @@ function htRepresentDecomposeParts(value) {
     return parts;
 }
 
-function htRepresentCountPhrase(count, withMore) {
-    if (count === 2) {
-        return $("#" + (withMore ? "representWordMore2" : "representWordGroup2")).text();
+// A repeated symbol is named after its place: units (I), tens (X) or hundreds (C).
+function htRepresentPlaceName(symbolValue) {
+    if (symbolValue >= 100) {
+        return $("#representWordHundreds").text();
     }
-    if (count === 3) {
-        return $("#" + (withMore ? "representWordMore3" : "representWordGroup3")).text();
+    if (symbolValue >= 10) {
+        return $("#representWordTens").text();
     }
-    return "";
+    return $("#representWordUnits").text();
+}
+
+function htRepresentGroupPhrase(count, symbolValue, withMore) {
+    var template = $("#" + (withMore ? "representWordGroupMore" : "representWordGroup")).text();
+    if (template === "") {
+        return "";
+    }
+    return template
+        .split("%COUNT%").join($("#representWordCount" + count).text())
+        .split("%PLACE%").join(htRepresentPlaceName(symbolValue));
 }
 
 // Describe a value in words, e.g. "V and two more units II" or "I before V".
@@ -130,7 +142,7 @@ function htRepresentExplain(value) {
         } else if (part.count === 1) {
             fragments.push(part.html);
         } else {
-            fragments.push(htRepresentCountPhrase(part.count, i > 0) + " " + part.html);
+            fragments.push(htRepresentGroupPhrase(part.count, part.value, i > 0) + " " + part.html);
         }
     }
 

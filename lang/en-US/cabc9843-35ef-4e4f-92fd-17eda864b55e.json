@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790892607"
+      "1790898876"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "Qodo"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -129,7 +131,7 @@
                "PostMention": ""
             },
             {
-               "text": "In **Calculation 1**, the first sum (5 + 5) is the smallest one that leaves the units order, and every sum after it leaves that order as well. The order advanced exactly once in each line, and the digit written in the units order is never 0 and never greater than 9.\n\nThis rule is enough to check a column while we are still writing it, but it does not yet tell us *how far* we can go before the movement starts. For that we need a number.",
+               "text": "In **Calculation 1**, the first sum (5 + 5) is the smallest one that leaves the units order, and every sum after it leaves that order as well. The order advanced exactly once in each line, and the digit written in the units order is always between 0 and 9: it can be 0, as in 5 + 5 = 10, but it is never greater than 9.\n\nThis rule is enough to check a column while we are still writing it, but it does not yet tell us *how far* we can go before the movement starts. For that we need a number.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -211,7 +213,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we named a movement that was already present in every sum we had written — **advancing an order** — and we named the number that decides when that movement begins: the **complement**.\n\nIn short:\n- if the sum of a column fits between 0 and 9, we stay in the same order;\n- the complement of a number to 10 is the largest value we can still add without leaving the current order;\n- adding the complement or more always involves the next order, so the complement tells us in advance whether a result is possible.\n\nThese two ideas belong to addition itself and not to any particular tool: they work on paper, on our hands, on an abacus, on a yupana, or on any calculator.",
+               "text": "### Conclusion\n\nIn this text, we named a movement that was already present in every sum we had written — **advancing an order** — and we named the number that decides when that movement begins: the **complement**.\n\nIn short:\n- if the sum of a column fits between 0 and 9, we stay in the same order;\n- the complement of a number to 10 is the first value we can add that reaches the next order; adding a smaller value keeps us in the current order;\n- adding the complement or more always involves the next order, so the complement tells us in advance whether a result is possible.\n\nThese two ideas belong to addition itself and not to any particular tool: they work on paper, on our hands, on an abacus, on a yupana, or on any calculator.",
                "source": null,
                "date_time": null,
                "isTable": false,
