@@ -1,0 +1,247 @@
+{
+   "title": "Advancing an Order and the Complement",
+   "header": "Advancing an Order and the Complement",
+   "sources": [
+      "cabc9843-35ef-4e4f-92fd-17eda864b55e"
+   ],
+   "scripts": [
+      "cabc9843-35ef-4e4f-92fd-17eda864b55e"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/cabc9843-35ef-4e4f-92fd-17eda864b55e_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1fp5tg8fpiz9H0QrCfXEqc?si=nuaF_D23TfiQ05F6lhq0ug",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1790900219"
+   ],
+   "authors": null,
+   "reviewers": [
+      "Qodo",
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nBefore continuing, we recommend studying the following text and its prerequisites:\n\n- **Running Among the Numbers**: presents the column-by-column method for adding large numbers, including carrying over (<htcite0>).\n\nUnderstanding this text will make it easier to follow the ideas presented here.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
+                     "text": "History Tracers Team",
+                     "page": "Running Among the Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nIn the previous texts, we added numbers of different sizes and saw that each column of a sum can hold only one digit. When a column can no longer hold what we want to write, something has to move to the next column.\n\nThat movement has a name and a rule, and it does not depend on any particular tool: it happens on paper, on our hands, on an abacus, on a yupana, or on any calculator that uses addition. In this text we will name that rule — **advancing an order** — and then we will meet a number that tells us exactly when the movement begins: the **complement**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: When does the next column appear?</b><br /><br />If you add two single-digit numbers, at what exact moment does the result stop fitting in the units order and start needing the tens order? Think of a rule that works for every pair of single-digit numbers.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_advancing",
+         "text": [
+            {
+               "text": "### Advancing an order\n\nEach order of our decimal system can hold only the values between 0 and 9 (<htcite0>), which are the smallest and the largest values possible in a single order.\n\nBecause of that, every sum we write is really a question: does the result still fit in the order where we started?\n\nAs long as the sum fits in the same column (up to the value 9), the order does not change, so we do not need a second column. If, on the other hand, we are adding two numbers whose sum is 10 or greater, we must use the next column. This procedure is commonly known as \"carrying over.\"\n\n**In short:** if the sum fits between 0 and 9, stay in the same column; if the sum reaches 10 or more, move to the next column.\n\nLook at some examples in **Calculation 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Our current numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <p class=\"desc\"><b>Calculation 1</b>: Addition of two numbers whose results are greater than or equal to 10.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 1**, the first sum (5 + 5) is the smallest one that leaves the units order, and every sum after it leaves that order as well. The order advanced exactly once in each line, and the digit written in the units order is always between 0 and 9: it can be 0, as in 5 + 5 = 10, but it is never greater than 9.\n\nThis rule is enough to check a column while we are still writing it, but it does not yet tell us *how far* we can go before the movement starts. For that we need a number.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: How far can we go?</b><br /><br />If the largest value of an order is 9, what is the largest number you can add to 7 without leaving the units order? And to 2? Is there a single number that answers this question for every starting value?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_complement",
+         "text": [
+            {
+               "text": "### The complement as a limit\n\nThe **complement** of a number to 10 is the number needed to reach 10: for example, if we want to reach 10 and we have 6, we simply add its complement, 4, because 6 + 4 = 10. **Figure 1** draws this pair: the six light blue squares are the number we already have, and the four light yellow squares are the complement that completes the ten.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 56\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Six light blue squares followed by four light yellow squares\"><title>Six light blue squares and four light yellow squares, ten in all</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figure 1</b>: The number 6 (light blue) and its complement 4 (light yellow), the ten squares together.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "We can now go further and understand the complement as the maximum limit before the change to a new order. In other words, whenever we add a number smaller than the complement we stay in the same order; when we add the complement itself or a larger number, we must advance to the next order (or to the next column).\n\n**The rule in one sentence:** add less than the complement and nothing moves to the next column; add the complement or more, and the next column gets involved.\n\nLet us use the complements of 6 as our example to make this idea clearer:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>6</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi></math><br /><p class=\"desc\"><b>Calculation 2</b>: Sum of numbers from 0 to 9 to the number 6.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 2**, we can observe that:\n- until we reach the complement of 6, which is 4, all sums remain in the units order;\n- from the moment we reach the complement, all sums also start involving the tens order.\n\nGiven this scenario, we can reach important conclusions about how complements and limits help us verify whether our calculations might contain errors:\n- when adding a number smaller than the complement, it is not possible to obtain a result that reaches the tens order;\n- from the moment we add the complement or a larger number, the result necessarily starts involving a new order.\n\nWith these conclusions about addition in mind, let us reflect on our next step.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Catching a slip</b><br /><br />The complement of 8 is 2. A classmate writes 8 + 1 = 11. Using the rule of the complement, how do you know that the result is wrong without redoing the addition?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we named a movement that was already present in every sum we had written — **advancing an order** — and we named the number that decides when that movement begins: the **complement**.\n\nIn short:\n- if the sum of a column fits between 0 and 9, we stay in the same order;\n- the complement of a number to 10 is the first value we can add that reaches the next order; adding a smaller value keeps us in the current order;\n- adding the complement or more always involves the next order, so the complement tells us in advance whether a result is possible.\n\nThese two ideas belong to addition itself and not to any particular tool: they work on paper, on our hands, on an abacus, on a yupana, or on any calculator.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "When the sum of a column is 9 or less, do we stay in the same order?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "A sum of 9 or less fits in a single order, so no digit has to move to the next column and the order does not change."
+      },
+      {
+         "question": "When we add the complement of a number to that number, do we stay in the same order?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "The complement is exactly the value that reaches the next order: 6 + 4 = 10. Adding the complement or more always involves the next order."
+      },
+      {
+         "question": "Can the complement tell us in advance whether an addition will have to carry a number to the next order?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "If we add a number smaller than the complement, the result cannot reach the next order; if we add the complement or more, it must. This makes the complement a quick check for a calculation."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

@@ -36,6 +36,151 @@ function htRepresentRomanHtml(value) {
     return html;
 }
 
+function htRepresentRepeat(symbol, count) {
+    var result = "";
+    for (let i = 0; i < count; i++) {
+        result += symbol;
+    }
+    return result;
+}
+
+// Subtractive pairs (a smaller symbol before a bigger one) are described by naming
+// the two symbols, e.g. "I before V", never as a subtraction.
+var htRepresentSubtractive = {
+    "IV": ["V", "I"],
+    "IX": ["X", "I"],
+    "XL": ["L", "X"],
+    "XC": ["C", "X"],
+    "CD": ["D", "C"],
+    "CM": ["M", "C"]
+};
+
+// Break a value into the same pieces the game draws: overlined thousands, additive
+// symbol groups (e.g. II) and subtractive pairs (e.g. IV). Each piece keeps the
+// data needed to describe it in words.
+function htRepresentDecomposeParts(value) {
+    var parts = [];
+    var remaining = value;
+
+    if (remaining >= 1000) {
+        var thousands = Math.floor(remaining / 1000);
+        parts.push({
+            "kind": "thousands",
+            "html": "<span class=\"representOverline\">" + htRepresentToRoman(thousands) + "</span>"
+        });
+        remaining = remaining % 1000;
+    }
+
+    for (let i = 0; i < htRepresentSymbols.length; i++) {
+        var symbolValue = htRepresentSymbols[i][0];
+        var symbol = htRepresentSymbols[i][1];
+        if (symbolValue >= 1000 || remaining <= 0) {
+            continue;
+        }
+        if (remaining < symbolValue) {
+            continue;
+        }
+
+        if (htRepresentSubtractive[symbol]) {
+            parts.push({
+                "kind": "subtractive",
+                "html": symbol,
+                "small": htRepresentSubtractive[symbol][1],
+                "big": htRepresentSubtractive[symbol][0]
+            });
+            remaining -= symbolValue;
+        } else {
+            var count = Math.floor(remaining / symbolValue);
+            parts.push({
+                "kind": "additive",
+                "html": htRepresentRepeat(symbol, count),
+                "count": count,
+                "value": symbolValue
+            });
+            remaining -= count * symbolValue;
+        }
+    }
+
+    return parts;
+}
+
+// A repeated symbol is named after its place: units (I), tens (X) or hundreds (C).
+function htRepresentPlaceName(symbolValue) {
+    if (symbolValue >= 100) {
+        return $("#representWordHundreds").text();
+    }
+    if (symbolValue >= 10) {
+        return $("#representWordTens").text();
+    }
+    return $("#representWordUnits").text();
+}
+
+function htRepresentGroupPhrase(count, symbolValue, withMore) {
+    var template = $("#" + (withMore ? "representWordGroupMore" : "representWordGroup")).text();
+    if (template === "") {
+        return "";
+    }
+    return template
+        .split("%COUNT%").join($("#representWordCount" + count).text())
+        .split("%PLACE%").join(htRepresentPlaceName(symbolValue));
+}
+
+// Describe a value in words, e.g. "V and two more units II" or "I before V".
+function htRepresentExplain(value) {
+    var parts = htRepresentDecomposeParts(value);
+    var fragments = [];
+    var and = $("#representWordAnd").text();
+    var before = $("#representWordBefore").text();
+    var withBar = $("#representWordWithBar").text();
+
+    for (let i = 0; i < parts.length; i++) {
+        var part = parts[i];
+        if (part.kind === "thousands") {
+            fragments.push(part.html + " " + withBar);
+        } else if (part.kind === "subtractive") {
+            fragments.push(part.small + " " + before + " " + part.big);
+        } else if (part.count === 1) {
+            fragments.push(part.html);
+        } else {
+            fragments.push(htRepresentGroupPhrase(part.count, part.value, i > 0) + " " + part.html);
+        }
+    }
+
+    return fragments.join(" " + and + " ");
+}
+
+function htRepresentClearFeedback() {
+    $("#representFeedback").hide().html("");
+}
+
+// Explain the first selection in words: a Hindu-Arabic number is shown as the
+// Roman numerals that build it, a Roman numeral is shown as its number.
+function htRepresentShowFeedback(leftId, rightId, firstSide) {
+    if (firstSide === "Left") {
+        var leftTemplate = $("#representWordWrongPairLeft").text();
+        if (leftTemplate === "") {
+            return;
+        }
+        var leftMessage = leftTemplate
+            .split("%ROMAN%").join(htRepresentRomanHtml(leftId))
+            .split("%VALUE%").join("" + leftId);
+        $("#representFeedback").html(leftMessage).show();
+        return;
+    }
+
+    var template = $("#representWordWrongPair").text();
+    if (template === "") {
+        return;
+    }
+
+    var message = template
+        .split("%VALUE%").join("" + rightId)
+        .split("%EXPLANATION%").join(htRepresentExplain(rightId))
+        .split("%ROMAN%").join(htRepresentRomanHtml(rightId));
+
+    $("#representFeedback").html(message).show();
+}
+
 function htRepresentShuffle(items) {
     for (let i = items.length - 1; i > 0; i--) {
         let j = htGetRandomArbitrary(0, i + 1);
@@ -103,10 +248,12 @@ function htRepresentBuild() {
     $("#representCompleteMsg").hide();
     $("#representCongratsMsg").hide();
     $("#representNextLevel").hide();
+    htRepresentClearFeedback();
 
     localRepresent.matched = {};
     localRepresent.selectedLeft = null;
     localRepresent.selectedRight = null;
+    localRepresent.firstSide = null;
 
     var values = htRepresentGenerateValues(localRepresent.level);
     localRepresent.values = values;
@@ -140,6 +287,12 @@ function htRepresentSelect(side, id) {
         return false;
     }
 
+    htRepresentClearFeedback();
+
+    if (localRepresent.firstSide == null) {
+        localRepresent.firstSide = side;
+    }
+
     if (side == "Left") {
         if (localRepresent.selectedLeft != null) {
             $("#representLeft" + localRepresent.selectedLeft).removeClass("orderGameBtnSelected");
@@ -171,12 +324,15 @@ function htRepresentEvaluatePair() {
         $("#representRight" + rightId).removeClass("orderGameBtnSelected").addClass("orderGameBtnMatched").prop("disabled", true);
         localRepresent.selectedLeft = null;
         localRepresent.selectedRight = null;
+        localRepresent.firstSide = null;
         htRepresentCheckComplete();
     } else {
+        htRepresentShowFeedback(leftId, rightId, localRepresent.firstSide);
         $("#representLeft" + leftId).removeClass("orderGameBtnSelected");
         $("#representRight" + rightId).removeClass("orderGameBtnSelected");
         localRepresent.selectedLeft = null;
         localRepresent.selectedRight = null;
+        localRepresent.firstSide = null;
     }
 }
 
@@ -197,7 +353,7 @@ function htRepresentCheckComplete() {
 }
 
 function htLoadContent() {
-    localRepresent = { "level": 1, "matched": {}, "selectedLeft": null, "selectedRight": null, "values": [] };
+    localRepresent = { "level": 1, "matched": {}, "selectedLeft": null, "selectedRight": null, "firstSide": null, "values": [] };
 
     $("#representReset").off("click").on("click", function() {
         htRepresentBuild();
