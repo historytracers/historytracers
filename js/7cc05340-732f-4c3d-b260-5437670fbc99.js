@@ -41,6 +41,14 @@ function htLoadContent() {
 
     htSetImageSrc("imgESA1", "images/ESA/Planck_s_view_of_the_cosmic_microwave_background.jpg");
     htSetImageSrc("imgESA2", "images/ESA/Planck_history_of_Universe.jpg");
+
+    var local_lang = $("#site_language").val();
+    if (local_lang == "en-US") {
+        htSetImageSrc("imgUSG", "images/USGS/USGS_WaterCycle_English_ONLINE_20230302.png");
+    } else {
+        htSetImageSrc("imgUSG", "images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png");
+    }
+
     return false;
 }
 
