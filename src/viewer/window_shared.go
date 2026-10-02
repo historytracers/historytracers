@@ -854,7 +854,7 @@ L['en']=L['en-US'];
 			rec._navLock=true;
 			var target=rec.history[rec.histIdx];
 			rec.url=target;
-			if(active==0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){} window.location.href=target; } else { try{rec.iframe.src=target;}catch(e){try{rec.iframe.src=target;}catch(ex){}} }
+			if(active==0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){} window.location.href=target; } else { rec._pendingScroll=true; rec._pendingSx=0; rec._pendingSy=0; try{rec.iframe.src=target;}catch(e){try{rec.iframe.src=target;}catch(ex){}} }
 			var ue=document.getElementById('__ht_url'); if(ue) ue.value=target;
 			checkFavStar(target);
 			updateNavButtons();
@@ -866,7 +866,7 @@ L['en']=L['en-US'];
 			rec._navLock=true;
 			var target=rec.history[rec.histIdx];
 			rec.url=target;
-			if(active==0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){} window.location.href=target; } else { try{rec.iframe.src=target;}catch(e){try{rec.iframe.src=target;}catch(ex){}} }
+			if(active==0){try{sessionStorage.setItem('__ht_main_history',JSON.stringify({history:rec.history,histIdx:rec.histIdx}));}catch(e){} window.location.href=target; } else { rec._pendingScroll=true; rec._pendingSx=0; rec._pendingSy=0; try{rec.iframe.src=target;}catch(e){try{rec.iframe.src=target;}catch(ex){}} }
 			var ue=document.getElementById('__ht_url'); if(ue) ue.value=target;
 			checkFavStar(target);
 			updateNavButtons();
@@ -900,8 +900,9 @@ L['en']=L['en-US'];
 			try{
 				var rec=tabs[idx];
 				if(!rec) return;
-				var x=rec.sx||0, y=rec.sy||0;
-				if(!x&&!y) return;
+				var x,y;
+				if(rec._pendingScroll){ x=rec._pendingSx||0; y=rec._pendingSy||0; }
+				else { x=rec.sx||0; y=rec.sy||0; }
 				var w=htTabScrollWin(idx);
 				if(!w) return;
 				w.scrollTo(x,y);
@@ -975,6 +976,11 @@ L['en']=L['en-US'];
 			f.addEventListener('load',function(){
 				try{clearInterval(_viewerFixInterval);}catch(e){}
 				try{clearTimeout(_viewerFixTimeout);}catch(e){}
+				// Clear pending navigation scroll ownership; the loaded document now owns its scroll position.
+				try{
+					var _tr=tabs[idx];
+					if(_tr&&_tr._pendingScroll){_tr.sx=_tr._pendingSx||0;_tr.sy=_tr._pendingSy||0;_tr._pendingScroll=false;_tr._pendingSx=0;_tr._pendingSy=0;}
+				}catch(e){}
 				try{
 					var idoc=f.contentDocument||f.contentWindow.document;
 					if(!idoc)return;
