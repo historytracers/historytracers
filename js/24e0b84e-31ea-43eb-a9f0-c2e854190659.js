@@ -12,6 +12,8 @@ function htLoadExercise() {
 
 function htLoadContent() {
     htWriteNavigation();
+    htSetImageSrc("imgColumbusLetter", "images/Archive/BRes140146_0206.jpg");
+    htSetImageSrc("imgLAMSE", "images/UNESCO/Lanse.jpg");
     htSetImageSrc("imgBering", "images/ElSalvadorMuseo/Bering.jpg");
 
     return false;
