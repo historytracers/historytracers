@@ -2776,3 +2776,129 @@ p.desc svg {
 .design-dark .representOverline {
   text-decoration-color: #eceff1;
 }
+
+/* Around the World (6c071696): tour of the first counting tools created by
+   humanity, with a "represent the number" practice game for each instrument. */
+.atw-game {
+  margin: 1rem 0;
+}
+
+.atw-game-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fffdf6;
+  border: 1px solid #e2d6b8;
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.atw-canvas {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  aspect-ratio: 360 / 200;
+  cursor: default;
+  border-radius: 10px;
+}
+
+.atw-instruction {
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.atw-target {
+  font-size: 1.4rem;
+  color: #8a3c10;
+}
+
+.atw-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.atw-step {
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.atw-step:disabled {
+  background: #bdbdbd;
+  cursor: default;
+}
+
+.atw-value {
+  font-weight: bold;
+  min-width: 5rem;
+  text-align: center;
+}
+
+.atw-levelline,
+.atw-readout,
+.atw-correct {
+  margin: 0;
+  text-align: center;
+}
+
+.atw-readout {
+  font-weight: bold;
+}
+
+.atw-correct {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.atw-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+}
+
+.atw-sequence {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  margin: 0;
+}
+
+.atw-seqitem {
+  padding: 0 0.4rem;
+}
+
+.atw-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.atw-choice {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid #4caf50;
+  background: #fff;
+  color: #2e7d32;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.atw-choice-selected {
+  background: #4caf50;
+  color: #fff;
+}

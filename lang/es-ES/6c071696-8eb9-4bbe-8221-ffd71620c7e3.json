@@ -1,0 +1,1090 @@
+{
+   "title": "Alrededor del mundo (contando)",
+   "header": "Alrededor del mundo (contando)",
+   "sources": [
+      "6c071696-8eb9-4bbe-8221-ffd71620c7e3"
+   ],
+   "scripts": [
+      "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+      "ht_abacus",
+      "ht_yupana"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/6c071696-8eb9-4bbe-8221-ffd71620c7e3_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/3EfaUXTD8P5H8bK9wSSqNr?si=P780ygKeTPehFIzdza3_mw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791056820"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><div class=\"text-store\" style=\"display:none\"><span id=\"atwWordRepresent\">Representa el número:</span><span id=\"atwWordMissing\">¿Qué número falta en la secuencia?</span><span id=\"atwWordValue\">Valor</span><span id=\"atwWordLevel\">Nivel</span><span id=\"atwWordNewRound\">Nueva práctica</span><span id=\"atwWordNextLevel\">Siguiente nivel</span><span id=\"atwWordRestart\">Reiniciar</span><span id=\"atwWordCorrect\">&#10003; ¡Correcto!</span><span id=\"atwWordAdd\">Añadir uno</span><span id=\"atwWordRemove\">Quitar uno</span><span id=\"atwWordCongrats\">🎉🎉🎉 ¡FELICIDADES! 🎉🎉🎉<br>¡Representaste el número correctamente!<br>¡Haz clic en '{button}' para practicar más!</span><span id=\"atwWordCongratsSequence\">🎉🎉🎉 ¡FELICIDADES! 🎉🎉🎉<br>¡Completaste la secuencia!<br>¡Haz clic en '{button}' para practicar más!</span><span id=\"atwWordCongratsNoAction\">🎉🎉🎉 ¡FELICIDADES! 🎉🎉🎉<br>¡Representaste el número correctamente!</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Requisitos previos\n\nEn esta clase hacemos un recorrido por algunas de las primeras herramientas de conteo creadas por la humanidad. No se necesita ninguna habilidad previa: todo parte de la simple capacidad de contar, que toda persona tiene. Antes de comenzar, sugerimos como textos iniciales los dos primeros capítulos de la sección *Primeros pasos*: **Capítulo 1: Un viaje hacia los números** y **Capítulo 2: Ser o no ser...** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeros pasos (Volumen 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nLa humanidad se extendió por el mundo a lo largo de casi 2 millones de años. Si consideramos solo nuestra especie, *Homo sapiens*, esa expansión es mucho más corta: menos de 300.000 años (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "828a11b4-4a9b-458a-ad1f-da69a9d158c2",
+                     "text": "Wong, Jenny. Hendry, Lisa",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs>  <line x1=\"130\" y1=\"19\" x2=\"130\" y2=\"369\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-start=\"url(#arrow)\" />  <text x=\"100\" y=\"57\" font-size=\"0.6em\" font-weight=\"bold\">Hoy</text> <text x=\"120\" y=\"96\" font-size=\"0.6em\" font-weight=\"bold\">1</text> <text x=\"120\" y=\"135\" font-size=\"0.6em\" font-weight=\"bold\">2</text> <text x=\"120\" y=\"174\" font-size=\"0.6em\" font-weight=\"bold\">3</text> <text x=\"120\" y=\"213\" font-size=\"0.6em\" font-weight=\"bold\">4</text> <text x=\"120\" y=\"252\" font-size=\"0.6em\" font-weight=\"bold\">5</text> <text x=\"120\" y=\"291\" font-size=\"0.6em\" font-weight=\"bold\">6</text> <text x=\"120\" y=\"328\" font-size=\"0.6em\" font-weight=\"bold\">7</text> <text x=\"2\" y=\"19\" font-size=\"0.8em\" font-weight=\"bold\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tiempo</text> <text x=\"2\" y=\"33\" font-size=\"0.8em\" font-weight=\"bold\">(millones de años)</text> <text x=\"242\" y=\"310\" font-size=\"0.6em\" font-style=\"italic\">Sahelanthropus tchadensis</text> <text x=\"200\" y=\"280\" font-size=\"0.6em\" font-style=\"italic\">Orrorin tugenensis</text> <text x=\"180\" y=\"260\" font-size=\"0.6em\" font-style=\"italic\">Ardipithecus kadabba</text> <text x=\"320\" y=\"260\" font-size=\"0.6em\" font-weight=\"bold\">PRIMEROS HOMÍNIDOS</text> <text x=\"180\" y=\"233\" font-size=\"0.6em\" font-style=\"italic\">Ardipithecus ramidus</text> <text x=\"393\" y=\"219\" font-size=\"0.6em\" font-style=\"italic\">Australopithecus anamensis</text> <text x=\"300\" y=\"194\" font-size=\"0.6em\" font-style=\"italic\">Kenyanthropus platyops</text> <text x=\"460\" y=\"194\" font-size=\"0.6em\" font-style=\"italic\">Australopithecus afarensis</text> <text x=\"225\" y=\"154\" font-size=\"0.6em\" font-weight=\"bold\">HUMANOS</text> <text x=\"180\" y=\"130\" font-size=\"0.6em\" font-style=\"italic\">Homo rudolfensis</text> <text x=\"280\" y=\"130\" font-size=\"0.6em\" font-style=\"italic\">Homo habilis</text> <text x=\"230\" y=\"120\" font-size=\"0.6em\" font-style=\"italic\">Homo erectus</text> <text x=\"300\" y=\"113\" font-size=\"0.6em\" font-style=\"italic\">Homo naledi</text> <text x=\"250\" y=\"90\" font-size=\"0.6em\" font-style=\"italic\">Homo antecessor</text> <text x=\"150\" y=\"76\" font-size=\"0.6em\" font-style=\"italic\">Homo neanderthalensis</text> <text x=\"350\" y=\"80\" font-size=\"0.6em\" font-style=\"italic\">Homo heidelbergensis</text> <text x=\"300\" y=\"70\" font-size=\"0.6em\" font-style=\"italic\">Homo sapiens</text> <text x=\"140\" y=\"67\" font-size=\"0.6em\">Denisovan</text> <text x=\"390\" y=\"67\" font-size=\"0.6em\" font-style=\"italic\">Homo floresiensis</text> <rect x=\"132\" y=\"291\" width=\"460\" height=\"39\" fill=\"rgba(255,249,73,0.2)\" /> <rect x=\"132\" y=\"213\" width=\"460\" height=\"39\" fill=\"rgba(255,249,73,0.2)\" /> <rect x=\"132\" y=\"135\" width=\"460\" height=\"39\" fill=\"rgba(255,249,73,0.2)\" /> <rect x=\"132\" y=\"57\" width=\"460\" height=\"39\" fill=\"rgba(255,249,73,0.2)\" /> <line x1=\"300\" y1=\"332\" x2=\"240\" y2=\"314\" stroke=\"black\" /> <line x1=\"300\" y1=\"332\" x2=\"360\" y2=\"314\" stroke=\"black\" /> <line x1=\"460\" y1=\"248\" x2=\"360\" y2=\"213\" stroke=\"black\" /> <line x1=\"460\" y1=\"248\" x2=\"540\" y2=\"213\" stroke=\"black\" /> <line x1=\"250\" y1=\"174\" x2=\"160\" y2=\"135\" stroke=\"black\" /> <line x1=\"250\" y1=\"174\" x2=\"340\" y2=\"135\" stroke=\"black\" /></svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Especies emparentadas con la nuestra en el tiempo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A lo largo de ese camino, cada persona descubrió lo mismo: todas podemos contar. Contar es una capacidad humana que empieza en el propio cuerpo — señalamos, agrupamos, levantamos los dedos — y no depende del lugar donde nacemos. Después, pueblos diferentes crearon sus propias herramientas para registrar y compartir esa capacidad. En esta clase hacemos un recorrido por algunas de esas primeras herramientas y por las regiones donde surgieron, y las usarás una a una.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Un origen o muchos?</b><br /><br />¿Crees que el conocimiento matemático surgió en un solo lugar y luego se extendió, o apareció de forma independiente en regiones diferentes?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mathematics",
+         "text": [
+            {
+               "text": "### La evolución de la matemática\n\nEl conocimiento matemático se desarrolló de forma independiente en lugares diferentes y solo más tarde fue unificado por nuestra especie (<htcite0>). En esta clase destacamos mapas y los períodos aproximados en que surgió cada sistema numérico, según nuestro entendimiento actual.\n\nEl mapa siguiente muestra el camino de nuestra especie por el mundo (<htcite1>; <htcite2>; <htcite3>; <htcite4>; <htcite5>; <htcite6>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
+                     "text": "Mounier, A., & Mirazón Lahr, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cff99ec5-cb25-40ef-b2ee-410a75e73a6e",
+                     "text": "National Geographic Education",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "27864fd8-e7f7-4a2f-85c7-e1453e3c5234",
+                     "text": "Abdul Karim Khan",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+                     "text": "González Redondo, Francisco A., 00:41:51",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "dd34414b-8f55-4e5e-877a-c0e111e871be",
+                     "text": "Wang, Richard J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867968ea-62d6-4a8a-b3a0-8b82c76d86bf",
+                     "text": "History Tracers Team",
+                     "page": "History",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgJourney\" onclick=\"htImageZoom('atwImgJourney', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: El camino del <i>Homo sapiens</i> por el mundo. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_africa",
+         "text": [
+            {
+               "text": "### En África: contar con huesos\n\nEl primer sistema de conteo que conocemos surgió en África, hace unos 37.000 años. Se inspiró en nuestras manos y se registró con marcas hechas en huesos (<htcite0>). Estudiosos como Francisco A. González Redondo estudian esas marcas para entender cuándo comenzó el conteo.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAfrica\" onclick=\"htImageZoom('atwImgAfrica', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: África en el mapamundi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEl juego siguiente usa la misma idea: observa el número y coloca la misma cantidad de marcas en el hueso. Cuenta primero con tus propios dedos — la herramienta que toda persona lleva consigo — y después registra en el hueso la cantidad que contaste.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"bones\"><p><div class=\"htBoneWrap\"><p class=\"htBonePrompt\" id=\"htBonePrompt\">Cuenta los dedos levantados y coloca en el hueso la misma cantidad de marcas.</p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>El hueso</th><th>Flechas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><div class=\"htBoneFill\"><span id=\"htBoneMarks\"></span></div></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Añadir una marca\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Quitar una marca\"></button></div></td></tr></tbody></table><p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Nueva práctica</button> </p><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> ¡Felicitaciones! ¡Las marcas del hueso coinciden con los dedos levantados! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p class=\"desc\">Las flechas al lado del hueso añaden o quitan marcas.</p><span id=\"htBoneHandAltTpl\" class=\"text-store\">Mano con {n} dedos levantados</span></div></p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_quipu",
+         "text": [
+            {
+               "text": "### En América: los quipus\n\nEl segundo sistema de conteo que estudiamos no surgió cerca del primero. Las evidencias más antiguas datan de hace unos 5.000 años, en Caral, Perú, aunque los investigadores todavía debaten la antigüedad de los quipus (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4f8542c9-f060-4d3c-8a67-971b6d63e1ff",
+                     "text": "Ascher, M., & Ascher, R.",
+                     "page": "Mathematics of the Incas: Code of the Quipu",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgSouthAmerica\" onclick=\"htImageZoom('atwImgSouthAmerica', '0%')\" class=\"imgcenter\"/><b>Figura 3</b>: América del Sur en el mapamundi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEl quipu se lee en los cordones verticales que cuelgan del cordón principal, y cada nudo representa un conteo. Añade nudos hasta que el cordón muestre el número propuesto. Antes de cada nudo, cuenta el número con tus dedos: el quipu solo registra lo que tu cuerpo ya sabe.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"quipu\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mesoamerica",
+         "text": [
+            {
+               "text": "### En América: los números mesoamericanos\n\nInvestigaciones recientes sugieren que un sistema numérico comenzó a desarrollarse en Mesoamérica alrededor de <htdate0>. Esto puede ampliar nuestro entendimiento anterior, que situaba su uso alrededor del <htdate1> (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "Tsik: Los números y la numerología entre los mayas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando, et al.",
+                     "page": "Matemáticas Mayas: hechos, mitos y lo que sabemos desde la arqueología",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-600",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-300",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgMesoamerica\" onclick=\"htImageZoom('atwImgMesoamerica', '0%')\" class=\"imgcenter\"/><b>Figura 4</b>: Mesoamérica en el mapa de América del Norte. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEn el sistema mesoamericano, un punto vale 1 y una barra vale 5. Representa el número propuesto con puntos y barras. Cuenta primero la cantidad con tus dedos y después tradúcela a puntos y barras.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"meso\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_europe",
+         "text": [
+            {
+               "text": "### En Europa: los calculi\n\nLos quipus y los ábacos antiguos no son fáciles de conservar, por lo que es difícil saber exactamente dónde se usaron por primera vez algunas herramientas. Por ese motivo, comenzamos la parte europea del recorrido con los *calculi*, cuyo uso las fuentes que consultamos datan de alrededor de <htdate0> (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d30b6fee-4def-401b-b5f1-b5c96f1b9d16",
+                     "text": "Sugden, K. F.",
+                     "page": "A history of the abacus",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1981",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6d1b7315-7910-40c1-877e-c7d75b02a149",
+                     "text": "Turner, J. H.",
+                     "page": "Roman Elementary Mathematics the Operations",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1951",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-300",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgEurope\" onclick=\"htImageZoom('atwImgEurope', '0%')\" class=\"imgcenter\"/><b>Figura 5</b>: Europa en el mapamundi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEn los calculi, cada columna tiene un valor posicional diferente. Las marcas debajo de la barra valen 1 y las marcas encima de la barra valen 5. Mueve las marcas para representar el número propuesto. Cuenta primero con tus dedos; las columnas solo organizan lo que ya sabes.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"calculi\"><style>.roman-abacus-container { background: linear-gradient(145deg, #c98a4b, #9c5a26); border-radius: clamp(1.5rem, 5vw, 3rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.55); padding: clamp(0.8rem, 3vw, 1.6rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 680px; margin: 0 auto; box-sizing: border-box; } .roman-abacus-frame { background: #e9dcb4; border-radius: clamp(1rem, 3vw, 1.6rem); padding: clamp(8px, 2vw, 14px); box-shadow: inset 0 0 0 2px #fbe9c4, inset 0 0 0 5px #6d451f, 0 8px 18px rgba(0, 0, 0, 0.2); } #romanAbacusCanvas { display: block; margin: 0 auto; border-radius: 10px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); cursor: pointer; background-color: #efe1bd; width: 100%; height: auto; aspect-ratio: 700 / 460; max-width: 680px; } .roman-abacus-panel { margin-top: clamp(0.8rem, 4vw, 1.6rem); background: #4a2c12; border-radius: 50px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 22px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(255, 240, 180, 0.25); } .roman-abacus-panel-left { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; flex: 1 1 200px; min-width: 0; } .roman-abacus-readout { background: #f8efd4; padding: 0.3rem 1rem; border-radius: 30px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(0.95rem, 4.6vw, 1.35rem); color: #33190a; box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.12), 0 1px 2px #fff; white-space: nowrap; } .roman-abacus-readout-roman { color: #8a3c10; white-space: normal; overflow-wrap: anywhere; } .roman-abacus-success { background: #2f6b1f; color: #eaffd9; font-weight: bold; padding: 0.35rem 1rem; border-radius: 30px; font-size: clamp(0.85rem, 4vw, 1.1rem); display: none; visibility: hidden; white-space: nowrap; } .roman-abacus-reset { background: #7a4a24; border: none; color: #ffe9c2; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.15rem); font-family: inherit; padding: 0.5rem 1.1rem; border-radius: 50px; cursor: pointer; box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.35); } .roman-abacus-reset:hover { background: #91592e; } .roman-abacus-game-area { margin-top: clamp(0.8rem, 3vw, 1.3rem); text-align: center; } .roman-abacus-game-label { font-weight: bold; color: #3c200d; margin-right: 0.6rem; font-size: clamp(0.95rem, 4.5vw, 1.2rem); } .roman-abacus-game-target { display: inline-block; background: #ffe9c2; border: 2px solid #7a4a24; border-radius: 20px; padding: 0.25rem 1.1rem; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.6rem); color: #33190a; } .roman-abacus-congrats { background: #2f6b1f; color: #eaffd9; font-weight: bold; margin-top: 0.9rem; padding: 0.6rem 1rem; border-radius: 20px; text-align: center; font-size: clamp(0.9rem, 4vw, 1.15rem); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25); } .roman-abacus-overline { text-decoration: overline; } #romanAbacusFeedback { text-align: center; }</style><div class=\"roman-abacus-container\"><div class=\"roman-abacus-frame\"><canvas id=\"romanAbacusCanvas\" width=\"700\" height=\"460\" tabindex=\"0\" role=\"application\" aria-label=\"Ábaco romano interactivo\" style=\"width:100%; height:auto; max-width:680px; aspect-ratio:700/460\"></canvas></div><div class=\"roman-abacus-panel\"><div class=\"roman-abacus-panel-left\"><div class=\"roman-abacus-readout\">Indo-árabe: <span id=\"romanAbacusValue\">0</span></div><div class=\"roman-abacus-readout roman-abacus-readout-roman\">Romano: <span id=\"romanAbacusRoman\"></span></div><div id=\"romanAbacusSuccess\" class=\"roman-abacus-success\">&#10003; &#161;Correcto!</div></div><button id=\"romanAbacusResetBtn\" class=\"roman-abacus-reset\">&#8634; Nueva práctica</button></div><div class=\"roman-abacus-game-area\"><span class=\"roman-abacus-game-label\">Representa el n&#250;mero:</span><span id=\"romanAbacusCMP\" class=\"roman-abacus-game-target\">0</span></div><div id=\"romanAbacusFeedback\"></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_india",
+         "text": [
+            {
+               "text": "### En Asia (India): los numerales indoárabes\n\nNo podemos estar seguros de cuándo surgieron los numerales indoárabes. La escritura llegó a la India hace apenas unos 2.300 años, aunque los números pueden haber existido antes. Aparecen en las inscripciones de Ashoka, fechadas en <htdate0> y <htdate1> (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                     "text": "Musa, Auwalu",
+                     "page": "Origin of Modern Mathematical Numeral",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-268",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-232",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAsia1\" onclick=\"htImageZoom('atwImgAsia1', '0%')\" class=\"imgcenter\"/><b>Figura 6</b>: Asia en el mapamundi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEn una secuencia, cada número sigue al anterior por un paso fijo. Observa la secuencia y elige el número que falta. Cuenta los pasos en voz alta, de uno en uno, como contarías los objetos con tus dedos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"sequence\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_china",
+         "text": [
+            {
+               "text": "### En Asia (China): el suanpan\n\nAlrededor de <htdate0> tenemos la primera información sobre el *suanpan* (算盤), el ábaco chino. Este ábaco se diferencia de los *calculi* porque tiene un número distinto de cuentas (<htcite0>; <htcite1>; <htcite2>; <htcite3>).",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "68dfe292-3021-4586-9016-c001cdfdd9d7",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2a3c2fd3-b682-4d60-8db4-60f213ad1e2e",
+                     "text": "Kim, Soomi",
+                     "page": "pp. 16",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2015",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7d978f6b-930f-4aa0-977e-bb0892210acb",
+                     "text": "Asian-Pacific Association of Longmount",
+                     "page": "pp. 1 - 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Construyendo para contar (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-190",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAsia2\" onclick=\"htImageZoom('atwImgAsia2', '0%')\" class=\"imgcenter\"/><b>Figura 7</b>: Asia en el mapamundi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEscribe el número propuesto en el suanpan moviendo las cuentas. Cuenta primero con tus dedos y luego mueve una cuenta por cada unidad contada.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"suanpan\" data-columns=\"9\" data-decimal=\"8\"><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"atwSuanpanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span class=\"atw-abacus-value\">0</span></div></div><button type=\"button\" class=\"reset-btn atw-abacus-reset\">⟳ Nueva práctica</button></div><div class=\"footer\"><div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button type=\"button\" class=\"mode-btn\" data-atw-mode=\"soroban\">Soroban (1x4)</button><button type=\"button\" class=\"mode-btn active\" data-atw-mode=\"suanpan\">Suanpan (2x5)</button></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div><p class=\"atw-abacus-target-line\"><b>Representa el valor en el ábaco:</b> <span class=\"atw-abacus-target\">0</span></p><p class=\"atw-correct atw-abacus-correct\" style=\"display:none;\">✓ ¡Correcto!</p></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_yupana",
+         "text": [
+            {
+               "text": "### En América: la yupana\n\nVolviendo a América (*Abya Yala*), sabemos que los incas —durante los siglos XV y XVI, según el calendario gregoriano— crearon una herramienta para hacer matemática. También hay evidencia de que la *yupana* se usaba junto con los *quipus* (<htcite0>; <htcite1>). En esta clase utilizamos el método *\"Yupana Inka Tawa Pukllay\"*, creado y publicado por Dhavit Prem de la Associação Yupanki (<htcite2>; <htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5dbd2e9f-5631-407e-9b80-e3a5d4f8838f",
+                     "text": "Prem, Dhavit",
+                     "page": "Matemática Inka y la Yupana",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Suma)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgYupana\" onclick=\"htImageZoom('atwImgYupana', '0%')\" class=\"imgcenter\"/><b>Figura 8</b>: América del Sur (Tawantinsuyu) en el mapa. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEn la yupana, cada fila guarda un dígito y las semillas se colocan sobre la cuadrícula. Usa los botones para representar el número propuesto. Cuenta primero con tus dedos y luego coloca las semillas para que coincidan con lo que contaste.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"yupana\"><p class=\"atw-yupana-target-line\"><b>Representa el número:</b> <span class=\"atw-yupana-target\">0</span></p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mano izquierda</th><th>Mano derecha</th><th>Flechas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\"  /></td><td id=\"tc6f1\" rowspan=\"2\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\"  /></td><td id=\"tc7f1\" rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr> </table></p><p class=\"atw-correct atw-yupana-correct\" style=\"display:none;\">✓ ¡Correcto!</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_japan",
+         "text": [
+            {
+               "text": "### En Asia (Japón): el soroban\n\nDurante el siglo XVI, según el calendario gregoriano, el *suanpan* (算盤) llegó a Japón, donde se conoció como *soroban* (算盤). Este soroban es la aproximación más cercana a los *calculi* romanos que vimos antes en esta clase (<htcite0>; <htcite1>; <htcite2>; <htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8ab7ebef-41db-4f2b-a3e3-3530e7ff29d3",
+                     "text": "Shigetoshi Oyabu",
+                     "page": "fl. 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1842",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "88d236e3-7db4-4085-848e-0346101e6e51",
+                     "text": "Samoly, K.",
+                     "page": "pp. 59 - 61",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "01:58",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construyendo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAsia3\" onclick=\"htImageZoom('atwImgAsia3', '0%')\" class=\"imgcenter\"/><b>Figura 9</b>: Asia en el mapamundi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEscribe el número propuesto en el soroban moviendo las cuentas. Cuenta primero con tus dedos y luego mueve una cuenta por cada unidad contada.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"soroban\" data-columns=\"9\" data-decimal=\"8\"><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"atwSorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span class=\"atw-abacus-value\">0</span></div></div><button type=\"button\" class=\"reset-btn atw-abacus-reset\">⟳ Nueva práctica</button></div><div class=\"footer\"><div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button type=\"button\" class=\"mode-btn active\" data-atw-mode=\"soroban\">Soroban (1x4)</button><button type=\"button\" class=\"mode-btn\" data-atw-mode=\"suanpan\">Suanpan (2x5)</button></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div><p class=\"atw-abacus-target-line\"><b>Representa el valor en el ábaco:</b> <span class=\"atw-abacus-target\">0</span></p><p class=\"atw-correct atw-abacus-correct\" style=\"display:none;\">✓ ¡Correcto!</p></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_russia",
+         "text": [
+            {
+               "text": "### En Rusia: el schyoty\n\nAlrededor de <htdate0>, en Rusia, se desarrolló otra herramienta para representar números: el *schyoty* (счёты). Aunque algunas personas lo llaman ábaco, no podemos evaluar posibles conexiones entre él y los ábacos anteriores que estudiamos aquí (<htcite0>; <htcite1>; <htcite2>; <htcite3>).",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "fd0438ef-781b-498f-9f8d-fd7fbfb9c458",
+                     "text": "British Museum",
+                     "page": "Abacus",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
+                     "text": "Amarteifio, Jessica",
+                     "page": "pp. 4 - 9",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b4129ac9-9e33-493c-9e7e-b59fb306762f",
+                     "text": "Volkov, A.",
+                     "page": "pp. 301",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1aad8822-1ace-45fd-954e-833799836d1a",
+                     "text": "History Tracers Team",
+                     "page": "Schyoty (счёты), o el ábaco vertical",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1618",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"atwImgAsia4\" onclick=\"htImageZoom('atwImgAsia4', '0%')\" class=\"imgcenter\"/><b>Figura 10</b>: Asia en el mapamundi. Mapa de Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El juego\n\nEscribe el número propuesto en el schyoty moviendo las cuentas. Cuenta primero con tus dedos y luego mueve una cuenta por cada unidad contada.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atw-game\" data-atw=\"schyoty\"><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"atwSchyotyCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span class=\"atw-abacus-value\">0</span></div></div><button type=\"button\" class=\"reset-btn atw-abacus-reset\">⟳ Nueva práctica</button></div><div class=\"footer\"><div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button type=\"button\" class=\"mode-btn\" data-atw-mode=\"soroban\">Soroban (1x4)</button><button type=\"button\" class=\"mode-btn\" data-atw-mode=\"suanpan\">Suanpan (2x5)</button><button type=\"button\" class=\"mode-btn active\" data-atw-mode=\"schyoty\">Schyoty (счёты)</button></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div><p class=\"atw-abacus-target-line\"><b>Representa el valor en el ábaco:</b> <span class=\"atw-abacus-target\">0</span></p><p class=\"atw-correct atw-abacus-correct\" style=\"display:none;\">✓ ¡Correcto!</p></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn esta clase revisamos diferentes sistemas numéricos y observamos que la época en que fueron creados no sigue el camino de la ocupación humana del mundo.\n\nComo resultado, podemos sacar algunas conclusiones:\n- Todos somos humanos, y el conocimiento no surgió en un solo lugar para luego extenderse por el mundo.\n- La base de la matemática siempre estuvo en todas partes.\n- Toda persona es capaz de contar: comienza en el propio cuerpo, antes de que exista alguna herramienta.\n- Como todas podemos contar, pueblos diferentes crearon distintas herramientas para registrar y compartir sus recuentos.\n- Podemos llegar a las mismas conclusiones representando números de formas diferentes, así que ninguna herramienta es mejor que las demás.\n\nEn las próximas clases, aprenderemos a trabajar con estos números.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
