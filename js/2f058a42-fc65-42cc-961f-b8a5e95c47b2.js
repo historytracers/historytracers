@@ -73,13 +73,21 @@ function htCalendarMonthName(cal, def, jd) {
         var date = def.fromJd(jd);
         // All month-name arrays are 1-based except the Indian (Shaka) one.
         var monthIdx = cal == "shaka" ? date[1] - 1 : date[1];
-        return months[monthIdx] || "";
+        var name = months[monthIdx] || "";
+        // Chinese leap months reuse the regular month number, so mark them
+        // with the same "bis" designation CLDR uses for these locales.
+        if (cal == "chinese" && date[3] == 1) {
+            name += "bis";
+        }
+        return name;
     }
 
     var local_lang = $("#site_language").val();
+    // The app's jd_to_islamic uses the tabular (civil) Islamic calendar.
+    var intlCalendar = cal == "islamic" ? "islamic-civil" : cal;
 
     try {
-        return new Intl.DateTimeFormat(local_lang, { calendar: cal, month: "long", timeZone: "UTC" }).format(new Date((jd - 2440587.5) * 86400000));
+        return new Intl.DateTimeFormat(local_lang, { calendar: intlCalendar, month: "long", timeZone: "UTC" }).format(new Date((jd - 2440587.5) * 86400000));
     } catch (e) {
         return "";
     }
