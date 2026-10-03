@@ -975,7 +975,15 @@ function htFillSource(divID, sourceMap, id)
         }
         var urlValue = "";
         if (src.url && src.url.length > 0) {
-            urlValue += ". "+keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
+            var linkUrl = src.url;
+            if (linkUrl.indexOf("index.html") === 0 && linkUrl.indexOf("lang=") < 0) {
+                var siteLang = "";
+                try { siteLang = $('#site_language').val(); } catch (e) { siteLang = ""; }
+                if (siteLang) {
+                    linkUrl += (linkUrl.indexOf("?") >= 0 ? "&" : "?") + "lang=" + encodeURIComponent(siteLang);
+                }
+            }
+            urlValue += ". "+keywords[23]+" <a target=\"_blank\" href=\""+linkUrl+"\"> "+src.url+"</a>";
         }
         $(divID).append("<p>"+src.citation+""+dateValue +""+urlValue+"</p>");
     }

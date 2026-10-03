@@ -28,10 +28,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790553147"
+      "1790900257"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "Qodo",
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -123,7 +126,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align: center\"><span id=\"representLevel\" class=\"level-badge\"></span></p><p><div id=\"representGame\" class=\"orderGame\"><div class=\"orderGameCol\" id=\"representLeftCol\"></div><div class=\"orderGameCol\" id=\"representRightCol\"></div></div></p><p id=\"representCompleteMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você ligou todos os números deste nível!<br />Ótimo trabalho!</p><p id=\"representCongratsMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br />Você ligou todos os números!<br />Excelente trabalho!</p><p style=\"text-align: center\"><button id=\"representReset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button></p><p style=\"text-align: center\"><button id=\"representNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"representWordLevel\" style=\"display: none\">Nível</span><span id=\"representWordNextLevel\" style=\"display: none\">Próximo nível</span><span id=\"representWordPlayAgain\" style=\"display: none\">Jogar novamente</span>",
+               "text": "<p style=\"text-align: center\"><span id=\"representLevel\" class=\"level-badge\"></span></p><p><div id=\"representGame\" class=\"orderGame\"><div class=\"orderGameCol\" id=\"representLeftCol\"></div><div class=\"orderGameCol\" id=\"representRightCol\"></div></div></p><p id=\"representFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"representCompleteMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você ligou todos os números deste nível!<br />Ótimo trabalho!</p><p id=\"representCongratsMsg\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br />Você ligou todos os números!<br />Excelente trabalho!</p><p style=\"text-align: center\"><button id=\"representReset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button></p><p style=\"text-align: center\"><button id=\"representNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"representWordLevel\" style=\"display: none\">Nível</span><span id=\"representWordNextLevel\" style=\"display: none\">Próximo nível</span><span id=\"representWordPlayAgain\" style=\"display: none\">Jogar novamente</span><span id=\"representWordWrongPair\" style=\"display: none\">%VALUE% é representado por %EXPLANATION%: %ROMAN%.</span><span id=\"representWordWrongPairLeft\" style=\"display: none\">%ROMAN% é representado por %VALUE%.</span><span id=\"representWordAnd\" style=\"display: none\">e</span><span id=\"representWordBefore\" style=\"display: none\">antes de</span><span id=\"representWordWithBar\" style=\"display: none\">com uma barra em cima</span><span id=\"representWordCount2\" style=\"display: none\">duas</span><span id=\"representWordCount3\" style=\"display: none\">três</span><span id=\"representWordUnits\" style=\"display: none\">unidades</span><span id=\"representWordTens\" style=\"display: none\">dezenas</span><span id=\"representWordHundreds\" style=\"display: none\">centenas</span><span id=\"representWordGroup\" style=\"display: none\">%COUNT% %PLACE%</span><span id=\"representWordGroupMore\" style=\"display: none\">mais %COUNT% %PLACE%</span>",
                "source": null,
                "date_time": null,
                "isTable": false,
