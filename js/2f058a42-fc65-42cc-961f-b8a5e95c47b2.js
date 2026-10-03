@@ -85,6 +85,22 @@ function htCalendarMonthName(cal, def, jd) {
     }
 }
 
+function htCalendarWeekdays(cal) {
+    switch (cal) {
+        case "gregory":
+        case "julian":
+            return keywords.slice(113, 120);
+        case "islamic":
+            return typeof ISLAMIC_WEEKDAYS != "undefined" ? ISLAMIC_WEEKDAYS : null;
+        case "persian":
+            return typeof PERSIAN_WEEKDAYS != "undefined" ? PERSIAN_WEEKDAYS : null;
+        case "shaka":
+            return typeof INDIAN_CIVIL_WEEKDAYS != "undefined" ? INDIAN_CIVIL_WEEKDAYS : null;
+        default:
+            return null;
+    }
+}
+
 function htRenderCalendar(tableId, selectedCalendar) {
     const $tableElement = $(tableId);
 
@@ -116,9 +132,20 @@ function htRenderCalendar(tableId, selectedCalendar) {
     var firstGregorian = jd_to_gregorian(firstJd);
     var startingDay = new Date(firstGregorian[0], firstGregorian[1] - 1, firstGregorian[2]).getDay();
     var year = def.fromJd(todayJd)[0];
+    var weekdays = htCalendarWeekdays(cal);
 
     $tableElement.empty();
-    $tableElement.append("<tr><td colspan=\"7\"> "+htCalendarMonthName(cal, def, firstJd)+" / "+year+" </td></tr><tr> <td><span id=\"calendarDay0\">"+keywords[113]+"</span></td> <td><span id=\"calendarDay1\">"+keywords[114]+"</span></td> <td><span id=\"calendarDay2\">"+keywords[115]+"</span></td> <td><span id=\"calendarDay3\">"+keywords[116]+"</span></td> <td><span id=\"calendarDay4\">"+keywords[117]+"</span></td> <td><span id=\"calendarDay5\">"+keywords[118]+"</span></td> <td><span id=\"calendarDay6\">"+keywords[119]+"</span></td> </tr>");
+    $tableElement.append("<tr><td colspan=\"7\"> "+htCalendarMonthName(cal, def, firstJd)+" / "+year+" </td></tr>");
+
+    // Only calendars with known weekday names get a weekday header row.
+    if (weekdays != null) {
+        var headerRow = "<tr>";
+        for (var w = 0; w < 7; w++) {
+            headerRow += "<td><span id=\"calendarDay"+w+"\">"+weekdays[w]+"</span></td>";
+        }
+        headerRow += "</tr>";
+        $tableElement.append(headerRow);
+    }
 
     var row = "<tr>";
     row += htCalendarFillEmpty(0, startingDay);
@@ -131,7 +158,9 @@ function htRenderCalendar(tableId, selectedCalendar) {
         var setStyle = "";
 
         if (jd == todayJd) {
-            $("#calendarDay"+startingDay).css("font-weight", "bold");
+            if (weekdays != null) {
+                $("#calendarDay"+startingDay).css("font-weight", "bold");
+            }
             setStyle = "style=\"font-weight: bold;\"";
         }
 
