@@ -3,6 +3,12 @@ html {
   font-size: 1.0em;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 audio {
   max-height: 90%;
   max-width: 90%;
@@ -130,11 +136,57 @@ audio {
   z-index: 100;
 }
 
+/* Step 1: 5% side gutters on large screens. Flowing content
+   (.top-bar + .main) lives inside .ht-layout; fixed chrome
+   (.side-bar, .right-sources, .hamburger) stays viewport-relative. */
+.ht-layout {
+  margin-left: 5%;
+  margin-right: 5%;
+  box-sizing: border-box;
+}
+
+.ht-layout::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ht-layout .top-bar {
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ht-layout .main {
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ht-layout .top-bar-left {
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Keep fixed panels inside the guttered region on large screens:
+   73% + 22% width leaves 5% on the right. */
+div.right-sources {
+  position: fixed;
+  top: 30px;
+  left: 73%;
+  height: 100%;
+  width: 22%;
+  float: left;
+  z-index: 999;
+  overflow: hidden;
+}
+
 .hamburger {
   display: block;
   position: fixed;
   top: 12px;
-  left: 10px;
+  left: calc(5% + 10px);
   z-index: 1001;
   font-size: 1.5em;
   cursor: pointer;
@@ -212,17 +264,6 @@ div.right-tree {
   float: left;
   border: 3px solid black;
   z-index: 100;
-}
-
-div.right-sources {
-  position: fixed;
-  top: 30px;
-  left: 76%;
-  height: 100%;
-  width: 22%;
-  float: left;
-  z-index: 999;
-  overflow: hidden;
 }
 
 div.right-tree-top {
@@ -1870,5 +1911,49 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     .ht-grid-container { grid-template-columns: auto auto; }
     .side-bar:hover { left: -55%; }
     .side-bar.active:hover { left: 0; }
+}
+
+/* Step 1 gutters: no side space when the visible region is smaller
+   than 800x600. Either dimension below the threshold removes the 5%
+   margins so small screens use the full width. */
+@media screen and (max-width: 800px), screen and (max-height: 600px) {
+    .ht-layout {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .hamburger {
+        left: 10px;
+    }
+}
+
+/* Right panel keeps a 5% gap on large screens (73% + 22%). Below the
+   threshold it returns to 76%, except on phones (<768px) where the
+   drawer rule (right: 0) above must win. */
+@media screen and (min-width: 768px) and (max-width: 800px),
+       screen and (min-width: 768px) and (max-height: 600px) {
+    div.right-sources {
+        left: 76%;
+    }
+}
+
+/* JS fallback driven by htUpdateLayoutGutter(): same narrow behavior
+   when body/html carry .ht-narrow (window.innerWidth < 800 or
+   window.innerHeight < 600). Keeps gutters in sync on resize/zoom. */
+body.ht-narrow .ht-layout,
+html.ht-narrow .ht-layout {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body.ht-narrow .hamburger,
+html.ht-narrow .hamburger {
+    left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    body.ht-narrow div.right-sources,
+    html.ht-narrow div.right-sources {
+        left: 76%;
+    }
 }
 

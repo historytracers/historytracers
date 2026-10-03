@@ -3934,6 +3934,59 @@ function htToggleSidebar() {
     }
 }
 
+// Step 1: 5% side gutters only on large regions. Mirror the CSS
+// (max-width: 800px), (max-height: 600px) rule in JS so resize/zoom
+// keeps body/html .ht-narrow in sync and small regions use full width.
+function htUpdateLayoutGutter() {
+    var w = 1024;
+    var h = 768;
+    try {
+        if (typeof window !== 'undefined') {
+            if (typeof window.innerWidth === 'number') {
+                w = window.innerWidth;
+            }
+            if (typeof window.innerHeight === 'number') {
+                h = window.innerHeight;
+            }
+        }
+    } catch (e) {
+    }
+    var narrow = (w < 800 || h < 600);
+    try {
+        if (typeof document !== 'undefined') {
+            if (document.body && document.body.classList) {
+                if (narrow) {
+                    document.body.classList.add('ht-narrow');
+                } else {
+                    document.body.classList.remove('ht-narrow');
+                }
+            }
+            if (document.documentElement && document.documentElement.classList) {
+                if (narrow) {
+                    document.documentElement.classList.add('ht-narrow');
+                } else {
+                    document.documentElement.classList.remove('ht-narrow');
+                }
+            }
+        }
+    } catch (e) {
+    }
+    return narrow;
+}
+
+if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('resize', htUpdateLayoutGutter);
+}
+if (typeof document !== 'undefined' && document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', htUpdateLayoutGutter);
+    try {
+        if (document.readyState && document.readyState !== 'loading') {
+            htUpdateLayoutGutter();
+        }
+    } catch (e) {
+    }
+}
+
 document.addEventListener('click', function(e) {
     var sidebar = document.querySelector('.side-bar');
     var hamburger = document.getElementById('hamburgerMenu');
