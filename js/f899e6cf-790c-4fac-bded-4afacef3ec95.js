@@ -19,6 +19,14 @@ function htLoadContent() {
     htSetImageSrc("imgB", "images/BritishMuseum/mid_00404485_001.jpg");
     htSetImageSrc("imgCMP", "images/Mapswire/mapswire-world-political-white-equal_earth_babylon.png");
     htSetImageSrc("imgCradle", "images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png");
+
+    var local_lang = $("#site_language").val();
+    if (local_lang == "en-US") {
+        htSetImageSrc("imgUSG", "images/USGS/USGS_WaterCycle_English_ONLINE_20230302.png");
+    } else {
+        htSetImageSrc("imgUSG", "images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png");
+    }
+
     return false;
 }
 

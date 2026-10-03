@@ -38,5 +38,12 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    var local_lang = $("#site_language").val();
+    if (local_lang == "en-US") {
+        htSetImageSrc("imgUSG", "images/USGS/USGS_WaterCycle_English_ONLINE_20230302.png");
+    } else {
+        htSetImageSrc("imgUSG", "images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png");
+    }
+
     return false;
 }
