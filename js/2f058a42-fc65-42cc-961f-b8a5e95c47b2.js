@@ -31,65 +31,130 @@ function htdaysSinceJanFirst(year, month, day) {
   return daysPassed;
 }
 
-function htRenderGregorianCalendar(tableId, month, year) {
-    const $tableElement = $(tableId);
+// Calendars whose dates are divided into months. Any calendar not listed
+// here has no internal divisions (or is not month based), so we fall back
+// to the Gregorian calendar when rendering the table. Julian is presented
+// as a Julian Day number by the rest of the site, so it has no divisions.
+var htMonthCalendarDefs = {
+    gregory:  { fromJd: jd_to_gregorian,            months: null },
+    hebrew:   { fromJd: jd_to_hebrew,               months: null },
+    islamic:  { fromJd: jd_to_islamic,              months: null },
+    persian:  { fromJd: jd_to_persian,              months: null },
+    shaka:    { fromJd: jd_to_indian_civil,         months: "indianMonths" },
+    french:   { fromJd: jd_to_french_revolutionary, months: "frMonth" },
+    chinese:  { fromJd: function(jd) { return jd_to_chinese(jd, -new Date().getTimezoneOffset() / 60); }, months: "chineseMonths" },
+    aymara:   { fromJd: jd_to_aymara,               months: "aymaraMonths" },
+    mapuche:  { fromJd: jd_to_mapuche,              months: "mapucheMonths" },
+    inca:     { fromJd: jd_to_inca,                 months: "incaMonths" },
+    javanese: { fromJd: jd_to_javanese,             months: "javaneseMonths" },
+    japanese: { fromJd: jd_to_japanese,             months: "japaneseMonths" }
+};
 
-    if ($tableElement.length === 0 || month < 0 || year < 0) {
-        return;
+function htCalendarMonthKey(cal, date) {
+    if (cal == "chinese") {
+        return date[1] + "_" + date[3];
     }
 
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const daysInMonth = lastDay.getDate();
-    var dayOfTheYear = htdaysSinceJanFirst(year, month, firstDay.getDate());
-    var startingDay = firstDay.getDay();
+    return "" + date[1];
+}
 
-    var row = "<tr>";
-    row += htCalendarFillEmpty(0, startingDay);
+function htCalendarDayOfMonth(cal, date) {
+    if (cal == "french") {
+        return (date[2] - 1) * 10 + date[3];
+    }
 
-    let day = 1;
-    var setStyle = "";
-    var startFromTzolking = currentTzolkingDayIdx - (mapTzolkingToGregory - dayOfTheYear);
-    for (let day = 1; day <= daysInMonth;) {
-        for ( ; startingDay < 7 && day <= daysInMonth ; startingDay++, day++, dayOfTheYear++, startFromTzolking++) {
-            if (mapTzolkingToGregory == dayOfTheYear) {
-                $("#calendarDay"+startingDay).css("font-weight", "bold");
-                setStyle =  "style=\"font-weight: bold;\"";
-            } else {
-                setStyle = "";
-            }
+    return date[2];
+}
 
-            if (startFromTzolking > 0 &&  startFromTzolking < TzolkinDays.length) {
-                var cell = TzolkinDays[startFromTzolking];
-                row += "<td style=\"background-color: "+cell.BGColor+"; \"><span "+setStyle+">"+day+" ("+cell.Period+" "+cell.Day+")</span></td>";
-            } else {
-                row += "<td><span "+setStyle+">"+day+"</span></td>";
-            }
-        }
+function htCalendarMonthName(cal, def, jd) {
+    var months = def.months != null ? window[def.months] : null;
 
-        if (startingDay < 7 ) {
-            row += htCalendarFillEmpty(startingDay, 7);
-        }
+    if (Array.isArray(months)) {
+        var date = def.fromJd(jd);
+        // All month-name arrays are 1-based except the Indian (Shaka) one.
+        var monthIdx = cal == "shaka" ? date[1] - 1 : date[1];
+        return months[monthIdx] || "";
+    }
 
-        row += "</tr>";
-        $tableElement.append(row);
+    var local_lang = $("#site_language").val();
 
-        startingDay = 0;
-        row = "<tr>";
+    try {
+        return new Intl.DateTimeFormat(local_lang, { calendar: cal, month: "long", timeZone: "UTC" }).format(new Date((jd - 2440587.5) * 86400000));
+    } catch (e) {
+        return "";
     }
 }
 
-function htGregorianCalendar(tableId) {
+function htRenderCalendar(tableId, selectedCalendar) {
     const $tableElement = $(tableId);
 
     if ($tableElement.length === 0 || TzolkinDays.length == 0) {
         return;
     }
 
-    $tableElement.empty();
-    $tableElement.append("<tr><td colspan=\"7\"> "+currentMonthString+" / "+currentYear+" </td></tr><tr> <td><span id=\"calendarDay0\">"+keywords[113]+"</span></td> <td><span id=\"calendarDay1\">"+keywords[114]+"</span></td> <td><span id=\"calendarDay2\">"+keywords[115]+"</span></td> <td><span id=\"calendarDay3\">"+keywords[116]+"</span></td> <td><span id=\"calendarDay4\">"+keywords[117]+"</span></td> <td><span id=\"calendarDay5\">"+keywords[118]+"</span></td> <td><span id=\"calendarDay6\">"+keywords[119]+"</span></td> </tr>");
+    // Fall back to the Gregorian calendar when the selected one has no months.
+    var cal = htMonthCalendarDefs[selectedCalendar] != null ? selectedCalendar : "gregory";
+    var def = htMonthCalendarDefs[cal];
 
-    htRenderGregorianCalendar(tableId, currentMonth, currentYear) ;
+    var now = new Date();
+    var todayJd = gregorian_to_jd(now.getFullYear(), now.getMonth() + 1, now.getDate());
+    var todayKey = htCalendarMonthKey(cal, def.fromJd(todayJd));
+
+    // Walk to the first and last day of the selected calendar's current month.
+    var firstJd = todayJd;
+    var lastJd = todayJd;
+    var guard = 0;
+    while (guard++ < 400 && htCalendarMonthKey(cal, def.fromJd(firstJd - 1)) == todayKey) {
+        firstJd--;
+    }
+
+    guard = 0;
+    while (guard++ < 400 && htCalendarMonthKey(cal, def.fromJd(lastJd + 1)) == todayKey) {
+        lastJd++;
+    }
+
+    var firstGregorian = jd_to_gregorian(firstJd);
+    var startingDay = new Date(firstGregorian[0], firstGregorian[1] - 1, firstGregorian[2]).getDay();
+    var year = def.fromJd(todayJd)[0];
+
+    $tableElement.empty();
+    $tableElement.append("<tr><td colspan=\"7\"> "+htCalendarMonthName(cal, def, firstJd)+" / "+year+" </td></tr><tr> <td><span id=\"calendarDay0\">"+keywords[113]+"</span></td> <td><span id=\"calendarDay1\">"+keywords[114]+"</span></td> <td><span id=\"calendarDay2\">"+keywords[115]+"</span></td> <td><span id=\"calendarDay3\">"+keywords[116]+"</span></td> <td><span id=\"calendarDay4\">"+keywords[117]+"</span></td> <td><span id=\"calendarDay5\">"+keywords[118]+"</span></td> <td><span id=\"calendarDay6\">"+keywords[119]+"</span></td> </tr>");
+
+    var row = "<tr>";
+    row += htCalendarFillEmpty(0, startingDay);
+
+    for (var jd = firstJd; jd <= lastJd; jd++) {
+        var date = def.fromJd(jd);
+        var day = htCalendarDayOfMonth(cal, date);
+        var tzolkinIdx = ((currentTzolkingDayIdx + (jd - todayJd)) % TzolkinDays.length + TzolkinDays.length) % TzolkinDays.length;
+        var cell = TzolkinDays[tzolkinIdx];
+        var setStyle = "";
+
+        if (jd == todayJd) {
+            $("#calendarDay"+startingDay).css("font-weight", "bold");
+            setStyle = "style=\"font-weight: bold;\"";
+        }
+
+        row += "<td style=\"background-color: "+cell.BGColor+"; \"><span "+setStyle+">"+day+" ("+cell.Period+" "+cell.Day+")</span></td>";
+
+        startingDay++;
+        if (startingDay == 7) {
+            row += "</tr>";
+            $tableElement.append(row);
+            startingDay = 0;
+            row = "<tr>";
+        }
+    }
+
+    if (startingDay > 0) {
+        row += htCalendarFillEmpty(startingDay, 7);
+        row += "</tr>";
+        $tableElement.append(row);
+    }
+}
+
+function htGregorianCalendar(tableId) {
+    htRenderCalendar(tableId, $("#site_calendar").val());
 }
 
 function htTzolkinCalendar(tableId, stringId) {
