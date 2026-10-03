@@ -2891,6 +2891,7 @@ function htOnlyLoadHtml(appendPage, page, ext, unixEpoch) {
     smSourceMap.clear();
 
     var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
+    $("#header").html("");
     $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 }
 

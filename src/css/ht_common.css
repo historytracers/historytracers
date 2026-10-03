@@ -228,20 +228,33 @@ div.right-sources {
 }
 
 .top-bar-inside-left {
-  position: absolute;
-  height: 100%;
-  width: 70%;
-  float: left;
-  font-size: clamp(1em, 1.8vw, 1.5em);
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  font-size: clamp(1.2em, 2.2vw, 1.8em);
+  font-weight: bold;
+  padding-top: 12px;
+  padding-right: 24.5%;
+  padding-bottom: 12px;
   padding-left: 10px;
+  /* Right offset matches the fixed right-sources panel (73%/22%), so the
+     title centers over the readable text column, not the whole screen. */
   overflow-wrap: break-word;
   word-break: break-word;
-  margin-left: 50px;
-  z-index: 101;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.top-bar-inside-left > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+#header:empty {
+  display: none;
 }
 
 .top-bar-right {
@@ -1934,7 +1947,7 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     .main { left: 0; width: 100%; }
     div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 76px; z-index: 999; overflow: hidden auto; }
     .top-bar { height: auto; min-height: 62px; }
-    .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
+    .top-bar-inside-left { font-size: 1.2em; padding-right: 30%; }
     .menuht { font-size: 1.3em; font-weight: bold; width: 100%; }
     .menu-title { font-size: 0.90em; }
     li.menu { font-size: 0.82em; }
