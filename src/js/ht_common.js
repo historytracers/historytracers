@@ -98,14 +98,28 @@ function htGetImgSrcPrefix() {
 //
 
 function htScrollToID(id) {
-    $('html, body').scrollTop($(id).offset().top);
+    var $target = $(id);
+    if ($target.length === 0) {
+        return;
+    }
+    var $box = $("#htMainScroll");
+    if ($box.length === 0) {
+        $('html, body').scrollTop($target.offset().top);
+        return;
+    }
+    $box.scrollTop($box.scrollTop() + $target.offset().top - $box.offset().top);
 }
 
 function htScrollTree(id)
 {
     var destination = $(id).val();
     if (destination != undefined) {
-        $('html, body').scrollTop($(id).offset().top);
+        var $target = $(id);
+        var $box = $("#htMainScroll");
+        if ($target.length === 0 || $box.length === 0) {
+            return;
+        }
+        $box.scrollTop($box.scrollTop() + $target.offset().top - $box.offset().top);
     }
 }
 
@@ -3944,8 +3958,10 @@ function htToggleSidebar() {
 }
 
 // Step 2: keep the yellow top banner slightly larger than the fixed
-// hamburger menu. Called on load/resize so zoom and font scaling stay
-// in sync; CSS min-height is the fallback.
+// hamburger menu, and keep .ht-layout padded below the fixed banner so
+// page text never slides behind the title or menu. Called on
+// load/resize so zoom and font scaling stay in sync; CSS values are
+// the fallback.
 function htSyncTopBanner() {
     try {
         var hamburger = document.getElementById('hamburgerMenu');
@@ -3956,8 +3972,13 @@ function htSyncTopBanner() {
         var h = hamburger.offsetHeight || 0;
         if (h > 0) {
             banner.style.minHeight = (h + 16) + 'px';
-            return h + 16;
         }
+        var layout = document.getElementById('htLayout');
+        var bannerH = banner.offsetHeight || (h + 16) || 62;
+        if (layout && layout.style) {
+            layout.style.paddingTop = (bannerH + 14) + 'px';
+        }
+        return bannerH;
     } catch (e) {
     }
     return 0;

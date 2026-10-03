@@ -7,6 +7,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+html, body {
+  height: 100%;
 }
 
 audio {
@@ -97,7 +102,7 @@ audio {
 #messages {
   display: none;
   position: sticky;
-  top: 76px;
+  top: 8px;
   background-color: lightyellow;
   padding: 10px;
   width: 75%;
@@ -117,23 +122,26 @@ audio {
   width: 100%;
   float: left;
   height: 100%;
-  z-index: 10000;
+  z-index: 1;
 }
 
 .top-bar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 5%;
+  right: 5%;
   z-index: 998;
   min-height: 62px;
   height: auto;
-  width: 100%;
+  width: auto;
   float: left;
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 6px 10px;
   background: lightyellow;
-  border-radius: 8px;
+  /* Square opaque bar so scrolling text never shows at corners. */
+  border-radius: 0;
   box-sizing: border-box;
 }
 
@@ -147,11 +155,18 @@ audio {
 }
 
 /* Step 1: 5% side gutters on large screens. Flowing content
-   (.top-bar + .main) lives inside .ht-layout; fixed chrome
-   (.side-bar, .right-sources, .hamburger) stays viewport-relative. */
+   (.main) lives inside .ht-layout; the yellow banner (.top-bar) and
+   (.side-bar, .right-sources, .hamburger) are fixed. .ht-layout
+   padding-top keeps content below the fixed banner so text never
+   slides behind the title or menu. */
 .ht-layout {
   margin-left: 5%;
   margin-right: 5%;
+  padding-top: 76px;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
 
@@ -162,14 +177,19 @@ audio {
 }
 
 .ht-layout .top-bar {
-  left: 0;
-  width: 100%;
+  left: 5%;
+  right: 5%;
+  width: auto;
   box-sizing: border-box;
 }
 
 .ht-layout .main {
   left: 0;
   width: 100%;
+  height: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
   box-sizing: border-box;
 }
 
@@ -185,7 +205,7 @@ audio {
    73% + 22% width leaves 5% on the right. */
 div.right-sources {
   position: fixed;
-  top: 30px;
+  top: 76px;
   left: 73%;
   height: 100%;
   width: 22%;
@@ -1912,7 +1932,7 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     .side-bar { width: 55%; left: -55%; z-index: 1000; transition: left 0.3s ease; }
     .side-bar.active { left: 0; }
     .main { left: 0; width: 100%; }
-    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 30px; z-index: 999; overflow: hidden auto; }
+    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 76px; z-index: 999; overflow: hidden auto; }
     .top-bar { height: auto; min-height: 62px; }
     .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
     .menuht { font-size: 1.3em; font-weight: bold; width: 100%; }
@@ -1933,6 +1953,10 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     .ht-layout {
         margin-left: 0;
         margin-right: 0;
+    }
+    .ht-layout .top-bar {
+        left: 0;
+        right: 0;
     }
     .hamburger {
         left: 10px;
@@ -1963,10 +1987,40 @@ html.ht-narrow .hamburger {
     left: 10px;
 }
 
+body.ht-narrow .ht-layout .top-bar,
+html.ht-narrow .ht-layout .top-bar {
+    left: 0;
+    right: 0;
+}
+
 @media screen and (min-width: 768px) {
     body.ht-narrow div.right-sources,
     html.ht-narrow div.right-sources {
         left: 76%;
+    }
+}
+
+/* Print uses its own window: restore normal document flow so nothing
+   is cut off at one viewport height. */
+@media print {
+    html, body {
+        height: auto;
+        overflow: visible;
+    }
+    .ht-layout {
+        display: block;
+        height: auto;
+        padding-top: 0;
+    }
+    .ht-layout .main {
+        overflow: visible;
+        height: auto;
+    }
+    .top-bar {
+        position: static;
+    }
+    #messages {
+        top: 0;
     }
 }
 
