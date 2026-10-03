@@ -3929,9 +3929,38 @@ function htAddAlterQImages(id)
 
 function htToggleSidebar() {
     var sidebar = document.querySelector('.side-bar');
+    var isActive = false;
     if (sidebar) {
         sidebar.classList.toggle('active');
+        isActive = sidebar.classList.contains('active');
     }
+    try {
+        var hamburger = document.getElementById('hamburgerMenu');
+        if (hamburger && hamburger.setAttribute) {
+            hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        }
+    } catch (e) {
+    }
+}
+
+// Step 2: keep the yellow top banner slightly larger than the fixed
+// hamburger menu. Called on load/resize so zoom and font scaling stay
+// in sync; CSS min-height is the fallback.
+function htSyncTopBanner() {
+    try {
+        var hamburger = document.getElementById('hamburgerMenu');
+        var banner = document.getElementById('htTopBanner');
+        if (!hamburger || !banner || !banner.style) {
+            return 0;
+        }
+        var h = hamburger.offsetHeight || 0;
+        if (h > 0) {
+            banner.style.minHeight = (h + 16) + 'px';
+            return h + 16;
+        }
+    } catch (e) {
+    }
+    return 0;
 }
 
 // Step 1: 5% side gutters only on large regions. Mirror the CSS
@@ -3975,13 +4004,21 @@ function htUpdateLayoutGutter() {
 }
 
 if (typeof window !== 'undefined' && window.addEventListener) {
-    window.addEventListener('resize', htUpdateLayoutGutter);
+    window.addEventListener('resize', function() {
+        htUpdateLayoutGutter();
+        htSyncTopBanner();
+    });
+    window.addEventListener('load', htSyncTopBanner);
 }
 if (typeof document !== 'undefined' && document.addEventListener) {
-    document.addEventListener('DOMContentLoaded', htUpdateLayoutGutter);
+    document.addEventListener('DOMContentLoaded', function() {
+        htUpdateLayoutGutter();
+        htSyncTopBanner();
+    });
     try {
         if (document.readyState && document.readyState !== 'loading') {
             htUpdateLayoutGutter();
+            htSyncTopBanner();
         }
     } catch (e) {
     }
