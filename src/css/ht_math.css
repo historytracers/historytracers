@@ -2798,8 +2798,8 @@ p.desc svg {
   width: 100%;
   max-width: 420px;
   height: auto;
-  touch-action: none;
-  cursor: pointer;
+  aspect-ratio: 360 / 200;
+  cursor: default;
   border-radius: 10px;
 }
 
