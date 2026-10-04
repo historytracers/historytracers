@@ -3339,6 +3339,7 @@ function htFillWebPage(page, data)
 
     if (data?.calendars) {
         htUpdateIndexSelector(data.calendars, "#site_calendar");
+        htFitCalendarSelect();
         if (data.chinese_animals) chineseAnimals = data.chinese_animals;
         if (data.chinese_months) chineseMonths = data.chinese_months;
         if (data.chinese_stems) chineseStems = data.chinese_stems;
@@ -4031,11 +4032,80 @@ if (typeof window !== 'undefined' && window.addEventListener) {
         htSyncTopBanner();
     });
     window.addEventListener('load', htSyncTopBanner);
+    window.addEventListener('load', htFitCalendarSelect);
 }
+
+// Step 3: keep the date-format selector plain and fitted to the selected
+// option text (the native popup still sizes its rows by their own
+// length). The width is measured with an off-screen probe select holding
+// only the selected option, so the browser accounts for its own arrow
+// and padding exactly and the name is never cut. Called on init, on
+// change and after calendar option texts update; CSS max-width still
+// caps it on narrow screens.
+function htFitCalendarSelect() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_calendar');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text || !document.createElement) {
+            return 0;
+        }
+        var body = document.body;
+        if (!body || !body.appendChild || !body.removeChild) {
+            return 0;
+        }
+        var probe = document.createElement('select');
+        if (!probe || !probe.options) {
+            return 0;
+        }
+        var probeOpt = document.createElement('option');
+        if (!probeOpt) {
+            return 0;
+        }
+        probeOpt.text = text;
+        try {
+            probe.add(probeOpt);
+        } catch (eAdd) {
+            probe.appendChild(probeOpt);
+        }
+        if (typeof window !== 'undefined' && typeof window.getComputedStyle === 'function') {
+            try {
+                var cs = window.getComputedStyle(sel);
+                if (cs && cs.font) {
+                    probe.style.font = cs.font;
+                }
+            } catch (eFont) {
+            }
+        }
+        probe.style.cssText += ';position:absolute;left:-9999px;top:0;visibility:hidden;';
+        body.appendChild(probe);
+        var w = probe.offsetWidth || 0;
+        body.removeChild(probe);
+        if (w > 0) {
+            sel.style.width = w + 'px';
+            return w;
+        }
+    } catch (e) {
+    }
+    return 0;
+}
+
 if (typeof document !== 'undefined' && document.addEventListener) {
     document.addEventListener('DOMContentLoaded', function() {
         htUpdateLayoutGutter();
         htSyncTopBanner();
+        htFitCalendarSelect();
+    });
+    document.addEventListener('change', function(e) {
+        if (e && e.target && e.target.id === 'site_calendar') {
+            htFitCalendarSelect();
+        }
     });
     try {
         if (document.readyState && document.readyState !== 'loading') {

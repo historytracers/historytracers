@@ -244,12 +244,18 @@ div.right-sources {
   box-sizing: border-box;
 }
 
-/* Date-format selector docked right, immediately left of the date. */
+/* Date-format selector docked right, immediately left of the date: plain
+   (no box) and fitted to the selected text by htFitCalendarSelect; the
+   native popup still sizes its rows by their own length. */
 .ht-layout .top-bar #site_calendar {
   margin-left: auto;
   width: auto;
   max-width: 30vw;
   min-width: 0;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .top-bar-inside-left {
