@@ -244,6 +244,16 @@ div.right-sources {
   box-sizing: border-box;
 }
 
+/* Brand moved out of the hidden sidebar: sits right of the menu button. */
+.ht-layout .top-bar .menuht {
+  width: auto;
+  max-width: 40vw;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Date-format selector docked right, immediately left of the date: plain
    (no box) and fitted to the selected text by htFitCalendarSelect; the
    native popup still sizes its rows by their own length. */
