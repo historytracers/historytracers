@@ -92,17 +92,16 @@ var addressBarJS = `
 		};
 	})();
 	try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
-	function __htViewerFixCSS(BAR_H){return '.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';}
+	// Offsets mirror the page layout (src/css/ht_common.css) for the top-level
+	// viewer window only: our fixed banner and menu button sit just below
+	// the viewer chrome (BAR_H) and the side panel starts 76px below our
+	// banner. Content needs no extra padding: the viewer reserves chrome
+	// space with body margin and the page pads below its own banner.
+	function __htViewerFixCSS(BAR_H){return '.top-bar{top:'+BAR_H+'px!important}.hamburger{top:'+BAR_H+'px!important}.side-bar{top:'+BAR_H+'px!important}.right-sources{top:'+(BAR_H+76)+'px!important;bottom:0!important;height:auto!important}';}
 	if(window!==window.top){
-		// Inside iframe (new tab): ensure viewer-local image handling and layout fix for broken format/images.
+		// Inside iframe below the viewer chrome: the page layout already
+		// accounts for its own fixed header, so no offsets are needed here.
 		try{window.htLocalImgSrc=true;}catch(e){}
-		try{
-			var TAB_H=22,ADDR_H=48,BAR_H=ADDR_H+TAB_H;
-			var s=document.createElement('style');
-			s.textContent=__htViewerFixCSS(BAR_H);
-			if(document.documentElement) document.documentElement.appendChild(s);
-			else document.addEventListener('DOMContentLoaded',function(){try{document.documentElement.appendChild(s);}catch(e){}});
-		}catch(e){}
 		try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
 		return;
 	}
@@ -991,7 +990,7 @@ L['en']=L['en-US'];
 						var _style=idoc.createElement('style');
 						if(!idoc.getElementById('__ht_viewer_fix')){
 							_style.id='__ht_viewer_fix';
-							_style.textContent=__htViewerFixCSS(BAR_H);
+							_style.textContent=''; // tab iframes sit below viewer chrome: no offsets needed
 							if(idoc.documentElement) idoc.documentElement.appendChild(_style);
 						}
 					}catch(e){}
@@ -1081,7 +1080,7 @@ L['en']=L['en-US'];
 			var mo=new MutationObserver(function(){t0.textContent=document.title||l.main});
 			mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
 		})();
-		document.body.style.marginTop=(BAR_H+5)+'px';
+		document.body.style.marginTop=BAR_H+'px'; // match viewer chrome exactly so content aligns with other browsers
 		function openOrExternal(url){
 			try{
 				var u=new URL(url,window.location.origin);
