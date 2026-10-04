@@ -4033,8 +4033,7 @@ if (typeof window !== 'undefined' && window.addEventListener) {
 // length). The width is measured with an off-screen probe select holding
 // only the selected option, so the browser accounts for its own arrow
 // and padding exactly and the name is never cut. Called on init, on
-// change and after calendar option texts update; CSS max-width still
-// caps it on narrow screens.
+// change and after calendar option texts update.
 function htFitCalendarSelect() {
     try {
         if (typeof document === 'undefined' || !document.getElementById) {
@@ -4057,6 +4056,12 @@ function htFitCalendarSelect() {
         if (!probe || !probe.options) {
             return 0;
         }
+        // Same classes as the real control (e.g. .selSize padding) so the
+        // probe needs exactly what the real one needs under any box model;
+        // inline width stays auto so it shrink-to-fits instead of taking
+        // the class width. Never copy the id or inline width (stale).
+        probe.className = sel.className || '';
+        probe.style.width = 'auto';
         var probeOpt = document.createElement('option');
         if (!probeOpt) {
             return 0;
@@ -4081,6 +4086,7 @@ function htFitCalendarSelect() {
         var w = probe.offsetWidth || 0;
         body.removeChild(probe);
         if (w > 0) {
+            w += 2;
             sel.style.width = w + 'px';
             return w;
         }
