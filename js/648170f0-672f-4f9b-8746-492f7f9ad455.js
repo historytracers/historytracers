@@ -890,8 +890,8 @@ function htLoadContent() {
         for (let i = 0; i < 4; i++) {
             $("#imgm"+i).attr("src", blankImg);
         }
-        $("#imgm0").attr("src", "images/HistoryTracers/Maya_2.png");
-        local.currentExampleIdx = 1;
+        $("#imgm2").attr("src", "images/HistoryTracers/Maya_2.png");
+        local.currentExampleIdx = 0;
     });
 
     $("#firstV").on("keyup", function() {
@@ -931,8 +931,7 @@ function htLoadContent() {
     htSetImageSrc("imgl000", "images/HistoryTracers/Maya_1.png");
     htSetImageSrc("imgl00000", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgl10000", "images/HistoryTracers/Maya_2.png");
-    htSetImageSrc("imgm0", "images/HistoryTracers/Maya_2.png");
-    local.currentExampleIdx = 1;
+    htSetImageSrc("imgm2", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgm000", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgm100", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgm200", "images/HistoryTracers/Maya_2.png");
