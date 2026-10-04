@@ -7,11 +7,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
-}
-
-html, body {
-  height: 100%;
 }
 
 audio {
@@ -102,7 +97,7 @@ audio {
 #messages {
   display: none;
   position: sticky;
-  top: 8px;
+  top: 76px;
   background-color: lightyellow;
   padding: 10px;
   width: 75%;
@@ -166,10 +161,6 @@ audio {
   margin-left: 5%;
   margin-right: 5%;
   padding-top: 76px;
-  height: 100vh;
-  height: 100dvh;
-  display: flex;
-  flex-direction: column;
   box-sizing: border-box;
 }
 
@@ -189,10 +180,6 @@ audio {
 .ht-layout .main {
   left: 0;
   width: 100%;
-  height: auto;
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow: auto;
   box-sizing: border-box;
 }
 
@@ -2054,27 +2041,10 @@ html.ht-narrow .ht-layout .top-bar {
     }
 }
 
-/* Print uses its own window: restore normal document flow so nothing
-   is cut off at one viewport height. */
-@media print {
-    html, body {
-        height: auto;
-        overflow: visible;
-    }
-    .ht-layout {
-        display: block;
-        height: auto;
-        padding-top: 0;
-    }
-    .ht-layout .main {
-        overflow: visible;
-        height: auto;
-    }
-    .top-bar {
-        position: static;
-    }
-    #messages {
-        top: 0;
-    }
+/* Standalone print preview document (own window): normal screen scrolling
+   for long content; the print rule below still restores visible overflow. */
+body.ht-print-doc {
+    height: auto;
+    overflow: auto;
 }
 

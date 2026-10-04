@@ -102,12 +102,7 @@ function htScrollToID(id) {
     if ($target.length === 0) {
         return;
     }
-    var $box = $("#htMainScroll");
-    if ($box.length === 0) {
-        $('html, body').scrollTop($target.offset().top);
-        return;
-    }
-    $box.scrollTop($box.scrollTop() + $target.offset().top - $box.offset().top);
+    $('html, body').scrollTop($target.offset().top);
 }
 
 function htScrollTree(id)
@@ -115,11 +110,10 @@ function htScrollTree(id)
     var destination = $(id).val();
     if (destination != undefined) {
         var $target = $(id);
-        var $box = $("#htMainScroll");
-        if ($target.length === 0 || $box.length === 0) {
+        if ($target.length === 0) {
             return;
         }
-        $box.scrollTop($box.scrollTop() + $target.offset().top - $box.offset().top);
+        $('html, body').scrollTop($target.offset().top);
     }
 }
 
@@ -415,7 +409,7 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
         }
     </style>
 </head>
-<body>
+<body class="ht-print-doc">
     ${headerHtml}
     <div>${fb}</div>
     <div class="cited-text">${fs}</div>
@@ -3973,7 +3967,6 @@ function htSyncTopBanner() {
         var h = hamburger.offsetHeight || 0;
         if (h > 0) {
             banner.style.minHeight = h + 'px';
-            banner.style.height = h + 'px';
         }
         var layout = document.getElementById('htLayout');
         var bannerH = banner.offsetHeight || h || 0;
