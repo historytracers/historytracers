@@ -703,7 +703,7 @@ function startNewExercise() {
     const nums = generateRandomNumbersByLevel();
     localSorobanController.currentExercise = { a: nums.a, b: nums.b, expected: nums.a - nums.b };
     document.getElementById('problemDisplay').innerHTML = `${localSorobanController.TextManager.formatNumber(localSorobanController.currentExercise.a)} − ${localSorobanController.TextManager.formatNumber(localSorobanController.currentExercise.b)}`;
-    document.getElementById('levelBadge').innerHTML = 'Level ' + localSorobanController.currentDigitLevel;
+    document.getElementById('levelBadge').innerHTML = localSorobanController.TextManager.getLevelLabel(localSorobanController.currentDigitLevel);
     document.getElementById('levelBadge').style.background = "#ffb347";
     setAbacusToNumber(0);
     localSorobanController.steps = buildStepsForNumbers(localSorobanController.currentExercise.a, localSorobanController.currentExercise.b);
@@ -733,7 +733,7 @@ function resetTutorToStepOne() {
 function toggleLevel() {
     if (localSorobanController.currentDigitLevel === 8) {
         localSorobanController.currentDigitLevel = 1;
-        document.getElementById('levelBadge').innerHTML = 'Level 1';
+        document.getElementById('levelBadge').innerHTML = localSorobanController.TextManager.getLevelLabel(1);
         document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getLastLevelMessage()}</div>`;
         return;
     }
@@ -912,6 +912,10 @@ function htLoadContent() {
 
         getLastLevelMessage: function() {
             return this.get('txt_lastLevelMessage');
+        },
+
+        getLevelLabel: function(level) {
+            return this.format(this.get('txt_levelLabel'), { level });
         },
 
         formatNumber: function(num) {

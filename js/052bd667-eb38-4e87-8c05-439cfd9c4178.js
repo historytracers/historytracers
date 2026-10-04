@@ -756,7 +756,7 @@ function startNewExercise() {
     const nums = generateRandomNumbersByLevel();
     localSorobanController.currentExercise = { a: nums.a, b: nums.b, onesDigit: nums.onesDigit, fullB: nums.fullB, expected: nums.a * nums.fullB };
     document.getElementById('problemDisplay').innerHTML = `${localSorobanController.TextManager.formatNumber(localSorobanController.currentExercise.a)} × ${localSorobanController.TextManager.formatNumber(localSorobanController.currentExercise.fullB)}`;
-    document.getElementById('levelBadge').innerHTML = 'Level ' + localSorobanController.currentDigitLevel;
+    document.getElementById('levelBadge').innerHTML = localSorobanController.TextManager.getLevelLabel(localSorobanController.currentDigitLevel);
     document.getElementById('levelBadge').style.background = "#ffb347";
     document.getElementById('storedResult').classList.add('hidden');
     setAbacusToNumber(0);
@@ -789,7 +789,7 @@ function resetTutorToStepOne() {
 function toggleLevel() {
     if (localSorobanController.currentDigitLevel === 5) {
         localSorobanController.currentDigitLevel = 1;
-        document.getElementById('levelBadge').innerHTML = 'Level 1';
+        document.getElementById('levelBadge').innerHTML = localSorobanController.TextManager.getLevelLabel(1);
         document.getElementById('feedbackArea').innerHTML = `<div class="congrats">${localSorobanController.TextManager.getLastLevelMessage()}</div>`;
         return;
     }
@@ -1014,6 +1014,10 @@ function htLoadContent() {
 
         getLastLevelMessage: function() {
             return this.get('txt_lastLevelMessage');
+        },
+
+        getLevelLabel: function(level) {
+            return this.format(this.get('txt_levelLabel'), { level });
         },
 
         formatNumber: function(num) {
