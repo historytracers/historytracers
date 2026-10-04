@@ -13,35 +13,30 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <link rel="stylesheet" href="css/ht_common.css?v=1791056259">
-  <link rel="stylesheet" href="css/ht_math.css?v=1791056259">
+  <link rel="stylesheet" href="css/ht_common.css?v=1791147821">
+  <link rel="stylesheet" href="css/ht_math.css?v=1791147821">
   <!-- https://docs.fontawesome.com/v5/web/setup/host-font-awesome-yourself -->
   <link rel="stylesheet" href="css/fa_6_5_2.min.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b">
 
-  <script type="text/javascript" src="js/calendar.js?v=1791056259"></script>
-  <script type="text/javascript" src="js/jquery-3.7.1.min.js?v=1791056259b7bec4-3106-48f7-b44c-7907ec7b6d48"></script>
+  <script type="text/javascript" src="js/calendar.js?v=1791147821"></script>
+  <script type="text/javascript" src="js/jquery-3.7.1.min.js?v=1791147821b7bec4-3106-48f7-b44c-7907ec7b6d48"></script>
   <script type="text/javascript" async src="js/showdown.210.min.js?v=da938423-af12-4b7a-ac3f-9d203eedd62d"></script>
   <script type="text/javascript" async src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
 
-  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=1791056259dd2-52a2-423d-884f-4cefa04090ec"></script -->
+  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=1791147821dd2-52a2-423d-884f-4cefa04090ec"></script -->
 
-  <script type="text/javascript" src="js/chart_4_5_1.js?v=1791056259c41fb-928a-433d-a168-657a474f58e2"></script>
-  <script type="text/javascript" src="js/ht_common.js?v=1791056259"></script>
-  <script type="text/javascript" src="js/ht_math.js?v=1791056259"></script>
-  <script type="text/javascript" src="js/ht_chart.js?v=1791056259"></script>
-  <script type="text/javascript" src="js/ht_update.js?v=1791056259"></script>
-  <script type="text/javascript" src="js/index.js?v=1791056259fe5ae3-d2ce-459c-83a7-3fe372bb3a2e"></script>
+  <script type="text/javascript" src="js/chart_4_5_1.js?v=1791147821c41fb-928a-433d-a168-657a474f58e2"></script>
+  <script type="text/javascript" src="js/ht_common.js?v=1791147821"></script>
+  <script type="text/javascript" src="js/ht_math.js?v=1791147821"></script>
+  <script type="text/javascript" src="js/ht_chart.js?v=1791147821"></script>
+  <script type="text/javascript" src="js/ht_update.js?v=1791147821"></script>
+  <script type="text/javascript" src="js/index.js?v=1791147821fe5ae3-d2ce-459c-83a7-3fe372bb3a2e"></script>
 </head>
 
 <body>
 <span id="ht_first_load" style="display:none;"></span>
 <div class="side-bar">
     <div class="htEditor" style="visibility: hidden;" id="editSideBar"><i class="fas fa-edit"></i> <i class="fas fa-save"></i></div>
-    <div class="twomenu">
-        <div class="menuht">
-            <a href="https://www.historytracers.org" target="_blank" style="color: inherit; text-decoration: none;">History Tracers</a>
-        </div>
-    </div>
     <p><div class="menu-slogan"><span id="slogan"></span></div></p>
     <ul class="sidebar-navigation">
         <li> <b><label id="lblmain" class="menu-title"></label></b>
@@ -158,27 +153,47 @@
     <input type="hidden" id="ScientificGameLevel" value="" />
     <input type="hidden" id="html_loaded" value="" />
 </div>
-<div class="top-bar">
-    <div class="hamburger" id="hamburgerMenu" onclick="htToggleSidebar()">
+<div class="ht-layout" id="htLayout">
+    <div class="hamburger" id="hamburgerMenu" onclick="htToggleSidebar()" role="button" tabindex="0" aria-label="Menu" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){htToggleSidebar();event.preventDefault();}">
         <i class="fas fa-bars"></i>
     </div>
-    <div class="top-bar-left">
-        <div class="top-bar-inside-left" id="header">
-        </div>
+<div class="top-bar" id="htTopBanner" role="banner" aria-label="History Tracers">
+    <div class="menuht">
+        <a href="https://www.historytracers.org" target="_blank" style="color: inherit; text-decoration: none;">History Tracers</a>
     </div>
+    <select id="site_calendar" class="selSize">
+        <option value="aymara">Aymara</option>
+        <option value="chinese">Chinese</option>
+        <option value="emesoamerican">Mesoamericano (Est.)</option>
+        <option value="french">Rev. Francesa</option>
+        <option value="gregory" selected>Gregoriano</option>
+        <option value="hebrew">Hebreu</option>
+        <option value="hispanic">Hispânica</option>
+        <option value="inca">Inca</option>
+        <option value="islamic">Islâmico</option>
+        <option value="japanese">Japanese</option>
+        <option value="javanese">Jawa</option>
+        <option value="julian">Juliano</option>
+        <option value="mapuche">Mapuche</option>
+        <option value="mesoamerican">Mesoamericano</option>
+        <option value="persian">Persa</option>
+        <option value="shaka">Shaka</option>
+    </select>
+    <span id="current_day" class="cited-text">&nbsp;</span>
 </div>
-<div class="main">
+<div class="main" id="htMainScroll">
+    <div class="top-bar-inside-left" id="header"></div>
     <div class="htEditor" style="visibility: hidden;" id="editMainContent"><i class="fas fa-edit"></i> <i class="fas fa-save"></i></div>
     <div id="messages"> </div>
     <div id="main_page_data">
         <div class="main-data" id="page_data"></div>
     </div>
 </div>
+</div>
 <div class="right-sources">
     <p>
     <div class="top-bar-right">
         <div class="top-bar-right-lang">
-            <span id="current_day" class="cited-text">&nbsp;</span><br />
             <span id="index_lang" class="cited-text" style="vertical-align: top;">Language:</span> 
             <select id="site_language" class="selSize" size="3">
                 <option value="pt-BR">Português - BR</option>
@@ -202,25 +217,6 @@
             <strong><span id="latestAddition"></span></strong><br>
             <span id="sbFeed"></span>
         </div>
-        <span id="index_calendar" style="vertical-align: top;">Date Format:</span> 
-        <select id="site_calendar" class="selSize">
-            <option value="aymara">Aymara</option>
-            <option value="chinese">Chinese</option>
-            <option value="emesoamerican">Mesoamericano (Est.)</option>
-            <option value="french">Rev. Francesa</option>
-            <option value="gregory" selected>Gregoriano</option>
-            <option value="hebrew">Hebreu</option>
-            <option value="hispanic">Hispânica</option>
-            <option value="inca">Inca</option>
-            <option value="islamic">Islâmico</option>
-            <option value="japanese">Japanese</option>
-            <option value="javanese">Jawa</option>
-            <option value="julian">Juliano</option>
-            <option value="mapuche">Mapuche</option>
-            <option value="mesoamerican">Mesoamericano</option>
-            <option value="persian">Persa</option>
-            <option value="shaka">Shaka</option>
-        </select><br />
         <div style="display:none">
         <span id="index_theme">Numerals</span>: <br />
         <input type="radio" name="site_theme" id="ha" checked /> <span id="tNumericalSystem"></span>  <br />
