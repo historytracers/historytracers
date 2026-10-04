@@ -178,6 +178,7 @@ function htLoadContent() {
 
 
     htSetImageSrc("imgQuipuPanel", "images/Caral/QuipuPanel.png");
+    htSetImageSrc("ArmsAntonio", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_0362.jpg");
     htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
     htSetImageSrc("leftHandImg3", "images/HistoryTracers/5Left_Hand_Small.png");
     htSetImageSrc("rightHandImg3", "images/HistoryTracers/5Right_Hand_Small.png");
