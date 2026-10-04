@@ -3958,7 +3958,7 @@ function htToggleSidebar() {
     }
 }
 
-// Step 2: keep the yellow top banner slightly larger than the fixed
+// Step 2: keep the yellow top banner exactly as tall as the fixed
 // hamburger menu, and keep .ht-layout padded below the fixed banner so
 // page text never slides behind the title or menu. Called on
 // load/resize so zoom and font scaling stay in sync; CSS values are
@@ -3972,11 +3972,12 @@ function htSyncTopBanner() {
         }
         var h = hamburger.offsetHeight || 0;
         if (h > 0) {
-            banner.style.minHeight = (h + 16) + 'px';
+            banner.style.minHeight = h + 'px';
+            banner.style.height = h + 'px';
         }
         var layout = document.getElementById('htLayout');
-        var bannerH = banner.offsetHeight || (h + 16) || 62;
-        if (layout && layout.style) {
+        var bannerH = banner.offsetHeight || h || 0;
+        if (layout && layout.style && bannerH > 0) {
             layout.style.paddingTop = (bannerH + 14) + 'px';
         }
         return bannerH;

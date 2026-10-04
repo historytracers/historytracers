@@ -131,14 +131,17 @@ audio {
   left: 5%;
   right: 5%;
   z-index: 998;
-  min-height: 62px;
+  min-height: calc(1.5em + 20px);
   height: auto;
   width: auto;
   float: left;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 10px;
+  padding-top: 0;
+  padding-right: 10px;
+  padding-bottom: 0;
+  padding-left: 10px;
   background: lightyellow;
   /* Square opaque bar so scrolling text never shows at corners. */
   border-radius: 0;
@@ -217,7 +220,7 @@ div.right-sources {
 .hamburger {
   display: block;
   position: fixed;
-  top: 12px;
+  top: 0;
   left: calc(5% + 10px);
   z-index: 1001;
   font-size: 1.5em;
@@ -1946,7 +1949,7 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     .side-bar.active { left: 0; }
     .main { left: 0; width: 100%; }
     div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 76px; z-index: 999; overflow: hidden auto; }
-    .top-bar { height: auto; min-height: 62px; }
+    .top-bar { height: auto; min-height: calc(1.5em + 20px); }
     .top-bar-inside-left { font-size: 1.2em; padding-right: 30%; }
     .menuht { font-size: 1.3em; font-weight: bold; width: 100%; }
     .menu-title { font-size: 0.90em; }
