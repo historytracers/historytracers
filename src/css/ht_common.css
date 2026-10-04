@@ -141,7 +141,7 @@ audio {
   padding-top: 0;
   padding-right: 10px;
   padding-bottom: 0;
-  padding-left: 10px;
+  padding-left: 64px;
   background: lightyellow;
   /* Square opaque bar so scrolling text never shows at corners. */
   border-radius: 0;
@@ -232,17 +232,24 @@ div.right-sources {
 
 /* Current-day label docked at the extreme right of the fixed top strip.
    Single line with ellipsis so long calendar dates never wrap under the
-   strip or collide with the fixed menu button on narrow screens. */
+   strip on narrow screens. */
 .ht-layout .top-bar #current_day {
-  margin-left: auto;
   width: auto;
   max-width: 100%;
-  padding-left: 64px;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: right;
   box-sizing: border-box;
+}
+
+/* Date-format selector docked right, immediately left of the date. */
+.ht-layout .top-bar #site_calendar {
+  margin-left: auto;
+  width: auto;
+  max-width: 30vw;
+  min-width: 0;
 }
 
 .top-bar-inside-left {

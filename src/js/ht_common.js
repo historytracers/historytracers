@@ -547,7 +547,7 @@ function htUpdateCurrentDateOnIndex()
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
     var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
-    $("#current_day").html(keywords[42]+" "+text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
+    $("#current_day").html(text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
 function htAdjustGregorianZeroYear(text)
@@ -2092,7 +2092,6 @@ function htFillKeywords(table) {
     }
 
     $("#index_lang").html(keywords[39]);
-    $("#index_calendar").html(keywords[40]);
     $("#index_theme").html(keywords[74]);
     $("#index_recreio").html(keywords[141]);
     htUpdateCurrentDateOnIndex();
