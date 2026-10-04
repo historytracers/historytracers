@@ -230,6 +230,21 @@ div.right-sources {
   border-radius: 5px;
 }
 
+/* Current-day label docked at the extreme right of the fixed top strip.
+   Single line with ellipsis so long calendar dates never wrap under the
+   strip or collide with the fixed menu button on narrow screens. */
+.ht-layout .top-bar #current_day {
+  margin-left: auto;
+  width: auto;
+  max-width: 100%;
+  padding-left: 64px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  box-sizing: border-box;
+}
+
 .top-bar-inside-left {
   position: relative;
   width: 100%;
