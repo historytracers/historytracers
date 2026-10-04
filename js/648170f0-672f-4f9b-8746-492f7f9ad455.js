@@ -882,10 +882,16 @@ function htLoadContent() {
         local.currentExampleIdx++;
     });
 
-    $("#traineeDown3").on("click", function() {
+    // Clearing an <img> with src="" does not repaint in the viewer's WebKit
+    // (the old glyph stays on screen until an unrelated repaint), so use a
+    // transparent 1x1 image to reliably clear the cell in all browsers.
+    var blankImg = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    $("#traineeDown3").addClass("htResetHit").on("click", function() {
         for (let i = 0; i < 4; i++) {
-            $("#imgm"+i).attr("src", "");
+            $("#imgm"+i).attr("src", blankImg);
         }
+        $("#imgm0").attr("src", "images/HistoryTracers/Maya_2.png");
+        local.currentExampleIdx = 1;
     });
 
     $("#firstV").on("keyup", function() {
@@ -925,7 +931,8 @@ function htLoadContent() {
     htSetImageSrc("imgl000", "images/HistoryTracers/Maya_1.png");
     htSetImageSrc("imgl00000", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgl10000", "images/HistoryTracers/Maya_2.png");
-    htSetImageSrc("imgm2", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgm0", "images/HistoryTracers/Maya_2.png");
+    local.currentExampleIdx = 1;
     htSetImageSrc("imgm000", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgm100", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgm200", "images/HistoryTracers/Maya_2.png");
