@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788576541"
+      "1791162396"
    ],
    "authors": null,
    "reviewers": null,
@@ -68,7 +68,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEste texto utilizará los conceptos de suma y multiplicación. Para una mejor comprensión, recomendamos el estudio de la sección *Método Científico* y de los capítulos 2, 3 y 4 de la sección *Primeros Pasos* (<htcite0>) antes de continuar.",
+               "text": "### Prerrequisitos\n\nEste texto utilizará los conceptos de suma y multiplicación. Para una mejor comprensión, recomendamos el estudio de la sección *Método Científico* (<htcite0>) y de los capítulos 2, 3 y 4 de la sección *Primeros Pasos* (<htcite1>) antes de continuar.",
                "source": [
                   {
                      "type": 1,
@@ -107,7 +107,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nLas matemáticas están presentes en todas partes y, muchas veces, las vivimos sin darnos cuenta. Esto nos conduce a una primera práctica:",
+               "text": "### Introducción\n\nLas matemáticas están presentes en todas partes y, muchas veces, las experimentamos sin darnos cuenta. Esto nos conduce a una primera práctica:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -116,7 +116,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: ¿Dónde están?</b><br /><br />Con base en lo que hemos estudiado hasta ahora, observa a tu alrededor e identifica situaciones en las que sea posible aplicar la suma o la multiplicación.</div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: ¿Dónde están?</b><br /><br />Con base en lo que hemos estudiado hasta ahora, observa a tu alrededor e identifica situaciones en las que sea posible aplicar la suma o la multiplicación. Anota al menos tres ejemplos.</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -125,7 +125,7 @@
                "PostMention": ""
             },
             {
-               "text": "A primera vista, la práctica sugiere elegir entre suma o multiplicación. Sin embargo, como ya vimos, la multiplicación no es más que la suma de números repetidos (<htcite0>). Por lo tanto, no es posible separar completamente la multiplicación de la suma.\n\nAunque esto pueda dar la impresión de que la práctica es incorrecta, en realidad introduce el tema central de este texto: el uso conjunto de la multiplicación y la suma para comprender la naturaleza.",
+               "text": "A primera vista, la práctica sugiere elegir entre suma y multiplicación. Sin embargo, como ya vimos, la multiplicación no es más que la suma repetida de un mismo número (<htcite0>). Por lo tanto, no es posible separar completamente la multiplicación de la suma.\n\nAunque esto pueda dar la impresión de que la práctica es incorrecta, en realidad introduce el tema central de este texto: el uso conjunto de la multiplicación y la suma para comprender la naturaleza.",
                "source": [
                   {
                      "type": 1,
@@ -207,7 +207,7 @@
                "PostMention": ""
             },
             {
-               "text": "El primero paso es elegir la(s) pregunta(s) que queremos responder. En nuestro caso, son:",
+               "text": "El primer paso es elegir la(s) pregunta(s) que queremos responder. En nuestro caso, son:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -225,7 +225,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Observación inicial\n\nPara responder a la primera pregunta, recordemos cómo celebramos los cumpleaños. Al nacer tenemos cero años. Nuestro primer cumpleaños ocurre un año después del nacimiento. Para cumplir dos años, necesitamos que pase otro año completo.\n\nAsí, cada año que pasa sumamos uno más a nuestra vida. Ese patrón sigue la **Tabla del 1** (Gráfico 1):",
+               "text": "#### Observación inicial\n\nPara responder a la primera pregunta, recordemos cómo celebramos los cumpleaños. Al nacer tenemos cero años. Nuestro primer cumpleaños ocurre un año después del nacimiento. Para cumplir dos años, necesitamos que pase otro año completo.\n\nAsí, cada año que pasa, sumamos un año más a nuestra vida. Ese patrón corresponde a la **Tabla del 1** (Gráfico 1):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -256,7 +256,7 @@
                "PostMention": ""
             },
             {
-               "text": "El Gráfico 1 muestra solo 50 años, por simplificación. Deseamos larga vida al lector y recordamos que el gráfico no representa exactamente su trayectoria vital.\n\nAdemás, no muestra el año informado en la sección **Perguntas**, lo cual nos lleva a reflexionar:",
+               "text": "El Gráfico 1 muestra solo 50 años, por simplificación. Deseamos una larga vida al lector y recordamos que el gráfico no representa exactamente su trayectoria vital.\n\nAdemás, no muestra el año informado en la sección **Las preguntas**, lo cual nos lleva a reflexionar:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -332,7 +332,7 @@
                "PostMention": ""
             },
             {
-               "text": "Si hacemos una analogía entre nuestra vida y las estrellas en la tabla de multiplicar, las estrellas que aparecen al pasar el cursor sobre la operación de multiplicación representan cada nuevo año de vida que una persona cumple.\n\nEstos datos nos ayudan a comprender el papel del factor *a* en la Fórmula 1: representa la tasa de variación, es decir, cuánto crece *N*. Esto se hace evidente al comparar las tablas del 0 al 9 en el Gráfico 2: cuanto mayor es el valor de *a*, más se aleja el resultado de la línea horizontal.",
+               "text": "Si establecemos una analogía entre nuestra vida y las estrellas de la tabla de multiplicar, veremos que las estrellas que aparecen al pasar el cursor sobre una multiplicación corresponden a cada nuevo año de vida que una persona cumple.\n\nEsto nos ayuda a comprender el papel del factor *a* en la Fórmula 1: representa la tasa de variación, es decir, cuánto crece *N*. Esto se hace evidente al comparar las tablas del 0 al 9 en el Gráfico 2: cuanto mayor es el valor de *a*, más se aleja el resultado de la línea horizontal.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -394,7 +394,7 @@
                "PostMention": ""
             },
             {
-               "text": "En la Fórmula 3:\n\n- **Y**: año en que cumplimos años.\n- **1 × N**: tasa de variación (1 por año), siendo *N* la cantidad de cumpleaños.\n- **C**: año de nacimiento (constante).\n\nPara mayor claridad, la **Tabla 1** muestra los 4 primeros momentos de la vida de alguien nacido en <span id=\"yearBeforeChart\"></span>.",
+               "text": "En la Fórmula 3:\n\n- **Y**: año en que cumplimos años.\n- **1 × N**: tasa de variación (1 por año), siendo *N* la cantidad de cumpleaños.\n- **C**: año de nacimiento (constante).\n\nEn palabras simples: nuestra edad crece de 1 en 1 cada año, y la constante C indica a la fórmula dónde empezar a contar. Para mayor claridad, la **Tabla 1** muestra los 4 primeros momentos de la vida de alguien nacido en <span id=\"yearBeforeChart\"></span>.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -439,7 +439,7 @@
          "id": "SECTION_indigenous",
          "text": [
             {
-               "text": "### Construcciones indígenas\n\nLa relación entre la suma y la multiplicación también puede observarse en las construcciones indígenas presentadas en el texto *Copiando la naturaleza* (<htcite0>), donde analizamos únicamente la inclinación del techo, sin considerar que este no comenzaba en el suelo.\n\n#### La constante que faltaba\n\nObserve nuevamente el techo inclinado, como el encontrado en Mi Pueblito, Panamá (Figura 1). El techo no empieza en el suelo; por el contrario, se encuentra elevado a partir de una región que llamamos **altura inicial**.",
+               "text": "### Construcciones indígenas\n\nLa relación entre la suma y la multiplicación también puede observarse en las construcciones indígenas presentadas en el texto *Imitando a la naturaleza* (<htcite0>), donde analizamos únicamente la inclinación del techo, sin considerar que este no comenzaba en el suelo.\n\n#### La constante que faltaba\n\nObserva nuevamente el techo inclinado, como el encontrado en *Mi Pueblito*, Panamá (Figura 1). El techo no empieza en el suelo; por el contrario, comienza en una elevación a la que llamamos **altura inicial**.",
                "source": [
                   {
                      "type": 1,
@@ -477,7 +477,7 @@
                "PostMention": ""
             },
             {
-               "text": "De manera análoga, al entrar en el Templo 16 de Copán (Figura 2), podemos observar que el techo de esta construcción también presenta una inclinación que puede modelarse mediante la multiplicación. Sin embargo, la multiplicación por sí sola no basta para describir exactamente dónde se encuentra el techo.",
+               "text": "De manera análoga, al entrar en el Templo 16 de Copán (Figura 2), podemos observar que el techo de esta construcción también presenta una inclinación que puede modelarse mediante la multiplicación. Sin embargo, la multiplicación por sí sola no basta para describir exactamente dónde comienza el techo.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -530,7 +530,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: La igualdad</b><br /><br />Compare el Gráfico 3, que muestra los años de vida y las edades, con los techos indígenas. ¿Qué tienen en común estas dos medidas?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: La igualdad</b><br /><br />Compara el Gráfico 3, que muestra los años de vida y las edades, con los techos indígenas. ¿Qué tienen en común estas dos medidas?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -548,7 +548,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><b>Fórmula 4</b>: Relaciones entre años de vida y el techo</p>",
+               "text": "<p class=\"desc\"><b>Fórmula 4</b>: Relaciones entre años de vida y el techo.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -557,7 +557,7 @@
                "PostMention": ""
             },
             {
-               "text": "Observe que, tanto en el caso de nuestro cumpleaños como en el de la altura del techo, siempre existe un punto inicial que no cambia (la constante añadida). A este valor se suma una tasa que se multiplica por una variable.\n- En el caso de los años de vida, la variable es la edad.\n- En el caso del techo, la variable es la distancia desde el punto en que este comienza.",
+               "text": "Observa que, tanto en nuestro cumpleaños como en la altura del techo, siempre existe un punto inicial que no cambia (la constante añadida). A este punto inicial se suma una tasa que después se multiplica por una variable.\n\n- En el caso de los años de vida, la variable es la edad.\n- En el caso del techo, la variable es la distancia desde el punto en que este comienza.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -566,7 +566,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Modele usted mismo</b><br /><br />Sostenga un objeto con la mano en posición inclinada.<br /><br />1. Sostenga un objeto con la mano en posición inclinada.<br />2. Apoye el codo sobre una superficie.<br />3. Ahora, escriba una fórmula similar a la Fórmula 4 para describir lo que está haciendo.</div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Modela tú mismo</b><br /><br />Las inclinaciones a partir de un punto están en todas partes. Por eso, te sugerimos que también crees un modelo para describir algo:<br /><br />1. Sujeta un objeto con la mano en posición inclinada.<br />2. Apoya el codo sobre una superficie.<br />3. Ahora, escribe una fórmula similar a la Fórmula 4 para describir lo que estás haciendo.<br />4. Señala qué parte de tu fórmula es la constante (tu altura inicial) y qué parte es la tasa (cuánto sube tu mano).</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -580,7 +580,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nLa unión entre la multiplicación y la división va mucho más allá de los ejemplos que hemos analizado. En <htdate0>, Edwin Hubble, al descubrir la expansión del universo (<htcite0>), presentó una fórmula matemática semejante a las que estudiamos en este texto. Sin embargo, dejaremos el análisis de su trabajo para un estudio futuro.\n\nEn esta página vimos que las operaciones de suma y multiplicación nos ayudan a comprender no solo aspectos de nuestra vida, sino también la naturaleza en un sentido más amplio. Existen además otras operaciones matemáticas que nos permitirán entender el universo con mayor profundidad — operaciones que se relacionan con las que ya estudiamos y que comenzaremos a explorar en el próximo capítulo.",
+               "text": "### Conclusión\n\nLa combinación de la multiplicación y la suma va mucho más allá de los ejemplos que hemos analizado. En <htdate0>, Edwin Hubble, al descubrir la expansión del universo (<htcite0>), presentó una fórmula matemática semejante a las que estudiamos en este texto. Sin embargo, dejaremos el análisis de su trabajo para un estudio futuro.\n\nEn esta página vimos que las operaciones de suma y multiplicación nos ayudan a comprender no solo aspectos de nuestra vida, sino también la naturaleza en un sentido más amplio. Existen además otras operaciones matemáticas que nos permitirán entender el universo con mayor profundidad — operaciones que se relacionan con las que ya estudiamos y que comenzaremos a explorar en el próximo capítulo.\n\nPor ahora, recuerda el patrón que aprendimos: una tasa multiplicada por una variable, más una constante. El mismo patrón describe tanto nuestros cumpleaños como la inclinación de un techo.",
                "source": [
                   {
                      "type": 1,
@@ -613,14 +613,14 @@
    ],
    "exercise_v2": [
       {
-         "question": "¿Los años de nuestro cumpleaños pueden modelarse al sumar la tabla del 1 a nuestro año de nacimiento?",
+         "question": "¿Pueden modelarse los años de nuestra vida sumando la tabla del 1 a nuestro año de nacimiento?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "El año en que nacemos es una constante que no cambia. A partir de él, cada año que pasa sumamos un año más a nuestra vida. Esta variación anual (sumar siempre 1 cada año) es exactamente la variación que posee la tabla del 1."
       },
       {
          "question": "¿Los años de vida y las inclinaciones en construcciones son cosas completamente diferentes?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Aunque al principio podamos pensar que sí, en este texto vimos que las matemáticas nos ayudan a aproximar estas ideas y explicarlas de manera semejante."
+         "additionalInfo": "Aunque al principio podamos pensar que sí, en este texto vimos que las matemáticas nos ayudan a relacionar estas ideas y explicarlas de manera semejante."
       },
       {
          "question": "Si en la Fórmula 3 colocamos la edad <i>N</i> de 30 años y el año de nacimiento <i>C</i> como <span id=\"exercise0\"></span>, ¿descubrimos que la persona cumplió 30 años en <span id=\"exercise1\"></span>?",
