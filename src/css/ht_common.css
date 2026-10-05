@@ -231,7 +231,10 @@ div.right-sources {
   box-sizing: border-box;
 }
 
-/* Brand moved out of the hidden sidebar: sits right of the menu button. */
+/* Brand moved out of the hidden sidebar: sits right of the menu button.
+   nowrap + shrink-0 (see .menuht) keep the name whole on every screen, so
+   the 40vw ceiling only stops it from hogging wide bars; it is never the
+   limit that truncates the text. */
 .ht-layout .top-bar .menuht {
   width: auto;
   max-width: 40vw;
@@ -525,13 +528,25 @@ div.twomenu div {
   float:left;
 }
 
+/* Brand label ("History Tracers"): the one item in the top bar that must
+   never be clipped. It is therefore not shrinkable and stays on a single
+   nowrap line, so on a narrow screen it loses nothing and the calendar
+   select and the date absorb the shortfall instead of the name losing
+   characters.
+   The size is fluid (0.9em on phones up to 1.5em on large desktops) so the
+   name still fits the space the bar can spare: at 320px the hamburger and
+   the calendar select already take 164px of the 246px usable width. The em
+   bounds follow the step-dependent root size, so no per-breakpoint copy of
+   this rule is needed. */
 .menuht {
-    width: 100%;
-    font-size: 1.3em;
-    font-weight: bold;
-  overflow: hidden auto;
-    overflow-wrap: break-word;
-    word-break: break-word;
+  font-size: clamp(0.9em, 10.25px + 0.86vw, 1.5em);
+  font-weight: bold;
+  flex-shrink: 0;
+  width: auto;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .menu-slogan {
@@ -1534,12 +1549,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
         font-size: 0.75em;
     }
 
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
-    }
-
     .side-bar {
       width: 45%;
       left: -37%;
@@ -1622,12 +1631,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
         font-size: 0.75em;
     }
 
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
-    }
-
     .side-bar {
       width: 36%;
       left: -32%;
@@ -1693,12 +1696,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
 
     li.menu {
         font-size: 0.80em;
-    }
-
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
     }
 
     .side-bar {
@@ -1779,12 +1776,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
         font-size: 0.78em;
     }
 
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
-    }
-
     .side-bar {
       width: 36%;
       left: -32%;
@@ -1847,12 +1838,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
 
     li.menu {
         font-size: 0.78em;
-    }
-
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
     }
 
     .side-bar {
@@ -1975,7 +1960,14 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 76px; z-index: 999; overflow: hidden auto; }
     .top-bar { height: auto; min-height: calc(1.5em + 20px); }
     .top-bar-inside-left { font-size: 1.2em; padding-right: 30%; }
-    .menuht { font-size: 1.3em; font-weight: bold; width: 100%; }
+    /* On a narrow bar there is not always room for the brand plus the widest
+       calendar label (e.g. "Mesoamericano (Est.)"). Let the select give way:
+       it clips its own label inside the bar (the native popup still lists
+       every option) instead of spilling out of the bar or squeezing the
+       brand name into an ellipsis. Inert wherever the bar has room. */
+    .ht-layout .top-bar #site_calendar {
+        flex-shrink: 1;
+    }
     .menu-title { font-size: 0.90em; }
     li.menu { font-size: 0.82em; }
     .menu-slogan { font-size: 0.7em; }
