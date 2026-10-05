@@ -106,7 +106,7 @@ function countEvaluationSteps(a, b) {
         var dA = getDigit(a, p);
         var dB = getDigit(b, p);
         var total = dA + dB + carry;
-        if (dA > 0 || dB > 0) {
+        if (dA > 0 || dB > 0 || carry > 0) {
             count++;
         }
         if (total >= 10) {
