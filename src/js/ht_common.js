@@ -98,14 +98,22 @@ function htGetImgSrcPrefix() {
 //
 
 function htScrollToID(id) {
-    $('html, body').scrollTop($(id).offset().top);
+    var $target = $(id);
+    if ($target.length === 0) {
+        return;
+    }
+    $('html, body').scrollTop($target.offset().top);
 }
 
 function htScrollTree(id)
 {
     var destination = $(id).val();
     if (destination != undefined) {
-        $('html, body').scrollTop($(id).offset().top);
+        var $target = $(id);
+        if ($target.length === 0) {
+            return;
+        }
+        $('html, body').scrollTop($target.offset().top);
     }
 }
 
@@ -401,7 +409,7 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
         }
     </style>
 </head>
-<body>
+<body class="ht-print-doc">
     ${headerHtml}
     <div>${fb}</div>
     <div class="cited-text">${fs}</div>
@@ -533,7 +541,7 @@ function htUpdateCurrentDateOnIndex()
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
     var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
-    $("#current_day").html(keywords[42]+" "+text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
+    $("#current_day").html(text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
 function htAdjustGregorianZeroYear(text)
@@ -2078,7 +2086,6 @@ function htFillKeywords(table) {
     }
 
     $("#index_lang").html(keywords[39]);
-    $("#index_calendar").html(keywords[40]);
     $("#index_theme").html(keywords[74]);
     $("#index_recreio").html(keywords[141]);
     htUpdateCurrentDateOnIndex();
@@ -2877,6 +2884,7 @@ function htOnlyLoadHtml(appendPage, page, ext, unixEpoch) {
     smSourceMap.clear();
 
     var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
+    $("#header").html("");
     $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 }
 
@@ -3325,6 +3333,7 @@ function htFillWebPage(page, data)
 
     if (data?.calendars) {
         htUpdateIndexSelector(data.calendars, "#site_calendar");
+        htFitCalendarSelect();
         if (data.chinese_animals) chineseAnimals = data.chinese_animals;
         if (data.chinese_months) chineseMonths = data.chinese_months;
         if (data.chinese_stems) chineseStems = data.chinese_stems;
@@ -3929,8 +3938,180 @@ function htAddAlterQImages(id)
 
 function htToggleSidebar() {
     var sidebar = document.querySelector('.side-bar');
+    var isActive = false;
     if (sidebar) {
         sidebar.classList.toggle('active');
+        isActive = sidebar.classList.contains('active');
+    }
+    try {
+        var hamburger = document.getElementById('hamburgerMenu');
+        if (hamburger && hamburger.setAttribute) {
+            hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        }
+    } catch (e) {
+    }
+}
+
+// Step 2: keep the yellow top banner exactly as tall as the fixed
+// hamburger menu, and keep .ht-layout padded below the fixed banner so
+// page text never slides behind the title or menu. Called on
+// load/resize so zoom and font scaling stay in sync; CSS values are
+// the fallback.
+function htSyncTopBanner() {
+    try {
+        var hamburger = document.getElementById('hamburgerMenu');
+        var banner = document.getElementById('htTopBanner');
+        if (!hamburger || !banner || !banner.style) {
+            return 0;
+        }
+        var h = hamburger.offsetHeight || 0;
+        if (h > 0) {
+            banner.style.minHeight = h + 'px';
+        }
+        var layout = document.getElementById('htLayout');
+        var bannerH = banner.offsetHeight || h || 0;
+        if (layout && layout.style && bannerH > 0) {
+            layout.style.paddingTop = (bannerH + 14) + 'px';
+        }
+        return bannerH;
+    } catch (e) {
+    }
+    return 0;
+}
+
+// Step 1: 5% side gutters only on large regions. Mirror the CSS
+// (max-width: 800px), (max-height: 600px) rule in JS so resize/zoom
+// keeps body/html .ht-narrow in sync and small regions use full width.
+function htUpdateLayoutGutter() {
+    var w = 1024;
+    var h = 768;
+    try {
+        if (typeof window !== 'undefined') {
+            if (typeof window.innerWidth === 'number') {
+                w = window.innerWidth;
+            }
+            if (typeof window.innerHeight === 'number') {
+                h = window.innerHeight;
+            }
+        }
+    } catch (e) {
+    }
+    var narrow = (w < 800 || h < 600);
+    try {
+        if (typeof document !== 'undefined') {
+            if (document.body && document.body.classList) {
+                if (narrow) {
+                    document.body.classList.add('ht-narrow');
+                } else {
+                    document.body.classList.remove('ht-narrow');
+                }
+            }
+            if (document.documentElement && document.documentElement.classList) {
+                if (narrow) {
+                    document.documentElement.classList.add('ht-narrow');
+                } else {
+                    document.documentElement.classList.remove('ht-narrow');
+                }
+            }
+        }
+    } catch (e) {
+    }
+    return narrow;
+}
+
+if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('resize', function() {
+        htUpdateLayoutGutter();
+        htSyncTopBanner();
+    });
+    window.addEventListener('load', htSyncTopBanner);
+    window.addEventListener('load', htFitCalendarSelect);
+}
+
+// Step 3: keep the date-format selector plain and fitted to the selected
+// option text (the native popup still sizes its rows by their own
+// length). The width is measured with an off-screen probe select holding
+// only the selected option, so the browser accounts for its own arrow
+// and padding exactly and the name is never cut. Called on init, on
+// change and after calendar option texts update.
+function htFitCalendarSelect() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_calendar');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text || !document.createElement) {
+            return 0;
+        }
+        var body = document.body;
+        if (!body || !body.appendChild || !body.removeChild) {
+            return 0;
+        }
+        var probe = document.createElement('select');
+        if (!probe || !probe.options) {
+            return 0;
+        }
+        // Same classes as the real control (e.g. .selSize padding) so the
+        // probe needs exactly what the real one needs under any box model;
+        // inline width stays auto so it shrink-to-fits instead of taking
+        // the class width. Never copy the id or inline width (stale).
+        probe.className = sel.className || '';
+        probe.style.width = 'auto';
+        var probeOpt = document.createElement('option');
+        if (!probeOpt) {
+            return 0;
+        }
+        probeOpt.text = text;
+        try {
+            probe.add(probeOpt);
+        } catch (eAdd) {
+            probe.appendChild(probeOpt);
+        }
+        if (typeof window !== 'undefined' && typeof window.getComputedStyle === 'function') {
+            try {
+                var cs = window.getComputedStyle(sel);
+                if (cs && cs.font) {
+                    probe.style.font = cs.font;
+                }
+            } catch (eFont) {
+            }
+        }
+        probe.style.cssText += ';position:absolute;left:-9999px;top:0;visibility:hidden;';
+        body.appendChild(probe);
+        var w = probe.offsetWidth || 0;
+        body.removeChild(probe);
+        if (w > 0) {
+            w += 2;
+            sel.style.width = w + 'px';
+            return w;
+        }
+    } catch (e) {
+    }
+    return 0;
+}
+
+if (typeof document !== 'undefined' && document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', function() {
+        htUpdateLayoutGutter();
+        htSyncTopBanner();
+        htFitCalendarSelect();
+    });
+    document.addEventListener('change', function(e) {
+        if (e && e.target && e.target.id === 'site_calendar') {
+            htFitCalendarSelect();
+        }
+    });
+    try {
+        if (document.readyState && document.readyState !== 'loading') {
+            htUpdateLayoutGutter();
+            htSyncTopBanner();
+        }
+    } catch (e) {
     }
 }
 

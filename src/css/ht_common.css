@@ -3,6 +3,12 @@ html {
   font-size: 1.0em;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 audio {
   max-height: 90%;
   max-width: 90%;
@@ -91,7 +97,7 @@ audio {
 #messages {
   display: none;
   position: sticky;
-  top: 60px;
+  top: 76px;
   background-color: lightyellow;
   padding: 10px;
   width: 75%;
@@ -111,14 +117,30 @@ audio {
   width: 100%;
   float: left;
   height: 100%;
-  z-index: 10000;
+  z-index: 1;
 }
 
 .top-bar {
-  position: relative;
-  height: 50px;
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  z-index: 998;
+  min-height: calc(1.5em + 20px);
+  height: calc(1.5em + 20px);
+  width: auto;
   float: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 0;
+  padding-right: 10px;
+  padding-bottom: 0;
+  padding-left: 64px;
+  background: lightyellow;
+  /* Square opaque bar so scrolling text never shows at corners. */
+  border-radius: 0;
+  box-sizing: border-box;
 }
 
 .top-bar-left {
@@ -130,11 +152,63 @@ audio {
   z-index: 100;
 }
 
+/* Step 1: 5% side gutters on large screens. Flowing content
+   (.main) lives inside .ht-layout; the yellow banner (.top-bar) and
+   (.side-bar, .right-sources, .hamburger) are fixed. .ht-layout
+   padding-top keeps content below the fixed banner so text never
+   slides behind the title or menu. */
+.ht-layout {
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 76px;
+  box-sizing: border-box;
+}
+
+.ht-layout::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ht-layout .top-bar {
+  left: 5%;
+  right: 5%;
+  width: auto;
+  box-sizing: border-box;
+}
+
+.ht-layout .main {
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ht-layout .top-bar-left {
+  left: 0;
+  width: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Keep fixed panels inside the guttered region on large screens:
+   73% + 22% width leaves 5% on the right. */
+div.right-sources {
+  position: fixed;
+  top: 76px;
+  left: 73%;
+  height: 100%;
+  width: 22%;
+  float: left;
+  z-index: 999;
+  overflow: hidden;
+}
+
 .hamburger {
   display: block;
   position: fixed;
-  top: 12px;
-  left: 10px;
+  top: 0;
+  left: calc(5% + 10px);
   z-index: 1001;
   font-size: 1.5em;
   cursor: pointer;
@@ -143,21 +217,74 @@ audio {
   border-radius: 5px;
 }
 
+/* Current-day label docked at the extreme right of the fixed top strip.
+   Single line with ellipsis so long calendar dates never wrap under the
+   strip on narrow screens. */
+.ht-layout .top-bar #current_day {
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+/* Brand moved out of the hidden sidebar: sits right of the menu button.
+   nowrap + shrink-0 (see .menuht) keep the name whole on every screen, so
+   the 40vw ceiling only stops it from hogging wide bars; it is never the
+   limit that truncates the text. */
+.ht-layout .top-bar .menuht {
+  width: auto;
+  max-width: 40vw;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Date-format selector docked right, immediately left of the date: plain
+   (no box) and fitted to the selected text by htFitCalendarSelect; the
+   native popup still sizes its rows by their own length. */
+.ht-layout .top-bar #site_calendar {
+  margin-left: auto;
+  width: auto;
+  min-width: 0;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .top-bar-inside-left {
-  position: absolute;
-  height: 100%;
-  width: 70%;
-  float: left;
-  font-size: clamp(1em, 1.8vw, 1.5em);
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  font-size: clamp(1.2em, 2.2vw, 1.8em);
+  font-weight: bold;
+  padding-top: 12px;
+  padding-right: 24.5%;
+  padding-bottom: 12px;
   padding-left: 10px;
+  /* Right offset matches the fixed right-sources panel (73%/22%), so the
+     title centers over the readable text column, not the whole screen. */
   overflow-wrap: break-word;
   word-break: break-word;
-  margin-left: 50px;
-  z-index: 101;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.top-bar-inside-left > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+#header:empty {
+  display: none;
 }
 
 .top-bar-right {
@@ -212,17 +339,6 @@ div.right-tree {
   float: left;
   border: 3px solid black;
   z-index: 100;
-}
-
-div.right-sources {
-  position: fixed;
-  top: 30px;
-  left: 76%;
-  height: 100%;
-  width: 22%;
-  float: left;
-  z-index: 999;
-  overflow: hidden;
 }
 
 div.right-tree-top {
@@ -412,13 +528,25 @@ div.twomenu div {
   float:left;
 }
 
+/* Brand label ("History Tracers"): the one item in the top bar that must
+   never be clipped. It is therefore not shrinkable and stays on a single
+   nowrap line, so on a narrow screen it loses nothing and the calendar
+   select and the date absorb the shortfall instead of the name losing
+   characters.
+   The size is fluid (0.9em on phones up to 1.5em on large desktops) so the
+   name still fits the space the bar can spare: at 320px the hamburger and
+   the calendar select already take 164px of the 246px usable width. The em
+   bounds follow the step-dependent root size, so no per-breakpoint copy of
+   this rule is needed. */
 .menuht {
-    width: 100%;
-    font-size: 1.3em;
-    font-weight: bold;
-  overflow: hidden auto;
-    overflow-wrap: break-word;
-    word-break: break-word;
+  font-size: clamp(0.9em, 10.25px + 0.86vw, 1.5em);
+  font-weight: bold;
+  flex-shrink: 0;
+  width: auto;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .menu-slogan {
@@ -1421,12 +1549,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
         font-size: 0.75em;
     }
 
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
-    }
-
     .side-bar {
       width: 45%;
       left: -37%;
@@ -1509,12 +1631,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
         font-size: 0.75em;
     }
 
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
-    }
-
     .side-bar {
       width: 36%;
       left: -32%;
@@ -1580,12 +1696,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
 
     li.menu {
         font-size: 0.80em;
-    }
-
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
     }
 
     .side-bar {
@@ -1666,12 +1776,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
         font-size: 0.78em;
     }
 
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
-    }
-
     .side-bar {
       width: 36%;
       left: -32%;
@@ -1736,12 +1840,6 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
         font-size: 0.78em;
     }
 
-    .menuht {
-        font-size: 1.3em;
-        font-weight: bold;
-        width: 100%;
-    }
-
     .side-bar {
       width: 20%;
       left: -100%;
@@ -1793,6 +1891,7 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
 .design-dark a:link,.design-dark a:active,.design-dark a:hover,.design-dark a:visited{color:#80cbc4}
 .design-dark .side-bar{background:#263238}
 .design-dark .hamburger{background:#37474f;color:#eceff1}
+.design-dark .top-bar{background:#37474f}
 .design-dark .top-bar-inside-left{color:#eceff1}
 .design-dark #messages{background:#37474f;color:#eceff1}
 .design-dark .right-sources{background:#1e272e;color:#b0bec5}
@@ -1858,10 +1957,17 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     .side-bar { width: 55%; left: -55%; z-index: 1000; transition: left 0.3s ease; }
     .side-bar.active { left: 0; }
     .main { left: 0; width: 100%; }
-    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 30px; z-index: 999; overflow: hidden auto; }
-    .top-bar { height: auto; min-height: 50px; }
-    .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
-    .menuht { font-size: 1.3em; font-weight: bold; width: 100%; }
+    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 76px; z-index: 999; overflow: hidden auto; }
+    .top-bar { height: auto; min-height: calc(1.5em + 20px); }
+    .top-bar-inside-left { font-size: 1.2em; padding-right: 30%; }
+    /* On a narrow bar there is not always room for the brand plus the widest
+       calendar label (e.g. "Mesoamericano (Est.)"). Let the select give way:
+       it clips its own label inside the bar (the native popup still lists
+       every option) instead of spilling out of the bar or squeezing the
+       brand name into an ellipsis. Inert wherever the bar has room. */
+    .ht-layout .top-bar #site_calendar {
+        flex-shrink: 1;
+    }
     .menu-title { font-size: 0.90em; }
     li.menu { font-size: 0.82em; }
     .menu-slogan { font-size: 0.7em; }
@@ -1870,5 +1976,66 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     .ht-grid-container { grid-template-columns: auto auto; }
     .side-bar:hover { left: -55%; }
     .side-bar.active:hover { left: 0; }
+}
+
+/* Step 1 gutters: no side space when the visible region is smaller
+   than 800x600. Either dimension below the threshold removes the 5%
+   margins so small screens use the full width. */
+@media screen and (max-width: 800px), screen and (max-height: 600px) {
+    .ht-layout {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .ht-layout .top-bar {
+        left: 0;
+        right: 0;
+    }
+    .hamburger {
+        left: 10px;
+    }
+}
+
+/* Right panel keeps a 5% gap on large screens (73% + 22%). Below the
+   threshold it returns to 76%, except on phones (<768px) where the
+   drawer rule (right: 0) above must win. */
+@media screen and (min-width: 768px) and (max-width: 800px),
+       screen and (min-width: 768px) and (max-height: 600px) {
+    div.right-sources {
+        left: 76%;
+    }
+}
+
+/* JS fallback driven by htUpdateLayoutGutter(): same narrow behavior
+   when body/html carry .ht-narrow (window.innerWidth < 800 or
+   window.innerHeight < 600). Keeps gutters in sync on resize/zoom. */
+body.ht-narrow .ht-layout,
+html.ht-narrow .ht-layout {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body.ht-narrow .hamburger,
+html.ht-narrow .hamburger {
+    left: 10px;
+}
+
+body.ht-narrow .ht-layout .top-bar,
+html.ht-narrow .ht-layout .top-bar {
+    left: 0;
+    right: 0;
+}
+
+@media screen and (min-width: 768px) {
+    body.ht-narrow div.right-sources,
+    html.ht-narrow div.right-sources {
+        left: 76%;
+    }
+}
+
+/* Standalone print preview document (own window): normal screen scrolling
+   for long content; the print rule below still restores visible overflow. */
+body.ht-print-doc {
+    height: auto;
+    overflow: auto;
 }
 
