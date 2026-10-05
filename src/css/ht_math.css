@@ -802,6 +802,24 @@
   height: auto;
 }
 
+/* Mesoamerican Multiplication (648170f0), Calculation 4:
+   widen the rotate/reset arrow's clickable area so the whole region of the
+   control responds, including its empty center. The class is added at runtime
+   by that page's script so other pages reusing #traineeDown3 are unaffected. */
+.htResetHit {
+  position: relative;
+  cursor: pointer;
+}
+
+.htResetHit::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  bottom: -12px;
+  left: 0;
+}
+
 /* Narrow and portrait screens: let the columns and the Maya glyphs scale to fit */
 @media screen and (max-width: 767px), screen and (orientation: portrait) {
   .mesoNumTable {
