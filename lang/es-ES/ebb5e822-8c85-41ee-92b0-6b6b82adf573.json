@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791290410"
+      "1791314328"
    ],
    "authors": null,
    "reviewers": null,
@@ -223,8 +223,20 @@
          "id": "SECTION_pattern",
          "text": [
             {
-               "text": "### Construyendo las reglas\n\nComo cada columna de la **Tabla 1** repite las mismas marcas, no necesitamos toda la tabla: cada columna puede resumirse en una sola regla.\n\n#### Divisible entre 1\n\nTodo número es divisible entre 1, ya que la tabla del 1 contiene todos los números. Cuando dividimos cualquier cantidad entre 1, mantenemos la misma cantidad y el resto siempre es 0.\n\n#### Divisible entre 2\n\nUn número es divisible entre 2 cuando es par —es decir, cuando su división por 2 no deja resto—, como vimos en el texto *¿Impar o par?* (<htcite0>). En la práctica, basta con mirar su último dígito: 0, 2, 4, 6 u 8.",
+               "text": "### Construyendo las reglas\n\nComo cada columna de la **Tabla 1** repite las mismas marcas, no necesitamos toda la tabla: cada columna puede resumirse en una sola regla.\n\n#### Divisible entre 1\n\nTodo número es divisible entre 1, ya que la tabla del 1 contiene todos los números. Cuando dividimos cualquier cantidad entre 1, mantenemos la misma cantidad y el resto siempre es 0 (<htcite0>).\n\n#### Divisible entre 2\n\nUn número es divisible entre 2 cuando es par —es decir, cuando su división por 2 no deja resto—, como vimos en el texto *¿Impar o par?* (<htcite1>). En la práctica, basta con mirar su último dígito: 0, 2, 4, 6 u 8 (<htcite2>).",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
@@ -233,6 +245,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -245,8 +269,33 @@
                "PostMention": ""
             },
             {
-               "text": "#### Divisible entre 3\n\nUn número es divisible entre 3 cuando la suma de sus dígitos es divisible entre 3. En 12 sumamos 1 + 2 = 3, y el 3 pertenece a la tabla del 3, así que 12 es divisible entre 3; en 13 sumamos 1 + 3 = 4, que no pertenece a la tabla del 3, así que 13 no es divisible entre 3.\n\n#### Divisible entre 4\n\nUn número es divisible entre 4 cuando el número formado por sus dos últimos dígitos es divisible entre 4. En 112 los dos últimos dígitos son 12, y el 12 pertenece a la tabla del 4, así que 112 es divisible entre 4. Para un número de un solo dígito podemos imaginar un cero delante: 5 se convierte en 05, que no pertenece a la tabla del 4.\n\nComo la tabla del 4 solo produce números pares, todo número divisible entre 4 también es divisible entre 2 (y, como todo número, entre 1).",
-               "source": null,
+               "text": "#### Divisible entre 3\n\nUn número es divisible entre 3 cuando la suma de sus dígitos es divisible entre 3. En 12 sumamos 1 + 2 = 3, y el 3 pertenece a la tabla del 3, así que 12 es divisible entre 3; en 13 sumamos 1 + 3 = 4, que no pertenece a la tabla del 3, así que 13 no es divisible entre 3 (<htcite0>).\n\n#### Divisible entre 4\n\nUn número es divisible entre 4 cuando el número formado por sus dos últimos dígitos es divisible entre 4. En 112 los dos últimos dígitos son 12, y el 12 pertenece a la tabla del 4, así que 112 es divisible entre 4. Para un número de un solo dígito podemos imaginar un cero delante: 5 se convierte en 05, que no pertenece a la tabla del 4 (<htcite1>).\n\nComo la tabla del 4 solo produce números pares, todo número divisible entre 4 también es divisible entre 2 (y, como todo número, entre 1).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -263,8 +312,21 @@
                "PostMention": ""
             },
             {
-               "text": "No siempre. El 6 y el 12 son divisibles entre ambos, mientras que el 9 y el 15 solo son divisibles entre 3. Cada regla mira una parte distinta del número —el último dígito para el 2, la suma de los dígitos para el 3, los dos últimos dígitos para el 4—, de modo que las reglas pueden combinarse, pero no sustituirse unas a otras.\n\n#### Construcciones\n\nAl observar diferentes sitios arqueológicos en el continente americano (*Abya Yala*), también podemos encontrar estructuras que revelan patrones de múltiplos y restos.\n\nUn ejemplo de ello se encuentra en la ciudad de Copán, en Honduras (Figura 1).",
-               "source": null,
+               "text": "No siempre. El 6 y el 12 son divisibles entre ambos, mientras que el 9 y el 15 solo son divisibles entre 3. Cada regla mira una parte distinta del número —el último dígito para el 2, la suma de los dígitos para el 3, los dos últimos dígitos para el 4—, de modo que las reglas pueden combinarse, pero no sustituirse unas a otras (<htcite0>).\n\n#### Construcciones\n\nAl observar diferentes sitios arqueológicos en el continente americano (*Abya Yala*), también podemos encontrar estructuras que revelan patrones de múltiplos y restos.\n\nUn ejemplo de ello se encuentra en la ciudad de Copán, en Honduras (Figura 1).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
