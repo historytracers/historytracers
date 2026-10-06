@@ -3019,3 +3019,96 @@ p.desc svg {
   display: none;
   visibility: hidden;
 }
+
+/*
+ * Vertical complement transition (content cabc9843-35ef-4e4f-92fd-17eda864b55e).
+ */
+.htComplementApp {
+  margin: 1em auto;
+  max-width: 42em;
+  text-align: center;
+}
+
+.htComplementQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htComplementTable {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.htComplementOp,
+.htComplementTens,
+.htComplementUnits {
+  padding: 0 0.35em;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.htComplementTens {
+  min-width: 1.6em;
+  border: 2px solid transparent;
+  border-radius: 6px;
+}
+
+.htComplementUnits {
+  min-width: 1.6em;
+}
+
+.htComplementLine td {
+  border-top: 3px solid #333;
+  padding: 0;
+}
+
+.htComplementCarry {
+  background-color: lightyellow;
+  border-color: #333;
+}
+
+.htComplementCarryValue {
+  display: inline-block;
+  min-width: 1.6em;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.htComplementControls {
+  margin-top: 0.75em;
+}
+
+.htComplementArrow {
+  margin: 0 1em;
+  padding: 0.3em 0.8em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1.4em;
+}
+
+.htComplementArrow:hover {
+  background-color: #d3e8f8;
+}
+
+.htComplementArrow.htComplementDisabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.htComplementFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.htComplementHidden {
+  display: none;
+  visibility: hidden;
+}

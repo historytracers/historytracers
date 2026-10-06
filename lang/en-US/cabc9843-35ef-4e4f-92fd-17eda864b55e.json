@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790900219"
+      "1791323256"
    ],
    "authors": null,
    "reviewers": [
@@ -191,7 +191,7 @@
                "PostMention": ""
             },
             {
-               "text": "In **Calculation 2**, we can observe that:\n- until we reach the complement of 6, which is 4, all sums remain in the units order;\n- from the moment we reach the complement, all sums also start involving the tens order.\n\nGiven this scenario, we can reach important conclusions about how complements and limits help us verify whether our calculations might contain errors:\n- when adding a number smaller than the complement, it is not possible to obtain a result that reaches the tens order;\n- from the moment we add the complement or a larger number, the result necessarily starts involving a new order.\n\nWith these conclusions about addition in mind, let us reflect on our next step.",
+               "text": "In **Calculation 2**, we can observe that:\n- until we reach the complement of 6, which is 4, all sums remain in the units order;\n- from the moment we reach the complement, all sums also start involving the tens order.\n\nGiven this scenario, we can reach important conclusions about how complements and limits help us verify whether our calculations might contain errors:\n- when adding a number smaller than the complement, it is not possible to obtain a result that reaches the tens order;\n- from the moment we add the complement or a larger number, the result necessarily starts involving a new order.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -200,12 +200,30 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Catching a slip</b><br /><br />The complement of 8 is 2. A classmate writes 8 + 1 = 11. Using the rule of the complement, how do you know that the result is wrong without redoing the addition?</div></div></center></p>",
+               "text": "Before we continue, let us practice. Use the app below to repeat the addition of Calculation 2 one step at a time and watch the exact moment the result moves to the next order. This will help you reinforce the idea of the complement.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htComplementApp\"><span class=\"htComplementQuestion\">Use the arrows to change the number added to 6 and watch when the result advances to the next order.</span><table class=\"htComplementTable\" aria-label=\"Vertical addition of 6 plus a value from 0 to 9\"><tr class=\"htComplementCarryRow\"><td class=\"htComplementOp\"></td><td class=\"htComplementTens\"><span id=\"htComplementCarryValue\" class=\"htComplementCarryValue\"></span></td><td class=\"htComplementUnits\"></td></tr><tr><td class=\"htComplementOp\"></td><td class=\"htComplementTens\"></td><td class=\"htComplementUnits\" id=\"htComplementFirst\">6</td></tr><tr><td class=\"htComplementOp\">+</td><td class=\"htComplementTens\"></td><td class=\"htComplementUnits\" id=\"htComplementAddend\">0</td></tr><tr class=\"htComplementLine\"><td colspan=\"3\"></td></tr><tr><td class=\"htComplementOp\"></td><td class=\"htComplementTens\" id=\"htComplementTensResult\"></td><td class=\"htComplementUnits\" id=\"htComplementUnitsResult\">6</td></tr></table><div class=\"htComplementControls\"><button type=\"button\" id=\"htComplementPrev\" class=\"htComplementArrow\" aria-label=\"Previous\"><i class=\"fa-solid fa-arrow-left\"></i></button><button type=\"button\" id=\"htComplementNext\" class=\"htComplementArrow\" aria-label=\"Next\"><i class=\"fa-solid fa-arrow-right\"></i></button></div><div class=\"htComplementFeedback\" id=\"htComplementFeedback\"></div><span id=\"htComplementMsgBelow\" class=\"htComplementHidden\">You are below the complement of 10.</span><span id=\"htComplementMsgAt\" class=\"htComplementHidden\">You reached the complement of 10.</span><span id=\"htComplementMsgAbove\" class=\"htComplementHidden\">You are above the complement.</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "With these conclusions about addition in mind, let us reflect on our next step.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]

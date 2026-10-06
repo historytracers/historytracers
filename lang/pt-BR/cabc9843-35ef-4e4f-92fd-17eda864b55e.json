@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790900252"
+      "1791323290"
    ],
    "authors": null,
    "reviewers": [
@@ -191,7 +191,7 @@
                "PostMention": ""
             },
             {
-               "text": "No **Cálculo 2**, podemos observar que:\n- até atingirmos o complemento de 6, que é 4, todas as somas permanecem na ordem das unidades;\n- a partir do momento em que atingimos o complemento, todas as somas passam a envolver também a ordem das dezenas.\n\nDiante desse cenário, podemos chegar a importantes conclusões sobre como os complementos e os limites nos ajudam a verificar se nossos cálculos poderiam conter algum erro:\n- ao somarmos um número menor que o complemento, não é possível obter um resultado que alcance a ordem das dezenas;\n- a partir do momento em que somamos o complemento ou um número maior, o resultado obrigatoriamente passa a envolver uma nova ordem.\n\nCom essas conclusões sobre a soma em mente, vamos refletir sobre o nosso próximo passo.",
+               "text": "No **Cálculo 2**, podemos observar que:\n- até atingirmos o complemento de 6, que é 4, todas as somas permanecem na ordem das unidades;\n- a partir do momento em que atingimos o complemento, todas as somas passam a envolver também a ordem das dezenas.\n\nDiante desse cenário, podemos chegar a importantes conclusões sobre como os complementos e os limites nos ajudam a verificar se nossos cálculos poderiam conter algum erro:\n- ao somarmos um número menor que o complemento, não é possível obter um resultado que alcance a ordem das dezenas;\n- a partir do momento em que somamos o complemento ou um número maior, o resultado obrigatoriamente passa a envolver uma nova ordem.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -200,12 +200,30 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Pegando um deslize</b><br /><br />O complemento de 8 é 2. Um colega escreve 8 + 1 = 11. Usando a regra do complemento, como você sabe que o resultado está errado sem refazer a soma?</div></div></center></p>",
+               "text": "Antes de continuar, vamos praticar. Use o aplicativo abaixo para repetir a soma do Cálculo 2 passo a passo e observar o momento exato em que o resultado passa para a próxima ordem. Isso ajudará você a reforçar a ideia do complemento.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htComplementApp\"><span class=\"htComplementQuestion\">Use as setas para mudar o número somado a 6 e observe quando o resultado avança para a próxima ordem.</span><table class=\"htComplementTable\" aria-label=\"Soma vertical de 6 mais um valor de 0 a 9\"><tr class=\"htComplementCarryRow\"><td class=\"htComplementOp\"></td><td class=\"htComplementTens\"><span id=\"htComplementCarryValue\" class=\"htComplementCarryValue\"></span></td><td class=\"htComplementUnits\"></td></tr><tr><td class=\"htComplementOp\"></td><td class=\"htComplementTens\"></td><td class=\"htComplementUnits\" id=\"htComplementFirst\">6</td></tr><tr><td class=\"htComplementOp\">+</td><td class=\"htComplementTens\"></td><td class=\"htComplementUnits\" id=\"htComplementAddend\">0</td></tr><tr class=\"htComplementLine\"><td colspan=\"3\"></td></tr><tr><td class=\"htComplementOp\"></td><td class=\"htComplementTens\" id=\"htComplementTensResult\"></td><td class=\"htComplementUnits\" id=\"htComplementUnitsResult\">6</td></tr></table><div class=\"htComplementControls\"><button type=\"button\" id=\"htComplementPrev\" class=\"htComplementArrow\" aria-label=\"Anterior\"><i class=\"fa-solid fa-arrow-left\"></i></button><button type=\"button\" id=\"htComplementNext\" class=\"htComplementArrow\" aria-label=\"Próximo\"><i class=\"fa-solid fa-arrow-right\"></i></button></div><div class=\"htComplementFeedback\" id=\"htComplementFeedback\"></div><span id=\"htComplementMsgBelow\" class=\"htComplementHidden\">Você está abaixo do complemento de 10.</span><span id=\"htComplementMsgAt\" class=\"htComplementHidden\">Você alcançou o complemento de 10.</span><span id=\"htComplementMsgAbove\" class=\"htComplementHidden\">Você está acima do complemento.</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Com essas conclusões sobre a soma em mente, vamos refletir sobre o nosso próximo passo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
