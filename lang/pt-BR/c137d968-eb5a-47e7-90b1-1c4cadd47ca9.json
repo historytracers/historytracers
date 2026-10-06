@@ -32,10 +32,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791221159"
+      "1791327637"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -295,7 +297,7 @@
                "PostMention": ""
             },
             {
-               "text": "Quando as primeiras partículas e a luz surgiram da transformação da energia em matéria, as partículas adquiriram o que chamamos de massa. Como consequência, surgiu a dimensão adicional a que chamamos de profundidade. A luz, em compensação, não possui massa.\n\nA explicação de por que as partículas possuem massa foi proposta por Higgs em <htdate0> e confirmada nos laboratórios do CERN em <htdate1>. Segundo Higgs, as partículas adquirem massa ao interagir com algo invisível aos nossos olhos e que, ainda assim, as afeta: um campo. A luz não interage com esse campo em particular e, por isso, não possui massa (<htcite0>). Os campos presentes no universo podem ser comparados à nossa atmosfera: embora não possamos vê-la, ela está por aí e podemos medir algumas de suas propriedades, como a velocidade do vento, que nos ajuda a prever o tempo (<htcite1>; <htcite2>).",
+               "text": "Quando as primeiras partículas e a luz surgiram da transformação da energia em matéria, as partículas adquiriram o que chamamos de massa. A dimensão adicional a que chamamos de profundidade, porém, sempre esteve presente. A luz, em compensação, não possui massa.\n\nA explicação de por que as partículas possuem massa foi proposta por Higgs em <htdate0> e confirmada nos laboratórios do CERN em <htdate1>. Segundo Higgs, as partículas adquirem massa ao interagir com algo invisível aos nossos olhos e que, ainda assim, as afeta: um campo. A luz não interage com esse campo em particular e, por isso, não possui massa (<htcite0>). Os campos presentes no universo podem ser comparados à nossa atmosfera: embora não possamos vê-la, ela está por aí e podemos medir algumas de suas propriedades, como a velocidade do vento, que nos ajuda a prever o tempo (<htcite1>; <htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -437,7 +439,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgMundus\" onclick=\"htImageZoom('imgMundus', '0%')\"  class=\"imgcenter\"/><b>Livro 1</b>: Página 1 da carta de Américo Vespúcio (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgMundus\" onclick=\"htImageZoom('imgMundus', '0%')\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();htImageZoom('imgMundus', '0%');}\" role=\"button\" tabindex=\"0\" aria-label=\"Ampliar imagem: Livro 1 - Página 1 da carta de Américo Vespúcio\" class=\"imgcenter\"/><b>Livro 1</b>: Página 1 da carta de Américo Vespúcio (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,

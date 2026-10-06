@@ -292,6 +292,13 @@ div.right-sources {
   margin: 0;
   cursor: pointer;
 }
+.ht-layout .top-bar .ht-lang-wrap:focus-within,
+.ht-layout .top-bar .ht-break-wrap:focus-within,
+.ht-layout .top-bar .ht-cal-wrap:focus-within {
+  outline: 2px solid #2c5f8a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
 .top-bar-inside-left {
   position: relative;

@@ -4159,6 +4159,28 @@ function htSyncBreakButton() {
     return 0;
 }
 
+// Opens the native select that sits behind a top-bar icon button. The
+// button is the only tab stop (each select carries tabindex="-1"), so
+// keyboard activation focuses the select and, where the browser supports
+// it, opens its popup; the arrow keys then change the value as usual.
+function htOpenNativeSelect(id) {
+    try {
+        var sel = document.getElementById(id);
+        if (!sel) {
+            return false;
+        }
+        sel.focus();
+        if (typeof sel.showPicker === 'function') {
+            try {
+                sel.showPicker();
+            } catch (ePicker) {
+            }
+        }
+    } catch (e) {
+    }
+    return false;
+}
+
 if (typeof document !== 'undefined' && document.addEventListener) {
     document.addEventListener('DOMContentLoaded', function() {
         htUpdateLayoutGutter();

@@ -30,8 +30,13 @@ function htComplementUpdateCabc9843() {
     }
     $("#htComplementFeedback").html($(messageId).html());
 
-    $("#htComplementPrev").toggleClass("htComplementDisabled", addend <= 0);
-    $("#htComplementNext").toggleClass("htComplementDisabled", addend >= 9);
+    // Move the marker on the number axis to the current value: each of the
+    // ten ticks is an equal flex cell, so the centre of value v sits at
+    // (v + 0.5) / 10 of the track width, i.e. v * 10 + 5 percent.
+    $("#htComplementAxisPointer").css("left", (addend * 10 + 5) + "%");
+
+    $("#htComplementPrev").toggleClass("htComplementDisabled", addend <= 0).prop("disabled", addend <= 0);
+    $("#htComplementNext").toggleClass("htComplementDisabled", addend >= 9).prop("disabled", addend >= 9);
 }
 
 function htComplementMoveCabc9843(delta) {

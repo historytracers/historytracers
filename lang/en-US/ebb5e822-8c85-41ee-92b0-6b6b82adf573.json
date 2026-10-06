@@ -32,10 +32,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791314300"
+      "1791327598"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -312,21 +314,8 @@
                "PostMention": ""
             },
             {
-               "text": "Not always. 6 and 12 are divisible by both, while 9 and 15 are divisible by 3 only. Each rule looks at a different part of the number — the last digit for 2, the sum of the digits for 3, the last two digits for 4 — so the rules can be combined, but they do not replace one another (<htcite0>).\n\n#### Constructions\n\nWhen observing different archaeological sites across the American continent (Abya Yala), we can also find structures that reveal patterns of multiples and remainders.\n\nOne example can be found in the city of Copán, in Honduras (Figure 1).",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
-                     "text": "Potgieter, P., & Blignaut, P.",
-                     "page": "pp. 1-2",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2018",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
+               "text": "Not always. 6 and 12 are divisible by both, while 9 and 15 are divisible by 3 only. Each rule looks at a different part of the number — the last digit for 2, the sum of the digits for 3 — so the rules can be combined, but they do not replace one another.\n\n#### Constructions\n\nWhen observing different archaeological sites across the American continent (Abya Yala), we can also find structures that reveal patterns of multiples and remainders.\n\nOne example can be found in the city of Copán, in Honduras (Figure 1).",
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

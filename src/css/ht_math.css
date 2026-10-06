@@ -3112,3 +3112,49 @@ p.desc svg {
   display: none;
   visibility: hidden;
 }
+
+.htComplementAxis {
+  max-width: 34em;
+  margin: 0.9em auto 0;
+}
+
+.htComplementAxisTrack {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 1.4em;
+}
+
+.htComplementAxisTick {
+  flex: 1 1 0;
+  padding-bottom: 0.15em;
+  border-bottom: 2px solid #999;
+  font-size: 0.9em;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.htComplementAxisBelow {
+  background-color: #e6f0fa;
+}
+
+.htComplementAxisAbove {
+  background-color: #fbf6d9;
+}
+
+.htComplementAxisComplement {
+  background-color: #f9d976;
+  border-bottom-color: #c0392b;
+  font-weight: bold;
+}
+
+.htComplementAxisPointer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  transition: left 0.25s ease;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  line-height: 1;
+}

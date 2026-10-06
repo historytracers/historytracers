@@ -32,10 +32,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791221129"
+      "1791327598"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -295,7 +297,7 @@
                "PostMention": ""
             },
             {
-               "text": "When the first particles and light appeared as energy transformed into matter, the particles acquired what we call mass. As a consequence, the additional dimension we call depth came into being. Light, on the other hand, has no mass.\n\nThe explanation for why particles have mass was proposed by Higgs in <htdate0> and confirmed at CERN laboratories in <htdate1>. According to Higgs, particles acquire mass by interacting with something invisible to our eyes that nevertheless affects them: a field. Light does not interact with this particular field, so it has no mass (<htcite0>). The fields present in the universe can be compared to our atmosphere: although we cannot see it, it is all around us, and we can measure some of its properties, such as wind speed, which helps us predict the weather (<htcite1>; <htcite2>).",
+               "text": "When the first particles and light appeared as energy transformed into matter, the particles acquired what we call mass. The additional dimension we call depth, however, had always been present. Light, on the other hand, has no mass.\n\nThe explanation for why particles have mass was proposed by Higgs in <htdate0> and confirmed at CERN laboratories in <htdate1>. According to Higgs, particles acquire mass by interacting with something invisible to our eyes that nevertheless affects them: a field. Light does not interact with this particular field, so it has no mass (<htcite0>). The fields present in the universe can be compared to our atmosphere: although we cannot see it, it is all around us, and we can measure some of its properties, such as wind speed, which helps us predict the weather (<htcite1>; <htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -437,7 +439,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgMundus\" onclick=\"htImageZoom('imgMundus', '0%')\"  class=\"imgcenter\"/><b>Book 1</b>: Page 1 of the letter of Amerigo Vespucci (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgMundus\" onclick=\"htImageZoom('imgMundus', '0%')\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();htImageZoom('imgMundus', '0%');}\" role=\"button\" tabindex=\"0\" aria-label=\"Zoom image: Book 1 - Page 1 of the letter of Amerigo Vespucci\" class=\"imgcenter\"/><b>Book 1</b>: Page 1 of the letter of Amerigo Vespucci (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
