@@ -195,7 +195,7 @@ audio {
    73% + 22% width leaves 5% on the right. */
 div.right-sources {
   position: fixed;
-  top: 76px;
+  top: calc(1.5em + 20px);
   left: 73%;
   height: 100%;
   width: 22%;
@@ -333,6 +333,16 @@ div.right-sources {
   vertical-align: top;
   overflow: hidden;
   z-index: 100;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Right panel sections sit directly under the fixed top bar: no top
+   margin/padding so "Latest addition" touches the bar. */
+.right-sources-latest,
+.right-sources-main {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .top-bar-right-child {
@@ -1763,11 +1773,11 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
         display: flex;
         flex-direction: column;
     }
-    .right-sources > p:first-child {
-        order: 2;
-    }
-    .right-sources > p:last-child {
+    .right-sources > div:first-child {
         order: 1;
+    }
+    .right-sources > div:last-child {
+        order: 2;
     }
 
     html {
@@ -1986,7 +1996,7 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     .side-bar { width: 55%; left: -55%; z-index: 1000; transition: left 0.3s ease; }
     .side-bar.active { left: 0; }
     .main { left: 0; width: 100%; }
-    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 76px; z-index: 999; overflow: hidden auto; }
+    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: calc(1.5em + 20px); z-index: 999; overflow: hidden auto; }
     .top-bar { height: auto; min-height: calc(1.5em + 20px); }
     .top-bar-inside-left { font-size: 1.2em; padding-right: 30%; }
     /* On a narrow bar the icon buttons already take minimal space, so
