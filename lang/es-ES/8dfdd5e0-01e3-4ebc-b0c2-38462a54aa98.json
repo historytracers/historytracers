@@ -1,0 +1,88 @@
+{
+   "title": "¿Impar o par? (Juego)",
+   "header": "¿Impar o par? (Juego)",
+   "sources": [
+      "8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98"
+   ],
+   "scripts": [
+      "8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791243094"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEste juego practica las ideas del texto *¿Impar o par?* (<htcite0>). Antes de jugar, lee ese texto para entender cómo el resto de la división por 2 nos dice si un número es impar o par.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
+                     "text": "History Tracers Team",
+                     "page": "¿Impar o par?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Juego\n\nEn este juego aparece un número entre 0 y 20. A su lado, los círculos se organizan en pares: cada par tiene un círculo en cada lado. Cuando el número es impar, siempre sobra un círculo, por lo que un lado termina con un círculo más que el otro.\n\nObserva el número y los círculos y luego elige **Impar** o **Par**. El juego explicará el resultado. Para probar otro número, haz clic en la flecha (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htOddEvenGame\"><span class=\"htOddEvenQuestion\">¿El número es impar o par?</span><table class=\"htOddEvenTable\"><tr><th>Número</th><th>Compartir en pares</th></tr><tr><td class=\"htOddEvenNumberCell\"><span id=\"oddEvenNumber\" class=\"text_to_paint\">0</span></td><td class=\"htOddEvenPairsCell\"><table class=\"htOddEvenPairsTable\"><tr><th>Lado 1</th><th>Lado 2</th></tr><tbody id=\"oddEvenPairsBody\"></tbody></table></td></tr></table><div class=\"htOddEvenButtonsRow\"><button type=\"button\" id=\"oddEvenOddBtn\" class=\"htOddEvenButton\">Impar</button><button type=\"button\" id=\"oddEvenEvenBtn\" class=\"htOddEvenButton\">Par</button></div><div id=\"oddEvenFeedback\" class=\"htOddEvenFeedback\"></div><div class=\"htOddEvenNextContainer\"><i class=\"fa-solid fa-chevron-right htOddEvenNext\" id=\"oddEvenNext\"></i></div><span id=\"htOddEvenMsgOddCorrect\" class=\"htOddEvenHidden\">¡Correcto! <b>{n}</b> es impar. Cuando dividimos {n} entre 2, obtenemos {q} con resto 1. Sobra un círculo, por lo que un lado tiene un círculo más que el otro.</span><span id=\"htOddEvenMsgEvenCorrect\" class=\"htOddEvenHidden\">¡Correcto! <b>{n}</b> es par. Cuando dividimos {n} entre 2, obtenemos {q} con resto 0. Los círculos forman {q} pares completos, por lo que ambos lados son iguales.</span><span id=\"htOddEvenMsgOddWrong\" class=\"htOddEvenHidden\">El número es impar, porque al dividirlo entre 2 sobra uno: {n} = 2 × {q} + 1. Ese círculo extra sobra en un lado.</span><span id=\"htOddEvenMsgEvenWrong\" class=\"htOddEvenHidden\">El número es par, porque al dividirlo entre 2 no hay resto: {n} = 2 × {q}. Los círculos se pueden repartir en dos lados iguales, por lo que no sobra nada.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
