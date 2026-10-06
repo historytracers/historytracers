@@ -4028,12 +4028,14 @@ if (typeof window !== 'undefined' && window.addEventListener) {
     window.addEventListener('load', htFitCalendarSelect);
 }
 
-// Step 3: keep the date-format selector plain and fitted to the selected
-// option text (the native popup still sizes its rows by their own
-// length). The width is measured with an off-screen probe select holding
-// only the selected option, so the browser accounts for its own arrow
-// and padding exactly and the name is never cut. Called on init, on
-// change and after calendar option texts update.
+// Calendar icon button: the visible control is a calendar symbol
+// (#site_calendar_btn) overlaying the native select (#site_calendar).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current calendar selected. This
+// only mirrors the selected option text onto the button tooltip;
+// called on init, on change and after calendar option texts update.
+// Kept under the historic htFitCalendarSelect name for callers
+// (js/index.js, minified bundles).
 function htFitCalendarSelect() {
     try {
         if (typeof document === 'undefined' || !document.getElementById) {
@@ -4045,51 +4047,26 @@ function htFitCalendarSelect() {
         }
         var opt = sel.options[sel.selectedIndex];
         var text = (opt && opt.text) || '';
-        if (!text || !document.createElement) {
+        if (!text) {
             return 0;
         }
-        var body = document.body;
-        if (!body || !body.appendChild || !body.removeChild) {
-            return 0;
-        }
-        var probe = document.createElement('select');
-        if (!probe || !probe.options) {
-            return 0;
-        }
-        // Same classes as the real control (e.g. .selSize padding) so the
-        // probe needs exactly what the real one needs under any box model;
-        // inline width stays auto so it shrink-to-fits instead of taking
-        // the class width. Never copy the id or inline width (stale).
-        probe.className = sel.className || '';
-        probe.style.width = 'auto';
-        var probeOpt = document.createElement('option');
-        if (!probeOpt) {
-            return 0;
-        }
-        probeOpt.text = text;
-        try {
-            probe.add(probeOpt);
-        } catch (eAdd) {
-            probe.appendChild(probeOpt);
-        }
-        if (typeof window !== 'undefined' && typeof window.getComputedStyle === 'function') {
-            try {
-                var cs = window.getComputedStyle(sel);
-                if (cs && cs.font) {
-                    probe.style.font = cs.font;
-                }
-            } catch (eFont) {
+        var btn = document.getElementById('site_calendar_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Date format: ' + text);
+            } else {
+                btn.title = text;
             }
         }
-        probe.style.cssText += ';position:absolute;left:-9999px;top:0;visibility:hidden;';
-        body.appendChild(probe);
-        var w = probe.offsetWidth || 0;
-        body.removeChild(probe);
-        if (w > 0) {
-            w += 2;
-            sel.style.width = w + 'px';
-            return w;
+        // Drop any stale fitted width from the old text-sized select.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
         }
+        return text.length;
     } catch (e) {
     }
     return 0;

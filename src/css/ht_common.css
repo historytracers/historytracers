@@ -244,16 +244,34 @@ div.right-sources {
   text-overflow: ellipsis;
 }
 
-/* Date-format selector docked right, immediately left of the date: plain
-   (no box) and fitted to the selected text by htFitCalendarSelect; the
-   native popup still sizes its rows by their own length. */
-.ht-layout .top-bar #site_calendar {
+/* Date-format picker docked right, immediately left of the date: a
+   calendar icon button overlays the native select, so the bar only
+   spends one icon of width. The invisible select still receives the
+   click and opens the native popup with the current calendar
+   selected; its tooltip mirrors the selected option text. */
+.ht-layout .top-bar .ht-cal-wrap {
   margin-left: auto;
-  width: auto;
-  min-width: 0;
+  position: relative;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+.ht-layout .top-bar .ht-cal-btn {
   background: transparent;
   border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 1.1em;
+  line-height: 1;
+  color: inherit;
+}
+.ht-layout .top-bar .ht-cal-select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
   cursor: pointer;
 }
 
@@ -531,11 +549,10 @@ div.twomenu div {
 /* Brand label ("History Tracers"): the one item in the top bar that must
    never be clipped. It is therefore not shrinkable and stays on a single
    nowrap line, so on a narrow screen it loses nothing and the calendar
-   select and the date absorb the shortfall instead of the name losing
+   icon and the date absorb the shortfall instead of the name losing
    characters.
    The size is fluid (0.9em on phones up to 1.5em on large desktops) so the
-   name still fits the space the bar can spare: at 320px the hamburger and
-   the calendar select already take 164px of the 246px usable width. The em
+   name still fits the space the bar can spare. The em
    bounds follow the step-dependent root size, so no per-breakpoint copy of
    this rule is needed. */
 .menuht {
@@ -1960,13 +1977,10 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 76px; z-index: 999; overflow: hidden auto; }
     .top-bar { height: auto; min-height: calc(1.5em + 20px); }
     .top-bar-inside-left { font-size: 1.2em; padding-right: 30%; }
-    /* On a narrow bar there is not always room for the brand plus the widest
-       calendar label (e.g. "Mesoamericano (Est.)"). Let the select give way:
-       it clips its own label inside the bar (the native popup still lists
-       every option) instead of spilling out of the bar or squeezing the
-       brand name into an ellipsis. Inert wherever the bar has room. */
-    .ht-layout .top-bar #site_calendar {
-        flex-shrink: 1;
+    /* On a narrow bar the icon button already takes minimal space, so
+       nothing needs to give way here. Kept for symmetry. */
+    .ht-layout .top-bar .ht-cal-wrap {
+        flex-shrink: 0;
     }
     .menu-title { font-size: 0.90em; }
     li.menu { font-size: 0.82em; }
