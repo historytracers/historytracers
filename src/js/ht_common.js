@@ -4028,6 +4028,7 @@ if (typeof window !== 'undefined' && window.addEventListener) {
     window.addEventListener('load', htSyncTopBanner);
     window.addEventListener('load', htFitCalendarSelect);
     window.addEventListener('load', htSyncLanguageButton);
+    window.addEventListener('load', htSyncBreakButton);
 }
 
 // Calendar icon button: the visible control is a calendar symbol
@@ -4116,12 +4117,55 @@ function htSyncLanguageButton() {
     return 0;
 }
 
+// Break icon button: the visible control is a clock symbol
+// (#site_recreio_btn) overlaying the native select (#site_recreio).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current break length selected.
+// This only mirrors the selected option text onto the button
+// tooltip; called on init and on change.
+function htSyncBreakButton() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_recreio');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text) {
+            return 0;
+        }
+        var btn = document.getElementById('site_recreio_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Break: ' + text);
+            } else {
+                btn.title = text;
+            }
+        }
+        // Drop any stale width from the old inline select layout.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
 if (typeof document !== 'undefined' && document.addEventListener) {
     document.addEventListener('DOMContentLoaded', function() {
         htUpdateLayoutGutter();
         htSyncTopBanner();
         htFitCalendarSelect();
         htSyncLanguageButton();
+        htSyncBreakButton();
     });
     document.addEventListener('change', function(e) {
         if (e && e.target && e.target.id === 'site_calendar') {
@@ -4129,6 +4173,9 @@ if (typeof document !== 'undefined' && document.addEventListener) {
         }
         if (e && e.target && e.target.id === 'site_language') {
             htSyncLanguageButton();
+        }
+        if (e && e.target && e.target.id === 'site_recreio') {
+            htSyncBreakButton();
         }
     });
     try {

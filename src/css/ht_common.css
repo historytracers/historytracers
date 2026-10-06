@@ -244,13 +244,20 @@ div.right-sources {
   text-overflow: ellipsis;
 }
 
-/* Language and date-format pickers docked right, immediately left of
-   the date: an icon button overlays each native select, so the bar only
-   spends two icons of width. Each invisible select still receives the
-   click and opens the native popup with the current option selected;
-   its tooltip mirrors the selected option text. */
+/* Language, break and date-format pickers docked right, immediately
+   left of the date: an icon button overlays each native select, so the
+   bar only spends three icons of width. Each invisible select still
+   receives the click and opens the native popup with the current
+   option selected; its tooltip mirrors the selected option text. */
 .ht-layout .top-bar .ht-lang-wrap {
   margin-left: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+.ht-layout .top-bar .ht-break-wrap {
+  margin-left: 0;
   position: relative;
   flex-shrink: 0;
   display: inline-flex;
@@ -264,6 +271,7 @@ div.right-sources {
   align-items: center;
 }
 .ht-layout .top-bar .ht-lang-btn,
+.ht-layout .top-bar .ht-break-btn,
 .ht-layout .top-bar .ht-cal-btn {
   background: transparent;
   border: none;
@@ -274,6 +282,7 @@ div.right-sources {
   color: inherit;
 }
 .ht-layout .top-bar .ht-lang-select,
+.ht-layout .top-bar .ht-break-select,
 .ht-layout .top-bar .ht-cal-select {
   position: absolute;
   inset: 0;
@@ -1989,6 +1998,7 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     /* On a narrow bar the icon buttons already take minimal space, so
        nothing needs to give way here. Kept for symmetry. */
     .ht-layout .top-bar .ht-lang-wrap,
+    .ht-layout .top-bar .ht-break-wrap,
     .ht-layout .top-bar .ht-cal-wrap {
         flex-shrink: 0;
     }
