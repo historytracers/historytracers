@@ -23,7 +23,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791243094"
+      "1791247187"
    ],
    "authors": null,
    "reviewers": null,
@@ -62,7 +62,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "### Juego\n\nEn este juego aparece un número entre 0 y 20. A su lado, los círculos se organizan en pares: cada par tiene un círculo en cada lado. Cuando el número es impar, siempre sobra un círculo, por lo que un lado termina con un círculo más que el otro.\n\nObserva el número y los círculos y luego elige **Impar** o **Par**. El juego explicará el resultado. Para probar otro número, haz clic en la flecha (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "text": "### Juego\n\nEn este juego aparece un número entre 0 y 20. A su lado, los círculos se organizan en pares: cada par tiene un círculo en cada lado. Cuando el número es impar, siempre sobra un círculo, por lo que un lado termina con un círculo más que el otro.\n\nObserva el número y los círculos y luego elige **Impar** o **Par**. El juego explicará el resultado. Para probar otro número, haz clic en el botón **Nuevo ejercicio**.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -71,7 +71,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"htOddEvenGame\"><span class=\"htOddEvenQuestion\">¿El número es impar o par?</span><table class=\"htOddEvenTable\"><tr><th>Número</th><th>Compartir en pares</th></tr><tr><td class=\"htOddEvenNumberCell\"><span id=\"oddEvenNumber\" class=\"text_to_paint\">0</span></td><td class=\"htOddEvenPairsCell\"><table class=\"htOddEvenPairsTable\"><tr><th>Lado 1</th><th>Lado 2</th></tr><tbody id=\"oddEvenPairsBody\"></tbody></table></td></tr></table><div class=\"htOddEvenButtonsRow\"><button type=\"button\" id=\"oddEvenOddBtn\" class=\"htOddEvenButton\">Impar</button><button type=\"button\" id=\"oddEvenEvenBtn\" class=\"htOddEvenButton\">Par</button></div><div id=\"oddEvenFeedback\" class=\"htOddEvenFeedback\"></div><div class=\"htOddEvenNextContainer\"><i class=\"fa-solid fa-chevron-right htOddEvenNext\" id=\"oddEvenNext\"></i></div><span id=\"htOddEvenMsgOddCorrect\" class=\"htOddEvenHidden\">¡Correcto! <b>{n}</b> es impar. Cuando dividimos {n} entre 2, obtenemos {q} con resto 1. Sobra un círculo, por lo que un lado tiene un círculo más que el otro.</span><span id=\"htOddEvenMsgEvenCorrect\" class=\"htOddEvenHidden\">¡Correcto! <b>{n}</b> es par. Cuando dividimos {n} entre 2, obtenemos {q} con resto 0. Los círculos forman {q} pares completos, por lo que ambos lados son iguales.</span><span id=\"htOddEvenMsgOddWrong\" class=\"htOddEvenHidden\">El número es impar, porque al dividirlo entre 2 sobra uno: {n} = 2 × {q} + 1. Ese círculo extra sobra en un lado.</span><span id=\"htOddEvenMsgEvenWrong\" class=\"htOddEvenHidden\">El número es par, porque al dividirlo entre 2 no hay resto: {n} = 2 × {q}. Los círculos se pueden repartir en dos lados iguales, por lo que no sobra nada.</span></div>",
+               "text": "<div class=\"htOddEvenGame\"><span class=\"htOddEvenQuestion\">¿El número es impar o par?</span><table class=\"htOddEvenTable\"><tr><th>Número</th><th>Compartir en pares</th></tr><tr><td class=\"htOddEvenNumberCell\"><span id=\"oddEvenNumber\" class=\"text_to_paint\">0</span></td><td class=\"htOddEvenPairsCell\"><table class=\"htOddEvenPairsTable\"><tr><th>Lado 1</th><th>Lado 2</th></tr><tbody id=\"oddEvenPairsBody\"></tbody></table></td></tr></table><div class=\"htOddEvenButtonsRow\"><button type=\"button\" id=\"oddEvenOddBtn\" class=\"htOddEvenButton\">Impar</button><button type=\"button\" id=\"oddEvenEvenBtn\" class=\"htOddEvenButton\">Par</button></div><div id=\"oddEvenFeedback\" class=\"htOddEvenFeedback\"></div><div class=\"htOddEvenNewContainer\"><button type=\"button\" id=\"oddEvenNewBtn\" class=\"reset-tutor-btn hidden\">🎲 Nuevo ejercicio</button></div><span id=\"htOddEvenMsgOddCorrect\" class=\"htOddEvenHidden\">¡Correcto! <b>{n}</b> es impar. Cuando dividimos {n} entre 2, obtenemos {q} con resto 1. Sobra un círculo, por lo que un lado tiene un círculo más que el otro.</span><span id=\"htOddEvenMsgEvenCorrect\" class=\"htOddEvenHidden\">¡Correcto! <b>{n}</b> es par. Cuando dividimos {n} entre 2, obtenemos {q} con resto 0. Los círculos forman {q} pares completos, por lo que ambos lados son iguales.</span><span id=\"htOddEvenMsgOddWrong\" class=\"htOddEvenHidden\">El número es impar, porque al dividirlo entre 2 sobra uno: {n} = 2 × {q} + 1. Ese círculo extra sobra en un lado.</span><span id=\"htOddEvenMsgEvenWrong\" class=\"htOddEvenHidden\">El número es par, porque al dividirlo entre 2 no hay resto: {n} = 2 × {q}. Los círculos se pueden repartir en dos lados iguales, por lo que no sobra nada.</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,

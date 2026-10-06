@@ -55,7 +55,7 @@ function htOddEvenAnswer(choiceIsOdd) {
     htOddEvenShowFeedback(correct, htOddEvenFillText(template, number, quotient));
 
     localOddEven.answered = true;
-    $("#oddEvenNext").css("display", "inline-block").css("visibility", "visible");
+    $("#oddEvenNewBtn").removeClass("hidden");
 }
 
 function htOddEvenNewNumber() {
@@ -66,7 +66,7 @@ function htOddEvenNewNumber() {
     htOddEvenDraw(localOddEven.number);
 
     $("#oddEvenFeedback").html("").removeClass("htOddEvenCorrect htOddEvenWrong");
-    $("#oddEvenNext").css("display", "none").css("visibility", "hidden");
+    $("#oddEvenNewBtn").addClass("hidden");
 }
 
 function htLoadContent() {
@@ -82,7 +82,7 @@ function htLoadContent() {
         htOddEvenAnswer(false);
     });
 
-    $("#oddEvenNext").on("click", function() {
+    $("#oddEvenNewBtn").on("click", function() {
         htOddEvenNewNumber();
     });
 

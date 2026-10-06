@@ -23,7 +23,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791243094"
+      "1791247173"
    ],
    "authors": null,
    "reviewers": null,
@@ -62,7 +62,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "### Game\n\nIn this game, a number between 0 and 20 appears. Next to it, the circles are arranged in pairs: each pair has one circle on each side. When the number is odd, one circle is always left over, so one side ends up with one more circle than the other.\n\nLook at the number and the circles, then choose **Odd** or **Even**. The game will explain the result. To try another number, click the arrow (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "text": "### Game\n\nIn this game, a number between 0 and 20 appears. Next to it, the circles are arranged in pairs: each pair has one circle on each side. When the number is odd, one circle is always left over, so one side ends up with one more circle than the other.\n\nLook at the number and the circles, then choose **Odd** or **Even**. The game will explain the result. To try another number, click the **New exercise** button.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -71,7 +71,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"htOddEvenGame\"><span class=\"htOddEvenQuestion\">Is the number odd or even?</span><table class=\"htOddEvenTable\"><tr><th>Number</th><th>Sharing in pairs</th></tr><tr><td class=\"htOddEvenNumberCell\"><span id=\"oddEvenNumber\" class=\"text_to_paint\">0</span></td><td class=\"htOddEvenPairsCell\"><table class=\"htOddEvenPairsTable\"><tr><th>Side 1</th><th>Side 2</th></tr><tbody id=\"oddEvenPairsBody\"></tbody></table></td></tr></table><div class=\"htOddEvenButtonsRow\"><button type=\"button\" id=\"oddEvenOddBtn\" class=\"htOddEvenButton\">Odd</button><button type=\"button\" id=\"oddEvenEvenBtn\" class=\"htOddEvenButton\">Even</button></div><div id=\"oddEvenFeedback\" class=\"htOddEvenFeedback\"></div><div class=\"htOddEvenNextContainer\"><i class=\"fa-solid fa-chevron-right htOddEvenNext\" id=\"oddEvenNext\"></i></div><span id=\"htOddEvenMsgOddCorrect\" class=\"htOddEvenHidden\">Correct! <b>{n}</b> is odd. When we divide {n} by 2, we get {q} with remainder 1. One circle is left over, so one side has one more circle than the other.</span><span id=\"htOddEvenMsgEvenCorrect\" class=\"htOddEvenHidden\">Correct! <b>{n}</b> is even. When we divide {n} by 2, we get {q} with remainder 0. The circles form {q} complete pairs, so both sides are equal.</span><span id=\"htOddEvenMsgOddWrong\" class=\"htOddEvenHidden\">The number is odd, because when divided by 2 there is one remaining: {n} = 2 × {q} + 1. That extra circle is left over on one side.</span><span id=\"htOddEvenMsgEvenWrong\" class=\"htOddEvenHidden\">The number is even, because when divided by 2 there is no remainder: {n} = 2 × {q}. The circles can be shared between two equal sides, so nothing is left over.</span></div>",
+               "text": "<div class=\"htOddEvenGame\"><span class=\"htOddEvenQuestion\">Is the number odd or even?</span><table class=\"htOddEvenTable\"><tr><th>Number</th><th>Sharing in pairs</th></tr><tr><td class=\"htOddEvenNumberCell\"><span id=\"oddEvenNumber\" class=\"text_to_paint\">0</span></td><td class=\"htOddEvenPairsCell\"><table class=\"htOddEvenPairsTable\"><tr><th>Side 1</th><th>Side 2</th></tr><tbody id=\"oddEvenPairsBody\"></tbody></table></td></tr></table><div class=\"htOddEvenButtonsRow\"><button type=\"button\" id=\"oddEvenOddBtn\" class=\"htOddEvenButton\">Odd</button><button type=\"button\" id=\"oddEvenEvenBtn\" class=\"htOddEvenButton\">Even</button></div><div id=\"oddEvenFeedback\" class=\"htOddEvenFeedback\"></div><div class=\"htOddEvenNewContainer\"><button type=\"button\" id=\"oddEvenNewBtn\" class=\"reset-tutor-btn hidden\">🎲 New exercise</button></div><span id=\"htOddEvenMsgOddCorrect\" class=\"htOddEvenHidden\">Correct! <b>{n}</b> is odd. When we divide {n} by 2, we get {q} with remainder 1. One circle is left over, so one side has one more circle than the other.</span><span id=\"htOddEvenMsgEvenCorrect\" class=\"htOddEvenHidden\">Correct! <b>{n}</b> is even. When we divide {n} by 2, we get {q} with remainder 0. The circles form {q} complete pairs, so both sides are equal.</span><span id=\"htOddEvenMsgOddWrong\" class=\"htOddEvenHidden\">The number is odd, because when divided by 2 there is one remaining: {n} = 2 × {q} + 1. That extra circle is left over on one side.</span><span id=\"htOddEvenMsgEvenWrong\" class=\"htOddEvenHidden\">The number is even, because when divided by 2 there is no remainder: {n} = 2 × {q}. The circles can be shared between two equal sides, so nothing is left over.</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
