@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765767"
+      "1791290376"
    ],
    "authors": null,
    "reviewers": null,
@@ -73,7 +73,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text will expand your understanding of division (sharing) studied in the previous lessons. Therefore, we recommend reviewing all the previous texts from Chapter 6 in the *First Steps* section of **History Tracers** (<htcite0>) before continuing.",
+               "text": "### Prerequisites\n\nThis text expands your understanding of division (sharing) studied in the previous lessons. Therefore, we recommend reviewing all the previous texts from Chapter 6 in the *First Steps* section of **History Tracers** (<htcite0>) before continuing.\n\nIt also continues the text *Odd or even?* (<htcite1>), where the remainder of the division by 2 showed us which numbers are even and which are odd. Here we extend that idea to the divisions by 1, 3 and 4.",
                "source": [
                   {
                      "type": 1,
@@ -83,6 +83,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
+                     "text": "History Tracers Team",
+                     "page": "Odd or even?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -100,13 +112,25 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nWhen we study multiplication tables, we learn that they show the results of repeated addition (<htcite0>). As a result, they do not show the values between the multiplication results.\n\nLet’s recall the 4 times table:",
+               "text": "### Introduction\n\nWhen we study multiplication tables, we learn that they show the results of repeated addition (<htcite0>). As a result, they do not show the values between the multiplication results.\n\nLet’s recall the 4 times table (<htcite1>):",
                "source": [
                   {
                      "type": 1,
                      "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
                      "text": "History Tracers Team",
                      "page": "Adding the same numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (4 and 5)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -131,8 +155,21 @@
                "PostMention": ""
             },
             {
-               "text": "In this table, the numbers increase by 4 each time, and as a result, the number 5 does not appear.\n\nThis is also related to division, which we are currently studying — a fact that leads us to reflect:",
-               "source": null,
+               "text": "In this table, the numbers increase by 4 each time, and as a result, the number 5 does not appear.\n\nWhenever a number appears in a multiplication table, it can be divided by the number of that table without leaving anything extra; whenever it does not appear, the division leaves a remainder, as we saw in the text *Odd or even?* (<htcite0>).\n\nThis suggests an idea: instead of dividing every time, we can learn to recognize those cases by looking at the number itself. This leads us to reflect:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
+                     "text": "History Tracers Team",
+                     "page": "Odd or even?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -140,7 +177,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: There’s some left over...</b><br /><br />If we have 8 apples and want to share them with one other person, each person will get 4 (8/8 = 4/8 + 4/8).<br /><br />Now, what if we have 5 apples and want to share them among 4 people?<br /><br />How would you do it?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Can we see it without dividing?</b><br /><br />We know that 8 belongs to the table of 4 (8/4 = 2) and that 5 does not (5/4 = 1, with 1 left over).<br /><br />Now, how could we tell — without dividing — whether 100, 101, 102 and 103 can be divided by 1, 2, 3 and 4 without leaving anything extra?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -154,7 +191,7 @@
          "id": "SECTION_visual",
          "text": [
             {
-               "text": "### Visualizing the Remainder\n\nLet’s once again use a sheet of paper to visualize what we are studying.\n\n#### Practice",
+               "text": "### Visualizing the Four Rules\n\nLet’s use a table to visualize what we are studying.\n\n#### The Numbers from 1 to 12\n\n**Table 1** shows the numbers from 1 to 12 and, for each of them, whether it belongs to the table of 1, of 2, of 3 or of 4.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -163,7 +200,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1</b><br /><br />1. Take a sheet of paper and divide it as shown in <b>Table 1</b>, so that it has 4 rectangles.<br />2. Take 5 small objects, each smaller than the rectangles, and place one object in each rectangle. In <b>Table 1</b>, this is illustrated with a rectangle that could represent another cut-out piece of paper.</div></div></center></p>",
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th>Number</th><th>Table of 1</th><th>Table of 2</th><th>Table of 3</th><th>Table of 4</th></tr><tr><td>1</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td></tr><tr><td>3</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td style=\"background-color: lightblue;\">✓</td><td>–</td></tr><tr><td>4</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td style=\"background-color: lightblue;\">✓</td></tr><tr><td>5</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td><td>–</td></tr><tr><td>6</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td></tr><tr><td>7</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td><td>–</td></tr><tr><td>8</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td style=\"background-color: lightblue;\">✓</td></tr><tr><td>9</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td style=\"background-color: lightblue;\">✓</td><td>–</td></tr><tr><td>10</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td></tr><tr><td>11</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td><td>–</td></tr><tr><td>12</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td></tr></table></p><p class=\"desc\"><b>Table 1</b>: The numbers from 1 to 12 checked against the tables of 1, 2, 3 and 4.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -172,66 +209,12 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">Sheet divided into 4</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam></td></tr><tr><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam></td></tr> </table></p><p class=\"desc\"><b>Table 1</b>: Representation of a blank sheet divided into four parts, each containing one rectangle.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Since we have 5 objects, this means that one is left over. This remainder is shown in **Table 2**:",
+               "text": "A mark means that the number at the beginning of its row can be divided by the number of that column without leaving anything extra; a dash means that a remainder would appear.\n\nReading **Table 1** column by column, two things stand out:\n- Every row has a mark in the column of 1: there is no number outside the table of 1.\n- Every number marked in the column of 4 is also marked in the column of 2, but not the other way around: 6 and 10 are in the table of 2 and not in the table of 4.\n\nThis is exactly what the rules we are going to build say:",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\" style=\"width: 200px;\"><tr><th>Remaining rectangle</th></tr><tr><td style=\"height: 100px; width: 100px; text-aligh: center; border: none;\"><spam class=\"text_to_paint\">|</spam></td></tr> </table></p><p class=\"desc\"><b>Table 2</b>: Representation of one remaining rectangle</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "#### Beyond the Whole\n\nWhen we write this practice as a fraction, we get the following result:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>5</mn></mrow><mrow><mn>4</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Calculation 1</b>: Representation of the practice in fraction form.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "When the numerator (the top part of the fraction) is greater than the denominator (the bottom part), it means there are more objects (numerator) than parts available to distribute (denominator).\n\nAlthough this concept is slightly different from what we have studied before, it does not change the meaning of the denominator, which still represents the whole.\n\nTherefore, we should interpret that the number of rectangles we have is greater than the total that makes up one whole.\n\nOn the other hand, if there were only 4 rectangles, we would have a distribution that represents exactly the whole, as shown in **Calculation 2**:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>4</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Calculation 2</b>: Representation of the practice in fraction form showing a complete whole.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
                "PostMention": ""
             }
          ]
@@ -240,16 +223,16 @@
          "id": "SECTION_pattern",
          "text": [
             {
-               "text": "### Building Patterns\n\nWhen there is a remainder in divisions, this does not necessarily mean that there was a calculation error. Remainders are part of the constructive steps.\n\n#### Building the Multiplication Table\n\nMultiplication tables, for example, are built by choosing the numbers we want to arrange and the size of the group, which corresponds to the table.\n\nFor example, let’s arrange the numbers from 1 to 40 in the table of 4 (<htcite0>):",
+               "text": "### Building the Rules\n\nSince each column of **Table 1** repeats the same marks, we do not need the whole table: each column can be summarized in a single rule.\n\n#### Divisible by 1\n\nEvery number is divisible by 1, because the table of 1 contains all the numbers. When we divide any quantity by 1, we keep the same quantity and the remainder is always 0.\n\n#### Divisible by 2\n\nA number is divisible by 2 when it is even — that is, when its division by 2 leaves no remainder, as we saw in the text *Odd or even?* (<htcite0>). In practice, it is enough to look at its last digit: 0, 2, 4, 6 or 8.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
                      "text": "History Tracers Team",
-                     "page": "Understanding the Multiplication Table (4 and 5)",
+                     "page": "Odd or even?",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2025",
+                        "year": "2026",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -262,16 +245,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">Table of 4</th></tr><tr><td>1</td><td>2</td><td>3</td><td style=\"background-color: lightblue; text-aligh: center;\">4</td></tr> <tr><td>5</td><td>6</td><td>7</td><td style=\"background-color: lightblue; text-aligh: center;\">8</td></tr><tr><td>9</td><td>10</td><td>11</td><td style=\"background-color: lightblue; text-aligh: center;\">12</td></tr><tr><td>13</td><td>14</td><td>15</td><td style=\"background-color: lightblue; text-aligh: center;\">16</td></tr><tr><td>17</td><td>18</td><td>19</td><td style=\"background-color: lightblue; text-aligh: center;\">20</td></tr><tr><td>21</td><td>22</td><td>23</td><td style=\"background-color: lightblue; text-aligh: center;\">24</td></tr><tr><td>25</td><td>26</td><td>27</td><td style=\"background-color: lightblue; text-aligh: center;\">28</td></tr><tr><td>29</td><td>30</td><td>31</td><td style=\"background-color: lightblue; text-aligh: center;\">32</td></tr><tr><td>33</td><td>34</td><td>35</td><td style=\"background-color: lightblue; text-aligh: center;\">36</td></tr><tr><td>37</td><td>38</td><td>39</td><td style=\"background-color: lightblue; text-aligh: center;\">40</td></tr></table></p><p class=\"desc\"><b>Table 3</b>: Table of 4</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "To understand the remainders of divisions, let’s also look at the following table:",
+               "text": "#### Divisible by 3\n\nA number is divisible by 3 when the sum of its digits is divisible by 3. In 12 we add 1 + 2 = 3, and 3 belongs to the table of 3, so 12 is divisible by 3; in 13 we add 1 + 3 = 4, which does not belong to the table of 3, so 13 is not divisible by 3.\n\n#### Divisible by 4\n\nA number is divisible by 4 when the number formed by its last two digits is divisible by 4. In 112 the last two digits are 12, and 12 belongs to the table of 4, so 112 is divisible by 4. For a single-digit number we can imagine a zero in front of it: 5 becomes 05, which does not belong to the table of 4.\n\nBecause the table of 4 only produces even numbers, every number divisible by 4 is also divisible by 2 (and, like every number, by 1).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -280,7 +254,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">Table with divisions reminders by 4</th></tr><tr><td style=\"height: 100px;\"><spam class=\"text_to_paint\">1</spam></td><td style=\"height: 100px;\"><spam class=\"text_to_paint\">2</spam></td><td style=\"height: 100px;\"><spam class=\"text_to_paint\">3</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">0</spam></td></tr> </table></p><p class=\"desc\"><b>Table 4</b>: Table with division remainders.</p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Do the rules go together?</b><br /><br />We saw that every number divisible by 4 is also divisible by 2.<br /><br />Is every number divisible by 3 also divisible by 2? Try 6, 9, 12 and 15 to find out.</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -289,25 +263,7 @@
                "PostMention": ""
             },
             {
-               "text": "**Table 3** contains the table of 4, with its values highlighted in blue. Likewise, Table 4 also highlights the value 0 in blue. By comparing both tables, we can conclude:\n- Whenever a number is a multiple of 4 — that is, it appears in the table of 4 — the remainder of the division is zero.\n- As we move away from a multiple, the remainder increases until it reaches the number immediately before the divisor of the table. In the case of the table of 4, the maximum remainder is 3. When we reach the next multiple, the remainder returns to 0.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: What About the Previous Remainders?</b><br /><br />If, in the table of 4, the largest possible remainder is 3, what would be the largest possible remainder in the tables of 3 and 2?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "In any multiplication table, the largest possible remainder when dividing a number is always the number immediately before the divisor.\n\nThus:\n- In the table of 3, the largest remainder is 2.\n- In the table of 2, the largest remainder is 1.\n\n#### Constructions\n\nWhen observing different archaeological sites across the American continent (Abya Yala), we can also find structures that reveal patterns of multiples and remainders.\n\nOne example can be found in the city of Copán, in Honduras (Figure 1).",
+               "text": "Not always. 6 and 12 are divisible by both, while 9 and 15 are divisible by 3 only. Each rule looks at a different part of the number — the last digit for 2, the sum of the digits for 3, the last two digits for 4 — so the rules can be combined, but they do not replace one another.\n\n#### Constructions\n\nWhen observing different archaeological sites across the American continent (Abya Yala), we can also find structures that reveal patterns of multiples and remainders.\n\nOne example can be found in the city of Copán, in Honduras (Figure 1).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -365,7 +321,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we saw that when we divide (or share) values that are not multiples of a certain number, as a consequence, remainders appear.\n\nWe also observed that it is possible to map these remainders according to the number by which we are dividing. The remainder is always smaller than the divisor; if it is larger, that indicates that our division is incorrect.\n\nHowever, with the knowledge we have so far, although we can already visualize the remainders, we still don’t operate with them.\n\nThis leads us to a new reflection:",
+               "text": "### Conclusion\n\nIn this text, we saw that we can know whether a number is divisible without performing the division, as long as we know the rule of that divisor:\n- Every number is divisible by 1, and the remainder is always 0.\n- A number is divisible by 2 when its last digit is 0, 2, 4, 6 or 8 — the even numbers, as we saw in *Odd or even?*.\n- A number is divisible by 3 when the sum of its digits is divisible by 3.\n- A number is divisible by 4 when the number formed by its last two digits is divisible by 4.\n\nThe four rules always give the same answer that the division would, because they were built from the remainders: a number is divisible exactly when the remainder is 0. The remainder is always smaller than the divisor; if it is larger, that indicates that our division is incorrect.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -374,7 +330,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: How to find it?</b><br /><br /><b>Addition</b> accumulates.<br /><b>Multiplication</b> is a repetition of additions.<br /><b>Division</b> is the distribution of what has been accumulated.<br /><br />So, how can we find what is left over?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Which rule do we check first?</b><br /><br />A number divisible by 4 is also divisible by 2 and by 1.<br /><br />What is the smallest number that satisfies all four rules at the same time?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -383,7 +339,7 @@
                "PostMention": ""
             },
             {
-               "text": "The answer to this reflection is directly related to all the operations we have studied so far and will be presented in the next chapter.",
+               "text": "The answer is 12: it is divisible by 1, 2, 3 and 4 at the same time, because it appears in all four tables at once. Whenever we want to check several divisions together, we can apply each rule separately and combine the results.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -396,14 +352,14 @@
    ],
    "exercise_v2": [
       {
-         "question": "In a fraction, is it possible for the numerator to be greater than the denominator?",
+         "question": "Is every whole number divisible by 1?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "When we have more values to distribute than the total available, as we saw in this text, the numerator will be greater than the denominator."
+         "additionalInfo": "The table of 1 contains every number, so dividing by 1 never leaves a remainder: the quantity stays exactly as it is."
       },
       {
-         "question": "Is there a remainder in division by 1?",
+         "question": "Is every number divisible by 2 also divisible by 4?",
          "yesNoAnswer": "No",
-         "additionalInfo": "When we divide (or share) any quantity by 1, we maintain the same quantity concentrated.<br />Therefore, there will never be a remainder when we divide by 1."
+         "additionalInfo": "6 and 10 are even, so they are divisible by 2, but they do not appear in the table of 4: when divided by 4 they leave a remainder. The rule for 4 is more demanding than the rule for 2."
       }
    ],
    "game_v2": null,
