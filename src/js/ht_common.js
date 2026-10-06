@@ -3315,6 +3315,7 @@ function htFillWebPage(page, data)
 
     if (data?.languages) {
         htUpdateIndexSelector(data.languages, "#site_language");
+        htSyncLanguageButton();
         $("#loading_msg").hide();
         $(":focus").blur();
         return;
@@ -4026,6 +4027,7 @@ if (typeof window !== 'undefined' && window.addEventListener) {
     });
     window.addEventListener('load', htSyncTopBanner);
     window.addEventListener('load', htFitCalendarSelect);
+    window.addEventListener('load', htSyncLanguageButton);
 }
 
 // Calendar icon button: the visible control is a calendar symbol
@@ -4072,15 +4074,61 @@ function htFitCalendarSelect() {
     return 0;
 }
 
+// Language icon button: the visible control is a language symbol
+// (#site_language_btn) overlaying the native select (#site_language).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current language selected. This
+// only mirrors the selected option text onto the button tooltip;
+// called on init, on change and after language option texts update.
+function htSyncLanguageButton() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_language');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text) {
+            return 0;
+        }
+        var btn = document.getElementById('site_language_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Language: ' + text);
+            } else {
+                btn.title = text;
+            }
+        }
+        // Drop any stale width from the old inline listbox layout.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
 if (typeof document !== 'undefined' && document.addEventListener) {
     document.addEventListener('DOMContentLoaded', function() {
         htUpdateLayoutGutter();
         htSyncTopBanner();
         htFitCalendarSelect();
+        htSyncLanguageButton();
     });
     document.addEventListener('change', function(e) {
         if (e && e.target && e.target.id === 'site_calendar') {
             htFitCalendarSelect();
+        }
+        if (e && e.target && e.target.id === 'site_language') {
+            htSyncLanguageButton();
         }
     });
     try {
