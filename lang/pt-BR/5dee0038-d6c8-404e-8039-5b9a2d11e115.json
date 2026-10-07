@@ -1,0 +1,468 @@
+{
+   "title": "Ímpar ou par?",
+   "header": "Ímpar ou par?",
+   "sources": [
+      "5dee0038-d6c8-404e-8039-5b9a2d11e115"
+   ],
+   "scripts": [
+      "5dee0038-d6c8-404e-8039-5b9a2d11e115"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/5dee0038-d6c8-404e-8039-5b9a2d11e115_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/7m1NlEs0kqKQs90VnJlBKx?si=pj0PlRh_SKOYwYCnMQDazw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "physics",
+      "chemistry",
+      "biology",
+      "literature",
+      "history"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791328425"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "05",
+                        "day": "11"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste texto dá continuidade ao estudo da divisão por 2, iniciado no texto *Dois lados* (<htcite0>). Por isso, antes de prosseguir, recomenda-se lê-lo e revisar seus pré-requisitos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "112e532d-e8af-40d6-b1b5-527978ee42f3",
+                     "text": "History Tracers Team",
+                     "page": "Dois lados",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAo estudarmos as tabuadas, aprendemos que elas nos mostram os resultados de somas repetidas (<htcite0>). Como consequência, elas não apresentam os valores entre os resultados da multiplicação.\n\nRelembremos a tabuada de 2, que vimos no texto anterior (<htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Somando o mesmo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a Tabuada (2 e 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nesta tabuada, os números variam de 2 em 2 e, como consequência, os números ímpares —1, 3, 5, 7, etc.— não aparecem nela.\n\nIsso também está relacionado à divisão, que estamos estudando — um fato que nos leva a uma reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Está sobrando...</b><br /><br />Se tivermos 8 maçãs e desejarmos compartilhá-las com outra pessoa, cada uma receberá 4 (8/2 = 4).<br /><br />Agora, e se tivermos 5 maçãs e quisermos compartilhá-las com outra pessoa?<br />Como você faria?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_visual",
+         "text": [
+            {
+               "text": "### Visualizando os números pares e ímpares\n\nVamos usar novamente uma folha de papel para visualizar o que estamos estudando.\n\n#### Prática",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1</b><br /><br />1. Pegue uma folha de papel e risque-a como na <b>Tabela 1</b>, de modo que ela fique dividida em 2 retângulos.<br />2. Pegue 5 objetos menores do que esses retângulos e coloque um objeto por vez em cada retângulo, de modo que ambos sempre tenham a mesma quantidade de objetos. Na <b>Tabela 1</b>, os retângulos poderiam ser outros pedaços de papel cortados.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">Folha dividida em 2</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td></tr> </table></p><p class=\"desc\"><b>Tabela 1</b>: Representação de uma folha em branco dividida em duas partes, contendo dois retângulos em cada uma.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como temos 5 objetos, isso significa que sobrou um. Essa sobra está representada na **Tabela 2**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\" style=\"width: 200px;\"><tr><th>Retângulo que restou</th></tr><tr><td style=\"height: 100px; width: 100px; text-aligh: center; border: none;\"><spam class=\"text_to_paint\">|</spam></td></tr> </table></p><p class=\"desc\"><b>Tabela 2</b>: Representação de um retângulo restante.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Além do todo\n\nQuando escrevemos essa prática em forma de fração, temos o seguinte resultado:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>5</mn></mrow><mrow><mn>2</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Cálculo 1</b>: Representação da prática em forma de fração.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Quando o numerador (a parte superior da fração) é maior que o denominador (a parte inferior), isso indica que há mais objetos (numerador) do que partes disponíveis para distribuir (denominador).\n\nEmbora esse conceito seja um pouco diferente do que vínhamos estudando, ele não altera o significado do denominador, que continua representando o todo.\n\nLogo, devemos interpretar que a quantidade de objetos que possuímos é maior que a quantidade de partes que formam um todo.\n\nPor outro lado, se houvesse apenas 2 objetos —um para cada retângulo—, teríamos uma distribuição que representa exatamente o todo, como mostrado no **Cálculo 2**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Cálculo 2</b>: Representação da prática em forma de fração completa.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_pattern",
+         "text": [
+            {
+               "text": "### Construindo padrões\n\nQuando há resto nas divisões, isso não significa necessariamente que houve um erro de cálculo. Os restos fazem parte das etapas construtivas.\n\n#### Construção da tabuada\n\nAs tabuadas, por exemplo, são construídas a partir da escolha dos números que desejamos ordenar e do tamanho do grupo, que corresponde à tabuada.\n\nPor exemplo, vamos ordenar os números de 1 a 20 na tabela 3 (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a Tabuada (2 e 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">Tabuada de 2</th></tr><tr><td>1</td><td style=\"background-color: lightblue; text-aligh: center;\">2</td><td>3</td><td style=\"background-color: lightblue; text-aligh: center;\">4</td></tr> <tr><td>5</td><td style=\"background-color: lightblue; text-aligh: center;\">6</td><td>7</td><td style=\"background-color: lightblue; text-aligh: center;\">8</td></tr><tr><td>9</td><td style=\"background-color: lightblue; text-aligh: center;\">10</td><td>11</td><td style=\"background-color: lightblue; text-aligh: center;\">12</td></tr><tr><td>13</td><td style=\"background-color: lightblue; text-aligh: center;\">14</td><td>15</td><td style=\"background-color: lightblue; text-aligh: center;\">16</td></tr><tr><td>17</td><td style=\"background-color: lightblue; text-aligh: center;\">18</td><td>19</td><td style=\"background-color: lightblue; text-aligh: center;\">20</td></tr></table></p><p class=\"desc\"><b>Tabela 3</b>: Tabuada de 2.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para entendermos os restos das divisões, vamos também observar a tabela a seguir:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">Restos de divisão por 2</th></tr><tr><td style=\"height: 100px;\"><spam class=\"text_to_paint\">1</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">0</spam></td><td style=\"height: 100px;\"><spam class=\"text_to_paint\">1</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">0</spam></td></tr> </table></p><p class=\"desc\"><b>Tabela 4</b>: Tabela com os restos da divisão.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A **Tabela 3** contém a tabuada de 2, com seus valores destacados em azul. Da mesma forma, a **Tabela 4** também destaca em azul o valor 0. Ao comparar as tabelas, podemos concluir:\n- Sempre que um número é múltiplo de 2 — ou seja, está na tabuada de 2 — o resto da divisão é zero (<htcite0>).\n- À medida que nos afastamos de um múltiplo, o resto aumenta até atingir o número imediatamente anterior ao divisor da tabuada. No caso da tabuada de 2, o resto máximo é 1. Quando atingimos o próximo múltiplo, o resto volta a ser 0.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Pares e ímpares\n\nComo o resto da divisão por 2 só pode ser 0 ou 1, todo número se encaixa em um de dois grupos:\n\n- **Números pares**: aqueles cuja divisão por 2 não deixa resto —2, 4, 6, 8, 10...—. Podem ser compartilhados entre dois lados iguais sem que sobre nada (<htcite0>).\n- **Números ímpares**: aqueles cuja divisão por 2 deixa um resto de 1 —1, 3, 5, 7, 9...—. Quando são compartilhados entre dois lados iguais, sempre sobra um objeto, assim como o retângulo da **Tabela 2** (<htcite1>).\n\nPor essa razão, quando sabemos que um número é par, sabemos que ele se divide em dois lados iguais; quando é ímpar, sabemos que sempre sobrará algo.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "130b6adb-161d-4fec-98e4-eaa384122753",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Número par",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e2f5ad28-16f1-4167-8326-ac0a93f74330",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Número ímpar",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: E o próximo?</b><br /><br />Se a um número par sempre segue um número ímpar, e a um número ímpar sempre segue um número par, o que acontece quando somamos 1 a qualquer número?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Sempre que somamos 1 a um número par, o resto da sua divisão por 2 muda de 0 para 1, e o resultado é ímpar. Sempre que subtraímos 1 de um número ímpar, o resto volta a 0, e o resultado é par. Por isso, os números pares e ímpares sempre se alternam: 1, 2, 3, 4, 5, 6...",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Dedos e lados\n\nPodemos ver essa alternância até mesmo no nosso próprio corpo. Como vimos no texto anterior (<htcite0>), temos 10 dedos, com 5 em cada mão. Dez é par: divide-se em dois lados iguais de 5. Cinco, porém, é ímpar: os dedos de uma mão não podem ser divididos em dois grupos iguais, pois 2 + 2 + 1 deixa um dedo de lado.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "112e532d-e8af-40d6-b1b5-527978ee42f3",
+                     "text": "History Tracers Team",
+                     "page": "Dois lados",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\"  class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\"  class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\"><b>Figura 1</b>: Representação das mãos. © History Tracers. <span id=\"htImgCopyright\"></span></td></tr></table></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Na figura, observam-se as duas mãos de uma pessoa estendidas, com todos os dedos esticados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Isso mostra que, mesmo quando dois lados parecem perfeitamente iguais, há quantidades que não cabem neles sem deixar algo de fora.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, vimos que dividir um número por 2 sempre deixa um de dois resultados: um resto de 0 ou um resto de 1. Os números com resto 0 são pares, e os números com resto 1 são ímpares.\n\nTambém observamos que esses restos seguem um padrão: alternam entre 0 e 1, assim como os números pares e ímpares se alternam na reta numérica. O resto é sempre menor que o divisor; se for maior, isso indica que nossa divisão está incorreta.\n\nEntretanto, com o conhecimento que temos até agora, embora já consigamos identificar as sobras, ainda não operamos com elas.\n\nIsso nos leva a uma nova reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Como encontrar?</b><br /><br /><b>Compartilhar</b> distribui objetos entre dois lados iguais.<br /><b>A sobra</b> é o que não cabe em nenhum dos lados.<br /><b>Os pares e os ímpares</b> dependem apenas dessa sobra.<br /><br />Então, precisamos sempre compartilhar uma quantidade completa para saber se um número é par ou ímpar?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por enquanto, o resto da divisão por 2 basta para agrupar cada número que conhecemos em dois grupos: pares e ímpares. Nos textos seguintes, veremos o que acontece quando dividir em apenas dois lados deixa de ser suficiente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "0 é um número par?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "0 aparece na tabuada de 2 (0 = 2 × 0), portanto o resto de 0 dividido por 2 é zero. Logo, 0 é par."
+      },
+      {
+         "question": "Existe um resto quando um número par é dividido por 2?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Os números pares são exatamente aqueles cuja divisão por 2 dá um resto de zero: a distribuição entre dois lados iguais está completa, sem que sobre nada."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

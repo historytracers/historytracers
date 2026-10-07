@@ -10,10 +10,7 @@ function htLoadExercise() {
     }
 
     htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
-    htSetImageSrc("Copan", "images/Copan/JuegoDePelotaCopan.jpg");
     htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png");
-    htSetImageSrc("imgESA2", "images/ESA/Planck_history_of_Universe.jpg");
-    htSetImageSrc("imgMWPWEEC", "images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png");
     return false;
 }
 
@@ -28,7 +25,8 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("imgMundus", "images/Archive/mundusnovuslette00vesp_0011.jpg");
+
+    htWriteMultiplicationTable("#mParent2", 2);
 
     return false;
 }

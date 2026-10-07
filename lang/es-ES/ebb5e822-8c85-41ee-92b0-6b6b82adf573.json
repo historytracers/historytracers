@@ -32,10 +32,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1791337228"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -73,7 +75,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEste texto ampliará la comprensión sobre la división (compartir) estudiada en los textos anteriores. Por ello, recomendamos que se estudien todos los textos previos del Capítulo 6 de la sección *Primeros Pasos* de **History Tracers** (<htcite0>) antes de continuar.",
+               "text": "### Prerrequisitos\n\nEste texto ampliará la comprensión sobre la división (compartir) estudiada en los textos anteriores. Por ello, recomendamos que se estudien todos los textos previos del Capítulo 6 de la sección *Primeros Pasos* de **History Tracers** (<htcite0>) antes de continuar.\n\nTambién continúa el texto *¿Impar o par?* (<htcite1>), donde el resto de la división por 2 nos mostró qué números son pares y cuáles impares. Aquí extendemos esa idea a las divisiones por 1, 3 y 4.",
                "source": [
                   {
                      "type": 1,
@@ -83,6 +85,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
+                     "text": "History Tracers Team",
+                     "page": "¿Impar o par?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -100,13 +114,25 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nAl estudiar las tablas de multiplicar, aprendemos que nos muestran los resultados de sumas repetidas (<htcite0>). Como consecuencia, no presentan los valores entre los resultados de la multiplicación.\n\nRecordemos la tabla del 4:",
+               "text": "### Introducción\n\nAl estudiar las tablas de multiplicar, aprendemos que nos muestran los resultados de sumas repetidas (<htcite0>). Como consecuencia, no presentan los valores entre los resultados de la multiplicación.\n\nRecordemos la tabla del 4 (<htcite1>):",
                "source": [
                   {
                      "type": 1,
                      "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
                      "text": "History Tracers Team",
                      "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la tabla de multiplicar (4 y 5)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -131,8 +157,21 @@
                "PostMention": ""
             },
             {
-               "text": "En esta tabla, los números cambian de 4 en 4 y, como consecuencia, el número 5 no aparece en ella.\n\nEsto también está relacionado con la división, tema que estamos estudiando, lo cual nos lleva a una reflexión:",
-               "source": null,
+               "text": "En esta tabla, los números cambian de 4 en 4 y, como consecuencia, el número 5 no aparece en ella.\n\nSiempre que un número aparece en una tabla de multiplicar, puede dividirse entre el número de esa tabla sin dejar sobrante; cuando no aparece, la división deja un resto, como vimos en el texto *¿Impar o par?* (<htcite0>).\n\nEsto nos sugiere una idea: en lugar de dividir cada vez, podemos aprender a reconocer esos casos mirando el propio número. Esto nos lleva a una reflexión:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
+                     "text": "History Tracers Team",
+                     "page": "¿Impar o par?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -140,7 +179,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Está sobrando...</b><br /><br />Si tenemos 8 manzanas y queremos compartirlas con otra persona, cada una recibirá 4 (8/8 = 4/8 + 4/8).<br /><br />Ahora bien, si tenemos 5 manzanas y queremos compartirlas entre 4 personas, ¿cómo lo harías?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Podemos verlo sin dividir?</b><br /><br />Sabemos que el 8 pertenece a la tabla del 4 (8/4 = 2) y que el 5 no (5/4 = 1, con 1 sobrando).<br /><br />Ahora bien, ¿cómo podríamos saber —sin dividir— si 100, 101, 102 y 103 pueden dividirse entre 1, 2, 3 y 4 sin dejar sobrante?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -154,7 +193,7 @@
          "id": "SECTION_visual",
          "text": [
             {
-               "text": "### Visualizando el sobrante\n\nVamos a usar nuevamente una hoja de papel para visualizar lo que estamos estudiando.\n\n#### Práctica",
+               "text": "### Visualizando las cuatro reglas\n\nUsemos una tabla para visualizar lo que estamos estudiando.\n\n#### Los números del 1 al 12\n\nLa **Tabla 1** muestra los números del 1 al 12 e indica, para cada uno, si pertenece a la tabla del 1, del 2, del 3 o del 4.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -163,7 +202,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1</b><br /><br />1. Toma una hoja de papel y divídela como en la <b>Tabla 1</b>, de modo que quede separada en 4 rectángulos.<br />2. Toma 5 objetos más pequeños que esos rectángulos y coloca un objeto en cada rectángulo. En la <b>Tabla 1</b>, esto se ejemplifica con un rectángulo que podría ser otro pedazo de papel recortado.</div></div></center></p>",
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th>Número</th><th>Tabla del 1</th><th>Tabla del 2</th><th>Tabla del 3</th><th>Tabla del 4</th></tr><tr><td>1</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td><td>–</td></tr><tr><td>2</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td></tr><tr><td>3</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td style=\"background-color: lightblue;\">✓</td><td>–</td></tr><tr><td>4</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td style=\"background-color: lightblue;\">✓</td></tr><tr><td>5</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td><td>–</td></tr><tr><td>6</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td></tr><tr><td>7</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td><td>–</td></tr><tr><td>8</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td style=\"background-color: lightblue;\">✓</td></tr><tr><td>9</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td style=\"background-color: lightblue;\">✓</td><td>–</td></tr><tr><td>10</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td></tr><tr><td>11</td><td style=\"background-color: lightblue;\">✓</td><td>–</td><td>–</td><td>–</td></tr><tr><td>12</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td><td style=\"background-color: lightblue;\">✓</td></tr></table></p><p class=\"desc\"><b>Tabla 1</b>: Comprobación de los números del 1 al 12 frente a las tablas del 1, 2, 3 y 4.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -172,66 +211,12 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">Hoja dividida en 4</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam></td></tr><tr><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">|</spam></td></tr> </table></p><p class=\"desc\"><b>Tabla 1</b>: Representación de una hoja en blanco dividida en cuatro partes, con un rectángulo en cada una.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Como tenemos 5 objetos, esto significa que sobra uno. Ese sobrante se muestra en la **Tabla 2**:",
+               "text": "Una marca indica que el número del comienzo de su fila puede dividirse entre el número de esa columna sin dejar sobrante; un guion indica que aparecería un resto.\n\nAl leer la **Tabla 1** columna por columna, destacan dos cosas:\n- Todas las filas tienen una marca en la columna del 1: no hay ningún número fuera de la tabla del 1.\n- Todos los números marcados en la columna del 4 también están marcados en la columna del 2, pero no al revés: el 6 y el 10 están en la tabla del 2 y no en la tabla del 4.\n\nEsto es exactamente lo que dicen las reglas que vamos a construir:",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\" style=\"width: 200px;\"><tr><th>Rectángulo que sobró</th></tr><tr><td style=\"height: 100px; width: 100px; text-aligh: center; border: none;\"><spam class=\"text_to_paint\">|</spam></td></tr> </table></p><p class=\"desc\"><b>Tabla 2</b>: Representación de un rectángulo sobrante.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "#### Más allá del todo\n\nCuando escribimos esta práctica en forma de fracción, obtenemos el siguiente resultado:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>5</mn></mrow><mrow><mn>4</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Cálculo 1</b>: Representación de la práctica en forma de fracción.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Cuando el numerador (la parte superior de la fracción) es mayor que el denominador (la parte inferior), esto indica que hay más objetos (numerador) que partes disponibles para repartir (denominador).\n\nAunque este concepto es un poco diferente de lo que habíamos estado estudiando, no cambia el significado del denominador, que sigue representando el todo.\n\nPor lo tanto, debemos interpretar que la cantidad de rectángulos que tenemos es mayor que el total que forma un todo.\n\nPor otro lado, si tuviéramos solo 4 rectángulos, tendríamos una distribución que representa exactamente el todo, como se muestra en el **Cálculo 2**:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>4</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Cálculo 2</b>: Representación de la práctica en forma de fracción completa.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
                "PostMention": ""
             }
          ]
@@ -240,16 +225,16 @@
          "id": "SECTION_pattern",
          "text": [
             {
-               "text": "### Construyendo patrones\n\nCuando hay resto en las divisiones, esto no significa necesariamente que haya habido un error de cálculo. Los restos forman parte de las etapas constructivas.\n\n#### Construcción de la tabla de multiplicar\n\nLas tablas de multiplicar, por ejemplo, se construyen eligiendo los números que deseamos ordenar y el tamaño del grupo, que corresponde a la tabla.\n\nPor ejemplo, ordenemos los números del 1 al 40 en la tabla del 4 (<htcite0>):",
+               "text": "### Construyendo las reglas\n\nComo cada columna de la **Tabla 1** repite las mismas marcas, no necesitamos toda la tabla: cada columna puede resumirse en una sola regla.\n\n#### Divisible entre 1\n\nTodo número es divisible entre 1, ya que la tabla del 1 contiene todos los números. Cuando dividimos cualquier cantidad entre 1, mantenemos la misma cantidad y el resto siempre es 0 (<htcite0>).",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
-                     "text": "History Tracers Team",
-                     "page": "Entendiendo la tabla de multiplicar (4 y 5)",
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2025",
+                        "year": "2018",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -262,7 +247,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">Tabla del 4</th></tr><tr><td>1</td><td>2</td><td>3</td><td style=\"background-color: lightblue; text-aligh: center;\">4</td></tr> <tr><td>5</td><td>6</td><td>7</td><td style=\"background-color: lightblue; text-aligh: center;\">8</td></tr><tr><td>9</td><td>10</td><td>11</td><td style=\"background-color: lightblue; text-aligh: center;\">12</td></tr><tr><td>13</td><td>14</td><td>15</td><td style=\"background-color: lightblue; text-aligh: center;\">16</td></tr><tr><td>17</td><td>18</td><td>19</td><td style=\"background-color: lightblue; text-aligh: center;\">20</td></tr><tr><td>21</td><td>22</td><td>23</td><td style=\"background-color: lightblue; text-aligh: center;\">24</td></tr><tr><td>25</td><td>26</td><td>27</td><td style=\"background-color: lightblue; text-aligh: center;\">28</td></tr><tr><td>29</td><td>30</td><td>31</td><td style=\"background-color: lightblue; text-aligh: center;\">32</td></tr><tr><td>33</td><td>34</td><td>35</td><td style=\"background-color: lightblue; text-aligh: center;\">36</td></tr><tr><td>37</td><td>38</td><td>39</td><td style=\"background-color: lightblue; text-aligh: center;\">40</td></tr></table></p><p class=\"desc\"><b>Tabla 3</b>: Tabla del 4.</p>",
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th>5 repartido entre 1</th><th>Resto</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">0</spam></td></tr></table></p><p class=\"desc\"><b>Tabla 2</b>: 5 objetos repartidos en 1 grupo conservan los 5 objetos; no sobra nada, por lo que el resto siempre es 0. La columna amarilla muestra el resto.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -271,8 +256,33 @@
                "PostMention": ""
             },
             {
-               "text": "Para comprender las sobras (restos) de las divisiones, observemos también la siguiente tabla:",
-               "source": null,
+               "text": "#### Divisible entre 2\n\nUn número es divisible entre 2 cuando es par —es decir, cuando su división por 2 no deja resto—, como vimos en el texto *¿Impar o par?* (<htcite0>). En la práctica, basta con mirar su último dígito: 0, 2, 4, 6 u 8 (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
+                     "text": "History Tracers Team",
+                     "page": "¿Impar o par?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -280,7 +290,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">Restos de la división por 4</th></tr><tr><td style=\"height: 100px;\"><spam class=\"text_to_paint\">1</spam></td><td style=\"height: 100px;\"><spam class=\"text_to_paint\">2</spam></td><td style=\"height: 100px;\"><spam class=\"text_to_paint\">3</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">0</spam></td></tr> </table></p><p class=\"desc\"><b>Tabla 4</b>: Tabla con los restos de la división.</p>",
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">12 repartido entre 2</th><th>Resto</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">0</spam></td></tr><tr><th colspan=\"2\">13 repartido entre 2</th><th>Resto</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td></tr></table></p><p class=\"desc\"><b>Tabla 3</b>: 12 (último dígito 2) se reparte en dos grupos iguales de 6 sin que sobre nada, por lo que es divisible entre 2; 13 (último dígito 3) deja 1 sobrante, por lo que no lo es. La columna amarilla muestra el resto.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -289,8 +299,21 @@
                "PostMention": ""
             },
             {
-               "text": "La **Tabla 3** contiene la tabla del 4, con sus valores destacados en azul. Del mismo modo, la **Tabla 4** también destaca en azul el valor 0. Al comparar ambas tablas, podemos concluir:\n- Siempre que un número es múltiplo de 4 —es decir, está en la tabla del 4—, el resto de la división es cero.\n- A medida que nos alejamos de un múltiplo, el resto va aumentando hasta alcanzar el número inmediatamente anterior al divisor de la tabla. En el caso de la tabla del 4, el resto máximo es 3. Cuando llegamos al siguiente múltiplo, el resto vuelve a ser 0.",
-               "source": null,
+               "text": "#### Divisible entre 3\n\nUn número es divisible entre 3 cuando la suma de sus dígitos es divisible entre 3. En 12 sumamos 1 + 2 = 3, y el 3 pertenece a la tabla del 3, así que 12 es divisible entre 3; en 13 sumamos 1 + 3 = 4, que no pertenece a la tabla del 3, así que 13 no es divisible entre 3 (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -298,7 +321,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Y los restos anteriores?</b><br /><br />Si en la tabla del 4 el mayor resto posible es 3, ¿cuál será el mayor resto posible en las tablas del 3 y del 2?</div></div></center></p>",
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"3\">12 repartido entre 3</th><th>Resto</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">0</spam></td></tr><tr><th colspan=\"3\">13 repartido entre 3</th><th>Resto</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td></tr></table></p><p class=\"desc\"><b>Tabla 4</b>: 12 se reparte en tres grupos iguales de 4 (1 + 2 = 3, que pertenece a la tabla del 3), por lo que es divisible entre 3; 13 deja 1 sobrante (1 + 3 = 4, que no pertenece a la tabla del 3), por lo que no lo es. La columna amarilla muestra el resto.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -307,7 +330,47 @@
                "PostMention": ""
             },
             {
-               "text": "En cualquier tabla de multiplicar, el mayor resto posible al dividir un número es siempre el número inmediatamente anterior al divisor.\n\nAsí:\n- En la tabla del 3, el mayor resto es 2.\n- En la tabla del 2, el mayor resto es 1.\n\n#### Construcciones\n\nAl observar diferentes sitios arqueológicos en el continente americano (*Abya Yala*), también podemos encontrar estructuras que revelan patrones de múltiplos y restos.\n\nUn ejemplo de ello se encuentra en la ciudad de Copán, en Honduras (Figura 1).",
+               "text": "#### Divisible entre 4\n\nUn número es divisible entre 4 cuando el número formado por sus dos últimos dígitos es divisible entre 4. En 112 los dos últimos dígitos son 12, y el 12 pertenece a la tabla del 4, así que 112 es divisible entre 4. Para un número de un solo dígito podemos imaginar un cero delante: 5 se convierte en 05, que no pertenece a la tabla del 4 (<htcite0>).\n\nComo la tabla del 4 solo produce números pares, todo número divisible entre 4 también es divisible entre 2 (y, como todo número, entre 1).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">12 repartido entre 4</th><th>Resto</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">0</spam></td></tr><tr><th colspan=\"4\">05 repartido entre 4</th><th>Resto</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td></tr></table></p><p class=\"desc\"><b>Tabla 5</b>: 12 se reparte en cuatro grupos iguales de 3, por lo que 112 (dos últimos dígitos 12) es divisible entre 4; 05 se reparte en cuatro grupos de 1 con 1 sobrante, por lo que 5 no lo es. La columna amarilla muestra el resto.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Las reglas van juntas?</b><br /><br />Vimos que todo número divisible entre 4 también es divisible entre 2.<br /><br />¿Es todo número divisible entre 3 también divisible entre 2? Prueba con 6, 9, 12 y 15 para averiguarlo.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No siempre. El 6 y el 12 son divisibles entre ambos, mientras que el 9 y el 15 solo son divisibles entre 3. Cada regla mira una parte distinta del número —el último dígito para el 2, la suma de los dígitos para el 3—, de modo que las reglas pueden combinarse, pero no sustituirse unas a otras.\n\n#### Construcciones\n\nAl observar diferentes sitios arqueológicos en el continente americano (*Abya Yala*), también podemos encontrar estructuras que revelan patrones de múltiplos y restos.\n\nUn ejemplo de ello se encuentra en la ciudad de Copán, en Honduras (Figura 1).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -365,7 +428,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto vimos que, cuando dividimos (o compartimos) valores que no son múltiplos de un determinado número, como consecuencia aparecen sobras.\n\nTambién observamos que es posible mapear esas sobras de acuerdo con el número por el cual estamos dividiendo. La sobra siempre es menor que el divisor; si fuera mayor, eso indica que nuestra división es incorrecta.\n\nSin embargo, con el conocimiento que tenemos hasta ahora, aunque ya podemos visualizar las sobras, todavía no operamos con ellas.\n\nEsto nos lleva a una nueva reflexión:",
+               "text": "### Conclusión\n\nEn este texto vimos que podemos saber si un número es divisible sin realizar la división, siempre que conozcamos la regla de ese divisor:\n- Todo número es divisible entre 1 y el resto siempre es 0.\n- Un número es divisible entre 2 cuando su último dígito es 0, 2, 4, 6 u 8 —los números pares—, como vimos en *¿Impar o par?*.\n- Un número es divisible entre 3 cuando la suma de sus dígitos es divisible entre 3.\n- Un número es divisible entre 4 cuando el número formado por sus dos últimos dígitos es divisible entre 4.\n\nLas cuatro reglas nos dan siempre la misma respuesta que nos daría la división, porque se construyeron a partir de los restos: un número es divisible exactamente cuando el resto es 0. El resto siempre es menor que el divisor; si fuera mayor, eso indica que nuestra división es incorrecta.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -374,7 +437,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Cómo encontrarlo?</b><br /><br />La <b>suma</b> acumula.<br />La <b>multiplicación</b> es una repetición de sumas.<br />La <b>división</b> es la distribución de lo que está acumulado.<br /><br />Entonces, ¿cómo podemos encontrar lo que sobra?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Qué regla comprobamos primero?</b><br /><br />Un número divisible entre 4 también es divisible entre 2 y entre 1.<br /><br />¿Cuál es el número más pequeño que cumple las cuatro reglas al mismo tiempo?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -383,7 +446,7 @@
                "PostMention": ""
             },
             {
-               "text": "La respuesta a esta reflexión está directamente relacionada con todas las operaciones que hemos estudiado hasta ahora, y será presentada en el próximo capítulo.",
+               "text": "La respuesta es 12: es divisible entre 1, 2, 3 y 4 al mismo tiempo, porque aparece en las cuatro tablas a la vez. Siempre que queramos comprobar varias divisiones juntas, podemos aplicar cada regla por separado y combinar los resultados.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -396,14 +459,14 @@
    ],
    "exercise_v2": [
       {
-         "question": "En una fracción, ¿es posible que el numerador sea mayor que el denominador?",
+         "question": "¿Es todo número divisible entre 1?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Cuando tenemos más valores para distribuir que el total disponible, como vimos en este texto, el numerador será mayor que el denominador."
+         "additionalInfo": "La tabla del 1 contiene todos los números, por lo que dividir entre 1 nunca deja resto: la cantidad queda exactamente igual."
       },
       {
-         "question": "¿Existe un resto en la división por 1?",
+         "question": "¿Es todo número divisible entre 2 también divisible entre 4?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Cuando dividimos (o compartimos) cualquier cantidad entre 1, mantenemos la misma cantidad concentrada.<br />Por lo tanto, nunca habrá resto cuando dividimos por 1."
+         "additionalInfo": "El 6 y el 10 son pares, por lo que son divisibles entre 2, pero no aparecen en la tabla del 4: al dividirse entre 4 dejan un resto. La regla del 4 es más exigente que la regla del 2."
       }
    ],
    "game_v2": null,

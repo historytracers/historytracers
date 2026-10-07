@@ -3315,6 +3315,7 @@ function htFillWebPage(page, data)
 
     if (data?.languages) {
         htUpdateIndexSelector(data.languages, "#site_language");
+        htSyncLanguageButton();
         $("#loading_msg").hide();
         $(":focus").blur();
         return;
@@ -4026,14 +4027,18 @@ if (typeof window !== 'undefined' && window.addEventListener) {
     });
     window.addEventListener('load', htSyncTopBanner);
     window.addEventListener('load', htFitCalendarSelect);
+    window.addEventListener('load', htSyncLanguageButton);
+    window.addEventListener('load', htSyncBreakButton);
 }
 
-// Step 3: keep the date-format selector plain and fitted to the selected
-// option text (the native popup still sizes its rows by their own
-// length). The width is measured with an off-screen probe select holding
-// only the selected option, so the browser accounts for its own arrow
-// and padding exactly and the name is never cut. Called on init, on
-// change and after calendar option texts update.
+// Calendar icon button: the visible control is a calendar symbol
+// (#site_calendar_btn) overlaying the native select (#site_calendar).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current calendar selected. This
+// only mirrors the selected option text onto the button tooltip;
+// called on init, on change and after calendar option texts update.
+// Kept under the historic htFitCalendarSelect name for callers
+// (js/index.js, minified bundles).
 function htFitCalendarSelect() {
     try {
         if (typeof document === 'undefined' || !document.getElementById) {
@@ -4045,54 +4050,135 @@ function htFitCalendarSelect() {
         }
         var opt = sel.options[sel.selectedIndex];
         var text = (opt && opt.text) || '';
-        if (!text || !document.createElement) {
+        if (!text) {
             return 0;
         }
-        var body = document.body;
-        if (!body || !body.appendChild || !body.removeChild) {
-            return 0;
-        }
-        var probe = document.createElement('select');
-        if (!probe || !probe.options) {
-            return 0;
-        }
-        // Same classes as the real control (e.g. .selSize padding) so the
-        // probe needs exactly what the real one needs under any box model;
-        // inline width stays auto so it shrink-to-fits instead of taking
-        // the class width. Never copy the id or inline width (stale).
-        probe.className = sel.className || '';
-        probe.style.width = 'auto';
-        var probeOpt = document.createElement('option');
-        if (!probeOpt) {
-            return 0;
-        }
-        probeOpt.text = text;
-        try {
-            probe.add(probeOpt);
-        } catch (eAdd) {
-            probe.appendChild(probeOpt);
-        }
-        if (typeof window !== 'undefined' && typeof window.getComputedStyle === 'function') {
-            try {
-                var cs = window.getComputedStyle(sel);
-                if (cs && cs.font) {
-                    probe.style.font = cs.font;
-                }
-            } catch (eFont) {
+        var btn = document.getElementById('site_calendar_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Date format: ' + text);
+            } else {
+                btn.title = text;
             }
         }
-        probe.style.cssText += ';position:absolute;left:-9999px;top:0;visibility:hidden;';
-        body.appendChild(probe);
-        var w = probe.offsetWidth || 0;
-        body.removeChild(probe);
-        if (w > 0) {
-            w += 2;
-            sel.style.width = w + 'px';
-            return w;
+        // Drop any stale fitted width from the old text-sized select.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
         }
+        return text.length;
     } catch (e) {
     }
     return 0;
+}
+
+// Language icon button: the visible control is a language symbol
+// (#site_language_btn) overlaying the native select (#site_language).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current language selected. This
+// only mirrors the selected option text onto the button tooltip;
+// called on init, on change and after language option texts update.
+function htSyncLanguageButton() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_language');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text) {
+            return 0;
+        }
+        var btn = document.getElementById('site_language_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Language: ' + text);
+            } else {
+                btn.title = text;
+            }
+        }
+        // Drop any stale width from the old inline listbox layout.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
+// Break icon button: the visible control is a clock symbol
+// (#site_recreio_btn) overlaying the native select (#site_recreio).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current break length selected.
+// This only mirrors the selected option text onto the button
+// tooltip; called on init and on change.
+function htSyncBreakButton() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_recreio');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text) {
+            return 0;
+        }
+        var btn = document.getElementById('site_recreio_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Break: ' + text);
+            } else {
+                btn.title = text;
+            }
+        }
+        // Drop any stale width from the old inline select layout.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
+// Opens the native select that sits behind a top-bar icon button. The
+// button is the only tab stop (each select carries tabindex="-1"), so
+// keyboard activation focuses the select and, where the browser supports
+// it, opens its popup; the arrow keys then change the value as usual.
+function htOpenNativeSelect(id) {
+    try {
+        var sel = document.getElementById(id);
+        if (!sel) {
+            return false;
+        }
+        sel.focus();
+        if (typeof sel.showPicker === 'function') {
+            try {
+                sel.showPicker();
+            } catch (ePicker) {
+            }
+        }
+    } catch (e) {
+    }
+    return false;
 }
 
 if (typeof document !== 'undefined' && document.addEventListener) {
@@ -4100,10 +4186,18 @@ if (typeof document !== 'undefined' && document.addEventListener) {
         htUpdateLayoutGutter();
         htSyncTopBanner();
         htFitCalendarSelect();
+        htSyncLanguageButton();
+        htSyncBreakButton();
     });
     document.addEventListener('change', function(e) {
         if (e && e.target && e.target.id === 'site_calendar') {
             htFitCalendarSelect();
+        }
+        if (e && e.target && e.target.id === 'site_language') {
+            htSyncLanguageButton();
+        }
+        if (e && e.target && e.target.id === 'site_recreio') {
+            htSyncBreakButton();
         }
     });
     try {

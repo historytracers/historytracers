@@ -94,12 +94,12 @@ var addressBarJS = `
 	try{window.htLocalImgSrc=true;window.__ht_localImgSrc=true;}catch(e){}
 	// Offsets mirror the page layout (src/css/ht_common.css) for the top-level
 	// viewer window only: our fixed banner and menu button sit just below
-	// the viewer chrome (BAR_H) and the side panel starts 76px below our
-	// banner. Content needs no extra padding: the viewer reserves chrome
+	// the viewer chrome (BAR_H) and the side panel docks directly under our
+	// banner (BAR_H + 1.5em + 20px). Content needs no extra padding: the viewer reserves chrome
 	// space with body margin and the page pads below its own banner. The
-	// date-format select is forced to its natural width so the selected
-	// name is never cut, regardless of measured widths.
-	function __htViewerFixCSS(BAR_H){return '.top-bar{top:'+BAR_H+'px!important}.hamburger{top:'+BAR_H+'px!important}.side-bar{top:'+BAR_H+'px!important}.right-sources{top:'+(BAR_H+76)+'px!important;bottom:0!important;height:auto!important}.ht-layout .top-bar #site_calendar{width:auto!important;max-width:none!important;flex-shrink:0!important}';}
+	// calendar icon wrapper keeps its icon size regardless of the
+	// invisible native select overlay.
+	function __htViewerFixCSS(BAR_H){return '.top-bar{top:'+BAR_H+'px!important}.hamburger{top:'+BAR_H+'px!important}.side-bar{top:'+BAR_H+'px!important}.right-sources{top:calc('+BAR_H+'px + 1.5em + 20px)!important;bottom:0!important;height:auto!important}.ht-layout .top-bar .ht-cal-wrap{flex-shrink:0!important}';}
 	if(window!==window.top){
 		// Inside iframe below the viewer chrome: the page layout already
 		// accounts for its own fixed header, so no offsets are needed here.
