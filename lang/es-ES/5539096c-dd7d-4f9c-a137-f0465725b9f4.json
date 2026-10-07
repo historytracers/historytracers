@@ -1,0 +1,102 @@
+{
+   "title": "¿Se lleva o no se lleva? (Juego)",
+   "header": "¿Se lleva o no se lleva? (Juego)",
+   "sources": [
+      "5539096c-dd7d-4f9c-a137-f0465725b9f4"
+   ],
+   "scripts": [
+      "5539096c-dd7d-4f9c-a137-f0465725b9f4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/5539096c-dd7d-4f9c-a137-f0465725b9f4_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791399915"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerrequisitos\n\nEste juego refuerza el texto *Avanzando un orden y el complemento* (<htcite0>). Lee primero ese texto: explica que el complemento de un dígito hasta 10 es el límite — sumar un valor menor que el complemento mantiene la columna, y sumar el complemento o más la hace avanzar al siguiente orden.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Avanzando un orden y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Juego\n\nEn cada orden — unidades, decenas, centenas y millares — nos hacemos la misma pregunta: al sumar un dígito al dígito que ya está en la columna, ¿la columna lleva 1 al siguiente orden (<htcite0>)?\n\nLa respuesta la decide el complemento hasta 10. El complemento del dígito que ya está en la columna es el valor que completa 10. Si el dígito que sumamos es menor que el complemento, la suma se queda por debajo de 10 y no hay llevada. Si sumamos el complemento o más, la suma alcanza 10 y la columna lleva 1.\n\nObserva los dos dígitos, elige **Se lleva** o **No se lleva**, y el juego explicará el resultado y mostrará los cuadrados del complemento hasta 10. Hay cuatro niveles: unidades, decenas, centenas y millares.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Nuestros números actuales",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htCarryGame\"><span class=\"htCarryLevel\" id=\"htCarryLevel\"></span><div class=\"htCarryOrders\" id=\"htCarryOrders\"></div><span class=\"htCarryQuestion\" id=\"htCarryQuestion\"></span><table class=\"htCarryTable\" aria-live=\"polite\"><tr class=\"htCarryCarryRow\"><td class=\"htCarryOp\"></td><td class=\"htCarryTens\"><span id=\"htCarryCarryValue\" class=\"htCarryCarryValue\"></span></td><td class=\"htCarryUnits\"></td></tr><tr><td class=\"htCarryOp\"></td><td class=\"htCarryTens\"></td><td class=\"htCarryUnits\" id=\"htCarryFirst\">0</td></tr><tr><td class=\"htCarryOp\">+</td><td class=\"htCarryTens\"></td><td class=\"htCarryUnits\" id=\"htCarryAddend\">0</td></tr><tr class=\"htCarryLine\"><td colspan=\"3\"></td></tr><tr><td class=\"htCarryOp\"></td><td class=\"htCarryTens\" id=\"htCarryTensResult\"></td><td class=\"htCarryUnits\" id=\"htCarryUnitsResult\"></td></tr></table><div class=\"htCarryButtonsRow\"><button type=\"button\" id=\"htCarryBtn\" class=\"htCarryButton\">Se lleva</button><button type=\"button\" id=\"htCarryNotBtn\" class=\"htCarryButton\">No se lleva</button></div><div class=\"htCarryFeedback\" id=\"htCarryFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htCarrySquaresWrap htCarryHidden\" id=\"htCarrySquaresWrap\"><span class=\"htCarrySquaresLabel\" id=\"htCarrySquaresLabel\">Complemento hasta 10</span><div class=\"htCarrySquares\" id=\"htCarrySquares\" aria-hidden=\"true\"></div><span class=\"htCarrySquaresCaption\" id=\"htCarrySquaresCaption\"></span></div><div class=\"htCarryNextContainer\"><button type=\"button\" id=\"htCarryNextBtn\" class=\"reset-tutor-btn hidden\">Siguiente nivel</button></div><span id=\"htCarryLevelTemplate\" class=\"htCarryHidden\">Nivel {n} de 4</span><span id=\"htCarryQuestionTemplate\" class=\"htCarryHidden\">¿La columna de {order} lleva 1 al siguiente orden?</span><span id=\"htCarryOrder0\" class=\"htCarryHidden\">Unidades</span><span id=\"htCarryOrder1\" class=\"htCarryHidden\">Decenas</span><span id=\"htCarryOrder2\" class=\"htCarryHidden\">Centenas</span><span id=\"htCarryOrder3\" class=\"htCarryHidden\">Millares</span><span id=\"htCarryNextLabel\" class=\"htCarryHidden\">Siguiente nivel</span><span id=\"htCarryPlayAgainLabel\" class=\"htCarryHidden\">Jugar de nuevo</span><span id=\"htCarryMsgCarryCorrect\" class=\"htCarryHidden\">¡Correcto! El complemento de {first} hasta 10 es {comp}. Como {addend} es igual o mayor que {comp}, {first} + {addend} = {sum} alcanza 10, así que la columna de {order} lleva 1 al siguiente orden.</span><span id=\"htCarryMsgNotCorrect\" class=\"htCarryHidden\">¡Correcto! El complemento de {first} hasta 10 es {comp}. Como {addend} es menor que {comp}, {first} + {addend} = {sum} se queda por debajo de 10, así que la columna de {order} no lleva.</span><span id=\"htCarryMsgCarryWrong\" class=\"htCarryHidden\">Todavía no. El complemento de {first} hasta 10 es {comp}. Como {addend} es menor que {comp}, {first} + {addend} = {sum} se queda por debajo de 10. La columna de {order} no lleva.</span><span id=\"htCarryMsgNotWrong\" class=\"htCarryHidden\">Todavía no. El complemento de {first} hasta 10 es {comp}. Como {addend} es igual o mayor que {comp}, {first} + {addend} = {sum} alcanza 10. La columna de {order} lleva 1 al siguiente orden.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
