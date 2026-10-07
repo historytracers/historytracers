@@ -1,0 +1,265 @@
+{
+   "title": "Avançando uma ordem e o complemento",
+   "header": "Avançando uma ordem e o complemento",
+   "sources": [
+      "cabc9843-35ef-4e4f-92fd-17eda864b55e"
+   ],
+   "scripts": [
+      "cabc9843-35ef-4e4f-92fd-17eda864b55e"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/cabc9843-35ef-4e4f-92fd-17eda864b55e_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4tHaRmX5VvuBOd0Cfjximf?si=XbqQsiFSSUuuF3MLW2Y78Q",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791327622"
+   ],
+   "authors": null,
+   "reviewers": [
+      "Qodo",
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nAntes de continuar, recomendamos estudar o texto a seguir e os seus pré-requisitos:\n\n- **Correndo entre os números**: apresenta o método coluna a coluna para somar grandes números, incluindo o \"vai um\" (<htcite0>).\n\nCompreender este texto facilitará o acompanhamento das ideias apresentadas aqui.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
+                     "text": "History Tracers Team",
+                     "page": "Correndo entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nNos textos anteriores somamos números de tamanhos diferentes e vimos que cada coluna de uma soma só pode conter um dígito. Quando uma coluna já não comporta o que queremos escrever, algo precisa passar para a próxima coluna.\n\nEsse movimento tem um nome e uma regra, e não depende de nenhuma ferramenta em particular: acontece no papel, nas nossas mãos, num ábaco, numa yupana ou em qualquer calculadora que utilize a soma. Neste texto daremos um nome a essa regra — **avançar uma ordem** — e, em seguida, conheceremos um número que diz exatamente quando o movimento começa: o **complemento**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Quando aparece a próxima coluna?</b><br /><br />Se somamos dois números de um único dígito, em que momento exato o resultado deixa de caber na ordem das unidades e passa a precisar da ordem das dezenas? Pense numa regra que funcione para todo par de números de um único dígito.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_advancing",
+         "text": [
+            {
+               "text": "### Avançando uma ordem\n\nCada ordem do nosso sistema decimal só pode comportar os valores entre 0 e 9 (<htcite0>), que correspondem ao menor e ao maior valor possível em uma única ordem.\n\nPor isso, cada soma que escrevemos é, na verdade, uma pergunta: o resultado ainda cabe na ordem em que começamos?\n\nEnquanto a soma couber na mesma coluna (até o valor 9), a ordem não muda, ou seja, não precisaremos de uma segunda coluna. Se, por outro lado, estivermos somando dois números cuja soma seja 10 ou maior, precisaremos usar a próxima coluna. Esse procedimento é conhecido comumente como \"vai um\".\n\n**Em resumo:** se a soma couber entre 0 e 9, permaneça na mesma coluna; se a soma chegar a 10 ou mais, passe para a próxima coluna.\n\nObserve alguns exemplos no **Cálculo 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Nossos números atuais",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <p class=\"desc\"><b>Cálculo 1</b>: Adição de dois números cujos resultados são maiores ou iguais a 10.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 1**, a primeira soma (5 + 5) é a menor que sai da ordem das unidades, e todas as somas seguintes também saem dela. A ordem avançou exatamente uma vez em cada linha, e o dígito escrito na ordem das unidades está sempre entre 0 e 9: pode ser 0, como em 5 + 5 = 10, mas nunca é maior que 9.\n\nEssa regra basta para conferir uma coluna enquanto ainda a escrevemos, mas ainda não diz *até onde* podemos ir antes de o movimento começar. Para isso, precisamos de um número.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Até onde podemos avançar?</b><br /><br />Se o maior valor de uma ordem é 9, qual é o maior número que podemos somar a 7 sem sair da ordem das unidades? E ao 2? Existe um único número que responda a essa pergunta para todo valor inicial?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_complement",
+         "text": [
+            {
+               "text": "### O complemento como limite\n\nO **complemento** de um número até 10 é o número necessário para chegar a 10: por exemplo, se queremos chegar a 10 e temos 6, basta somarmos seu complemento, 4, pois 6 + 4 = 10. A **Figura 1** desenha este par: os seis quadrados azul claro são o número que já temos e os quatro quadrados amarelo claro são o complemento que completa as dez.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 56\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Six light blue squares followed by four light yellow squares\"><title>Six light blue squares and four light yellow squares, ten in all</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figura 1</b>: O número 6 (azul claro) e o seu complemento 4 (amarelo claro), os dez quadrados juntos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora podemos ir além e entender o complemento como o limite máximo antes da mudança para uma nova ordem. Em outras palavras, sempre que somarmos um número menor que o complemento permaneceremos na mesma ordem; quando somarmos o complemento ou um número maior, será necessário avançar para a ordem seguinte (ou para a próxima coluna).\n\n**A regra em uma frase:** some menos que o complemento e nada passa para a próxima coluna; some o complemento ou mais e a próxima coluna entra em jogo.\n\nUse os complementos de 6 como exemplo para tornar essa ideia mais clara:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>6</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi></math><br /><p class=\"desc\"><b>Cálculo 2</b>: Soma dos números de 0 a 9 ao número 6.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 2**, podemos observar que:\n- até atingirmos o complemento de 6, que é 4, todas as somas permanecem na ordem das unidades;\n- a partir do momento em que atingimos o complemento, todas as somas passam a envolver também a ordem das dezenas.\n\nDiante desse cenário, podemos chegar a importantes conclusões sobre como os complementos e os limites nos ajudam a verificar se nossos cálculos poderiam conter algum erro:\n- ao somarmos um número menor que o complemento, não é possível obter um resultado que alcance a ordem das dezenas;\n- a partir do momento em que somamos o complemento ou um número maior, o resultado obrigatoriamente passa a envolver uma nova ordem.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Antes de continuar, vamos praticar. Use o aplicativo abaixo para repetir a soma do Cálculo 2 passo a passo e observar o momento exato em que o resultado passa para a próxima ordem. Isso ajudará você a reforçar a ideia do complemento.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htComplementApp\"><span class=\"htComplementQuestion\">Use as setas para mudar o número somado a 6 e observe quando o resultado avança para a próxima ordem.</span><table class=\"htComplementTable\" aria-live=\"polite\" aria-label=\"Soma vertical de 6 mais um valor de 0 a 9\"><tr class=\"htComplementCarryRow\"><td class=\"htComplementOp\"></td><td class=\"htComplementTens\"><span id=\"htComplementCarryValue\" class=\"htComplementCarryValue\"></span></td><td class=\"htComplementUnits\"></td></tr><tr><td class=\"htComplementOp\"></td><td class=\"htComplementTens\"></td><td class=\"htComplementUnits\" id=\"htComplementFirst\">6</td></tr><tr><td class=\"htComplementOp\">+</td><td class=\"htComplementTens\"></td><td class=\"htComplementUnits\" id=\"htComplementAddend\">0</td></tr><tr class=\"htComplementLine\"><td colspan=\"3\"></td></tr><tr><td class=\"htComplementOp\"></td><td class=\"htComplementTens\" id=\"htComplementTensResult\"></td><td class=\"htComplementUnits\" id=\"htComplementUnitsResult\">6</td></tr></table><div class=\"htComplementControls\"><button type=\"button\" id=\"htComplementPrev\" class=\"htComplementArrow\" aria-label=\"Anterior\"><i class=\"fa-solid fa-arrow-left\"></i></button><button type=\"button\" id=\"htComplementNext\" class=\"htComplementArrow\" aria-label=\"Próximo\"><i class=\"fa-solid fa-arrow-right\"></i></button></div><div class=\"htComplementFeedback\" id=\"htComplementFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htComplementAxis\" aria-hidden=\"true\"><div class=\"htComplementAxisTrack\" id=\"htComplementAxisTrack\"><span class=\"htComplementAxisPointer\" id=\"htComplementAxisPointer\"><i class=\"fa-solid fa-caret-down\"></i></span><span class=\"htComplementAxisTick htComplementAxisBelow\" data-value=\"0\">0</span><span class=\"htComplementAxisTick htComplementAxisBelow\" data-value=\"1\">1</span><span class=\"htComplementAxisTick htComplementAxisBelow\" data-value=\"2\">2</span><span class=\"htComplementAxisTick htComplementAxisBelow\" data-value=\"3\">3</span><span class=\"htComplementAxisTick htComplementAxisComplement\" data-value=\"4\">4</span><span class=\"htComplementAxisTick htComplementAxisAbove\" data-value=\"5\">5</span><span class=\"htComplementAxisTick htComplementAxisAbove\" data-value=\"6\">6</span><span class=\"htComplementAxisTick htComplementAxisAbove\" data-value=\"7\">7</span><span class=\"htComplementAxisTick htComplementAxisAbove\" data-value=\"8\">8</span><span class=\"htComplementAxisTick htComplementAxisAbove\" data-value=\"9\">9</span></div></div><span id=\"htComplementMsgBelow\" class=\"htComplementHidden\">Você está abaixo do complemento de 10.</span><span id=\"htComplementMsgAt\" class=\"htComplementHidden\">Você alcançou o complemento de 10.</span><span id=\"htComplementMsgAbove\" class=\"htComplementHidden\">Você está acima do complemento.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Com essas conclusões sobre a soma em mente, vamos refletir sobre o nosso próximo passo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto damos um nome a um movimento que já estava presente em cada soma que havíamos escrito — **avançar uma ordem** — e damos um nome ao número que decide quando esse movimento começa: o **complemento**.\n\nEm resumo:\n- se a soma de uma coluna couber entre 0 e 9, permanecemos na mesma ordem;\n- o complemento de um número até 10 é o primeiro valor que podemos somar e que alcança a ordem seguinte; somar um valor menor nos mantém na ordem atual;\n- somar o complemento ou mais sempre envolve a ordem seguinte, de modo que o complemento nos diz de antemão se um resultado é possível.\n\nEssas duas ideias pertencem à soma em si e não a nenhuma ferramenta em particular: funcionam no papel, nas nossas mãos, num ábaco, numa yupana ou em qualquer calculadora.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Quando a soma de uma coluna é 9 ou menos, permanecemos na mesma ordem?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Uma soma de 9 ou menos cabe em uma única ordem, de modo que nenhum dígito passa para a próxima coluna e a ordem não muda."
+      },
+      {
+         "question": "Quando somamos o complemento de um número a esse número, permanecemos na mesma ordem?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "O complemento é exatamente o valor que alcança a ordem seguinte: 6 + 4 = 10. Somar o complemento ou mais sempre envolve a próxima ordem."
+      },
+      {
+         "question": "O complemento pode nos dizer de antemão se uma soma terá de levar um número para a próxima ordem?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Se somarmos um número menor que o complemento, o resultado não pode alcançar a ordem seguinte; se somarmos o complemento ou mais, pode. Por isso o complemento serve como uma verificação rápida de um cálculo."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

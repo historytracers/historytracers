@@ -86,6 +86,9 @@ function htParseIndexRequest() {
 
     $('#site_language').val(lang);
     $('#site_calendar').val(cal);
+    if (typeof htFitCalendarSelect === 'function') {
+        htFitCalendarSelect();
+    }
 
     htLoadPage('index','json', '', false);
     htLoadPage('language','json', '', false);

@@ -99,14 +99,22 @@ function htGetImgSrcPrefix() {
 //
 
 function htScrollToID(id) {
-    $('html, body').scrollTop($(id).offset().top);
+    var $target = $(id);
+    if ($target.length === 0) {
+        return;
+    }
+    $('html, body').scrollTop($target.offset().top);
 }
 
 function htScrollTree(id)
 {
     var destination = $(id).val();
     if (destination != undefined) {
-        $('html, body').scrollTop($(id).offset().top);
+        var $target = $(id);
+        if ($target.length === 0) {
+            return;
+        }
+        $('html, body').scrollTop($target.offset().top);
     }
 }
 
@@ -403,7 +411,7 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
         }
     </style>
 </head>
-<body>
+<body class="ht-print-doc">
     ${headerHtml}
     <div>${fb}</div>
     <div class="cited-text">${fs}</div>
@@ -535,7 +543,7 @@ function htUpdateCurrentDateOnIndex()
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
     var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
-    $("#current_day").html(keywords[42]+" "+text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
+    $("#current_day").html(text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
 function htAdjustGregorianZeroYear(text)
@@ -977,7 +985,15 @@ function htFillSource(divID, sourceMap, id)
         }
         var urlValue = "";
         if (src.url && src.url.length > 0) {
-            urlValue += ". "+keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
+            var linkUrl = src.url;
+            if (linkUrl.indexOf("index.html") === 0 && linkUrl.indexOf("lang=") < 0) {
+                var siteLang = "";
+                try { siteLang = $('#site_language').val(); } catch (e) { siteLang = ""; }
+                if (siteLang) {
+                    linkUrl += (linkUrl.indexOf("?") >= 0 ? "&" : "?") + "lang=" + encodeURIComponent(siteLang);
+                }
+            }
+            urlValue += ". "+keywords[23]+" <a target=\"_blank\" href=\""+linkUrl+"\"> "+src.url+"</a>";
         }
         $(divID).append("<p>"+src.citation+""+dateValue +""+urlValue+"</p>");
     }
@@ -2072,7 +2088,6 @@ function htFillKeywords(table) {
     }
 
     $("#index_lang").html(keywords[39]);
-    $("#index_calendar").html(keywords[40]);
     $("#index_theme").html(keywords[74]);
     $("#index_recreio").html(keywords[141]);
     htUpdateCurrentDateOnIndex();
@@ -2178,6 +2193,21 @@ function htUpdateNavigationTitle(currentIdx, title, indexName)
     $("#header").html(pageHeader);
 }
 
+var htNavigationHoverBound = false;
+
+function htBindNavigationHover()
+{
+    if (htNavigationHoverBound) {
+        return;
+    }
+    htNavigationHoverBound = true;
+    $(document).on('mouseenter', '.book_navigation tr.ht_nav_white', function() {
+        $(this).css('background-color', '#e4e4e4');
+    }).on('mouseleave', '.book_navigation tr.ht_nav_white', function() {
+        $(this).css('background-color', '#FFFFFF');
+    });
+}
+
 function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
 {
     var prev = "";
@@ -2217,7 +2247,8 @@ function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
         next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
     }
 
-    var navigation = "<tr style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
+    var rowClass = (bgColor == "#FFFFFF") ? " class=\"ht_nav_white\"" : "";
+    var navigation = "<tr"+rowClass+" style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
 
     return navigation;
 }
@@ -2248,7 +2279,6 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 
     var end = ptr.total+2;
     for (let i = 0; i < end; i++) {
-        var color = (i % 2) ? "#FFFFE0" : initialBgColor;
         var j = ptr.total+1;
         var next = arg+":"+j;
         ptr = idx.get(next);
@@ -2265,6 +2295,14 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
 var htPendingIndexes = [];
 var htNavigationRetry = null;
 var htNavigationRetryChecks = 0;
+
+// Independent guard that confirms the navigation placeholders that are already
+// present in the page actually received the built menu. The retry loop above
+// only tracks indexes that are still in flight, so it can stop before the
+// navigation placeholders exist in the DOM (or before a late index is written).
+// This checker keeps re-writing until the menu is present in every placeholder.
+var htNavigationCheckTimer = null;
+var htNavigationCheckAttempts = 0;
 
 function htWriteNavigation()
 {
@@ -2297,6 +2335,52 @@ function htWriteNavigation()
         clearInterval(htNavigationRetry);
         htNavigationRetry = null;
     }
+
+    htCheckNavigationBuilt();
+}
+
+function htNavigationMenuBuilt()
+{
+    var menus = $(".dynamicNavigation");
+    if (menus.length == 0) {
+        return false;
+    }
+
+    var built = true;
+    menus.each(function() {
+        if ($(this).find("table.book_navigation").length == 0) {
+            built = false;
+            return false;
+        }
+    });
+
+    return built;
+}
+
+function htCheckNavigationBuilt()
+{
+    if (htNavigationCheckTimer != null) {
+        return;
+    }
+
+    // Nothing to wait for: the page has no navigation placeholder, no loaded
+    // index, and no index still being fetched.
+    if ($(".dynamicNavigation").length == 0 && loadedIdx.length == 0 && htPendingIndexes.length == 0) {
+        return;
+    }
+
+    htNavigationCheckAttempts = 0;
+    htNavigationCheckTimer = setInterval(function() {
+        htNavigationCheckAttempts++;
+
+        if (htNavigationMenuBuilt() || htNavigationCheckAttempts >= 40) {
+            clearInterval(htNavigationCheckTimer);
+            htNavigationCheckTimer = null;
+            return;
+        }
+
+        htWriteNavigationInternal();
+    }, 250);
 }
 
 function htWriteNavigationInternal()
@@ -2304,6 +2388,8 @@ function htWriteNavigationInternal()
     if (loadedIdx.length == 0) {
         return;
     }
+
+    htBindNavigationHover();
 
     var sortedIdx;
     if (htIndexesOrder.length > 0) {
@@ -2316,8 +2402,7 @@ function htWriteNavigationInternal()
 
     var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in sortedIdx) {
-        var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
-        navigation += htBuildNavigation(sortedIdx[i], i, color);
+        navigation += htBuildNavigation(sortedIdx[i], i, "#FFFFFF");
     }
     navigation += "</table></p>";
     $(".dynamicNavigation").attr('data-after-content', keywords[132]);
@@ -2803,6 +2888,7 @@ function htOnlyLoadHtml(appendPage, page, ext, unixEpoch) {
     smSourceMap.clear();
 
     var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
+    $("#header").html("");
     $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 }
 
@@ -3233,6 +3319,7 @@ function htFillWebPage(page, data)
 
     if (data?.languages) {
         htUpdateIndexSelector(data.languages, "#site_language");
+        htSyncLanguageButton();
         $("#loading_msg").hide();
         $(":focus").blur();
         return;
@@ -3251,6 +3338,7 @@ function htFillWebPage(page, data)
 
     if (data?.calendars) {
         htUpdateIndexSelector(data.calendars, "#site_calendar");
+        htFitCalendarSelect();
         if (data.chinese_animals) chineseAnimals = data.chinese_animals;
         if (data.chinese_months) chineseMonths = data.chinese_months;
         if (data.chinese_stems) chineseStems = data.chinese_stems;
@@ -3478,6 +3566,14 @@ function htIsIndexLoaded(idx) {
 
 function htFillTopIdx(idx, data, first)
 {
+    // Source files and other JSON payloads that are not actual index content
+    // must not be registered as an index. Doing so would mark the index as
+    // loaded while only the synthetic top entry exists, leaving the navigation
+    // table without its data rows.
+    if (!data || !Array.isArray(data.content)) {
+        return;
+    }
+
     htUpdateLoadedIdx(first);
 
     const localLang = $("#site_language").val();
@@ -3541,6 +3637,14 @@ function htRemovePendingIndex(indexName)
 
 function htLoadIndex(data, arg, page)
 {
+    // Source files are loaded through htLoadPage(..., "source") and share the
+    // page argument. They must never be interpreted as an index, otherwise a
+    // page whose name matches an index (e.g. "first_steps") would register an
+    // empty index and the navigation table would stay without rows.
+    if (arg === "source") {
+        return;
+    }
+
     if (data != undefined && data.index != undefined) {
         if (data.index.constructor === vectorConstructor) {
             // Preserve the order in which the page declares its indexes so the
@@ -3837,8 +3941,273 @@ function htAddAlterQImages(id)
 
 function htToggleSidebar() {
     var sidebar = document.querySelector('.side-bar');
+    var isActive = false;
     if (sidebar) {
         sidebar.classList.toggle('active');
+        isActive = sidebar.classList.contains('active');
+    }
+    try {
+        var hamburger = document.getElementById('hamburgerMenu');
+        if (hamburger && hamburger.setAttribute) {
+            hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        }
+    } catch (e) {
+    }
+}
+
+// Step 2: keep the yellow top banner exactly as tall as the fixed
+// hamburger menu, and keep .ht-layout padded below the fixed banner so
+// page text never slides behind the title or menu. Called on
+// load/resize so zoom and font scaling stay in sync; CSS values are
+// the fallback.
+function htSyncTopBanner() {
+    try {
+        var hamburger = document.getElementById('hamburgerMenu');
+        var banner = document.getElementById('htTopBanner');
+        if (!hamburger || !banner || !banner.style) {
+            return 0;
+        }
+        var h = hamburger.offsetHeight || 0;
+        if (h > 0) {
+            banner.style.minHeight = h + 'px';
+        }
+        var layout = document.getElementById('htLayout');
+        var bannerH = banner.offsetHeight || h || 0;
+        if (layout && layout.style && bannerH > 0) {
+            layout.style.paddingTop = (bannerH + 14) + 'px';
+        }
+        return bannerH;
+    } catch (e) {
+    }
+    return 0;
+}
+
+// Step 1: 5% side gutters only on large regions. Mirror the CSS
+// (max-width: 800px), (max-height: 600px) rule in JS so resize/zoom
+// keeps body/html .ht-narrow in sync and small regions use full width.
+function htUpdateLayoutGutter() {
+    var w = 1024;
+    var h = 768;
+    try {
+        if (typeof window !== 'undefined') {
+            if (typeof window.innerWidth === 'number') {
+                w = window.innerWidth;
+            }
+            if (typeof window.innerHeight === 'number') {
+                h = window.innerHeight;
+            }
+        }
+    } catch (e) {
+    }
+    var narrow = (w < 800 || h < 600);
+    try {
+        if (typeof document !== 'undefined') {
+            if (document.body && document.body.classList) {
+                if (narrow) {
+                    document.body.classList.add('ht-narrow');
+                } else {
+                    document.body.classList.remove('ht-narrow');
+                }
+            }
+            if (document.documentElement && document.documentElement.classList) {
+                if (narrow) {
+                    document.documentElement.classList.add('ht-narrow');
+                } else {
+                    document.documentElement.classList.remove('ht-narrow');
+                }
+            }
+        }
+    } catch (e) {
+    }
+    return narrow;
+}
+
+if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('resize', function() {
+        htUpdateLayoutGutter();
+        htSyncTopBanner();
+    });
+    window.addEventListener('load', htSyncTopBanner);
+    window.addEventListener('load', htFitCalendarSelect);
+    window.addEventListener('load', htSyncLanguageButton);
+    window.addEventListener('load', htSyncBreakButton);
+}
+
+// Calendar icon button: the visible control is a calendar symbol
+// (#site_calendar_btn) overlaying the native select (#site_calendar).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current calendar selected. This
+// only mirrors the selected option text onto the button tooltip;
+// called on init, on change and after calendar option texts update.
+// Kept under the historic htFitCalendarSelect name for callers
+// (js/index.js, minified bundles).
+function htFitCalendarSelect() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_calendar');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text) {
+            return 0;
+        }
+        var btn = document.getElementById('site_calendar_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Date format: ' + text);
+            } else {
+                btn.title = text;
+            }
+        }
+        // Drop any stale fitted width from the old text-sized select.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
+// Language icon button: the visible control is a language symbol
+// (#site_language_btn) overlaying the native select (#site_language).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current language selected. This
+// only mirrors the selected option text onto the button tooltip;
+// called on init, on change and after language option texts update.
+function htSyncLanguageButton() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_language');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text) {
+            return 0;
+        }
+        var btn = document.getElementById('site_language_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Language: ' + text);
+            } else {
+                btn.title = text;
+            }
+        }
+        // Drop any stale width from the old inline listbox layout.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
+// Break icon button: the visible control is a clock symbol
+// (#site_recreio_btn) overlaying the native select (#site_recreio).
+// The select stays functional but invisible, so clicking the icon
+// opens the native popup with the current break length selected.
+// This only mirrors the selected option text onto the button
+// tooltip; called on init and on change.
+function htSyncBreakButton() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var sel = document.getElementById('site_recreio');
+        if (!sel || !sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || '';
+        if (!text) {
+            return 0;
+        }
+        var btn = document.getElementById('site_recreio_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', text);
+                btn.setAttribute('aria-label', 'Break: ' + text);
+            } else {
+                btn.title = text;
+            }
+        }
+        // Drop any stale width from the old inline select layout.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
+// Opens the native select that sits behind a top-bar icon button. The
+// button is the only tab stop (each select carries tabindex="-1"), so
+// keyboard activation focuses the select and, where the browser supports
+// it, opens its popup; the arrow keys then change the value as usual.
+function htOpenNativeSelect(id) {
+    try {
+        var sel = document.getElementById(id);
+        if (!sel) {
+            return false;
+        }
+        sel.focus();
+        if (typeof sel.showPicker === 'function') {
+            try {
+                sel.showPicker();
+            } catch (ePicker) {
+            }
+        }
+    } catch (e) {
+    }
+    return false;
+}
+
+if (typeof document !== 'undefined' && document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', function() {
+        htUpdateLayoutGutter();
+        htSyncTopBanner();
+        htFitCalendarSelect();
+        htSyncLanguageButton();
+        htSyncBreakButton();
+    });
+    document.addEventListener('change', function(e) {
+        if (e && e.target && e.target.id === 'site_calendar') {
+            htFitCalendarSelect();
+        }
+        if (e && e.target && e.target.id === 'site_language') {
+            htSyncLanguageButton();
+        }
+        if (e && e.target && e.target.id === 'site_recreio') {
+            htSyncBreakButton();
+        }
+    });
+    try {
+        if (document.readyState && document.readyState !== 'loading') {
+            htUpdateLayoutGutter();
+            htSyncTopBanner();
+        }
+    } catch (e) {
     }
 }
 

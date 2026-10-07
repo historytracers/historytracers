@@ -595,7 +595,7 @@ func htWriteAudioFile(fileName string, lang string, content string) error {
 		return err
 	}
 
-	localPath := fmt.Sprintf("%saudios/%s_%s", CFG.SrcPath, fileName, lang)
+	localPath := fmt.Sprintf("%saudios/%s_%s.txt", CFG.SrcPath, fileName, lang)
 
 	fp, err := os.Create(localPath)
 	if err != nil {

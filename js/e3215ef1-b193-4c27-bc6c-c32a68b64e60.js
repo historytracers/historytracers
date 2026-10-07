@@ -13,6 +13,7 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc("imgH", "images/BritishMuseum/mid_C_161.jpg");
+    htSetImageSrc("imgME", "images/Mapswire/mapswire-continent_as-plain-map-asia-robinson-267_geolocation.jpg");
 
     htWriteMultiplicationTable("#mParent7", 7);
     htWriteMultiplicationTable("#mParent10", 10);

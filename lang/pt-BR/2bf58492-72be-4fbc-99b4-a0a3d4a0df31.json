@@ -28,14 +28,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1786555479"
+      "1791036703"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [
-      ""
-   ],
+   "reviewers": null,
    "type": "class",
    "version": 2,
    "editing": false,
@@ -44,22 +42,25 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "### Pré-requisitos\n\nEste texto é uma prática do conteúdo ensinado no texto anterior (<htcite0>). Dessa forma, recomendamos o estudo desse texto e de seus pré-requisitos antes de prosseguir.",
+               "text": "### Pré-requisitos\n\nEste texto coloca em prática a multiplicação analisada no texto anterior (<htcite0>). Alguns exercícios avançam uma ordem com o complemento, tal como é apresentado em **Avançando uma ordem e o complemento** (<htcite1>). Recomendamos o estudo de ambos os textos antes de prosseguir.",
                "source": [
                   {
                      "type": 1,
                      "uuid": "39ca51f8-d5d4-4b36-b2a8-b4c0a15553f0",
                      "text": "History Tracers Team",
                      "page": "Soroban, Suanpan (算盤) e Schyoty (счёты) na releitura",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Avançando uma ordem e o complemento",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -80,21 +81,8 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "### O ábaco (Multiplicação)\n\nReconhecendo a importância dos exercícios de casa como forma de reforçar o conhecimento (<htcite0>), apresentamos, a seguir, um ábaco que executa uma multiplicação e explica, passo a passo, cada etapa necessária para realizar o cálculo por meio da ferramenta.\n\n#### O ábaco desta seção\n\nAssim que a página é carregada, o ábaco é inicializado com um problema de multiplicação: um número de dois dígitos (10 a 99) multiplicado por um número de um dígito (1 a 9).\n\nEntre a barra que contém os botões \"🎲 Novo exercício\" e \"⭐ Próximo nível\" e o botão \"➡️  Próximo passo\", será exibida uma instrução indicando as operações que devem ser realizadas na etapa atual. Ao concluir corretamente a etapa, aparecerá uma mensagem na parte inferior do ábaco parabenizando você: \"✅ Correto! Clique em 'Próximo passo' para continuar.\".\n\nVocê deverá seguir as etapas até concluir o cálculo, quando receberá a seguinte mensagem: \"🎉🎉🎉 PERFEITO! 🎉🎉🎉 Ótimo trabalho usando o ábaco!\".\n\nApós concluir o 9º nível, você receberá a seguinte mensagem: \"🏅 Parabéns! Você chegou ao último nível! 🏅\"\n\nVocê poderá repetir quantos exercícios desejar em um mesmo nível. Para isso, basta clicar em \"🎲 Novo exercício\" após a conclusão de um cálculo.",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
-                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2016",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
+               "text": "### O ábaco (Multiplicação)\n\n#### O ábaco desta seção\n\nAssim que a página é carregada, o ábaco é inicializado com um problema de multiplicação: um número de dois dígitos (10 a 99) multiplicado por um número de um dígito (1 a 9).\n\nSiga cada instrução exibida pelo ábaco acima até concluir o cálculo; o botão \"🎲 Novo exercício\" inicia outro problema no mesmo nível.\n\nApós concluir o 9º nível, você receberá a seguinte mensagem: \"🏅 Parabéns! Você chegou ao último nível! 🏅\"",
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

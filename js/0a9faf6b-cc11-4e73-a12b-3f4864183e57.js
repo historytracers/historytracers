@@ -13,9 +13,9 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("gc", "images/Tikal/GranJaguar.jpg");
-    htSetImageSrc("imgTikal0", "images/Tikal/NecropoleTikal.jpg");
     htSetImageSrc("gc", "images/Tikal/TikalReservorio.jpg");
+    htSetImageSrc("imgTikal0", "images/Tikal/NecropoleTikal.jpg");
+    htSetImageSrc("imgTikal1", "images/Tikal/GranJaguar.jpg");
     htPlusDivs(0);
 
     return false;

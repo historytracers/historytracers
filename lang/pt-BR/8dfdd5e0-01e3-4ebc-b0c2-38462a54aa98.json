@@ -1,0 +1,106 @@
+{
+   "title": "Ímpar ou par? (Jogo)",
+   "header": "Ímpar ou par? (Jogo)",
+   "sources": [
+      "8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98"
+   ],
+   "scripts": [
+      "8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5vofb3uHHXMeGuxOJjlhwk?si=N7FMEcgwQl6yMaELnJy9Fw",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791314338"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo pratica as ideias do texto *Ímpar ou par?* (<htcite0>). Antes de jogar, leia esse texto para entender como o resto da divisão por 2 nos diz se um número é ímpar ou par.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
+                     "text": "History Tracers Team",
+                     "page": "Ímpar ou par?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Jogo\n\nNeste jogo aparece um número entre 0 e 20. Ao lado dele, os círculos são organizados em pares: cada par tem um círculo de cada lado. Quando o número é ímpar, sempre sobra um círculo, então um lado fica com um círculo a mais que o outro.\n\nObserve o número e os círculos e depois escolha **Ímpar** ou **Par**: assim você diz se o número é divisível por 2 ou não (<htcite0>). O jogo explicará o resultado. Para tentar outro número, clique no botão **Novo exercício**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htOddEvenGame\"><span class=\"htOddEvenQuestion\">O número é ímpar ou par?</span><table class=\"htOddEvenTable\"><tr><th>Número</th><th>Compartilhar em pares</th></tr><tr><td class=\"htOddEvenNumberCell\"><span id=\"oddEvenNumber\" class=\"text_to_paint\">0</span></td><td class=\"htOddEvenPairsCell\"><table class=\"htOddEvenPairsTable\"><tr><th>Lado 1</th><th>Lado 2</th></tr><tbody id=\"oddEvenPairsBody\"></tbody></table></td></tr></table><div class=\"htOddEvenButtonsRow\"><button type=\"button\" id=\"oddEvenOddBtn\" class=\"htOddEvenButton\">Ímpar</button><button type=\"button\" id=\"oddEvenEvenBtn\" class=\"htOddEvenButton\">Par</button></div><div id=\"oddEvenFeedback\" class=\"htOddEvenFeedback\"></div><div class=\"htOddEvenNewContainer\"><button type=\"button\" id=\"oddEvenNewBtn\" class=\"reset-tutor-btn hidden\">🎲 Novo exercício</button></div><span id=\"htOddEvenMsgOddCorrect\" class=\"htOddEvenHidden\">Correto! <b>{n}</b> é ímpar. Quando dividimos {n} por 2, obtemos {q} com resto 1. Sobra um círculo, então um lado tem um círculo a mais que o outro.</span><span id=\"htOddEvenMsgEvenCorrect\" class=\"htOddEvenHidden\">Correto! <b>{n}</b> é par. Quando dividimos {n} por 2, obtemos {q} com resto 0. Os círculos formam {q} pares completos, então os dois lados são iguais.</span><span id=\"htOddEvenMsgOddWrong\" class=\"htOddEvenHidden\">O número é ímpar, porque ao dividir por 2 sobra um: {n} = 2 × {q} + 1. Esse círculo extra sobra de um lado.</span><span id=\"htOddEvenMsgEvenWrong\" class=\"htOddEvenHidden\">O número é par, porque ao dividir por 2 não há resto: {n} = 2 × {q}. Os círculos podem ser repartidos em dois lados iguais, então não sobra nada.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

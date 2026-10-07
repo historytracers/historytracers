@@ -1,5 +1,26 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+var localAnswerVector = undefined;
+
+function htLoadExercise() {
+    if (localAnswerVector == undefined) {
+        localAnswerVector = htLoadAnswersFromExercise();
+    } else {
+        htResetAnswers(localAnswerVector);
+    }
+
+    return false;
+}
+
+function htCheckAnswers()
+{
+    if (localAnswerVector != undefined) {
+        for (let i = 0; i < localAnswerVector.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, localAnswerVector[i], "#answer"+i, "#explanation"+i);
+        }
+    }
+}
+
 function htLoadContent() {
     htWriteNavigation();
 
@@ -8,5 +29,9 @@ function htLoadContent() {
     htSetImageSrc("img0", "images/BritishMuseum/mid_00404485_001.jpg");
     htSetImageSrc("img1", "images/Mapswire/mapswire-world-political-white-equal_earth_babylon.png");
     htSetImageSrc("img3", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
+    htSetImageSrc("imgRomeWorld", "images/Mapswire/world-political-white-equal_earth_Roma.png");
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
+    htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg");
+		htSetImageSrc('imgGeo8', 'images/Tohoku/MatteoRicci.png');
     return false;
 }

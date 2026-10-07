@@ -6,6 +6,7 @@ set -eo pipefail
 case "$(uname -s)" in
     Linux)
         PLATFORM="linux"
+        PUBLISHER_BIN="historytracers-publisher"
         ;;
     CYGWIN*|MINGW*|MSYS*)
         PLATFORM="msys2"
@@ -74,11 +75,6 @@ update_submodules() {
 compile() {
     echo "=== Platform: $PLATFORM${MSYS2_ENV:+ ($MSYS2_ENV)} ==="
 
-    if [ ! -f configure.ac ]; then
-        echo "ERROR: configure.ac not found. Run this script from the project root."
-        exit 1
-    fi
-
     autoreconf -f -i
     echo "=== autoreconf done ==="
 
@@ -88,18 +84,25 @@ compile() {
         LOCALPATH=$(cygpath -m "$LOCALPATH")
         LOGPATH=$(cygpath -m "$LOGPATH")
     fi
-    ./configure --with-conf-path="packaging/conf/dev.conf" \
-                --with-src-path="${LOCALPATH}/" \
-                --with-content-path="${LOCALPATH}/www/" \
-                --with-log-path="${LOGPATH}" \
-                --disable-editor
+    CONFIGURE_ARGS=(
+        --with-conf-path="packaging/conf/dev.conf"
+        --with-src-path="${LOCALPATH}/"
+        --with-content-path="${LOCALPATH}/www/"
+        --with-log-path="${LOGPATH}"
+    )
+    if [ "$DISABLE_EDITOR" = "1" ]; then
+        CONFIGURE_ARGS+=(--disable-editor)
+    fi
+    if [ "$DISABLE_VIEWER" = "1" ]; then
+        CONFIGURE_ARGS+=(--disable-viewer)
+    fi
+    ./configure "${CONFIGURE_ARGS[@]}"
     echo "=== configure done ==="
 
-    make clean || true
-    make -j"$(nproc 2>/dev/null || echo 1)" all
+    make clean
+    make all
     echo "=== build done ==="
 
-    # Detect publisher binary
     if [ -f "./build/historytracers-publisher.exe" ]; then
         PUBLISHER_BIN="historytracers-publisher.exe"
     elif [ -f "./build/historytracers-publisher" ]; then
@@ -109,7 +112,6 @@ compile() {
         ls -la build/
         exit 1
     fi
-
     # Pre-validation: check source dates before running publisher pipeline
     echo "=== pre-validating source dates ==="
     ./build/$PUBLISHER_BIN -checksources -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: checksources found issues"
@@ -117,18 +119,30 @@ compile() {
     echo "=== pre-validating UUID files across languages ==="
     ./build/$PUBLISHER_BIN -globalangtest -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: globalangtest found issues"
 
+#    echo "=== generating gallery index ==="
+#    ./build/$PUBLISHER_BIN -gallery -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: gallery generation found issues"
+
     ./build/$PUBLISHER_BIN -minify -audiofiles -gedcom -verbose >> historytracers.log 2> >(tee -a historytracers.log >&2)
     echo "=== publisher run complete (see historytracers.log) ==="
 }
+
+DISABLE_EDITOR=0
+DISABLE_VIEWER=0
 
 for arg in "$@"; do
     case "$arg" in
         --update-submodules|-u)
             update_submodules
             ;;
+        --disable-editor)
+            DISABLE_EDITOR=1
+            ;;
+        --disable-viewer)
+            DISABLE_VIEWER=1
+            ;;
         *)
             echo "Unknown option: $arg"
-            echo "Usage: $0 [--update-submodules|-u]"
+            echo "Usage: $0 [--update-submodules|-u] [--disable-editor] [--disable-viewer]"
             exit 1
             ;;
     esac

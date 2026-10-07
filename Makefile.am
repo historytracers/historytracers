@@ -25,11 +25,15 @@ dist_man_MANS = packaging/man/historytracers.1
 EXTRA_DIST = $(PUBLISHERSRC_DIR)/main.go $(VIEWERSRC_DIR) $(EDITORSRC_DIR)
 
 # Custom targets for Go building
+if BUILD_VIEWER
+VIEWER_TARGET = viewer
+endif
+
 if BUILD_EDITOR
 EDITOR_TARGET = editor
 endif
 
-all-local: publisher viewer $(EDITOR_TARGET)
+all-local: publisher $(VIEWER_TARGET) $(EDITOR_TARGET)
 
 publisher:
 	@echo "Building $(PUBLISHERBINARY_NAME)..."
@@ -53,7 +57,9 @@ install-exec-local:
 	@echo "Installing binaries to $(DESTDIR)$(bindir)..."
 	$(MKDIR_P) $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(PUBLISHERBINARY_NAME) $(DESTDIR)$(bindir)/$(PUBLISHERBINARY_NAME)
+if BUILD_VIEWER
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(VIEWERBINARY_NAME) $(DESTDIR)$(bindir)/$(VIEWERBINARY_NAME)
+endif
 if BUILD_EDITOR
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(EDITORBINARY_NAME) $(DESTDIR)$(bindir)/$(EDITORBINARY_NAME)
 endif
@@ -72,7 +78,9 @@ deps:
 
 update-deps:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
+if BUILD_VIEWER
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
+endif
 if BUILD_EDITOR
 	cd $(EDITORSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
 endif
@@ -94,7 +102,9 @@ test:
 		exit 1; \
 	fi
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) test ./...
+if BUILD_VIEWER
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) test ./...
+endif
 if BUILD_EDITOR
 	cd $(EDITORSRC_DIR) && $(GO_RUN) test ./...
 endif
@@ -102,7 +112,9 @@ endif
 
 fmt:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) fmt ./...
+if BUILD_VIEWER
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) fmt ./...
+endif
 if BUILD_EDITOR
 	cd $(EDITORSRC_DIR) && $(GO_RUN) fmt ./...
 endif

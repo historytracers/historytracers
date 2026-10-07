@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/ABqOmYcfiVb",
+         "url": "https://open.spotify.com/episode/5Glg0jULwsGfCyOhtHFlvu?si=uyabdyX6SmOOLUVNiH2AyQ",
          "external": true,
          "spotify": true
       }
@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765769"
+      "1790736324"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -55,7 +57,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEn este texto, profundizaremos nuestro conocimiento sobre los sistemas decimales utilizados tanto por nosotros como por los pueblos andinos. Recomendamos estudiar los siguientes textos antes de continuar:\n\n- **Familias Numéricas (Parte I)**: Examina la relación entre los números y nuestras familias (<htcite0>).\n- **Familias Numéricas (Parte II)**: Analiza la relación entre las familias y los órdenes numéricos (<htcite1>).\n- **Capítulo 4**: Dedicado al estudio de las tablas de multiplicación (<htcite2>).",
+               "text": "### Prerrequisitos\n\nEn este texto, profundizaremos nuestro conocimiento sobre los sistemas decimales utilizados tanto por nosotros como por los pueblos andinos. Recomendamos estudiar los siguientes textos antes de continuar:\n\n- **Familias Numéricas (Parte I)**: la relación entre los números y nuestras familias (<htcite0>).\n- **Familias Numéricas (Parte II)**: la relación entre las familias y los órdenes numéricos (<htcite1>).\n- **Multiplicación**: los textos dedicados al estudio de las tablas de multiplicación (<htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -155,7 +157,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\"><b>Figura 1</b>: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<htcite0>)</td></tr></table></p>",
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\"><b>Figura 1</b>: Representación de las manos. Código fuente disponible en el repositorio GitHub del proyecto (<htcite0>).</td></tr></table></p>",
                "source": [
                   {
                      "type": 1,
@@ -184,7 +186,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Multiplicación por más de un dígito\n\nDado que la multiplicación es la suma de números iguales (<htcite0>), antes de ver cómo se realiza, recordemos cómo sumamos números con más de un dígito. Pase el cursor sobre esta suma:",
+               "text": "#### Multiplicación por más de un dígito\n\nDado que la multiplicación es la suma de cantidades iguales (<htcite0>), recordemos antes cómo sumamos números con más de un dígito. Pase el cursor sobre esta suma:",
                "source": [
                   {
                      "type": 1,
@@ -251,7 +253,7 @@
                "PostMention": ""
             },
             {
-               "text": "Estos cálculos muestran claramente que la multiplicación es suma repetida.",
+               "text": "Estos cálculos y la tabla muestran claramente que la multiplicación es suma repetida.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -260,7 +262,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Construyendo la Tabla\n\nPara crear la tabla del 10, usamos la **Fórmula 1**, dando al factor **a** el valor (10):",
+               "text": "#### Construyendo la tabla de multiplicar\n\nPara crear la tabla del 10, usamos la **Fórmula 1**, dando al factor **a** el valor diez (10):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -287,7 +289,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Dibujando la Tabla\n\nNuevamente, graficamos puntos y los unimos en un único gráfico:",
+               "text": "#### Visualizando la tabla\n\nNuevamente, graficamos puntos y los unimos en un único gráfico:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -296,7 +298,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de la tabla del diez conectados, formando una línea recta. Gráfico generado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de la tabla del diez conectados, formando una línea recta. Gráfico generado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart.js</a>.</div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -319,7 +321,7 @@
          "id": "SECTION_order",
          "text": [
             {
-               "text": "### Orden Numérica\n\nAl hablar sobre las familias numéricas (<htcite0>; <htcite1>), aprendimos que, en cada posición en la que escribimos un número, **solo podemos poner valores entre 0 y 9 (0, 1, 2, 3, 4, 5, 6, 7, 8 y 9)**. Siempre que alcanzamos el valor máximo (9), cambiamos el valor a la izquierda, que corresponde a un orden superior. Pero, ¿cuál es la relación entre la tabla de multiplicar del 10 y ese cambio?\n\n#### Reinterpretando la Multiplicación de Múltiples Dígitos\n\nLa multiplicación de números con más de un dígito no puede entenderse solo como “multiplicamos el valor de la unidad y luego el valor de las decenas”, ya que esa interpretación omite algo importante: el orden. Para dejarlo más claro, vamos a multiplicar 11 × 2:",
+               "text": "### Orden numérico\n\nAl hablar de las familias numéricas (<htcite0>; <htcite1>), aprendimos que, en cada posición en la que escribimos una cifra, solo podemos usar los valores del **0 al 9** (**0, 1, 2, 3, 4, 5, 6, 7, 8 y 9**). Siempre que alcanzamos diez unidades en una posición, las intercambiamos por una unidad en la posición de su izquierda, que pertenece a un orden superior. Pero, ¿cuál es la relación entre la tabla de multiplicar del 10 y ese cambio de orden?\n\n#### Reinterpretando la multiplicación de múltiples dígitos\n\nLa multiplicación de números con más de un dígito no puede entenderse solo como “multiplicamos la cifra de las unidades y luego la de las decenas”, ya que esa interpretación omite algo importante: el orden. Para dejarlo más claro, vamos a multiplicar 11 × 2:",
                "source": [
                   {
                      "type": 1,
@@ -371,7 +373,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table class=\"indigenous_period\"><tr><th>Etapa</th><th>Cálculo</th></tr> <tr><td>Separando decenas y unidades</td><td>11 = 10 + 1 </td></tr> <tr><td>Multiplicamos cada número por 2</td><td>11 × 2 = (10 × 2) + (1 × 2) </td></tr> <tr><td>Realizamos los tres cálculos</td><td>22 = 20 + 2 </td></tr> <tr><td>Sumamos los resultados</td><td>22 = 22 </td></tr> </table></p><p class=\"desc\"><b>Tabla 2</b>: Representación del **Cálculo 3** por etapas.</p>",
+               "text": "<p><table class=\"indigenous_period\"><tr><th>Etapa</th><th>Cálculo</th></tr> <tr><td>Separamos decenas y unidades</td><td>11 = 10 + 1 </td></tr> <tr><td>Multiplicamos cada parte por 2</td><td>11 × 2 = (10 × 2) + (1 × 2) </td></tr> <tr><td>Calculamos cada producto</td><td>(10 × 2) + (1 × 2) = 20 + 2 </td></tr> <tr><td>Sumamos los resultados</td><td>20 + 2 = 22 </td></tr> </table></p><p class=\"desc\"><b>Tabla 2</b>: Representación del **Cálculo 3** por etapas.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -380,7 +382,7 @@
                "PostMention": ""
             },
             {
-               "text": "Lo que se hizo en la **Tabla 2** puede aplicarse a cualquier otra multiplicación. Es decir, podemos separar cualquier número en sus órdenes (unidades, decenas, centenas…), multiplicar cada parte por el número deseado y, al final, sumar los resultados.\n\nEso significa que, al realizar el **Cálculo 2**, estábamos haciendo:",
+               "text": "Los pasos de la **Tabla 2** se aplican a cualquier otra multiplicación. Es decir, podemos separar cualquier número en sus órdenes (unidades, decenas, centenas…), multiplicar cada parte por el otro factor y, al final, sumar los resultados.\n\nEso significa que, al realizar el **Cálculo 2**, estábamos haciendo:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -398,7 +400,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h4>Multiplicando por Múltiples Órdenes</h4></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Más órdenes</b><br /><br />Vimos que, al multiplicar números con más de un dígito, podemos separarlos en órdenes. Pero, ¿y si el segundo número también tiene más de un orden?</div></div></center></p>",
+               "text": "<p><h4>Multiplicando por múltiples órdenes</h4></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Más órdenes</b><br /><br />Vimos que, al multiplicar números con más de un dígito, podemos separarlos en órdenes. Pero, ¿y si el segundo número también tiene más de un orden?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -443,7 +445,7 @@
                "PostMention": ""
             },
             {
-               "text": "El cero a la izquierda podría omitirse, pero lo mantenemos para facilitar la comprensión.\n\nAhora, multiplicamos 10 × 10. Como estamos multiplicando por una decena, no basta con colocar el resultado debajo del primer cero. En su lugar, **desplazamos una posición hacia la izquierda (añadiendo un cero) y escribimos el resultado a partir de la decena**:",
+               "text": "El cero a la izquierda podría omitirse, pero lo mantenemos para que las cifras se alineen con el cálculo anterior.\n\nAhora multiplicamos 10 × 10. El 1 del segundo factor representa una decena, no una unidad, así que no podemos escribir el resultado justo debajo del primer cero. En su lugar, **desplazamos una posición hacia la izquierda (añadiendo un cero) y escribimos el resultado a partir de la decena**:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -461,7 +463,7 @@
                "PostMention": ""
             },
             {
-               "text": "Por último, sumamos los resultados de los **Cálculos 6 y 7**: 100 + 0 = 100.\n\n#### Resumen\n\nA partir de todo lo visto, podemos resumir:\n- Todo número mayor que 9 puede separarse en órdenes y luego reunirse por suma. Ejemplos: **17 = 10 + 7** y **6543 = 6000 + 500 + 40 + 3**.\n- La separación en órdenes es esencial para multiplicaciones con más de un dígito.\n- Primero realizamos la multiplicación de los valores por los valores de la unidad.\n- Luego, realizamos los valores por los valores de la decena, incluyendo el cero hasta llegar a la unidad.",
+               "text": "Por último, sumamos los resultados de los **Cálculos 6 y 7**: 100 + 0 = 100.\n\n#### Resumen\n\nA partir de todo lo visto, podemos resumir lo siguiente:\n- Todo número mayor que 9 puede separarse en órdenes y luego volver a sumarse. Ejemplos: **17 = 10 + 7** y **6543 = 6000 + 500 + 40 + 3**.\n- Separar los números en órdenes es esencial para multiplicar números con más de un dígito.\n- Primero multiplicamos por las cifras de las unidades.\n- Luego multiplicamos por las cifras de las decenas, escribiendo cada resultado una posición a la izquierda y completando con ceros hasta la posición de las unidades.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -475,7 +477,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, profundizamos nuestros conocimientos sobre órdenes numéricas y vimos cómo su comprensión nos ayuda a realizar multiplicaciones.\n\nTodo lo visto aquí es la base para entender el calendario amorrita, que dio origen a las semanas que utilizamos hoy (<htcite0>; <htcite1>). Profundizaremos en este concepto en el próximo texto.",
+               "text": "### Conclusión\n\nEn este texto profundizamos en nuestro conocimiento de los órdenes numéricos y vimos que comprenderlos nos ayuda a realizar multiplicaciones.\n\nTodo lo visto aquí es la base para entender el calendario amorrita, que dio origen a las semanas que utilizamos hoy (<htcite0>; <htcite1>). Profundizaremos en este concepto en el próximo texto.",
                "source": [
                   {
                      "type": 1,
@@ -515,12 +517,12 @@
       {
          "question": "¿La multiplicación y la suma son operaciones completamente diferentes?",
          "yesNoAnswer": "No",
-         "additionalInfo": "La multiplicación y la suma están conectadas. Como vimos en este texto, la multiplicación consiste en realizar sumas repetidas."
+         "additionalInfo": "La multiplicación y la suma están conectadas: la multiplicación es suma repetida. Por ejemplo, 10 × 2 es lo mismo que 10 + 10 = 20, exactamente lo que mostró el Cálculo 2."
       },
       {
          "question": "¿Los números pueden separarse en sus órdenes (unidades, decenas, centenas…)?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Para efectuar ciertos cálculos, es más práctico descomponer los números en sus órdenes (unidades, decenas, centenas...) que trabajar con ellos como un todo. Recuerda siempre que, al separar las órdenes, debemos completar con ceros hasta alcanzar la posición de las unidades."
+         "additionalInfo": "Para algunos cálculos es más práctico descomponer el número en sus órdenes que tratarlo como un todo: 6543 = 6000 + 500 + 40 + 3. Cada posición debe conservar su propio valor, por lo que las posiciones vacías se completan con ceros: 205 = 200 + 0 + 5."
       }
    ],
    "game_v2": null,

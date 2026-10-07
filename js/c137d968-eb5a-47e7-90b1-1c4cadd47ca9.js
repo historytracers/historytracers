@@ -28,6 +28,7 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
+    htSetImageSrc("imgMundus", "images/Archive/mundusnovuslette00vesp_0011.jpg");
 
     return false;
 }

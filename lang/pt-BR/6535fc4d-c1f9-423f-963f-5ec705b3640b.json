@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/95DASIbyYUb",
+         "url": "https://open.spotify.com/episode/699j5uSoUMT45wQkfp01ed?si=kvH45QDZRZusDHpnaVjcDA",
          "external": true,
          "spotify": true
       }
@@ -27,10 +27,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788576552"
+      "1790646764"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -73,7 +75,7 @@
                   {
                      "type": 1,
                      "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
-                     "text": "Hitory Tracers Team",
+                     "text": "History Tracers Team",
                      "page": "Primeiros Passos",
                      "date_time": {
                         "type": "gregory",
@@ -162,7 +164,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Teotihuacan\n\nA cidade de Teotihuacan destacou-se como uma sociedade influente em diversas regiões da Mesoamérica, ocupada desde o final do período Pré-Clássico até boa parte do período Clássico (entre <htdate0> e <htdate1>) (<htcite0>; <htcite1>).\n\nDevido à sua localização geográfica, inúmeras montanhas a cercavam, conforme ilustrado nas Figuras 2 e 3:",
+               "text": "#### Teotihuacan\n\nA cidade de Teotihuacan destacou-se como uma sociedade influente em diversas regiões da Mesoamérica e foi ocupada desde o final do período Pré-Clássico até boa parte do período Clássico (entre <htdate0> e <htdate1>) (<htcite0>; <htcite1>).\n\nDevido à sua localização geográfica, inúmeras montanhas a cercavam, conforme ilustrado nas Figuras 2 e 3:",
                "source": [
                   {
                      "type": 1,
@@ -225,7 +227,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan2\" onclick=\"htImageZoom('ChronologyTeotihuacan2', '0%')\" class=\"imgcenter\" style=\"width:60%;\"/><b>Figura 3</b>: Vista da \"Pirâmide\" do Sol em Teotihuacan, México,  a partir da \"Pirâmide\" da Lua. Foto tirada em <htdate0>, durante uma visita ao sítio.</p>",
+               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan2\" onclick=\"htImageZoom('ChronologyTeotihuacan2', '0%')\" class=\"imgcenter\" style=\"width:60%;\"/><b>Figura 3</b>: Vista da \"Pirâmide\" do Sol em Teotihuacan, México, a partir da \"Pirâmide\" da Lua. Foto tirada em <htdate0>, durante uma visita ao sítio.</p>",
                "source": null,
                "date_time": [
                   {
@@ -403,7 +405,7 @@
          "id": "SECTION_slope",
          "text": [
             {
-               "text": "### Inclinação\n\nTriângulos e pirâmides nos ajudam a aproximar-nos das montanhas naturais. Porém, para chegarmos ainda mais perto das montanhas reais, precisamos ajustar as alturas dos triângulos, o que nos leva a estudar sua inclinação.\n\n#### Triângulo retângulo\n\nVamos considerar apenas um lado do triângulo isósceles do **Gráfico 1**. Ao fazer isso, obtemos um triângulo retângulo (<htcite0>; <htcite1>), conforme mostrado no **Gráfico 2* com seus elementos listados abaixo:",
+               "text": "### Inclinação\n\nTriângulos e pirâmides nos ajudam a aproximar-nos das montanhas naturais. Porém, para chegarmos ainda mais perto das montanhas reais, precisamos ajustar as alturas dos triângulos, o que nos leva a estudar sua inclinação.\n\n#### Triângulo retângulo\n\nVamos considerar apenas um lado do triângulo isósceles do **Gráfico 1**. Ao fazer isso, obtemos um triângulo retângulo (<htcite0>; <htcite1>), conforme mostrado no **Gráfico 2** com seus elementos listados abaixo:",
                "source": [
                   {
                      "type": 1,
@@ -446,7 +448,7 @@
                "PostMention": ""
             },
             {
-               "text": "- **a**, **b** e **c**: são os lados do triângulo. Os lados **a** e **b** são chamados **catetos**, enquanto **c** é o nome da **hipotenusa**.\n- **α**, **β**, e <i class=\"fa-regular fa-square\"></i>: são os ângulos formatos pela união dos lados do triângulo. O quadrado ( <i class=\"fa-regular fa-square\"></i> ) que representa a conexão entre as linhas horizontal e vertical é chamado **ângulo reto**.",
+               "text": "- **a**, **b** e **c**: são os lados do triângulo. Os lados **a** e **b** são chamados **catetos**, enquanto **c** é a **hipotenusa**.\n- **α**, **β**, e <i class=\"fa-regular fa-square\"></i>: são os ângulos formados pela união dos lados do triângulo. O símbolo de quadrado ( <i class=\"fa-regular fa-square\"></i> ) que marca o ângulo entre o lado horizontal e o vertical é chamado **ângulo reto**.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -486,7 +488,7 @@
                "PostMention": ""
             },
             {
-               "text": "Note que, para todas as linhas do **Gráfico 3**, mantemos o cateto **a** com os mesmos valores entre 0 e 10. Os únicos valores alterados para cada linha são os valores do cateto **b** e, consequentemente, o comprimento da hipotenusa **c**.",
+               "text": "Note que, em todas as linhas do **Gráfico 3**, o cateto **a** mantém os mesmos valores, de 0 a 10. Os únicos valores que mudam de uma linha para a outra são os do cateto **b** e, consequentemente, o comprimento da hipotenusa **c**.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -495,7 +497,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1</b><br /><br />Para tornar ainda mais claro o que estamos explicando, siga estas etapas:<br *><br />1. Clique em todos os títulos <b>Tabuada de X</b>, onde <b>X</b> é um número entre <b>0</b> e <b>9</b>, para ocultar as linhas.<br />2. Clique em cada um individualmente para mostrar as linhas novamente.</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1</b><br /><br />Para tornar ainda mais claro o que estamos explicando, siga estas etapas:<br /><br />1. Clique em todos os títulos <b>Tabuada de X</b>, onde <b>X</b> é um número entre <b>0</b> e <b>9</b>, para ocultar as linhas.<br />2. Clique em cada um individualmente para mostrar as linhas novamente.</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -509,7 +511,7 @@
          "id": "SECTION_line",
          "text": [
             {
-               "text": "### Ampliando a linha\n\nO desenho das linhas do **Gráfico 3** foi feito seguindo regras que chamamos de fórmulas matemáticas (<htcite0>). Para entendermos melhor este processo, vamos recordar como os indígenas faziam suas montanhas sagradas em Mesoamérica.\n\n#### Reconstrução\n\nO que geralmente vemos nos sítios arqueológicos, como nas **Figuras 2 e 3**, é a etapa final de um processo de construção que começou com a adição de pequenas estruturas, sobre as quais outras foram posteriormente erguidas. Também não podemos esquecer que algumas das estruturas atuais foram construídas sobre outras já concluídas anteriormente (<htcite1>), como mostrado na **Figura 5**.",
+               "text": "### Ampliando a linha\n\nO desenho das linhas do **Gráfico 3** foi feito seguindo regras que chamamos de fórmulas matemáticas (<htcite0>). Para entendermos melhor este processo, vamos recordar como os indígenas faziam suas montanhas sagradas em Mesoamérica.\n\n#### Reconstrução\n\nO que geralmente vemos nos sítios arqueológicos, como nas **Figuras 2 e 3**, é a etapa final de um processo de construção que começou com a adição de pequenas estruturas, sobre as quais outras foram posteriormente erguidas. Também não podemos esquecer que, em alguns casos, a estrutura final foi construída sobre estruturas ainda mais antigas (<htcite1>), como mostrado na **Figura 5**.",
                "source": [
                   {
                      "type": 1,
@@ -543,7 +545,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" class=\"imgcenter\"/><b>Figura 5</b>: Cartaz no sítio arqueológico de Copán (<htcite0>). Foto tirada em <htdate1> em uma visita ao sitio.</p>",
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" class=\"imgcenter\"/><b>Figura 5</b>: Cartaz no sítio arqueológico de Copán (<htcite0>). Foto tirada em <htdate1> em uma visita ao sítio.</p>",
                "source": [
                   {
                      "type": 1,
@@ -622,7 +624,7 @@
                "PostMention": ""
             },
             {
-               "text": "O **Gráfico 4** reproduz exatamente o que aprendemos neste capítulo. Através dele, é possível observar:\n- Quanto mais nos aproximamos do zero na horizontal, onde sempre temos o mesmo resultado na multiplicação, mais os pontos na vertical se aproximam.\n- **Comutatividade**: Pontos possuem o mesmo valor na vertical quando há comutatividade. Por exemplo, o valor 15 aparece quando multiplicamos 3 por 5 e 5 por 3.\n- Todos os números que aparecem na hipotenusa de uma tabuada quando estamos multiplicando também aparecem no fator na sua vertical.\n\nApesar de termos conectado os pontos das tabuadas que estamos usando, o resultado da multiplicação que aprendemos até o momento cria pontos desconexos, também chamados de discretos, ao invés de contínuos. Veremos como unir os pontos em capítulos futuros. Por hora, vamos generalizar estes pontos desconexos.\n\n#### Somas repetidas\n\nSempre que realizamos somas repetidas, estamos efetuando uma operação conhecida como multiplicação (<htcite0>). Ao longo do estudo, verificamos que podemos representar essas somas repetidas de diferentes formas. Por exemplo, para somar o número 10 três vezes consecutivas, podemos expressar da seguinte maneira (<htcite1>):",
+               "text": "O **Gráfico 4** reproduz exatamente o que aprendemos neste capítulo. Por meio dele, é possível observar:\n- Quanto mais nos aproximamos do zero na horizontal (onde a multiplicação sempre dá o mesmo resultado), mais perto uns dos outros ficam os pontos na vertical.\n- **Comutatividade**: por causa da comutatividade, os pontos podem compartilhar o mesmo valor na vertical. Por exemplo, o valor 15 aparece tanto ao multiplicar 3 por 5 quanto ao multiplicar 5 por 3.\n- Todos os números que aparecem na hipotenusa de uma tabuada também aparecem na vertical, na coluna do seu fator.\n\nMesmo tendo conectado os pontos nos gráficos que estamos usando, os resultados das multiplicações que aprendemos até agora formam pontos desconexos, também chamados de discretos, em vez de contínuos. Veremos como unir os pontos em capítulos futuros. Por hora, vamos generalizar estes pontos desconexos.\n\n#### Somas repetidas\n\nSempre que realizamos somas repetidas, estamos efetuando uma operação conhecida como multiplicação (<htcite0>). Ao longo do estudo, verificamos que podemos representar essas somas repetidas de diferentes formas. Por exemplo, para somar o número 10 três vezes consecutivas, podemos expressar da seguinte maneira (<htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -665,7 +667,7 @@
                "PostMention": ""
             },
             {
-               "text": "À medida que fomos estudando as tabuadas, concluímos que todos os pontos mostrados nos gráficos podem ser resumidos através da **Fórmula 1** (<htcite0>):",
+               "text": "À medida que fomos estudando as tabuadas, concluímos que todos os pontos mostrados nos gráficos podem ser resumidos por meio da **Fórmula 1** (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -696,7 +698,7 @@
                "PostMention": ""
             },
             {
-               "text": "Nesta fórmula:\n- *r*: é o resultado da multiplicação (produto).\n *N*: é o fator que representa um número que contamos.\n- *a*: além de ser um dos fatores da multiplicação, recebe diferentes nomes em diferentes situações da vida. No entanto, independentemente do nome, sua função na multiplicação permanece a mesma: modificar a posição do ponto em relação à linha horizontal, criando o ângulo **α** mostrado no **Gráfico 2**. Por esse motivo, um de seus nomes é **coeficiente angular**. O fator **a** é justamente o que dá nome a uma tabuada.",
+               "text": "Nesta fórmula:\n- *r*: é o resultado da multiplicação (produto).\n- *N*: é o fator que representa o número que estamos contando.\n- *a*: é um dos fatores da multiplicação e recebe nomes diferentes em diferentes contextos. Não importa o nome, sua função na multiplicação é sempre a mesma: modificar a posição do ponto em relação à linha horizontal, criando o ângulo **α** mostrado no **Gráfico 2**. Por esse motivo, um de seus nomes é **coeficiente angular**. O fator **a** é justamente o que dá nome a uma tabuada.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -710,7 +712,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, revisamos o que aprendemos durante todo este capítulo, mas as tabuadas não terminam aqui.\n\nPara criarmos montanhas através das fórmulas, 10 números na horizontal não são suficientes. E como pode ser observado no **Gráfico 4**, não apareceu nenhuma vez na vertical, nas tabuadas diferentes de 9, o resultado de quando multiplicamos por 10 um número na horizontal. Como há muito mais coisas por trás da tabuada de 10, passaremos a estudar no próximo capítulo.",
+               "text": "### Conclusão\n\nNeste texto, revisamos o que aprendemos neste capítulo, mas a exploração das tabuadas não termina aqui.\n\nPara criarmos montanhas por meio das fórmulas, 10 números na horizontal não bastam. Como se pode observar no **Gráfico 4**, os múltiplos de dez, como 10 e 20, já aparecem entre os produtos representados, embora a tabuada de 10 não seja representada como uma tabuada separada. Como há muito mais a aprender sobre a tabuada de 10, passaremos a estudá-la no próximo capítulo.",
                "source": null,
                "date_time": null,
                "isTable": false,

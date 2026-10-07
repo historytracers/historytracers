@@ -15,7 +15,7 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/yTd93pLm3Vb",
+         "url": "https://open.spotify.com/episode/2PqNvYY7Hovoz8WD2JXYkk?si=zT22eVMMQgySS9tOFoMAtQ",
          "external": true,
          "spotify": true
       }
@@ -29,10 +29,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788576545"
+      "1791203644"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -50,7 +52,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEn este texto damos continuidad al estudio iniciado en el trabajo anterior (<htcite0>), sobre cómo los pueblos indígenas posiblemente realizaban operaciones matemáticas en Mesoamérica (Figura 1). Antes de continuar, recomendamos la lectura del **Capítulo 4** de la sección *Primeros Pasos* (<htcite1>).",
+               "text": "### Prerrequisitos\n\nEn este texto damos continuidad al estudio iniciado en el trabajo anterior (<htcite0>) sobre cómo los pueblos indígenas posiblemente realizaban operaciones matemáticas en Mesoamérica (Figura 1). Allí sumamos números mesoamericanos; aquí los multiplicamos. Antes de continuar, recomendamos leer el **Capítulo 4** de la sección *Primeros Pasos* (<htcite1>), donde la multiplicación se presenta como suma repetida.",
                "source": [
                   {
                      "type": 1,
@@ -111,7 +113,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nEn este texto analizaremos una metodología distinta de multiplicación que, posiblemente, fue utilizada por los mayas (<htcite0>; <htcite1>). Sin embargo, al igual que en el caso de la suma, no es posible afirmar con certeza cómo se realizaban estos cálculos, debido a la ausencia de registros textuales que describan explícitamente sus métodos.\n\nDado que utilizaban métodos diferentes a los nuestros, esto nos conduce a la siguiente reflexión:",
+               "text": "### Introducción\n\nEn este texto analizaremos una forma distinta de multiplicar que posiblemente usaron los mayas (<htcite0>; <htcite1>). Al igual que en el caso de la suma, no podemos afirmar con certeza cómo se realizaban estos cálculos, porque ningún registro escrito describe sus métodos.\n\nComo sus métodos eran distintos de los nuestros, nos plantean la siguiente reflexión:",
                "source": [
                   {
                      "type": 1,
@@ -145,7 +147,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre la metodología</b><br /><br />¿Una forma distinta de realizar la multiplicación produce resultados diferentes?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre la metodología</b><br /><br />Si multiplicamos de una manera totalmente distinta, ¿puede cambiar el resultado?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -159,7 +161,7 @@
          "id": "SECTION_common",
          "text": [
             {
-               "text": "### Una conclusión común\n\nAl describir la multiplicación realizada por los mayas, la doctora Ximena Catepillán sugiere que, para números pequeños, los indígenas posiblemente repetían un número una cierta cantidad de veces (<htcite0>). Esta conclusión es análoga a la de Dhavit Prem en el método *\"Yupana Inka Tawa Pukllay\"* (<htcite1>; <htcite2>), que ya estudiamos anteriormente (<htcite3>). Retomamos aquí esta idea como recordatorio, a través de la Tabla 1, en la cual es posible elegir dos valores entre 0 y 9 y realizar la operación de multiplicación:",
+               "text": "### Una conclusión común\n\nAl describir la multiplicación realizada por los mayas, la doctora Ximena Catepillán sugiere que, para números pequeños, los indígenas posiblemente obtenían el producto repitiendo un número una cantidad determinada de veces (<htcite0>). Esa es justamente la idea detrás del método *\"Yupana Inka Tawa Pukllay\"* de Dhavit Prem (<htcite1>; <htcite2>), que ya estudiamos antes (<htcite3>): multiplicar es sumar repetidamente.\n\nRetomamos esa idea en la **Tabla 1**. Elige dos valores entre 0 y 9 y luego haz clic en **Nuevo Ejercicio** para construir el producto sumando una y otra vez:",
                "source": [
                   {
                      "type": 1,
@@ -217,7 +219,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p  style=\"margin: auto; with: 50%;\"><input type=\"number\" value=\"7\" min=\"0\" max=\"9\" id=\"ia2yupana0\" /> × <input type=\"number\" value=\"8\" min=\"0\" max=\"9\" id=\"ia2yupana1\" />:  <input type=\"radio\" value=\"values\" name=\"yupanaradio\" /> <b>Valores</b> <input type=\"radio\" value=\"calcular\" name=\"yupanaradio\" /> <b>Cálculos</b></p>",
+               "text": "<p  style=\"margin: auto; with: 50%;\"><input type=\"number\" value=\"7\" min=\"0\" max=\"9\" id=\"ia2yupana0\" /> × <input type=\"number\" value=\"8\" min=\"0\" max=\"9\" id=\"ia2yupana1\" /></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -226,16 +228,25 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Valores</th><th>Resultado</th><th>Movimientos</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> x <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> x <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> x <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> x <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> x <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table>",
+               "text": "<style>.yupana-panel { background: #2e241f; border-radius: 50px; padding: 8px 18px; margin-bottom: 15px; margin-top: 15px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .yupana-panel .exercise-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; } .level-badge { background: #ffb347; color: #1f2a0e; font-weight: bold; padding: 4px 14px; border-radius: 30px; font-size: clamp(0.8rem, 3vw, 1rem); white-space: nowrap; } .problem-display { background: #f2ecd8; padding: 4px 16px; border-radius: 35px; font-family: 'Courier New', monospace; font-weight: bold; font-size: clamp(1rem, 4vw, 1.5rem); color: #1f2a0e; white-space: nowrap; } .ex-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 2.5vw, 0.9rem); font-family: inherit; padding: 6px 14px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .ex-btn:hover { background: #a58a6a; transform: scale(1.03); } .ex-btn.hidden { display: none; } .step-panel { padding: 8px 0; color: #ffefcf; font-size: clamp(0.8rem, 2.5vw, 1rem); } .step-status { font-size: clamp(0.7rem, 2vw, 0.85rem); opacity: 0.9; margin-top: 4px; color: #ffefcf; } .feedback-area { text-align: center; margin: 10px 0; font-size: clamp(0.9rem, 3vw, 1.2rem); } .congrats { color: #2e7d32; font-weight: bold; } .success-message { color: #ffffff; } .mult-table { color: #ffefcf; font-family: 'Courier New', monospace; font-weight: bold; font-size: clamp(0.8rem, 2.5vw, 1rem); text-align: center; margin: 6px 0; } .mult-table .mult-row { padding: 2px 0; } .mult-table .mult-row strong { color: #ffb347; } .next-step-btn { display: block; margin: 10px auto; background: #2e7d32; border: none; color: white; font-weight: bold; font-size: clamp(0.9rem, 3vw, 1.1rem); font-family: inherit; padding: 10px 30px; border-radius: 50px; cursor: pointer; transition: 0.2s; } .next-step-btn:hover { background: #388e3c; transform: scale(1.03); } .next-step-btn.hidden { display: none; } #yupana1 { zoom: 0.7; }</style>",
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc": "El tablero posee cuatro columnas por cinco líneas que representan la Yupana: La primera columna contiene cinco círculos; La segunda posee tres círculos; La tercera tiene dos círculos; La última presenta solo un círculo. Este patrón se repite en todas las líneas. Junto a la Yupana, añadimos dos columnas que muestran los números que usamos convencionalmente. Finalmente, incluimos una columna que describe todas las etapas de suma realizadas para obtener el resultado de la multiplicación.",
+               "imgdesc": "",
                "format": "html",
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><b>Tabla 1</b>: Representación de la <i>Yupana</i> según Poma de Ayala (<htcite0> ; <htcite1>).</p>",
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td></tr></table></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "La Yupana consta de una tabla con cuatro columnas y cuatro filas: la primera columna contiene cinco círculos; la segunda columna tiene tres círculos; la tercera columna tiene dos círculos; la última columna contiene solo un círculo; este patrón se repite en todas las filas.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabla 1</b>: Representación de la <i>Yupana</i> según Poma de Ayala (<htcite0>; <htcite1>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -280,6 +291,15 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": ""
+            },
+            {
+               "text": "<div class=\"yupana-panel\"><div class=\"exercise-header\"><span class=\"problem-display\" id=\"problemDisplay\">7 × 8</span><button class=\"ex-btn\" id=\"resetTutorBtn\">🎲 Nuevo Ejercicio</button></div><button class=\"ex-btn\" id=\"resetButton\">↺ Reiniciar</button><div class=\"step-panel\" id=\"stepMessage\">🧮 Haga clic en 'Nuevo ejercicio' para comenzar</div><div class=\"step-status\" id=\"stepStatus\"></div><div class=\"feedback-area\" id=\"feedbackArea\"></div><div class=\"mult-table\" id=\"multTable\"></div><button class=\"next-step-btn\" id=\"nextStepBtn\">➡️ Siguiente Paso</button></div><div class=\"text-store\" style=\"display:none;\"><span id=\"txt_stepPrefix\">🧮</span><span id=\"txt_correctMessage\">✅ ¡Correcto! Haga clic en 'Siguiente paso' para continuar.</span><span id=\"txt_movementISKAY\">ISKAY</span><span id=\"txt_movementKIMSA\">KIMSA</span><span id=\"txt_movementPISQA\">PISQA</span><span id=\"txt_movementPICHANA\">PICHANA</span><span id=\"txt_movementKINKIN\">KINKIN</span><span id=\"txt_movementsMessage\">✅ ¡Correcto! Movimiento(s) realizado(s) en {placeName}: <strong>{movements}</strong>. Haga clic en 'Siguiente paso' para continuar.</span><span id=\"txt_noMovementsMessage\">✅ ¡Correcto! No se necesita movimiento en {placeName}. Haga clic en 'Siguiente paso' para continuar.</span><span id=\"txt_carryConfirmMessage\">✅ ¡Correcto! El <strong>1</strong> llevado fue colocado en {nextPlace}, mostrado en <strong>rojo en el lado opuesto</strong> (<strong>{movements}</strong>). Haga clic en 'Siguiente paso' para continuar.</span><span id=\"txt_carrying\">llevado</span><span id=\"txt_perfectMessage\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br>{value} × {times} = {result}<br>¡Buen trabajo usando la Yupana!</span><span id=\"txt_congratsMessage\">🎉🎉🎉 ¡FELICITACIONES! 🎉🎉🎉<br>Calculaste {value} × {times} = {result}<br>¡Haz clic en 'Nuevo ejercicio' para practicar más!</span><span id=\"txt_step1Instruction\">📌 <strong>Paso 1:</strong> Escriba el primer valor <strong>{value}</strong>. Haga clic en los cuadrados de la Yupana.</span><span id=\"txt_step2Instruction\">📌 <strong>Paso 2:</strong> Sume el valor <strong>{value}</strong>. Haga clic en los cuadrados de la Yupana.</span><span id=\"txt_step1DigitInstruction\">📌 <strong>Paso {step}:</strong> Escriba el <strong>{digit}</strong> en la casilla de {placeName}. Haga clic en los cuadrados de esa fila.</span><span id=\"txt_step2DigitInstruction\">📌 <strong>Paso {step}:</strong> Sume el <strong>{digit}</strong> en la casilla de {placeName}. Haga clic en los cuadrados de esa fila.</span><span id=\"txt_evalSimple\">➕ <strong>Paso {step}:</strong> {digitA} + {digitB} = <strong>{result}</strong>. Coloque <strong>{result}</strong> en {placeName} haciendo clic en los cuadrados de la Yupana.</span><span id=\"txt_evalCarryDigit\">⚡ <strong>Paso {step}:</strong> {digitA} + {digitB} = <strong>{total}</strong>. Coloque <strong>{resultDigit}</strong> en {placeName}.</span><span id=\"txt_evalZero\">⚡ <strong>Paso {step}:</strong> {placeName} resultará en {total}: {digitA} + {digitB} = <strong>{total}</strong>. Como el resultado en la fila es <strong>0</strong>, no es necesario colocar nada en la Yupana.</span><span id=\"txt_carryFinalInstruction\">➕ <strong>Paso {step}:</strong> Agregue el <strong>1</strong> llevado a la siguiente columna haciendo clic en los cuadrados de la Yupana. Aparecerá en <strong>rojo en el lado opuesto</strong>.</span><span id=\"txt_finalInstruction\">🎉 <strong>Verificar:</strong> {value} × {times} = <strong>{result}</strong>. Los marcadores en la Yupana deben coincidir con este resultado.</span><span id=\"txt_stepStatus\">📖 Paso {current}/{total}</span><span id=\"txt_welcomeMessage\">Haga clic en 'Nuevo ejercicio' para comenzar. Haga clic en las filas de la Yupana para escribir el valor.</span><span id=\"txt_units\">Unidades</span><span id=\"txt_tens\">Decenas</span><span id=\"txt_hundreds\">Centenas</span><span id=\"txt_thousands\">Millares</span><span id=\"txt_next\">siguiente</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       },
@@ -287,7 +307,7 @@
          "id": "SECTION_maya_step",
          "text": [
             {
-               "text": "### Multiplicando con cuadrículas\n\nAunque no podemos afirmar con certeza que los mesoamericanos utilizaran cuadrículas para realizar multiplicaciones, tampoco podemos descartar las evidencias que indican la posibilidad de que este método haya sido empleado (<htcite0>; <htcite1>).\n\nEn esta sección, seguimos los trabajos de Ruy D. Díaz y Ximena Catepillán, mostrando paso a paso cómo realizar las mismas operaciones. Comenzaremos trabajando con números de solo dos órdenes (*K'iin*, *Winal*), realizando la multiplicación **21 × 42 = 882**.\n\n#### Conociendo la cuadrícula\n\nPrimero, armamos una cuadrícula con el siguiente formato (<htcite2>):",
+               "text": "### Multiplicando con cuadrículas\n\nNo podemos afirmar con certeza que los mesoamericanos usaran cuadrículas para multiplicar, pero tampoco podemos descartar las evidencias que apuntan a esa posibilidad (<htcite0>; <htcite1>). En esta sección seguimos los trabajos de Ruy D. Díaz y Ximena Catepillán y repetimos sus operaciones paso a paso.\n\nComenzamos con solo dos órdenes numéricos, *K'iin* (nuestras unidades) y *Winal* (nuestras decenas), y calculamos **21 × 42 = 882**. Cada número que escribimos en la cuadrícula es uno de estos dos factores.\n\n#### Conociendo la cuadrícula\n\nPrimero, armamos una cuadrícula con el siguiente formato (<htcite2>):",
                "source": [
                   {
                      "type": 1,
@@ -342,7 +362,7 @@
                "PostMention": ""
             },
             {
-               "text": "Es importante destacar que los órdenes numéricos se disponen de manera que los de mayor valor queden más próximos, mientras que los de menor valor quedan más alejados. Para hacerlo más claro, escribimos la multiplicación que estamos realizando (**21 × 42**) en el formato decimal:",
+               "text": "Es importante ver cómo se disponen los órdenes: los de mayor valor se encuentran en la esquina superior izquierda y cada orden menor avanza una casilla hacia abajo y a la derecha. Como resultado, las casillas que están en la misma diagonal siempre producen valores del mismo orden, y por eso podremos sumar a lo largo de las diagonales más adelante. Para que la disposición quede más clara, aquí está la multiplicación que realizamos (**21 × 42**) en formato decimal:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -360,7 +380,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Escribiendo en la cuadrícula\n\nComo se trata de un método mesoamericano, convertiremos los números decimales a la notación mesoamericana antes de continuar:",
+               "text": "#### Escribiendo en la cuadrícula\n\nComo se trata de un método mesoamericano, ahora reescribimos esos mismos dígitos en notación mesoamericana antes de continuar:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -378,7 +398,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Multiplicando\n\nAntes de observar cómo los mayas posiblemente realizaban la operación, recordemos cómo hacemos la multiplicación en nuestro sistema (<htcite0>):",
+               "text": "#### Multiplicando\n\nAntes de ver cómo los mayas posiblemente realizaban la operación, recordemos cómo funciona la multiplicación en nuestro sistema (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -409,7 +429,7 @@
                "PostMention": ""
             },
             {
-               "text": "En el cálculo 3, multiplicamos 21 primero por la unidad (2) y luego por la decena (40), que algunos simplifican como *\"multiplicar por 4\"*. En las cuadrículas, el proceso es similar: multiplicamos los números en pares y colocamos el resultado en el cuadro correspondiente. Use la flecha <i class=\"fa-solid fa-arrow-right\" style=\"color:#0f0;\"></i> para hacer los cálculos y la flecha <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> para reiniciar:",
+               "text": "En el **Cálculo 3** multiplicamos 21 primero por la cifra de las unidades (2) y luego por la cifra de las decenas (4, que representa 40) — un atajo que suele describirse como *\"multiplicar por 4 y añadir un cero\"*. La cuadrícula hace lo mismo, solo que en dos direcciones a la vez: cada casilla multiplica el orden de su fila por el orden de su columna, y el producto queda en esa casilla. Usa la flecha <i class=\"fa-solid fa-arrow-right\" style=\"color:#0f0;\"></i> para avanzar una multiplicación cada vez, y la flecha <i class=\"fa-solid fa-rotate-left\" style=\"color:#00f;\"></i> para reiniciar:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -418,7 +438,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"decGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">&nbsp;</td><td style=\"background-color: lightblue\"><img id=\"imgt0\" onclick=\"htImageZoom('imgt0', '0%')\"  /></td><td style=\"background-color: lightblue\"><img id=\"imgt1\" onclick=\"htImageZoom('imgt1', '0%')\"  /></td><td><b>Controles</b></td></tr>  <tr><td style=\"background-color: lightblue\"><b><img id=\"imgl0\" onclick=\"htImageZoom('imgl0', '0%')\"  /></td><td><img id=\"imgm3\" onclick=\"htImageZoom('imgm3', '0%')\" /></td><td><img id=\"imgm1\" onclick=\"htImageZoom('imgm1', '0%')\" /></td><td rowspan=\"2\"><i class=\"fa-solid fa-arrow-right upArrowWithFA\" id=\"traineeUp3\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown3\"></i></td></tr> <tr><td style=\"background-color: lightblue\"><img id=\"imgl1\" onclick=\"htImageZoom('imgl1', '0%')\"  /></td><td><img id=\"imgm2\" onclick=\"htImageZoom('imgm2', '0%')\" /></td><td><img id=\"imgm0\" onclick=\"htImageZoom('imgm0', '0%')\" /></td></tr> </table></p> <p class=\"desc\"><b>Cálculo 4</b>: Multiplicación de 21 por 42.</p>",
+               "text": "<p><table id=\"decGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">&nbsp;</td><td style=\"background-color: lightblue\"><img id=\"imgt0\" onclick=\"htImageZoom('imgt0', '0%')\"  /></td><td style=\"background-color: lightblue\"><img id=\"imgt1\" onclick=\"htImageZoom('imgt1', '0%')\"  /></td><td><b>Controles</b></td></tr>  <tr><td style=\"background-color: lightblue\"><b><img id=\"imgl0\" onclick=\"htImageZoom('imgl0', '0%')\"  /></td><td><img id=\"imgm3\" onclick=\"htImageZoom('imgm3', '0%')\" /></td><td><img id=\"imgm1\" onclick=\"htImageZoom('imgm1', '0%')\" /></td><td rowspan=\"2\"><i class=\"fa-solid fa-arrow-right upArrowWithFA\" id=\"traineeUp3\"></i> <i class=\"fa-solid fa-rotate-left downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown3\"></i></td></tr> <tr><td style=\"background-color: lightblue\"><img id=\"imgl1\" onclick=\"htImageZoom('imgl1', '0%')\"  /></td><td><img id=\"imgm2\" onclick=\"htImageZoom('imgm2', '0%')\" /></td><td><img id=\"imgm0\" onclick=\"htImageZoom('imgm0', '0%')\" /></td></tr> </table></p> <p class=\"desc\"><b>Cálculo 4</b>: Multiplicación de 21 por 42.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -427,7 +447,7 @@
                "PostMention": ""
             },
             {
-               "text": "En las cuadrículas mayas, en esta etapa no es necesario multiplicar en el mismo orden que en el método decimal. Sin embargo, optamos por mantenerlo para facilitar la identificación de los números multiplicados.\n\n#### Reposicionando\n\nEn esta etapa, leemos los valores en las diagonales, sumándolos. Para simplificar la comprensión, repetimos el cálculo 4 con las diagonales destacadas en colores diferentes en el cálculo 5:",
+               "text": "En la cuadrícula maya no es necesario realizar las multiplicaciones en el mismo orden que en el método decimal. Aquí mantuvimos ese orden solo para identificar más fácilmente qué números se multiplicaron.\n\n#### Reposicionando\n\nAhora leemos la cuadrícula a lo largo de sus diagonales y sumamos los valores que caen en cada una. Como cada diagonal reúne productos del mismo orden, las sumas se alinean orden por orden. Para que sea más fácil de seguir, el **Cálculo 5** repite el **Cálculo 4** con las diagonales sombreadas en colores distintos:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -436,7 +456,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"decGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">&nbsp;</td><td style=\"background-color: lightblue\"><img id=\"imgt000\" onclick=\"htImageZoom('imgt000', '0%')\"  /></td><td style=\"background-color: lightblue\"><img id=\"imgt100\" onclick=\"htImageZoom('imgt100', '0%')\"  /></td></tr>  <tr><td style=\"background-color: lightblue\"><b><img id=\"imgl000\" onclick=\"htImageZoom('imgl000', '0%')\"  /></td><td style=\"background-color: lightyellow\"><img id=\"imgm300\" onclick=\"htImageZoom('imgm300', '0%')\"  /></td><td style=\"background-color: lightgreen\"><img id=\"imgm100\" onclick=\"htImageZoom('imgm100', '0%')\"  /></td></tr> <tr><td style=\"background-color: lightblue\"><img id=\"imgl100\" onclick=\"htImageZoom('imgl100', '0%')\"  /></td><td style=\"background-color: lightgreen\"><img id=\"imgm2\" onclick=\"htImageZoom('imgm200', '0%')\"  /></td><td style=\"background-color: lightgray\"><img id=\"imgm000\" onclick=\"htImageZoom('imgm000', '0%')\"  /></td></tr> </table></p> <p class=\"desc\"><b>Cálculo 5</b>: Multiplicación de 21 por 42.</p>",
+               "text": "<p><table id=\"decGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">&nbsp;</td><td style=\"background-color: lightblue\"><img id=\"imgt000\" onclick=\"htImageZoom('imgt000', '0%')\"  /></td><td style=\"background-color: lightblue\"><img id=\"imgt100\" onclick=\"htImageZoom('imgt100', '0%')\"  /></td></tr>  <tr><td style=\"background-color: lightblue\"><b><img id=\"imgl000\" onclick=\"htImageZoom('imgl000', '0%')\"  /></td><td style=\"background-color: lightyellow\"><img id=\"imgm300\" onclick=\"htImageZoom('imgm300', '0%')\"  /></td><td style=\"background-color: lightgreen\"><img id=\"imgm100\" onclick=\"htImageZoom('imgm100', '0%')\"  /></td></tr> <tr><td style=\"background-color: lightblue\"><img id=\"imgl100\" onclick=\"htImageZoom('imgl100', '0%')\"  /></td><td style=\"background-color: lightgreen\"><img id=\"imgm200\" onclick=\"htImageZoom('imgm200', '0%')\"  /></td><td style=\"background-color: lightgray\"><img id=\"imgm000\" onclick=\"htImageZoom('imgm000', '0%')\"  /></td></tr> </table></p> <p class=\"desc\"><b>Cálculo 5</b>: Multiplicación de 21 por 42.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -445,7 +465,7 @@
                "PostMention": ""
             },
             {
-               "text": "Finalmente, sumamos las diagonales y obtenemos el resultado:",
+               "text": "Finalmente, sumamos cada diagonal y obtenemos el resultado:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -463,7 +483,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre el Cálculo 6</b><br /><br />¿El resultado del cálculo es correcto?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre el Cálculo 6</b><br /><br />¿Es correcto el resultado que muestra el Cálculo 6?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -472,7 +492,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Confirmando el resultado\n\nLos resultados de la suma y la multiplicación en el cálculo 6 son correctos. Ahora, para confirmar el valor de **882** obtenido en el cálculo 3, vamos a explicitar los órdenes numéricos y realizar las sumas:",
+               "text": "#### Confirmando el resultado\n\nLas sumas y la multiplicación del **Cálculo 6** son correctas, y los tres resultados que aparecen allí representan tres órdenes numéricos. Para confirmar el valor **882** obtenido en el **Cálculo 3**, vamos a hacer explícitos esos órdenes y a sumarlos:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -481,7 +501,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p style=\"text-align=center\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>882</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">= (</mo><mn>2</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mn>400</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>4</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mn>20</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>2</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math></p> <p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>882</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">= (</mo><mn>800</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>80</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>2</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math></p>  <p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>882</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">= (</mo><mn>800</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>82</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math></p> <p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>882</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">= </mo><mn>882</mn></math></p>  <p class=\"desc\"><b>Cálculo 7</b>: Reescritura del número 882 explicitando los órdenes numéricos en base vigesimal.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p style=\"text-align=center\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>882</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">= (</mo><mn>2</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mn>400</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>4</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mn>20</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>2</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math></p> <p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>882</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">= (</mo><mn>800</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>80</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>2</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math></p>  <p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>882</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">= (</mo><mn>800</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">) + </mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mn>82</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math></p> <p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>882</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">= </mo><mn>882</mn></math></p>  <p class=\"desc\"><b>Cálculo 7</b>: Reescritura de 882 para mostrar sus órdenes numéricos en base vigesimal.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -490,7 +510,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre el Cálculo 7</b><br /><br />El cálculo 7 confirmó el resultado del cálculo 3. Por lo tanto, concluimos que no hay ningún problema, ¿verdad?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre el Cálculo 7</b><br /><br />El Cálculo 7 confirmó el resultado del Cálculo 3. Así que no queda nada más por verificar, ¿verdad?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -499,7 +519,7 @@
                "PostMention": ""
             },
             {
-               "text": "Si, por algún motivo, la cantidad de verificaciones pareció excesiva, no hay motivo de preocupación. Este proceso forma parte del aprendizaje, y a lo largo de la vida siempre seremos desafiados en nuestra comprensión.\n\nEs importante recordar que aquí utilizamos el sistema vigesimal, aunque no existan evidencias de que dicho sistema haya sido usado exactamente de esta manera por los mesoamericanos (<htcite0>; <htcite1>; <htcite2>). El sistema numérico maya era el calendárico, ya explorado en el texto anterior (<htcite3>).",
+               "text": "Si la cantidad de verificaciones te pareció excesiva, no te preocupes: revisar el propio trabajo forma parte del aprendizaje, y siempre se nos pedirá que justifiquemos nuestra comprensión.\n\nAún queda una salvedad importante. Todo lo anterior usó el sistema **vigesimal**, en el que cada orden multiplica al anterior por 20. No hay evidencias de que los mesoamericanos usaran un sistema exactamente de esta manera (<htcite0>; <htcite1>; <htcite2>). El sistema numérico maya era el **calendárico**, que exploramos en el texto anterior (<htcite3>): allí el tercer orden multiplica por 18, no por 20.",
                "source": [
                   {
                      "type": 1,
@@ -562,7 +582,7 @@
          "id": "SECTION_calculator",
          "text": [
             {
-               "text": "### La Cuadrícula\n\nA continuación, presentamos una versión de la cuadrícula que realiza la multiplicación utilizando las cuadrículas mesoamericanas. En los campos de valores, puedes ingresar cualquier número entre 0 y 999. Después de añadir los valores, haz clic en el signo igual ( <i class=\"fa-solid fa-equals\"></i> ) para visualizar el resultado.\n\nCon respecto a los resultados, informamos que, cuando el producto de la multiplicación en la cuadrícula sea mayor que 19, en lugar de mostrar directamente el número, se indicará la operación que se está realizando. Para visualizar el resultado final explicitado en la región de los cálculos, es necesario hacer clic en el botón avanzar (<i class=\"fa-solid fa-arrow-right\" style=\"color:#0f0; font-size: 1.2em;\"></i>). En ese momento, se mostrará el resultado después de usar las etapas de simplificación explicadas por Ruy D. Díaz y aplicadas en el texto anterior (<htcite0>; <htcite1>):",
+               "text": "### La Cuadrícula\n\nA continuación tienes una cuadrícula interactiva que multiplica con notación mesoamericana. Escribe cualquier número de 0 a 999 en cada campo de valores y haz clic en el signo igual ( <i class=\"fa-solid fa-equals\"></i> ) para ver el resultado.\n\nUn detalle a tener en cuenta: cada vez que un producto de la cuadrícula sería mayor que 19, la cuadrícula no muestra el número en sí, porque ningún orden puede albergar un valor superior a 19. Muestra en su lugar los dos factores que todavía deben combinarse. Haz clic en la flecha de avance (<i class=\"fa-solid fa-arrow-right\" style=\"color:#0f0; font-size: 1.2em;\"></i>) para aplicar las etapas de simplificación explicadas por Ruy D. Díaz y usadas en el texto anterior (<htcite0>; <htcite1>) y para llegar al resultado final:",
                "source": [
                   {
                      "type": 1,
@@ -610,7 +630,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto estudiamos las cuadrículas mesoamericanas y cómo los mayas podrían haberlas utilizado.\n\nEste es el último texto sobre los calendarios en este capítulo. En el próximo, comprenderemos mejor las divisiones de los calendarios y veremos otra operación matemática con los números mesoamericanos: la división.",
+               "text": "### Conclusión\n\nEn este texto estudiamos la cuadrícula mesoamericana y cómo los mayas podrían haberla utilizado para multiplicar. Dos ideas la hacen funcionar: cada casilla multiplica los órdenes que se encuentran allí y cada diagonal reúne productos del mismo orden.\n\nEste es el último texto sobre los calendarios en este capítulo. En el próximo veremos más de cerca las divisiones del calendario y estudiaremos otra operación matemática con los números mesoamericanos: la división.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -623,14 +643,14 @@
    ],
    "exercise_v2": [
       {
-         "question": "Al cambiar la manera de multiplicar, ¿el resultado se modificó?",
+         "question": "Al cambiar la forma de multiplicar, ¿cambió el resultado?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Observamos dos métodos indígenas de multiplicación, y ambos producen el mismo resultado que la multiplicación que utilizamos habitualmente. Lo que garantiza la conservación del resultado es el hecho de que ambos mantienen el concepto fundamental de la multiplicación: la suma repetida de números."
+         "additionalInfo": "Estudiamos dos métodos indígenas de multiplicación y ambos dan el mismo resultado que la multiplicación que usamos todos los días. No es casualidad: ambos conservan la idea fundamental de la multiplicación, que es sumar el mismo número una y otra vez."
       },
       {
-         "question": "¿Podemos invertir la posición en la que escribimos los números?",
+         "question": "En las cuadrículas mesoamericanas, ¿podemos intercambiar las posiciones de los dos números?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Al igual que en la matemática que usamos comúnmente, el orden de los números no altera el resultado, ya que, en cualquier caso, multiplicaremos (sumaremos repetidamente) los mismos números."
+         "additionalInfo": "Al igual que en la matemática que usamos todos los días, intercambiarlos no altera el producto, porque en cualquier caso multiplicamos el mismo par de números, es decir, sumamos uno de ellos repetidamente."
       }
    ],
    "game_v2": null,

@@ -40,17 +40,11 @@ ht_download_models() {
 
 ht_select_model() {
     FILE=".ht_tts_${1}"
-    SELECTOR=$(cat "${FILE}")
+    SELECTOR=$(cat "${FILE}" 2>/dev/null || true)
     if [ "${1}" == "pt-BR" ]; then
         echo "pt_BR-faber-medium"
         return
     elif [ "${1}" == "es-ES" ]; then
-        len=${#2}
-        if [ "$len" -ne 0 ]; then
-            echo "es_ES-${2}-medium"
-            return 0
-        fi
-
         if [ "${SELECTOR}" == "es_ES-davefx-medium" ]; then
             echo "es_ES-sharvard-medium" > .ht_tts_es-ES
             echo "es_ES-davefx-medium"
@@ -58,12 +52,6 @@ ht_select_model() {
             echo "es_ES-davefx-medium" > .ht_tts_es-ES
             echo "es_ES-sharvard-medium"
         fi
-        return 0
-    fi
-
-    len=${#2}
-    if [ "$len" -ne 0 ]; then
-        echo "en_US-${2}-medium"
         return 0
     fi
 
@@ -78,43 +66,62 @@ ht_select_model() {
     return 0
 }
 
+ht_select_lang() {
+    case "${1}" in
+        *_en-US|*-en-US) echo "en-US" ;;
+        *_es-ES|*-es-ES) echo "es-ES" ;;
+        *_pt-BR|*-pt-BR) echo "pt-BR" ;;
+        *) return 1 ;;
+    esac
+}
+
 ht_convert() {
-    local IN_FILENAME SELLANG MODEL
+    local IN_FILENAME OUT_FILENAME SELLANG MODEL
     IN_FILENAME="${1}"
-    SELLANG=$(echo "$IN_FILENAME" | rev | cut -d_ -f1| rev)
-    MODEL=$(ht_select_model "${SELLANG}" "${2}")
+    OUT_FILENAME="${IN_FILENAME%.txt}"
 
-    echo "Using Model ${MODEL} to create ${IN_FILENAME}.wav"
+    if ! SELLANG=$(ht_select_lang "${OUT_FILENAME}"); then
+        ht_error
+    fi
 
-    python3 -m piper -m ."/models/$MODEL" -f "${IN_FILENAME}.wav" --input-file "$IN_FILENAME"
-    ffmpeg  -i "${IN_FILENAME}.wav" "${IN_FILENAME}.ogg"
+    MODEL=$(ht_select_model "${SELLANG}")
+
+    echo "Using Model ${MODEL} to create ${OUT_FILENAME}.wav"
+
+    python3 -m piper -m ."/models/$MODEL" -f "${OUT_FILENAME}.wav" --input-file "$IN_FILENAME"
+    ffmpeg  -i "${OUT_FILENAME}.wav" "${OUT_FILENAME}.ogg"
 }
 
 ht_error() {
-    echo "Please specify a filename with language suffix (_pt-BR, _es-ES, _en-US)."
-    echo "You can also specify the model you want to use as the second option."
+    echo "Please specify an input filename with a language suffix (_pt-BR, _es-ES, _en-US)."
+    echo ""
+    echo "Supported patterns:"
+    echo "  UUID_en-US"
+    echo "  UUID_UUID_en-US"
+    echo ""
+    echo "The .txt extension is also accepted:"
+    echo "  UUID_en-US.txt"
+    echo "  UUID_UUID_en-US.txt"
     echo ""
     echo "Example:"
     echo ""
-    echo "./ht_tts.sh FILE_NAME_en-US MODEL_NAME"
+    echo "./ht_tts.sh FILE_NAME_en-US"
     exit 1;
 }
 
 
 target_dir="models"
-case $(ht_check_or_create_dir "$target_dir") in
-    0)
-        if ! ht_cmd_exists "pip3"; then
-            echo "Cannot install models"
-            exit 1
-        fi
-        ht_download_models
-        ;;
-esac
+if ht_check_or_create_dir "$target_dir"; then
+    if ! ht_cmd_exists "pip3"; then
+        echo "Cannot install models"
+        exit 1
+    fi
+    ht_download_models
+fi
 
-if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+if [ $# -ne 1 ]; then
     ht_error
 fi
 
-ht_convert "${1}" "${2}"
+ht_convert "${1}"
 

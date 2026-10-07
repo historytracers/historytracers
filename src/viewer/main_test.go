@@ -355,3 +355,21 @@ func TestContentTitlePrefersJSONTitle(t *testing.T) {
 		})
 	}
 }
+
+func TestViewerTabScrollRestore(t *testing.T) {
+	js := addressBarJS
+	if !strings.Contains(js, "htTabSaveScroll") {
+		t.Errorf("expected htTabSaveScroll in addressBarJS")
+	}
+	if !strings.Contains(js, "htTabRestoreScroll") {
+		t.Errorf("expected htTabRestoreScroll in addressBarJS")
+	}
+	// selTab must save the outgoing tab offset before hiding it...
+	if !strings.Contains(js, "htTabSaveScroll(active)") {
+		t.Errorf("expected selTab to save the active tab scroll offset")
+	}
+	// ...and restore the incoming tab offset after showing it.
+	if !strings.Contains(js, "htTabRestoreScroll(idx)") {
+		t.Errorf("expected selTab to restore the selected tab scroll offset")
+	}
+}

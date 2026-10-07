@@ -802,6 +802,24 @@
   height: auto;
 }
 
+/* Mesoamerican Multiplication (648170f0), Calculation 4:
+   widen the rotate/reset arrow's clickable area so the whole region of the
+   control responds, including its empty center. The class is added at runtime
+   by that page's script so other pages reusing #traineeDown3 are unaffected. */
+.htResetHit {
+  position: relative;
+  cursor: pointer;
+}
+
+.htResetHit::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  bottom: -12px;
+  left: 0;
+}
+
 /* Narrow and portrait screens: let the columns and the Maya glyphs scale to fit */
 @media screen and (max-width: 767px), screen and (orientation: portrait) {
   .mesoNumTable {
@@ -2648,4 +2666,495 @@ p.desc svg {
 }
 #imgText {
   max-width: 100%;
+}
+
+/* Sequence game (Orders): match each number with the name of its order. */
+.orderGame {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(1em, 4vw, 3em);
+  width: 100%;
+  margin: 0.75em auto;
+}
+
+.orderGameCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  flex: 0 1 auto;
+}
+
+.orderGameBtn {
+  min-width: 9em;
+  padding: 0.55em 1em;
+  border: 2px solid #5a3f2c;
+  border-radius: 16px;
+  background: #fff8e7;
+  color: #2e241f;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.12s linear, transform 0.08s linear;
+}
+
+.orderGameBtn:hover {
+  background: #ffe9b8;
+}
+
+.orderGameBtn:active {
+  transform: translateY(1px);
+}
+
+.orderGameBtnSelected {
+  background: #4a90d9;
+  border-color: #2c5f8f;
+  color: #ffffff;
+}
+
+.orderGameBtnMatched {
+  background: #d4edda;
+  border-color: #155724;
+  color: #155724;
+  cursor: default;
+}
+
+.orderCongrats {
+  text-align: center;
+  font-weight: bold;
+  color: #155724;
+}
+
+.orderFeedback {
+  text-align: center;
+  font-weight: bold;
+  color: #b45309;
+  margin: 0.5em auto;
+}
+
+.design-dark .orderGameBtn {
+  background: #37474f;
+  color: #eceff1;
+  border-color: #90a4ae;
+}
+
+.design-dark .orderGameBtn:hover {
+  background: #455a64;
+}
+
+.design-dark .orderGameBtnSelected {
+  background: #1565c0;
+  border-color: #42a5f5;
+  color: #ffffff;
+}
+
+.design-dark .orderGameBtnMatched {
+  background: #1b5e20;
+  border-color: #66bb6a;
+  color: #e8f5e9;
+}
+
+.design-dark .orderCongrats {
+  color: #a5d6a7;
+}
+
+.design-dark .orderFeedback {
+  color: #ffcc80;
+}
+
+@media screen and (max-width: 700px) {
+  .orderGame {
+    gap: 1em;
+  }
+
+  .orderGameCol {
+    flex: 1 1 8em;
+  }
+
+  .orderGameBtn {
+    min-width: 0;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
+
+/* I Represent You (83f8c143): match Etruscan-Roman numerals with Hindu-Arabic numbers.
+   Reuses the .orderGame two-column matching layout. Thousands are drawn with an
+   overline over the Roman symbols. */
+.representOverline {
+  text-decoration: overline;
+  text-decoration-thickness: 2px;
+}
+
+.representRomanBtn {
+  letter-spacing: 0.06em;
+}
+
+.design-dark .representOverline {
+  text-decoration-color: #eceff1;
+}
+
+/* Around the World (6c071696): tour of the first counting tools created by
+   humanity, with a "represent the number" practice game for each instrument. */
+.atw-game {
+  margin: 1rem 0;
+}
+
+.atw-game-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fffdf6;
+  border: 1px solid #e2d6b8;
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.atw-canvas {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  aspect-ratio: 360 / 200;
+  cursor: default;
+  border-radius: 10px;
+}
+
+.atw-instruction {
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.atw-target {
+  font-size: 1.4rem;
+  color: #8a3c10;
+}
+
+.atw-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.atw-step {
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.atw-step:disabled {
+  background: #bdbdbd;
+  cursor: default;
+}
+
+.atw-value {
+  font-weight: bold;
+  min-width: 5rem;
+  text-align: center;
+}
+
+.atw-levelline,
+.atw-readout,
+.atw-correct {
+  margin: 0;
+  text-align: center;
+}
+
+.atw-readout {
+  font-weight: bold;
+}
+
+.atw-correct {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.atw-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+}
+
+.atw-sequence {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  margin: 0;
+}
+
+.atw-seqitem {
+  padding: 0 0.4rem;
+}
+
+.atw-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.atw-choice {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid #4caf50;
+  background: #fff;
+  color: #2e7d32;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.atw-choice-selected {
+  background: #4caf50;
+  color: #fff;
+}
+
+/*
+ * Odd or Even game (content 8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98).
+ */
+.htOddEvenGame {
+  margin: 1em auto;
+  max-width: 42em;
+  text-align: center;
+}
+
+.htOddEvenQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htOddEvenTable {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.htOddEvenTable > tbody > tr > th,
+.htOddEvenTable > tbody > tr > td {
+  border: 1px solid #999;
+  padding: 0.5em 1em;
+  vertical-align: middle;
+}
+
+.htOddEvenNumberCell {
+  min-width: 5em;
+}
+
+.htOddEvenPairsTable {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.htOddEvenPairsTable th {
+  border: none;
+  color: #555;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.htOddEvenPairsTable td {
+  border: none;
+  padding: 2px 6px;
+}
+
+.htOddEvenCircle {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background-color: #4a90d9;
+  border: 2px solid #2c5f8a;
+  border-radius: 50%;
+}
+
+.htOddEvenButtonsRow {
+  margin-top: 0.75em;
+}
+
+.htOddEvenButton {
+  margin: 0 0.5em;
+  padding: 0.5em 1.5em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.htOddEvenButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htOddEvenFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+}
+
+.htOddEvenFeedback.htOddEvenCorrect {
+  color: green;
+}
+
+.htOddEvenFeedback.htOddEvenWrong {
+  color: #c0392b;
+}
+
+.htOddEvenNewContainer {
+  margin-top: 0.75em;
+}
+
+.htOddEvenHidden {
+  display: none;
+  visibility: hidden;
+}
+
+/*
+ * Vertical complement transition (content cabc9843-35ef-4e4f-92fd-17eda864b55e).
+ */
+.htComplementApp {
+  margin: 1em auto;
+  max-width: 42em;
+  text-align: center;
+}
+
+.htComplementQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htComplementTable {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.htComplementOp,
+.htComplementTens,
+.htComplementUnits {
+  padding: 0 0.35em;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.htComplementTens {
+  min-width: 1.6em;
+  border: 2px solid transparent;
+  border-radius: 6px;
+}
+
+.htComplementUnits {
+  min-width: 1.6em;
+}
+
+.htComplementLine td {
+  border-top: 3px solid #333;
+  padding: 0;
+}
+
+.htComplementCarry {
+  background-color: lightyellow;
+  border-color: #333;
+}
+
+.htComplementCarryValue {
+  display: inline-block;
+  min-width: 1.6em;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.htComplementControls {
+  margin-top: 0.75em;
+}
+
+.htComplementArrow {
+  margin: 0 1em;
+  padding: 0.3em 0.8em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1.4em;
+}
+
+.htComplementArrow:hover {
+  background-color: #d3e8f8;
+}
+
+.htComplementArrow.htComplementDisabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.htComplementFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.htComplementHidden {
+  display: none;
+  visibility: hidden;
+}
+
+.htComplementAxis {
+  max-width: 34em;
+  margin: 0.9em auto 0;
+}
+
+.htComplementAxisTrack {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 1.4em;
+}
+
+.htComplementAxisTick {
+  flex: 1 1 0;
+  padding-bottom: 0.15em;
+  border-bottom: 2px solid #999;
+  font-size: 0.9em;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.htComplementAxisBelow {
+  background-color: #e6f0fa;
+}
+
+.htComplementAxisAbove {
+  background-color: #fbf6d9;
+}
+
+.htComplementAxisComplement {
+  background-color: #f9d976;
+  border-bottom-color: #c0392b;
+  font-weight: bold;
+}
+
+.htComplementAxisPointer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  transition: left 0.25s ease;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  line-height: 1;
 }

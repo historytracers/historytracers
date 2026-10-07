@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://open.spotify.com/episode/",
+         "url": "https://open.spotify.com/episode/3FUEd04AnwyxyyDGha1fGQ?si=amPJ_wkVQr277YPRR3yF2g",
          "external": true,
          "spotify": true
       }
@@ -27,12 +27,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1783368244"
+      "1790736321"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -41,7 +43,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAgeMsg\"></span></p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -64,16 +66,28 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htSlides\"><div class=\"htSlide\"><div class=\"htSlideCounter\">1 / 1</div><img class=\"imgGameSize\" id=\"imgMV\" onclick=\"htImageZoom('imgMV', '0%')\"><div class=\"htSlideCaption\">Herramientas de piedra encontradas en Monte Verde. © Dillehay, T. D. *et al* (<htcite0>). Compartido bajo licencia Open Access.</div></div><i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i><i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i></div></p>",
+               "text": "<p><div class=\"htSlides\"><div class=\"htSlide\"><div class=\"htSlideCounter\">1 / 1</div><img class=\"imgGameSize\" id=\"imgMV\" onclick=\"htImageZoom('imgMV', '0%')\"><div class=\"htSlideCaption\">Herramientas de piedra encontradas en Monte Verde. © Dillehay, T. D. <i>et al</i> (<htcite0>). Compartido bajo licencia Open Access.</div><div class=\"htSlideRefs\"><b>Contenido relacionado:</b><ul><li>La llegada a Abya Yala (América) - En este texto, exploraremos diferentes estudios sobre el período en el que los primeros pueblos pudieron haber llegado a Abya Yala (América). (<htcite1>)</li></ul></div></div><i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i><i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i></div></p>",
                "source": [
                   {
                      "type": 1,
                      "uuid": "03acc97c-c5b2-4fe5-9a7d-cc24ee3e5985",
-                     "text": "Galería (<htcite0>)",
-                     "page": "Dillehay, T. D. et al., 2015, Materiais remanecentes",
+                     "text": "Dillehay, T. D. et al.",
+                     "page": "Materiales remanentes",
                      "date_time": {
                         "type": "gregory",
                         "year": "2015",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5b2cc288-1a05-4a25-8f18-e70ad1ba213d",
+                     "text": "History Tracers Team",
+                     "page": "La llegada a Abya Yala (América)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }

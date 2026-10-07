@@ -13,7 +13,7 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("miPueblito", "images/MiPueblito/MiPueblito.jpg");
+    htSetImageSrc("imgMiPueblito0", "images/MiPueblito/MiPueblito.jpg");
     htPlusDivs(0);
 
     return false;

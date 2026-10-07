@@ -23,6 +23,7 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
+    htSetImageSrc("imgPeabiru", "images/Mapswire/world-physical-map-graticules-mercator-v1_Peabiru.jpg");
 
     htWriteMultiplicationTable("#mParent1", 1);
     htWriteMultiplicationTable("#mParent2", -1);
