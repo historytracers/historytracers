@@ -1361,10 +1361,7 @@ func (projectFS) Open(name string) (http.File, error) {
 }
 
 func main() {
-	hideConsole()
-
-	port := flag.Int("port", 0, "HTTP port (0 = random available)")
-	listen := flag.Int("listen", -1, "Static port in range 1-65535 (-1 = use -port)")
+	port := flag.Int("port", 0, "HTTP port (1-65535, or 0 = random available)")
 	pathFlag := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
@@ -1379,6 +1376,17 @@ func main() {
 		flag.PrintDefaults()
 	}
 	flag.Parse()
+
+	portSet := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == "port" {
+			portSet = true
+		}
+	})
+
+	// Hide the Windows console only after the flags have been parsed, so that
+	// -h/-help and flag errors are still printed to the terminal.
+	hideConsole()
 
 	contentDir = *dir
 	if *pathFlag != "" {
@@ -1428,17 +1436,12 @@ func main() {
 	if *cal == "" && savedOptions.Cal != "" {
 		*cal = savedOptions.Cal
 	}
-	if *listen == -1 && savedOptions.Port != "" {
+	if !portSet && savedOptions.Port != "" {
 		if p, err := strconv.Atoi(savedOptions.Port); err == nil && p >= 1 && p <= 65535 {
-			*listen = p
+			*port = p
 		}
 	}
-
-	effectivePort := *port
-	if *listen >= 1 && *listen <= 65535 {
-		effectivePort = *listen
-	}
-	addr := resolveAddr(effectivePort)
+	addr := resolveAddr(*port)
 	if *class != "" {
 		pageURL = buildPageURL(addr, *class, *lang, *cal)
 	} else if isOpenLastPage(savedOptions) && savedOptions.LastPage != "" {
