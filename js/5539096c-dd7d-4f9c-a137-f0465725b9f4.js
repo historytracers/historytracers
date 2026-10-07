@@ -2,11 +2,14 @@
 
 // "Carry or Not Carry?" game (content 5539096c-dd7d-4f9c-a137-f0465725b9f4).
 // Reinforces "Advancing an Order and the Complement"
-// (cabc9843-35ef-4e4f-92fd-17eda864b55e): at each order (units, tens, hundreds
-// and thousands) the player decides whether a column carries 1, comparing the
-// digit being added with the complement to 10 of the digit already in the
-// column. The localized texts live in the class JSON, so this file only wires
-// the behavior and draws the board.
+// (cabc9843-35ef-4e4f-92fd-17eda864b55e). Each level uses two whole numbers of
+// the order being studied (units: 0-9, tens: 10-99, hundreds: 100-999,
+// thousands: 1000-9999) and walks through its columns from the units upwards,
+// asking at each one whether it carries 1. The digit already in the column is
+// the digit of the first number plus the 1 carried from the previous column,
+// and the player compares the digit being added with its complement to 10.
+// The localized texts live in the class JSON, so this file only wires the
+// behavior and draws the board.
 
 var localCarryGame = {};
 
@@ -14,9 +17,32 @@ function htCarryOrderName(level) {
     return $("#htCarryOrder" + level).text();
 }
 
-function htCarryFill(template, first, addend, comp, sum, order) {
+// Returns the digits of value from the units order upwards (index 0 = units).
+function htCarryDigits(value, length) {
+    var digits = [];
+    var v = value;
+    for (var i = 0; i < length; i++) {
+        digits.push(v % 10);
+        v = Math.floor(v / 10);
+    }
+    return digits;
+}
+
+function htCarryNumberFromDigits(digits) {
+    var n = 0;
+    for (var i = digits.length - 1; i >= 0; i--) {
+        n = n * 10 + digits[i];
+    }
+    return n;
+}
+
+function htCarryDigitAt(value, order) {
+    return Math.floor(value / Math.pow(10, order)) % 10;
+}
+
+function htCarryFill(template, base, addend, comp, sum, order) {
     return template
-        .replace(/\{first\}/g, first)
+        .replace(/\{base\}/g, base)
         .replace(/\{addend\}/g, addend)
         .replace(/\{comp\}/g, comp)
         .replace(/\{sum\}/g, sum)
@@ -31,18 +57,18 @@ function htCarryBuildOrders() {
     $("#htCarryOrders").html(html);
 }
 
-// Draws the ten squares of the complement: "first" light blue squares are the
-// digit already in the column and "comp" light yellow squares complete the 10.
-function htCarryDrawSquares(first, comp) {
+// Draws the ten squares of the complement: "base" light blue squares are the
+// value already in the column and "comp" light yellow squares complete the 10.
+function htCarryDrawSquares(base, comp) {
     var html = "";
-    for (var i = 0; i < first; i++) {
+    for (var i = 0; i < base; i++) {
         html += "<span class=\"htCarrySquare htCarrySquareFirst\"></span>";
     }
     for (var j = 0; j < comp; j++) {
         html += "<span class=\"htCarrySquare htCarrySquareComplement\"></span>";
     }
     $("#htCarrySquares").html(html);
-    $("#htCarrySquaresCaption").text(first + " + " + comp + " = 10");
+    $("#htCarrySquaresCaption").text(base + " + " + comp + " = 10");
 }
 
 function htCarryShowFeedback(correct, message) {
@@ -52,35 +78,101 @@ function htCarryShowFeedback(correct, message) {
     feedback.html(message);
 }
 
-function htCarryNewQuestion() {
+// Draws the vertical addition of the two whole numbers. The column being
+// studied is highlighted; the columns already solved show their result digit
+// and, above the next column, the 1 they carried.
+function htCarryBuildBoard() {
     var level = localCarryGame.level;
-    localCarryGame.answered = false;
+    var d = level + 1;
+    var first = localCarryGame.first;
+    var addend = localCarryGame.addend;
+    var current = localCarryGame.column;
+    var carries = localCarryGame.carries;
+    var results = localCarryGame.results;
+    var fDigits = htCarryDigits(first, d);
+    var aDigits = htCarryDigits(addend, d);
 
-    // Decide the expected answer first, then pick digits that produce it, so
-    // every level can be either a carry or a non-carry.
-    var carry = Math.random() < 0.5;
-    var first = htGetRandomArbitrary(1, 10); // 1..9
-    var comp = 10 - first;                   // 1..9
-    var addend;
-    if (carry) {
-        addend = htGetRandomArbitrary(comp, 10); // comp..9, the complement or more
-    } else {
-        addend = htGetRandomArbitrary(0, comp);  // 0..comp-1, less than the complement
+    function opCell(content) {
+        return "<td class=\"htCarryOp\">" + content + "</td>";
+    }
+    function cell(order, content, idAttr) {
+        var cls = "htCarryCell" + (order === current ? " htCarryCellActive" : "");
+        return "<td class=\"" + cls + "\" data-order=\"" + order + "\"" + (idAttr || "") + ">" + content + "</td>";
     }
 
-    localCarryGame.carry = carry;
-    localCarryGame.first = first;
-    localCarryGame.addend = addend;
+    var rows = "";
+    // Carry row: the carry out of column c is written above column c + 1.
+    rows += "<tr class=\"htCarryCarryRow\">" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        var carryVal = "";
+        if (o >= 1 && carries[o - 1] !== undefined) {
+            carryVal = carries[o - 1] ? "1" : "";
+        }
+        rows += cell(o, carryVal);
+    }
+    rows += "</tr>";
+    // First operand
+    rows += "<tr>" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        rows += cell(o, o < d ? String(fDigits[o]) : "");
+    }
+    rows += "</tr>";
+    // Added operand
+    rows += "<tr>" + opCell("+");
+    for (var o = d; o >= 0; o--) {
+        rows += cell(o, o < d ? String(aDigits[o]) : "");
+    }
+    rows += "</tr>";
+    // Line
+    rows += "<tr class=\"htCarryLine\"><td colspan=\"" + (d + 2) + "\"></td></tr>";
+    // Result
+    rows += "<tr class=\"htCarryResultRow\">" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        var res = "";
+        if (o <= d - 1 && results[o] !== undefined) {
+            res = String(results[o]);
+        } else if (o === d && carries[d - 1] !== undefined && carries[d - 1]) {
+            res = "1";
+        }
+        rows += cell(o, res, " id=\"htCarryResult" + o + "\"");
+    }
+    rows += "</tr>";
 
-    var order = htCarryOrderName(level);
+    $("#htCarryTable").html(rows);
+}
+
+// Prepares the column of the current level that must be answered next.
+function htCarrySetupColumn() {
+    var level = localCarryGame.level;
+    var column = localCarryGame.column;
+    localCarryGame.answered = false;
+
+    var firstDigit = htCarryDigitAt(localCarryGame.first, column);
+    var addendDigit = htCarryDigitAt(localCarryGame.addend, column);
+    var base = localCarryGame.incoming + firstDigit;
+    var comp = 10 - base;
+
+    localCarryGame.firstDigit = firstDigit;
+    localCarryGame.addendDigit = addendDigit;
+    localCarryGame.base = base;
+    localCarryGame.comp = comp;
+
+    var order = htCarryOrderName(column);
     $("#htCarryLevel").text($("#htCarryLevelTemplate").text().replace("{n}", level + 1));
     $("#htCarryQuestion").text($("#htCarryQuestionTemplate").text().replace("{order}", order));
 
-    $("#htCarryFirst").text(first);
-    $("#htCarryAddend").text(addend);
-    $("#htCarryCarryValue").text("");
-    $("#htCarryTensResult").text("").removeClass("htCarryCarry");
-    $("#htCarryUnitsResult").text("");
+    // When a 1 comes from the previous column, say it explicitly: it is the
+    // reason the digit already in this column is not just the first digit.
+    if (localCarryGame.incoming > 0) {
+        var note = $("#htCarryIncomingTemplate").text()
+            .replace("{first}", firstDigit)
+            .replace("{base}", base);
+        $("#htCarryIncomingNote").text(note).removeClass("htCarryHidden");
+    } else {
+        $("#htCarryIncomingNote").text("").addClass("htCarryHidden");
+    }
+
+    htCarryBuildBoard();
 
     $("#htCarryFeedback").html("").removeClass("htCarryCorrect htCarryWrong");
     $("#htCarrySquares").html("");
@@ -92,7 +184,39 @@ function htCarryNewQuestion() {
     $("#htCarryNotBtn").prop("disabled", false);
 
     $(".htCarryOrder").removeClass("htCarryOrderActive");
-    $(".htCarryOrder[data-level='" + level + "']").addClass("htCarryOrderActive");
+    $(".htCarryOrder[data-level='" + column + "']").addClass("htCarryOrderActive");
+}
+
+// Starts a level: builds two whole numbers in the range of its order and
+// begins with the units column.
+function htCarryStartLevel(level) {
+    localCarryGame.level = level;
+    localCarryGame.column = 0;
+    localCarryGame.incoming = 0;
+    localCarryGame.carries = {};
+    localCarryGame.results = {};
+    localCarryGame.answered = false;
+
+    var d = level + 1;
+    var fDigits = [];
+    var aDigits = [];
+    for (var i = 0; i < d; i++) {
+        if (i === d - 1) {
+            // The order studied at this level is the leading order. For the
+            // units level a whole number may be 0; above it the leading digit
+            // is never 0, so the operands stay in the announced range.
+            fDigits[i] = (d === 1) ? htGetRandomArbitrary(0, 10) : htGetRandomArbitrary(1, 10);
+            aDigits[i] = (d === 1) ? htGetRandomArbitrary(0, 10) : htGetRandomArbitrary(1, 10);
+        } else {
+            fDigits[i] = htGetRandomArbitrary(0, 10);
+            aDigits[i] = htGetRandomArbitrary(0, 10);
+        }
+    }
+
+    localCarryGame.first = htCarryNumberFromDigits(fDigits);
+    localCarryGame.addend = htCarryNumberFromDigits(aDigits);
+
+    htCarrySetupColumn();
 }
 
 function htCarryAnswer(choseCarry) {
@@ -100,12 +224,13 @@ function htCarryAnswer(choseCarry) {
         return;
     }
 
-    var first = localCarryGame.first;
-    var addend = localCarryGame.addend;
-    var comp = 10 - first;
-    var sum = first + addend;
-    var carry = sum >= 10;
-    var order = htCarryOrderName(localCarryGame.level);
+    var column = localCarryGame.column;
+    var base = localCarryGame.base;
+    var addendDigit = localCarryGame.addendDigit;
+    var comp = localCarryGame.comp;
+    var columnSum = base + addendDigit;
+    var carry = columnSum >= 10;
+    var order = htCarryOrderName(column);
     var correct = (choseCarry === carry);
     var selector;
 
@@ -116,40 +241,53 @@ function htCarryAnswer(choseCarry) {
     }
 
     var template = $(selector).html();
-    htCarryShowFeedback(correct, htCarryFill(template, first, addend, comp, sum, order));
+    htCarryShowFeedback(correct, htCarryFill(template, base, addendDigit, comp, columnSum, order));
 
-    // Reveal the exact moment described by the text: the carried 1 appears
-    // above the operands and the units digit stays between 0 and 9.
-    $("#htCarryCarryValue").text(carry ? 1 : "");
-    $("#htCarryTensResult").text(carry ? 1 : "").toggleClass("htCarryCarry", carry);
-    $("#htCarryUnitsResult").text(sum % 10);
+    // Record this column so the board shows its result and the carry it sends
+    // to the next column.
+    localCarryGame.carries[column] = carry ? 1 : 0;
+    localCarryGame.results[column] = columnSum % 10;
+    localCarryGame.lastCarry = carry ? 1 : 0;
+    localCarryGame.answered = true;
 
-    htCarryDrawSquares(first, comp);
+    htCarryBuildBoard();
+
+    htCarryDrawSquares(base, comp);
     $("#htCarrySquaresWrap").removeClass("htCarryHidden");
 
     $("#htCarryBtn").prop("disabled", true);
     $("#htCarryNotBtn").prop("disabled", true);
 
-    localCarryGame.answered = true;
-
-    var lastLevel = localCarryGame.level >= 3;
-    $("#htCarryNextBtn")
-        .text(lastLevel ? $("#htCarryPlayAgainLabel").text() : $("#htCarryNextLabel").text())
-        .removeClass("hidden");
+    var nextIsColumn = column < localCarryGame.level;
+    var label;
+    if (nextIsColumn) {
+        label = $("#htCarryNextColumnLabel").text();
+    } else if (localCarryGame.level >= 3) {
+        label = $("#htCarryPlayAgainLabel").text();
+    } else {
+        label = $("#htCarryNextLabel").text();
+    }
+    $("#htCarryNextBtn").text(label).removeClass("hidden");
 }
 
-function htCarryNextLevel() {
+function htCarryNext() {
     if (!localCarryGame.answered) {
         return;
     }
-    localCarryGame.level = (localCarryGame.level + 1) % 4;
-    htCarryNewQuestion();
+
+    if (localCarryGame.column < localCarryGame.level) {
+        // Move to the next column of the same level, bringing the carry along.
+        localCarryGame.column = localCarryGame.column + 1;
+        localCarryGame.incoming = localCarryGame.lastCarry;
+        htCarrySetupColumn();
+    } else {
+        // The whole level (all its columns) is done.
+        htCarryStartLevel((localCarryGame.level + 1) % 4);
+    }
 }
 
 function htLoadContent() {
     htWriteNavigation();
-
-    localCarryGame = { "level": 0, "answered": false, "first": 0, "addend": 0, "carry": false };
 
     htCarryBuildOrders();
 
@@ -162,10 +300,10 @@ function htLoadContent() {
     });
 
     $("#htCarryNextBtn").off("click").on("click", function() {
-        htCarryNextLevel();
+        htCarryNext();
     });
 
-    htCarryNewQuestion();
+    htCarryStartLevel(0);
 
     return false;
 }

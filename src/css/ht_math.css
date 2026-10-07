@@ -3205,6 +3205,13 @@ p.desc svg {
   margin-bottom: 0.75em;
 }
 
+.htCarryIncomingNote {
+  margin-bottom: 0.5em;
+  color: #555;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
 .htCarryTable {
   margin: 0 auto;
   border-collapse: collapse;
@@ -3213,38 +3220,26 @@ p.desc svg {
 }
 
 .htCarryOp,
-.htCarryTens,
-.htCarryUnits {
-  padding: 0 0.35em;
+.htCarryCell {
+  padding: 0 0.3em;
   text-align: center;
   vertical-align: bottom;
 }
 
-.htCarryTens {
-  min-width: 1.6em;
+.htCarryCell {
+  min-width: 1.3em;
   border: 2px solid transparent;
   border-radius: 6px;
 }
 
-.htCarryUnits {
-  min-width: 1.6em;
+.htCarryCellActive {
+  background-color: #eaf3fb;
+  border-color: #2c5f8a;
 }
 
 .htCarryLine td {
   border-top: 3px solid #333;
   padding: 0;
-}
-
-.htCarryCarry {
-  background-color: lightyellow;
-  border-color: #333;
-}
-
-.htCarryCarryValue {
-  display: inline-block;
-  min-width: 1.6em;
-  color: #c0392b;
-  font-weight: bold;
 }
 
 .htCarryButtonsRow {
