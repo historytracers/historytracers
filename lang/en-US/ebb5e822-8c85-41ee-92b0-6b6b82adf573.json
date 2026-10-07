@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791327598"
+      "1791337208"
    ],
    "authors": null,
    "reviewers": [
@@ -225,7 +225,7 @@
          "id": "SECTION_pattern",
          "text": [
             {
-               "text": "### Building the Rules\n\nSince each column of **Table 1** repeats the same marks, we do not need the whole table: each column can be summarized in a single rule.\n\n#### Divisible by 1\n\nEvery number is divisible by 1, because the table of 1 contains all the numbers. When we divide any quantity by 1, we keep the same quantity and the remainder is always 0 (<htcite0>).\n\n#### Divisible by 2\n\nA number is divisible by 2 when it is even — that is, when its division by 2 leaves no remainder, as we saw in the text *Odd or even?* (<htcite1>). In practice, it is enough to look at its last digit: 0, 2, 4, 6 or 8 (<htcite2>).",
+               "text": "### Building the Rules\n\nSince each column of **Table 1** repeats the same marks, we do not need the whole table: each column can be summarized in a single rule.\n\n#### Divisible by 1\n\nEvery number is divisible by 1, because the table of 1 contains all the numbers. When we divide any quantity by 1, we keep the same quantity and the remainder is always 0 (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -238,7 +238,26 @@
                         "month": "-1",
                         "day": "-1"
                      }
-                  },
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th>5 shared by 1</th><th>Remainder</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">0</spam></td></tr></table></p><p class=\"desc\"><b>Table 2</b>: 5 objects shared into 1 group keep all 5 objects; nothing is left over, so the remainder is always 0. The yellow column shows the remainder.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Divisible by 2\n\nA number is divisible by 2 when it is even — that is, when its division by 2 leaves no remainder, as we saw in the text *Odd or even?* (<htcite0>). In practice, it is enough to look at its last digit: 0, 2, 4, 6 or 8 (<htcite1>).",
+               "source": [
                   {
                      "type": 1,
                      "uuid": "5dee0038-d6c8-404e-8039-5b9a2d11e115",
@@ -271,20 +290,17 @@
                "PostMention": ""
             },
             {
-               "text": "#### Divisible by 3\n\nA number is divisible by 3 when the sum of its digits is divisible by 3. In 12 we add 1 + 2 = 3, and 3 belongs to the table of 3, so 12 is divisible by 3; in 13 we add 1 + 3 = 4, which does not belong to the table of 3, so 13 is not divisible by 3 (<htcite0>).\n\n#### Divisible by 4\n\nA number is divisible by 4 when the number formed by its last two digits is divisible by 4. In 112 the last two digits are 12, and 12 belongs to the table of 4, so 112 is divisible by 4. For a single-digit number we can imagine a zero in front of it: 5 becomes 05, which does not belong to the table of 4 (<htcite1>).\n\nBecause the table of 4 only produces even numbers, every number divisible by 4 is also divisible by 2 (and, like every number, by 1).",
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">12 shared by 2</th><th>Remainder</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">0</spam></td></tr><tr><th colspan=\"2\">13 shared by 2</th><th>Remainder</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td></tr></table></p><p class=\"desc\"><b>Table 3</b>: 12 (last digit 2) splits into two equal groups of 6 with nothing left over, so it is divisible by 2; 13 (last digit 3) leaves 1 left over, so it is not. The yellow column shows the remainder.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Divisible by 3\n\nA number is divisible by 3 when the sum of its digits is divisible by 3. In 12 we add 1 + 2 = 3, and 3 belongs to the table of 3, so 12 is divisible by 3; in 13 we add 1 + 3 = 4, which does not belong to the table of 3, so 13 is not divisible by 3 (<htcite0>).",
                "source": [
-                  {
-                     "type": 1,
-                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
-                     "text": "Potgieter, P., & Blignaut, P.",
-                     "page": "pp. 1-2",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2018",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
                   {
                      "type": 1,
                      "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
@@ -302,6 +318,46 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"3\">12 shared by 3</th><th>Remainder</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">0</spam></td></tr><tr><th colspan=\"3\">13 shared by 3</th><th>Remainder</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td></tr></table></p><p class=\"desc\"><b>Table 4</b>: 12 splits into three equal groups of 4 (1 + 2 = 3, which belongs to the table of 3), so it is divisible by 3; 13 leaves 1 left over (1 + 3 = 4, which does not belong to the table of 3), so it is not. The yellow column shows the remainder.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Divisible by 4\n\nA number is divisible by 4 when the number formed by its last two digits is divisible by 4. In 112 the last two digits are 12, and 12 belongs to the table of 4, so 112 is divisible by 4. For a single-digit number we can imagine a zero in front of it: 5 becomes 05, which does not belong to the table of 4 (<htcite0>).\n\nBecause the table of 4 only produces even numbers, every number divisible by 4 is also divisible by 2 (and, like every number, by 1).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7499239c-c7fc-474e-ad20-1745e19a06d2",
+                     "text": "Potgieter, P., & Blignaut, P.",
+                     "page": "pp. 1-2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">12 shared by 4</th><th>Remainder</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">0</spam></td></tr><tr><th colspan=\"4\">05 shared by 4</th><th>Remainder</th></tr><tr><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightblue; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td><td style=\"height: 100px; background-color: lightyellow; text-align: center;\"><spam class=\"text_to_paint\">|</spam></td></tr></table></p><p class=\"desc\"><b>Table 5</b>: 12 splits into four equal groups of 3, so 112 (last two digits 12) is divisible by 4; 05 splits into four groups of 1 with 1 left over, so 5 is not. The yellow column shows the remainder.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             },
             {
