@@ -2085,9 +2085,8 @@ function htFillKeywords(table) {
         keywords.push(table[i]);
     }
 
-    $("#index_lang").html(keywords[39]);
     $("#index_theme").html(keywords[74]);
-    $("#index_recreio").html(keywords[141]);
+    htRefreshTopButtonTooltips();
     htUpdateCurrentDateOnIndex();
     setInterval(htCheckBreakReminder, 60000);
     htCheckBreakReminder();
@@ -4031,12 +4030,41 @@ if (typeof window !== 'undefined' && window.addEventListener) {
     window.addEventListener('load', htSyncBreakButton);
 }
 
+// Tooltip texts for the top-bar icon buttons, stored in
+// lang/<lang>/common_keywords.json (keywords[39], keywords[141] and
+// keywords[40]) so they are translated with the rest of the UI.
+// Those slots previously held the "Language", "Break" and "Date format"
+// labels, which were only written to the nonexistent #index_lang,
+// #index_recreio elements (keywords[40] had no readers at all).
+// Fallbacks are English.
+var htLangTipIdx = 39;
+var htBreakTipIdx = 141;
+var htCalTipIdx = 40;
+
+function htTopButtonTip(idx, fallback) {
+    try {
+        if (typeof keywords !== 'undefined' && keywords && keywords[idx]) {
+            return keywords[idx];
+        }
+    } catch (eTip) {
+    }
+    return fallback;
+}
+
+function htRefreshTopButtonTooltips() {
+    htFitCalendarSelect();
+    htSyncLanguageButton();
+    htSyncBreakButton();
+}
+
 // Calendar icon button: the visible control is a calendar symbol
 // (#site_calendar_btn) overlaying the native select (#site_calendar).
 // The select stays functional but invisible, so clicking the icon
-// opens the native popup with the current calendar selected. This
-// only mirrors the selected option text onto the button tooltip;
-// called on init, on change and after calendar option texts update.
+// opens the native popup with the current calendar selected. The select
+// overlays the button and captures all mouse events, so the tooltip
+// (tip + selected option text) is set on the select itself, with a copy
+// on the button; called on init, on change and after calendar option
+// texts update.
 // Kept under the historic htFitCalendarSelect name for callers
 // (js/index.js, minified bundles).
 function htFitCalendarSelect() {
@@ -4053,14 +4081,27 @@ function htFitCalendarSelect() {
         if (!text) {
             return 0;
         }
+        var tip = htTopButtonTip(htCalTipIdx, 'Calendar used to display dates');
+        var label = tip + ': ' + text;
         var btn = document.getElementById('site_calendar_btn');
         if (btn) {
             if (btn.setAttribute) {
-                btn.setAttribute('title', text);
-                btn.setAttribute('aria-label', 'Date format: ' + text);
+                btn.setAttribute('title', label);
+                btn.setAttribute('aria-label', label);
             } else {
-                btn.title = text;
+                btn.title = label;
             }
+        }
+        // The invisible select overlays the button and captures every mouse
+        // event, so the hover tooltip must live on the select itself; the
+        // button keeps a copy in case the overlay layout ever changes.
+        try {
+            if (sel.setAttribute) {
+                sel.setAttribute('title', label);
+            } else {
+                sel.title = label;
+            }
+        } catch (eSelTip) {
         }
         // Drop any stale fitted width from the old text-sized select.
         try {
@@ -4078,9 +4119,10 @@ function htFitCalendarSelect() {
 // Language icon button: the visible control is a language symbol
 // (#site_language_btn) overlaying the native select (#site_language).
 // The select stays functional but invisible, so clicking the icon
-// opens the native popup with the current language selected. This
-// only mirrors the selected option text onto the button tooltip;
-// called on init, on change and after language option texts update.
+// opens the native popup with the current language selected. The tooltip
+// (tip + selected option text) is set on the overlaying select, with a
+// copy on the button; called on init, on change and after language
+// option texts update.
 function htSyncLanguageButton() {
     try {
         if (typeof document === 'undefined' || !document.getElementById) {
@@ -4098,8 +4140,20 @@ function htSyncLanguageButton() {
         var btn = document.getElementById('site_language_btn');
         if (btn) {
             if (btn.setAttribute) {
-                btn.setAttribute('title', text);
-                btn.setAttribute('aria-label', 'Language: ' + text);
+                var langTip = htTopButtonTip(htLangTipIdx, 'Select the language to display the content');
+                var langLabel = langTip + ': ' + text;
+                btn.setAttribute('title', langLabel);
+                btn.setAttribute('aria-label', langLabel);
+                // See htFitCalendarSelect: the overlaying select is the real
+                // hover target, so it carries the tooltip as well.
+                try {
+                    if (sel.setAttribute) {
+                        sel.setAttribute('title', langLabel);
+                    } else {
+                        sel.title = langLabel;
+                    }
+                } catch (eSelTip) {
+                }
             } else {
                 btn.title = text;
             }
@@ -4121,8 +4175,8 @@ function htSyncLanguageButton() {
 // (#site_recreio_btn) overlaying the native select (#site_recreio).
 // The select stays functional but invisible, so clicking the icon
 // opens the native popup with the current break length selected.
-// This only mirrors the selected option text onto the button
-// tooltip; called on init and on change.
+// The tooltip (tip + selected option text) is set on the overlaying
+// select, with a copy on the button; called on init and on change.
 function htSyncBreakButton() {
     try {
         if (typeof document === 'undefined' || !document.getElementById) {
@@ -4140,8 +4194,20 @@ function htSyncBreakButton() {
         var btn = document.getElementById('site_recreio_btn');
         if (btn) {
             if (btn.setAttribute) {
-                btn.setAttribute('title', text);
-                btn.setAttribute('aria-label', 'Break: ' + text);
+                var breakTip = htTopButtonTip(htBreakTipIdx, 'Set the break interval and remember to drink some water');
+                var breakLabel = breakTip + ': ' + text;
+                btn.setAttribute('title', breakLabel);
+                btn.setAttribute('aria-label', breakLabel);
+                // See htFitCalendarSelect: the overlaying select is the real
+                // hover target, so it carries the tooltip as well.
+                try {
+                    if (sel.setAttribute) {
+                        sel.setAttribute('title', breakLabel);
+                    } else {
+                        sel.title = breakLabel;
+                    }
+                } catch (eSelTip) {
+                }
             } else {
                 btn.title = text;
             }
