@@ -71,10 +71,25 @@ function htSetIndexCal(urlParams) {
     return cal;
 }
 
+function htSetIndexFont(urlParams) {
+    var font = "default";
+    if (urlParams.has('font')) {
+        var selFont = urlParams.get('font');
+        if ($("#site_font_size option[value='"+selFont+"']").length > 0) {
+            font = selFont;
+        }
+    } else if (typeof htGetStoredFontSize === 'function') {
+        font = htGetStoredFontSize();
+    }
+
+    return font;
+}
+
 function htParseIndexRequest() {
     var urlParams = new URLSearchParams(window.location.search);
     var lang = htSetIndexLang(urlParams);
     var cal = htSetIndexCal(urlParams);
+    var font = htSetIndexFont(urlParams);
 
     if (urlParams.has('atlas_page')) {
         var selAtlas = urlParams.get('atlas_page');
@@ -86,6 +101,13 @@ function htParseIndexRequest() {
 
     $('#site_language').val(lang);
     $('#site_calendar').val(cal);
+    $('#site_font_size').val(font);
+    if (typeof htApplyFontSize === 'function') {
+        htApplyFontSize(font);
+    }
+    if (typeof htSyncFontButton === 'function') {
+        htSyncFontButton();
+    }
     if (typeof htFitCalendarSelect === 'function') {
         htFitCalendarSelect();
     }

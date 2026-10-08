@@ -3,6 +3,17 @@ html {
   font-size: 1.0em;
 }
 
+/* Letter-size control: default keeps the current font (no class, so the
+   media queries below keep controlling html font-size). Small/large win
+   by specificity (0,1,1 beats the bare html rules above and below). */
+html.ht-font-small {
+  font-size: 0.85em;
+}
+
+html.ht-font-large {
+  font-size: 1.2em;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -244,9 +255,10 @@ div.right-sources {
   text-overflow: ellipsis;
 }
 
-/* Language, break and date-format pickers docked right, immediately
+/* Language, letter-size, break and date-format pickers docked right,
+   immediately
    left of the date: an icon button overlays each native select, so the
-   bar only spends three icons of width. Each invisible select still
+   bar only spends four icons of width. Each invisible select still
    receives the click and opens the native popup with the current
    option selected. The select covers its button and captures every
    mouse event, so the hover tooltip (tip + selected option text) is
@@ -265,6 +277,13 @@ div.right-sources {
   display: inline-flex;
   align-items: center;
 }
+.ht-layout .top-bar .ht-font-wrap {
+  margin-left: 0;
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
 .ht-layout .top-bar .ht-cal-wrap {
   margin-left: 0;
   position: relative;
@@ -273,6 +292,7 @@ div.right-sources {
   align-items: center;
 }
 .ht-layout .top-bar .ht-lang-btn,
+.ht-layout .top-bar .ht-font-btn,
 .ht-layout .top-bar .ht-break-btn,
 .ht-layout .top-bar .ht-cal-btn {
   background: transparent;
@@ -284,6 +304,7 @@ div.right-sources {
   color: inherit;
 }
 .ht-layout .top-bar .ht-lang-select,
+.ht-layout .top-bar .ht-font-select,
 .ht-layout .top-bar .ht-break-select,
 .ht-layout .top-bar .ht-cal-select {
   position: absolute;
@@ -295,6 +316,7 @@ div.right-sources {
   cursor: pointer;
 }
 .ht-layout .top-bar .ht-lang-wrap:focus-within,
+.ht-layout .top-bar .ht-font-wrap:focus-within,
 .ht-layout .top-bar .ht-break-wrap:focus-within,
 .ht-layout .top-bar .ht-cal-wrap:focus-within {
   outline: 2px solid #2c5f8a;
@@ -2011,6 +2033,7 @@ div[id^="paper-family-"] .book_navigation tr:nth-child(2) td {
     /* On a narrow bar the icon buttons already take minimal space, so
        nothing needs to give way here. Kept for symmetry. */
     .ht-layout .top-bar .ht-lang-wrap,
+    .ht-layout .top-bar .ht-font-wrap,
     .ht-layout .top-bar .ht-break-wrap,
     .ht-layout .top-bar .ht-cal-wrap {
         flex-shrink: 0;
