@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791419810"
+      "1791424052"
    ],
    "authors": null,
    "reviewers": null,
@@ -36,7 +36,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerrequisitos\n\nEste juego refuerza el texto *Avanzando un orden y el complemento* (<htcite0>). Lee primero ese texto: explica que el complemento de un dígito hasta 10 es el límite — sumar un valor menor que el complemento mantiene la columna, y sumar el complemento o más la hace avanzar al siguiente orden.",
+               "text": "### Prerrequisitos\n\nEste juego refuerza el texto *Avanzando un orden y el complemento* (<htcite0>). Lee primero ese texto: te enseña la regla que vas a practicar aquí. El complemento hasta 10 es la cantidad que completa una columna hasta 10. Si sumas menos que esa cantidad, la columna se queda por debajo de 10 y no se lleva nada. Si sumas el complemento o más, la columna alcanza 10 y se lleva 1 al siguiente orden.",
                "source": [
                   {
                      "type": 1,
@@ -63,7 +63,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "### Juego\n\nEn cada orden — unidades, decenas, centenas y millares — nos hacemos la misma pregunta: ¿esta columna lleva 1 al siguiente orden? En cada nivel avanzamos columna por columna, empezando por las unidades (<htcite0>).\n\nLa respuesta la decide el complemento hasta 10. La columna ya contiene el dígito del primer número, más el 1 que se haya llevado de la columna anterior. El complemento de ese valor hasta 10 es lo que completa 10. Si el dígito que sumamos es menor que el complemento, la columna se queda por debajo de 10 y no lleva. Si sumamos el complemento o más, la columna alcanza 10 y lleva 1, que se suma a la siguiente columna.\n\nObserva la columna resaltada, elige **Se lleva** o **No se lleva**, y el juego explicará el resultado y mostrará los cuadrados del complemento hasta 10. Hay cuatro niveles: unidades, decenas, centenas y millares, y cada uno añade una columna más.",
+               "text": "### Juego\n\nEn cada nivel la pregunta es la misma: ¿esta columna lleva 1 al siguiente orden? El juego avanza siempre columna por columna, empezando por las unidades (<htcite0>).\n\nPara responder, sigue tres pasos:\n\n1. **Valor que ya tiene la columna.** Toma el dígito del primer número y suma el 1 que se llevó de la columna de la derecha, si lo hay. El juego muestra ese total.\n2. **Complemento hasta 10.** Pregunta cuánto falta para llegar a 10. Esa cantidad es el complemento.\n3. **El dígito que sumamos.** Si es menor que el complemento, el total se queda por debajo de 10 y la columna no se lleva nada. Si es igual o mayor que el complemento, el total alcanza 10 y la columna se lleva 1 a la columna siguiente.\n\nElige **Se lleva** o **No se lleva** en la columna resaltada. El juego responde, explica el motivo y dibuja los diez cuadrados del complemento hasta 10. Hay cuatro niveles — unidades, decenas, centenas y millares — y cada nivel añade una columna más.",
                "source": [
                   {
                      "type": 1,
