@@ -80,7 +80,8 @@ function htCarryShowFeedback(correct, message) {
 
 // Draws the vertical addition of the two whole numbers. The column being
 // studied is highlighted; the columns already solved show their result digit
-// and, above the next column, the 1 they carried.
+// and, above the next column, the 1 they carried. The + sign is written in the
+// leftmost column, right next to the number, so the digits stay close.
 function htCarryBuildBoard() {
     var level = localCarryGame.level;
     var d = level + 1;
@@ -117,7 +118,8 @@ function htCarryBuildBoard() {
         rows += cell(o, o < d ? String(fDigits[o]) : "");
     }
     rows += "</tr>";
-    // Added operand
+    // Added operand: the + has its own narrow column, so the carry of the last
+    // order is never written on top of the plus sign.
     rows += "<tr>" + opCell("+");
     for (var o = d; o >= 0; o--) {
         rows += cell(o, o < d ? String(aDigits[o]) : "");
@@ -125,15 +127,12 @@ function htCarryBuildBoard() {
     rows += "</tr>";
     // Line
     rows += "<tr class=\"htCarryLine\"><td colspan=\"" + (d + 2) + "\"></td></tr>";
-    // Result
+    // Result: a column shows its digit only once it has been solved, so the
+    // leading 1 of an addition waits for the player to verify the new order
+    // created by the final carry instead of appearing on its own.
     rows += "<tr class=\"htCarryResultRow\">" + opCell("");
     for (var o = d; o >= 0; o--) {
-        var res = "";
-        if (o <= d - 1 && results[o] !== undefined) {
-            res = String(results[o]);
-        } else if (o === d && carries[d - 1] !== undefined && carries[d - 1]) {
-            res = "1";
-        }
+        var res = (results[o] !== undefined) ? String(results[o]) : "";
         rows += cell(o, res, " id=\"htCarryResult" + o + "\"");
     }
     rows += "</tr>";
@@ -258,7 +257,10 @@ function htCarryAnswer(choseCarry) {
     $("#htCarryBtn").prop("disabled", true);
     $("#htCarryNotBtn").prop("disabled", true);
 
-    var nextIsColumn = column < localCarryGame.level;
+    // The next step is another column when a lower column remains, or when the
+    // last column carried and the new order still has to be verified.
+    var nextIsColumn = (column < localCarryGame.level) ||
+        (column === localCarryGame.level && carry);
     var label;
     if (nextIsColumn) {
         label = $("#htCarryNextColumnLabel").text();
@@ -275,14 +277,24 @@ function htCarryNext() {
         return;
     }
 
-    if (localCarryGame.column < localCarryGame.level) {
+    var column = localCarryGame.column;
+    var level = localCarryGame.level;
+
+    if (column < level) {
         // Move to the next column of the same level, bringing the carry along.
-        localCarryGame.column = localCarryGame.column + 1;
+        localCarryGame.column = column + 1;
         localCarryGame.incoming = localCarryGame.lastCarry;
+        htCarrySetupColumn();
+    } else if (column === level && localCarryGame.lastCarry) {
+        // The last column carried, so a new order appeared on the left. Before
+        // its 1 is taken for granted, let the player verify that this new order
+        // does not carry again (it holds only the carried 1).
+        localCarryGame.column = level + 1;
+        localCarryGame.incoming = 1;
         htCarrySetupColumn();
     } else {
         // The whole level (all its columns) is done.
-        htCarryStartLevel((localCarryGame.level + 1) % 4);
+        htCarryStartLevel((level + 1) % 4);
     }
 }
 
