@@ -13,24 +13,24 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <link rel="stylesheet" href="css/ht_common.css?v=1791326462">
-  <link rel="stylesheet" href="css/ht_math.css?v=1791326462">
+  <link rel="stylesheet" href="css/ht_common.css?v=1791419989">
+  <link rel="stylesheet" href="css/ht_math.css?v=1791419989">
   <!-- https://docs.fontawesome.com/v5/web/setup/host-font-awesome-yourself -->
   <link rel="stylesheet" href="css/fa_6_5_2.min.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b">
 
-  <script type="text/javascript" src="js/calendar.js?v=1791326462"></script>
-  <script type="text/javascript" src="js/jquery-3.7.1.min.js?v=1791326462b7bec4-3106-48f7-b44c-7907ec7b6d48"></script>
+  <script type="text/javascript" src="js/calendar.js?v=1791419989"></script>
+  <script type="text/javascript" src="js/jquery-3.7.1.min.js?v=1791419989b7bec4-3106-48f7-b44c-7907ec7b6d48"></script>
   <script type="text/javascript" async src="js/showdown.210.min.js?v=da938423-af12-4b7a-ac3f-9d203eedd62d"></script>
   <script type="text/javascript" async src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
 
-  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=1791326462dd2-52a2-423d-884f-4cefa04090ec"></script -->
+  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=1791419989dd2-52a2-423d-884f-4cefa04090ec"></script -->
 
-  <script type="text/javascript" src="js/chart_4_5_1.js?v=1791326462c41fb-928a-433d-a168-657a474f58e2"></script>
-  <script type="text/javascript" src="js/ht_common.js?v=1791326462"></script>
-  <script type="text/javascript" src="js/ht_math.js?v=1791326462"></script>
-  <script type="text/javascript" src="js/ht_chart.js?v=1791326462"></script>
-  <script type="text/javascript" src="js/ht_update.js?v=1791326462"></script>
-  <script type="text/javascript" src="js/index.js?v=1791326462fe5ae3-d2ce-459c-83a7-3fe372bb3a2e"></script>
+  <script type="text/javascript" src="js/chart_4_5_1.js?v=1791419989c41fb-928a-433d-a168-657a474f58e2"></script>
+  <script type="text/javascript" src="js/ht_common.js?v=1791419989"></script>
+  <script type="text/javascript" src="js/ht_math.js?v=1791419989"></script>
+  <script type="text/javascript" src="js/ht_chart.js?v=1791419989"></script>
+  <script type="text/javascript" src="js/ht_update.js?v=1791419989"></script>
+  <script type="text/javascript" src="js/index.js?v=1791419989fe5ae3-d2ce-459c-83a7-3fe372bb3a2e"></script>
 </head>
 
 <body>
@@ -162,20 +162,20 @@
         History Tracers
     </div>
     <div class="ht-lang-wrap" id="htLangWrap">
-        <button type="button" id="site_language_btn" class="ht-lang-btn" title="Português - BR" aria-label="Language: Português - BR" aria-haspopup="listbox" onclick="return htOpenNativeSelect('site_language');">
+        <button type="button" id="site_language_btn" class="ht-lang-btn" title="Select the language to display the content: Português - BR" aria-label="Select the language to display the content: Português - BR" aria-haspopup="listbox" onclick="return htOpenNativeSelect('site_language');">
             <i class="fa-solid fa-language" aria-hidden="true"></i>
         </button>
-        <select id="site_language" class="selSize ht-lang-select" aria-label="Language" tabindex="-1">
+        <select id="site_language" class="selSize ht-lang-select" aria-label="Language" title="Select the language to display the content: Português - BR" tabindex="-1">
             <option value="pt-BR">Português - BR</option>
             <option value="en-US">English - USA</option>
             <option value="es-ES">Español - ES</option>
         </select>
     </div>
     <div class="ht-break-wrap" id="htBreakWrap">
-        <button type="button" id="site_recreio_btn" class="ht-break-btn" title="30 min" aria-label="Break: 30 min" aria-haspopup="listbox" onclick="return htOpenNativeSelect('site_recreio');">
+        <button type="button" id="site_recreio_btn" class="ht-break-btn" title="Set the break interval and remember to drink some water: 30 min" aria-label="Set the break interval and remember to drink some water: 30 min" aria-haspopup="listbox" onclick="return htOpenNativeSelect('site_recreio');">
             <i class="fa-solid fa-clock" aria-hidden="true"></i>
         </button>
-        <select id="site_recreio" class="selSize ht-break-select" aria-label="Break" tabindex="-1">
+        <select id="site_recreio" class="selSize ht-break-select" aria-label="Break" title="Set the break interval and remember to drink some water: 30 min" tabindex="-1">
             <option value="15">15 min</option>
             <option value="25">25 min</option>
             <option value="30" selected>30 min</option>
@@ -186,10 +186,10 @@
         </select>
     </div>
     <div class="ht-cal-wrap" id="htCalWrap">
-        <button type="button" id="site_calendar_btn" class="ht-cal-btn" title="Gregoriano" aria-label="Date format: Gregoriano" aria-haspopup="listbox" onclick="return htOpenNativeSelect('site_calendar');">
+        <button type="button" id="site_calendar_btn" class="ht-cal-btn" title="Calendar used to display dates: Gregoriano" aria-label="Calendar used to display dates: Gregoriano" aria-haspopup="listbox" onclick="return htOpenNativeSelect('site_calendar');">
             <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
         </button>
-        <select id="site_calendar" class="selSize ht-cal-select" aria-label="Date format" tabindex="-1">
+        <select id="site_calendar" class="selSize ht-cal-select" aria-label="Date format" title="Calendar used to display dates: Gregoriano" tabindex="-1">
             <option value="aymara">Aymara</option>
             <option value="chinese">Chinese</option>
             <option value="emesoamerican">Mesoamericano (Est.)</option>

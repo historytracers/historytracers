@@ -1,0 +1,107 @@
+{
+   "title": "Carry or Not Carry? (Game)",
+   "header": "Carry or Not Carry? (Game)",
+   "sources": [
+      "5539096c-dd7d-4f9c-a137-f0465725b9f4"
+   ],
+   "scripts": [
+      "5539096c-dd7d-4f9c-a137-f0465725b9f4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/5539096c-dd7d-4f9c-a137-f0465725b9f4_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0RjmZ3g8CQeNfD5XqNOnRb?si=f0zDUBmwQ1eVq4xznH_8lQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791424032"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game reinforces the text *Advancing an Order and the Complement* (<htcite0>). Read that text first: it teaches the rule you will practice here. The complement of a value to 10 is the amount that fills a column up to 10. Add less than that amount and the column stays below 10, so it does not carry. Add the complement or more and the column reaches 10, so it carries 1 to the next order.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Advancing an Order and the Complement",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Game\n\nIn every level the question is the same: does this column carry 1 to the next order? The game always moves column by column, starting from the units (<htcite0>).\n\nTo answer, follow three steps:\n\n1. **Value already in the column.** Take the digit of the top number and add the 1 carried from the column on the right, if there is one. The game shows this total.\n2. **Complement to 10.** Ask how much is missing to reach 10. That amount is the complement.\n3. **Digit you are adding.** If it is smaller than the complement, the total stays below 10 and the column does not carry. If it is equal to or greater than the complement, the total reaches 10 and the column carries 1 to the next column.\n\nChoose **Carry** or **Not carry** for the highlighted column. The game answers, explains the reason, and draws the ten squares of the complement to 10. There are four levels — units, tens, hundreds and thousands — and each level adds one more column.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Our current numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htCarryGame\"><span class=\"htCarryLevel\" id=\"htCarryLevel\"></span><div class=\"htCarryOrders\" id=\"htCarryOrders\"></div><span class=\"htCarryQuestion\" id=\"htCarryQuestion\"></span><div class=\"htCarryIncomingNote htCarryHidden\" id=\"htCarryIncomingNote\"></div><table class=\"htCarryTable\" id=\"htCarryTable\" aria-live=\"polite\"></table><div class=\"htCarryButtonsRow\"><button type=\"button\" id=\"htCarryBtn\" class=\"htCarryButton\">Carry</button><button type=\"button\" id=\"htCarryNotBtn\" class=\"htCarryButton\">Not carry</button></div><div class=\"htCarryFeedback\" id=\"htCarryFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htCarrySquaresWrap htCarryHidden\" id=\"htCarrySquaresWrap\"><span class=\"htCarrySquaresLabel\" id=\"htCarrySquaresLabel\">Complement to 10</span><div class=\"htCarrySquares\" id=\"htCarrySquares\" aria-hidden=\"true\"></div><span class=\"htCarrySquaresCaption\" id=\"htCarrySquaresCaption\"></span></div><div class=\"htCarryNextContainer\"><button type=\"button\" id=\"htCarryNextBtn\" class=\"reset-tutor-btn hidden\">Next level</button></div><span id=\"htCarryLevelTemplate\" class=\"htCarryHidden\">Level {n} of 4</span><span id=\"htCarryQuestionTemplate\" class=\"htCarryHidden\">Does the {order} column carry 1 to the next order?</span><span id=\"htCarryOrder0\" class=\"htCarryHidden\">Units</span><span id=\"htCarryOrder1\" class=\"htCarryHidden\">Tens</span><span id=\"htCarryOrder2\" class=\"htCarryHidden\">Hundreds</span><span id=\"htCarryOrder3\" class=\"htCarryHidden\">Thousands</span><span id=\"htCarryOrder4\" class=\"htCarryHidden\">Ten thousands</span><span id=\"htCarryNextColumnLabel\" class=\"htCarryHidden\">Next column</span><span id=\"htCarryNextLabel\" class=\"htCarryHidden\">Next level</span><span id=\"htCarryPlayAgainLabel\" class=\"htCarryHidden\">Play again</span><span id=\"htCarryIncomingTemplate\" class=\"htCarryHidden\">The 1 carried from the previous column is added: {first} + 1 = {base}.</span><span id=\"htCarryMsgCarryCorrect\" class=\"htCarryHidden\">Correct! The complement of {base} to 10 is {comp}. Since {addend} is equal to or greater than {comp}, {base} + {addend} = {sum} reaches 10, so the {order} column carries 1 to the next order.</span><span id=\"htCarryMsgNotCorrect\" class=\"htCarryHidden\">Correct! The complement of {base} to 10 is {comp}. Since {addend} is less than {comp}, {base} + {addend} = {sum} stays below 10, so the {order} column does not carry.</span><span id=\"htCarryMsgCarryWrong\" class=\"htCarryHidden\">Not yet. The complement of {base} to 10 is {comp}. Since {addend} is less than {comp}, {base} + {addend} = {sum} stays below 10. The {order} column does not carry.</span><span id=\"htCarryMsgNotWrong\" class=\"htCarryHidden\">Not yet. The complement of {base} to 10 is {comp}. Since {addend} is equal to or greater than {comp}, {base} + {addend} = {sum} reaches 10. The {order} column carries 1 to the next order.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

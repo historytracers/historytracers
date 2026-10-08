@@ -248,7 +248,9 @@ div.right-sources {
    left of the date: an icon button overlays each native select, so the
    bar only spends three icons of width. Each invisible select still
    receives the click and opens the native popup with the current
-   option selected; its tooltip mirrors the selected option text. */
+   option selected. The select covers its button and captures every
+   mouse event, so the hover tooltip (tip + selected option text) is
+   set on the select itself, with a copy on the button underneath. */
 .ht-layout .top-bar .ht-lang-wrap {
   margin-left: auto;
   position: relative;
