@@ -228,7 +228,7 @@ function htCompRenderItem(item, slot) {
     var html = "";
     switch (item.type) {
         case "number":
-            html = "<div class=\"compFigure\"><span class=\"compNumber" + ((item.value >= 100000) ? " compNumberSmall" : "") + "\">" + item.value + "</span></div>";
+            html = "<span class=\"compNumber" + ((item.value >= 100000) ? " compNumberSmall" : "") + "\">" + item.value + "</span>";
             break;
         case "maya":
             html = "<img id=\"compImg" + slot + "\" class=\"compFigureImg\" onclick=\"htImageZoom('compImg" + slot + "', '0%')\" src=\"" + prefix + "images/HistoryTracers/Maya_" + item.value + ".png\" alt=\"Maya " + item.value + "\"/>";
