@@ -72,6 +72,7 @@ type optionsData struct {
 	Lang            string `json:"lang"`
 	Cal             string `json:"cal"`
 	Recreio         string `json:"recreio"`
+	Font            string `json:"font"`
 	Port            string `json:"port"`
 	Home            string `json:"home"`
 	TLSCert         string `json:"tls_cert"`
@@ -115,6 +116,12 @@ var validRecreios = map[string]bool{
 	"45": true,
 	"50": true,
 	"60": true,
+}
+
+var validFonts = map[string]bool{
+	"small":   true,
+	"default": true,
+	"large":   true,
 }
 
 func checkToken(r *http.Request) bool {
@@ -511,6 +518,9 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		if v := r.FormValue("recreio"); v != "" && validRecreios[v] {
 			data.Recreio = v
 		}
+		if v := r.FormValue("font"); v != "" && validFonts[v] {
+			data.Font = v
+		}
 		if v := r.FormValue("port"); v != "" {
 			if p, err := strconv.Atoi(v); err == nil && p >= 1 && p <= 65535 {
 				data.Port = v
@@ -569,7 +579,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	optionsMu.Unlock()
 
-	var curLang, curCal, curRecreio, curPort, curHome string
+	var curLang, curCal, curRecreio, curFont, curPort, curHome string
 	if data.Lang != "" {
 		curLang = data.Lang
 	} else if lang != "" {
@@ -588,6 +598,11 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		curRecreio = data.Recreio
 	} else {
 		curRecreio = "30"
+	}
+	if data.Font != "" {
+		curFont = data.Font
+	} else {
+		curFont = "default"
 	}
 	curPort = data.Port
 	curHome = data.Home
@@ -625,16 +640,17 @@ select{height:30px}
 var lang=%q;
 var cal=%q;
 var L={};
-L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',openLastLabel:'Abrir \u00faltima p\u00e1gina visitada ao iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
+L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',fontLabel:'Tamanho da letra',fontSmall:'Pequena',fontDefault:'Padr\u00e3o',fontLarge:'Grande',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',openLastLabel:'Abrir \u00faltima p\u00e1gina visitada ao iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
 L['pt']=L['pt-BR'];
-L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',openLastLabel:'Abrir la \u00faltima p\u00e1gina visitada al iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
+L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',fontLabel:'Tama\u00f1o de letra',fontSmall:'Peque\u00f1a',fontDefault:'Predeterminada',fontLarge:'Grande',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',openLastLabel:'Abrir la \u00faltima p\u00e1gina visitada al iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
 L['es']=L['es-ES'];
-L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',openLastLabel:'Open last visited page on startup',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
+L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',fontLabel:'Letter size',fontSmall:'Small',fontDefault:'Default',fontLarge:'Large',listenLabel:'Listen port',homeLabel:'Home page',openLastLabel:'Open last visited page on startup',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
 L['en']=L['en-US'];
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
 var recVal=%q;
+var fontVal=%q;
 var portVal=%q;
 var homeVal=%q;
 var tlsCertVal=%q;
@@ -646,6 +662,7 @@ var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Esp
 var langs=['pt-BR','en-US','es-ES'];
 var cals=['aymara','chinese','emesoamerican','french','gregory','hebrew','hispanic','inca','islamic','japanese','javanese','julian','mapuche','mesoamerican','persian','shaka'];
 var recreios=[15,25,30,35,45,50,60];
+var fonts=['small','default','large'];
 
 var html='<h2>'+l.title+'</h2>';
 html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lang">';
@@ -660,6 +677,10 @@ for(var i=0;i<cals.length;i++){
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.recreioLabel+'</label><select id="opt_rec">';
 for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(String(recreios[i])===recVal?' selected':'')+'>'+recreios[i]+' '+l.recreioM+'</option>'}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.fontLabel+'</label><select id="opt_font">';
+var fontLabels={'small':l.fontSmall,'default':l.fontDefault,'large':l.fontLarge};
+for(var i=0;i<fonts.length;i++){html+='<option value="'+fonts[i]+'"'+(fonts[i]===fontVal?' selected':'')+'>'+fontLabels[fonts[i]]+'</option>'}
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
 html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
@@ -677,6 +698,7 @@ document.getElementById('opt_apply').onclick=function(){
 	var nl=document.getElementById('opt_lang').value;
 	var nc=document.getElementById('opt_cal').value;
 	var nr=document.getElementById('opt_rec').value;
+	var nf=document.getElementById('opt_font').value;
 	var np=document.getElementById('opt_port').value;
 	var nh=document.getElementById('opt_home').value||'/index.html';
 	if(nh.indexOf('index.html')!==0&&nh.indexOf('/index.html')!==0){nh='/index.html'}
@@ -689,16 +711,16 @@ document.getElementById('opt_apply').onclick=function(){
 	var nm=document.getElementById('opt_my_name').value;
 	localStorage.setItem('ht_my_name',nm);
 	var ol=document.getElementById('opt_open_last').checked?'1':'0';
-	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)+'&open_last_page='+ol}).then(function(r){
+	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&font='+encodeURIComponent(nf)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)+'&open_last_page='+ol}).then(function(r){
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
-		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);parent.location.href=pu.toString()}catch(e){}
+		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);pu.searchParams.set('font',nf);parent.location.href=pu.toString()}catch(e){}
 	}).catch(function(e){
 		s.className='status error';s.textContent=l.err+e.message;
 	});
 };
 </script>
-</body></html>`, viewerToken, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir, curOpenLast)
+</body></html>`, viewerToken, curLang, curCal, curRecreio, curFont, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir, curOpenLast)
 }
 
 func isOpenLastPage(d optionsData) bool {
@@ -717,6 +739,9 @@ func validateOptions(data *optionsData) {
 	}
 	if !validRecreios[data.Recreio] {
 		data.Recreio = ""
+	}
+	if !validFonts[data.Font] {
+		data.Font = ""
 	}
 	if data.Port != "" {
 		if p, err := strconv.Atoi(data.Port); err != nil || p < 1 || p > 65535 {
@@ -1370,6 +1395,8 @@ func main() {
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
 	cal := flag.String("calendar", "",
 		"Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican, aymara, mapuche, inca, chinese, javanese, japanese)")
+	font := flag.String("font", "",
+		"Initial letter size (e.g. small, default, large)")
 	class := flag.String("class", "", "Initial class content UUID (e.g. d290f1ee-6c54-4b01-90e6-d701748f0851)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
 	tlsCert := flag.String("tls-cert", "", "TLS certificate file (enables HTTPS)")
@@ -1379,6 +1406,10 @@ func main() {
 		flag.PrintDefaults()
 	}
 	flag.Parse()
+
+	if *font != "" && !validFonts[*font] {
+		*font = ""
+	}
 
 	contentDir = *dir
 	if *pathFlag != "" {
@@ -1428,6 +1459,9 @@ func main() {
 	if *cal == "" && savedOptions.Cal != "" {
 		*cal = savedOptions.Cal
 	}
+	if *font == "" && savedOptions.Font != "" {
+		*font = savedOptions.Font
+	}
 	if *listen == -1 && savedOptions.Port != "" {
 		if p, err := strconv.Atoi(savedOptions.Port); err == nil && p >= 1 && p <= 65535 {
 			*listen = p
@@ -1440,7 +1474,7 @@ func main() {
 	}
 	addr := resolveAddr(effectivePort)
 	if *class != "" {
-		pageURL = buildPageURL(addr, *class, *lang, *cal)
+		pageURL = buildPageURL(addr, *class, *lang, *cal, *font)
 	} else if isOpenLastPage(savedOptions) && savedOptions.LastPage != "" {
 		trimmed := strings.TrimLeft(savedOptions.LastPage, "/")
 		if strings.HasPrefix(trimmed, "index.html") {
@@ -1457,13 +1491,13 @@ func main() {
 					}
 					pageURL = fmt.Sprintf("%s://%s%s", scheme, addr, lp)
 				} else {
-					pageURL = buildPageURL(addr, "", *lang, *cal)
+					pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 				}
 			} else {
-				pageURL = buildPageURL(addr, "", *lang, *cal)
+				pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 			}
 		} else {
-			pageURL = buildPageURL(addr, "", *lang, *cal)
+			pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 		}
 	} else if savedOptions.Home != "" && strings.HasPrefix(strings.TrimLeft(savedOptions.Home, "/"), "index.html") {
 		trimmed := strings.TrimLeft(savedOptions.Home, "/")
@@ -1482,10 +1516,14 @@ func main() {
 		}
 		if *cal != "" {
 			u += sep + "cal=" + url.QueryEscape(*cal)
+			sep = "&"
+		}
+		if *font != "" {
+			u += sep + "font=" + url.QueryEscape(*font)
 		}
 		pageURL = u
 	} else {
-		pageURL = buildPageURL(addr, "", *lang, *cal)
+		pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 	}
 
 	if *lang != "" {
@@ -1497,6 +1535,11 @@ func main() {
 		calJS := "window.__ht_cal='" + *cal + "';"
 		welcomePage = calJS + welcomePage
 		addressBarJS = calJS + addressBarJS
+	}
+	if *font != "" {
+		fontJS := "window.__ht_font='" + *font + "';"
+		welcomePage = fontJS + welcomePage
+		addressBarJS = fontJS + addressBarJS
 	}
 	if savedOptions.Home != "" {
 		homeJS := "window.__ht_home='" + strings.ReplaceAll(savedOptions.Home, "'", "\\'") + "';"
@@ -1575,7 +1618,7 @@ func main() {
 	fmt.Println("Stopped.")
 }
 
-func buildPageURL(addr, class, lang, cal string) string {
+func buildPageURL(addr, class, lang, cal, font string) string {
 	scheme := "http"
 	if useTLS {
 		scheme = "https"
@@ -1592,6 +1635,10 @@ func buildPageURL(addr, class, lang, cal string) string {
 	}
 	if cal != "" {
 		u += sep + "cal=" + url.QueryEscape(cal)
+		sep = "&"
+	}
+	if font != "" {
+		u += sep + "font=" + url.QueryEscape(font)
 	}
 	return u
 }

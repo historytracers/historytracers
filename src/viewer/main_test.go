@@ -20,6 +20,7 @@ func TestBuildPageURL(t *testing.T) {
 		class    string
 		lang     string
 		cal      string
+		font     string
 		want     string
 		wantHost string
 	}{
@@ -67,11 +68,26 @@ func TestBuildPageURL(t *testing.T) {
 			cal:   "julian",
 			want:  "http://127.0.0.1:54321/index.html?page=class_content&arg=d290f1ee-6c54-4b01-90e6-d701748f0851&lang=es-ES&cal=julian",
 		},
+		{
+			name: "font only",
+			addr: "127.0.0.1:8080",
+			font: "large",
+			want: "http://127.0.0.1:8080/index.html?font=large",
+		},
+		{
+			name:  "class, lang, cal, font",
+			addr:  "127.0.0.1:54321",
+			class: "d290f1ee-6c54-4b01-90e6-d701748f0851",
+			lang:  "es-ES",
+			cal:   "julian",
+			font:  "small",
+			want:  "http://127.0.0.1:54321/index.html?page=class_content&arg=d290f1ee-6c54-4b01-90e6-d701748f0851&lang=es-ES&cal=julian&font=small",
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := buildPageURL(tt.addr, tt.class, tt.lang, tt.cal)
+			got := buildPageURL(tt.addr, tt.class, tt.lang, tt.cal, tt.font)
 			if got != tt.want {
 				t.Errorf("buildPageURL() = %q, want %q", got, tt.want)
 			}
@@ -83,7 +99,7 @@ func TestBuildPageURL(t *testing.T) {
 }
 
 func TestBuildPageURLEmptyAddr(t *testing.T) {
-	got := buildPageURL("", "id", "", "")
+	got := buildPageURL("", "id", "", "", "")
 	if !strings.HasPrefix(got, "http://") {
 		t.Errorf("expected http prefix, got %q", got)
 	}
@@ -93,7 +109,7 @@ func TestBuildPageURLEmptyAddr(t *testing.T) {
 }
 
 func TestBuildPageURLOrder(t *testing.T) {
-	got := buildPageURL("127.0.0.1:1", "myclass", "en", "")
+	got := buildPageURL("127.0.0.1:1", "myclass", "en", "", "")
 	parts := strings.SplitN(got, "?", 2)
 	if len(parts) != 2 {
 		t.Fatalf("expected query string, got %q", got)
@@ -186,7 +202,7 @@ func TestLogMiddleware(t *testing.T) {
 }
 
 func TestBuildPageURLLangAlone(t *testing.T) {
-	got := buildPageURL("127.0.0.1:9999", "", "es-ES", "")
+	got := buildPageURL("127.0.0.1:9999", "", "es-ES", "", "")
 	if !strings.HasSuffix(got, "lang=es-ES") {
 		t.Errorf("expected lang param, got %q", got)
 	}

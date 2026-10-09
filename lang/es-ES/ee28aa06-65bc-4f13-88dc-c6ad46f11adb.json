@@ -14,32 +14,34 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/DnHA2upgVUb",
+         "url": "https://open.spotify.com/episode/552zYuY0pLfEGNUpANjrsY?si=dz7YXbX3Sz-3A4Wjc04xTg",
          "external": true,
          "spotify": true
       }
    ],
    "index": [
-      "history"
+      "history",
+      "physics"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1791510650"
    ],
    "authors": null,
    "reviewers": [
       "Benjamin Rodrigues Peixoto",
-      "Karolyne Damasceno Brito"
+      "Karolyne Damasceno Brito",
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
    "editing": false,
    "content": [
       {
-         "id": "prerequisites",
+         "id": "SECTION_prerequisites",
          "text": [
             {
                "text": "<span id=\"htZoomImageMsg\"></span>",
@@ -51,7 +53,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nPara una mejor comprensión de este texto, se recomienda leer los tres primeros capítulos de la sección *Primeros pasos*, además del primer capítulo de la sección *Interpretación de textos*",
+               "text": "### Prerrequisitos\n\nPara comprender mejor este texto, recomendamos leer los tres primeros capítulos de la sección *Primeros pasos*, además del primer capítulo de la sección *Interpretación de textos*. En ellos se presentan las fuentes y las herramientas de lectura que este texto presupone",
                "source": [
                   {
                      "type": 1,
@@ -87,10 +89,10 @@
          ]
       },
       {
-         "id": "introduction",
+         "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nDesde la infancia, oímos expresiones temporales como: \"El tiempo se acaba\".\n\nNuestra relación con el tiempo es tan significativa que ha generado diversas expresiones populares y poemas, como el siguiente",
+               "text": "### Introducción\n\nDesde la infancia oímos expresiones sobre el tiempo, como \"El tiempo se acaba\".\n\nNuestra relación con el tiempo es tan profunda que ha dado lugar a numerosas expresiones populares y poemas, como el siguiente",
                "source": [
                   {
                      "type": 1,
@@ -112,7 +114,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<ul class=\"citation\"><li><i>El tiempo preguntó al tiempo</i></li><li><i>cuál es el tiempo que el tiempo tiene.</i></li><li><i>El tiempo respondió al tiempo</i></li><li><i>que no tiene tiempo para decir al tiempo</i></li><li><i>que el tiempo del tiempo es el tiempo que el tiempo tiene.</i></li></ul>",
+               "text": "<ul class=\"citation\"><li><i>El tiempo preguntó al tiempo:</i></li><li><i>¿Cuál es el tiempo que el tiempo tiene?</i></li><li><i>El tiempo respondió al tiempo:</i></li><li><i>que no tiene tiempo para decirle al tiempo</i></li><li><i>que el tiempo del tiempo es el tiempo que el tiempo tiene.</i></li></ul>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -121,7 +123,7 @@
                "PostMention": ""
             },
             {
-               "text": "Con esto, proponemos una reflexión inicial",
+               "text": "Con esto, y antes de seguir leyendo, consideremos la siguiente pregunta",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -130,7 +132,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre el tiempo</b><br /><br />¿Qué es el tiempo?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre el tiempo</b><br /><br />¿Qué es el tiempo?<br /><br />Tómate un momento para definirlo con tus propias palabras antes de seguir leyendo. Volveremos a esta pregunta al final del texto.</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -141,15 +143,15 @@
          ]
       },
       {
-         "id": "perception",
+         "id": "SECTION_perception",
          "text": [
             {
-               "text": "### La Percepción del Tiempo\n\nAl estudiar textos antiguos, observamos que, desde hace milenios, la humanidad ha observado el tiempo y lo ha relacionado con su existencia. El primer ejemplo utilizado en *History Tracers* —y uno de los registros más antiguos— es la *Lista de los Reyes Sumerios*",
+               "text": "### La Percepción del Tiempo\n\nAl estudiar textos antiguos nos damos cuenta de que, desde hace milenios, la humanidad ha reflexionado sobre el tiempo y su relación con la vida. Uno de los primeros ejemplos utilizados en *History Tracers* —y uno de los registros más antiguos— es la *Lista de los Reyes Sumerios*",
                "source": [
                   {
                      "type": 0,
                      "uuid": "4d0b579d-57af-45e1-87b0-d402dd778968",
-                     "text": "Lista de los Reyes Sumérios",
+                     "text": "Lista de los Reyes Sumerios",
                      "page": "",
                      "date_time": {
                         "type": "",
@@ -166,7 +168,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img  id=\"imgKL\" onclick=\"htImageZoom('imgKL', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Lista de los Reyes Sumérios. © Ashmolean Museum, University of Oxford (<htcite0>)</p>",
+               "text": "<p class=\"desc\"><img  id=\"imgKL\" onclick=\"htImageZoom('imgKL', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Lista de los Reyes Sumerios. © Ashmolean Museum, University of Oxford (<htcite0>)</p>",
                "source": [
                   {
                      "type": 0,
@@ -188,7 +190,7 @@
                "PostMention": ""
             },
             {
-               "text": "Aunque el texto incluya duraciones imposibles para la vida humana, como los reinados de 43.200 años de Enmenluana, y el reinado de En-tarah-ana: 420 años, 3 meses y 3 días y medio. En ambos casos, se observa la idea de un tiempo cíclico, que se repite",
+               "text": "El texto incluye duraciones imposibles para la vida humana, como los 43.200 años de reinado de Enmenluana o los 420 años, 3 meses y 3 días y medio de En-tarah-ana. En ambos casos aparece la idea de un **tiempo cíclico**: un tiempo que se repite, como las estaciones o el ciclo del día y la noche",
                "source": [
                   {
                      "type": 1,
@@ -217,7 +219,7 @@
                   {
                      "type": 0,
                      "uuid": "4d0b579d-57af-45e1-87b0-d402dd778968",
-                     "text": "Lista de los Reyes Sumérios",
+                     "text": "Lista de los Reyes Sumerios",
                      "page": "",
                      "date_time": {
                         "type": "",
@@ -234,7 +236,7 @@
                "PostMention": "."
             },
             {
-               "text": "En los textos judíos antiguos, específicamente en el Libro de Eclesiastés, también hallamos una visión periódica del tiempo",
+               "text": "Una visión parecida aparece en los textos judíos antiguos, sobre todo en el *Libro de Eclesiastés*, que describe el tiempo como una serie de estaciones que se repiten",
                "source": [
                   {
                      "type": 2,
@@ -256,7 +258,7 @@
                "PostMention": "."
             },
             {
-               "text": "<ul class=\"citation\"><li><i>Todo tiene su tiempo, y todo lo que se quiere bajo el cielo tiene su hora....</li></ul>",
+               "text": "<ul class=\"citation\"><li><i>Todo tiene su tiempo, y todo lo que se quiere bajo el cielo tiene su hora...</i></li></ul>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -265,7 +267,7 @@
                "PostMention": ""
             },
             {
-               "text": "Esta percepción del tiempo como cíclico no se limita a los textos escritos. En Mesoamérica, por ejemplo, existen construcciones del Tipo E, que aún no han sido completamente comprendidos (<htcite0>). Sin embargo, algunos estudios sugieren que pudieron haber sido utilizados para medir las estaciones del año (<htcite1>; <htcite2>).",
+               "text": "Esta percepción del tiempo como cíclico no se limita a los textos escritos. En Mesoamérica, por ejemplo, existen construcciones monumentales clasificadas por los arqueólogos como de Tipo E, que aún no han sido completamente comprendidas (<htcite0>). Algunos estudios sugieren, sin embargo, que pudieron haber sido utilizadas para medir las estaciones del año (<htcite1>; <htcite2>)",
                "source": [
                   {
                      "type": 1,
@@ -311,7 +313,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><iframe src=\"https://www.youtube.com/embed/UBMUR-3hHz0?si=mn22_mrWLJ23ueeO\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen style=\"aspect-ratio: 16 / 9; width: 55% !important;\"></iframe><br />Video 1: Type E at Caracol, Belize. Recorded during a site visit on <htdate0>.</p>",
+               "text": "<p class=\"desc\"><iframe src=\"https://www.youtube.com/embed/UBMUR-3hHz0?si=mn22_mrWLJ23ueeO\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen style=\"aspect-ratio: 16 / 9; width: 55% !important;\"></iframe><br />Vídeo 1: Estructuras de Tipo E en Caracol, Belice. Grabado durante una visita al sitio el <htdate0>.</p>",
                "source": null,
                "date_time": [
                   {
@@ -327,7 +329,7 @@
                "PostMention": ""
             },
             {
-               "text": "Dicha concepción también se manifiesta en el Juego de Pelota mesoamericano, como se discute en la sección *Primeros pasos*. Según investigaciones como las de Aguilar-Moreno, este centro ceremonial guardaba una relación directa con el día y la noche, reflejando la comprensión del movimiento solar",
+               "text": "Dicha concepción también se manifiesta en el *Juego de Pelota* mesoamericano, como se ve en la sección *Primeros pasos*. Según investigaciones como las de Aguilar-Moreno, este centro ceremonial estaba directamente ligado al ciclo del día y la noche, y reflejaba una comprensión del movimiento solar",
                "source": [
                   {
                      "type": 1,
@@ -365,7 +367,7 @@
                "PostMention": ""
             },
             {
-               "text": "Sin embargo, esta percepción no define qué es el tiempo. Avancemos, entonces, al siguiente apartado para profundizar en su comprensión",
+               "text": "Sin embargo, esta percepción por sí sola no define qué es el tiempo. Pasemos al apartado siguiente para analizar el problema con más detalle",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -376,10 +378,10 @@
          ]
       },
       {
-         "id": "understanding",
+         "id": "SECTION_understanding",
          "text": [
             {
-               "text": "### La Compreensión del Tiempo\n\nEl entendimiento del tiempo es un desafío que acompaña a la humanidad desde hace milenios. La definición de períodos temporales basados en procesos naturales presenta complejidades significativas para nuestra percepción.\n\nEn su obra, G. N. Bailey presenta reflexiones profundas sobre este tema",
+               "text": "### La Comprensión del Tiempo\n\nDefinir el tiempo no es fácil. Como el tiempo no tiene forma ni se puede ver, solo podemos medirlo a través de procesos naturales: el día y la noche, las estaciones, el movimiento de las estrellas. Eso ya condiciona nuestra percepción.\n\nEn su obra, G. N. Bailey presenta reflexiones profundas sobre este tema",
                "source": [
                   {
                      "type": 1,
@@ -401,7 +403,7 @@
                "PostMention": ":"
             },
             {
-               "text": "- **Páginas 167 a 174**: Bailey revela una fascinante dualidad entre la comprensión del tiempo en el estudio del universo y en nuestras vidas cotidianas.\n- **Página 179**: Desafía los límites convencionales entre \"presente\" y \"pasado\", resaltando variaciones temporales que pueden abarcar desde breves momentos hasta milenios.\n- **Páginas 180 a 186**: Nos invita a considerar tanto los largos períodos, como el \"ciclo glacial-interglacial\" de aproximadamente 100.000 años, como los breves, como las décadas, enfatizando la interpretación del tiempo como una sucesión de eventos.\n- **Página 187**: Analiza el surgimiento, hace aproximadamente 30.000 años, de actividades orientadas hacia el futuro como resultado del desarrollo de la capacidad intelectual humana.",
+               "text": "- **Páginas 167 a 174**: Bailey revela una fascinante dualidad en la forma de entender el tiempo, tanto en el estudio del universo como en la vida cotidiana.\n- **Página 179**: Cuestiona las nociones convencionales de \"presente\" y \"pasado\", destacando que el tiempo abarca desde instantes fugaces hasta vastos milenios.\n- **Páginas 180 a 186**: Nos invita a considerar períodos muy distintos, desde el \"ciclo glacial-interglacial\" de aproximadamente 100.000 años hasta lapsos breves como las décadas, y presenta el tiempo como una sucesión de eventos.\n- **Página 187**: Analiza el surgimiento, hace aproximadamente 30.000 años, de actividades orientadas hacia el futuro como resultado del desarrollo de la capacidad intelectual humana.\n\nAl leer estas páginas, observa cómo la misma palabra *tiempo* puede designar un instante, un año o cien mil años.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -410,7 +412,7 @@
                "PostMention": ""
             },
             {
-               "text": "Es importante destacar que la habilidad de proyectarse en el futuro no implica necesariamente un enfoque constante en él. Como muestra Jaakko Hintikka, la civilización griega, por ejemplo, estaba profundamente anclada en el tiempo presente",
+               "text": "Es importante destacar que la capacidad de proyectarse en el futuro no implica que una civilización esté constantemente orientada hacia él. Como muestra Jaakko Hintikka, la civilización griega, por ejemplo, estaba profundamente anclada en el presente",
                "source": [
                   {
                      "type": 1,
@@ -480,10 +482,10 @@
          ]
       },
       {
-         "id": "conclusion",
+         "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nCon base en este análisis, podemos concluir que el tiempo puede entenderse como una secuencia de eventos, aunque esta visión no agote las múltiples formas de concebirlo.\n\nEn los próximos textos, continuaremos explorando cómo construimos nuestro entendimiento del tiempo —un fundamento esencial para el estudio de diversas ciencias",
+               "text": "### Conclusión\n\nCon base en este análisis, podemos concluir que el tiempo puede entenderse como una **secuencia de eventos**, aunque esta visión no agote las múltiples formas de concebirlo.\n\nVuelve ahora a la pregunta inicial: *¿qué es el tiempo?* Si puedes decir que el tiempo es una sucesión de eventos que medimos mediante ciclos naturales, ya has captado la idea central de este texto.\n\nEn los próximos textos, continuaremos explorando cómo construimos nuestro entendimiento del tiempo —un fundamento esencial para el estudio de diversas ciencias",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -496,14 +498,14 @@
    ],
    "exercise_v2": [
       {
-         "question": "¿La percepción de que el tiempo posee ciclos es milenaria?",
+         "question": "¿Tiene miles de años la idea de un tiempo cíclico?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "En textos antiguos podemos encontrar referencias a años, meses y días. Asimismo, existen construcciones que reproducen el aparente movimiento del Sol. De este modo, podemos comprobar que nuestra comprensión de los ciclos temporales se remonta a tiempos muy remotos."
+         "additionalInfo": "Sí. Textos antiguos como la Lista de los Reyes Sumerios ya cuentan el tiempo en años, meses y días, aunque atribuyan a los reyes reinados imposibles. La evidencia material apunta en la misma dirección: las construcciones mesoamericanas de Tipo E parecen seguir las estaciones del año. En conjunto, demuestran que la percepción de los ciclos temporales es muy antigua."
       },
       {
          "question": "Después de este texto, ¿podemos afirmar que el tiempo es una sucesión de eventos?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Si bien esta constituye nuestra percepción general del tiempo, no debería considerarse la única. Como veremos más adelante, existen diversos aspectos por desarrollar para ampliar nuestra percepción y comprensión del tiempo."
+         "additionalInfo": "Sí, como definición de trabajo. Este texto entiende el tiempo como una sucesión de eventos, una idea que surgió de forma independiente en varias culturas. No es la respuesta completa: los próximos textos añadirán nuevos aspectos, así que conviene tomar esta definición como punto de partida y no como respuesta definitiva."
       }
    ],
    "game_v2": null,

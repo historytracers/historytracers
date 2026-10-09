@@ -99,7 +99,7 @@ var addressBarJS = `
 	// space with body margin and the page pads below its own banner. The
 	// calendar icon wrapper keeps its icon size regardless of the
 	// invisible native select overlay.
-	function __htViewerFixCSS(BAR_H){return '.top-bar{top:'+BAR_H+'px!important}.hamburger{top:'+BAR_H+'px!important}.side-bar{top:'+BAR_H+'px!important}.right-sources{top:calc('+BAR_H+'px + 1.5em + 20px)!important;bottom:0!important;height:auto!important}.ht-layout .top-bar .ht-cal-wrap{flex-shrink:0!important}';}
+	function __htViewerFixCSS(BAR_H){return '.top-bar{top:'+BAR_H+'px!important}.hamburger{top:'+BAR_H+'px!important}.side-bar{top:'+BAR_H+'px!important}.right-sources{top:calc('+BAR_H+'px + 1.5em + 20px)!important;bottom:0!important;height:auto!important}.ht-layout .top-bar .ht-cal-wrap{flex-shrink:0!important}.ht-layout .top-bar .ht-font-wrap{flex-shrink:0!important}';}
 	if(window!==window.top){
 		// Inside iframe below the viewer chrome: the page layout already
 		// accounts for its own fixed header, so no offsets are needed here.
@@ -116,11 +116,11 @@ var addressBarJS = `
 		try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||''}catch(e){}
 		if(!loc)loc=window.__ht_lang||navigator.language||'en-US';
 		var L={};
-L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',prevTitle:'Voltar',nextTitle:'Avan\u00e7ar',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',setHomeTitle:'Definir como P\u00e1gina Inicial',homeSaved:'P\u00e1gina inicial definida!',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',err:'Erro',cal_gregory:'Gregoriano',cal_hebrew:'Hebraico',cal_hispanic:'Hisp\u00e2nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (Dias)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Est.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chin\u00eas',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00eas',cal_japanese:'Japon\u00eas',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
+L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',prevTitle:'Voltar',nextTitle:'Avan\u00e7ar',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',setHomeTitle:'Definir como P\u00e1gina Inicial',homeSaved:'P\u00e1gina inicial definida!',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsFontLabel:'Tamanho da letra',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',err:'Erro',cal_gregory:'Gregoriano',cal_hebrew:'Hebraico',cal_hispanic:'Hisp\u00e2nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (Dias)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Est.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chin\u00eas',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00eas',cal_japanese:'Japon\u00eas',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
 L['pt']=L['pt-BR'];
-L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',prevTitle:'Atr\u00e1s',nextTitle:'Adelante',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',setHomeTitle:'Establecer como P\u00e1gina de Inicio',homeSaved:'\u00a1P\u00e1gina de inicio establecida!',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',err:'Error',cal_gregory:'Gregoriano',cal_hebrew:'Hebreo',cal_hispanic:'Hisp\u00e1nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (D\u00edas)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Ext.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chino',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00e9s',cal_japanese:'Japon\u00e9s',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
+L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',prevTitle:'Atr\u00e1s',nextTitle:'Adelante',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',setHomeTitle:'Establecer como P\u00e1gina de Inicio',homeSaved:'\u00a1P\u00e1gina de inicio establecida!',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsFontLabel:'Tama\u00f1o de letra',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',err:'Error',cal_gregory:'Gregoriano',cal_hebrew:'Hebreo',cal_hispanic:'Hisp\u00e1nico',cal_islamic:'Isl\u00e2mico',cal_julian:'Juliano (D\u00edas)',cal_mesoamerican:'Mesoamericano',cal_emesoamerican:'Mesoamericano (Ext.)',cal_persian:'Persa',cal_french:'Rev. Francesa',cal_shaka:'Shaka',cal_chinese:'Chino',cal_aymara:'Aimara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javan\u00e9s',cal_japanese:'Japon\u00e9s',optionsApply:'Aplicar',printTitle:'Imprimir p\u00e1gina'};
 L['es']=L['es-ES'];
-L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',prevTitle:'Back',nextTitle:'Forward',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',setHomeTitle:'Set as Home Page',homeSaved:'Home page set!',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',err:'Error',cal_gregory:'Gregorian',cal_hebrew:'Hebrew',cal_hispanic:'Hispanic',cal_islamic:'Islamic',cal_julian:'Julian (Days)',cal_mesoamerican:'Mesoamerican',cal_emesoamerican:'Mesoamerican (Ext.)',cal_persian:'Persian',cal_french:'French Rev.',cal_shaka:'Shaka',cal_chinese:'Chinese',cal_aymara:'Aymara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javanese',cal_japanese:'Japanese',optionsApply:'Apply',printTitle:'Print page'};
+L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',prevTitle:'Back',nextTitle:'Forward',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',setHomeTitle:'Set as Home Page',homeSaved:'Home page set!',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsFontLabel:'Letter size',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',err:'Error',cal_gregory:'Gregorian',cal_hebrew:'Hebrew',cal_hispanic:'Hispanic',cal_islamic:'Islamic',cal_julian:'Julian (Days)',cal_mesoamerican:'Mesoamerican',cal_emesoamerican:'Mesoamerican (Ext.)',cal_persian:'Persian',cal_french:'French Rev.',cal_shaka:'Shaka',cal_chinese:'Chinese',cal_aymara:'Aymara',cal_mapuche:'Mapuche',cal_inca:'Inca',cal_javanese:'Javanese',cal_japanese:'Japanese',optionsApply:'Apply',printTitle:'Print page'};
 L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var _lang='';
@@ -140,6 +140,12 @@ L['en']=L['en-US'];
 			try{var _ru=new URL(window.location.href);_recreio=_ru.searchParams.get('rec')||''}catch(e){}
 		}
 		if(_recreio){try{$('#site_recreio').val(_recreio)}catch(e){}}
+		var _font=window.__ht_font||'';
+		if(!_font){
+			try{var _fu=new URL(window.location.href);_font=_fu.searchParams.get('font')||''}catch(e){}
+		}
+		if(_font!=='small'&&_font!=='default'&&_font!=='large')_font='';
+		if(_font){try{$('#site_font_size').val(_font)}catch(e){}try{if(typeof htApplyFontSize==='function')htApplyFontSize(_font)}catch(e){}}
 		var _el=[];
 		(function(){
 			var x=new XMLHttpRequest();
@@ -149,6 +155,7 @@ L['en']=L['en-US'];
 					if(!_lang&&d.lang){_lang=d.lang;var nl=L[_lang]||L[_lang.substring(0,2)]||L['en-US'];l=nl;refreshLang()}
 					if(!_cal&&d.cal){_cal=d.cal;refreshCal()}
 					if(!_recreio&&d.recreio){_recreio=d.recreio;var rs=$('#site_recreio');if(rs.length)rs.val(_recreio);var ors=document.getElementById('__ht_opt_recreio');if(ors)ors.value=_recreio}
+					if(!_font&&d.font&& (d.font==='small'||d.font==='default'||d.font==='large')){_font=d.font;var fs=$('#site_font_size');if(fs.length)fs.val(_font);try{if(typeof htApplyFontSize==='function')htApplyFontSize(_font)}catch(e){}var ofs=document.getElementById('__ht_opt_font');if(ofs)ofs.value=_font}
 					if(d.port){var ol=document.getElementById('__ht_opt_listen');if(ol)ol.value=d.port}
 				}}catch(e){}
 			};
@@ -185,6 +192,8 @@ L['en']=L['en-US'];
 			if(ocl)ocl.textContent=l.optionsCalLabel+':';
 			var orl=document.getElementById('__ht_opt_recreio_label');
 			if(orl)orl.textContent=l.optionsRecreioLabel+':';
+			var ofl=document.getElementById('__ht_opt_font_label');
+			if(ofl)ofl.textContent=l.optionsFontLabel+':';
 			var oln=document.getElementById('__ht_opt_listen_label');
 			if(oln)oln.textContent=l.optionsListenLabel+':';
 			var ohl=document.getElementById('__ht_opt_home_label');
@@ -199,6 +208,8 @@ L['en']=L['en-US'];
 			if(e.target&&e.target.id==='site_calendar')refreshCal();
 			if(e.target&&e.target.id==='__ht_opt_recreio'){var rs=$('#site_recreio');if(rs.length)rs.val(e.target.value)}
 			if(e.target&&e.target.id==='site_recreio'){var ors=document.getElementById('__ht_opt_recreio');if(ors)ors.value=e.target.value}
+			if(e.target&&e.target.id==='__ht_opt_font'){var fs=$('#site_font_size');if(fs.length)fs.val(e.target.value);try{if(typeof htApplyFontSize==='function')htApplyFontSize(e.target.value)}catch(x){}}
+			if(e.target&&e.target.id==='site_font_size'){var ofs=document.getElementById('__ht_opt_font');if(ofs)ofs.value=e.target.value;try{if(typeof htApplyFontSize==='function')htApplyFontSize(e.target.value)}catch(x){}}
 		});
 		function getLang(){
 			try{var s=$('#site_language');if(s.length)return s.val()}catch(e){}
@@ -211,6 +222,10 @@ L['en']=L['en-US'];
 		function getRecreio(){
 			try{var s=$('#site_recreio');if(s.length)return s.val()}catch(e){}
 			return _recreio||'30';
+		}
+		function getFont(){
+			try{var s=$('#site_font_size');if(s.length)return s.val()}catch(e){}
+			return _font||'default';
 		}
 		function recordHistory(urlParam, title){
 			try{
@@ -245,7 +260,7 @@ L['en']=L['en-US'];
 		h.textContent='⌂';
 		h.title=l.homeTitle;
 		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 48px/1 monospace;padding:0 5px;color:#555;';
-		h.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=location.origin+'/index.html';if(g)u+='?lang='+encodeURIComponent(g);if(c)u+=(u.indexOf('?')>=0?'&':'?')+'cal='+encodeURIComponent(c);if(r)u+='&rec='+encodeURIComponent(r);location.href=u};
+		h.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),f=getFont(),u=location.origin+'/index.html';if(g)u+='?lang='+encodeURIComponent(g);if(c)u+=(u.indexOf('?')>=0?'&':'?')+'cal='+encodeURIComponent(c);if(r)u+='&rec='+encodeURIComponent(r);if(f)u+='&font='+encodeURIComponent(f);location.href=u};
 		_el.push(h);
 		b.appendChild(h);
 		var r=document.createElement('button');
@@ -253,7 +268,7 @@ L['en']=L['en-US'];
 		r.textContent='⟳';
 		r.title=l.reloadTitle;
 		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;transform:translateY(3px);display:inline-block;';
-		r.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=new URL(window.location.href);if(g)u.searchParams.set('lang',g);if(c)u.searchParams.set('cal',c);if(r)u.searchParams.set('rec',r);location.href=u.toString()};
+		r.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),f=getFont(),u=new URL(window.location.href);if(g)u.searchParams.set('lang',g);if(c)u.searchParams.set('cal',c);if(r)u.searchParams.set('rec',r);if(f)u.searchParams.set('font',f);location.href=u.toString()};
 		_el.push(r);
 		b.appendChild(r);
 		var prevBtn=document.createElement('button');
@@ -283,7 +298,7 @@ L['en']=L['en-US'];
 			btn.textContent=symbol;
 			btn.title=title;
 			btn.style.cssText='border:none;background:transparent;cursor:pointer;font:24px/1 monospace;padding:0 5px;color:#555;';
-			btn.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=location.origin+'/'+url;if(g)u+='&lang='+encodeURIComponent(g);if(c)u+='&cal='+encodeURIComponent(c);if(r)u+='&rec='+encodeURIComponent(r);location.href=u};
+			btn.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),f=getFont(),u=location.origin+'/'+url;if(g)u+='&lang='+encodeURIComponent(g);if(c)u+='&cal='+encodeURIComponent(c);if(r)u+='&rec='+encodeURIComponent(r);if(f)u+='&font='+encodeURIComponent(f);location.href=u};
 			_el.push(btn);
 			b.appendChild(btn);
 		}

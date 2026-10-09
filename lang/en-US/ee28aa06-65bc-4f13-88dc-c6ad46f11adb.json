@@ -14,32 +14,34 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/zfISXtpgVUb",
+         "url": "https://open.spotify.com/episode/6wrnhkIpNBy663BlDeZDVC?si=NUJd38a_Tn-UX-t1qGnT1w",
          "external": true,
          "spotify": true
       }
    ],
    "index": [
-      "history"
+      "history",
+      "physics"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765767"
+      "1791510627"
    ],
    "authors": null,
    "reviewers": [
       "Benjamin Rodrigues Peixoto",
-      "Karolyne Damasceno Brito"
+      "Karolyne Damasceno Brito",
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
    "editing": false,
    "content": [
       {
-         "id": "prerequisites",
+         "id": "SECTION_prerequisites",
          "text": [
             {
                "text": "<span id=\"htZoomImageMsg\"></span>",
@@ -51,7 +53,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nTo better understand this text, we recommend reading the first three chapters of the section *First Steps*, as well as the first chapter of the section *Understanding Texts*",
+               "text": "### Prerequisites\n\nTo better understand this text, we recommend reading the first three chapters of the section *First Steps*, as well as the first chapter of the section *Understanding Texts*. Those chapters present the sources and reading tools that this text takes for granted",
                "source": [
                   {
                      "type": 1,
@@ -87,10 +89,10 @@
          ]
       },
       {
-         "id": "introduction",
+         "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nSince childhood, we've heard temporal expressions like \"time is over.\"\n\nOur relationship with time is so profound that it has inspired numerous popular sayings and poems, such as the following",
+               "text": "### Introduction\n\nSince childhood, we've heard temporal expressions such as \"time is running out.\"\n\nOur relationship with time is so profound that it has inspired many popular sayings and poems, such as the following",
                "source": [
                   {
                      "type": 1,
@@ -112,7 +114,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<ul class=\"citation\"><li><i>Time asked Time:</i></li><li><i>\"What time does Time possess?\"</i></li><li><i>Time replied:</i></li><li><i> \"I have no time to say.</i></li><li><i>The time that remains within Time</i></li><li><i>is the time that is left to stay.\"</i></li><li><i> </i></li></ul>",
+               "text": "<ul class=\"citation\"><li><i>Time asked Time:</i></li><li><i>\"What time does Time possess?\"</i></li><li><i>Time replied:</i></li><li><i>\"I have no time to tell Time</i></li><li><i>that the time that remains within Time</i></li><li><i>is the time that is left to stay.\"</i></li></ul>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -121,7 +123,7 @@
                "PostMention": ""
             },
             {
-               "text": "With this in mind, we propose an initial reflection",
+               "text": "With this in mind, and before reading any further, consider the following question",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -130,7 +132,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: On time</b><br /><br />What is time?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: On time</b><br /><br />What is time?<br /><br />Take a moment to define it in your own words before reading on. We will return to this question at the end of the text.</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -141,10 +143,10 @@
          ]
       },
       {
-         "id": "perception",
+         "id": "SECTION_perception",
          "text": [
             {
-               "text": "### The Perception of Time\n\nWhen studying ancient texts, we observe that humanity has been reflecting on time and its relationship to our lives for millennia. One of the first examples used in History Tracers—and among the oldest recorded—is the *Sumerian King List*",
+               "text": "### The Perception of Time\n\nWhen we study ancient texts, we realize that humanity has been reflecting on time and its relationship to our lives for millennia. One of the first examples used in *History Tracers*—and one of the oldest records we have—is the *Sumerian King List*",
                "source": [
                   {
                      "type": 0,
@@ -188,7 +190,7 @@
                "PostMention": ""
             },
             {
-               "text": "This document includes implausible lifespans for humans, such as Enmenluana’s 43,200-year reign, and En-tarah-ana’s reign of 420 years, 3 months, and 3½ days. In both cases, we see a concept of cyclical time",
+               "text": "This document gives implausible human lifespans, such as Enmenluana's 43,200-year reign and En-tarah-ana's reign of 420 years, 3 months and 3½ days. In both cases we see a concept of **cyclical time**: time understood as a cycle that repeats itself, rather than as a straight line that moves only forward",
                "source": [
                   {
                      "type": 1,
@@ -234,7 +236,7 @@
                "PostMention": "."
             },
             {
-               "text": "A similar cyclical view appears in ancient Jewish texts—particularly in the *Book of Ecclesiastes*",
+               "text": "A similar cyclical view appears in ancient Jewish texts, particularly in the *Book of Ecclesiastes*, which describes time as a series of repeating seasons",
                "source": [
                   {
                      "type": 2,
@@ -256,7 +258,7 @@
                "PostMention": "."
             },
             {
-               "text": "<ul class=\"citation\"><li><i>For every thing there is a season; and a (proper) time is for every pursuit under the heavens...</li></ul>",
+               "text": "<ul class=\"citation\"><li><i>For everything there is a season; and a (proper) time is for every pursuit under the heavens...</i></li></ul>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -265,7 +267,7 @@
                "PostMention": ""
             },
             {
-               "text": "This perception of cyclical time is not limited to written records. In Mesoamerica, for example, *Type E* structures which were not yet been fully understood (<htcite0>). However, some studies suggest that they may have been used to measure the seasons of the year (<htcite1>; <htcite2>).",
+               "text": "This perception of cyclical time is not limited to written records. In Mesoamerica, for example, there are monumental structures classified by archaeologists as *Type E*, which have not yet been fully understood (<htcite0>). Some studies suggest, however, that they may have been used to measure the seasons of the year (<htcite1>; <htcite2>)",
                "source": [
                   {
                      "type": 1,
@@ -365,7 +367,7 @@
                "PostMention": ""
             },
             {
-               "text": "Still, this perception alone does not fully define what time is. Let’s continue to explore that in the next section",
+               "text": "Still, this perception by itself does not tell us what time is. Let's move on to the next section to explore the problem more deeply",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -376,10 +378,10 @@
          ]
       },
       {
-         "id": "understanding",
+         "id": "SECTION_understanding",
          "text": [
             {
-               "text": "### Understanding Time\n\nUnderstanding time has long been a challenge for humanity. Defining time based on natural processes adds layers of complexity to our perception of it.\n\nG. N. Bailey offers deeper reflections on this subject",
+               "text": "### Understanding Time\n\nDefining time is not easy. Because time has no shape and cannot be seen, we can only measure it through natural processes: day and night, the seasons, the movement of the stars. That already shapes how we perceive it.\n\nG. N. Bailey offers deeper reflections on this subject",
                "source": [
                   {
                      "type": 1,
@@ -401,7 +403,7 @@
                "PostMention": ":"
             },
             {
-               "text": "- **Pages 167 to 174**: Introduce a potential duality in understanding the universe and time’s role in our lives.\n- **Page 179**: Bailey challenges traditional notions of the “present” and the “past,” emphasizing that time varies from fleeting moments to vast millennia.\n- **Pages 180 a 186**: Encourage us to consider massive time spans—such as the 100,000-year “glacial-interglacial cycle”—alongside shorter intervals like decades, presenting time as a succession of events.\n- **Page 187**: Suggests that around 30,000 years ago, human intellectual development enabled future-oriented thinking.",
+               "text": "- **Pages 167 to 174**: Bailey introduces a potential duality in how time is understood, both in the study of the universe and in our everyday lives.\n- **Page 179**: Bailey challenges traditional notions of the “present” and the “past,” emphasizing that time varies from fleeting moments to vast millennia.\n- **Pages 180 to 186**: Bailey encourages us to consider massive time spans—such as the 100,000-year “glacial-interglacial cycle”—alongside shorter intervals like decades, presenting time as a succession of events.\n- **Page 187**: Bailey suggests that around 30,000 years ago, human intellectual development enabled future-oriented thinking.\n\nAs you read, notice how the same word *time* can mean a moment, a year, or a hundred thousand years.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -410,7 +412,7 @@
                "PostMention": ""
             },
             {
-               "text": "It’s important to note that the ability to envision the future does not necessarily mean a civilization is focused on it. As Jaakko Hintikka points out, for example, ancient Greek civilization was not strongly anchored in the present",
+               "text": "It's important to note that the ability to envision the future does not mean that a civilization is focused on it. As Jaakko Hintikka points out, for example, ancient Greek civilization was deeply anchored in the present rather than in the future",
                "source": [
                   {
                      "type": 1,
@@ -432,7 +434,7 @@
                "PostMention": "."
             },
             {
-               "text": "In *History Tracers*, we adopt the perspective of time as a succession of events. Interestingly, this view emerged independently across various cultures—evident in both the *Mesoamerican* calendas and ancient Jewish texts",
+               "text": "In *History Tracers*, we adopt the perspective of time as a succession of events. Interestingly, this view emerged independently in different cultures—it can be seen both in the Mesoamerican calendars and in ancient Jewish texts",
                "source": [
                   {
                      "type": 1,
@@ -480,10 +482,10 @@
          ]
       },
       {
-         "id": "conclusion",
+         "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nBased on this analysis, we can conclude that time may be understood as a **sequence of events**—but this does not mark the end of our quest to understand it.\n\nIn upcoming texts, we will continue to explore how our understanding of time has developed—an essential foundation for grasping many branches of science",
+               "text": "### Conclusion\n\nBased on this analysis, we can conclude that time may be understood as a **sequence of events**—but this does not mark the end of our quest to understand it.\n\nReturn now to the question we asked at the beginning: *what is time?* If you can say that time is a sequence of events that we measure through natural cycles, you have already grasped the central idea of this text.\n\nIn upcoming texts, we will continue to explore how our understanding of time has developed—an essential foundation for grasping many branches of science",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -496,14 +498,14 @@
    ],
    "exercise_v2": [
       {
-         "question": "Is the perception of cyclical time millennia-old?",
+         "question": "Does the idea of cyclical time go back thousands of years?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Ancient texts reveal detailed references to years, months, and days. Furthermore, archaeological evidence shows structures that meticulously recreate the apparent movement of the Sun. These findings demonstrate that human understanding of temporal cycles dates back to ancient times."
+         "additionalInfo": "Yes. Ancient texts such as the Sumerian King List already count time in years, months and days, even when they give rulers impossibly long reigns. Material evidence points the same way: the Mesoamerican Type E structures seem to track the seasons of the year. Together, these show that awareness of temporal cycles goes back thousands of years."
       },
       {
          "question": "After reading this text, can we conclude that time is a succession of events?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "While we have established a general framework for understanding time, this perspective should not be considered exhaustive. As we will explore in subsequent discussions, there remain numerous aspects to examine for a more comprehensive perception and deeper comprehension of temporal concepts."
+         "additionalInfo": "Yes—as a working definition. This text treats time as a sequence of events, a view that arose independently in several cultures. It is not the whole story: later texts will add further aspects, so take this definition as a starting point rather than a final answer."
       }
    ],
    "game_v2": null,

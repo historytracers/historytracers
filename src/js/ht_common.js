@@ -4028,6 +4028,7 @@ if (typeof window !== 'undefined' && window.addEventListener) {
     window.addEventListener('load', htFitCalendarSelect);
     window.addEventListener('load', htSyncLanguageButton);
     window.addEventListener('load', htSyncBreakButton);
+    window.addEventListener('load', htSyncFontButton);
 }
 
 // Tooltip texts for the top-bar icon buttons, stored in
@@ -4055,6 +4056,7 @@ function htRefreshTopButtonTooltips() {
     htFitCalendarSelect();
     htSyncLanguageButton();
     htSyncBreakButton();
+    htSyncFontButton();
 }
 
 // Calendar icon button: the visible control is a calendar symbol
@@ -4225,6 +4227,129 @@ function htSyncBreakButton() {
     return 0;
 }
 
+// Letter-size control: the visible control is a text-height symbol
+// (#site_font_size_btn) overlaying the native select (#site_font_size).
+// Three options: small, default (current font) and large. Default keeps
+// no class on <html> so the media queries keep controlling the size;
+// small/large add ht-font-small/ht-font-large, which win by specificity.
+// The choice persists in localStorage under ht_font_size.
+// Tooltip has an English fallback; option texts are language-neutral.
+function htGetStoredFontSize() {
+    try {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem) {
+            var stored = localStorage.getItem('ht_font_size');
+            if (stored === 'small' || stored === 'large' || stored === 'default') {
+                return stored;
+            }
+        }
+    } catch (e) {
+    }
+    return 'default';
+}
+
+function htApplyFontSize(size) {
+    try {
+        if (size !== 'small' && size !== 'large' && size !== 'default') {
+            size = 'default';
+        }
+        var htmlEl = null;
+        try {
+            if (typeof document !== 'undefined' && document.documentElement) {
+                htmlEl = document.documentElement;
+            }
+        } catch (eHtml) {
+        }
+        if (htmlEl && htmlEl.classList) {
+            try {
+                htmlEl.classList.remove('ht-font-small');
+                htmlEl.classList.remove('ht-font-large');
+                if (size === 'small') {
+                    htmlEl.classList.add('ht-font-small');
+                } else if (size === 'large') {
+                    htmlEl.classList.add('ht-font-large');
+                }
+            } catch (eClass) {
+            }
+        }
+        try {
+            if (typeof localStorage !== 'undefined' && localStorage.setItem) {
+                localStorage.setItem('ht_font_size', size);
+            }
+        } catch (eStore) {
+        }
+        try {
+            if (typeof htSyncTopBanner === 'function') {
+                htSyncTopBanner();
+            }
+        } catch (eBanner) {
+        }
+    } catch (e) {
+    }
+    return size;
+}
+
+function htSyncFontButton() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var stored = htGetStoredFontSize();
+        var sel = document.getElementById('site_font_size');
+        if (!sel) {
+            htApplyFontSize(stored);
+            return 0;
+        }
+        var chosen = stored;
+        try {
+            var current = sel.value;
+            if (current === 'small' || current === 'large' || current === 'default') {
+                chosen = current;
+            } else if (sel.value !== stored) {
+                sel.value = stored;
+            }
+        } catch (eVal) {
+        }
+        htApplyFontSize(chosen);
+        if (!sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || chosen;
+        if (!text) {
+            return 0;
+        }
+        var label = 'Letter size: ' + text;
+        var btn = document.getElementById('site_font_size_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', label);
+                btn.setAttribute('aria-label', label);
+            } else {
+                btn.title = label;
+            }
+        }
+        // See htFitCalendarSelect: the overlaying select is the real hover
+        // target, so it carries the tooltip as well.
+        try {
+            if (sel.setAttribute) {
+                sel.setAttribute('title', label);
+            } else {
+                sel.title = label;
+            }
+        } catch (eSelTip) {
+        }
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
 // Opens the native select that sits behind a top-bar icon button. The
 // button is the only tab stop (each select carries tabindex="-1"), so
 // keyboard activation focuses the select and, where the browser supports
@@ -4254,6 +4379,7 @@ if (typeof document !== 'undefined' && document.addEventListener) {
         htFitCalendarSelect();
         htSyncLanguageButton();
         htSyncBreakButton();
+        htSyncFontButton();
     });
     document.addEventListener('change', function(e) {
         if (e && e.target && e.target.id === 'site_calendar') {
@@ -4264,6 +4390,10 @@ if (typeof document !== 'undefined' && document.addEventListener) {
         }
         if (e && e.target && e.target.id === 'site_recreio') {
             htSyncBreakButton();
+        }
+        if (e && e.target && e.target.id === 'site_font_size') {
+            htApplyFontSize(e.target.value);
+            htSyncFontButton();
         }
     });
     try {
