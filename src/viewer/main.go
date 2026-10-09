@@ -124,6 +124,31 @@ var validFonts = map[string]bool{
 	"large":   true,
 }
 
+// jsString encodes s as a JSON double-quoted string literal safe for
+// embedding inside a <script> block. encoding/json HTML-escapes <, > and &
+// (as \u003c, \u003e, \u0026), which prevents </script> breakout that %q
+// does not stop.
+func jsString(s string) string {
+	b, err := json.Marshal(s)
+	if err != nil {
+		return `""`
+	}
+	return string(b)
+}
+
+// sanitizeLabelPath rejects values containing characters that break out of
+// JS string literals or HTML attributes. Legitimate file paths and home
+// URLs never contain them.
+func sanitizeLabelPath(s string) string {
+	if strings.ContainsAny(s, "<>\"'`\n\r\x00") {
+		return ""
+	}
+	if len(s) > 1024 {
+		return ""
+	}
+	return s
+}
+
 func checkToken(r *http.Request) bool {
 	return r.Header.Get("X-HT-Token") == viewerToken
 }
@@ -604,11 +629,45 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		curFont = "default"
 	}
+	// Re-validate everything that flows into the HTML/JS sink below.
+	// readOptions already validates, but explicit checks here make the
+	// safety local to this handler and visible to static analysis.
+	if !validLangs[curLang] {
+		curLang = "en-US"
+	}
+	if !validCals[curCal] {
+		curCal = "gregory"
+	}
+	if !validRecreios[curRecreio] {
+		curRecreio = "30"
+	}
+	if !validFonts[curFont] {
+		curFont = "default"
+	}
 	curPort = data.Port
+	if curPort != "" {
+		if p, err := strconv.Atoi(curPort); err != nil || p < 1 || p > 65535 {
+			curPort = ""
+		} else {
+			curPort = strconv.Itoa(p)
+		}
+	}
 	curHome = data.Home
 	if curHome == "" {
 		curHome = "/index.html"
+	} else {
+		trimmed := strings.TrimLeft(curHome, "/")
+		if !strings.HasPrefix(trimmed, "index.html") {
+			curHome = "/index.html"
+		} else {
+			curHome = sanitizeLabelPath(curHome)
+			if curHome == "" {
+				curHome = "/index.html"
+			}
+		}
 	}
+	tlsCertVal := sanitizeLabelPath(data.TLSCert)
+	tlsKeyVal := sanitizeLabelPath(data.TLSKey)
 	curOpenLast := isOpenLastPage(data)
 
 	defaultTLSDir := "/etc/historytracers/"
@@ -616,10 +675,23 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
 	}
 
+	// All JS string values are JSON-encoded (see jsString) so quotes,
+	// backslashes and </script> sequences cannot break out of the literal.
+	langJS := jsString(curLang)
+	calJS := jsString(curCal)
+	recJS := jsString(curRecreio)
+	fontJSVal := jsString(curFont)
+	portJS := jsString(curPort)
+	homeJSVal := jsString(curHome)
+	tlsCertJS := jsString(tlsCertVal)
+	tlsKeyJS := jsString(tlsKeyVal)
+	certDirJS := jsString(defaultTLSDir)
+	tokenJSVal := jsString(viewerToken)
+
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
-<script>window.__ht_token='%s';</script>
+<script>window.__ht_token=%s;</script>
 <style>
 *{box-sizing:border-box}
 body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5;color:#333}
@@ -637,8 +709,8 @@ select{height:30px}
 .back a:hover{text-decoration:underline}
 </style></head><body>
 <script>
-var lang=%q;
-var cal=%q;
+var lang=%s;
+var cal=%s;
 var L={};
 L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',fontLabel:'Tamanho da letra',fontSmall:'Pequena',fontDefault:'Padr\u00e3o',fontLarge:'Grande',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',openLastLabel:'Abrir \u00faltima p\u00e1gina visitada ao iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
 L['pt']=L['pt-BR'];
@@ -649,14 +721,16 @@ L['en']=L['en-US'];
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
-var recVal=%q;
-var fontVal=%q;
-var portVal=%q;
-var homeVal=%q;
-var tlsCertVal=%q;
-var tlsKeyVal=%q;
-var certDir=%q;
+var recVal=%s;
+var fontVal=%s;
+var portVal=%s;
+var homeVal=%s;
+var tlsCertVal=%s;
+var tlsKeyVal=%s;
+var certDir=%s;
 var openLastVal=%v;
+function escAttr(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
 var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
 var langs=['pt-BR','en-US','es-ES'];
@@ -672,7 +746,7 @@ html+='<div class="form-group"><label>'+l.calLabel+'</label><select id="opt_cal"
 for(var i=0;i<cals.length;i++){
 	var sc=(function(){try{return parent.document.querySelector('#site_calendar option[value="'+cals[i]+'"]')}catch(e){return null}})();
 	var label=sc?sc.textContent:cals[i].charAt(0).toUpperCase()+cals[i].slice(1);
-	html+='<option value="'+cals[i]+'"'+(cals[i]===cal?' selected':'')+'>'+label+'</option>';
+	html+='<option value="'+cals[i]+'"'+(cals[i]===cal?' selected':'')+'>'+escHtml(label)+'</option>';
 }
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.recreioLabel+'</label><select id="opt_rec">';
@@ -682,13 +756,13 @@ html+='<div class="form-group"><label>'+l.fontLabel+'</label><select id="opt_fon
 var fontLabels={'small':l.fontSmall,'default':l.fontDefault,'large':l.fontLarge};
 for(var i=0;i<fonts.length;i++){html+='<option value="'+fonts[i]+'"'+(fonts[i]===fontVal?' selected':'')+'>'+fontLabels[fonts[i]]+'</option>'}
 html+='</select></div>';
-html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
-html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
+html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+escAttr(portVal)+'"></div>';
+html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+escAttr(homeVal)+'"></div>';
 html+='<div class="form-group"><label><input type="checkbox" id="opt_open_last" '+(openLastVal?'checked':'')+'> '+l.openLastLabel+'</label></div>';
-html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
-html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+escAttr(certDir)+'cert.pem" value="'+escAttr(tlsCertVal)+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+escAttr(certDir)+'key.pem" value="'+escAttr(tlsKeyVal)+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
-html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
+html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+escAttr(localStorage.getItem('ht_my_name')||'')+'"></div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<div id="opt_status"></div>';
 html+='<div class="back"><a href="#" onclick="event.preventDefault();(parent.open||window.open)(window.location.origin+\'/index.html?page=\'+encodeURIComponent(parent.location.search.match(/[?&]page=([^&]*)/)?decodeURIComponent(RegExp.$1):\'main\')+\'&lang=\'+encodeURIComponent(lang)+\'&cal=\'+encodeURIComponent(cal))">'+l.back+'</a></div>';
@@ -720,7 +794,7 @@ document.getElementById('opt_apply').onclick=function(){
 	});
 };
 </script>
-</body></html>`, viewerToken, curLang, curCal, curRecreio, curFont, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir, curOpenLast)
+</body></html>`, tokenJSVal, langJS, calJS, recJS, fontJSVal, portJS, homeJSVal, tlsCertJS, tlsKeyJS, certDirJS, curOpenLast)
 }
 
 func isOpenLastPage(d optionsData) bool {
@@ -1037,9 +1111,9 @@ a:hover{text-decoration:underline}
 <h2 id="title"></h2>
 <div id="hist"></div>
 <script>
-window.__ht_token=`+"`"+`%s`+"`"+`;
-var loc=`+"`"+`%s`+"`"+`||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
-var cal=`+"`"+`%s`+"`"+`||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
+window.__ht_token=%s;
+var loc=%s||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
+var cal=%s||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
 var L={};
 L['pt-BR']={title:'Historiador — Hist\u00f3rico Completo',empty:'(vazio)',err:'Erro ao carregar hist\u00f3rico.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Data/Hora'};
 L['pt']=L['pt-BR'];
@@ -1077,7 +1151,7 @@ function recordHistory(url,title){
 }
 function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 </script>
-</body></html>`, viewerToken, lang, cal)
+</body></html>`, jsString(viewerToken), jsString(lang), jsString(cal))
 }
 
 func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
@@ -1174,8 +1248,8 @@ a:hover{text-decoration:underline}
 <h2 id="title"></h2>
 <div id="favs"></div>
 <script>
-var loc=`+"`"+`%s`+"`"+`||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
-var cal=`+"`"+`%s`+"`"+`||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
+var loc=%s||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
+var cal=%s||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
 var L={};
 L['pt-BR']={title:'Historiador — Favoritos',empty:'(vazio)',err:'Erro ao carregar favoritos.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Data/Hora'};
 L['pt']=L['pt-BR'];
@@ -1210,7 +1284,7 @@ fetch('/api/favorites/list').then(function(r){return r.json()}).then(function(en
 }).catch(function(){document.getElementById('favs').innerHTML='<p class="empty">'+l.err+'</p>'});
 function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 </script>
-</body></html>`, lang, cal)
+</body></html>`, jsString(lang), jsString(cal))
 }
 
 func readFavoritesLocked() []historyEntry {
@@ -1526,25 +1600,35 @@ func main() {
 		pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 	}
 
+	if *lang != "" && !validLangs[*lang] {
+		*lang = ""
+	}
+	if *cal != "" && !validCals[*cal] {
+		*cal = ""
+	}
 	if *lang != "" {
-		langJS := "window.__ht_lang='" + *lang + "';"
+		langJS := "window.__ht_lang=" + jsString(*lang) + ";"
 		welcomePage = langJS + welcomePage
 		addressBarJS = langJS + addressBarJS
 	}
 	if *cal != "" {
-		calJS := "window.__ht_cal='" + *cal + "';"
+		calJS := "window.__ht_cal=" + jsString(*cal) + ";"
 		welcomePage = calJS + welcomePage
 		addressBarJS = calJS + addressBarJS
 	}
 	if *font != "" {
-		fontJS := "window.__ht_font='" + *font + "';"
+		fontJS := "window.__ht_font=" + jsString(*font) + ";"
 		welcomePage = fontJS + welcomePage
 		addressBarJS = fontJS + addressBarJS
 	}
 	if savedOptions.Home != "" {
-		homeJS := "window.__ht_home='" + strings.ReplaceAll(savedOptions.Home, "'", "\\'") + "';"
-		welcomePage = homeJS + welcomePage
-		addressBarJS = homeJS + addressBarJS
+		safeHome := sanitizeLabelPath(savedOptions.Home)
+		trimmedHome := strings.TrimLeft(safeHome, "/")
+		if safeHome != "" && strings.HasPrefix(trimmedHome, "index.html") {
+			homeJS := "window.__ht_home=" + jsString(safeHome) + ";"
+			welcomePage = homeJS + welcomePage
+			addressBarJS = homeJS + addressBarJS
+		}
 	}
 	{
 		buf := make([]byte, 32)
@@ -1552,7 +1636,7 @@ func main() {
 			log.Fatalf("Cannot generate secure token: %v", err)
 		}
 		viewerToken = hex.EncodeToString(buf)
-		tokenJS := "window.__ht_token='" + viewerToken + "';"
+		tokenJS := "window.__ht_token=" + jsString(viewerToken) + ";"
 		welcomePage = tokenJS + welcomePage
 		addressBarJS = tokenJS + addressBarJS
 	}
