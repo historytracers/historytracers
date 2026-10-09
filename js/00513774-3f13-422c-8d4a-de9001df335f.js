@@ -223,12 +223,78 @@ function htCompBuildLevelQuestions(level) {
     return questions;
 }
 
+function htCompIsNumLike(t) {
+    return t === "number" || t === "maya";
+}
+
+function htCompFormatNumber(v) {
+    var s = String(v);
+    if (v <= 1000) {
+        return s;
+    }
+    var lang = "";
+    try { lang = $("#site_language").val() || ""; } catch (e) { lang = ""; }
+    var sep = (lang.indexOf("en") === 0) ? "," : ".";
+    return s.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+}
+
+function htCompFact(q) {
+    var L = q.left, R = q.right;
+    var pair = [L.type, R.type].sort().join("+");
+    if (pair === "egypt+pyramid") {
+        return $("#compFactGroupPyramid").text();
+    }
+    if (pair === "meso+pyramid") {
+        return $("#compFactNeitherMesoPyramid").text();
+    }
+    if (pair === "egypt+meso") {
+        return $("#compFactNeitherMesoEgypt").text();
+    }
+    if (htCompIsNumLike(L.type) && htCompIsNumLike(R.type)) {
+        if (L.value === R.value) {
+            return $("#compFactSameNumber").text().split("{v}").join(htCompFormatNumber(L.value));
+        }
+        return $("#compFactDiffNumber").text().split("{a}").join(htCompFormatNumber(L.value)).split("{b}").join(htCompFormatNumber(R.value));
+    }
+    var shapes = (L.type === "circle" || L.type === "square") && (R.type === "circle" || R.type === "square");
+    if (shapes) {
+        if (L.type === R.type) {
+            if (L.color === R.color) {
+                return $("#compFactEqualFigure").text();
+            }
+            return $("#compFactGroupShape").text();
+        }
+        return $("#compFactGroupColor").text();
+    }
+    return $("#compFactNeitherNumFig").text();
+}
+
+function htCompConfirm(answer) {
+    if (answer === "equal") {
+        return $("#compWhyEqual").text();
+    }
+    if (answer === "group") {
+        return $("#compWhyGroup").text();
+    }
+    return $("#compWhyNeither").text();
+}
+
+function htCompRefute(picked) {
+    if (picked === "equal") {
+        return $("#compWhyNotEqual").text();
+    }
+    if (picked === "group") {
+        return $("#compWhyNotGroup").text();
+    }
+    return $("#compWhyNotNeither").text();
+}
+
 function htCompRenderItem(item, slot) {
     var prefix = htGetImgSrcPrefix();
     var html = "";
     switch (item.type) {
         case "number":
-            html = "<span class=\"compNumber" + ((item.value >= 100000) ? " compNumberSmall" : "") + "\">" + item.value + "</span>";
+            html = "<span class=\"compNumber" + ((item.value >= 100000) ? " compNumberSmall" : "") + "\">" + htCompFormatNumber(item.value) + "</span>";
             break;
         case "maya":
             html = "<img id=\"compImg" + slot + "\" class=\"compFigureImg\" onclick=\"htImageZoom('compImg" + slot + "', '0%')\" src=\"" + prefix + "images/HistoryTracers/Maya_" + item.value + ".png\" alt=\"Maya " + item.value + "\"/>";
@@ -287,10 +353,6 @@ function htCompShowLevel() {
 }
 
 function htCompLoadLevel() {
-    if (local._nextTimer) {
-        clearTimeout(local._nextTimer);
-        local._nextTimer = null;
-    }
     local.questions = htCompBuildLevelQuestions(local.level);
     local.qIndex = 0;
     local.score = 0;
@@ -310,6 +372,7 @@ function htCompShowQuestion() {
 
     $("#compMsgCorrect").hide();
     $("#compMsgWrong").hide();
+    $("#compNextLevel").hide();
     $("#compBtnEqual").prop("disabled", false);
     $("#compBtnGroup").prop("disabled", false);
     $("#compBtnNeither").prop("disabled", false);
@@ -332,16 +395,27 @@ function htCompAnswer(value) {
         $("#compBtnEqual").prop("disabled", true);
         $("#compBtnGroup").prop("disabled", true);
         $("#compBtnNeither").prop("disabled", true);
+        $("#compMsgWrong").hide();
+        $("#compExplainCorrect").text(htCompFact(q) + " " + htCompConfirm(q.answer));
         $("#compMsgCorrect").show();
-        local._nextTimer = setTimeout(function() {
-            local.answering = false;
+        var nextBtn = $("#compNextLevel");
+        nextBtn.off("click");
+        var lastQ = (local.qIndex >= local.questions.length - 1);
+        if (lastQ && local.level >= local.totalLevels) {
+            nextBtn.html($("#compWordPlayAgain").text());
+        } else if (lastQ) {
+            nextBtn.html($("#compWordNextLevel").text());
+        } else {
+            nextBtn.html($("#compWordNextQuestion").text());
+        }
+        nextBtn.on("click", function() {
             htCompNextQuestion();
-        }, 1200);
+        });
+        nextBtn.show();
     } else {
+        $("#compMsgCorrect").hide();
+        $("#compExplainWrong").text(htCompFact(q) + " " + htCompRefute(value));
         $("#compMsgWrong").show();
-        setTimeout(function() {
-            $("#compMsgWrong").hide();
-        }, 1200);
     }
 }
 
@@ -366,7 +440,22 @@ function htCompFinishLevel() {
     } else {
         $("#compMsgLevelComplete").show();
     }
-    $("#compNextLevel").show();
+    var nextBtn = $("#compNextLevel");
+    nextBtn.off("click");
+    if (local.level >= local.totalLevels) {
+        nextBtn.html($("#compWordPlayAgain").text());
+        nextBtn.on("click", function() {
+            local.level = 1;
+            htCompLoadLevel();
+        });
+    } else {
+        nextBtn.html($("#compWordNextLevel").text());
+        nextBtn.on("click", function() {
+            local.level++;
+            htCompLoadLevel();
+        });
+    }
+    nextBtn.show();
 }
 
 function htLoadContent() {

@@ -723,10 +723,17 @@ ul {
 
 .book_navigation {
   width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   border: none;
+}
+
+.book_navigation th,
+.book_navigation td {
+  overflow-wrap: break-word;
 }
 
 .book_navigation th, tr, td{
@@ -973,6 +980,9 @@ ul {
   margin: 0px;
   text-align: center;
   background-color: lightyellow;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .first_steps_lab_parent {
