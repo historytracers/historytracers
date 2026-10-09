@@ -64,7 +64,7 @@ function htLoadContent() {
         local.palette.appendChild(swatch);
     });
 
-    for (let i = 0 ; i< 9; i++) {
+    for (let i = 1 ; i <= 9; i++) {
         $('#clapCount').append($('<option>', {
             value: i,
             text: i
