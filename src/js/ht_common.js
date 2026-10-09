@@ -4299,18 +4299,22 @@ function htSyncFontButton() {
             htApplyFontSize(stored);
             return 0;
         }
+        var chosen = stored;
         try {
-            if (sel.value !== stored) {
+            var current = sel.value;
+            if (current === 'small' || current === 'large' || current === 'default') {
+                chosen = current;
+            } else if (sel.value !== stored) {
                 sel.value = stored;
             }
         } catch (eVal) {
         }
-        htApplyFontSize(stored);
+        htApplyFontSize(chosen);
         if (!sel.options || sel.selectedIndex < 0) {
             return 0;
         }
         var opt = sel.options[sel.selectedIndex];
-        var text = (opt && opt.text) || stored;
+        var text = (opt && opt.text) || chosen;
         if (!text) {
             return 0;
         }

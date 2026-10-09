@@ -1407,6 +1407,10 @@ func main() {
 	}
 	flag.Parse()
 
+	if *font != "" && !validFonts[*font] {
+		*font = ""
+	}
+
 	contentDir = *dir
 	if *pathFlag != "" {
 		contentDir = *pathFlag
