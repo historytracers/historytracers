@@ -198,6 +198,7 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 	if myName == "" {
 		myName = "empty"
 	}
+	myName = sanitizeMetricsLabel(myName)
 
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	w.Header().Set("Cache-Control", "no-cache")
@@ -206,12 +207,12 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintln(b, "# HELP", metricsUptime, "Server uptime in seconds")
 	fmt.Fprintln(b, "# TYPE", metricsUptime, "gauge")
-	fmt.Fprintf(b, "%s{my_name=%q} %.0f\n", metricsUptime, myName, uptime)
+	fmt.Fprintf(b, "%s{my_name=\"%s\"} %.0f\n", metricsUptime, myName, uptime)
 
 	fmt.Fprintln(b)
 	fmt.Fprintln(b, "# HELP", metricsReqInFlight, "Current number of in-flight HTTP requests")
 	fmt.Fprintln(b, "# TYPE", metricsReqInFlight, "gauge")
-	fmt.Fprintf(b, "%s{my_name=%q} %d\n", metricsReqInFlight, myName, active)
+	fmt.Fprintf(b, "%s{my_name=\"%s\"} %d\n", metricsReqInFlight, myName, active)
 
 	fmt.Fprintln(b)
 	fmt.Fprintln(b, "# HELP", metricsReqTotal, "Total HTTP requests by method and status class")
@@ -221,10 +222,10 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 	for _, k := range keys {
 		parts := strings.SplitN(k, ":", 2)
 		method, sc := parts[0], parts[1]
-		fmt.Fprintf(b, "%s{method=%q,status_class=%q,my_name=%q} %d\n", metricsReqTotal, method, sc, myName, counts[k])
+		fmt.Fprintf(b, "%s{method=%q,status_class=%q,my_name=\"%s\"} %d\n", metricsReqTotal, method, sc, myName, counts[k])
 	}
 	// Also total without labels
-	fmt.Fprintf(b, "%s_total{my_name=%q} %d\n", metricsReqTotal, myName, totalReq)
+	fmt.Fprintf(b, "%s_total{my_name=\"%s\"} %d\n", metricsReqTotal, myName, totalReq)
 
 	fmt.Fprintln(b)
 	fmt.Fprintln(b, "# HELP", metricsErrorsTotal, "Total HTTP errors (4xx/5xx) by method and status class")
@@ -233,13 +234,13 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 	for _, k := range ekeys {
 		parts := strings.SplitN(k, ":", 2)
 		method, sc := parts[0], parts[1]
-		fmt.Fprintf(b, "%s{method=%q,status_class=%q,my_name=%q} %d\n", metricsErrorsTotal, method, sc, myName, errs[k])
+		fmt.Fprintf(b, "%s{method=%q,status_class=%q,my_name=\"%s\"} %d\n", metricsErrorsTotal, method, sc, myName, errs[k])
 	}
 
 	fmt.Fprintln(b)
 	fmt.Fprintln(b, "# HELP", metricsReqDuration, "Request duration histogram buckets")
 	fmt.Fprintln(b, "# TYPE", metricsReqDuration, "histogram")
-	fmt.Fprintf(b, "%s_bucket{le=%q,my_name=%q} %d\n", metricsReqDuration, "+Inf", myName, totalReq)
+	fmt.Fprintf(b, "%s_bucket{le=%q,my_name=\"%s\"} %d\n", metricsReqDuration, "+Inf", myName, totalReq)
 	for i := len(metricsDurationBuckets) - 1; i >= 0; i-- {
 		var bucketTotal int64
 		for dk, dv := range durCounts {
@@ -249,20 +250,20 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 				bucketTotal += dv
 			}
 		}
-		fmt.Fprintf(b, "%s_bucket{le=%q,my_name=%q} %d\n", metricsReqDuration, fmt.Sprintf("%.3f", metricsDurationBuckets[i]), myName, bucketTotal)
+		fmt.Fprintf(b, "%s_bucket{le=%q,my_name=\"%s\"} %d\n", metricsReqDuration, fmt.Sprintf("%.3f", metricsDurationBuckets[i]), myName, bucketTotal)
 	}
-	fmt.Fprintf(b, "%s_count{my_name=%q} %d\n", metricsReqDuration, myName, totalReq)
-	fmt.Fprintf(b, "%s_sum{my_name=%q} %.6f\n", metricsReqDuration, myName, float64(snapshotDurationSumNs)/1e9)
+	fmt.Fprintf(b, "%s_count{my_name=\"%s\"} %d\n", metricsReqDuration, myName, totalReq)
+	fmt.Fprintf(b, "%s_sum{my_name=\"%s\"} %.6f\n", metricsReqDuration, myName, float64(snapshotDurationSumNs)/1e9)
 
 	fmt.Fprintln(b)
 	fmt.Fprintln(b, "# HELP", metricsReqBytes, "Total HTTP request body bytes received")
 	fmt.Fprintln(b, "# TYPE", metricsReqBytes, "counter")
-	fmt.Fprintf(b, "%s{my_name=%q} %d\n", metricsReqBytes, myName, snapshotReqBytes)
+	fmt.Fprintf(b, "%s{my_name=\"%s\"} %d\n", metricsReqBytes, myName, snapshotReqBytes)
 
 	fmt.Fprintln(b)
 	fmt.Fprintln(b, "# HELP", metricsResBytes, "Total HTTP response body bytes sent")
 	fmt.Fprintln(b, "# TYPE", metricsResBytes, "counter")
-	fmt.Fprintf(b, "%s{my_name=%q} %d\n", metricsResBytes, myName, snapshotResBytes)
+	fmt.Fprintf(b, "%s{my_name=\"%s\"} %d\n", metricsResBytes, myName, snapshotResBytes)
 
 	// Top paths by request count
 	fmt.Fprintln(b)
@@ -270,7 +271,7 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(b, "# TYPE historytracers_http_requests_by_path counter")
 	pkeys := sortedKeys(pathCounts)
 	for _, k := range pkeys {
-		fmt.Fprintf(b, "historytracers_http_requests_by_path{path=%q,my_name=%q} %d\n", k, myName, pathCounts[k])
+		fmt.Fprintf(b, "historytracers_http_requests_by_path{path=%q,my_name=\"%s\"} %d\n", k, myName, pathCounts[k])
 	}
 
 	w.Write([]byte(b.String()))

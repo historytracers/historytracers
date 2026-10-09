@@ -24,6 +24,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+	"unicode"
+	"unicode/utf8"
 )
 
 var srv *http.Server
@@ -149,6 +151,68 @@ func sanitizeLabelPath(s string) string {
 	return s
 }
 
+// clampLen truncates s to at most max bytes (on a UTF-8 boundary).
+func clampLen(s string, max int) string {
+	if len(s) <= max {
+		return s
+	}
+	s = s[:max]
+	for len(s) > 0 && !utf8.ValidString(s) {
+		s = s[:len(s)-1]
+	}
+	return s
+}
+
+// isValidHomeOrLastPage reports whether s is a safe in-app home/last-page
+// URL: an index.html path optionally followed by ?/#/& query, without
+// characters that break out of HTML/JS/HTTP contexts.
+func isValidHomeOrLastPage(s string) bool {
+	if s == "" || len(s) > 2048 {
+		return false
+	}
+	if strings.ContainsAny(s, "<>\"'`\\ \t\n\r\x00") {
+		return false
+	}
+	trimmed := strings.TrimLeft(s, "/")
+	if trimmed == "index.html" {
+		return true
+	}
+	for _, prefix := range []string{"index.html?", "index.html#", "index.html&"} {
+		if strings.HasPrefix(trimmed, prefix) {
+			return true
+		}
+	}
+	return false
+}
+
+// sanitizeMetricsLabel escapes s for use as a Prometheus label value:
+// backslash, double quote and newlines are escaped, control characters are
+// stripped, and the result is capped. Unlike Go %q this keeps UTF-8 text
+// intact so non-ASCII names stay readable in /metrics.
+func sanitizeMetricsLabel(s string) string {
+	s = clampLen(s, 128)
+	var b strings.Builder
+	b.Grow(len(s))
+	for _, r := range s {
+		switch r {
+		case '\\':
+			b.WriteString(`\\`)
+		case '"':
+			b.WriteString(`\"`)
+		case '\n':
+			b.WriteString(`\n`)
+		case '\r':
+			b.WriteString(`\r`)
+		default:
+			if unicode.IsControl(r) {
+				continue
+			}
+			b.WriteRune(r)
+		}
+	}
+	return b.String()
+}
+
 func checkToken(r *http.Request) bool {
 	return r.Header.Get("X-HT-Token") == viewerToken
 }
@@ -173,6 +237,14 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "invalid url scheme", http.StatusBadRequest)
 		return
 	}
+	if parsed.User != nil {
+		http.Error(w, "invalid url", http.StatusBadRequest)
+		return
+	}
+	if strings.ContainsAny(target, "\n\r\x00") {
+		http.Error(w, "invalid url", http.StatusBadRequest)
+		return
+	}
 	var cmd string
 	var args []string
 	switch runtime.GOOS {
@@ -186,7 +258,11 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 		cmd = "xdg-open"
 		args = []string{target}
 	}
-	exec.Command(cmd, args...).Start()
+	if err := exec.Command(cmd, args...).Start(); err != nil {
+		log.Printf("Warning: cannot open external URL: %v", err)
+		http.Error(w, "cannot open url", http.StatusInternalServerError)
+		return
+	}
 	w.WriteHeader(http.StatusNoContent)
 }
 
@@ -214,10 +290,10 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		entry := devEntry{
-			Type:     r.FormValue("type"),
-			Message:  r.FormValue("message"),
-			URL:      r.FormValue("url"),
-			Method:   r.FormValue("method"),
+			Type:     clampLen(r.FormValue("type"), 32),
+			Message:  clampLen(r.FormValue("message"), 8192),
+			URL:      clampLen(r.FormValue("url"), 2048),
+			Method:   clampLen(r.FormValue("method"), 16),
 			Duration: parseInt64(r.FormValue("duration")),
 			Time:     parseInt64(r.FormValue("time")),
 		}
@@ -307,7 +383,7 @@ func printStoreHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "body too large", http.StatusRequestEntityTooLarge)
 		return
 	}
-	buf := make([]byte, 8)
+	buf := make([]byte, 16)
 	if _, err := rand.Read(buf); err != nil {
 		http.Error(w, "cannot generate id", 500)
 		return
@@ -356,6 +432,18 @@ func printViewHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "missing id", 400)
 		return
 	}
+	// IDs are hex strings issued by printStoreHandler (32 chars); accept
+	// the previous 16-char form for in-flight entries from older runs.
+	if len(id) != 32 && len(id) != 16 {
+		http.Error(w, "invalid id", 400)
+		return
+	}
+	for _, c := range id {
+		if (c < '0' || c > '9') && (c < 'a' || c > 'f') && (c < 'A' || c > 'F') {
+			http.Error(w, "invalid id", 400)
+			return
+		}
+	}
 	printMu.Lock()
 	html, ok := printStore[id]
 	printMu.Unlock()
@@ -364,6 +452,7 @@ func printViewHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Header().Set("X-Content-Type-Options", "nosniff")
 	// Ensure self-print script is present even if caller omitted it
 	if !strings.Contains(html, "window.print") {
 		html = strings.Replace(html, "</body>", "<script>setTimeout(function(){try{window.print();}catch(e){}},400);</script></body>", 1)
@@ -375,10 +464,12 @@ func devPageHandler(w http.ResponseWriter, r *http.Request) {
 	lang := r.URL.Query().Get("lang")
 	if !validLangs[lang] {
 		// Accept partial match (e.g. "pt" -> "pt-BR")
-		for k := range validLangs {
-			if strings.HasPrefix(k, lang) {
-				lang = k
-				break
+		if lang != "" {
+			for k := range validLangs {
+				if strings.HasPrefix(k, lang) {
+					lang = k
+					break
+				}
 			}
 		}
 		if !validLangs[lang] {
@@ -449,10 +540,14 @@ func initDataDir() {
 	default:
 		dataDir = filepath.Join(home, ".config", "HistoryTracers")
 	}
-	if err := os.MkdirAll(dataDir, 0755); err != nil {
+	if err := os.MkdirAll(dataDir, 0700); err != nil {
 		log.Printf("Warning: cannot create data directory %s: %v", dataDir, err)
 		dataDir = ""
+		return
 	}
+	// Tighten permissions on pre-existing directories (history.csv and
+	// friends contain browsing history): ignore errors on shared systems.
+	_ = os.Chmod(dataDir, 0700)
 }
 
 func initHistory() {
@@ -496,7 +591,7 @@ func initUUID() {
 	}
 	buf[6] = (buf[6] & 0x0f) | 0x40
 	buf[8] = (buf[8] & 0x3f) | 0x80
-	if err := os.WriteFile(uuidFile, buf, 0644); err != nil {
+	if err := os.WriteFile(uuidFile, buf, 0600); err != nil {
 		log.Printf("Warning: cannot write UUID file: %v", err)
 	}
 	instanceUUID = buf
@@ -528,8 +623,7 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			data = savedOptions
 		}
 		if home := r.FormValue("home"); home != "" {
-			trimmed := strings.TrimLeft(home, "/")
-			if !strings.HasPrefix(trimmed, "index.html") {
+			if !isValidHomeOrLastPage(home) {
 				home = "/index.html"
 			}
 			data.Home = home
@@ -557,17 +651,17 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			data.OpenLastPageSet = true
 		}
 		if v := r.FormValue("tls_cert"); v != "" {
-			data.TLSCert = v
+			data.TLSCert = sanitizeLabelPath(clampLen(v, 1024))
 		} else if _, ok := r.Form["tls_cert"]; ok {
 			data.TLSCert = ""
 		}
 		if v := r.FormValue("tls_key"); v != "" {
-			data.TLSKey = v
+			data.TLSKey = sanitizeLabelPath(clampLen(v, 1024))
 		} else if _, ok := r.Form["tls_key"]; ok {
 			data.TLSKey = ""
 		}
 		if v := r.FormValue("my_name"); v != "" {
-			data.MyName = v
+			data.MyName = clampLen(v, 128)
 		} else if _, ok := r.Form["my_name"]; ok {
 			data.MyName = ""
 		}
@@ -653,18 +747,8 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	curHome = data.Home
-	if curHome == "" {
+	if !isValidHomeOrLastPage(curHome) {
 		curHome = "/index.html"
-	} else {
-		trimmed := strings.TrimLeft(curHome, "/")
-		if !strings.HasPrefix(trimmed, "index.html") {
-			curHome = "/index.html"
-		} else {
-			curHome = sanitizeLabelPath(curHome)
-			if curHome == "" {
-				curHome = "/index.html"
-			}
-		}
 	}
 	tlsCertVal := sanitizeLabelPath(data.TLSCert)
 	tlsKeyVal := sanitizeLabelPath(data.TLSKey)
@@ -823,11 +907,13 @@ func validateOptions(data *optionsData) {
 		}
 	}
 	if data.Home != "" {
-		trimmed := strings.TrimLeft(data.Home, "/")
-		if !strings.HasPrefix(trimmed, "index.html") {
+		if !isValidHomeOrLastPage(data.Home) {
 			data.Home = ""
 		}
 	}
+	data.TLSCert = sanitizeLabelPath(clampLen(data.TLSCert, 1024))
+	data.TLSKey = sanitizeLabelPath(clampLen(data.TLSKey, 1024))
+	data.MyName = clampLen(data.MyName, 128)
 	if (data.TLSCert != "") != (data.TLSKey != "") {
 		data.TLSCert = ""
 		data.TLSKey = ""
@@ -837,8 +923,7 @@ func validateOptions(data *optionsData) {
 		data.OpenLastPageSet = true
 	}
 	if data.LastPage != "" {
-		trimmed := strings.TrimLeft(data.LastPage, "/")
-		if !strings.HasPrefix(trimmed, "index.html") {
+		if !isValidHomeOrLastPage(data.LastPage) {
 			data.LastPage = ""
 		} else {
 			u, err := url.Parse(data.LastPage)
@@ -933,7 +1018,7 @@ func resolveContentTitle(page, arg, lang string) string {
 	if key == "" {
 		key = page
 	}
-	if !safeContentKey(key) {
+	if !safeContentKey(key) || len(key) > 128 {
 		return ""
 	}
 	cacheKey := lang + "|" + key
@@ -1004,11 +1089,18 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Invalid page", 400)
 		return
 	}
-	arg := r.FormValue("arg")
-	people := r.FormValue("people")
+	arg := clampLen(r.FormValue("arg"), 256)
+	people := clampLen(r.FormValue("people"), 256)
 	lang := r.FormValue("lang")
-	title := contentTitle(page, arg, lang, r.FormValue("title"))
+	if !validLangs[lang] {
+		lang = ""
+	}
+	storedTitle := clampLen(r.FormValue("title"), 512)
+	title := contentTitle(page, arg, lang, storedTitle)
 	cal := r.FormValue("cal")
+	if !validCals[cal] {
+		cal = ""
+	}
 	now := time.Now().Unix()
 
 	historyMu.Lock()
@@ -1030,7 +1122,11 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	rotateToken()
 	nextToken := viewerToken
 
-	// Persist last visited page for startup restore (keep within historyMu critical section)
+	historyMu.Unlock()
+
+	// Persist last visited page for startup restore (outside the historyMu
+	// critical section to keep lock ordering simple: never hold historyMu
+	// while acquiring optionsMu).
 	optionsMu.Lock()
 	data, err := readOptions()
 	if err != nil {
@@ -1057,8 +1153,6 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 		savedOptions = data
 	}
 	optionsMu.Unlock()
-
-	historyMu.Unlock()
 
 	w.Header().Set("X-HT-Next-Token", nextToken)
 	return
@@ -1168,11 +1262,21 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	page := r.FormValue("page")
-	arg := r.FormValue("arg")
-	people := r.FormValue("people")
+	if !allowedPage(page) {
+		http.Error(w, "Invalid page", 400)
+		return
+	}
+	arg := clampLen(r.FormValue("arg"), 256)
+	people := clampLen(r.FormValue("people"), 256)
 	lang := r.FormValue("lang")
-	title := contentTitle(page, arg, lang, r.FormValue("title"))
+	if !validLangs[lang] {
+		lang = ""
+	}
+	title := contentTitle(page, arg, lang, clampLen(r.FormValue("title"), 512))
 	cal := r.FormValue("cal")
+	if !validCals[cal] {
+		cal = ""
+	}
 
 	favoritesMu.Lock()
 	defer favoritesMu.Unlock()
@@ -1306,6 +1410,9 @@ func readFavoritesLocked() []historyEntry {
 		if len(rec) < 4 {
 			continue
 		}
+		if !allowedPage(rec[0]) {
+			continue
+		}
 		var t int64
 		fmt.Sscanf(rec[3], "%d", &t)
 		title := ""
@@ -1329,7 +1436,7 @@ func readFavoritesLocked() []historyEntry {
 }
 
 func writeFavoritesLocked(entries []historyEntry) {
-	f, err := os.Create(favoritesFile)
+	f, err := os.OpenFile(favoritesFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 	if err != nil {
 		log.Printf("Warning: cannot write favorites.csv: %v", err)
 		return
@@ -1396,7 +1503,7 @@ func readHistoryLocked() []historyEntry {
 }
 
 func writeHistoryLocked(entries []historyEntry) {
-	f, err := os.Create(historyFile)
+	f, err := os.OpenFile(historyFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 	if err != nil {
 		log.Printf("Warning: cannot write history.csv: %v", err)
 		return
@@ -1550,8 +1657,7 @@ func main() {
 	if *class != "" {
 		pageURL = buildPageURL(addr, *class, *lang, *cal, *font)
 	} else if isOpenLastPage(savedOptions) && savedOptions.LastPage != "" {
-		trimmed := strings.TrimLeft(savedOptions.LastPage, "/")
-		if strings.HasPrefix(trimmed, "index.html") {
+		if isValidHomeOrLastPage(savedOptions.LastPage) {
 			if u2, err := url.Parse(savedOptions.LastPage); err == nil {
 				pg := u2.Query().Get("page")
 				if pg == "" || allowedPage(pg) {
@@ -1573,7 +1679,7 @@ func main() {
 		} else {
 			pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 		}
-	} else if savedOptions.Home != "" && strings.HasPrefix(strings.TrimLeft(savedOptions.Home, "/"), "index.html") {
+	} else if savedOptions.Home != "" && isValidHomeOrLastPage(savedOptions.Home) {
 		trimmed := strings.TrimLeft(savedOptions.Home, "/")
 		scheme := "http"
 		if useTLS {
@@ -1623,8 +1729,7 @@ func main() {
 	}
 	if savedOptions.Home != "" {
 		safeHome := sanitizeLabelPath(savedOptions.Home)
-		trimmedHome := strings.TrimLeft(safeHome, "/")
-		if safeHome != "" && strings.HasPrefix(trimmedHome, "index.html") {
+		if safeHome != "" && isValidHomeOrLastPage(safeHome) {
 			homeJS := "window.__ht_home=" + jsString(safeHome) + ";"
 			welcomePage = homeJS + welcomePage
 			addressBarJS = homeJS + addressBarJS
