@@ -400,18 +400,15 @@ function htCompAnswer(value) {
         $("#compMsgCorrect").show();
         var nextBtn = $("#compNextLevel");
         nextBtn.off("click");
-        var lastQ = (local.qIndex >= local.questions.length - 1);
-        if (lastQ && local.level >= local.totalLevels) {
-            nextBtn.html($("#compWordPlayAgain").text());
-        } else if (lastQ) {
-            nextBtn.html($("#compWordNextLevel").text());
+        if (local.qIndex >= local.questions.length - 1) {
+            htCompFinishLevel();
         } else {
-            nextBtn.html($("#compWordNextQuestion").text());
+            nextBtn.text($("#compWordNextQuestion").text());
+            nextBtn.on("click", function() {
+                htCompNextQuestion();
+            });
+            nextBtn.show();
         }
-        nextBtn.on("click", function() {
-            htCompNextQuestion();
-        });
-        nextBtn.show();
     } else {
         $("#compMsgCorrect").hide();
         $("#compExplainWrong").text(htCompFact(q) + " " + htCompRefute(value));
@@ -443,13 +440,13 @@ function htCompFinishLevel() {
     var nextBtn = $("#compNextLevel");
     nextBtn.off("click");
     if (local.level >= local.totalLevels) {
-        nextBtn.html($("#compWordPlayAgain").text());
+        nextBtn.text($("#compWordPlayAgain").text());
         nextBtn.on("click", function() {
             local.level = 1;
             htCompLoadLevel();
         });
     } else {
-        nextBtn.html($("#compWordNextLevel").text());
+        nextBtn.text($("#compWordNextLevel").text());
         nextBtn.on("click", function() {
             local.level++;
             htCompLoadLevel();
