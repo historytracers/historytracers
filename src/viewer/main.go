@@ -1068,38 +1068,92 @@ func resolveContentTitleUncached(key, lang string) string {
 		}
 		langs = withLang
 	}
+	// Titles come from the startup-built index (see getTitleIndex), so
+	// user-controlled keys only ever perform map lookups and never reach
+	// a filesystem path expression.
+	idx := getTitleIndex()
 	for _, l := range langs {
-		base := filepath.Join(contentDir, "lang", l)
-		p := filepath.Join(base, key+".json")
-		// Containment check: the cleaned path must stay inside the
-		// language directory. safeContentKey already rejects separators
-		// and parent references; this guards the sink itself so a future
-		// validation change cannot turn it into a traversal.
-		cleanBase := filepath.Clean(base)
-		cleanP := filepath.Clean(p)
-		if cleanP != cleanBase && !strings.HasPrefix(cleanP, cleanBase+string(os.PathSeparator)) {
-			continue
-		}
-		b, err := os.ReadFile(p)
-		if err != nil {
-			continue
-		}
-		var data map[string]interface{}
-		if err := json.Unmarshal(b, &data); err != nil {
-			continue
-		}
-		if title, ok := data["title"]; ok {
-			if s, ok := title.(string); ok && s != "" {
-				return s
-			}
-		}
-		if header, ok := data["header"]; ok {
-			if s, ok := header.(string); ok && s != "" {
-				return s
-			}
+		if t, ok := idx[l+"|"+key]; ok && t != "" {
+			return t
 		}
 	}
 	return ""
+}
+
+var (
+	titleIndexMu  sync.RWMutex
+	titleIndexDir string
+	titleIndexSet bool
+	titleIndex    map[string]string // "lang|basename" -> title (header fallback)
+)
+
+// getTitleIndex returns the content-title index for the current contentDir,
+// rebuilding it when contentDir changes.
+func getTitleIndex() map[string]string {
+	titleIndexMu.RLock()
+	if titleIndexSet && titleIndexDir == contentDir {
+		defer titleIndexMu.RUnlock()
+		return titleIndex
+	}
+	titleIndexMu.RUnlock()
+	titleIndexMu.Lock()
+	defer titleIndexMu.Unlock()
+	if titleIndexSet && titleIndexDir == contentDir {
+		return titleIndex
+	}
+	titleIndex = buildTitleIndex(contentDir)
+	titleIndexDir = contentDir
+	titleIndexSet = true
+	return titleIndex
+}
+
+// buildTitleIndex scans <dir>/lang/<lang>/*.json once and records each
+// file's title (falling back to header). File names here come from the
+// directory listing itself, not from user input.
+func buildTitleIndex(dir string) map[string]string {
+	idx := make(map[string]string)
+	if dir == "" {
+		return idx
+	}
+	for _, l := range []string{"en-US", "pt-BR", "es-ES"} {
+		entries, err := os.ReadDir(filepath.Join(dir, "lang", l))
+		if err != nil {
+			continue
+		}
+		for _, e := range entries {
+			if e.IsDir() {
+				continue
+			}
+			name := e.Name()
+			if !strings.HasSuffix(name, ".json") {
+				continue
+			}
+			key := strings.TrimSuffix(name, ".json")
+			if !safeContentKey(key) {
+				continue
+			}
+			ck := l + "|" + key
+			if _, done := idx[ck]; done {
+				continue
+			}
+			b, err := os.ReadFile(filepath.Join(dir, "lang", l, name))
+			if err != nil {
+				continue
+			}
+			var data map[string]interface{}
+			if err := json.Unmarshal(b, &data); err != nil {
+				continue
+			}
+			if title, ok := data["title"].(string); ok && title != "" {
+				idx[ck] = title
+				continue
+			}
+			if header, ok := data["header"].(string); ok && header != "" {
+				idx[ck] = header
+			}
+		}
+	}
+	return idx
 }
 
 func contentTitle(page, arg, lang, stored string) string {
