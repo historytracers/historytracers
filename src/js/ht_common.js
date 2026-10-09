@@ -28,6 +28,11 @@ var htAtlasIdx = new Map();
 
 var loadedIdx = [];
 var htIndexesOrder = [];
+// Titles of the index pages already received from the server, keyed by index
+// name (e.g. "physics" -> "Universe"). They are filled by htFillTopIdx() and
+// preferred by htSelectIndexName() so the navigation table always shows the
+// same name used by the index page itself instead of a static keyword.
+var htIndexTitles = {};
 var htCurrentPage = "";
 var htCurrentArg = "";
 var htAllowJsonLoad = false;
@@ -161,6 +166,9 @@ function htResetAllIndexes()
     loadedIdx = [];
     htPendingIndexes = [];
     htIndexesOrder = [];
+    // Index titles are language dependent, so they must be dropped together
+    // with the index maps when the page (or the language) is reloaded.
+    htIndexTitles = {};
     htCurrentPage = "";
     htCurrentArg = "";
     htAllowJsonLoad = false;
@@ -2138,6 +2146,13 @@ function htSelectIndexMap(index)
 }
 
 function htSelectIndexName(index) {
+    // The title of the index page (e.g. "Universe" for physics.json) is the
+    // authoritative name: it keeps the navigation in sync with the page the
+    // link points to and with the sidebar menu.
+    if (typeof htIndexTitles[index] === "string" && htIndexTitles[index].length > 0) {
+        return htIndexTitles[index];
+    }
+
     const map = {
         families: keywords[8],
         first_steps: keywords[121],
@@ -3567,6 +3582,13 @@ function htFillTopIdx(idx, data, first)
     // table without its data rows.
     if (!data || !Array.isArray(data.content)) {
         return;
+    }
+
+    // Remember the title of a real index page: it is the name shown by the
+    // navigation table (e.g. "Universe" for physics.json) and must match the
+    // heading of the page the navigation links back to.
+    if (data.type === "index" && typeof data.title === "string" && data.title.length > 0) {
+        htIndexTitles[first] = data.title;
     }
 
     htUpdateLoadedIdx(first);
