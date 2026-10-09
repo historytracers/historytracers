@@ -1002,11 +1002,38 @@ func allowedPage(name string) bool {
 }
 
 func safeContentKey(key string) bool {
-	if key == "" || key == "." || key == ".." {
+	if key == "" || len(key) > 128 {
 		return false
 	}
-	if strings.ContainsAny(key, "/\\") {
+	if key == "." || key == ".." || strings.HasPrefix(key, ".") {
 		return false
+	}
+	if strings.Contains(key, "..") {
+		return false
+	}
+	// Reject Windows reserved device names (CON, PRN, AUX, NUL, COM1-9,
+	// LPT1-9): even with an appended extension they address the device
+	// instead of a file (e.g. NUL.json reads the null device, CON.json
+	// blocks waiting for console input).
+	base := key
+	if i := strings.IndexByte(key, '.'); i >= 0 {
+		base = key[:i]
+	}
+	switch strings.ToUpper(base) {
+	case "CON", "PRN", "AUX", "NUL",
+		"COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9",
+		"LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9":
+		return false
+	}
+	// Allowlist: content file basenames (UUIDs and page slugs) only use
+	// these characters. This rejects path separators (/ and \), drive
+	// qualifiers (:), and anything else that could escape the language
+	// directory on any OS.
+	for i := 0; i < len(key); i++ {
+		c := key[i]
+		if (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9') && c != '_' && c != '-' && c != '.' {
+			return false
+		}
 	}
 	return true
 }
@@ -1018,7 +1045,7 @@ func resolveContentTitle(page, arg, lang string) string {
 	if key == "" {
 		key = page
 	}
-	if !safeContentKey(key) || len(key) > 128 {
+	if !safeContentKey(key) {
 		return ""
 	}
 	cacheKey := lang + "|" + key
@@ -1042,7 +1069,18 @@ func resolveContentTitleUncached(key, lang string) string {
 		langs = withLang
 	}
 	for _, l := range langs {
-		b, err := os.ReadFile(filepath.Join(contentDir, "lang", l, key+".json"))
+		base := filepath.Join(contentDir, "lang", l)
+		p := filepath.Join(base, key+".json")
+		// Containment check: the cleaned path must stay inside the
+		// language directory. safeContentKey already rejects separators
+		// and parent references; this guards the sink itself so a future
+		// validation change cannot turn it into a traversal.
+		cleanBase := filepath.Clean(base)
+		cleanP := filepath.Clean(p)
+		if cleanP != cleanBase && !strings.HasPrefix(cleanP, cleanBase+string(os.PathSeparator)) {
+			continue
+		}
+		b, err := os.ReadFile(p)
 		if err != nil {
 			continue
 		}
