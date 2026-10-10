@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765778"
+      "1791648954"
    ],
    "authors": null,
    "reviewers": null,
@@ -70,7 +70,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisito\n\nAntes de prosseguir com a leitura deste texto, recomendamos que você estude os materiais anteriores sobre igualdades e limites",
+               "text": "### Pré-requisito\n\nAntes de continuar, revise os dois textos anteriores: **igualdades** e **limites na natureza**. Esta lição se apoia neles",
                "source": [
                   {
                      "type": 1,
@@ -109,7 +109,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Introdução\n\nNos textos anteriores, apresentamos as ideias relacionadas à igualdade. Pela lógica, quando algo não é igual, automaticamente torna-se diferente. No entanto, simplesmente afirmar que algo é diferente não fornece detalhes sobre o grau dessa diferença. Diante desse contexto, surge a necessidade de quantificar as diferenças entre os objetos.",
+               "text": "### Introdução\n\nNos textos anteriores apresentamos a ideia de igualdade: dois objetos são iguais ou não são. Se não são, são diferentes. Mas a palavra \"diferente\", sozinha, não diz *quanto* eles diferem. Para medir essa distância, precisamos de uma forma de comparar um objeto com outro. Esse é o objetivo desta lição: você aprenderá a dizer qual de dois números é **maior** e qual é **menor**, e como essas duas ideias nos ajudam a definir limites.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -132,7 +132,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ao observarmos a Figura 1, podemos perceber que os números estudados previamente estão dispostos em sequência. Quando um número está posicionado depois de outro, ele é chamado de **maior**. Matematicamente, utilizamos o símbolo (>) para expressar essa relação. Por exemplo, *21 > 20*",
+               "text": "Observe a Figura 1: os números que estudamos antes aparecem em ordem. Quando um número vem **depois** de outro, ele é **maior**. Escrevemos essa relação com o símbolo (>), assim *21 > 20* significa \"21 é maior que 20\"",
                "source": [
                   {
                      "type": 1,
@@ -154,7 +154,7 @@
                "PostMention": ""
             },
             {
-               "text": "Da mesma forma, quando um número aparece antes de outro, dizemos que ele é menor. Para isso, usamos o símbolo (<). Assim, podemos escrever *20 < 21*",
+               "text": "O contrário também é verdadeiro: um número que vem **antes** de outro é **menor**. Usamos o símbolo (<), assim *20 < 21* significa \"20 é menor que 21\"",
                "source": [
                   {
                      "type": 1,
@@ -176,7 +176,7 @@
                "PostMention": ""
             },
             {
-               "text": "É importante notar que a abertura do símbolo de comparação, seja ele o de maior (>) ou o de menor (<), sempre aponta na direção do número maior.\n\nOutro ponto importante a ser destacado é que, ao lidarmos com números significativamente maiores, utilizamos o símbolo (&#8811;). Da mesma forma, para números significativamente menores, empregamos o símbolo (&#8810;)",
+               "text": "Uma dica útil: o lado aberto do símbolo de comparação —seja o de maior (>) ou o de menor (<)— sempre fica voltado para o número maior. Confira com *21 > 20*: a abertura aponta para 21.\n\nQuando a diferença entre os dois números é enorme, a matemática oferece um atalho: (&#8811;) se lê \"muito maior que\", como em *1000000 &#8811; 20*, e (&#8810;) se lê \"muito menor que\", como em *20 &#8810; 1000000*",
                "source": [
                   {
                      "type": 1,
@@ -210,7 +210,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h4>Prática</h4>Ao definir uma relação matemática, é importante lembrar que, uma vez estabelecida, ela deve ser mantida. Isso significa que, se alterarmos um dos lados da equação, o outro também deverá ser alterado da mesma maneira. Vamos fazer um exercício com números e nossas mãos, usando setas para exemplificar:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table></p><p class=\"desc\"><b>Tabela 1</b>: Mantendo a desigualdade.</p>",
+               "text": "<p><h4>Prática</h4>Uma desigualdade é uma afirmação que precisa continuar verdadeira. Se alterarmos um dos lados, temos que alterar o outro na mesma proporção; caso contrário, a comparação se quebra. Experimente: use as setas para subir e descer as mãos e observe como os dois números mudam ao mesmo tempo:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></i></td></tr></table></p><p class=\"desc\"><b>Tabela 1</b>: Mantendo a desigualdade.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -224,7 +224,7 @@
          "id": "SECTION_bulding",
          "text": [
             {
-               "text": "### O Menor como Base\n\nA natureza iniciou sua obra com a construção de estruturas diminutas, como as partículas elementares, entre elas os elétrons. Essas partículas se uniram para formar os átomos, que, por sua vez, deram origem às moléculas. Com o tempo, as moléculas se combinaram, originando estruturas mais complexas. Esse processo culminou na formação dos primeiros seres vivos, que evoluíram ao longo de bilhões de anos, dando origem à diversidade de espécies existentes hoje, incluindo a nossa",
+               "text": "### O Menor como Base\n\nA natureza sempre começa pela parte pequena. Primeiro vieram as partículas elementares, como os elétrons. Essas partículas se juntaram para formar **átomos**, os átomos se uniram em **moléculas** e as moléculas se combinaram em estruturas cada vez mais complexas. Dessa longa cadeia surgiram os primeiros seres vivos e, depois de bilhões de anos de evolução, a grande diversidade de espécies que conhecemos hoje, incluindo a nossa.\n\nRepare no padrão: cada nível novo é construído sobre o anterior. Usaremos a mesma ideia com os números",
                "source": [
                   {
                      "type": 1,
@@ -303,7 +303,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Sobreposição\n\nAssim como na natureza, os humanos também constroem estruturas a partir da junção de partes menores. Um exemplo disso é o **Templo 16 de Copán**, em Honduras, que passou por diferentes etapas construtivas ao longo de aproximadamente 400 anos. Como demonstrado na Figura 3, na primeira etapa foi construída uma estrutura menor, e, à medida que novas camadas foram adicionadas sobre as anteriores, a construção alcançou dimensões maiores",
+               "text": "#### Sobreposição\n\nOs seres humanos construem do mesmo jeito: empilhamos partes menores para obter um todo maior. O **Templo 16 de Copán** (Honduras) é um bom exemplo. Ao longo de cerca de 400 anos ele passou por diferentes etapas construtivas. Como mostra a Figura 3, primeiro foi erguida uma estrutura pequena e depois foram acrescentadas camada sobre camada de material novo, até que o templo alcançou o tamanho que vemos hoje",
                "source": [
                   {
                      "type": 1,
@@ -325,7 +325,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\"  class=\"imgcenter\"/><b>Figura 3</b>: Cartaz no sítio arqueológico de Copán (<htcite0>). Foto tirada em <htdate1> em uma visita ao sitio.</p>",
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\"  class=\"imgcenter\"/><b>Figura 3</b>: Cartaz no sítio arqueológico de Copán (<htcite0>). Foto tirada em <htdate1>, durante uma visita ao sítio.</p>",
                "source": [
                   {
                      "type": 1,
@@ -365,7 +365,7 @@
          "id": "SECTION_example",
          "text": [
             {
-               "text": "### Começando Pequeno\n\nAo observarmos as grandes construções, como as pirâmides presentes no continente Americano (<i>Abya Yala</i>), fica evidente que as montanhas próximas a esses sítios arqueológicos serviram de inspiração para elas. Essas estruturas apresentam bases amplas que se estreitam gradualmente até atingir o topo, como ilustrado na **Figura 4**.\n\nAlém desse modelo natural, descobertas recentes revelaram pequenas maquetes utilizadas como referência para a construção da cidade sagrada de Caral, no Peru",
+               "text": "### Começando Pequeno\n\nA mesma lógica aparece nos grandes monumentos das Américas (<i>Abya Yala</i>). As pirâmides da **Figura 4** têm bases amplas que se estreitam à medida que sobem, como as montanhas próximas a esses sítios arqueológicos, que provavelmente inspiraram sua forma.\n\nA paisagem não foi o único guia: descobertas recentes mostram que a cidade sagrada de **Caral** (Peru) foi planejada com pequenas maquetes antes da construção de suas grandes estruturas",
                "source": [
                   {
                      "type": 1,
@@ -481,7 +481,7 @@
          "id": "SECTION_limits",
          "text": [
             {
-               "text": "### Limites\n\nA relação entre maior e menor também é usada para definir os limites. Em nosso texto anterior, mencionamos que os limites são determinados por valores máximos e mínimos. Além disso, discutimos que o limite pode ser interpretado como uma aproximação de um determinado valor. A seguir, exploraremos como aplicar os conceitos de maior e menor para definir limites",
+               "text": "### Limites\n\n\"Maior\" e \"menor\" não são apenas formas de comparar dois números: também são a linguagem dos **limites**. No texto anterior vimos que um limite pode ser um máximo ou um mínimo, e que também pode ser lido como uma aproximação de um valor. Agora usaremos os símbolos que acabamos de aprender para escrever esses limites",
                "source": [
                   {
                      "type": 1,
@@ -503,7 +503,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figura 5</b>: Circulo com raio 75.</p>",
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figura 5</b>: Círculo com raio 75: O é o centro e r é o raio.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -512,7 +512,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Limite Superior\n\nO limite superior é o maior valor possível dentro de um determinado contexto. Por exemplo, na **Figura 5**, vemos um círculo com raio (distância do centro até a borda) de valor 75. Como o círculo é uma figura geométrica fechada, o maior valor possível para o raio neste círculo pode ser representado matematicamente como *r < 75*",
+               "text": "#### Limite Superior\n\nO limite superior é o maior valor permitido em um determinado contexto. Na **Figura 5**, o raio r (a distância do centro O até a borda) mede 75. Nada dentro do círculo pode superar essa distância, então qualquer raio que medirmos deve ficar abaixo dele: *r < 75*",
                "source": [
                   {
                      "type": 1,
@@ -534,7 +534,7 @@
                "PostMention": "."
             },
             {
-               "text": "#### Limite Inferior\n\nAnalogamente, o limite inferior é o menor valor admissível. Retomando o exemplo da **Figura 5**, consideremos o percurso da borda em direção ao centro. Para que exista um raio, ele deve ser maior que zero. Assim, o menor valor para o raio pode ser expresso como *r > 0*",
+               "text": "#### Limite Inferior\n\nO limite inferior é o menor valor permitido. Voltemos à **Figura 5**: se medirmos o raio da borda em direção ao centro, o segmento só existe enquanto tiver comprimento. Um raio igual a zero não seria raio nenhum, então o raio deve ser maior que zero: *r > 0*",
                "source": [
                   {
                      "type": 1,
@@ -556,7 +556,7 @@
                "PostMention": "."
             },
             {
-               "text": "#### Limites na Biologia\n\nOs limites também são fundamentais na Biologia. No trabalho de Alan R. Templeton, por exemplo, identificou-se um critério claro para definir a existência de uma espécie ao comparar o DNA de populações. Para que não sejam consideradas raças diferentes, as diferenças genéticas (d) devem estar entre um valor mínimo de 0 e um valor máximo de 25. Isso pode ser expresso matematicamente como *0 < d < 25*",
+               "text": "#### Limites na Biologia\n\nOs limites também importam na biologia. Quando tentamos decidir se duas populações são geneticamente distintas, as comparamos dentro de um intervalo. Alan R. Templeton propôs um critério claro: para não considerar que duas populações são raças diferentes, a diferença genética delas (*d*) deve ficar entre um mínimo de 0 e um máximo de 25: *0 < d < 25*",
                "source": [
                   {
                      "type": 1,
@@ -590,7 +590,7 @@
                "PostMention": "."
             },
             {
-               "text": "Além disso, Templeton destacou que a variação genética entre humanos foi inferior a *5*, o que está dentro do intervalo proposto (*0 < 5 < 25*)",
+               "text": "Templeton também destacou que a variação genética entre humanos permanece abaixo de *5*, bem dentro desse intervalo (*0 < 5 < 25*)",
                "source": [
                   {
                      "type": 1,
@@ -629,7 +629,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, exploramos como os conceitos de \"maior\" e \"menor\" podem ser usados para estabelecer desigualdades. Além disso, percebemos que esses conceitos possuem um alcance mais amplo, permitindo aprofundar e refinar a definição de limites apresentada no final do capítulo anterior",
+               "text": "### Conclusão\n\nNesta lição você aprendeu a comparar dois números com os símbolos (>) e (<) e a transformar essas comparações em desigualdades. Também percebeu que as mesmas ideias descrevem limites —na geometria e até na biologia—, o que dá um sentido mais profundo aos limites apresentados no final do capítulo anterior",
                "source": [
                   {
                      "type": 1,

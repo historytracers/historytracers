@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765767"
+      "1791648916"
    ],
    "authors": null,
    "reviewers": null,
@@ -70,7 +70,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nBefore continuing with this text, we recommend reviewing the previous material on equality and limits",
+               "text": "### Prerequisites\n\nBefore you continue, review the two previous texts: **equality** and **natural limits**. This lesson builds on both",
                "source": [
                   {
                      "type": 1,
@@ -109,7 +109,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Introduction\n\nIn the previous texts, we introduced the concept of equality. Logically, when something is not equal, it is automatically considered different. However, merely stating that something is different does not provide details about the extent of those differences. Therefore, it becomes necessary to quantify the differences between objects.",
+               "text": "### Introduction\n\nIn the previous texts we introduced the idea of equality: two objects are either equal or they are not. If they are not equal, they are different. But the word \"different\" alone says nothing about *how much* they differ. To measure that gap we need a way to compare one object with another. That is the goal of this lesson: you will learn to say which of two numbers is **greater** and which is **smaller**, and how these two ideas help us define limits.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -132,7 +132,7 @@
                "PostMention": ""
             },
             {
-               "text": "Observing Figure 1, we can note that the numbers studied previously are arranged in sequence. When a number is positioned after another, we say it is a **greater** number. Mathematically, we use the symbol (>) to express this relationship. For example: *21 > 20*",
+               "text": "Look at Figure 1: the numbers we studied earlier are listed in order. When a number comes **after** another, it is **greater**. We write that relationship with the symbol (>), so *21 > 20* means \"21 is greater than 20\"",
                "source": [
                   {
                      "type": 1,
@@ -151,10 +151,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
+               "PostMention": "."
             },
             {
-               "text": "Similarly, when a number appears before another, we say it is **smaller**. To represent this, we use the symbol (<). For example: *20 < 21*",
+               "text": "The opposite is also true: a number that comes **before** another is **smaller**. We use the symbol (<), so *20 < 21* means \"20 is smaller than 21\"",
                "source": [
                   {
                      "type": 1,
@@ -173,10 +173,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
+               "PostMention": "."
             },
             {
-               "text": "It is important to highlight that the opening of the comparison symbol, whether greater (>) or less (<), always points towards the larger number.\n\nAnother important point is that when working with significantly larger numbers, we use the symbol (&#8811;). Similarly, for significantly smaller numbers, we use the symbol (&#8810;)",
+               "text": "A useful tip: the open side of the comparison symbol — greater (>) or smaller (<) — always faces the larger number. Test it with *21 > 20*: the opening faces 21.\n\nWhen the gap between the two numbers is huge, mathematics offers a shortcut: (&#8811;) reads \"much greater than\", as in *1000000 &#8811; 20*, and (&#8810;) reads \"much less than\", as in *20 &#8810; 1000000*",
                "source": [
                   {
                      "type": 1,
@@ -207,10 +207,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
+               "PostMention": "."
             },
             {
-               "text": "<p><h4>Practice</h4>When we establish a mathematical inequality, it’s essential to remember that once defined, it must remain consistent. In other words, if we change one side of the equation, we must make a corresponding change to the other side to maintain balance. Let's do a simple exercise with numbers and our hands, using arrows to illustrate:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table></p><p class=\"desc\"><b>Tabela 1</b>: Mantendo a desigualdade.</p>",
+               "text": "<p><h4>Practice</h4>An inequality is a statement that must stay true. If you change one side, you have to change the other side in the same proportion, or the comparison breaks. Try it yourself: use the arrows to move the hands up and down, and watch how both numbers change together:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equation</i></th><th>Left hand</th><th>Right hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></i></td></tr></table></p><p class=\"desc\"><b>Table 1</b>: Keeping the inequality.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -224,7 +224,7 @@
          "id": "SECTION_bulding",
          "text": [
             {
-               "text": "### The Smaller as a Basis\n\nNature began by constructing small structures known as elementary particles, such as electrons. Over time, these particles grouped together to form atoms, which subsequently combined to create molecules. These molecules, in turn, interacted and assembled into increasingly complex structures. This gradual process led to the emergence of the first living beings, which underwent billions of years of evolution, resulting in the remarkable diversity of species we know today, including our own",
+               "text": "### The Smaller as a Basis\n\nNature always starts small. First came the elementary particles, such as electrons. Those particles grouped into **atoms**, atoms joined into **molecules**, and molecules combined into ever more complex structures. Out of that long chain came the first living beings, and after billions of years of evolution, the great diversity of species we know today — including ourselves.\n\nNotice the pattern: each new level is built from the one below it. We will use the same idea with numbers",
                "source": [
                   {
                      "type": 1,
@@ -291,7 +291,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
+               "PostMention": "."
             },
             {
                "text": "<p><table><tr><th>Quantum atom</th><th>DNA molecule</th><th>Living Beings</th></tr><tr><td><img id=\"imgQA\" onclick=\"htImageZoom('imgQA', '0%')\"  /></td><td><img id=\"imgDNA\" onclick=\"htImageZoom('imgDNA', '0%')\"  style=\"width:90%\" /></td><td><img id=\"img2Cat\" onclick=\"htImageZoom('img2Cat', '0%')\" style=\"width:70%;\"></td></tr><tr><td colspan=\"3\" style=\"text-align: center; font-size: 70%;\"><b>Figure 2</b>: Simplified representation of a hydrogen atom on the left, a DNA molecule in the center, and living beings on the right.</td></tr></table></p>",
@@ -300,10 +300,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
-               "text": "#### Superposition\n\nJust like nature, humans also build structures by combining smaller parts. An example of this is **Temple 16 of Copán**, in Honduras, which underwent various construction phases over a span of approximately 400 years. As shown in Figure 3, the first phase involved the construction of a small structure. Over time, additional layers were added, eventually resulting in the larger structure we see today",
+               "text": "#### Superposition\n\nHumans build in the same way: we stack smaller parts to obtain a larger whole. **Temple 16 of Copán** (Honduras) is a good example. Over about 400 years it went through several construction phases. As Figure 3 shows, builders raised a small structure first and then added layer on layer of new material, until the temple reached the size we see today",
                "source": [
                   {
                      "type": 1,
@@ -365,7 +365,7 @@
          "id": "SECTION_example",
          "text": [
             {
-               "text": "### Beginning Small\n\nWhen observing giant structures, such as the pyramids found in the Americas (<i>Abya Yala</i>), it becomes evident that the mountains near these archaeological sites served as inspiration for their design. These structures feature wide bases that gradually narrow as they ascend to the top, as illustrated in **Figure 4**.\n\nIn addition to this natural inspiration, recent discoveries have revealed the use of small maquettes as models to guide the construction of the sacred city of Caral in Peru",
+               "text": "### Beginning Small\n\nThe same logic appears in the great monuments of the Americas (<i>Abya Yala</i>). The pyramids of **Figure 4** have wide bases that narrow as they rise, much like the mountains near these archaeological sites, which probably inspired their shape.\n\nThe landscape was not the only guide: recent discoveries show that the sacred city of **Caral** (Peru) was planned with small scale models — maquettes — before its great structures were raised",
                "source": [
                   {
                      "type": 1,
@@ -481,7 +481,7 @@
          "id": "SECTION_limits",
          "text": [
             {
-               "text": "### Limits\n\nThe concepts of \"greater\" and \"less\" are essential for defining limits. In our previous discussion, we examined how limits relate to maximum and minimum values. Additionally, we explored how limits can also be interpreted as an approximation of a specific value. In this text, we delve further into how \"greater\" and \"less\" can be applied to define limits",
+               "text": "### Limits\n\n\"Greater\" and \"smaller\" are not only ways to compare two numbers: they are also the language of **limits**. In the previous text we saw that a limit can be a maximum or a minimum, and that it can also be read as an approximation of a value. Now we will use the symbols we just learned to write those limits down",
                "source": [
                   {
                      "type": 1,
@@ -503,7 +503,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figure 5</b>: Círcle with radius 75.</p>",
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figure 5</b>: Circle with a radius of 75: O is the center and r the radius.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -512,7 +512,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Upper Limit\n\nAn upper limit represents the largest possible value within a given context. For example, in **Figure 5**,  we observe a circle with a radius (the distance from the center to the circumference) of 75. Since the circle is a closed geometric shape, the maximum allowable value for the radius can be mathematically expressed as *r < 75*",
+               "text": "#### Upper Limit\n\nAn upper limit is the largest value allowed in a given context. In **Figure 5**, the radius r (the distance from the center O to the circumference) measures 75. Nothing inside the circle can exceed that distance, so any radius we measure must stay below it: *r < 75*",
                "source": [
                   {
                      "type": 1,
@@ -534,7 +534,7 @@
                "PostMention": "."
             },
             {
-               "text": "#### Lower Limit\n\nSimilarly, a lower limit corresponds to the smallest permissible value. Returning to **Figure 5**, consider the radius measured from the circumference toward the center. For the radius to exist, it must have a value greater than zero. Thus, the smallest allowable value for the radius can be expressed mathematically as *r > 0*",
+               "text": "#### Lower Limit\n\nA lower limit is the smallest value allowed. Back to **Figure 5**: measure the radius from the circumference toward the center, and the segment only exists while it has some length. A radius of zero would be no radius at all, so the radius must stay above zero: *r > 0*",
                "source": [
                   {
                      "type": 1,
@@ -553,10 +553,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
+               "PostMention": "."
             },
             {
-               "text": "#### Biological Limits\n\nLimits also play a crucial role in biology. For example, Alan R. Templeton’s research established clear criteria for identifying genetic boundaries within populations. To avoid classifying populations as distinct races, genetic differences (*d*) must fall between a minimum value of 0 and a maximum of 25, expressed mathematically as *0 < d < 25*",
+               "text": "#### Biological Limits\n\nLimits also matter in biology. When we try to decide whether two populations are genetically distinct, we compare them inside a range. Alan R. Templeton proposed a clear criterion: to avoid calling two populations different races, their genetic difference (*d*) must stay between a minimum of 0 and a maximum of 25: *0 < d < 25*",
                "source": [
                   {
                      "type": 1,
@@ -587,10 +587,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
+               "PostMention": "."
             },
             {
-               "text": "Templeton also highlighted that genetic variation among humans is less than *5*, a value well within the proposed range (*0 < 5 < 25*)",
+               "text": "Templeton also pointed out that the genetic variation among humans stays below *5*, well inside that range (*0 < 5 < 25*)",
                "source": [
                   {
                      "type": 1,
@@ -621,7 +621,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
+               "PostMention": "."
             }
          ]
       },
@@ -629,7 +629,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we analyzed how the concepts of \"greater\" and \"less\" can be used to establish inequalities. Furthermore, we demonstrated that these concepts have broader applications, allowing for a deeper understanding of the limits discussed in the previous chapter",
+               "text": "### Conclusion\n\nIn this lesson you learned to compare two numbers with the symbols (>) and (<), and to turn those comparisons into inequalities. You also saw that the same ideas describe limits — in geometry and even in biology — which gives a deeper meaning to the limits discussed in the previous chapter",
                "source": [
                   {
                      "type": 1,
