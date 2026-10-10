@@ -108,6 +108,14 @@ func metricsRecord(method, path string, status int, dur time.Duration, reqSize, 
 	key := method + ":" + sc
 	bucketKey := key + ":" + strconv.Itoa(metricsDurationBucket(dur))
 	normPath := normaliseMetricPath(path)
+	// ContentLength is -1 when unknown (e.g. chunked encoding); never
+	// let it drive the byte counters negative.
+	if reqSize < 0 {
+		reqSize = 0
+	}
+	if resSize < 0 {
+		resSize = 0
+	}
 
 	metricsMu.Lock()
 	metricsCounts[key]++

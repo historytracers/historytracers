@@ -21,6 +21,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"runtime"
+	"sort"
 	"strconv"
 	"strings"
 	"sync"
@@ -365,7 +366,14 @@ func validateEditPath(filePath string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("invalid path: %v", err)
 	}
-	if !strings.HasPrefix(absFile, absRoot) {
+	// Resolve symlinks for existing paths so a symlink inside the project
+	// cannot escape the root (lexical checks alone are blind to them).
+	if resolved, err := filepath.EvalSymlinks(absFile); err == nil {
+		absFile = resolved
+	}
+	// Rel-based containment: a plain HasPrefix check would accept
+	// siblings like /a/bc when the root is /a/b.
+	if rel, err := filepath.Rel(absRoot, absFile); err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
 		return "", fmt.Errorf("path outside project root")
 	}
 	if !isAllowedEditFile(clean) {
@@ -414,6 +422,18 @@ func editorTreeHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil || !info.IsDir() {
 		http.Error(w, `[]`, http.StatusBadRequest)
 		return
+	}
+	// Refuse to list directories that resolve outside the project root
+	// (symlink escape), mirroring validateEditPath.
+	if absRoot, err := filepath.Abs(rootDir); err == nil {
+		check := abs
+		if resolved, err := filepath.EvalSymlinks(abs); err == nil {
+			check = resolved
+		}
+		if rel, err := filepath.Rel(absRoot, check); err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+			http.Error(w, `[]`, http.StatusBadRequest)
+			return
+		}
 	}
 	entries, err := os.ReadDir(abs)
 	if err != nil {
@@ -531,6 +551,9 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
+	// Cap the body before ParseForm: content itself is limited to
+	// maxEditableFileSize, so 1MB of form overhead on top is plenty.
+	r.Body = http.MaxBytesReader(w, r.Body, int64(maxEditableFileSize)+1024*1024)
 	fileParam := r.FormValue("file")
 	content := r.FormValue("content")
 	if fileParam == "" {
@@ -968,7 +991,10 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		common.HTNewFamilySetDefaultValues(&family, lang, strID)
 
 		langPath := filepath.Join(rootDir, "lang", lang)
-		os.MkdirAll(langPath, 0755)
+		if err := os.MkdirAll(langPath, 0755); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		famFile := filepath.Join(langPath, strID+".json")
 		fp, err := os.Create(famFile)
 		if err != nil {
@@ -978,7 +1004,12 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		e := json.NewEncoder(fp)
 		e.SetEscapeHTML(false)
 		e.SetIndent("", "   ")
-		e.Encode(family)
+		if err := e.Encode(family); err != nil {
+			fp.Close()
+			os.Remove(famFile)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		fp.Close()
 
 		idxPath := filepath.Join(rootDir, "lang", lang, "families.json")
@@ -993,7 +1024,11 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		common.HTAddNewFamilyToIdx(&idx, strID, lang)
-		idx.LastUpdate[0] = common.HTUpdateTimestamp()
+		if len(idx.LastUpdate) == 0 {
+			idx.LastUpdate = []string{common.HTUpdateTimestamp()}
+		} else {
+			idx.LastUpdate[0] = common.HTUpdateTimestamp()
+		}
 
 		tmpPath := filepath.Join(rootDir, "lang", lang, strID+"_idx.tmp")
 		fp2, err := os.Create(tmpPath)
@@ -1004,7 +1039,12 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		e2 := json.NewEncoder(fp2)
 		e2.SetEscapeHTML(false)
 		e2.SetIndent("", "   ")
-		e2.Encode(idx)
+		if err := e2.Encode(idx); err != nil {
+			fp2.Close()
+			os.Remove(tmpPath)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		fp2.Close()
 		if err := copyFile(idxPath, tmpPath); err != nil {
 			os.Remove(tmpPath)
@@ -1190,6 +1230,7 @@ func gitStatusHandler(w http.ResponseWriter, r *http.Request) {
 var (
 	sessionMu    sync.Mutex
 	optionsMu    sync.Mutex
+	historyMu    sync.Mutex
 	sessionFile  string
 	dataDir      string
 	optionsFile  string
@@ -1384,7 +1425,9 @@ func normalizeSmartphonePrefix(p string) string {
 }
 
 func smartphoneDirForLang(lang string) string {
+	optionsMu.Lock()
 	prefix := normalizeSmartphonePrefix(savedOptions.SmartphonePrefix)
+	optionsMu.Unlock()
 	return filepath.Join(rootDir, prefix, "src", "smartphone", lang)
 }
 
@@ -1449,6 +1492,9 @@ func sessionHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		json.NewEncoder(w).Encode(tabs)
 	case http.MethodPost:
+		// Tabs are tiny (path + two ints); 1MB is generous and bounds
+		// a malformed or hostile session payload.
+		r.Body = http.MaxBytesReader(w, r.Body, 1024*1024)
 		var tabs []sessionTab
 		if err := json.NewDecoder(r.Body).Decode(&tabs); err != nil {
 			http.Error(w, "invalid JSON", http.StatusBadRequest)
@@ -1465,6 +1511,8 @@ func loadHistory() []string {
 	if historyFile == "" {
 		return nil
 	}
+	historyMu.Lock()
+	defer historyMu.Unlock()
 	b, err := os.ReadFile(historyFile)
 	if err != nil {
 		return nil
@@ -1483,7 +1531,13 @@ func addHistory(path string) {
 	if _, err := validateEditPath(path); err != nil {
 		return
 	}
-	history := loadHistory()
+	historyMu.Lock()
+	defer historyMu.Unlock()
+	b, err := os.ReadFile(historyFile)
+	var history []string
+	if err == nil {
+		_ = json.Unmarshal(b, &history)
+	}
 	var newHistory []string
 	for _, p := range history {
 		if p != path {
@@ -1494,7 +1548,7 @@ func addHistory(path string) {
 	if len(newHistory) > 20 {
 		newHistory = newHistory[:20]
 	}
-	b, err := json.Marshal(newHistory)
+	b, err = json.Marshal(newHistory)
 	if err != nil {
 		return
 	}
@@ -1619,6 +1673,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func importViewerOptionsHandler(w http.ResponseWriter, r *http.Request) {
+	if dataDir == "" {
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{"lang": "", "port": ""})
+		return
+	}
 	viewerFile := filepath.Join(dataDir, "options.bin")
 	var viewerLang, viewerPort string
 	f, err := os.Open(viewerFile)
@@ -1856,7 +1915,10 @@ func logMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		sw := &statusWriter{ResponseWriter: w, status: 200}
 		next.ServeHTTP(sw, r)
-		accessLog.Printf("%s %s %d", r.Method, r.URL.Path, sw.status)
+		// Strip CR/LF so a crafted path cannot forge log lines.
+		method := strings.ReplaceAll(strings.ReplaceAll(r.Method, "\n", ""), "\r", "")
+		p := strings.ReplaceAll(strings.ReplaceAll(r.URL.Path, "\n", ""), "\r", "")
+		accessLog.Printf("%s %s %d", method, p, sw.status)
 	})
 }
 
@@ -1902,6 +1964,9 @@ func main() {
 	if *lang == "" && savedOptions.Lang != "" {
 		*lang = savedOptions.Lang
 	}
+	if *lang != "" && !validEditorLangs[*lang] {
+		*lang = ""
+	}
 
 	if *logFile != "" {
 		f, err := os.Create(*logFile)
@@ -1922,9 +1987,7 @@ func main() {
 	}
 
 	if *listen == -1 && savedOptions.Port != "" && *port == 0 {
-		p := 0
-		fmt.Sscanf(savedOptions.Port, "%d", &p)
-		if p >= 1 && p <= 65535 {
+		if p, err := strconv.Atoi(strings.TrimSpace(savedOptions.Port)); err == nil && p >= 1 && p <= 65535 {
 			*port = p
 		}
 	}
@@ -2387,10 +2450,13 @@ func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 	defer db.Close()
 	var rows *sql.Rows
 	likeQ := "%" + q + "%"
+	// Bound the result set: this backs a type-as-you-search UI and a
+	// full-table dump would freeze both server and browser.
+	const findSourceLimit = 200
 	if _, err := uuid.Parse(q); err == nil {
-		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id LIMIT ?", likeQ, likeQ, findSourceLimit)
 	} else {
-		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id LIMIT ?", likeQ, likeQ, findSourceLimit)
 	}
 	if err != nil {
 		json.NewEncoder(w).Encode([]map[string]string{})
@@ -2467,6 +2533,9 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 		citType = 0
 		if v, err := strconv.Atoi(citTypeStr); err == nil {
 			citType = v
+		}
+		if citType < 0 || citType > 3 {
+			citType = 0
 		}
 	} else {
 		citType = lookupCitType(srcID)
@@ -2587,15 +2656,9 @@ func imagesHandler(w http.ResponseWriter, r *http.Request) {
 			}
 			dirs = append(dirs, name)
 		}
-		// sort already by ReadDir but ensure
-		// use simple sort
-		for i := 0; i < len(dirs); i++ {
-			for j := i + 1; j < len(dirs); j++ {
-				if strings.ToLower(dirs[j]) < strings.ToLower(dirs[i]) {
-					dirs[i], dirs[j] = dirs[j], dirs[i]
-				}
-			}
-		}
+		sort.Slice(dirs, func(i, j int) bool {
+			return strings.ToLower(dirs[i]) < strings.ToLower(dirs[j])
+		})
 		json.NewEncoder(w).Encode(map[string]interface{}{"dirs": dirs})
 		return
 	}
@@ -2615,7 +2678,7 @@ func imagesHandler(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(map[string]interface{}{"files": []string{}})
 		return
 	}
-	allowed := map[string]bool{".jpg": true, ".jpeg": true, ".png": true, ".gif": true, ".webp": true, ".svg": true, ".bmp": true, ".avif": true, ".JPG": true, ".JPEG": true, ".PNG": true}
+	allowed := map[string]bool{".jpg": true, ".jpeg": true, ".png": true, ".gif": true, ".webp": true, ".svg": true, ".bmp": true, ".avif": true}
 	files := []string{}
 	for _, e := range entries {
 		if e.IsDir() {
@@ -2626,21 +2689,14 @@ func imagesHandler(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 		ext := strings.ToLower(path.Ext(name))
-		if !allowed[ext] && !allowed[strings.ToUpper(ext)] {
-			// check lowercased
-			if !allowed[ext] {
-				continue
-			}
+		if !allowed[ext] {
+			continue
 		}
 		files = append(files, name)
 	}
-	for i := 0; i < len(files); i++ {
-		for j := i + 1; j < len(files); j++ {
-			if strings.ToLower(files[j]) < strings.ToLower(files[i]) {
-				files[i], files[j] = files[j], files[i]
-			}
-		}
-	}
+	sort.Slice(files, func(i, j int) bool {
+		return strings.ToLower(files[i]) < strings.ToLower(files[j])
+	})
 	json.NewEncoder(w).Encode(map[string]interface{}{"dir": clean, "files": files})
 }
 
