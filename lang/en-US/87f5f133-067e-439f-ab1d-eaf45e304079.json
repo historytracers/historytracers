@@ -1,0 +1,332 @@
+{
+   "title": "When size matters",
+   "header": "When size matters",
+   "sources": [
+      "87f5f133-067e-439f-ab1d-eaf45e304079"
+   ],
+   "scripts": [
+      "87f5f133-067e-439f-ab1d-eaf45e304079"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/87f5f133-067e-439f-ab1d-eaf45e304079_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "literature",
+      "history"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791652644"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nBefore you continue, review the two texts this lesson builds on: **On Equality**, where we learned what it means to compare, and **Natural limits**, where a limit was defined as a maximum, a minimum, or an approximation. Here we join both ideas and turn them into one rule you can use",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "On Equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Natural limits",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nThe texts on equality taught us to decide whether two things are equal. But equality alone is not enough: when two things — or two numbers — are not equal, we still need to say which one is greater and which one is smaller, and later measure how much they differ. This text prepares the tools for that: the symbols of comparison, a scale that uses them, and the language of limits.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: I am going to use...?</b><br /><br />We already saw that there is a symbol for equality (=). Should we use the same symbol to say that something is greater or smaller?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_comparison",
+         "text": [
+            {
+               "text": "<h3>The Rule of Greater and Smaller</h3><p class=\"desc\"><img id=\"imgMeter\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figure 1</b>: A centesimal scale: it runs from 0 to 100 in equal steps.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The answer to Reflection 1 is no: the symbol (=) states that two values are the same, so it cannot also say which one is greater; mathematics uses two other symbols for that. Look at Figure 1: the numbers we studied earlier are listed in order. When a number comes **after** another, it is **greater**. We write that relationship with the symbol (>), so *21 > 20* means \"21 is greater than 20\"",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "The opposite is also true: a number that comes **before** another is **smaller**. We use the symbol (<), so *20 < 21* means \"20 is smaller than 21\"",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "A useful tip: the open side of the comparison symbol — greater (>) or smaller (<) — always faces the larger number. Test it with *21 > 20*: the opening faces 21.\n\nWhen the gap between the two numbers is huge, mathematics offers a shortcut: (&#8811;) reads \"much greater than\", as in *1000000 &#8811; 20*, and (&#8810;) reads \"much less than\", as in *20 &#8810; 1000000*",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><h4>Practice</h4>An inequality is a statement that must stay true. If you change one side, you have to change the other side in the same proportion, or the comparison breaks. Try it yourself: use the arrows to move the hands up and down, and watch how both numbers change together:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equation</i></th><th>Left hand</th><th>Right hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></i></td></tr></table></p><p class=\"desc\"><b>Table 1</b>: Keeping the inequality.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_scale",
+         "text": [
+            {
+               "text": "#### Using the Rule on a Scale\n\nThe scale in Figure 1 turns the rule into a measuring tool. We fix a minimum (0) and a maximum (100), divide the interval into equal steps, and decide what each one is worth — for example, ten characteristics worth ten points each. Then we check the object against the list: every characteristic found adds its points, and every one missing leaves them out.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "The reading follows the same rule: the closer the object is to the characteristics we defined, the higher its score moves toward the maximum of 100; the more it deviates from them, the lower its score falls toward the minimum of 0. On a scale like this we often use the word \"percent\" (symbol \"%\") to express how much was measured out of the total possible: 90% means 90 of the 100 possible points. Two scores can then be compared with the symbols we just learned — *90% > 10%* — and the greater score always belongs to the object closer to the defined characteristics. In the following texts we will put this rule to work, comparing objects and, later, living beings.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_limits",
+         "text": [
+            {
+               "text": "### Limits\n\n\"Greater\" and \"smaller\" are not only ways to compare two numbers: they are also the language of **limits**. In the text on natural limits we saw that a limit can be a maximum or a minimum, and that it can also be read as an approximation of a value. Now we will use the symbols we just learned to write those limits down",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Natural limits",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figure 2</b>: Circle with a radius of 75: O is the center and r the radius.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Upper Limit\n\nAn upper limit is the largest value allowed in a given context. In **Figure 2**, the radius r (the distance from the center O to the circumference) measures 75. Nothing inside the circle can exceed that distance, so any radius we measure must stay below it: *r < 75*",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e58ad730-899f-49b6-aaf8-53cb39c31f0e",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Lower Limit\n\nA lower limit is the smallest value allowed. Back to **Figure 2**: measure the radius from the circumference toward the center, and the segment only exists while it has some length. A radius of zero would be no radius at all, so the radius must stay above zero: *r > 0*",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "61b6b478-d49a-40ec-a68d-52767ebbb6cc",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text we learned the rule of comparison. With the symbols (>) and (<) we can say which of two numbers is greater and which is smaller — the open side of the symbol always faces the larger number. Table 1 showed that an inequality must stay true: when one side changes, the other has to change in the same proportion. We then used the rule on a centesimal scale, where scores move toward the maximum of 100 as objects match the defined characteristics and toward the minimum of 0 as they deviate. The same symbols also let us write limits: an upper limit (*r < 75*), a lower limit (*r > 0*), and a range in biology (*0 < d < 25*), inside which the genetic variation among humans stays (*0 < 5 < 25*). Reflection 1 also has its answer: no, we should not reuse the symbol (=) for greater and smaller — (=) states that two values are the same, while (>) and (<) say which one is greater.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
