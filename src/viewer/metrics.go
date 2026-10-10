@@ -75,12 +75,27 @@ func metricsRecord(method, path string, status int, dur time.Duration, reqSize, 
 	// Normalise path for cardinality: strip UUIDs and numeric IDs
 	normPath := normaliseMetricPath(path)
 
+	// ContentLength is -1 when unknown (e.g. chunked encoding); never
+	// let it drive the byte counters negative.
+	if reqSize < 0 {
+		reqSize = 0
+	}
+	if resSize < 0 {
+		resSize = 0
+	}
+
 	metricsMu.Lock()
 	metricsCounts[key]++
 	if status >= 400 {
 		metricsErrors[key]++
 	}
 	metricsDurationCounts[bucketKey]++
+	// Cap path cardinality: arbitrary client paths would otherwise grow
+	// this map without bound. Overflow buckets into "/other" so totals
+	// stay exact.
+	if _, ok := metricsPathCounts[normPath]; !ok && len(metricsPathCounts) >= 512 {
+		normPath = "/other"
+	}
 	metricsPathCounts[normPath]++
 	metricsReqBytesTotal += reqSize
 	metricsResBytesTotal += resSize

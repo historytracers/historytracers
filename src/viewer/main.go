@@ -41,10 +41,12 @@ var appVersion = "1.0.0"
 func versionHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Cache-Control", "no-store")
-	json.NewEncoder(w).Encode(map[string]string{
+	if err := json.NewEncoder(w).Encode(map[string]string{
 		"version":      appVersion,
 		"releases_url": "https://github.com/historytracers/historytracers/releases",
-	})
+	}); err != nil {
+		log.Printf("Warning: cannot write version response: %v", err)
+	}
 }
 
 type historyEntry struct {
@@ -65,6 +67,7 @@ var (
 	optionsMu     sync.Mutex
 	optionsFile   string
 	savedOptions  optionsData
+	tokenMu       sync.RWMutex
 	viewerToken   string
 	uuidFile      string
 	instanceUUID  []byte
@@ -214,7 +217,18 @@ func sanitizeMetricsLabel(s string) string {
 }
 
 func checkToken(r *http.Request) bool {
+	tokenMu.RLock()
+	defer tokenMu.RUnlock()
 	return r.Header.Get("X-HT-Token") == viewerToken
+}
+
+// currentToken returns the active token under a read lock. Use it for
+// every read outside rotateToken; viewerToken itself must only be
+// touched with tokenMu held (rotateToken takes the write lock).
+func currentToken() string {
+	tokenMu.RLock()
+	defer tokenMu.RUnlock()
+	return viewerToken
 }
 
 func rotateToken() string {
@@ -222,11 +236,17 @@ func rotateToken() string {
 	if _, err := rand.Read(buf); err != nil {
 		log.Fatalf("Cannot generate secure token: %v", err)
 	}
+	tokenMu.Lock()
+	defer tokenMu.Unlock()
 	viewerToken = hex.EncodeToString(buf)
 	return viewerToken
 }
 
 func openExternalHandler(w http.ResponseWriter, r *http.Request) {
+	if !checkToken(r) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
 	target := r.URL.Query().Get("url")
 	if target == "" {
 		http.Error(w, "missing url", http.StatusBadRequest)
@@ -289,6 +309,9 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Forbidden", http.StatusForbidden)
 			return
 		}
+		// Bound the body before parsing: the largest stored field is
+		// clamped to 8KB, so 64KB of form overhead is plenty.
+		r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 		entry := devEntry{
 			Type:     clampLen(r.FormValue("type"), 32),
 			Message:  clampLen(r.FormValue("message"), 8192),
@@ -297,8 +320,10 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 			Duration: parseInt64(r.FormValue("duration")),
 			Time:     parseInt64(r.FormValue("time")),
 		}
-		if s := r.FormValue("status"); s != "" {
-			fmt.Sscanf(s, "%d", &entry.Status)
+		if s := strings.TrimSpace(r.FormValue("status")); s != "" {
+			if n, err := strconv.Atoi(s); err == nil && n >= 0 && n <= 599 {
+				entry.Status = n
+			}
 		}
 		if entry.Time == 0 {
 			entry.Time = time.Now().UnixMilli()
@@ -339,9 +364,15 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 
 		w.Header().Set("Content-Type", "application/json")
 		enc := json.NewEncoder(w)
-		enc.Encode(entries)
+		if err := enc.Encode(entries); err != nil {
+			log.Printf("Warning: cannot write dev log response: %v", err)
+		}
 
 	case http.MethodDelete:
+		if !checkToken(r) {
+			http.Error(w, "Forbidden", http.StatusForbidden)
+			return
+		}
 		devMu.Lock()
 		devLog = nil
 		devMu.Unlock()
@@ -510,7 +541,7 @@ document.title=lu.title;
 document.write('<div class="tabs"><div class="tab active" onclick="switchTab(0)">'+lu.console+'</div><div class="tab" onclick="switchTab(1)">'+lu.network+'</div><button class="btn" onclick="clearLog()">'+lu.clear+'</button></div><div class="content" id="console"></div><div class="content" id="network" style="display:none"></div>');
 var log=[];
 function switchTab(i){document.querySelectorAll('.tab').forEach(function(t,j){t.className=j==i?'tab active':'tab'});document.getElementById('console').style.display=i==0?'':'none';document.getElementById('network').style.display=i==1?'':'none'}
-function clearLog(){fetch('/api/dev/log',{method:'DELETE'}).then(function(){log=[];render()}).catch(function(){})}
+function clearLog(){var h={};try{var t=(parent&&parent.__ht_token)||window.__ht_token||sessionStorage.__ht_token||'';if(t)h['X-HT-Token']=t}catch(e){}fetch('/api/dev/log',{method:'DELETE',headers:h}).then(function(){log=[];render()}).catch(function(){})}
 function fetchLog(){fetch('/api/dev/log').then(function(r){return r.json()}).then(function(entries){log=entries;render()}).catch(function(){})}
 function render(){var c=document.getElementById('console'),n=document.getElementById('network');c.innerHTML='';n.innerHTML='';var errCount=0,netCount=0;for(var i=0;i<log.length;i++){var e=log[i];var d=new Date(e.time).toLocaleTimeString();if(e.type==='error'){errCount++;c.innerHTML+='<div class="entry entry-error"><span class="ts">'+d+'</span><span class="msg">'+esc(e.message)+'</span><br><span class="meta">'+esc(e.url)+'</span></div>'}else if(e.type==='network'){if(e.url.indexOf('/api/')>=0)continue;netCount++;var statusClass=e.status>=200&&e.status<300?'ok':'fail';n.innerHTML+='<div class="entry entry-network"><span class="ts">'+d+'</span><span class="url">'+esc(e.url)+'</span><br><span class="meta">'+esc(e.method)+' <span class="'+statusClass+'">'+e.status+'</span> '+(e.duration>0?e.duration+'ms':'')+'</span></div>'}}if(errCount===0)c.innerHTML='<div style="padding:8px;color:#666;font-style:italic">'+lu.noErrors+'</div>';if(netCount===0)n.innerHTML='<div style="padding:8px;color:#666;font-style:italic">'+lu.noNetwork+'</div>'}
 function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -520,8 +551,10 @@ fetchLog();
 }
 
 func parseInt64(s string) int64 {
-	var n int64
-	fmt.Sscanf(s, "%d", &n)
+	n, err := strconv.ParseInt(strings.TrimSpace(s), 10, 64)
+	if err != nil {
+		return 0
+	}
 	return n
 }
 
@@ -608,13 +641,17 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			data = savedOptions
 		}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(data)
+		if err := json.NewEncoder(w).Encode(data); err != nil {
+			log.Printf("Warning: cannot write options response: %v", err)
+		}
 
 	case http.MethodPost:
 		if !checkToken(r) {
 			http.Error(w, "Forbidden", http.StatusForbidden)
 			return
 		}
+		// All fields are small scalars; bound the body before parsing.
+		r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
 		data, err := readOptions()
@@ -672,7 +709,7 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		savedOptions = data
 		rotateToken()
-		w.Header().Set("X-HT-Next-Token", viewerToken)
+		w.Header().Set("X-HT-Next-Token", currentToken())
 		w.WriteHeader(http.StatusNoContent)
 
 	default:
@@ -770,7 +807,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	tlsCertJS := jsString(tlsCertVal)
 	tlsKeyJS := jsString(tlsKeyVal)
 	certDirJS := jsString(defaultTLSDir)
-	tokenJSVal := jsString(viewerToken)
+	tokenJSVal := jsString(currentToken())
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
@@ -1176,6 +1213,8 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "History not available", 500)
 		return
 	}
+	// All fields are small scalars; bound the body before parsing.
+	r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 	page := r.FormValue("page")
 	if !allowedPage(page) {
 		http.Error(w, "Invalid page", 400)
@@ -1210,9 +1249,11 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	if len(entries) > 256 {
 		entries = entries[len(entries)-256:]
 	}
-	writeHistoryLocked(entries)
+	if err := writeHistoryLocked(entries); err != nil {
+		log.Printf("Warning: cannot write history.csv: %v", err)
+	}
 	rotateToken()
-	nextToken := viewerToken
+	nextToken := currentToken()
 
 	historyMu.Unlock()
 
@@ -1247,7 +1288,7 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	optionsMu.Unlock()
 
 	w.Header().Set("X-HT-Next-Token", nextToken)
-	return
+	w.WriteHeader(http.StatusNoContent)
 }
 
 func historyListHandler(w http.ResponseWriter, r *http.Request) {
@@ -1268,7 +1309,9 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(entries)
+	if err := json.NewEncoder(w).Encode(entries); err != nil {
+		log.Printf("Warning: cannot write history list response: %v", err)
+	}
 }
 
 func historyPageHandler(w http.ResponseWriter, r *http.Request) {
@@ -1353,6 +1396,8 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Favorites not available", 500)
 		return
 	}
+	// All fields are small scalars; bound the body before parsing.
+	r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 	page := r.FormValue("page")
 	if !allowedPage(page) {
 		http.Error(w, "Invalid page", 400)
@@ -1391,9 +1436,11 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 			Time: time.Now().Unix(), Title: title, Lang: lang, Cal: cal,
 		})
 	}
-	writeFavoritesLocked(entries)
+	if err := writeFavoritesLocked(entries); err != nil {
+		log.Printf("Warning: cannot write favorites.csv: %v", err)
+	}
 	rotateToken()
-	w.Header().Set("X-HT-Next-Token", viewerToken)
+	w.Header().Set("X-HT-Next-Token", currentToken())
 }
 
 func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
@@ -1415,7 +1462,9 @@ func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(entries)
+	if err := json.NewEncoder(w).Encode(entries); err != nil {
+		log.Printf("Warning: cannot write favorites list response: %v", err)
+	}
 }
 
 func favoritesPageHandler(w http.ResponseWriter, r *http.Request) {
@@ -1505,8 +1554,7 @@ func readFavoritesLocked() []historyEntry {
 		if !allowedPage(rec[0]) {
 			continue
 		}
-		var t int64
-		fmt.Sscanf(rec[3], "%d", &t)
+		t := parseInt64(rec[3])
 		title := ""
 		if len(rec) >= 5 {
 			title = rec[4]
@@ -1527,19 +1575,25 @@ func readFavoritesLocked() []historyEntry {
 	return entries
 }
 
-func writeFavoritesLocked(entries []historyEntry) {
+func writeFavoritesLocked(entries []historyEntry) error {
 	f, err := os.OpenFile(favoritesFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 	if err != nil {
-		log.Printf("Warning: cannot write favorites.csv: %v", err)
-		return
+		return err
 	}
-	defer f.Close()
 
 	w := csv.NewWriter(f)
 	for _, e := range entries {
-		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal})
+		if err := w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal}); err != nil {
+			_ = f.Close()
+			return err
+		}
 	}
 	w.Flush()
+	if err := w.Error(); err != nil {
+		_ = f.Close()
+		return err
+	}
+	return f.Close()
 }
 
 func readHistoryLocked() []historyEntry {
@@ -1564,8 +1618,7 @@ func readHistoryLocked() []historyEntry {
 		if !allowedPage(rec[0]) {
 			continue
 		}
-		var t int64
-		fmt.Sscanf(rec[3], "%d", &t)
+		t := parseInt64(rec[3])
 		title := ""
 		if len(rec) >= 5 {
 			title = rec[4]
@@ -1594,19 +1647,25 @@ func readHistoryLocked() []historyEntry {
 	return entries
 }
 
-func writeHistoryLocked(entries []historyEntry) {
+func writeHistoryLocked(entries []historyEntry) error {
 	f, err := os.OpenFile(historyFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 	if err != nil {
-		log.Printf("Warning: cannot write history.csv: %v", err)
-		return
+		return err
 	}
-	defer f.Close()
 
 	w := csv.NewWriter(f)
 	for _, e := range entries {
-		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal})
+		if err := w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal}); err != nil {
+			_ = f.Close()
+			return err
+		}
 	}
 	w.Flush()
+	if err := w.Error(); err != nil {
+		_ = f.Close()
+		return err
+	}
+	return f.Close()
 }
 
 var projectFiles map[string]bool
@@ -1697,7 +1756,7 @@ func main() {
 	initProjectFiles()
 
 	if *logFile != "" {
-		f, err := os.Create(*logFile)
+		f, err := os.OpenFile(*logFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 		if err != nil {
 			log.Fatalf("Cannot open log file: %v", err)
 		}
@@ -1828,12 +1887,8 @@ func main() {
 		}
 	}
 	{
-		buf := make([]byte, 32)
-		if _, err := rand.Read(buf); err != nil {
-			log.Fatalf("Cannot generate secure token: %v", err)
-		}
-		viewerToken = hex.EncodeToString(buf)
-		tokenJS := "window.__ht_token=" + jsString(viewerToken) + ";"
+		rotateToken()
+		tokenJS := "window.__ht_token=" + jsString(currentToken()) + ";"
 		welcomePage = tokenJS + welcomePage
 		addressBarJS = tokenJS + addressBarJS
 	}
@@ -1944,11 +1999,17 @@ func resolveAddr(port int) string {
 
 type statusWriter struct {
 	http.ResponseWriter
-	status int
+	status      int
+	wroteHeader bool
 }
 
 func (w *statusWriter) WriteHeader(code int) {
-	w.status = code
+	// net/http honours the first WriteHeader; record exactly that so the
+	// access log shows the code the client actually saw.
+	if !w.wroteHeader {
+		w.status = code
+		w.wroteHeader = true
+	}
 	w.ResponseWriter.WriteHeader(code)
 }
 
@@ -1956,6 +2017,9 @@ func logMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		sw := &statusWriter{ResponseWriter: w, status: 200}
 		next.ServeHTTP(sw, r)
-		accessLog.Printf("%s %s %d", r.Method, r.URL.Path, sw.status)
+		// Strip CR/LF so a crafted path cannot forge log lines.
+		method := strings.ReplaceAll(strings.ReplaceAll(r.Method, "\n", ""), "\r", "")
+		p := strings.ReplaceAll(strings.ReplaceAll(r.URL.Path, "\n", ""), "\r", "")
+		accessLog.Printf("%s %s %d", method, p, sw.status)
 	})
 }

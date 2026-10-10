@@ -1102,7 +1102,7 @@ L['en']=L['en-US'];
 			try{
 				var u=new URL(url,window.location.origin);
 				if(u.origin!==window.location.origin){
-					fetch('/api/open/external?url='+encodeURIComponent(url));
+					_htOpenExternal(url);
 					return;
 				}
 				var p=u.pathname;
@@ -1111,11 +1111,18 @@ L['en']=L['en-US'];
 					return;
 				}
 				if(p.indexOf('/index.html')!==0&&p.indexOf('index.html')!==0&&p.indexOf('/csv/')!==0&&p.indexOf('/gedcom/')!==0){
-					fetch('/api/open/external?url='+encodeURIComponent(url));
+					_htOpenExternal(url);
 					return;
 				}
 			}catch(e){}
 			openTab(url);
+		}
+		function _htOpenExternal(url){
+			try{
+				var h={};
+				try{var t=window.__ht_token||sessionStorage.__ht_token||'';if(t)h['X-HT-Token']=t}catch(e){}
+				fetch('/api/open/external?url='+encodeURIComponent(url),{headers:h});
+			}catch(e){}
 		}
 		function showBanner(msg){
 			var b=document.createElement('div');
@@ -1173,7 +1180,7 @@ L['en']=L['en-US'];
 						var hdr={'Content-Type':'text/html'};
 						if(tk) hdr['X-HT-Token']=tk;
 						fetch('/api/print/store',{method:'POST',headers:hdr,body:htmlVal}).then(function(r){return r.text()}).then(function(p){
-							fetch('/api/open/external?url='+encodeURIComponent(window.location.origin+p));
+							var oh={};if(tk)oh['X-HT-Token']=tk;fetch('/api/open/external?url='+encodeURIComponent(window.location.origin+p),{headers:oh});
 						}).catch(function(e){ try{showBanner(l.err+': '+(e&&e.message||''));}catch(ex){} });
 					}catch(e){}
 				};
