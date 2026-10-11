@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791652644"
+      "1791678864"
    ],
    "authors": [
       ""
@@ -111,7 +111,16 @@
          "id": "SECTION_comparison",
          "text": [
             {
-               "text": "<h3>The Rule of Greater and Smaller</h3><p class=\"desc\"><img id=\"imgMeter\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figure 1</b>: A centesimal scale: it runs from 0 to 100 in equal steps.</p>",
+               "text": "### The Rule of Greater and Smaller\n\nA rule tells us how to act in a given situation: it says what we should do, and it stays the same every time that situation appears. The rules of a game tell us what counts as a point; the rules of a calendar tell us how the days are organized. Mathematics works the same way: before we compare or calculate, we agree on how to read what we write, and that agreement is a rule.\n\nWe have already used one such rule: the texts on equality taught us that the symbol (=) states when two values are the same. The rule of this text tells us which of two numbers is greater and which is smaller.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMeter\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figure 1</b>: A centesimal scale: it runs from 0 to 100 in equal steps.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -120,7 +129,16 @@
                "PostMention": ""
             },
             {
-               "text": "The answer to Reflection 1 is no: the symbol (=) states that two values are the same, so it cannot also say which one is greater; mathematics uses two other symbols for that. Look at Figure 1: the numbers we studied earlier are listed in order. When a number comes **after** another, it is **greater**. We write that relationship with the symbol (>), so *21 > 20* means \"21 is greater than 20\"",
+               "text": "Figure 1 is a ruler: the straight, marked strip we use to measure length. Here, however, it measures values instead. The long marks carry the numbers 0, 10, 20 and so on until 100, and the shorter marks between them stand for the values in between. Because every mark is equally spaced from its neighbours, each value from 0 to 100 has its own place on the ruler, and we can point to it.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Look at Figure 1: the numbers we studied earlier are listed in order. When a number comes **after** another, it is **greater**. We write that relationship with the symbol (>), so *21 > 20* means \"21 is greater than 20\"",
                "source": [
                   {
                      "type": 1,
@@ -212,7 +230,7 @@
          "id": "SECTION_scale",
          "text": [
             {
-               "text": "#### Using the Rule on a Scale\n\nThe scale in Figure 1 turns the rule into a measuring tool. We fix a minimum (0) and a maximum (100), divide the interval into equal steps, and decide what each one is worth — for example, ten characteristics worth ten points each. Then we check the object against the list: every characteristic found adds its points, and every one missing leaves them out.",
+               "text": "### Using the Rule on a Scale\n\nThe ruler in Figure 1 is already a scale: it begins at a minimum of 0 and ends at a maximum of 100, and the distance from one mark to the next is always the same. To use it as a measuring tool, we only have to decide what each of those marks is worth. If we want to count how many of ten characteristics an object has, we can give each characteristic ten marks: the first one carries the reading from 0 to 10, the second from 10 to 20, and so on until the tenth, which brings it to 100.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -221,93 +239,22 @@
                "PostMention": ""
             },
             {
-               "text": "The reading follows the same rule: the closer the object is to the characteristics we defined, the higher its score moves toward the maximum of 100; the more it deviates from them, the lower its score falls toward the minimum of 0. On a scale like this we often use the word \"percent\" (symbol \"%\") to express how much was measured out of the total possible: 90% means 90 of the 100 possible points. Two scores can then be compared with the symbols we just learned — *90% > 10%* — and the greater score always belongs to the object closer to the defined characteristics. In the following texts we will put this rule to work, comparing objects and, later, living beings.",
+               "text": "Measuring then becomes something we can watch on the ruler. We go through the list of characteristics one by one: every characteristic the object has pushes the reading that many marks to the right, and every characteristic it lacks leaves the reading where it is. Where the reading stops is the score of the object.\n\nBecause the marks are equally spaced, the place where the reading stops already tells us how the object did. A reading close to 100 sits near the maximum, so the object has almost every characteristic we asked for; a reading close to 0 sits near the minimum, so it has almost none. We often write this measurement as a percent (symbol \"%\"), reading the marks of the ruler as parts out of a hundred: 90% is the reading at the mark 90, and 10% is the reading at the mark 10.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
                "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_limits",
-         "text": [
-            {
-               "text": "### Limits\n\n\"Greater\" and \"smaller\" are not only ways to compare two numbers: they are also the language of **limits**. In the text on natural limits we saw that a limit can be a maximum or a minimum, and that it can also be read as an approximation of a value. Now we will use the symbols we just learned to write those limits down",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
-                     "text": "History Tracers Team",
-                     "page": "Natural limits",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figure 2</b>: Circle with a radius of 75: O is the center and r the radius.</p>",
+               "text": "Two objects can now be compared by looking at where each one stops on the same ruler. Since the marks grow from left to right, the reading further to the right is the greater one: *90% > 10%*, because 90 comes after 10. In the following texts we will put this ruler to work, comparing objects by the scores they get.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
+               "format": "markdown",
                "PostMention": ""
-            },
-            {
-               "text": "#### Upper Limit\n\nAn upper limit is the largest value allowed in a given context. In **Figure 2**, the radius r (the distance from the center O to the circumference) measures 75. Nothing inside the circle can exceed that distance, so any radius we measure must stay below it: *r < 75*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "e58ad730-899f-49b6-aaf8-53cb39c31f0e",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "#### Lower Limit\n\nA lower limit is the smallest value allowed. Back to **Figure 2**: measure the radius from the circumference toward the center, and the segment only exists while it has some length. A radius of zero would be no radius at all, so the radius must stay above zero: *r > 0*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "61b6b478-d49a-40ec-a68d-52767ebbb6cc",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
             }
          ]
       },
@@ -315,7 +262,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text we learned the rule of comparison. With the symbols (>) and (<) we can say which of two numbers is greater and which is smaller — the open side of the symbol always faces the larger number. Table 1 showed that an inequality must stay true: when one side changes, the other has to change in the same proportion. We then used the rule on a centesimal scale, where scores move toward the maximum of 100 as objects match the defined characteristics and toward the minimum of 0 as they deviate. The same symbols also let us write limits: an upper limit (*r < 75*), a lower limit (*r > 0*), and a range in biology (*0 < d < 25*), inside which the genetic variation among humans stays (*0 < 5 < 25*). Reflection 1 also has its answer: no, we should not reuse the symbol (=) for greater and smaller — (=) states that two values are the same, while (>) and (<) say which one is greater.",
+               "text": "### Conclusion\n\nIn this text we learned the rule of comparison. With the symbols (>) and (<) we can say which of two numbers is greater and which is smaller — the open side of the symbol always faces the larger number. Table 1 showed that an inequality must stay true: when one side changes, the other has to change in the same proportion. We then used the rule on a centesimal scale, where scores move toward the maximum of 100 as objects match the defined characteristics and toward the minimum of 0 as they deviate.",
                "source": null,
                "date_time": null,
                "isTable": false,

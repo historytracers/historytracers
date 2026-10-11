@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791652644"
+      "1791678892"
    ],
    "authors": [
       ""
@@ -111,7 +111,16 @@
          "id": "SECTION_comparison",
          "text": [
             {
-               "text": "<h3>La regla de mayor y menor</h3><p class=\"desc\"><img id=\"imgMeter\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figura 1</b>: Una escala centesimal: va de 0 a 100 en intervalos iguales.</p>",
+               "text": "### La regla de mayor y menor\n\nUna regla nos dice cómo actuar en una situación dada: dice qué debemos hacer y se mantiene igual cada vez que esa situación aparece. Las reglas de un juego dicen qué cuenta como punto; las reglas de un calendario dicen cómo se organizan los días. Las matemáticas funcionan igual: antes de comparar o calcular, nos ponemos de acuerdo en cómo leer lo que escribimos, y ese acuerdo es una regla.\n\nYa usamos una regla así: los textos sobre igualdades nos enseñaron que el símbolo (=) establece cuándo dos valores son iguales. La regla de este texto dice cuál de dos números es mayor y cuál es menor.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMeter\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figura 1</b>: Una escala centesimal: va de 0 a 100 en intervalos iguales.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -120,7 +129,16 @@
                "PostMention": ""
             },
             {
-               "text": "La respuesta a la Reflexión 1 es no: el símbolo (=) establece que dos valores son iguales, así que no puede decir también cuál es mayor; las matemáticas usan otros dos símbolos para eso. Observa la Figura 1: los números que estudiamos antes aparecen en orden. Cuando un número viene **después** de otro, es **mayor**. Escribimos esa relación con el símbolo (>), así que *21 > 20* significa \"21 es mayor que 20\".",
+               "text": "La Figura 1 es una regla de medir: la tira recta y marcada que usamos para medir un largo. Aquí, sin embargo, mide valores. Las marcas largas llevan los números 0, 10, 20 y así hasta 100, y las marcas más cortas entre ellas representan los valores intermedios. Como cada marca está igualmente separada de sus vecinas, cada valor de 0 a 100 tiene su propio lugar en la regla, y podemos señalarlo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Observa la Figura 1: los números que estudiamos antes aparecen en orden. Cuando un número viene **después** de otro, es **mayor**. Escribimos esa relación con el símbolo (>), así que *21 > 20* significa \"21 es mayor que 20\".",
                "source": [
                   {
                      "type": 1,
@@ -212,7 +230,7 @@
          "id": "SECTION_scale",
          "text": [
             {
-               "text": "#### Usando la regla en una escala\n\nLa escala de la Figura 1 convierte la regla en una herramienta de medida. Fijamos un mínimo (0) y un máximo (100), dividimos el intervalo en intervalos iguales y decidimos cuánto vale cada uno —por ejemplo, diez características que valen diez puntos cada una—. Luego comparamos el objeto con la lista: cada característica encontrada suma sus puntos y cada una ausente los deja fuera.",
+               "text": "### Usar la regla en una escala\n\nLa regla de medir de la Figura 1 ya es una escala: comienza en un mínimo de 0 y termina en un máximo de 100, y la distancia de una marca a la siguiente siempre es la misma. Para usarla como herramienta de medida, solo tenemos que decidir cuánto vale cada una de esas marcas. Si queremos contar cuántas de diez características tiene un objeto, podemos darle a cada característica diez marcas: la primera lleva la lectura de 0 a 10, la segunda de 10 a 20, y así hasta la décima, que la lleva hasta 100.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -221,93 +239,22 @@
                "PostMention": ""
             },
             {
-               "text": "La lectura sigue la misma regla: cuanto más cerca esté el objeto de las características que definimos, más se acerca su puntaje al máximo de 100; cuanto más se aparte de ellas, más cae su puntaje hacia el mínimo de 0. En una escala así solemos usar la palabra \"porcentaje\" (símbolo \"%\") para expresar cuánto se midió del total posible: 90% significa 90 de los 100 puntos posibles. Entonces dos puntajes pueden compararse con los símbolos que acabamos de aprender —*90% > 10%*—, y el puntaje mayor siempre corresponde al objeto más cercano a las características definidas. En los textos siguientes usaremos esta regla, comparando objetos y, más adelante, seres vivos.",
+               "text": "Medir se vuelve entonces algo que podemos ver en la regla. Recorremos la lista de características una por una: cada característica que el objeto tiene empuja la lectura esa cantidad de marcas hacia la derecha, y cada característica que le falta deja la lectura donde está. Donde se detiene la lectura es la puntuación del objeto.\n\nComo las marcas están igualmente separadas, el lugar donde se detiene la lectura ya nos dice cómo le fue al objeto. Una lectura cercana a 100 queda cerca del máximo, así que el objeto tiene casi todas las características que pedimos; una lectura cercana a 0 queda cerca del mínimo, así que casi no tiene ninguna. A menudo escribimos esta medida como un porcentaje (símbolo \"%\"), leyendo las marcas de la regla como partes de cien: 90% es la lectura en la marca 90, y 10% es la lectura en la marca 10.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
                "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_limits",
-         "text": [
-            {
-               "text": "### Límites\n\n\"Mayor\" y \"menor\" no son solo formas de comparar dos números: también son el lenguaje de los **límites**. En el texto sobre límites naturales vimos que un límite puede ser un máximo o un mínimo, y que también puede leerse como una aproximación a un valor. Ahora usaremos los símbolos que acabamos de aprender para escribir esos límites",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
-                     "text": "History Tracers Team",
-                     "page": "Límites en la naturaleza",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figura 2</b>: Círculo con radio 75: O es el centro y r el radio.</p>",
+               "text": "Ahora podemos comparar dos objetos mirando dónde se detiene cada uno en la misma regla. Como las marcas crecen de izquierda a derecha, la lectura que queda más a la derecha es la mayor: *90% > 10%*, porque 90 viene después de 10. En los textos siguientes usaremos esta regla de medir, comparando objetos por las puntuaciones que obtienen.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
+               "format": "markdown",
                "PostMention": ""
-            },
-            {
-               "text": "#### Límite Superior\n\nEl límite superior es el valor más grande permitido en un contexto dado. En la **Figura 2**, el radio r (la distancia del centro O a la circunferencia) mide 75. Nada dentro del círculo puede superar esa distancia, así que cualquier radio que midamos debe quedar por debajo: *r < 75*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "e58ad730-899f-49b6-aaf8-53cb39c31f0e",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "#### Límite Inferior\n\nEl límite inferior es el valor más pequeño permitido. Volvamos a la **Figura 2**: si medimos el radio desde la circunferencia hacia el centro, el segmento solo existe mientras tenga longitud. Un radio igual a cero no sería radio alguno, así que el radio debe ser mayor que cero: *r > 0*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "61b6b478-d49a-40ec-a68d-52767ebbb6cc",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
             }
          ]
       },
@@ -315,7 +262,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto aprendimos la regla de comparación. Con los símbolos (>) y (<) podemos decir cuál de dos números es mayor y cuál es menor —el lado abierto del símbolo siempre mira hacia el número mayor—. La Tabla 1 mostró que una desigualdad debe seguir siendo verdadera: cuando cambia un lado, el otro tiene que cambiar en la misma proporción. Luego usamos la regla en una escala centesimal, donde los puntajes se acercan al máximo de 100 cuando los objetos cumplen las características definidas y se alejan hacia el mínimo de 0 cuando se apartan de ellas. Los mismos símbolos también nos permiten escribir límites: un límite superior (*r < 75*), un límite inferior (*r > 0*) y un rango en biología (*0 < d < 25*), dentro del cual se mantiene la variación genética entre los humanos (*0 < 5 < 25*). La Reflexión 1 también tiene su respuesta: no, no debemos reutilizar el símbolo (=) para mayor y menor — (=) establece que dos valores son iguales, mientras que (>) y (<) dicen cuál es mayor.",
+               "text": "### Conclusión\n\nEn este texto aprendimos la regla de comparación. Con los símbolos (>) y (<) podemos decir cuál de dos números es mayor y cuál es menor —el lado abierto del símbolo siempre mira hacia el número mayor—. La Tabla 1 mostró que una desigualdad debe seguir siendo verdadera: cuando cambia un lado, el otro tiene que cambiar en la misma proporción. Luego usamos la regla en una escala centesimal, donde los puntajes se acercan al máximo de 100 cuando los objetos cumplen las características definidas y se alejan hacia el mínimo de 0 cuando se apartan de ellas.",
                "source": null,
                "date_time": null,
                "isTable": false,
