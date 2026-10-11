@@ -2,11 +2,21 @@
 set -e
 
 case "$1" in
-    remove|upgrade)
-        # Stop service before removal or upgrade
-        systemctl stop historytracers.service >/dev/null 2>&1 || true
-        systemctl disable historytracers.service >/dev/null 2>&1 || true
+    remove)
+        # Stop and disable only on removal; on upgrade the new postinst
+        # restarts the service via the debhelper autoscripts
+        if [ -d /run/systemd/system ]; then
+            systemctl stop historytracers.service >/dev/null 2>&1 || true
+            systemctl disable historytracers.service >/dev/null 2>&1 || true
+        fi
+    ;;
+    upgrade|deconfigure|failed-upgrade)
+        if [ -d /run/systemd/system ]; then
+            systemctl stop historytracers.service >/dev/null 2>&1 || true
+        fi
     ;;
 esac
+
+#DEBHELPER#
 
 exit 0

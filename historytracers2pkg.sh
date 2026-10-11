@@ -41,7 +41,7 @@ ht_compile() {
 }
 
 ht_validate_myself() {
-    shellcheck -x ./ht2pkg.sh
+    shellcheck -x ./historytracers2pkg.sh
 }
 
 ht_get_version() {
@@ -70,7 +70,7 @@ ht_build_static() {
     echo "Version: ${VERSION}"
 
     # Sanity checks – ht_compile should have created these
-    if [ ! -f build/historytracers ] && [ ! -f build/historytracers-publisher ]; then
+    if [ ! -f build/historytracers ] || [ ! -f build/historytracers-publisher ]; then
         echo "ERROR: build/historytracers not found. Run ht_compile first or ensure build succeeded."
         exit 1
     fi
@@ -225,11 +225,17 @@ ht_check_deps() {
 # Parse args
 while [ "\$#" -gt 0 ]; do
     case "\$1" in
-        --prefix) PREFIX="\$2"; shift 2 ;;
+        --prefix)
+            [ "\$#" -ge 2 ] || { echo "ERROR: --prefix needs a value" >&2; exit 1; }
+            PREFIX="\$2"; shift 2 ;;
         --prefix=*) PREFIX="\${1#*=}"; shift ;;
-        --destdir) DESTDIR="\$2"; shift 2 ;;
+        --destdir)
+            [ "\$#" -ge 2 ] || { echo "ERROR: --destdir needs a value" >&2; exit 1; }
+            DESTDIR="\$2"; shift 2 ;;
         --destdir=*) DESTDIR="\${1#*=}"; shift ;;
-        --sysconfdir) SYSCONFDIR="\$2"; shift 2 ;;
+        --sysconfdir)
+            [ "\$#" -ge 2 ] || { echo "ERROR: --sysconfdir needs a value" >&2; exit 1; }
+            SYSCONFDIR="\$2"; shift 2 ;;
         --sysconfdir=*) SYSCONFDIR="\${1#*=}"; shift ;;
         --uninstall) UNINSTALL=1; shift ;;
         --check) DO_CHECK=1; shift ;;
@@ -318,14 +324,14 @@ if [ "\$UNINSTALL" = "1" ]; then
             fi
         fi
         echo "Removing files listed in \$MANIFEST_FILE"
-        # Use manifest without version header
+        # Use manifest without version header (portable reverse: tac is GNU-only)
         _manifest_tmp=\$(mktemp)
         if head -n1 "\$MANIFEST_FILE" | grep -q "^#VERSION="; then
             tail -n +2 "\$MANIFEST_FILE" > "\$_manifest_tmp"
         else
             cat "\$MANIFEST_FILE" > "\$_manifest_tmp"
         fi
-        tac "\$_manifest_tmp" 2>/dev/null | while read -r f; do
+        awk '{lines[NR]=\$0} END {for (i=NR;i>=1;i--) print lines[i]}' "\$_manifest_tmp" | while read -r f; do
             [ -z "\$f" ] && continue
             # Skip version header if ever present in content
             case "\$f" in \#VERSION=*) continue;; esac
@@ -337,9 +343,9 @@ if [ "\$UNINSTALL" = "1" ]; then
             fi
         done
         rm -f "\$_manifest_tmp"
-        # Remove empty dirs
+        # Remove empty dirs (plain rmdir is portable; ignore failures)
         for d in "\${DESTDIR}\${PREFIX}/share/historytracers/www" "\${DESTDIR}\${PREFIX}/share/historytracers" "\${DESTDIR}\${PREFIX}/share/doc/historytracers" "\${DESTDIR}\${PREFIX}/bin" "\${DESTDIR}\${SYSCONFDIR}/historytracers" "\${DESTDIR}/lib/systemd/system" "\${DESTDIR}\${PREFIX}/lib/systemd/system"; do
-            [ -d "\$d" ] && rmdir --ignore-fail-on-non-empty "\$d" 2>/dev/null || true
+            [ -d "\$d" ] && rmdir "\$d" 2>/dev/null || true
         done
         rm -f "\$MANIFEST_FILE"
         echo "Uninstall complete."
@@ -390,7 +396,7 @@ done
 mkdir -p "\${DESTDIR}\${PREFIX}/share/historytracers"
 if [ -d "\$SRC/share/historytracers/www" ]; then
     rm -rf "\${DESTDIR}\${PREFIX}/share/historytracers/www"
-    cp -a "\$SRC/share/historytracers/www" "\${DESTDIR}\${PREFIX}/share/historytracers/"
+    cp -RpP "\$SRC/share/historytracers/www" "\${DESTDIR}\${PREFIX}/share/historytracers/"
     echo "  installed \${PREFIX}/share/historytracers/www"
 fi
 if [ -f "\$SRC/share/historytracers/editor.html" ]; then
@@ -583,9 +589,10 @@ HTDOC
 }
 
 ht_rpm_cleanup() {
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json 2>/dev/null || true
-    fi
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' "$f" 2>/dev/null || true
+    done
     if [ -d rpmbuild ]; then
         rm -rf rpmbuild
     fi
@@ -599,10 +606,12 @@ ht_build_rpm() {
     # dnf install -y rpmdevtools rpm-build make gcc golang autoconf automake which && dnf clean all
     echo "Building RPM package"
 
-    # Modify img_options.json in source to set ht_local_images to false for package
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
-    fi
+    # Packaged www/ must not expect local images (images/ ships separately);
+    # update both the source and the already-generated www/ copies.
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' "$f"
+    done
 
     RPM_TOPDIR="$(pwd)/rpmbuild"
 
@@ -616,9 +625,10 @@ ht_build_rpm() {
 #        --define "_build_name_fmt %%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm"
 
     # Restore original img_options.json for development
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
-    fi
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' "$f"
+    done
 
     # Copy all generated RPMs (main x86_64, images/devel noarch)
     find "${RPM_TOPDIR}" -name "*.rpm" -exec cp {} artifacts/ \;
@@ -628,9 +638,10 @@ ht_build_rpm() {
 }
 
 ht_deb_cleanup() {
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json 2>/dev/null || true
-    fi
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' "$f" 2>/dev/null || true
+    done
     if [ -d debian ]; then
         rm -rf debian
     fi
@@ -645,10 +656,12 @@ ht_build_deb() {
     # apt-get install devscripts debhelper build-essential golang-go
     # snap install go --classic (Ubuntu)
 
-    # Modify img_options.json in source to set ht_local_images to false for package
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
-    fi
+    # Packaged www/ must not expect local images (images/ ships separately);
+    # update both the source and the already-generated www/ copies.
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' "$f"
+    done
 
     if [ -d debian ]; then
         rm -rf debian
@@ -660,9 +673,10 @@ ht_build_deb() {
     dpkg-buildpackage -us -uc --build=binary
 
     # Restore original img_options.json for development
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
-    fi
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' "$f"
+    done
 
     mv ../*.deb artifacts/
     # .ddeb (debug) files may not exist; guard against glob failure
@@ -690,7 +704,7 @@ ht_build_slackware() {
     # ===== Main SlackBuild tarball =====
     mkdir historytracers
     cp packaging/Slackware/* historytracers
-    cp README historytracers/
+    cp README.md historytracers/
     tar -zcvf artifacts/historytracers.tar.gz historytracers
     rm -rf historytracers
 
@@ -707,10 +721,15 @@ ht_build_slackware() {
     # ===== Common source tarball used by both =====
     make clean
 
+    # The SlackBuild runs the publisher on the target, which needs the
+    # source images/ tree marker; ship img_options.json with local images
+    # disabled since images/ ships in a separate tarball.
+    sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
     mkdir -p "${DST}/www"
-    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv editor.html gedcom historytracers-installer.sh historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
+    cp -R ./*.md LICENSE Makefile.am bodies configure.ac css csv editor.html gedcom historytracers-installer.sh historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
     mkdir -p "${DST}/images"
     cp images/img_options.json "${DST}/images/"
+    sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
     tar -acvf "artifacts/historytracers-${VERSION}.tar.xz" "${DST}"
 
     rm -rf "${DST}"
@@ -734,9 +753,10 @@ ht_is_slackware() {
 }
 
 ht_msi_cleanup() {
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json 2>/dev/null || true
-    fi
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' "$f" 2>/dev/null || true
+    done
     rm -rf "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" 2>/dev/null || true
 }
 
@@ -750,10 +770,12 @@ ht_build_msi() {
         exit 1
     fi
 
-    # Modify img_options.json in source to set ht_local_images to false for package
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
-    fi
+    # Packaged www/ must not expect local images (images ship as an MSI feature);
+    # update both the source and the already-generated www/ copies.
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' "$f"
+    done
 
     WIXDIR="$(pwd)/packaging/WiX"
 
@@ -835,7 +857,8 @@ ht_build_msi() {
     BUILD_DIR="${PROJECT_DIR}/build"
     WWW_DIR="${PROJECT_DIR}/www"
     IMAGES_DIR="${WWW_DIR}/images"
-    OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers-1.0.0.msi"
+    MSI_VERSION="$(ht_get_version)"
+    OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers-${MSI_VERSION}.msi"
 
     # Write PowerShell fragment generator to a temp file (avoids bash escaping issues)
     PS_GEN="$(mktemp -t wix_gen_XXXXXX.ps1 2>/dev/null || echo "${TMPDIR:-/tmp}/wix_gen_$$.ps1")"
@@ -903,7 +926,7 @@ Get-ChildItem -Recurse -File $dir | Where-Object {
     $fid = 'fil_' + ($rel -replace '[^a-zA-Z0-9]','_')
     if ($fid.Length -gt 63) { $fid = $fid.Substring(0, 63) }
     $fid = $fid + '_' + $hash
-    $src = "`$(var.$varName)\$rel"
+    $src = "`$(var.$varName)\" + $rel.Replace('/','\')
     $componentLines += "    <Component Id='$cid' Directory='$dirId' Guid='*'><File Id='$fid' Source='$src'/></Component>"
 }
 
@@ -1088,9 +1111,10 @@ PSEOF
           "${WIXDIR}/build-fragment.wxs" "${WIXDIR}/options-fragment.wxs"
 
     # Restore original img_options.json
-    if [ -f images/img_options.json ]; then
-        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
-    fi
+    for f in images/img_options.json www/images/img_options.json; do
+        [ -f "$f" ] || continue
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' "$f"
+    done
 
     echo "MSI package built: ${OUTPUT_MSI}"
 

@@ -14,28 +14,19 @@ case "$1" in
                     --gecos "History Tracers User" historytracers
         fi
         
-        # Set ownership on all installed files (outside home directories)
+        # Set ownership on installed data/config/state (binaries and devel sources stay root-owned)
         chown -R historytracers:historytracers /usr/share/historytracers 2>/dev/null || true
-        chown historytracers:historytracers /usr/bin/historytracers 2>/dev/null || true
-        #chown historytracers:historytracers /usr/bin/historytracers-editor 2>/dev/null || true
         chown -R historytracers:historytracers /etc/historytracers 2>/dev/null || true
+        mkdir -p /var/lib/historytracers /var/log/historytracers 2>/dev/null || true
         chown historytracers:historytracers /var/lib/historytracers 2>/dev/null || true
         chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true
-        chown -R historytracers:historytracers /usr/src/historytracers 2>/dev/null || true
         # Set directory permissions
         chmod 755 /usr/share/historytracers
         
-        # Reload systemd and enable service
-        systemctl daemon-reload >/dev/null 2>&1 || true
-        
-        # If the service should be enabled by default
-        if [ "$2" = "" ] || [ "$2" = configure ]; then
-            if systemctl is-enabled historytracers.service >/dev/null 2>&1; then
-                systemctl restart historytracers.service || true
-            else
-                systemctl enable historytracers.service >/dev/null 2>&1 || true
-                systemctl start historytracers.service >/dev/null 2>&1 || true
-            fi
+        # Reload systemd so the service unit is picked up (enable/start is
+        # handled by the debhelper autoscripts below)
+        if [ -d /run/systemd/system ]; then
+            systemctl daemon-reload >/dev/null 2>&1 || true
         fi
     ;;
     
@@ -49,6 +40,6 @@ case "$1" in
 esac
 
 # dh_installsystemd
-deb-systemd-invoke restart historytracers.service >/dev/null 2>&1 || true
+#DEBHELPER#
 
 exit 0

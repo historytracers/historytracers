@@ -17,10 +17,10 @@ detect_distro() {
         DISTRO_ID="$ID"
         DISTRO_VERSION="$VERSION_ID"
         case "$ID" in
-            debian|ubuntu|linuxmint|pop|elementary|zorin|kali)
+            debian|ubuntu|linuxmint|pop|elementary|zorin|kali|raspbian|neon)
                 DISTRO="debian"
                 ;;
-            fedora|rhel|centos|rocky|almalinux|nobara)
+            fedora|rhel|centos|rocky|almalinux|nobara|ol|amzn)
                 DISTRO="fedora"
                 ;;
             opensuse*|suse|sles)
@@ -79,8 +79,9 @@ detect_distro() {
 
 install_debian() {
     echo "Detected Debian/Ubuntu family ($DISTRO_ID $DISTRO_VERSION)"
+    export DEBIAN_FRONTEND=noninteractive
     apt-get update
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
         autoconf \
         automake \
         make \
@@ -161,7 +162,7 @@ install_opensuse() {
 
 install_arch() {
     echo "Detected Arch Linux family ($DISTRO_ID $DISTRO_VERSION)"
-    pacman -S --noconfirm \
+    pacman -Sy --needed --noconfirm \
         autoconf \
         automake \
         make \
@@ -186,7 +187,8 @@ install_arch() {
 
 install_alpine() {
     echo "Detected Alpine Linux ($DISTRO_ID $DISTRO_VERSION)"
-    apk add \
+    apk update
+    apk add --no-cache \
         autoconf \
         automake \
         make \
@@ -211,7 +213,7 @@ install_alpine() {
 
 install_void() {
     echo "Detected Void Linux ($DISTRO_ID $DISTRO_VERSION)"
-    xbps-install -y \
+    xbps-install -Sy \
         autoconf \
         automake \
         make \
@@ -278,7 +280,9 @@ install_slackware() {
         exit 1
     fi
 
-    slackpkg install \
+    slackpkg update || true
+
+    for pkg in \
         autoconf \
         automake \
         make \
@@ -303,7 +307,9 @@ install_slackware() {
         git \
         python3 \
         perl \
-        ruby
+        ruby; do
+        slackpkg install "$pkg" || echo "WARNING: slackpkg could not install $pkg" >&2
+    done
 
     # Check if webkit2gtk was installed (slackpkg may not find it via mirror)
     if pkg-config --exists webkit2gtk-4.1 2>/dev/null; then

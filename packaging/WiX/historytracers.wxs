@@ -33,7 +33,7 @@
     <!-- ============================================================ -->
     <!-- Component: Start Menu Shortcuts                              -->
     <!-- ============================================================ -->
-    <Component Id="PROGRAMMENUDIR_comp" Directory="PROGRAMMENUDIR">
+    <Component Id="PROGRAMMENUDIR_comp" Directory="PROGRAMMENUDIR" Guid="*">
       <Shortcut Id="S_Viewer" Name="HistoryTracers Viewer"
                 Description="Launch HistoryTracers Viewer"
                 Target="[INSTALLDIR]historytracers.exe"
@@ -47,14 +47,14 @@
                 Target="[System64Folder]msiexec.exe"
                 Arguments="/x [ProductCode]" />
       <RemoveFolder Id="PROGRAMMENUDIR_rem" On="uninstall" />
-      <RegistryValue Root="HKCU" Key="Software\HistoryTracers"
-                     Name="installed" Type="integer" Value="1" />
+      <RegistryValue Root="HKLM" Key="Software\HistoryTracers"
+                     Name="installed" Type="integer" Value="1" KeyPath="yes" />
     </Component>
 
     <!-- ============================================================ -->
     <!-- Component: Install path registry entry                       -->
     <!-- ============================================================ -->
-    <Component Id="INSTALLDIR_reg" Directory="INSTALLDIR">
+    <Component Id="INSTALLDIR_reg" Directory="INSTALLDIR" Guid="*">
       <CreateFolder />
       <RegistryValue Root="HKLM" Key="Software\HistoryTracers"
                      Name="InstallPath" Type="string" Value="[INSTALLDIR]" />
@@ -75,7 +75,7 @@
 
     <Feature Id="Images" Title="Image Files"
              Description="Additional museum and institutional image files"
-             Level="3" TypicalDefault="install">
+             Level="1">
       <ComponentGroupRef Id="CG_IMAGES" />
     </Feature>
 
@@ -87,7 +87,7 @@
 
     <Feature Id="Publisher" Title="Publisher Tool"
              Description="Content publishing tool (for content authors)"
-             Level="3" TypicalDefault="install">
+             Level="3">
       <ComponentGroupRef Id="CG_PUBLISHER_BIN" />
     </Feature>
 

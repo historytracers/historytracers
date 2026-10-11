@@ -45,7 +45,7 @@ function Find-WixExe {
     "${env:ProgramFiles}\WiX Toolset v6.0\bin\wix.exe",
     "${env:ProgramFiles(x86)}\WiX Toolset v6.0\bin\wix.exe"
   )
-  if (Test-Path "${env:WIX}wix.exe") { return (Resolve-Path "${env:WIX}wix.exe").Path }
+  if (-not [string]::IsNullOrEmpty($env:WIX) -and (Test-Path (Join-Path $env:WIX "wix.exe"))) { return (Resolve-Path (Join-Path $env:WIX "wix.exe")).Path }
   foreach ($p in $candidates) {
     if (Test-Path $p) { return $p }
   }
@@ -93,7 +93,21 @@ $excludeOptionsXsl = Join-Path $WixDir "exclude-options.xsl"
 $buildDir        = Join-Path $ProjectDir "build"
 $wwwSource       = $wwwDir
 $imagesSource    = Join-Path $wwwDir "images"
-$msiOut          = Join-Path $OutputDir "HistoryTracers-1.0.0.msi"
+# Derive the MSI version from packaging/Slackware/historytracers.info (single
+# source of truth), falling back to configure.ac and then to 1.0.0.
+$msiVersion = "1.0.0"
+$infoFile = Join-Path $ProjectDir "packaging\Slackware\historytracers.info"
+if (Test-Path $infoFile) {
+  $m = Select-String -Path $infoFile -Pattern '^VERSION\s*=\s*"([^"]+)"' | Select-Object -First 1
+  if ($m -and $m.Matches[0].Groups[1].Value) { $msiVersion = $m.Matches[0].Groups[1].Value }
+} else {
+  $acFile = Join-Path $ProjectDir "configure.ac"
+  if (Test-Path $acFile) {
+    $m = Select-String -Path $acFile -Pattern 'AC_INIT\([^,]+,\s*\[([0-9][0-9.]*)\]' | Select-Object -First 1
+    if ($m -and $m.Matches[0].Groups[1].Value) { $msiVersion = $m.Matches[0].Groups[1].Value }
+  }
+}
+$msiOut          = Join-Path $OutputDir "HistoryTracers-$msiVersion.msi"
 
 # ---- Helper: directory-aware ID generation for v6 fragments ----
 function Get-DirId {
@@ -157,7 +171,7 @@ if ($pubFile) {
 }
 $lines += "  </Fragment>"
 $lines += '</Wix>'
-$lines -join "`r`n" | Set-Content $buildHarvest -NoNewline
+$lines -join "`r`n" | Set-Content $buildHarvest -NoNewline -Encoding UTF8
 if (-not (Test-Path $buildHarvest)) {
     Write-Error "Failed to generate build-fragment.wxs"
     exit 1
@@ -181,7 +195,7 @@ if (Test-Path $optionsFile) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $optionsHarvest -NoNewline
+    $lines -join "`r`n" | Set-Content $optionsHarvest -NoNewline -Encoding UTF8
 }
 if (-not (Test-Path $optionsHarvest)) {
     Write-Error "Failed to generate options-fragment.wxs"
@@ -230,7 +244,7 @@ if ($hasHarvest) {
         $fid = 'fil_' + ($rel -replace '[^a-zA-Z0-9]','_')
         if ($fid.Length -gt 63) { $fid = $fid.Substring(0, 63) }
         $fid = $fid + '_' + $hash
-        $src = "`$(var.WwwDir)\$rel"
+        $src = "`$(var.WwwDir)\" + $rel.Replace('/','\')
         $componentLines += "    <Component Id='$cid' Directory='$dirId' Guid='*'><File Id='$fid' Source='$src'/></Component>"
     }
 
@@ -248,7 +262,7 @@ if ($hasHarvest) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $wwwHarvest -NoNewline
+    $lines -join "`r`n" | Set-Content $wwwHarvest -NoNewline -Encoding UTF8
 }
 if (-not (Test-Path $wwwHarvest)) {
     Write-Error "Failed to generate www-fragment.wxs"
@@ -286,7 +300,7 @@ if ($hasHarvest) {
         $fid = 'fil_img_' + ($rel -replace '[^a-zA-Z0-9]','_')
         if ($fid.Length -gt 62) { $fid = $fid.Substring(0, 62) }
         $fid = $fid + '_' + $hash
-        $src = "`$(var.ImagesDir)\$rel"
+        $src = "`$(var.ImagesDir)\" + $rel.Replace('/','\')
         $componentLines += "    <Component Id='$cid' Directory='$dirId' Guid='*'><File Id='$fid' Source='$src'/></Component>"
     }
 
@@ -304,7 +318,7 @@ if ($hasHarvest) {
     $lines += "    </ComponentGroup>"
     $lines += "  </Fragment>"
     $lines += '</Wix>'
-    $lines -join "`r`n" | Set-Content $imgHarvest -NoNewline
+    $lines -join "`r`n" | Set-Content $imgHarvest -NoNewline -Encoding UTF8
 }
 if (-not (Test-Path $imgHarvest)) {
     Write-Error "Failed to generate images-fragment.wxs"

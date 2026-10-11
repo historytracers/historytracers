@@ -5,8 +5,8 @@ Summary: A free and open-source teaching tool.
 License: GPLv3
 URL: https://github.com/historytracers/historytracers
 
-BuildArch: x86_64
 BuildRequires: systemd
+BuildRequires: systemd-rpm-macros
 
 %package images
 Summary: Images for History Tracers
@@ -72,14 +72,20 @@ install -m 644 %{_sourcedir}/www/images/img_options.json %{buildroot}%{_datadir}
 
 # ===== IMAGES SUBPACKAGE: image files =====
 
-# Install all image files except img_options.json
-find %{_sourcedir}/www/images -type f ! -name "img_options.json" -exec cp -t %{buildroot}%{_datadir}/historytracers/www/images/ {} +
+# Install the full images/ tree except img_options.json, preserving hierarchy
+mkdir -p %{buildroot}%{_datadir}/historytracers/www/images
+(cd %{_sourcedir}/www/images && tar cf - --exclude=img_options.json .) | \
+  (cd %{buildroot}%{_datadir}/historytracers/www/images && tar xf -)
 
 # ===== DEVEL SUBPACKAGE: source files =====
 
-# Copy everything from the source tree except the www/ directory
+# Copy top-level source entries except build outputs, www/ and packaging temp dirs
 cd %{_sourcedir}
-find . -maxdepth 1 ! -name "." ! -name "www" -exec cp -r {} %{buildroot}/usr/src/historytracers/ \;
+for entry in * .[!.]*; do \
+  [ -e "$entry" ] || continue; \
+  case "$entry" in www|.git|build|artifacts|rpmbuild) continue;; esac; \
+  cp -r "$entry" %{buildroot}/usr/src/historytracers/; \
+done
 
 %pre
 getent group historytracers >/dev/null || groupadd -r historytracers
@@ -88,12 +94,10 @@ getent passwd historytracers >/dev/null || useradd -r -g historytracers -s /sbin
 
 %post
 chown -R historytracers:historytracers %{_datadir}/historytracers 2>/dev/null || true
-chown historytracers:historytracers %{_bindir}/historytracers 2>/dev/null || true
-#chown historytracers:historytracers %{_bindir}/historytracers-editor 2>/dev/null || true
 chown -R historytracers:historytracers %{_sysconfdir}/historytracers 2>/dev/null || true
+mkdir -p %{_localstatedir}/lib/historytracers %{_localstatedir}/log/historytracers 2>/dev/null || true
 chown historytracers:historytracers %{_localstatedir}/lib/historytracers 2>/dev/null || true
 [ -d %{_localstatedir}/log/historytracers ] && chown historytracers:historytracers %{_localstatedir}/log/historytracers 2>/dev/null || true
-[ -d /usr/src/historytracers ] && chown -R historytracers:historytracers /usr/src/historytracers 2>/dev/null || true
 %systemd_post historytracers.service
 
 %preun

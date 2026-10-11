@@ -32,89 +32,97 @@ if [ ! -d "$SRCDIR" ]; then
 fi
 
 set -e
+set -u
 
-rm -rf $PKG
-mkdir -p $TMP $PKG $OUTPUT
+rm -rf "$PKG"
+mkdir -p "$TMP" "$PKG" "$OUTPUT"
 
 # Extract source tarball
-cd $TMP
-rm -rf $PRGNAM-$VERSION
-tar xf $CWD/$PRGNAM-$VERSION.tar.xz
-cd $PRGNAM-$VERSION
+cd "$TMP"
+rm -rf "$PRGNAM-$VERSION"
+tar xf "$CWD/$PRGNAM-$VERSION.tar.xz"
+cd "$PRGNAM-$VERSION"
 
 # Create package directory structure
-mkdir -p $PKG/usr/bin
-mkdir -p $PKG/usr/share/$PRGNAM/www
-mkdir -p $PKG/usr/share/$PRGNAM/www/images
-mkdir -p $PKG/usr/doc/$PRGNAM
-mkdir -p $PKG/install
-cp packaging/Slackware/doinst.sh $PKG/install/doinst.sh
-mkdir -p $PKG/etc/$PRGNAM
-mkdir -p $PKG/var/lib/$PRGNAM
+mkdir -p "$PKG/usr/bin"
+mkdir -p "$PKG/usr/share/$PRGNAM/www"
+mkdir -p "$PKG/usr/share/$PRGNAM/www/images"
+mkdir -p "$PKG/usr/doc/$PRGNAM"
+mkdir -p "$PKG/install"
+cp packaging/Slackware/doinst.sh "$PKG/install/doinst.sh"
+cat packaging/Slackware/historytracers-desc > "$PKG/install/slack-desc"
+mkdir -p "$PKG/etc/$PRGNAM"
+mkdir -p "$PKG/var/lib/$PRGNAM"
+mkdir -p "$PKG/var/log/$PRGNAM"
 
 # Build the project
 chmod +x historytracers-installer.sh
 ./historytracers-installer.sh
 
 # Install the binaries
-install -m 755 build/historytracers $PKG/usr/bin/historytracers
+install -m 755 build/historytracers "$PKG/usr/bin/historytracers"
 #if [ -f build/historytracers-editor ]; then
-#  install -m 755 build/historytracers-editor $PKG/usr/bin/historytracers-editor
+#  install -m 755 build/historytracers-editor "$PKG/usr/bin/historytracers-editor"
 #fi
+
+# Install config as .new so doinst.sh can preserve admin changes
+if [ -f packaging/conf/historytracers.conf ]; then
+  install -m 600 packaging/conf/historytracers.conf "$PKG/etc/$PRGNAM/historytracers.conf.new"
+fi
 
 # Install web content from www/ (images handled separately)
 if [ -d "www/" ]; then
   for item in www/*; do
     base=$(basename "$item")
     [ "$base" = "images" ] && continue
-    cp -R "$item" $PKG/usr/share/$PRGNAM/www/
+    cp -R "$item" "$PKG/usr/share/$PRGNAM/www/"
   done
 fi
 
 # Install image options config
 if [ -f www/images/img_options.json ]; then
-  install -m 644 www/images/img_options.json $PKG/usr/share/$PRGNAM/www/images/
+  install -m 644 www/images/img_options.json "$PKG/usr/share/$PRGNAM/www/images/"
 fi
 
 # Install editor.html alongside web content
 if [ -f editor.html ]; then
-  install -m 644 editor.html $PKG/usr/share/$PRGNAM/
+  install -m 644 editor.html "$PKG/usr/share/$PRGNAM/"
 fi
 
 # Optionally install actual images from the images tarball
-if [ -f $CWD/historytracers-images-${VERSION}.tar.gz ]; then
-  tar xf $CWD/historytracers-images-${VERSION}.tar.gz -C $TMP
-  mkdir -p $PKG/usr/share/$PRGNAM/www/images
-  cp -R $TMP/historytracers-images/images/* $PKG/usr/share/$PRGNAM/www/images/
+if [ -f "$CWD/historytracers-images-${VERSION}.tar.gz" ]; then
+  tar xf "$CWD/historytracers-images-${VERSION}.tar.gz" -C "$TMP"
+  mkdir -p "$PKG/usr/share/$PRGNAM/www/images"
+  cp -R "$TMP/historytracers-images/images/." "$PKG/usr/share/$PRGNAM/www/images/"
 fi
 
 # Install documentation
 if [ -f LICENSE ]; then
-  install -m 644 LICENSE $PKG/usr/doc/$PRGNAM/
+  install -m 644 LICENSE "$PKG/usr/doc/$PRGNAM/"
 fi
 if [ -f README.md ]; then
-  install -m 644 README.md $PKG/usr/doc/$PRGNAM/
+  install -m 644 README.md "$PKG/usr/doc/$PRGNAM/"
 fi
 
-# Install source code (devel): everything except www/ and .git/
-mkdir -p $PKG/usr/src/$PRGNAM
+# Install source code (devel): everything except generated www/, build outputs and VCS
+mkdir -p "$PKG/usr/src/$PRGNAM"
 for item in * .[!.]*; do
   [ -e "$item" ] || continue
-  case "$(basename "$item")" in www|.git) continue;; esac
-  cp -R "$item" $PKG/usr/src/$PRGNAM/
+  case "$(basename "$item")" in www|.git|build|historytracers.log) continue;; esac
+  cp -R "$item" "$PKG/usr/src/$PRGNAM/"
 done
 
-chmod 755 $PKG/install/doinst.sh
+chmod 755 "$PKG/install/doinst.sh"
 
 # Fix permissions
-find $PKG -type d -exec chmod 755 {} \;
+find "$PKG" -type d -exec chmod 755 {} \;
 # Ownership is handled by makepkg at package creation time
-find $PKG -type f -perm 755 -exec chmod 755 {} \;
-find $PKG -type f -perm 644 -exec chmod 644 {} \;
+find "$PKG" -type f -perm 755 -exec chmod 755 {} \;
+find "$PKG" -type f -perm 644 -exec chmod 644 {} \;
 
 # Build the package
-cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.txz
+cd "$PKG"
+/sbin/makepkg -l y -c n "$OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.txz"
 
 echo
 echo "Package built: $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.txz"

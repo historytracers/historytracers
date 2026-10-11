@@ -18,10 +18,13 @@ load_rc_config ${name}
 : ${historytracers_dir:="%%PREFIX%%/share/historytracers/www"}
 
 command="%%PREFIX%%/bin/historytracers"
+procname="%%PREFIX%%/bin/historytracers"
 pidfile="/var/run/${name}.pid"
 command_args="-dir ${historytracers_dir}"
+required_dirs="${historytracers_dir}"
 
 start_precmd="historytracers_precmd"
+stop_postcmd="historytracers_postcmd"
 
 historytracers_precmd()
 {
@@ -29,6 +32,11 @@ historytracers_precmd()
 		echo "Directory ${historytracers_dir} does not exist."
 		return 1
 	fi
+}
+
+historytracers_postcmd()
+{
+	rm -f "${pidfile}" 2>/dev/null || true
 }
 
 run_rc_command "$1"
