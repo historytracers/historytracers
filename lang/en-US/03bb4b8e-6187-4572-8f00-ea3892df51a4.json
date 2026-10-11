@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791736076"
+      "1791740667"
    ],
    "authors": null,
    "reviewers": null,
@@ -124,6 +124,29 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Practice\n\nBelow there are two rectangles of the same color, but they can change size. Use the buttons to make each rectangle longer or taller, and watch the rulers: the ruler below shows the length, and the ruler beside each rectangle shows the height.\n\nTwo rectangles are fully equal only when they have the **same length** and the **same height**. Change the measurements and read the sentence below.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htRectApp\" id=\"htRectApp\"><div class=\"htRectBoard\"><div class=\"htRectHRuler\" id=\"htRectHRulerTop\"></div><div class=\"htRectControls\" data-htrect=\"1\"><span class=\"htRectLabel\">1</span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Length</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"1\" data-dim=\"len\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"1\" data-dim=\"len\">+</button></span></span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Height</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"1\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"1\" data-dim=\"hei\">+</button></span></span></div><div class=\"htRectGrid\" id=\"htRectGrid1\"></div><div class=\"htRectVRuler\" id=\"htRectVRuler1\"></div><div class=\"htRectControls\" data-htrect=\"2\"><span class=\"htRectLabel\">2</span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Length</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"2\" data-dim=\"len\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"2\" data-dim=\"len\">+</button></span></span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Height</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"2\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"2\" data-dim=\"hei\">+</button></span></span></div><div class=\"htRectGrid\" id=\"htRectGrid2\"></div><div class=\"htRectVRuler\" id=\"htRectVRuler2\"></div><div class=\"htRectHRuler\" id=\"htRectHRuler\"></div></div><div class=\"htRectFeedback\" id=\"htRectFeedback\"></div><span id=\"htRectMsgEqual\" class=\"htRectHidden\">Rectangle 1 and rectangle 2 are equal: they have the same length ({l1}) and the same height ({h1}).</span><span id=\"htRectMsgSameLenDiffHei\" class=\"htRectHidden\">Rectangle 1 and rectangle 2 are not equal: they have the same length ({l1}), but different heights ({h1} and {h2}).</span><span id=\"htRectMsgDiffLenSameHei\" class=\"htRectHidden\">Rectangle 1 and rectangle 2 are not equal: they have the same height ({h1}), but different lengths ({l1} and {l2}).</span><span id=\"htRectMsgDiffLenDiffHei\" class=\"htRectHidden\">Rectangle 1 and rectangle 2 are not equal: they have different lengths ({l1} and {l2}) and different heights ({h1} and {h2}).</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]

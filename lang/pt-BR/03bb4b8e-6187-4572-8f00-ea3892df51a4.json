@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791736114"
+      "1791740703"
    ],
    "authors": null,
    "reviewers": null,
@@ -124,6 +124,29 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Prática\n\nAbaixo há dois retângulos da mesma cor, mas eles podem mudar de tamanho. Use os botões para deixar cada retângulo mais longo ou mais alto e observe as réguas: a régua de baixo mostra o comprimento, e a régua ao lado de cada retângulo mostra a altura.\n\nDois retângulos são totalmente iguais somente quando têm o **mesmo comprimento** e a **mesma altura**. Mude as medidas e leia a frase abaixo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htRectApp\" id=\"htRectApp\"><div class=\"htRectBoard\"><div class=\"htRectHRuler\" id=\"htRectHRulerTop\"></div><div class=\"htRectControls\" data-htrect=\"1\"><span class=\"htRectLabel\">1</span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Comprimento</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"1\" data-dim=\"len\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"1\" data-dim=\"len\">+</button></span></span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Altura</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"1\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"1\" data-dim=\"hei\">+</button></span></span></div><div class=\"htRectGrid\" id=\"htRectGrid1\"></div><div class=\"htRectVRuler\" id=\"htRectVRuler1\"></div><div class=\"htRectControls\" data-htrect=\"2\"><span class=\"htRectLabel\">2</span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Comprimento</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"2\" data-dim=\"len\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"2\" data-dim=\"len\">+</button></span></span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Altura</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"2\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"2\" data-dim=\"hei\">+</button></span></span></div><div class=\"htRectGrid\" id=\"htRectGrid2\"></div><div class=\"htRectVRuler\" id=\"htRectVRuler2\"></div><div class=\"htRectHRuler\" id=\"htRectHRuler\"></div></div><div class=\"htRectFeedback\" id=\"htRectFeedback\"></div><span id=\"htRectMsgEqual\" class=\"htRectHidden\">O retângulo 1 e o retângulo 2 são iguais: eles têm o mesmo comprimento ({l1}) e a mesma altura ({h1}).</span><span id=\"htRectMsgSameLenDiffHei\" class=\"htRectHidden\">O retângulo 1 e o retângulo 2 não são iguais: eles têm o mesmo comprimento ({l1}), mas altura diferente ({h1} e {h2}).</span><span id=\"htRectMsgDiffLenSameHei\" class=\"htRectHidden\">O retângulo 1 e o retângulo 2 não são iguais: eles têm a mesma altura ({h1}), mas comprimento diferente ({l1} e {l2}).</span><span id=\"htRectMsgDiffLenDiffHei\" class=\"htRectHidden\">O retângulo 1 e o retângulo 2 não são iguais: eles têm comprimento diferente ({l1} e {l2}) e altura diferente ({h1} e {h2}).</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]
