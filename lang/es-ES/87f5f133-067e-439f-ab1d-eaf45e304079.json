@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791678892"
+      "1791732721"
    ],
    "authors": [
       ""
@@ -227,10 +227,10 @@
          ]
       },
       {
-         "id": "SECTION_scale",
+         "id": "SECTION_direction",
          "text": [
             {
-               "text": "### Usar la regla en una escala\n\nLa regla de medir de la Figura 1 ya es una escala: comienza en un mínimo de 0 y termina en un máximo de 100, y la distancia de una marca a la siguiente siempre es la misma. Para usarla como herramienta de medida, solo tenemos que decidir cuánto vale cada una de esas marcas. Si queremos contar cuántas de diez características tiene un objeto, podemos darle a cada característica diez marcas: la primera lleva la lectura de 0 a 10, la segunda de 10 a 20, y así hasta la décima, que la lleva hasta 100.",
+               "text": "### Comparar en una dirección\n\nAntes de poder comparar dos objetos, necesitamos **medirlos**. Medir significa averiguar cuánto mide algo **en una dirección**: a lo largo de una sola línea. La herramienta que usamos para ello es la **regla**, la tira recta y marcada que ya aparece en la **Figura 1**. Sus marcas están igualmente separadas y cada una lleva un número, así que cada longitud encuentra su propio número en la regla.\n\nUsemos la regla, paso a paso:\n\n1. Coloca el objeto a lo largo del borde de la regla, de modo que un extremo del objeto coincida con la marca del **0**.\n2. Mantén el objeto recto, sin inclinarlo, y observa la marca donde se detiene el otro extremo.\n3. El número que encuentres allí es la **medida** del objeto: indica la longitud del objeto en la dirección que elegiste.\n\nPor ejemplo, si un objeto se detiene en la marca **10**, su medida es 10. Si otro objeto se detiene en la marca **20**, su medida es 20.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -239,7 +239,16 @@
                "PostMention": ""
             },
             {
-               "text": "Medir se vuelve entonces algo que podemos ver en la regla. Recorremos la lista de características una por una: cada característica que el objeto tiene empuja la lectura esa cantidad de marcas hacia la derecha, y cada característica que le falta deja la lectura donde está. Donde se detiene la lectura es la puntuación del objeto.\n\nComo las marcas están igualmente separadas, el lugar donde se detiene la lectura ya nos dice cómo le fue al objeto. Una lectura cercana a 100 queda cerca del máximo, así que el objeto tiene casi todas las características que pedimos; una lectura cercana a 0 queda cerca del mínimo, así que casi no tiene ninguna. A menudo escribimos esta medida como un porcentaje (símbolo \"%\"), leyendo las marcas de la regla como partes de cien: 90% es la lectura en la marca 90, y 10% es la lectura en la marca 10.",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Son realmente iguales?</b><br /><br />Se midieron dos objetos a lo largo de la misma línea y ambos se detuvieron en la misma marca, así que ambos tienen la misma longitud. ¿Eso los hace iguales? ¿Podrían seguir siendo diferentes de alguna otra manera?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora podemos comparar las dos medidas. Cuando ambos objetos se detienen en la **misma marca**, son **iguales en una dirección**: tienen la misma longitud. Cuando cada objeto se detiene en una marca distinta, uno es más largo y el otro más corto, y la regla de mayor y menor nos dice cuál medida es mayor y cuál es menor.\n\nAsí, para que dos objetos sean **iguales en una dirección**, deben tener la misma longitud. La misma longitud es el **primer paso**, pero, como veremos, no es el único.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -248,7 +257,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ahora podemos comparar dos objetos mirando dónde se detiene cada uno en la misma regla. Como las marcas crecen de izquierda a derecha, la lectura que queda más a la derecha es la mayor: *90% > 10%*, porque 90 viene después de 10. En los textos siguientes usaremos esta regla de medir, comparando objetos por las puntuaciones que obtienen.",
+               "text": "#### La misma longitud es solo el primer paso\n\nTener la misma longitud es un paso hacia la igualdad, pero no es todo el camino. Imagina dos lápices exactamente de la misma longitud: uno es **rojo** y el otro es **azul**. Si colocamos ambos sobre la regla, los dos se detienen en la misma marca, así que tienen la misma longitud. ¿Son iguales? No. Comparten la misma longitud, pero tienen **colores diferentes**, así que no son objetos iguales.\n\nEsto nos enseña una lección importante: dos objetos solo son **plenamente iguales** cuando coinciden en **todas las características** que comparamos, y no solo en una. La longitud es una **dirección** de comparación; el color, la forma y el material son otras direcciones. Dos objetos pueden ser iguales en una dirección y diferentes en otra.\n\nPara comparar bien dos objetos, pregúntate siempre:\n\n1. ¿**Qué característica** estoy comparando?\n2. ¿Coinciden los dos objetos en **esa** característica?\n3. ¿Coinciden también en las **demás** características que importan?",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -259,10 +268,33 @@
          ]
       },
       {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Práctica\n\nAbajo hay tres cintas que pueden cambiar de longitud. Usa los botones **+** y **−** para alargar o acortar cada cinta y observa la regla que está debajo de ellas.\n\nDos cintas son totalmente iguales solo cuando tienen la **misma longitud** y el **mismo color**. Cambia las longitudes y lee las comparaciones de abajo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htStringsApp\" id=\"htStringsApp\"><div class=\"htStringsGrid\"><span class=\"htStringsLabel\">1</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"1\" aria-label=\"Más corta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack1\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"1\" aria-label=\"Más larga\">+</button><span class=\"htStringsLabel\">2</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"2\" aria-label=\"Más corta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack2\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"2\" aria-label=\"Más larga\">+</button><span class=\"htStringsLabel\">3</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"3\" aria-label=\"Más corta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack3\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"3\" aria-label=\"Más larga\">+</button><span class=\"htStringsLabel\"></span><span class=\"htStringsSpacer\"></span><div class=\"htStringsRuler\" id=\"htStringsRuler\"></div><span class=\"htStringsSpacer\"></span></div><div class=\"htStringsComparisons\" id=\"htStringsComparisons\"></div><span id=\"htStringsMsgEqual\" class=\"htStringsHidden\">La cinta {a} y la cinta {b} son iguales, porque tienen la misma longitud ({la}) y el mismo color.</span><span id=\"htStringsMsgSameColorDiffLength\" class=\"htStringsHidden\">La cinta {a} y la cinta {b} no son iguales, porque tienen el mismo color pero diferente longitud ({la} y {lb}).</span><span id=\"htStringsMsgDiffColorSameLength\" class=\"htStringsHidden\">La cinta {a} y la cinta {b} no son iguales, porque tienen la misma longitud ({la}) pero diferente color.</span><span id=\"htStringsMsgDiffColorDiffLength\" class=\"htStringsHidden\">La cinta {a} y la cinta {b} no son iguales, porque tienen diferente longitud ({la} y {lb}) y diferente color.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto aprendimos la regla de comparación. Con los símbolos (>) y (<) podemos decir cuál de dos números es mayor y cuál es menor —el lado abierto del símbolo siempre mira hacia el número mayor—. La Tabla 1 mostró que una desigualdad debe seguir siendo verdadera: cuando cambia un lado, el otro tiene que cambiar en la misma proporción. Luego usamos la regla en una escala centesimal, donde los puntajes se acercan al máximo de 100 cuando los objetos cumplen las características definidas y se alejan hacia el mínimo de 0 cuando se apartan de ellas.",
+               "text": "### Conclusión\n\nEn este texto construimos las herramientas para comparar. Con los símbolos (>) y (<) decimos cuál de dos números es mayor y cuál es menor —el lado abierto siempre mira hacia el número mayor—, y los símbolos (&#8811;) y (&#8810;) marcan una diferencia mucho mayor o mucho menor. La Tabla 1 mostró que una desigualdad debe seguir siendo verdadera: siempre que un lado cambia, el otro tiene que cambiar con él, o la comparación se rompe.\n\nDespués aprendimos que comparar empieza por medir. Con una regla encontramos cuánto mide algo **en una dirección**, y dos objetos que se detienen en la misma marca son iguales en esa dirección. Pero la misma longitud es solo el primer paso: la práctica con las tres cintas mostró que dos objetos son **totalmente iguales** solo cuando coinciden en **todas las características** que comparamos —la longitud y el color a la vez—. Dos objetos pueden ser iguales en una dirección y diferentes en otra, así que para comparar bien siempre preguntamos qué características importan y si los objetos coinciden en todas ellas.",
                "source": null,
                "date_time": null,
                "isTable": false,

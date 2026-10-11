@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791678864"
+      "1791732701"
    ],
    "authors": [
       ""
@@ -227,10 +227,10 @@
          ]
       },
       {
-         "id": "SECTION_scale",
+         "id": "SECTION_direction",
          "text": [
             {
-               "text": "### Using the Rule on a Scale\n\nThe ruler in Figure 1 is already a scale: it begins at a minimum of 0 and ends at a maximum of 100, and the distance from one mark to the next is always the same. To use it as a measuring tool, we only have to decide what each of those marks is worth. If we want to count how many of ten characteristics an object has, we can give each characteristic ten marks: the first one carries the reading from 0 to 10, the second from 10 to 20, and so on until the tenth, which brings it to 100.",
+               "text": "### Comparing in one direction\n\nBefore we can compare two objects, we need to **measure** them. Measuring means finding how long something is **in one direction** — along a single line. The tool we use for this is the **ruler**, the straight, marked strip already shown in **Figure 1**. Its marks are equally spaced and each one carries a number, so every length finds its own number on the ruler.\n\nLet us use the ruler, step by step:\n\n1. Place the object along the edge of the ruler, so that one end of the object lines up with the mark of **0**.\n2. Keep the object straight, without tilting it, and look at the mark where the other end stops.\n3. The number you find there is the **measure** of the object: it tells the length of the object in the direction you chose.\n\nFor example, if one object stops at the mark **10**, its measure is 10. If another object stops at the mark **20**, its measure is 20.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -239,7 +239,16 @@
                "PostMention": ""
             },
             {
-               "text": "Measuring then becomes something we can watch on the ruler. We go through the list of characteristics one by one: every characteristic the object has pushes the reading that many marks to the right, and every characteristic it lacks leaves the reading where it is. Where the reading stops is the score of the object.\n\nBecause the marks are equally spaced, the place where the reading stops already tells us how the object did. A reading close to 100 sits near the maximum, so the object has almost every characteristic we asked for; a reading close to 0 sits near the minimum, so it has almost none. We often write this measurement as a percent (symbol \"%\"), reading the marks of the ruler as parts out of a hundred: 90% is the reading at the mark 90, and 10% is the reading at the mark 10.",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Are they truly equal?</b><br /><br />Two objects were measured along the same line, and both stopped at the same mark, so both have the same length. Does that make them equal? Could they still be different in some other way?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Now we can compare the two measures. When both objects stop at the **same mark**, they are **equal in one direction**: they have the same length. When each object stops at a different mark, one is longer and the other is shorter, and the rule of greater and smaller tells us which measure is greater and which is smaller.\n\nSo, for two objects to be **equal in one direction**, they must have the same length. The same length is the **first step** — but, as we will see, it is not the only one.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -248,7 +257,7 @@
                "PostMention": ""
             },
             {
-               "text": "Two objects can now be compared by looking at where each one stops on the same ruler. Since the marks grow from left to right, the reading further to the right is the greater one: *90% > 10%*, because 90 comes after 10. In the following texts we will put this ruler to work, comparing objects by the scores they get.",
+               "text": "#### Same length is only the first step\n\nHaving the same length is one step toward equality, but it is not the whole journey. Picture two pencils of exactly the same length: one is **red** and the other is **blue**. If we lay both of them on the ruler, both stop at the same mark, so they have the same length. Are they equal? No. They share the same length, but they have **different colors**, so they are not equal objects.\n\nThis teaches us an important lesson: two objects are only **fully equal** when they match in **every characteristic** we are comparing, not just in one. Length is one **direction** of comparison; color, shape and material are other directions. Two objects can be equal in one direction and different in another.\n\nTo compare two objects well, always ask yourself:\n\n1. **Which characteristic** am I comparing?\n2. Do the two objects match in **that** characteristic?\n3. Do they also match in the **other** characteristics that matter?",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -259,10 +268,33 @@
          ]
       },
       {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Practice\n\nBelow there are three strings that can change length. Use the **+** and **−** buttons to make each string longer or shorter, and watch the ruler under them.\n\nTwo strings are fully equal only when they have the **same length** and the **same color**. Change the lengths and read the comparisons below.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htStringsApp\" id=\"htStringsApp\"><div class=\"htStringsGrid\"><span class=\"htStringsLabel\">1</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"1\" aria-label=\"Shorter\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack1\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"1\" aria-label=\"Longer\">+</button><span class=\"htStringsLabel\">2</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"2\" aria-label=\"Shorter\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack2\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"2\" aria-label=\"Longer\">+</button><span class=\"htStringsLabel\">3</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"3\" aria-label=\"Shorter\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack3\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"3\" aria-label=\"Longer\">+</button><span class=\"htStringsLabel\"></span><span class=\"htStringsSpacer\"></span><div class=\"htStringsRuler\" id=\"htStringsRuler\"></div><span class=\"htStringsSpacer\"></span></div><div class=\"htStringsComparisons\" id=\"htStringsComparisons\"></div><span id=\"htStringsMsgEqual\" class=\"htStringsHidden\">String {a} and string {b} are equal, because they have the same length ({la}) and the same color.</span><span id=\"htStringsMsgSameColorDiffLength\" class=\"htStringsHidden\">String {a} and string {b} are not equal, because they have the same color but different lengths ({la} and {lb}).</span><span id=\"htStringsMsgDiffColorSameLength\" class=\"htStringsHidden\">String {a} and string {b} are not equal, because they have the same length ({la}) but different colors.</span><span id=\"htStringsMsgDiffColorDiffLength\" class=\"htStringsHidden\">String {a} and string {b} are not equal, because they have different lengths ({la} and {lb}) and different colors.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text we learned the rule of comparison. With the symbols (>) and (<) we can say which of two numbers is greater and which is smaller — the open side of the symbol always faces the larger number. Table 1 showed that an inequality must stay true: when one side changes, the other has to change in the same proportion. We then used the rule on a centesimal scale, where scores move toward the maximum of 100 as objects match the defined characteristics and toward the minimum of 0 as they deviate.",
+               "text": "### Conclusion\n\nIn this text we built the tools for comparing. With the symbols (>) and (<), we say which of two numbers is greater and which is smaller — the open side always faces the larger number — and the symbols (&#8811;) and (&#8810;) mark a much greater or a much smaller difference. Table 1 showed that an inequality must stay true: whenever one side changes, the other side has to change with it, or the comparison breaks.\n\nWe then learned that comparing begins with measuring. Using a ruler, we find how long something is **in one direction**, and two objects that stop at the same mark are equal in that direction. But the same length is only the first step: the practice with the three strings showed that two objects are **fully equal** only when they match in **every characteristic** we are comparing — length and color together. Two objects can be equal in one direction and different in another, so to compare well we always ask which characteristics matter and whether the objects match in all of them.",
                "source": null,
                "date_time": null,
                "isTable": false,

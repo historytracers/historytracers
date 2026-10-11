@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791397113"
+      "1791732698"
    ],
    "authors": null,
    "reviewers": null,
@@ -91,6 +91,29 @@
             },
             {
                "text": "<div class=\"htOddEvenGame\"><span class=\"htOddEvenQuestion\">Is the number odd or even?</span><table class=\"htOddEvenTable\"><tr><th>Number</th><th>Sharing in pairs</th></tr><tr><td class=\"htOddEvenNumberCell\"><span id=\"oddEvenNumber\" class=\"text_to_paint\">0</span></td><td class=\"htOddEvenPairsCell\"><table class=\"htOddEvenPairsTable\"><tr><th>Side 1</th><th>Side 2</th></tr><tbody id=\"oddEvenPairsBody\"></tbody></table></td></tr></table><div class=\"htOddEvenButtonsRow\"><button type=\"button\" id=\"oddEvenOddBtn\" class=\"htOddEvenButton\">Odd</button><button type=\"button\" id=\"oddEvenEvenBtn\" class=\"htOddEvenButton\">Even</button></div><div id=\"oddEvenFeedback\" class=\"htOddEvenFeedback\"></div><div class=\"htOddEvenNewContainer\"><button type=\"button\" id=\"oddEvenNewBtn\" class=\"reset-tutor-btn hidden\">🎲 New exercise</button></div><span id=\"htOddEvenMsgOddCorrect\" class=\"htOddEvenHidden\">Correct! <b>{n}</b> is odd. When we divide {n} by 2, we get {q} with remainder 1. One circle is left over, so one side has one more circle than the other.</span><span id=\"htOddEvenMsgEvenCorrect\" class=\"htOddEvenHidden\">Correct! <b>{n}</b> is even. When we divide {n} by 2, we get {q} with remainder 0. The circles form {q} complete pairs, so both sides are equal.</span><span id=\"htOddEvenMsgOddWrong\" class=\"htOddEvenHidden\">The number is odd, because when divided by 2 there is one remaining: {n} = 2 × {q} + 1. That extra circle is left over on one side.</span><span id=\"htOddEvenMsgEvenWrong\" class=\"htOddEvenHidden\">The number is even, because when divided by 2 there is no remainder: {n} = 2 × {q}. The circles can be shared between two equal sides, so nothing is left over.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Practice\n\nBelow there are three strings that can change length. Use the **+** and **−** buttons to make each string longer or shorter, and watch the ruler under them.\n\nTwo strings are fully equal only when they have the **same length** and the **same color**. Change the lengths and read the comparisons below.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htStringsApp\" id=\"htStringsApp\"><div class=\"htStringsGrid\"><span class=\"htStringsLabel\">1</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"1\" aria-label=\"Shorter\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack1\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"1\" aria-label=\"Longer\">+</button><span class=\"htStringsLabel\">2</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"2\" aria-label=\"Shorter\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack2\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"2\" aria-label=\"Longer\">+</button><span class=\"htStringsLabel\">3</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"3\" aria-label=\"Shorter\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack3\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"3\" aria-label=\"Longer\">+</button><span class=\"htStringsLabel\"></span><span class=\"htStringsSpacer\"></span><div class=\"htStringsRuler\" id=\"htStringsRuler\"></div><span class=\"htStringsSpacer\"></span></div><div class=\"htStringsComparisons\" id=\"htStringsComparisons\"></div><span id=\"htStringsMsgEqual\" class=\"htStringsHidden\">String {a} and string {b} are equal, because they have the same length ({la}) and the same color.</span><span id=\"htStringsMsgSameColorDiffLength\" class=\"htStringsHidden\">String {a} and string {b} are not equal, because they have the same color but different lengths ({la} and {lb}).</span><span id=\"htStringsMsgDiffColorSameLength\" class=\"htStringsHidden\">String {a} and string {b} are not equal, because they have the same length ({la}) but different colors.</span><span id=\"htStringsMsgDiffColorDiffLength\" class=\"htStringsHidden\">String {a} and string {b} are not equal, because they have different lengths ({la} and {lb}) and different colors.</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
