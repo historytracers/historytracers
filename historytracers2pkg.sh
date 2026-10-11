@@ -705,7 +705,9 @@ ht_build_slackware() {
     source packaging/Slackware/historytracers.info
 
     local DST
-    DST="historytracers-${VERSION}"
+    # NOTE: the directory inside the tarball is NEVER versioned (plain
+    # "historytracers"); the version lives only in the tarball file name.
+    DST="historytracers"
 
     # Clean up any previous temp dirs
     rm -rf historytracers historytracers-images "${DST}"

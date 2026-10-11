@@ -38,11 +38,11 @@ set -u
 rm -rf "$PKG" "$PKG_WWW"
 mkdir -p "$TMP" "$PKG" "$PKG_WWW" "$OUTPUT"
 
-# Extract source tarball
+# Extract source tarball (its top directory is unversioned by convention)
 cd "$TMP"
-rm -rf "$PRGNAM-$VERSION"
+rm -rf "$PRGNAM"
 tar xf "$CWD/$PRGNAM-$VERSION.tar.xz"
-cd "$PRGNAM-$VERSION"
+cd "$PRGNAM"
 
 # Create main package directory structure (binary, config, docs, devel)
 mkdir -p "$PKG/usr/bin"
