@@ -1,6 +1,6 @@
 {
-   "title": "Bigger or Smaller",
-   "header": "Bigger or Smaller",
+   "title": "Comparing in more than one direction",
+   "header": "Comparing in more than one direction",
    "sources": [
       "03bb4b8e-6187-4572-8f00-ea3892df51a4"
    ],
@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791734749"
+      "1791736076"
    ],
    "authors": null,
    "reviewers": null,
@@ -68,28 +68,16 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nBefore you continue, review the two previous texts: **equality** and **natural limits**. This lesson builds on both",
+               "text": "### Prerequisites\n\nBefore you continue, read **When size matters** (<htcite0>). There we learned to measure an object in one direction with a ruler, and we saw that two objects are fully equal only when they match in every characteristic we compare. This lesson continues that idea.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "82544083-aaad-4760-963b-f433bd3e8729",
+                     "uuid": "87f5f133-067e-439f-ab1d-eaf45e304079",
                      "text": "History Tracers Team",
-                     "page": "Are we truly equal?",
+                     "page": "When size matters",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
-                     "text": "History Tracers Team",
-                     "page": "Natural limits",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
+                        "year": "2026",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -99,7 +87,44 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nIn the previous text we measured objects in one direction: we placed them on a ruler and read how long they are. But an object is not one-dimensional. It also has a width, a height, a color, a shape and a material, and each of these characteristics is another **direction** in which we can compare one object with another.\n\nWhen we compare only the length, we learn only one part of the story. Two objects can have the same length and still be different in width, height or color.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Should we measure in other directions?</b><br /><br />We already know how to compare two objects in one direction by measuring their length. If the two objects have the same length, are they necessarily equal? Should we measure them in other directions, such as width, height and color, before deciding whether they are equal?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_direction",
+         "text": [
+            {
+               "text": "### Measuring in a New Direction\n\nThe good news is that we do not have to learn a new method. Measuring in another direction follows exactly the same steps we already used:\n\n1. Choose the direction we want to compare — for example, the width.\n2. Place both objects along the ruler so that one end of each object lines up with the mark of **0**.\n3. Keep the objects straight in that direction and read the mark where each one stops.\n4. Compare the two measures.\n\nTo compare the **width** of two objects, we measure them along the horizontal ruler. To compare their **height**, we measure them along the vertical ruler. To compare their **color**, we look at that characteristic and check whether both objects have the same color. In every case the method does not change: we choose a direction, measure both objects in that direction, and then compare the two measures.\n\nWhen the two measures match, the objects are **equal in that direction**; when they differ, the objects are **different in that direction**. This is why two objects can be equal in one direction and different in another.\n\nIf we compare the objects in only one direction, we learn only part of the story. To say whether two objects are **fully equal**, we must repeat the same measurement in every direction that matters to us. The more directions we compare, the more complete our comparison becomes.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       },
@@ -107,546 +132,13 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Introduction\n\nIn the previous texts we introduced the idea of equality: two objects are either equal or they are not. If they are not equal, they are different. But the word \"different\" alone says nothing about *how much* they differ. To measure that gap we need a way to compare one object with another. That is the goal of this lesson: you will learn to say which of two numbers is **greater** and which is **smaller**, and how these two ideas help us define limits.",
+               "text": "### Conclusion\n\nIn this lesson we learned that comparing does not stop at one direction. To compare two objects in a new direction, we repeat the same steps we already know: choose the direction, measure both objects in that direction, and compare the two measures. When the measures match, the objects are equal in that direction; when they differ, they are different in that direction.\n\nWe also saw that one direction is not enough. Two objects can have the same length and still differ in width, height or color. To decide whether two objects are **fully equal**, we must compare them in **every direction that matters to us**. The more directions we compare, the more complete — and the more trustworthy — our comparison becomes.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
                "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_numbers",
-         "text": [
-            {
-               "text": "<h3>Numerical Relationship</h3><p class=\"desc\"><img id=\"imgMeter\"  class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figure 1</b>: Representation of a centesimal scale.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Look at Figure 1: the numbers we studied earlier are listed in order. When a number comes **after** another, it is **greater**. We write that relationship with the symbol (>), so *21 > 20* means \"21 is greater than 20\"",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "The opposite is also true: a number that comes **before** another is **smaller**. We use the symbol (<), so *20 < 21* means \"20 is smaller than 21\"",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "A useful tip: the open side of the comparison symbol — greater (>) or smaller (<) — always faces the larger number. Test it with *21 > 20*: the opening faces 21.\n\nWhen the gap between the two numbers is huge, mathematics offers a shortcut: (&#8811;) reads \"much greater than\", as in *1000000 &#8811; 20*, and (&#8810;) reads \"much less than\", as in *20 &#8810; 1000000*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p><h4>Practice</h4>An inequality is a statement that must stay true. If you change one side, you have to change the other side in the same proportion, or the comparison breaks. Try it yourself: use the arrows to move the hands up and down, and watch how both numbers change together:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equation</i></th><th>Left hand</th><th>Right hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></i></td></tr></table></p><p class=\"desc\"><b>Table 1</b>: Keeping the inequality.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_bulding",
-         "text": [
-            {
-               "text": "### The Smaller as a Basis\n\nNature always starts small. First came the elementary particles, such as electrons. Those particles grouped into **atoms**, atoms joined into **molecules**, and molecules combined into ever more complex structures. Out of that long chain came the first living beings, and after billions of years of evolution, the great diversity of species we know today — including ourselves.\n\nNotice the pattern: each new level is built from the one below it. We will use the same idea with numbers",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "6dfe4b3b-8338-46ab-8149-2e073414907e",
-                     "text": "NASA",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "34a775e9-d5b7-4bed-b5cd-28f77fc1aa65",
-                     "text": "Moody, E.R.R., Álvarez-Carretero, S., Mahendrarajah, T.A. et al",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "27ff155c-c38d-4619-a435-4d95fd55071d",
-                     "text": "Pirula",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "822840ab-a8dd-4f6a-b53e-ca5ab8d159ca",
-                     "text": "Pirula",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "d7dd7faf-23a6-4cb4-9c1a-a9bbb7d6f33d",
-                     "text": "Hossenfelder, Sabine",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p><table><tr><th>Quantum atom</th><th>DNA molecule</th><th>Living Beings</th></tr><tr><td><img id=\"imgQA\" onclick=\"htImageZoom('imgQA', '0%')\"  /></td><td><img id=\"imgDNA\" onclick=\"htImageZoom('imgDNA', '0%')\"  style=\"width:90%\" /></td><td><img id=\"img2Cat\" onclick=\"htImageZoom('img2Cat', '0%')\" style=\"width:70%;\"></td></tr><tr><td colspan=\"3\" style=\"text-align: center; font-size: 70%;\"><b>Figure 2</b>: Simplified representation of a hydrogen atom on the left, a DNA molecule in the center, and living beings on the right.</td></tr></table></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "#### Superposition\n\nHumans build in the same way: we stack smaller parts to obtain a larger whole. **Temple 16 of Copán** (Honduras) is a good example. Over about 400 years it went through several construction phases. As Figure 3 shows, builders raised a small structure first and then added layer on layer of new material, until the temple reached the size we see today",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
-                     "text": "Tuarez Mejia, L. F.",
-                     "page": "pp. 120-128",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\"  class=\"imgcenter\"/><b>Figure 3</b>: Poster at the archaeological site of Copán (<htcite0>). Photo taken on <htdate1>, during a visit to the site.</p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "1e007481-9bd3-4a09-ad4d-6e812fe79641",
-                     "text": "Instituto Hondureño de Antropologia e Historia",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "02",
-                        "day": "01"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2024",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "2015",
-                     "month": "7",
-                     "day": "30"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_example",
-         "text": [
-            {
-               "text": "### Beginning Small\n\nThe same logic appears in the great monuments of the Americas (<i>Abya Yala</i>). The pyramids of **Figure 4** have wide bases that narrow as they rise, much like the mountains near these archaeological sites, which probably inspired their shape.\n\nThe landscape was not the only guide: recent discoveries show that the sacred city of **Caral** (Peru) was planned with small scale models — maquettes — before its great structures were raised",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
-                     "text": "Ruta Caral",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "03c3743c-d268-4730-ba8e-d36b5c49e781",
-                     "text": "Caral Perú Oficial",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "3b18a263-71e9-4c61-a7fe-c23cbce65624",
-                     "text": "Zona Caral",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "9",
-                        "day": "28"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "b9af756b-558a-4292-b71b-d9b3cc47d570",
-                     "text": "de la Morena, Raquel",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\"  class=\"imgcenter\"/><b>Figure 4</b>: Pyramid H1 in the archaeological site of Caral (<htcite0> ; <htcite1>). Photo taken on <htdate2>, during a visit to the site.</p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
-                     "text": "Ruta Caral",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "11",
-                        "day": "02"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "03c3743c-d268-4730-ba8e-d36b5c49e781",
-                     "text": "Youtube - Caral Perú Oficial",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "11",
-                        "day": "02"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2024",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "2024",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "2017",
-                     "month": "6",
-                     "day": "13"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_limits",
-         "text": [
-            {
-               "text": "### Limits\n\n\"Greater\" and \"smaller\" are not only ways to compare two numbers: they are also the language of **limits**. In the previous text we saw that a limit can be a maximum or a minimum, and that it can also be read as an approximation of a value. Now we will use the symbols we just learned to write those limits down",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
-                     "text": "History Tracers Team",
-                     "page": "Natural limits",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figure 5</b>: Circle with a radius of 75: O is the center and r the radius.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "#### Upper Limit\n\nAn upper limit is the largest value allowed in a given context. In **Figure 5**, the radius r (the distance from the center O to the circumference) measures 75. Nothing inside the circle can exceed that distance, so any radius we measure must stay below it: *r < 75*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "e58ad730-899f-49b6-aaf8-53cb39c31f0e",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "#### Lower Limit\n\nA lower limit is the smallest value allowed. Back to **Figure 5**: measure the radius from the circumference toward the center, and the segment only exists while it has some length. A radius of zero would be no radius at all, so the radius must stay above zero: *r > 0*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "61b6b478-d49a-40ec-a68d-52767ebbb6cc",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "#### Biological Limits\n\nLimits also matter in biology. When we try to decide whether two populations are genetically distinct, we compare them inside a range. Alan R. Templeton proposed a clear criterion: to avoid calling two populations different races, their genetic difference (*d*) must stay between a minimum of 0 and a maximum of 25: *0 < d < 25*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                     "text": "Templeton A. R.",
-                     "page": "pp. 7 - 8",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                     "text": "Templeton A. R.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "Templeton also pointed out that the genetic variation among humans stays below *5*, well inside that range (*0 < 5 < 25*)",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                     "text": "Templeton A. R.",
-                     "page": "pp. 7 - 8",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                     "text": "Templeton A. R.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
-         "id": "SECTION_conclusion",
-         "text": [
-            {
-               "text": "### Conclusion\n\nIn this lesson you learned to compare two numbers with the symbols (>) and (<), and to turn those comparisons into inequalities. You also saw that the same ideas describe limits — in geometry and even in biology — which gives a deeper meaning to the limits discussed in the previous chapter",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
-                     "text": "History Tracers Team",
-                     "page": "Natural limits",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
             }
          ]
       }
