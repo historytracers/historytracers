@@ -20,16 +20,32 @@ CONFIGURE_ARGS=	--with-conf-path=${PREFIX}/etc/historytracers/dev.conf \
 USE_GNOME=	gtk30 cairo pango gdkpixbuf
 LIB_DEPENDS=	libwebkit2gtk-4.1.so:www/webkit2gtk41
 
-USE_RC_SUBR=	historytracers
+OPTIONS_DEFINE=	VIEWER WWW
+OPTIONS_DEFAULT=	VIEWER WWW
+OPTIONS_SUB=	yes
+VIEWER_DESC=	Viewer binary and rc.d service script
+WWW_DESC=	Web content for any HTTP server (Apache, IIS)
 
 USERS=		historytracers
 GROUPS=		historytracers
 
+SUB_FILES=	pkg-install pkg-message historytracers
+
 PLIST_SUB+=	PORTVERSION=${PORTVERSION}
 
-post-install:
+post-install-VIEWER-on:
+	${INSTALL_PROGRAM} ${WRKSRC}/build/historytracers ${STAGEDIR}${PREFIX}/bin/historytracers
+	${SED} -e 's,%%PREFIX%%,${PREFIX},g' ${FILESDIR}/historytracers.in > ${WRKDIR}/historytracers
+	${INSTALL_SCRIPT} ${WRKDIR}/historytracers ${STAGEDIR}${PREFIX}/etc/rc.d/historytracers
+
+post-install-WWW-on:
 	${MKDIR} ${STAGEDIR}${PREFIX}/etc/historytracers
 	${INSTALL_DATA} ${WRKSRC}/packaging/conf/historytracers.conf ${STAGEDIR}${PREFIX}/etc/historytracers/historytracers.conf.sample
+	${MKDIR} ${STAGEDIR}${DATADIR}/www
+	(cd ${WRKSRC}/www && ${COPYTREE_SHARE} . ${STAGEDIR}${DATADIR}/www)
 	${MKDIR} ${STAGEDIR}/var/db/historytracers ${STAGEDIR}/var/log/historytracers
+# Register the generated web tree in the packing list
+	(cd ${STAGEDIR}${DATADIR}/www && ${FIND} . -type f | ${SORT} | ${SED} -e 's,^\./,%%WWW%%${DATADIR_REL}/www/,' >> ${TMPPLIST})
+	(cd ${STAGEDIR}${DATADIR}/www && ${FIND} . -type d | ${SORT} -r | ${SED} -e 's,^\./,%%WWW%%@dir ${DATADIR_REL}/www/,' -e 's,%%WWW%%@dir ${DATADIR_REL}/www/\.$$,%%WWW%%@dir ${DATADIR_REL}/www,' >> ${TMPPLIST})
 
 .include <bsd.port.mk>

@@ -1,7 +1,9 @@
 historytracers (1.0.0-1) unstable; urgency=medium
 
-  * Split into three binary packages:
-    - historytracers (main): binary, service, www/ (excluding images/)
+  * Split into four binary packages:
+    - historytracers (main): binary, service, config (depends on -www)
+    - historytracers-www: static web content from www/ (excluding images/),
+      installable alone for use with Apache/IIS
     - historytracers-images: all image files from www/images/
     - historytracers-devel: complete source tree except www/
 

@@ -20,6 +20,7 @@ fi
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
+PKG_WWW=$TMP/package-$PRGNAM-www
 OUTPUT=${OUTPUT:-/tmp}
 
 # Set source directory
@@ -34,8 +35,8 @@ fi
 set -e
 set -u
 
-rm -rf "$PKG"
-mkdir -p "$TMP" "$PKG" "$OUTPUT"
+rm -rf "$PKG" "$PKG_WWW"
+mkdir -p "$TMP" "$PKG" "$PKG_WWW" "$OUTPUT"
 
 # Extract source tarball
 cd "$TMP"
@@ -43,10 +44,8 @@ rm -rf "$PRGNAM-$VERSION"
 tar xf "$CWD/$PRGNAM-$VERSION.tar.xz"
 cd "$PRGNAM-$VERSION"
 
-# Create package directory structure
+# Create main package directory structure (binary, config, docs, devel)
 mkdir -p "$PKG/usr/bin"
-mkdir -p "$PKG/usr/share/$PRGNAM/www"
-mkdir -p "$PKG/usr/share/$PRGNAM/www/images"
 mkdir -p "$PKG/usr/doc/$PRGNAM"
 mkdir -p "$PKG/install"
 cp packaging/Slackware/doinst.sh "$PKG/install/doinst.sh"
@@ -54,6 +53,14 @@ cat packaging/Slackware/historytracers-desc > "$PKG/install/slack-desc"
 mkdir -p "$PKG/etc/$PRGNAM"
 mkdir -p "$PKG/var/lib/$PRGNAM"
 mkdir -p "$PKG/var/log/$PRGNAM"
+
+# Create www package directory structure (standalone web content for any
+# web server such as Apache; no binaries or service users required)
+mkdir -p "$PKG_WWW/usr/share/$PRGNAM/www"
+mkdir -p "$PKG_WWW/usr/share/$PRGNAM/www/images"
+mkdir -p "$PKG_WWW/install"
+cp packaging/Slackware/doinst-www.sh "$PKG_WWW/install/doinst.sh"
+cat packaging/Slackware/historytracers-www-desc > "$PKG_WWW/install/slack-desc"
 
 # Build the project
 chmod +x historytracers-installer.sh
@@ -70,30 +77,35 @@ if [ -f packaging/conf/historytracers.conf ]; then
   install -m 600 packaging/conf/historytracers.conf "$PKG/etc/$PRGNAM/historytracers.conf.new"
 fi
 
-# Install web content from www/ (images handled separately)
+# Install web content into the www package (images handled separately)
 if [ -d "www/" ]; then
   for item in www/*; do
     base=$(basename "$item")
     [ "$base" = "images" ] && continue
-    cp -R "$item" "$PKG/usr/share/$PRGNAM/www/"
+    cp -R "$item" "$PKG_WWW/usr/share/$PRGNAM/www/"
   done
 fi
 
-# Install image options config
+# Install image options config into the www package
 if [ -f www/images/img_options.json ]; then
-  install -m 644 www/images/img_options.json "$PKG/usr/share/$PRGNAM/www/images/"
+  install -m 644 www/images/img_options.json "$PKG_WWW/usr/share/$PRGNAM/www/images/"
 fi
 
 # Install editor.html alongside web content
 if [ -f editor.html ]; then
-  install -m 644 editor.html "$PKG/usr/share/$PRGNAM/"
+  install -m 644 editor.html "$PKG_WWW/usr/share/$PRGNAM/"
 fi
 
-# Optionally install actual images from the images tarball
+# Optionally install actual images from the images tarball into the www
+# package, making it a self-contained site; use local images in that case
 if [ -f "$CWD/historytracers-images-${VERSION}.tar.gz" ]; then
   tar xf "$CWD/historytracers-images-${VERSION}.tar.gz" -C "$TMP"
-  mkdir -p "$PKG/usr/share/$PRGNAM/www/images"
-  cp -R "$TMP/historytracers-images/images/." "$PKG/usr/share/$PRGNAM/www/images/"
+  mkdir -p "$PKG_WWW/usr/share/$PRGNAM/www/images"
+  cp -R "$TMP/historytracers-images/images/." "$PKG_WWW/usr/share/$PRGNAM/www/images/"
+  if [ -f "$PKG_WWW/usr/share/$PRGNAM/www/images/img_options.json" ]; then
+    sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' \
+      "$PKG_WWW/usr/share/$PRGNAM/www/images/img_options.json"
+  fi
 fi
 
 # Install documentation
@@ -113,17 +125,27 @@ for item in * .[!.]*; do
 done
 
 chmod 755 "$PKG/install/doinst.sh"
+chmod 755 "$PKG_WWW/install/doinst.sh"
 
-# Fix permissions
-find "$PKG" -type d -exec chmod 755 {} \;
-# Ownership is handled by makepkg at package creation time
-find "$PKG" -type f -perm 755 -exec chmod 755 {} \;
-find "$PKG" -type f -perm 644 -exec chmod 644 {} \;
+# Fix permissions in both packages
+for _pkg in "$PKG" "$PKG_WWW"; do
+  find "$_pkg" -type d -exec chmod 755 {} \;
+  # Ownership is handled by makepkg at package creation time
+  find "$_pkg" -type f -perm 755 -exec chmod 755 {} \;
+  find "$_pkg" -type f -perm 644 -exec chmod 644 {} \;
+done
 
-# Build the package
+# Build both packages: the viewer and the standalone web content
 cd "$PKG"
-/sbin/makepkg -l y -c n "$OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.txz"
+MAINPKG="$OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.txz"
+/sbin/makepkg -l y -c n "$MAINPKG"
+
+cd "$PKG_WWW"
+WWYPKG="$OUTPUT/$PRGNAM-www-$VERSION-noarch-$BUILD$TAG.txz"
+/sbin/makepkg -l y -c n "$WWYPKG"
 
 echo
-echo "Package built: $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.txz"
+echo "Packages built:"
+echo "  $MAINPKG"
+echo "  $WWYPKG"
 echo

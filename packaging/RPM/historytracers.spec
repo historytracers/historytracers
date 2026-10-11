@@ -8,10 +8,22 @@ URL: https://github.com/historytracers/historytracers
 BuildRequires: systemd
 BuildRequires: systemd-rpm-macros
 
+Requires: %{name}-www = %{version}-%{release}
+
+%package www
+Summary: Web content for History Tracers
+Group: Applications/Education
+BuildArch: noarch
+
+%description www
+Static web content served by the History Tracers viewer.
+Install this subpackage alone (with %{name}-images) to serve
+the content with your own web server (Apache, IIS).
+
 %package images
 Summary: Images for History Tracers
 Group: Applications/Education
-Requires: historytracers = %{version}-%{release}
+Requires: %{name}-www = %{version}-%{release}
 BuildArch: noarch
 
 %description images
@@ -62,7 +74,7 @@ install -m 755 %{_sourcedir}/build/historytracers %{buildroot}%{_bindir}/history
 [ -f %{_sourcedir}/packaging/conf/historytracers.conf ] && \
   install -m 600 %{_sourcedir}/packaging/conf/historytracers.conf %{buildroot}%{_sysconfdir}/historytracers/historytracers.conf
 
-# ===== MAIN PACKAGE: web content =====
+# ===== WWW SUBPACKAGE: web content (standalone, for any web server) =====
 
 # Install everything from www/ except the images/ directory
 find %{_sourcedir}/www -mindepth 1 -maxdepth 1 ! -name "images" -exec cp -r {} %{buildroot}%{_datadir}/historytracers/www/ \;
@@ -93,12 +105,14 @@ getent passwd historytracers >/dev/null || useradd -r -g historytracers -s /sbin
     -d /usr/share/historytracers -c "A teaching tool" historytracers
 
 %post
-chown -R historytracers:historytracers %{_datadir}/historytracers 2>/dev/null || true
 chown -R historytracers:historytracers %{_sysconfdir}/historytracers 2>/dev/null || true
 mkdir -p %{_localstatedir}/lib/historytracers %{_localstatedir}/log/historytracers 2>/dev/null || true
 chown historytracers:historytracers %{_localstatedir}/lib/historytracers 2>/dev/null || true
 [ -d %{_localstatedir}/log/historytracers ] && chown historytracers:historytracers %{_localstatedir}/log/historytracers 2>/dev/null || true
 %systemd_post historytracers.service
+
+%post www
+chown -R historytracers:historytracers %{_datadir}/historytracers 2>/dev/null || true
 
 %preun
 %systemd_preun historytracers.service
@@ -114,6 +128,8 @@ chown historytracers:historytracers %{_localstatedir}/lib/historytracers 2>/dev/
 %config(noreplace) %{_sysconfdir}/historytracers/historytracers.conf
 %dir %{_sysconfdir}/historytracers
 %dir %{_localstatedir}/lib/historytracers
+
+%files www
 %dir %{_datadir}/historytracers
 %dir %{_datadir}/historytracers/www
 %{_datadir}/historytracers/www/*
@@ -134,4 +150,4 @@ chown historytracers:historytracers %{_localstatedir}/lib/historytracers 2>/dev/
 %changelog
 * Sun Nov 02 2025 Thiago Marques <historytracers@gmail.com> - 1.0.0-1
 - Initial package build
-- Split into main, images, and devel subpackages
+- Split into main, www, images, and devel subpackages

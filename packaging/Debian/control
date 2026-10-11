@@ -8,14 +8,22 @@ Homepage: https://github.com/historytracers/historytracers
 
 Package: historytracers
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, historytracers-www (= ${binary:Version})
 Description: Teaching is often a daily challenge for both students and teachers,
  each for different reasons.
  Our goal is to support both sides of the learning process by providing diverse tools.
 
+Package: historytracers-www
+Architecture: all
+Depends: ${misc:Depends}
+Description: Web content for History Tracers
+ Static web content served by the History Tracers viewer.
+ Install this package alone (with historytracers-images) to serve
+ the content with your own web server (Apache, IIS).
+
 Package: historytracers-images
 Architecture: all
-Depends: historytracers (= ${binary:Version})
+Depends: historytracers-www (= ${binary:Version})
 Description: Images for History Tracers
  Provides the image files used by the History Tracers viewer,
  excluding the img_options.json configuration file.

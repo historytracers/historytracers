@@ -30,16 +30,19 @@ override_dh_install:
 	install -D -m 644 $(CURDIR)/packaging/service/historytracers.service debian/historytracers/lib/systemd/system/historytracers.service
 	install -D -m 600 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf
 
+	# ===== WEB CONTENT SUBPACKAGE (historytracers-www) =====
+	# Standalone static content, usable with any web server (Apache/IIS)
+
 	# Web content: everything from www/ except images/
-	install -d debian/historytracers/usr/share/historytracers/www
+	install -d debian/historytracers-www/usr/share/historytracers/www
 	for item in $(CURDIR)/www/*; do \
 		base=$$(basename "$$item"); \
 		[ "$$base" = "images" ] && continue; \
-		cp -r "$$item" debian/historytracers/usr/share/historytracers/www/; \
+		cp -r "$$item" debian/historytracers-www/usr/share/historytracers/www/; \
 	done
 	# Only img_options.json from images/
 	install -D -m 644 $(CURDIR)/www/images/img_options.json \
-		debian/historytracers/usr/share/historytracers/www/images/img_options.json
+		debian/historytracers-www/usr/share/historytracers/www/images/img_options.json
 
 	# ===== IMAGES SUBPACKAGE (historytracers-images) =====
 

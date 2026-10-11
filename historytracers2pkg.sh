@@ -141,6 +141,13 @@ ht_build_static() {
     tar -czf "${TARBALL}" -C "${STAGING}" "historytracers-${VERSION}"
     echo "Static tarball created: ${TARBALL} ($(du -h "${TARBALL}" | cut -f1))"
 
+    # --- Create standalone www tarball for any web server (Apache/IIS) ---
+    # Self-contained site (images included, ht_local_images stays true)
+    WWW_TARBALL="artifacts/historytracers-www-${VERSION}.tar.gz"
+    echo "Creating standalone web tarball: ${WWW_TARBALL}"
+    tar -czf "${WWW_TARBALL}" -C "${PKGROOT}/share/historytracers" "www"
+    echo "Web tarball created: ${WWW_TARBALL} ($(du -h "${WWW_TARBALL}" | cut -f1))"
+
     # --- Create self-extracting installer ---
     echo "Creating self-extracting installer: ${INSTALLER}"
     cat > "${INSTALLER}" <<HTSTATIC_HEADER

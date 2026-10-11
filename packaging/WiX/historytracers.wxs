@@ -64,11 +64,16 @@
     <!-- Features                                                     -->
     <!-- ============================================================ -->
     <Feature Id="MainApplication" Title="HistoryTracers Viewer"
-             Description="The HistoryTracers viewer application and web content"
+             Description="The HistoryTracers viewer application"
              Level="1" Display="expand">
       <ComponentRef Id="PROGRAMMENUDIR_comp" />
       <ComponentRef Id="INSTALLDIR_reg" />
       <ComponentGroupRef Id="CG_MAIN_BIN" />
+    </Feature>
+
+    <Feature Id="WebContent" Title="Web Content"
+             Description="Static web content (usable with Apache or IIS without the viewer)"
+             Level="1">
       <ComponentGroupRef Id="CG_OPTIONS" />
       <ComponentGroupRef Id="CG_WWW" />
     </Feature>

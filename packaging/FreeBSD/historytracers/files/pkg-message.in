@@ -20,6 +20,12 @@ Configuration for the publisher (optional):
 
 User data (history, favorites, options) is stored in:
     ~/.config/HistoryTracers/
+
+The static web content lives in:
+    %%DATADIR%%/www
+Point Apache, IIS, or any web server at that directory to serve
+the content without the viewer binary (install with WWW option only:
+    make -DWITHOUT_VIEWER install clean).
 EOM
 }
 ]
