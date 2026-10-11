@@ -922,7 +922,11 @@ func htRemoveStyleBlocks(text string) string {
 func htRemoveHTMLTags(text string) string {
 	text = htRemoveSVGBlocks(text)
 	text = htRemoveStyleBlocks(text)
-	htmlTagRegex := regexp.MustCompile(`<[^>]+>`)
+	// Only match actual HTML tags (an opening '<' optionally followed by '/',
+	// then a tag name starting with a letter). Matching any '<...>' span would
+	// swallow literal comparison symbols such as '(<)' or '0 < 1' together with
+	// everything up to the next '>' in the surrounding plain text.
+	htmlTagRegex := regexp.MustCompile(`</?[a-zA-Z][^>]*>`)
 	return htmlTagRegex.ReplaceAllString(text, "")
 }
 
