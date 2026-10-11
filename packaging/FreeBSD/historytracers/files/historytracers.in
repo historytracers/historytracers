@@ -15,7 +15,7 @@ load_rc_config ${name}
 : ${historytracers_enable:="NO"}
 : ${historytracers_user:="historytracers"}
 : ${historytracers_group:="historytracers"}
-: ${historytracers_dir:="%%PREFIX%%/share/historytracers/www"}
+: ${historytracers_dir:="/var/www/htdocs/historytracers"}
 
 command="%%PREFIX%%/bin/historytracers"
 procname="%%PREFIX%%/bin/historytracers"

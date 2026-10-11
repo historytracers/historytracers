@@ -17,12 +17,6 @@ config() {
 # Handle configuration files
 config etc/historytracers/historytracers.conf.new 2>/dev/null || true
 
-# Set proper permissions on web directories (dirs 755, files 644)
-if [ -d /usr/share/historytracers/www ]; then
-  find /usr/share/historytracers/www -type d -exec chmod 755 {} \; 2>/dev/null || true
-  find /usr/share/historytracers/www -type f -exec chmod 644 {} \; 2>/dev/null || true
-fi
-
 # Create user and group if they don't exist
 if ! getent group historytracers >/dev/null 2>&1; then
   echo "Creating historytracers group..."
@@ -34,8 +28,10 @@ if ! getent passwd historytracers >/dev/null 2>&1; then
   useradd -r -g historytracers -s /bin/false -d /usr/share/historytracers -c "History Tracers" historytracers 2>/dev/null || true
 fi
 
-# Set ownership on data/config/state (binaries and devel sources stay root-owned)
-chown -R historytracers:historytracers /usr/share/historytracers/ 2>/dev/null || true
+# Set ownership on data/config/state (binaries and devel sources stay root-owned).
+# The web tree belongs to the historytracers-www package but is chowned here
+# as well so co-installed content ends up owned by the service user.
+chown -R historytracers:historytracers /var/www/htdocs/historytracers 2>/dev/null || true
 chown -R historytracers:historytracers /etc/historytracers 2>/dev/null || true
 mkdir -p /var/lib/historytracers /var/log/historytracers 2>/dev/null || true
 chown historytracers:historytracers /var/lib/historytracers 2>/dev/null || true

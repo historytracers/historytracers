@@ -142,10 +142,12 @@ ht_build_static() {
     echo "Static tarball created: ${TARBALL} ($(du -h "${TARBALL}" | cut -f1))"
 
     # --- Create standalone www tarball for any web server (Apache/IIS) ---
-    # Self-contained site (images included, ht_local_images stays true)
+    # Self-contained site (images included, ht_local_images stays true).
+    # Top-level dir is historytracers/ so it extracts straight into a
+    # docroot (e.g. /var/www/htdocs/) with no trailing www/ level.
     WWW_TARBALL="artifacts/historytracers-www-${VERSION}.tar.gz"
     echo "Creating standalone web tarball: ${WWW_TARBALL}"
-    tar -czf "${WWW_TARBALL}" -C "${PKGROOT}/share/historytracers" "www"
+    tar -czf "${WWW_TARBALL}" -C "${PKGROOT}/share/historytracers" --transform='s,^www,historytracers,' "www"
     echo "Web tarball created: ${WWW_TARBALL} ($(du -h "${WWW_TARBALL}" | cut -f1))"
 
     # --- Create self-extracting installer ---

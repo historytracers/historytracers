@@ -55,9 +55,11 @@ mkdir -p "$PKG/var/lib/$PRGNAM"
 mkdir -p "$PKG/var/log/$PRGNAM"
 
 # Create www package directory structure (standalone web content for any
-# web server such as Apache; no binaries or service users required)
-mkdir -p "$PKG_WWW/usr/share/$PRGNAM/www"
-mkdir -p "$PKG_WWW/usr/share/$PRGNAM/www/images"
+# web server such as Apache; no binaries or service users required).
+# No trailing www/ level: the tree lands directly in
+# /var/www/htdocs/historytracers/.
+mkdir -p "$PKG_WWW/var/www/htdocs/$PRGNAM"
+mkdir -p "$PKG_WWW/var/www/htdocs/$PRGNAM/images"
 mkdir -p "$PKG_WWW/install"
 cp packaging/Slackware/doinst-www.sh "$PKG_WWW/install/doinst.sh"
 cat packaging/Slackware/historytracers-www-desc > "$PKG_WWW/install/slack-desc"
@@ -82,29 +84,29 @@ if [ -d "www/" ]; then
   for item in www/*; do
     base=$(basename "$item")
     [ "$base" = "images" ] && continue
-    cp -R "$item" "$PKG_WWW/usr/share/$PRGNAM/www/"
+    cp -R "$item" "$PKG_WWW/var/www/htdocs/$PRGNAM/"
   done
 fi
 
 # Install image options config into the www package
 if [ -f www/images/img_options.json ]; then
-  install -m 644 www/images/img_options.json "$PKG_WWW/usr/share/$PRGNAM/www/images/"
+  install -m 644 www/images/img_options.json "$PKG_WWW/var/www/htdocs/$PRGNAM/images/"
 fi
 
 # Install editor.html alongside web content
 if [ -f editor.html ]; then
-  install -m 644 editor.html "$PKG_WWW/usr/share/$PRGNAM/"
+  install -m 644 editor.html "$PKG_WWW/var/www/htdocs/$PRGNAM/"
 fi
 
 # Optionally install actual images from the images tarball into the www
 # package, making it a self-contained site; use local images in that case
 if [ -f "$CWD/historytracers-images-${VERSION}.tar.gz" ]; then
   tar xf "$CWD/historytracers-images-${VERSION}.tar.gz" -C "$TMP"
-  mkdir -p "$PKG_WWW/usr/share/$PRGNAM/www/images"
-  cp -R "$TMP/historytracers-images/images/." "$PKG_WWW/usr/share/$PRGNAM/www/images/"
-  if [ -f "$PKG_WWW/usr/share/$PRGNAM/www/images/img_options.json" ]; then
+  mkdir -p "$PKG_WWW/var/www/htdocs/$PRGNAM/images"
+  cp -R "$TMP/historytracers-images/images/." "$PKG_WWW/var/www/htdocs/$PRGNAM/images/"
+  if [ -f "$PKG_WWW/var/www/htdocs/$PRGNAM/images/img_options.json" ]; then
     sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' \
-      "$PKG_WWW/usr/share/$PRGNAM/www/images/img_options.json"
+      "$PKG_WWW/var/www/htdocs/$PRGNAM/images/img_options.json"
   fi
 fi
 

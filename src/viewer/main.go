@@ -1717,6 +1717,68 @@ func (projectFS) Open(name string) (http.File, error) {
 	return http.Dir(contentDir).Open(name)
 }
 
+// htContentDirHasIndex reports whether dir looks like a History Tracers
+// content directory (presence of the entry page).
+func htContentDirHasIndex(dir string) bool {
+	st, err := os.Stat(filepath.Join(dir, "index.html"))
+	return err == nil && !st.IsDir()
+}
+
+// htInstalledContentDirs lists the well-known install locations of the
+// web content, probed in order when the viewer runs with the default
+// -dir and the local ./www has no entry page:
+//
+//	/var/www/htdocs/historytracers/www   content keeping the www/ level
+//	/var/www/htdocs/historytracers/      content-only packages (no www/ level)
+//	/usr/local/share/historytracers/www  static installer (/usr/local prefix)
+//	                                     and FreeBSD ports (PREFIX=/usr/local)
+//
+// On Windows the executable directory (MSI ProgramFiles install) is
+// probed first, plus the configure.ac default C:/inetpub/... path.
+func htInstalledContentDirs() []string {
+	dirs := []string{
+		"/var/www/htdocs/historytracers/www",
+		"/var/www/htdocs/historytracers",
+		"/usr/local/share/historytracers/www",
+	}
+	if runtime.GOOS == "windows" {
+		probed := dirs
+		dirs = nil
+		if exe, err := os.Executable(); err == nil {
+			if exeDir := filepath.Dir(exe); exeDir != "" {
+				dirs = append(dirs, filepath.Join(exeDir, "www"))
+			}
+		}
+		dirs = append(dirs, probed...)
+		dirs = append(dirs, `C:/inetpub/wwwroot/historytracers/www`)
+	}
+	return dirs
+}
+
+// htResolveContentDir maps the -dir/-path flags to the directory to serve.
+// Explicit -path always wins and an explicit -dir is honored as-is; only
+// the default -dir ("www") without -path falls back to the first installed
+// location holding an entry page, so distro/static/ports installs work
+// regardless of the current working directory.
+func htResolveContentDir(dirFlag, pathFlag string) string {
+	if pathFlag != "" {
+		return pathFlag
+	}
+	if dirFlag != "www" {
+		return dirFlag
+	}
+	if htContentDirHasIndex(dirFlag) {
+		return dirFlag
+	}
+	for _, dir := range htInstalledContentDirs() {
+		if htContentDirHasIndex(dir) {
+			log.Printf("Content not found in ./www; using installed content at %s", dir)
+			return dir
+		}
+	}
+	return dirFlag
+}
+
 func main() {
 	hideConsole()
 
@@ -1743,10 +1805,7 @@ func main() {
 		*font = ""
 	}
 
-	contentDir = *dir
-	if *pathFlag != "" {
-		contentDir = *pathFlag
-	}
+	contentDir = htResolveContentDir(*dir, *pathFlag)
 	tlsCertFile = *tlsCert
 	tlsKeyFile = *tlsKey
 	if (tlsCertFile != "") != (tlsKeyFile != "") {

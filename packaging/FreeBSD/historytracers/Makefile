@@ -41,11 +41,11 @@ post-install-VIEWER-on:
 post-install-WWW-on:
 	${MKDIR} ${STAGEDIR}${PREFIX}/etc/historytracers
 	${INSTALL_DATA} ${WRKSRC}/packaging/conf/historytracers.conf ${STAGEDIR}${PREFIX}/etc/historytracers/historytracers.conf.sample
-	${MKDIR} ${STAGEDIR}${DATADIR}/www
-	(cd ${WRKSRC}/www && ${COPYTREE_SHARE} . ${STAGEDIR}${DATADIR}/www)
+	${MKDIR} ${STAGEDIR}/var/www/htdocs/historytracers
+	(cd ${WRKSRC}/www && ${COPYTREE_SHARE} . ${STAGEDIR}/var/www/htdocs/historytracers)
 	${MKDIR} ${STAGEDIR}/var/db/historytracers ${STAGEDIR}/var/log/historytracers
 # Register the generated web tree in the packing list
-	(cd ${STAGEDIR}${DATADIR}/www && ${FIND} . -type f | ${SORT} | ${SED} -e 's,^\./,%%WWW%%${DATADIR_REL}/www/,' >> ${TMPPLIST})
-	(cd ${STAGEDIR}${DATADIR}/www && ${FIND} . -type d | ${SORT} -r | ${SED} -e 's,^\./,%%WWW%%@dir ${DATADIR_REL}/www/,' -e 's,%%WWW%%@dir ${DATADIR_REL}/www/\.$$,%%WWW%%@dir ${DATADIR_REL}/www,' >> ${TMPPLIST})
+	(cd ${STAGEDIR}/var/www/htdocs/historytracers && ${FIND} . -type f | ${SORT} | ${SED} -e 's,^\./,%%WWW%%var/www/htdocs/historytracers/,' >> ${TMPPLIST})
+	(cd ${STAGEDIR}/var/www/htdocs/historytracers && ${FIND} . -type d | ${SORT} -r | ${SED} -e 's,^\./,%%WWW%%@dir var/www/htdocs/historytracers/,' -e 's,%%WWW%%@dir var/www/htdocs/historytracers/\.$$,%%WWW%%@dir var/www/htdocs/historytracers,' >> ${TMPPLIST})
 
 .include <bsd.port.mk>

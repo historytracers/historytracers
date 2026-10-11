@@ -12,7 +12,7 @@ PRE-INSTALL)
 	fi
 	;;
 POST-INSTALL)
-	chown -R historytracers:historytracers %%PREFIX%%/share/historytracers 2>/dev/null || true
+	chown -R historytracers:historytracers /var/www/htdocs/historytracers 2>/dev/null || true
 	chown -R historytracers:historytracers %%PREFIX%%/etc/historytracers 2>/dev/null || true
 	mkdir -p /var/db/historytracers /var/log/historytracers 2>/dev/null || true
 	chown historytracers:historytracers /var/db/historytracers 2>/dev/null || true

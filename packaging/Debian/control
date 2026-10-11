@@ -19,7 +19,8 @@ Depends: ${misc:Depends}
 Description: Web content for History Tracers
  Static web content served by the History Tracers viewer.
  Install this package alone (with historytracers-images) to serve
- the content with your own web server (Apache, IIS).
+ the content with your own web server (Apache, IIS) from
+ /var/www/htdocs/historytracers.
 
 Package: historytracers-images
 Architecture: all

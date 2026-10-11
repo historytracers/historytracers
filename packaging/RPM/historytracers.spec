@@ -18,7 +18,8 @@ BuildArch: noarch
 %description www
 Static web content served by the History Tracers viewer.
 Install this subpackage alone (with %{name}-images) to serve
-the content with your own web server (Apache, IIS).
+the content with your own web server (Apache, IIS) from
+/var/www/htdocs/historytracers.
 
 %package images
 Summary: Images for History Tracers
@@ -57,11 +58,10 @@ rm -rf %{buildroot}
 
 # Create directory structure
 mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_datadir}/historytracers/
 mkdir -p %{buildroot}%{_sysconfdir}/historytracers
 mkdir -p %{buildroot}%{_unitdir}/
 mkdir -p %{buildroot}%{_localstatedir}/lib/historytracers
-mkdir -p %{buildroot}%{_datadir}/historytracers/www/images
+mkdir -p %{buildroot}/var/www/htdocs/historytracers/images
 mkdir -p %{buildroot}/usr/src/historytracers
 
 # Install the systemd service file
@@ -75,19 +75,20 @@ install -m 755 %{_sourcedir}/build/historytracers %{buildroot}%{_bindir}/history
   install -m 600 %{_sourcedir}/packaging/conf/historytracers.conf %{buildroot}%{_sysconfdir}/historytracers/historytracers.conf
 
 # ===== WWW SUBPACKAGE: web content (standalone, for any web server) =====
+# No trailing www/ level: the tree lands directly in
+# /var/www/htdocs/historytracers/.
 
 # Install everything from www/ except the images/ directory
-find %{_sourcedir}/www -mindepth 1 -maxdepth 1 ! -name "images" -exec cp -r {} %{buildroot}%{_datadir}/historytracers/www/ \;
+find %{_sourcedir}/www -mindepth 1 -maxdepth 1 ! -name "images" -exec cp -r {} %{buildroot}/var/www/htdocs/historytracers/ \;
 
 # Install only img_options.json from the images/ directory
-install -m 644 %{_sourcedir}/www/images/img_options.json %{buildroot}%{_datadir}/historytracers/www/images/
+install -m 644 %{_sourcedir}/www/images/img_options.json %{buildroot}/var/www/htdocs/historytracers/images/
 
 # ===== IMAGES SUBPACKAGE: image files =====
 
 # Install the full images/ tree except img_options.json, preserving hierarchy
-mkdir -p %{buildroot}%{_datadir}/historytracers/www/images
 (cd %{_sourcedir}/www/images && tar cf - --exclude=img_options.json .) | \
-  (cd %{buildroot}%{_datadir}/historytracers/www/images && tar xf -)
+  (cd %{buildroot}/var/www/htdocs/historytracers/images && tar xf -)
 
 # ===== DEVEL SUBPACKAGE: source files =====
 
@@ -112,7 +113,7 @@ chown historytracers:historytracers %{_localstatedir}/lib/historytracers 2>/dev/
 %systemd_post historytracers.service
 
 %post www
-chown -R historytracers:historytracers %{_datadir}/historytracers 2>/dev/null || true
+chown -R historytracers:historytracers /var/www/htdocs/historytracers 2>/dev/null || true
 
 %preun
 %systemd_preun historytracers.service
@@ -130,18 +131,15 @@ chown -R historytracers:historytracers %{_datadir}/historytracers 2>/dev/null ||
 %dir %{_localstatedir}/lib/historytracers
 
 %files www
-%dir %{_datadir}/historytracers
-%dir %{_datadir}/historytracers/www
-%{_datadir}/historytracers/www/*
-%exclude %{_datadir}/historytracers/www/images/*
-%{_datadir}/historytracers/www/images/img_options.json
+%dir /var/www/htdocs/historytracers
+/var/www/htdocs/historytracers/*
+%exclude /var/www/htdocs/historytracers/images/*
+/var/www/htdocs/historytracers/images/img_options.json
 
 %files images
-%dir %{_datadir}/historytracers
-%dir %{_datadir}/historytracers/www
-%dir %{_datadir}/historytracers/www/images
-%{_datadir}/historytracers/www/images/*
-%exclude %{_datadir}/historytracers/www/images/img_options.json
+%dir /var/www/htdocs/historytracers/images
+/var/www/htdocs/historytracers/images/*
+%exclude /var/www/htdocs/historytracers/images/img_options.json
 
 %files devel
 %dir /usr/src/historytracers

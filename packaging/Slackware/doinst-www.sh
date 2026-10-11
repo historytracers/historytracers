@@ -1,16 +1,16 @@
 #!/bin/sh
 # Post-installation script for historytracers-www (standalone web content).
 # No service user or ownership changes: any web server (Apache, IIS)
-# can serve /usr/share/historytracers/www directly.
+# can serve /var/www/htdocs/historytracers directly.
 
 # Set proper permissions on web directories (dirs 755, files 644)
-if [ -d /usr/share/historytracers/www ]; then
-  find /usr/share/historytracers/www -type d -exec chmod 755 {} \; 2>/dev/null || true
-  find /usr/share/historytracers/www -type f -exec chmod 644 {} \; 2>/dev/null || true
+if [ -d /var/www/htdocs/historytracers ]; then
+  find /var/www/htdocs/historytracers -type d -exec chmod 755 {} \; 2>/dev/null || true
+  find /var/www/htdocs/historytracers -type f -exec chmod 644 {} \; 2>/dev/null || true
 fi
 
 echo ""
 echo "History Tracers web content has been installed to"
-echo "/usr/share/historytracers/www."
+echo "/var/www/htdocs/historytracers."
 echo "Point your web server (e.g. Apache, IIS) at that directory."
 echo ""

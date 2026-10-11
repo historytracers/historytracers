@@ -31,25 +31,27 @@ override_dh_install:
 	install -D -m 600 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf
 
 	# ===== WEB CONTENT SUBPACKAGE (historytracers-www) =====
-	# Standalone static content, usable with any web server (Apache/IIS)
+	# Standalone static content under /var/www/htdocs, usable with any
+	# web server (Apache/IIS). No trailing www/ level: the tree lands
+	# directly in /var/www/htdocs/historytracers/.
 
 	# Web content: everything from www/ except images/
-	install -d debian/historytracers-www/usr/share/historytracers/www
+	install -d debian/historytracers-www/var/www/htdocs/historytracers
 	for item in $(CURDIR)/www/*; do \
 		base=$$(basename "$$item"); \
 		[ "$$base" = "images" ] && continue; \
-		cp -r "$$item" debian/historytracers-www/usr/share/historytracers/www/; \
+		cp -r "$$item" debian/historytracers-www/var/www/htdocs/historytracers/; \
 	done
 	# Only img_options.json from images/
 	install -D -m 644 $(CURDIR)/www/images/img_options.json \
-		debian/historytracers-www/usr/share/historytracers/www/images/img_options.json
+		debian/historytracers-www/var/www/htdocs/historytracers/images/img_options.json
 
 	# ===== IMAGES SUBPACKAGE (historytracers-images) =====
 
 	# Copy the full images/ tree except img_options.json, preserving hierarchy
-	install -d debian/historytracers-images/usr/share/historytracers/www/images
+	install -d debian/historytracers-images/var/www/htdocs/historytracers/images
 	(cd $(CURDIR)/www/images && tar cf - --exclude=img_options.json .) | \
-		(cd debian/historytracers-images/usr/share/historytracers/www/images && tar xf -)
+		(cd debian/historytracers-images/var/www/htdocs/historytracers/images && tar xf -)
 
 	# ===== DEVEL SUBPACKAGE (historytracers-devel) =====
 

@@ -15,13 +15,13 @@ case "$1" in
         fi
         
         # Set ownership on installed data/config/state (binaries and devel sources stay root-owned)
-        chown -R historytracers:historytracers /usr/share/historytracers 2>/dev/null || true
+        chown -R historytracers:historytracers /var/www/htdocs/historytracers 2>/dev/null || true
         chown -R historytracers:historytracers /etc/historytracers 2>/dev/null || true
         mkdir -p /var/lib/historytracers /var/log/historytracers 2>/dev/null || true
         chown historytracers:historytracers /var/lib/historytracers 2>/dev/null || true
         chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true
         # Set directory permissions
-        chmod 755 /usr/share/historytracers
+        chmod 755 /var/www/htdocs/historytracers 2>/dev/null || true
         
         # Reload systemd so the service unit is picked up (enable/start is
         # handled by the debhelper autoscripts below)

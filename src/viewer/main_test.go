@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"path/filepath"
+	"runtime"
 	"strings"
 	"sync"
 	"testing"
@@ -519,5 +521,64 @@ func TestMetricsNegativeSizesClamped(t *testing.T) {
 	metricsMu.Unlock()
 	if dReq != 0 || dRes != 0 {
 		t.Fatalf("negative sizes changed counters by req=%d res=%d, want 0,0", dReq, dRes)
+	}
+}
+
+func TestHTContentDirHasIndex(t *testing.T) {
+	dir := t.TempDir()
+	if htContentDirHasIndex(dir) {
+		t.Errorf("expected false for directory without index.html")
+	}
+	if err := os.WriteFile(filepath.Join(dir, "index.html"), []byte("<html/>"), 0644); err != nil {
+		t.Fatalf("cannot write index.html: %v", err)
+	}
+	if !htContentDirHasIndex(dir) {
+		t.Errorf("expected true for directory with index.html")
+	}
+}
+
+func TestHTInstalledContentDirsCoversPackages(t *testing.T) {
+	dirs := htInstalledContentDirs()
+	if len(dirs) == 0 {
+		t.Fatalf("expected non-empty candidate list")
+	}
+	for _, want := range []string{
+		"/var/www/htdocs/historytracers/www",
+		"/var/www/htdocs/historytracers",
+		"/usr/local/share/historytracers/www",
+	} {
+		found := false
+		for _, dir := range dirs {
+			if dir == want {
+				found = true
+				break
+			}
+		}
+		if !found {
+			t.Errorf("expected candidate %q in %v", want, dirs)
+		}
+	}
+	for _, dir := range dirs {
+		if dir == "/usr/share/historytracers/www" {
+			t.Errorf("/usr/share/historytracers/www must not be probed; content lives under /var/www/htdocs")
+		}
+	}
+	if runtime.GOOS == "windows" {
+		last := dirs[len(dirs)-1]
+		if last != `C:/inetpub/wwwroot/historytracers/www` {
+			t.Errorf("expected inetpub fallback last, got %q", last)
+		}
+	}
+}
+
+func TestHTResolveContentDirRespectsExplicitFlags(t *testing.T) {
+	if got := htResolveContentDir("/srv/custom", ""); got != "/srv/custom" {
+		t.Errorf("explicit -dir must win, got %q", got)
+	}
+	if got := htResolveContentDir("www", "/srv/other"); got != "/srv/other" {
+		t.Errorf("explicit -path must win, got %q", got)
+	}
+	if got := htResolveContentDir("www", ""); got == "" {
+		t.Errorf("default resolution must never be empty")
 	}
 }
