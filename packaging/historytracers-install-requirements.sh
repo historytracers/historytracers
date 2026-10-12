@@ -392,7 +392,7 @@ install_freebsd() {
         node \
         pkgconf \
         gtk3 \
-        webkit2gtk41 \
+        webkit2-gtk_41 \
         mesa-libs \
         libX11 \
         libXrandr \

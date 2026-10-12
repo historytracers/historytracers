@@ -18,7 +18,7 @@ CONFIGURE_ARGS=	--with-conf-path=${PREFIX}/etc/historytracers/dev.conf \
 		--with-content-path=${WRKSRC}/www/ \
 		--with-log-path=/var/log/historytracers/
 USE_GNOME=	gtk30 cairo pango gdkpixbuf
-LIB_DEPENDS=	libwebkit2gtk-4.1.so:www/webkit2gtk41
+LIB_DEPENDS=	libwebkit2gtk-4.1.so:www/webkit2-gtk@41
 
 OPTIONS_DEFINE=	VIEWER WWW
 OPTIONS_DEFAULT=	VIEWER WWW
