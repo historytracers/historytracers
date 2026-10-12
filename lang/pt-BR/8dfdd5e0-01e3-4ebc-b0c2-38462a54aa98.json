@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791732733"
+      "1791764751"
    ],
    "authors": null,
    "reviewers": [
@@ -93,29 +93,6 @@
             },
             {
                "text": "<div class=\"htOddEvenGame\"><span class=\"htOddEvenQuestion\">O número é ímpar ou par?</span><table class=\"htOddEvenTable\"><tr><th>Número</th><th>Compartilhar em pares</th></tr><tr><td class=\"htOddEvenNumberCell\"><span id=\"oddEvenNumber\" class=\"text_to_paint\">0</span></td><td class=\"htOddEvenPairsCell\"><table class=\"htOddEvenPairsTable\"><tr><th>Lado 1</th><th>Lado 2</th></tr><tbody id=\"oddEvenPairsBody\"></tbody></table></td></tr></table><div class=\"htOddEvenButtonsRow\"><button type=\"button\" id=\"oddEvenOddBtn\" class=\"htOddEvenButton\">Ímpar</button><button type=\"button\" id=\"oddEvenEvenBtn\" class=\"htOddEvenButton\">Par</button></div><div id=\"oddEvenFeedback\" class=\"htOddEvenFeedback\"></div><div class=\"htOddEvenNewContainer\"><button type=\"button\" id=\"oddEvenNewBtn\" class=\"reset-tutor-btn hidden\">🎲 Novo exercício</button></div><span id=\"htOddEvenMsgOddCorrect\" class=\"htOddEvenHidden\">Correto! <b>{n}</b> é ímpar. Quando dividimos {n} por 2, obtemos {q} com resto 1. Sobra um círculo, então um lado tem um círculo a mais que o outro.</span><span id=\"htOddEvenMsgEvenCorrect\" class=\"htOddEvenHidden\">Correto! <b>{n}</b> é par. Quando dividimos {n} por 2, obtemos {q} com resto 0. Os círculos formam {q} pares completos, então os dois lados são iguais.</span><span id=\"htOddEvenMsgOddWrong\" class=\"htOddEvenHidden\">O número é ímpar, porque ao dividir por 2 sobra um: {n} = 2 × {q} + 1. Esse círculo extra sobra de um lado.</span><span id=\"htOddEvenMsgEvenWrong\" class=\"htOddEvenHidden\">O número é par, porque ao dividir por 2 não há resto: {n} = 2 × {q}. Os círculos podem ser repartidos em dois lados iguais, então não sobra nada.</span></div>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_practice",
-         "text": [
-            {
-               "text": "### Prática\n\nAbaixo há três fitas que podem mudar de comprimento. Use os botões **+** e **−** para alongar ou encurtar cada fita e observe a régua embaixo delas.\n\nDuas fitas são totalmente iguais somente quando têm o **mesmo comprimento** e a **mesma cor**. Mude os comprimentos e leia as comparações abaixo.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<div class=\"htStringsApp\" id=\"htStringsApp\"><div class=\"htStringsGrid\"><span class=\"htStringsLabel\">1</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"1\" aria-label=\"Fita 1 mais curta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack1\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"1\" aria-label=\"Fita 1 mais longa\">+</button><span class=\"htStringsLabel\">2</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"2\" aria-label=\"Fita 2 mais curta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack2\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"2\" aria-label=\"Fita 2 mais longa\">+</button><span class=\"htStringsLabel\">3</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"3\" aria-label=\"Fita 3 mais curta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack3\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"3\" aria-label=\"Fita 3 mais longa\">+</button><span class=\"htStringsLabel\"></span><span class=\"htStringsSpacer\"></span><div class=\"htStringsRuler\" id=\"htStringsRuler\"></div><span class=\"htStringsSpacer\"></span></div><div class=\"htStringsComparisons\" id=\"htStringsComparisons\"></div><span id=\"htStringsMsgEqual\" class=\"htStringsHidden\">A fita {a} e a fita {b} são iguais, porque têm o mesmo comprimento ({la}) e a mesma cor.</span><span id=\"htStringsMsgSameColorDiffLength\" class=\"htStringsHidden\">A fita {a} e a fita {b} não são iguais, porque têm a mesma cor, mas comprimentos diferentes ({la} e {lb}).</span><span id=\"htStringsMsgDiffColorSameLength\" class=\"htStringsHidden\">A fita {a} e a fita {b} não são iguais, porque têm o mesmo comprimento ({la}), mas cores diferentes.</span><span id=\"htStringsMsgDiffColorDiffLength\" class=\"htStringsHidden\">A fita {a} e a fita {b} não são iguais, porque têm comprimentos diferentes ({la} e {lb}) e cores diferentes.</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
