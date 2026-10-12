@@ -386,6 +386,7 @@ install_freebsd() {
     pkg install -y \
         autoconf \
         automake \
+        bash \
         gmake \
         gcc \
         go \

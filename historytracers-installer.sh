@@ -8,6 +8,10 @@ case "$(uname -s)" in
         PLATFORM="linux"
         PUBLISHER_BIN="historytracers-publisher"
         ;;
+    FreeBSD)
+        PLATFORM="freebsd"
+        PUBLISHER_BIN="historytracers-publisher"
+        ;;
     CYGWIN*|MINGW*|MSYS*)
         PLATFORM="msys2"
         PUBLISHER_BIN="historytracers-publisher.exe"
@@ -75,6 +79,13 @@ update_submodules() {
 compile() {
     echo "=== Platform: $PLATFORM${MSYS2_ENV:+ ($MSYS2_ENV)} ==="
 
+    # FreeBSD make(1) is BSD make; the build requires GNU make (gmake),
+    # installed by packaging/historytracers-install-requirements.sh.
+    MAKE="make"
+    if [ "$PLATFORM" = "freebsd" ]; then
+        MAKE="gmake"
+    fi
+
     autoreconf -f -i
     echo "=== autoreconf done ==="
 
@@ -99,8 +110,8 @@ compile() {
     ./configure "${CONFIGURE_ARGS[@]}"
     echo "=== configure done ==="
 
-    make clean
-    make all
+    $MAKE clean
+    $MAKE all
     echo "=== build done ==="
 
     if [ -f "./build/historytracers-publisher.exe" ]; then
