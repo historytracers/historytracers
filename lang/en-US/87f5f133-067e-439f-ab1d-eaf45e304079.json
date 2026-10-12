@@ -1,0 +1,314 @@
+{
+   "title": "When size matters",
+   "header": "When size matters",
+   "sources": [
+      "87f5f133-067e-439f-ab1d-eaf45e304079"
+   ],
+   "scripts": [
+      "87f5f133-067e-439f-ab1d-eaf45e304079"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/87f5f133-067e-439f-ab1d-eaf45e304079_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/76UuMus77G2oEuIUiBNAbj?si=zBa4YhdJSRaPmZCDIcns6w",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791764711"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nBefore you continue, review the two texts this lesson builds on: **On Equality**, where we learned what it means to compare, and **Natural limits**, where a limit was defined as a maximum, a minimum, or an approximation. Here we join both ideas and turn them into one rule you can use",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "On Equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Natural limits",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nThe texts on equality taught us to decide whether two things are equal. But equality alone is not enough: when two things — or two numbers — are not equal, we still need to say which one is greater and which one is smaller, and later measure how much they differ. This text prepares the tools for that: the symbols of comparison, a scale that uses them, and the language of limits.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: What am I going to use...?</b><br /><br />We already saw that there is a symbol for equality (=). Should we use the same symbol to say that something is greater or smaller?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_comparison",
+         "text": [
+            {
+               "text": "### The Rule of Greater and Smaller\n\nA rule tells us how to act in a given situation: it says what we should do, and it stays the same every time that situation appears. The rules of a game tell us what counts as a point; the rules of a calendar tell us how the days are organized. Mathematics works the same way: before we compare or calculate, we agree on how to read what we write, and that agreement is a rule.\n\nWe have already used one such rule: the texts on equality taught us that the symbol (=) tells us when two values are the same. The rule of this text tells us which of two numbers is greater and which is smaller.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMeter\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figure 1</b>: A centesimal scale: it runs from 0 to 100 in equal steps.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Figure 1 is a ruler: the straight, marked strip we use to measure length. Here, however, it measures values instead. The long marks carry the numbers 0, 10, 20 and so on up to 100, and the shorter marks between them stand for the values in between. Because every mark is equally spaced from its neighbours, each value from 0 to 100 has its own place on the ruler, and we can point to it.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Look at Figure 1: the numbers we studied earlier are listed in order. When a number comes **after** another, it is **greater**. We write that relationship with the symbol (>), so *21 > 20* means \"21 is greater than 20\"",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "The opposite is also true: a number that comes **before** another is **smaller**. We use the symbol (<), so *20 < 21* means \"20 is smaller than 21\"",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "A useful tip: the open side of the comparison symbol — greater (>) or smaller (<) — always faces the larger number. Test it with *21 > 20*: the opening faces 21.\n\nWhen the gap between the two numbers is huge, mathematics offers a shortcut: (&#8811;) reads \"much greater than\", as in *1000000 &#8811; 20*, and (&#8810;) reads \"much less than\", as in *20 &#8810; 1000000*",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><h4>Practice</h4>An inequality is a statement that must stay true. If you change one side, you have to change the other side at the same time, or the comparison breaks. Try it yourself: use the arrows to move the hands up and down, and watch how both numbers change together:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equation</i></th><th>Left hand</th><th>Right hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><button type=\"button\" class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\" aria-label=\"Increase both numbers\" style=\"background:none;border:none;padding:0;cursor:pointer;\"></button>  <button type=\"button\" class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size:4em;color:#00f;background:none;border:none;padding:0;cursor:pointer;\" id=\"traineeDown0\" aria-label=\"Decrease both numbers\"></button></td></tr></table></p><p class=\"desc\"><b>Table 1</b>: Keeping the inequality.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_direction",
+         "text": [
+            {
+               "text": "### Comparing in one direction\n\nBefore we can compare two objects, we need to **measure** them. Measuring means finding how long something is **in one direction** — along a single line. The tool we use for this is the **ruler**, the straight, marked strip already shown in **Figure 1**. Its marks are equally spaced and each one carries a number, so every length finds its own number on the ruler.\n\nLet us use the ruler, step by step:\n\n1. Place the object along the edge of the ruler, so that one end of the object lines up with the **0** mark.\n2. Keep the object straight, without tilting it, and look at the mark where the other end stops.\n3. The number you find there is the **measure** of the object: it tells the length of the object in the direction you chose.\n\nFor example, if one object stops at the mark **10**, its measure is 10. If another object stops at the mark **20**, its measure is 20.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Are they truly equal?</b><br /><br />Two objects were measured along the same line, and both stopped at the same mark, so both have the same length. Does that make them equal? Could they still be different in some other way?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Now we can compare the two measures. When both objects stop at the **same mark**, they are **equal in one direction**: they have the same length. When each object stops at a different mark, one is longer and the other is shorter, and the rule of greater and smaller tells us which measure is greater and which is smaller.\n\nSo, for two objects to be **equal in one direction**, they must have the same length. The same length is the **first step** — but, as we will see, it is not the only one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Same length is only the first step\n\nHaving the same length is one step toward equality, but it is not the whole journey. Picture two pencils of exactly the same length: one is **red** and the other is **blue**. If we lay both of them on the ruler, both stop at the same mark, so they have the same length. Are they equal? No. They share the same length, but they have **different colors**, so they are not equal objects.\n\nThis teaches us an important lesson: two objects are only **fully equal** when they match in **every characteristic** we are comparing, not just in one. Length is one **direction** of comparison; color, shape and material are other directions. Two objects can be equal in one direction and different in another.\n\nTo compare two objects well, always ask yourself:\n\n1. **Which characteristic** am I comparing?\n2. Do the two objects match in **that** characteristic?\n3. Do they also match in the **other** characteristics that matter?",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Practice\n\nBelow are three strings whose length you can change. Use the **+** and **−** buttons to make each string longer or shorter, and watch the ruler under them.\n\nTwo strings are **fully equal** only when they have the same length and the same color. Try to make two strings fully equal, and read the comparisons that appear below.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htStringsApp\" id=\"htStringsApp\"><div class=\"htStringsGrid\"><span class=\"htStringsLabel\">1</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"1\" aria-label=\"Shorter string 1\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack1\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"1\" aria-label=\"Longer string 1\">+</button><span class=\"htStringsLabel\">2</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"2\" aria-label=\"Shorter string 2\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack2\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"2\" aria-label=\"Longer string 2\">+</button><span class=\"htStringsLabel\">3</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"3\" aria-label=\"Shorter string 3\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack3\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"3\" aria-label=\"Longer string 3\">+</button><span class=\"htStringsLabel\"></span><span class=\"htStringsSpacer\"></span><div class=\"htStringsRuler\" id=\"htStringsRuler\"></div><span class=\"htStringsSpacer\"></span></div><div class=\"htStringsComparisons\" id=\"htStringsComparisons\"></div><span id=\"htStringsMsgEqual\" class=\"htStringsHidden\">String {a} and string {b} are fully equal because they have the same length ({la}) and the same color.</span><span id=\"htStringsMsgSameColorDiffLength\" class=\"htStringsHidden\">String {a} and string {b} are not fully equal because they have the same color but different lengths ({la} and {lb}).</span><span id=\"htStringsMsgDiffColorSameLength\" class=\"htStringsHidden\">String {a} and string {b} are not fully equal because they have the same length ({la}) but different colors.</span><span id=\"htStringsMsgDiffColorDiffLength\" class=\"htStringsHidden\">String {a} and string {b} are not fully equal because they have different lengths ({la} and {lb}) and different colors.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text we built the tools for comparing. With the symbols (>) and (<), we say which of two numbers is greater and which is smaller — the open side always faces the larger number — and the symbols (&#8811;) and (&#8810;) mark a much greater or a much smaller difference. Table 1 showed that an inequality must stay true: whenever one side changes, the other side has to change with it, or the comparison breaks.\n\nWe then learned that comparing begins with measuring. Using a ruler, we find how long something is **in one direction**, and two objects that stop at the same mark are equal in that direction. But the same length is only the first step: the practice with the three strings showed that two objects are **fully equal** only when they match in **every characteristic** we are comparing — length and color together. Two objects can be equal in one direction and different in another, so to compare well we always ask which characteristics matter and whether the objects match in all of them.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

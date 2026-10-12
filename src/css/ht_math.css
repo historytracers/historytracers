@@ -3021,6 +3021,131 @@ p.desc svg {
 }
 
 /*
+ * Strings comparison practice (content 8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98).
+ */
+.htStringsApp {
+  margin: 1em auto;
+  max-width: 36em;
+  padding: 0.75em;
+  background-color: lightyellow;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.htStringsGrid {
+  display: grid;
+  grid-template-columns: 1.2em 2.2em minmax(0, 1fr) 2.2em;
+  align-items: center;
+  justify-items: stretch;
+  column-gap: 0.3em;
+  row-gap: 0.3em;
+  max-width: 32em;
+  margin: 0 auto;
+}
+
+.htStringsLabel {
+  font-weight: bold;
+  text-align: center;
+}
+
+.htStringsBtn {
+  justify-self: center;
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #222;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.htStringsBtn:hover {
+  background: #e0e0e0;
+}
+
+.htStringsTrack,
+.htStringsRuler {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border-left: 1px solid #999;
+}
+
+.htStringsUnit,
+.htStringsTick {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  border-right: 1px solid #999;
+}
+
+.htStringsUnit {
+  height: 1.5em;
+  background: transparent;
+}
+
+.htStringsTick {
+  color: #333;
+  font-size: 0.65em;
+  line-height: 1.3;
+  text-align: center;
+  padding-top: 2px;
+}
+
+.htStringsColorBlue {
+  background: #2f6fb3;
+}
+
+.htStringsColorOrange {
+  background: #e07b39;
+}
+
+.htStringsComparisons {
+  margin-top: 0.75em;
+  text-align: left;
+}
+
+.htStringsComparison {
+  margin: 0.35em 0;
+}
+
+.htStringsComparisonEqual {
+  font-weight: bold;
+}
+
+.htStringsHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 400px) {
+  .htStringsGrid {
+    grid-template-columns: 1.1em 1.9em minmax(0, 1fr) 1.9em;
+    column-gap: 0.25em;
+  }
+
+  .htStringsBtn {
+    width: 1.8em;
+    height: 1.8em;
+    font-size: 0.85em;
+  }
+
+  .htStringsTick {
+    font-size: 0.6em;
+  }
+
+  .htStringsComparisons {
+    font-size: 0.9em;
+  }
+}
+
+/*
  * Vertical complement transition (content cabc9843-35ef-4e4f-92fd-17eda864b55e).
  */
 .htComplementApp {
@@ -3351,5 +3476,186 @@ p.desc svg {
   .htCarrySquare {
     width: 1.2em;
     height: 1.2em;
+  }
+}
+
+/*
+ * Rectangles comparison practice (content 03bb4b8e-6187-4572-8f00-ea3892df51a4).
+ */
+.htRectApp {
+  margin: 1em auto;
+  max-width: 22em;
+  padding: 0.75em;
+  background-color: lightyellow;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.htRectBoard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) 1.4em;
+  grid-template-rows: auto auto auto auto;
+  align-items: center;
+  column-gap: 0.3em;
+  row-gap: 0.2em;
+  max-width: 16em;
+  margin: 0 auto;
+}
+
+#htRectHRulerTop { grid-column: 2; grid-row: 1; }
+#htRectGrid1 { grid-column: 2; grid-row: 2; }
+#htRectVRuler1 { grid-column: 3; grid-row: 2; }
+#htRectGrid2 { grid-column: 2; grid-row: 3; }
+#htRectVRuler2 { grid-column: 3; grid-row: 3; }
+#htRectHRuler { grid-column: 2; grid-row: 4; }
+.htRectControls[data-htrect="1"] { grid-column: 1; grid-row: 2; }
+.htRectControls[data-htrect="2"] { grid-column: 1; grid-row: 3; }
+
+.htRectControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 0.85em;
+}
+
+.htRectLabel {
+  font-weight: bold;
+}
+
+.htRectCtrl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+}
+
+.htRectCtrlName {
+  line-height: 1.1;
+}
+
+.htRectCtrlBtns {
+  display: inline-flex;
+  gap: 0.15em;
+}
+
+.htRectBtn {
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #222;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.htRectBtn:hover {
+  background: #e0e0e0;
+}
+
+.htRectGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #555;
+  box-sizing: border-box;
+}
+
+.htRectCell {
+  border-right: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
+  box-sizing: border-box;
+}
+
+.htRectCell:nth-child(5n) {
+  border-right: none;
+}
+
+.htRectCell:nth-child(n + 21) {
+  border-bottom: none;
+}
+
+.htRectFill {
+  background: #2f6fb3;
+}
+
+.htRectVRuler {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  align-self: stretch;
+  border-left: 1px solid #999;
+  box-sizing: border-box;
+}
+
+.htRectVTick,
+.htRectHTick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 0.6em;
+}
+
+.htRectHRuler {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  box-sizing: border-box;
+}
+
+#htRectHRulerTop {
+  border-top: none;
+  border-bottom: 1px solid #999;
+}
+
+.htRectHTick {
+  border-right: 1px solid #c9c9c9;
+  box-sizing: border-box;
+}
+
+.htRectHTick:last-child {
+  border-right: none;
+}
+
+.htRectFeedback {
+  margin-top: 0.75em;
+  text-align: left;
+}
+
+.htRectFeedbackEqual {
+  font-weight: bold;
+}
+
+.htRectHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 400px) {
+  .htRectBoard {
+    max-width: 100%;
+  }
+
+  .htRectControls {
+    font-size: 0.75em;
+  }
+
+  .htRectBtn {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .htRectVTick,
+  .htRectHTick {
+    font-size: 0.55em;
   }
 }
