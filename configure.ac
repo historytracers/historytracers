@@ -129,29 +129,39 @@ AC_MSG_RESULT([$GO_COMPILER_TYPE])
 
 AC_SUBST([GO_COMPILER])
 
-# Detect GOROOT (needed for trimmed Go binaries)
+# Detect GOROOT (needed for trimmed Go binaries).
+# IMPORTANT: never export a guessed GOROOT that fails validation. An empty
+# GOROOT lets 'go' fall back to its correct built-in default, while a wrong
+# one breaks every build with "package X is not in std". In particular, do
+# NOT derive it from the compiler path: on FreeBSD 'go' lives in
+# /usr/local/bin (real GOROOT is /usr/local/go), and dirname() plus a weak
+# "-d $dir/bin" check happily accepts /usr/local. The authoritative source
+# is 'go env GOROOT'; path derivation is a last resort and must prove the
+# std tree exists ($dir/src/bufio).
 AC_MSG_CHECKING([for GOROOT])
-if test -n "$GOROOT"; then
+GO_GOROOT=""
+if test -n "$GOROOT" -a -d "$GOROOT/src/bufio"; then
     GO_GOROOT="$GOROOT"
     AC_MSG_RESULT([$GO_GOROOT (from environment)])
-elif test -n "$GO_BIN_DIR" -a -d "$GO_BIN_DIR"; then
-    # Derive from GO_BIN_DIR (which is <GOROOT>/bin)
-    GO_GOROOT=`dirname "$GO_BIN_DIR" 2>/dev/null`
-    if test -d "$GO_GOROOT/bin"; then
-        AC_MSG_RESULT([$GO_GOROOT (from GO_BIN_DIR)])
-    else
-        GO_GOROOT=""
-        AC_MSG_RESULT([not found (GO_BIN_DIR=$GO_BIN_DIR not inside a GOROOT)])
-    fi
 else
     # Use GO_COMPILER to query GOROOT
     GO_GOROOT=`"$GO_COMPILER" env GOROOT 2>/dev/null`
-    if test -n "$GO_GOROOT" -a -d "$GO_GOROOT/bin"; then
+    if test -n "$GO_GOROOT" -a -d "$GO_GOROOT/src/bufio"; then
         AC_MSG_RESULT([$GO_GOROOT (from 'go env GOROOT')])
     else
         GO_GOROOT=""
-        AC_MSG_RESULT([not found])
-        AC_MSG_WARN([GOROOT not set; CGo builds may fail with trimmed Go binaries])
+        if test -n "$GO_BIN_DIR" -a -d "$GO_BIN_DIR"; then
+            # Last resort: GO_BIN_DIR is <GOROOT>/bin in upstream layouts
+            _GO_GUESS=`dirname "$GO_BIN_DIR" 2>/dev/null`
+            if test -n "$_GO_GUESS" -a -d "$_GO_GUESS/src/bufio"; then
+                GO_GOROOT="$_GO_GUESS"
+                AC_MSG_RESULT([$GO_GOROOT (from GO_BIN_DIR)])
+            fi
+        fi
+        if test -z "$GO_GOROOT"; then
+            AC_MSG_RESULT([not found])
+            AC_MSG_WARN([GOROOT not set; 'go' will use its built-in default])
+        fi
     fi
 fi
 AC_SUBST([GO_GOROOT])
