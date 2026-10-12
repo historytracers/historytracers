@@ -8,7 +8,17 @@ VIEWERSRC_DIR = src/viewer
 EDITORSRC_DIR = src/editor
 
 # Go compiler wrapper that ensures its bin dir is in PATH and GOROOT is set
-GO_RUN = PATH="$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" "$(GO_COMPILER)"
+#
+# GOPROXY is sanitized: a value with no usable entries (unset, empty, or
+# whitespace/commas only) makes every 'go' module command fail with
+# "GOPROXY list is not the empty string, but contains no entries".
+# Fall back to Go's default proxy list in that case; a deliberately
+# configured proxy is passed through untouched. (The 'comma' helper
+# exists because a literal comma cannot appear in a make function argument.)
+comma := ,
+GO_PROXY_DEFAULT = https://proxy.golang.org$(comma)direct
+GO_PROXY = $(if $(strip $(subst $(comma), ,$(GOPROXY))),$(GOPROXY),$(GO_PROXY_DEFAULT))
+GO_RUN = PATH="$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" GOPROXY="$(GO_PROXY)" "$(GO_COMPILER)"
 
 # CGo environment for MinGW cross-compilation (Windows)
 if NEED_MINGW
