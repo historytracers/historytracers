@@ -48,6 +48,7 @@ function htLoadContent() {
 
     htSetImageSrc('imgUniverseTimeBigBang', 'images/ESA/The_Universe_across_space_and_time.jpg');
     htSetImageSrc("imgFamilyInca", "images/Cuzco/PachacutiCuzco.jpg");
+    htSetImageSrc("imgPomaCalendar", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_1140.jpg");
 
     htFillLocalTable();
 

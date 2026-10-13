@@ -21,10 +21,13 @@ import (
 	"path/filepath"
 	"regexp"
 	"runtime"
+	"sort"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
+	"unicode"
+	"unicode/utf8"
 
 	git "github.com/go-git/go-git/v5"
 
@@ -78,6 +81,14 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "invalid url scheme", http.StatusBadRequest)
 		return
 	}
+	if parsed.User != nil {
+		http.Error(w, "invalid url", http.StatusBadRequest)
+		return
+	}
+	if strings.ContainsAny(target, "\n\r\x00") {
+		http.Error(w, "invalid url", http.StatusBadRequest)
+		return
+	}
 	var cmd string
 	var args []string
 	switch runtime.GOOS {
@@ -91,8 +102,119 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 		cmd = "xdg-open"
 		args = []string{target}
 	}
-	exec.Command(cmd, args...).Start()
+	if err := exec.Command(cmd, args...).Start(); err != nil {
+		log.Printf("Warning: cannot open external URL: %v", err)
+		http.Error(w, "cannot open url", http.StatusInternalServerError)
+		return
+	}
 	w.WriteHeader(http.StatusNoContent)
+}
+
+// jsString encodes s as a JSON double-quoted string literal safe for
+// embedding inside a <script> block. encoding/json HTML-escapes <, > and &
+// (as \u003c, \u003e, \u0026), which prevents </script> breakout that %q
+// does not stop.
+func jsString(s string) string {
+	b, err := json.Marshal(s)
+	if err != nil {
+		return `""`
+	}
+	return string(b)
+}
+
+// sanitizeLabelPath rejects values containing characters that break out of
+// JS string literals or HTML attributes. Legitimate file paths and option
+// values never contain them.
+func sanitizeLabelPath(s string) string {
+	if strings.ContainsAny(s, "<>\"'`\n\r\x00") {
+		return ""
+	}
+	if len(s) > 1024 {
+		return ""
+	}
+	return s
+}
+
+// clampLen truncates s to at most max bytes (on a UTF-8 boundary).
+func clampLen(s string, max int) string {
+	if len(s) <= max {
+		return s
+	}
+	s = s[:max]
+	for len(s) > 0 && !utf8.ValidString(s) {
+		s = s[:len(s)-1]
+	}
+	return s
+}
+
+// sanitizeMetricsLabel escapes s for use as a Prometheus label value:
+// backslash, double quote and newlines are escaped, control characters are
+// stripped, and the result is capped. Unlike Go %q this keeps UTF-8 text
+// intact so non-ASCII names stay readable in /metrics.
+func sanitizeMetricsLabel(s string) string {
+	s = clampLen(s, 128)
+	var b strings.Builder
+	b.Grow(len(s))
+	for _, r := range s {
+		switch r {
+		case '\\':
+			b.WriteString(`\\`)
+		case '"':
+			b.WriteString(`\"`)
+		case '\n':
+			b.WriteString(`\n`)
+		case '\r':
+			b.WriteString(`\r`)
+		default:
+			if unicode.IsControl(r) {
+				continue
+			}
+			b.WriteRune(r)
+		}
+	}
+	return b.String()
+}
+
+var validEditorLangs = map[string]bool{
+	"en-US": true,
+	"pt-BR": true,
+	"es-ES": true,
+}
+
+var validEditorDesigns = map[string]bool{
+	"default": true,
+	"light":   true,
+}
+
+// isValidIndexName reports whether s is a safe language index basename
+// (e.g. "index", "atlas"): no separators, no parent references, bounded.
+func isValidIndexName(s string) bool {
+	if s == "" || len(s) > 128 {
+		return false
+	}
+	if s == "." || s == ".." || strings.HasPrefix(s, ".") {
+		return false
+	}
+	if strings.Contains(s, "..") {
+		return false
+	}
+	for i := 0; i < len(s); i++ {
+		c := s[i]
+		if (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9') && c != '_' && c != '-' {
+			return false
+		}
+	}
+	return true
+}
+
+// escapeHTMLText escapes s for embedding as HTML text content.
+func escapeHTMLText(s string) string {
+	r := strings.ReplaceAll(s, "&", "&amp;")
+	r = strings.ReplaceAll(r, "<", "&lt;")
+	r = strings.ReplaceAll(r, ">", "&gt;")
+	r = strings.ReplaceAll(r, `"`, "&quot;")
+	r = strings.ReplaceAll(r, "'", "&#39;")
+	return r
 }
 
 type devEntry struct {
@@ -119,10 +241,10 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		entry := devEntry{
-			Type:     r.FormValue("type"),
-			Message:  r.FormValue("message"),
-			URL:      r.FormValue("url"),
-			Method:   r.FormValue("method"),
+			Type:     clampLen(r.FormValue("type"), 32),
+			Message:  clampLen(r.FormValue("message"), 8192),
+			URL:      clampLen(r.FormValue("url"), 2048),
+			Method:   clampLen(r.FormValue("method"), 16),
 			Duration: parseInt64(r.FormValue("duration")),
 			Time:     parseInt64(r.FormValue("time")),
 		}
@@ -233,6 +355,9 @@ func validateEditPath(filePath string) (string, error) {
 		if base == "" || !strings.HasPrefix(clean, base+"/") {
 			return "", fmt.Errorf("invalid path")
 		}
+		if !isAllowedEditFile(clean) {
+			return "", fmt.Errorf("file type not allowed for editing")
+		}
 		return clean, nil
 	}
 	abs := filepath.Join(rootDir, clean)
@@ -241,7 +366,14 @@ func validateEditPath(filePath string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("invalid path: %v", err)
 	}
-	if !strings.HasPrefix(absFile, absRoot) {
+	// Resolve symlinks for existing paths so a symlink inside the project
+	// cannot escape the root (lexical checks alone are blind to them).
+	if resolved, err := filepath.EvalSymlinks(absFile); err == nil {
+		absFile = resolved
+	}
+	// Rel-based containment: a plain HasPrefix check would accept
+	// siblings like /a/bc when the root is /a/b.
+	if rel, err := filepath.Rel(absRoot, absFile); err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
 		return "", fmt.Errorf("path outside project root")
 	}
 	if !isAllowedEditFile(clean) {
@@ -290,6 +422,18 @@ func editorTreeHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil || !info.IsDir() {
 		http.Error(w, `[]`, http.StatusBadRequest)
 		return
+	}
+	// Refuse to list directories that resolve outside the project root
+	// (symlink escape), mirroring validateEditPath.
+	if absRoot, err := filepath.Abs(rootDir); err == nil {
+		check := abs
+		if resolved, err := filepath.EvalSymlinks(abs); err == nil {
+			check = resolved
+		}
+		if rel, err := filepath.Rel(absRoot, check); err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) {
+			http.Error(w, `[]`, http.StatusBadRequest)
+			return
+		}
 	}
 	entries, err := os.ReadDir(abs)
 	if err != nil {
@@ -407,6 +551,9 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
+	// Cap the body before ParseForm: content itself is limited to
+	// maxEditableFileSize, so 1MB of form overhead on top is plenty.
+	r.Body = http.MaxBytesReader(w, r.Body, int64(maxEditableFileSize)+1024*1024)
 	fileParam := r.FormValue("file")
 	content := r.FormValue("content")
 	if fileParam == "" {
@@ -426,13 +573,17 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 
 	if strings.HasPrefix(fileParam, ".ht_src_cache/") {
 		uuidStr := strings.TrimSuffix(filepath.Base(fileParam), ".json")
+		if _, err := uuid.Parse(uuidStr); err != nil {
+			http.Error(w, "invalid file", http.StatusBadRequest)
+			return
+		}
 		if err := htSaveSourceFileToDB(uuidStr, []byte(content)); err != nil {
 			log.Printf("ERROR saving source to DB: %v", err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		cacheFile := filepath.Join(getCacheDir(), filepath.Base(fileParam))
-		if err := os.WriteFile(cacheFile, []byte(content), 0644); err != nil {
+		if err := os.WriteFile(cacheFile, []byte(content), 0600); err != nil {
 			log.Printf("ERROR writing cache file: %v", err)
 		}
 		rotateToken()
@@ -619,7 +770,8 @@ type historyEntry struct {
 }
 
 func updateFeedInAllLangs(pageType string, arg string, displayName string) {
-	link := fmt.Sprintf(`<a href="index.html?page=%s&arg=%s" onclick="htLoadPage('%s','html', '%s', false); return false;">%s</a>`, pageType, arg, pageType, arg, displayName)
+	safeName := escapeHTMLText(clampLen(displayName, 512))
+	link := fmt.Sprintf(`<a href="index.html?page=%s&arg=%s" onclick="htLoadPage('%s','html', '%s', false); return false;">%s</a>`, pageType, arg, pageType, arg, safeName)
 	for _, lang := range editorLangs {
 		idxPath := filepath.Join(rootDir, "lang", lang, "index.json")
 		data, err := os.ReadFile(idxPath)
@@ -692,6 +844,10 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 	className := r.FormValue("className")
 	if className == "" {
 		http.Error(w, "missing className", http.StatusBadRequest)
+		return
+	}
+	if !isValidIndexName(className) {
+		http.Error(w, "invalid className", http.StatusBadRequest)
 		return
 	}
 	id := uuid.New()
@@ -835,7 +991,10 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		common.HTNewFamilySetDefaultValues(&family, lang, strID)
 
 		langPath := filepath.Join(rootDir, "lang", lang)
-		os.MkdirAll(langPath, 0755)
+		if err := os.MkdirAll(langPath, 0755); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		famFile := filepath.Join(langPath, strID+".json")
 		fp, err := os.Create(famFile)
 		if err != nil {
@@ -845,7 +1004,12 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		e := json.NewEncoder(fp)
 		e.SetEscapeHTML(false)
 		e.SetIndent("", "   ")
-		e.Encode(family)
+		if err := e.Encode(family); err != nil {
+			fp.Close()
+			os.Remove(famFile)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		fp.Close()
 
 		idxPath := filepath.Join(rootDir, "lang", lang, "families.json")
@@ -860,7 +1024,11 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		common.HTAddNewFamilyToIdx(&idx, strID, lang)
-		idx.LastUpdate[0] = common.HTUpdateTimestamp()
+		if len(idx.LastUpdate) == 0 {
+			idx.LastUpdate = []string{common.HTUpdateTimestamp()}
+		} else {
+			idx.LastUpdate[0] = common.HTUpdateTimestamp()
+		}
 
 		tmpPath := filepath.Join(rootDir, "lang", lang, strID+"_idx.tmp")
 		fp2, err := os.Create(tmpPath)
@@ -871,7 +1039,12 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		e2 := json.NewEncoder(fp2)
 		e2.SetEscapeHTML(false)
 		e2.SetIndent("", "   ")
-		e2.Encode(idx)
+		if err := e2.Encode(idx); err != nil {
+			fp2.Close()
+			os.Remove(tmpPath)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		fp2.Close()
 		if err := copyFile(idxPath, tmpPath); err != nil {
 			os.Remove(tmpPath)
@@ -1057,6 +1230,7 @@ func gitStatusHandler(w http.ResponseWriter, r *http.Request) {
 var (
 	sessionMu    sync.Mutex
 	optionsMu    sync.Mutex
+	historyMu    sync.Mutex
 	sessionFile  string
 	dataDir      string
 	optionsFile  string
@@ -1089,10 +1263,14 @@ func initDataDir() {
 	default:
 		dataDir = filepath.Join(home, ".config", "HistoryTracers")
 	}
-	if err := os.MkdirAll(dataDir, 0755); err != nil {
+	if err := os.MkdirAll(dataDir, 0700); err != nil {
 		log.Printf("Warning: cannot create data directory %s: %v", dataDir, err)
 		dataDir = ""
+		return
 	}
+	// Tighten permissions on pre-existing directories (session/options
+	// files contain local paths): ignore errors on shared systems.
+	_ = os.Chmod(dataDir, 0700)
 	if dataDir != "" {
 		sessionFile = filepath.Join(dataDir, "session.json")
 		optionsFile = filepath.Join(dataDir, "editor_options.json")
@@ -1132,19 +1310,25 @@ func writeEditorOptions(data optionsData) {
 	if err != nil {
 		return
 	}
-	os.WriteFile(optionsFile, b, 0644)
+	os.WriteFile(optionsFile, b, 0600)
 }
 
 func validateEditorOptions(data *optionsData) {
-	if data.Lang != "en-US" && data.Lang != "pt-BR" && data.Lang != "es-ES" {
+	if !validEditorLangs[data.Lang] {
 		data.Lang = ""
 	}
 	if data.Port != "" {
-		p := 0
-		fmt.Sscanf(data.Port, "%d", &p)
-		if p < 1 || p > 65535 {
+		if p, err := strconv.Atoi(strings.TrimSpace(data.Port)); err != nil || p < 1 || p > 65535 {
 			data.Port = ""
+		} else {
+			data.Port = strconv.Itoa(p)
 		}
+	}
+	data.TLSCert = sanitizeLabelPath(clampLen(data.TLSCert, 1024))
+	data.TLSKey = sanitizeLabelPath(clampLen(data.TLSKey, 1024))
+	data.MyName = clampLen(data.MyName, 128)
+	if !validEditorDesigns[data.Design] {
+		data.Design = ""
 	}
 	if (data.TLSCert != "") != (data.TLSKey != "") {
 		data.TLSCert = ""
@@ -1157,6 +1341,13 @@ func validateEditorOptions(data *optionsData) {
 func normalizeImagesPath(p string) string {
 	p = strings.TrimSpace(p)
 	if p == "" || p == "." {
+		return ""
+	}
+	p = clampLen(p, 1024)
+	if strings.ContainsAny(p, "<>\"'`\n\r\x00") {
+		return ""
+	}
+	if strings.Contains(p, "..") {
 		return ""
 	}
 	return p
@@ -1209,8 +1400,17 @@ func normalizeSmartphonePrefix(p string) string {
 	if p == "" || p == "." {
 		return ""
 	}
-	if filepath.IsAbs(p) {
-		return path.Clean(filepath.ToSlash(p))
+	p = clampLen(p, 256)
+	if strings.ContainsAny(p, "<>\"'`\n\r\x00") {
+		return ""
+	}
+	if strings.Contains(p, "..") {
+		return ""
+	}
+	// Absolute prefixes would let file creation escape the project root;
+	// the prefix is documented as a relative segment (e.g. MYSMARTPHONE).
+	if filepath.IsAbs(p) || path.IsAbs(p) {
+		return ""
 	}
 	p = strings.Trim(p, "/\\")
 	p = filepath.ToSlash(p)
@@ -1225,18 +1425,13 @@ func normalizeSmartphonePrefix(p string) string {
 }
 
 func smartphoneDirForLang(lang string) string {
+	optionsMu.Lock()
 	prefix := normalizeSmartphonePrefix(savedOptions.SmartphonePrefix)
-	if filepath.IsAbs(prefix) {
-		return filepath.Join(prefix, "src", "smartphone", lang)
-	}
+	optionsMu.Unlock()
 	return filepath.Join(rootDir, prefix, "src", "smartphone", lang)
 }
 
 func smartphonePrefixAbs() string {
-	prefix := normalizeSmartphonePrefix(savedOptions.SmartphonePrefix)
-	if prefix != "" && filepath.IsAbs(prefix) {
-		return prefix
-	}
 	return ""
 }
 
@@ -1282,7 +1477,7 @@ func saveSession(tabs []sessionTab) {
 		log.Printf("Warning: cannot marshal session: %v", err)
 		return
 	}
-	if err := os.WriteFile(sessionFile, b, 0644); err != nil {
+	if err := os.WriteFile(sessionFile, b, 0600); err != nil {
 		log.Printf("Warning: cannot write session: %v", err)
 	}
 }
@@ -1297,6 +1492,9 @@ func sessionHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		json.NewEncoder(w).Encode(tabs)
 	case http.MethodPost:
+		// Tabs are tiny (path + two ints); 1MB is generous and bounds
+		// a malformed or hostile session payload.
+		r.Body = http.MaxBytesReader(w, r.Body, 1024*1024)
 		var tabs []sessionTab
 		if err := json.NewDecoder(r.Body).Decode(&tabs); err != nil {
 			http.Error(w, "invalid JSON", http.StatusBadRequest)
@@ -1313,6 +1511,8 @@ func loadHistory() []string {
 	if historyFile == "" {
 		return nil
 	}
+	historyMu.Lock()
+	defer historyMu.Unlock()
 	b, err := os.ReadFile(historyFile)
 	if err != nil {
 		return nil
@@ -1328,10 +1528,16 @@ func addHistory(path string) {
 	if historyFile == "" {
 		return
 	}
-	if !isAllowedEditFile(path) {
+	if _, err := validateEditPath(path); err != nil {
 		return
 	}
-	history := loadHistory()
+	historyMu.Lock()
+	defer historyMu.Unlock()
+	b, err := os.ReadFile(historyFile)
+	var history []string
+	if err == nil {
+		_ = json.Unmarshal(b, &history)
+	}
 	var newHistory []string
 	for _, p := range history {
 		if p != path {
@@ -1342,18 +1548,21 @@ func addHistory(path string) {
 	if len(newHistory) > 20 {
 		newHistory = newHistory[:20]
 	}
-	b, err := json.Marshal(newHistory)
+	b, err = json.Marshal(newHistory)
 	if err != nil {
 		return
 	}
-	os.WriteFile(historyFile, b, 0644)
+	os.WriteFile(historyFile, b, 0600)
 }
 
 func getDisplayName(path string) string {
-	if !strings.HasSuffix(strings.ToLower(path), ".json") {
-		return path
+	absPath, err := validateEditPath(path)
+	if err != nil {
+		return filepath.Base(path)
 	}
-	absPath := filepath.Join(rootDir, path)
+	if !strings.HasSuffix(strings.ToLower(absPath), ".json") {
+		return filepath.Base(path)
+	}
 	b, err := os.ReadFile(absPath)
 	if err != nil {
 		return path
@@ -1411,43 +1620,46 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(readEditorOptions())
 	case http.MethodPost:
 		data := readEditorOptions()
-		if v := r.FormValue("lang"); v != "" {
+		if v := r.FormValue("lang"); v != "" && validEditorLangs[v] {
 			data.Lang = v
 		}
 		if v := r.FormValue("port"); v != "" {
-			data.Port = v
+			if p, err := strconv.Atoi(strings.TrimSpace(v)); err == nil && p >= 1 && p <= 65535 {
+				data.Port = strconv.Itoa(p)
+			}
 		}
 		if v := r.FormValue("tls_cert"); v != "" {
-			data.TLSCert = v
+			data.TLSCert = sanitizeLabelPath(clampLen(v, 1024))
 		} else if _, ok := r.Form["tls_cert"]; ok {
 			data.TLSCert = ""
 		}
 		if v := r.FormValue("tls_key"); v != "" {
-			data.TLSKey = v
+			data.TLSKey = sanitizeLabelPath(clampLen(v, 1024))
 		} else if _, ok := r.Form["tls_key"]; ok {
 			data.TLSKey = ""
 		}
 		if v := r.FormValue("open_new_files"); v != "" {
 			data.OpenNewFiles = v == "true" || v == "on" || v == "1"
 		}
-		if v := r.FormValue("design"); v != "" {
+		if v := r.FormValue("design"); v != "" && validEditorDesigns[v] {
 			data.Design = v
 		}
 		if v := r.FormValue("my_name"); v != "" {
-			data.MyName = v
+			data.MyName = clampLen(v, 128)
 		} else if _, ok := r.Form["my_name"]; ok {
 			data.MyName = ""
 		}
 		if v := r.FormValue("smartphone_prefix"); v != "" {
-			data.SmartphonePrefix = v
+			data.SmartphonePrefix = normalizeSmartphonePrefix(v)
 		} else if _, ok := r.Form["smartphone_prefix"]; ok {
 			data.SmartphonePrefix = ""
 		}
 		if v := r.FormValue("images_path"); v != "" {
-			data.ImagesPath = v
+			data.ImagesPath = normalizeImagesPath(v)
 		} else if _, ok := r.Form["images_path"]; ok {
 			data.ImagesPath = ""
 		}
+		validateEditorOptions(&data)
 		writeEditorOptions(data)
 		optionsMu.Lock()
 		savedOptions = data
@@ -1461,6 +1673,11 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func importViewerOptionsHandler(w http.ResponseWriter, r *http.Request) {
+	if dataDir == "" {
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{"lang": "", "port": ""})
+		return
+	}
 	viewerFile := filepath.Join(dataDir, "options.bin")
 	var viewerLang, viewerPort string
 	f, err := os.Open(viewerFile)
@@ -1486,25 +1703,51 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	if curLang == "" {
 		curLang = "en-US"
 	}
+	// Re-validate everything that flows into the HTML/JS sink below.
+	// readEditorOptions already validates, but explicit checks here make the
+	// safety local to this handler and visible to static analysis.
+	if !validEditorLangs[curLang] {
+		curLang = "en-US"
+	}
 	curPort := data.Port
-	curTLSCert := data.TLSCert
-	curTLSKey := data.TLSKey
+	if curPort != "" {
+		if p, err := strconv.Atoi(strings.TrimSpace(curPort)); err != nil || p < 1 || p > 65535 {
+			curPort = ""
+		} else {
+			curPort = strconv.Itoa(p)
+		}
+	}
+	curTLSCert := sanitizeLabelPath(data.TLSCert)
+	curTLSKey := sanitizeLabelPath(data.TLSKey)
 	openNewFiles := data.OpenNewFiles
 	curDesign := data.Design
-	if curDesign == "" {
+	if !validEditorDesigns[curDesign] {
 		curDesign = "default"
 	}
-	curSmartphonePrefix := data.SmartphonePrefix
-	curImagesPath := data.ImagesPath
+	curSmartphonePrefix := normalizeSmartphonePrefix(data.SmartphonePrefix)
+	curImagesPath := normalizeImagesPath(data.ImagesPath)
 	defaultTLSDir := "/etc/historytracers/"
 	if runtime.GOOS == "windows" {
 		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
 	}
 
+	// All JS string values are JSON-encoded (see jsString) so quotes,
+	// backslashes and </script> sequences cannot break out of the literal.
+	langJS := jsString(curLang)
+	portJS := jsString(curPort)
+	tlsCertJS := jsString(curTLSCert)
+	tlsKeyJS := jsString(curTLSKey)
+	certDirJS := jsString(defaultTLSDir)
+	openNewFilesJS := jsString(fmt.Sprint(openNewFiles))
+	designJS := jsString(curDesign)
+	smartphonePrefixJS := jsString(curSmartphonePrefix)
+	imagesPathJS := jsString(curImagesPath)
+	tokenJSVal := jsString(viewerToken)
+
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>HistoryTracers Editor Config</title>
-<script>window.__ht_token='%s';</script>
+<script>window.__ht_token=%s;</script>
 <style>
 *{box-sizing:border-box}
 body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5;color:#333}
@@ -1522,16 +1765,18 @@ select{height:30px}
 .back a:hover{text-decoration:underline}
 </style></head><body>
 <script>
-var lang=%q;
-var portVal=%q;
-var tlsCertVal=%q;
-var tlsKeyVal=%q;
-var certDir=%q;
+var lang=%s;
+var portVal=%s;
+var tlsCertVal=%s;
+var tlsKeyVal=%s;
+var certDir=%s;
 var token=window.__ht_token||'';
-var openNewFiles=%q;
-var curDesign=%q;
-var smartphonePrefixVal=%q;
-var imagesPathVal=%q;
+var openNewFiles=%s;
+var curDesign=%s;
+var smartphonePrefixVal=%s;
+var imagesPathVal=%s;
+function escAttr(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 var L={};
 L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro',smartphonePrefixLabel:'Prefixo do caminho Smartphone',smartphonePrefixNote:'Prefixa o caminho padr\u00e3o src/smartphone. Por exemplo, MYSMARTPHONE.',imagesPathLabel:'Caminho das imagens',imagesPathNote:'Caminho completo para /images. Deixe vazio para usar o diret\u00f3rio local images/. Exemplo: /images ou /home/user/images'};
 L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro',smartphonePrefixLabel:'Prefijo de ruta Smartphone',smartphonePrefixNote:'Prefija la ruta predeterminada src/smartphone. Por ejemplo, MYSMARTPHONE.',imagesPathLabel:'Ruta de im\u00e1genes',imagesPathNote:'Ruta completa a /images. Dejar vac\u00edo para usar el directorio local images/. Ejemplo: /images o /home/user/images'};
@@ -1546,16 +1791,16 @@ var html='<h2>'+l.title+'</h2>';
 html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lang">';
 for(var i=0;i<langs.length;i++){html+='<option value="'+langs[i]+'"'+(langs[i]===lang?' selected':'')+'>'+(langNames[langs[i]]||langs[i])+'</option>'}
 html+='</select></div>';
-html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="0" value="'+portVal+'"></div>';
-html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
-html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
+html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="0" value="'+escAttr(portVal)+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+escAttr(certDir)+'cert.pem" value="'+escAttr(tlsCertVal)+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+escAttr(certDir)+'key.pem" value="'+escAttr(tlsKeyVal)+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
 html+='<div class="form-group"><label><input type="checkbox" id="opt_open_new_files"'+(openNewFiles==='true'?' checked':'')+'> '+l.openNewFilesLabel+'</label></div>';
 html+='<div class="form-group"><label>'+l.designLabel+'</label><select id="opt_design"><option value="default"'+(curDesign==='default'?' selected':'')+'>'+l.designDefault+'</option><option value="light"'+(curDesign==='light'?' selected':'')+'>'+l.designLight+'</option></select></div>';
-html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
-html+='<div class="form-group"><label>'+l.smartphonePrefixLabel+'</label><input type="text" id="opt_smartphone_prefix" placeholder="MYSMARTPHONE" value="'+smartphonePrefixVal+'"></div>';
+html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+escAttr(localStorage.getItem('ht_my_name')||'')+'"></div>';
+html+='<div class="form-group"><label>'+l.smartphonePrefixLabel+'</label><input type="text" id="opt_smartphone_prefix" placeholder="MYSMARTPHONE" value="'+escAttr(smartphonePrefixVal)+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.smartphonePrefixNote+'</div>';
-html+='<div class="form-group"><label>'+l.imagesPathLabel+'</label><input type="text" id="opt_images_path" placeholder="/images" value="'+imagesPathVal+'"></div>';
+html+='<div class="form-group"><label>'+l.imagesPathLabel+'</label><input type="text" id="opt_images_path" placeholder="/images" value="'+escAttr(imagesPathVal)+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.imagesPathNote+'</div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
@@ -1601,7 +1846,7 @@ document.getElementById('opt_import').onclick=function(){
 	});
 };
 </script>
-</body></html>`, viewerToken, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, fmt.Sprint(openNewFiles), curDesign, curSmartphonePrefix, curImagesPath)
+</body></html>`, tokenJSVal, langJS, portJS, tlsCertJS, tlsKeyJS, certDirJS, openNewFilesJS, designJS, smartphonePrefixJS, imagesPathJS)
 }
 
 func init() {
@@ -1670,7 +1915,10 @@ func logMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		sw := &statusWriter{ResponseWriter: w, status: 200}
 		next.ServeHTTP(sw, r)
-		accessLog.Printf("%s %s %d", r.Method, r.URL.Path, sw.status)
+		// Strip CR/LF so a crafted path cannot forge log lines.
+		method := strings.ReplaceAll(strings.ReplaceAll(r.Method, "\n", ""), "\r", "")
+		p := strings.ReplaceAll(strings.ReplaceAll(r.URL.Path, "\n", ""), "\r", "")
+		accessLog.Printf("%s %s %d", method, p, sw.status)
 	})
 }
 
@@ -1716,6 +1964,9 @@ func main() {
 	if *lang == "" && savedOptions.Lang != "" {
 		*lang = savedOptions.Lang
 	}
+	if *lang != "" && !validEditorLangs[*lang] {
+		*lang = ""
+	}
 
 	if *logFile != "" {
 		f, err := os.Create(*logFile)
@@ -1736,9 +1987,7 @@ func main() {
 	}
 
 	if *listen == -1 && savedOptions.Port != "" && *port == 0 {
-		p := 0
-		fmt.Sscanf(savedOptions.Port, "%d", &p)
-		if p >= 1 && p <= 65535 {
+		if p, err := strconv.Atoi(strings.TrimSpace(savedOptions.Port)); err == nil && p >= 1 && p <= 65535 {
 			*port = p
 		}
 	}
@@ -1881,12 +2130,12 @@ func htGenerateSourceTempFile(uuid string) (string, error) {
 	}
 
 	cacheDir := getCacheDir()
-	if err := os.MkdirAll(cacheDir, 0755); err != nil {
+	if err := os.MkdirAll(cacheDir, 0700); err != nil {
 		return "", fmt.Errorf("failed to create cache directory: %w", err)
 	}
 
 	dst := filepath.Join(cacheDir, uuid+".json")
-	if err := os.WriteFile(dst, data, 0644); err != nil {
+	if err := os.WriteFile(dst, data, 0600); err != nil {
 		return "", fmt.Errorf("failed to write source file: %w", err)
 	}
 
@@ -2025,12 +2274,7 @@ func relatedFilesHandler(w http.ResponseWriter, r *http.Request) {
 			// smartphone files live under <prefix>/src/smartphone/<lang>/
 			smartCandidate := filepath.Join(smartphoneDirForLang(langName), uuidStr+".json")
 			if info, err := os.Stat(smartCandidate); err == nil && !info.IsDir() {
-				if absPrefix := smartphonePrefixAbs(); absPrefix != "" {
-					result = append(result, map[string]string{
-						"path":  filepath.ToSlash(smartCandidate),
-						"label": langName,
-					})
-				} else if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
+				if rel, err := filepath.Rel(rootDir, smartCandidate); err == nil && !strings.HasPrefix(rel, "..") {
 					result = append(result, map[string]string{
 						"path":  filepath.ToSlash(rel),
 						"label": langName,
@@ -2112,6 +2356,10 @@ func fileIndexesHandler(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode([]map[string]string{})
 		return
 	}
+	if !validEditorLangs[lang] {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
 	if _, err := uuid.Parse(uuidStr); err != nil {
 		json.NewEncoder(w).Encode([]map[string]string{})
 		return
@@ -2151,6 +2399,11 @@ func langIndexFilesHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	name := r.URL.Query().Get("name")
 	if name == "" {
+		json.NewEncoder(w).Encode([]map[string]string{})
+		return
+	}
+	cleanName := path.Clean(name)
+	if strings.Contains(cleanName, "..") || strings.Contains(cleanName, "/") || strings.Contains(cleanName, "\\") || path.IsAbs(cleanName) || len(cleanName) > 128 {
 		json.NewEncoder(w).Encode([]map[string]string{})
 		return
 	}
@@ -2197,10 +2450,13 @@ func findSourceHandler(w http.ResponseWriter, r *http.Request) {
 	defer db.Close()
 	var rows *sql.Rows
 	likeQ := "%" + q + "%"
+	// Bound the result set: this backs a type-as-you-search UI and a
+	// full-table dump would freeze both server and browser.
+	const findSourceLimit = 200
 	if _, err := uuid.Parse(q); err == nil {
-		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_id LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id LIMIT ?", likeQ, likeQ, findSourceLimit)
 	} else {
-		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id", likeQ, likeQ)
+		rows, err = db.Query("SELECT s.src_id, s.src_citation, s.src_url, s.src_date, s.src_publish_date FROM sources s WHERE s.src_citation LIKE ? OR s.src_url LIKE ? ORDER BY s.src_id LIMIT ?", likeQ, likeQ, findSourceLimit)
 	}
 	if err != nil {
 		json.NewEncoder(w).Encode([]map[string]string{})
@@ -2277,6 +2533,9 @@ func linkSourceHandler(w http.ResponseWriter, r *http.Request) {
 		citType = 0
 		if v, err := strconv.Atoi(citTypeStr); err == nil {
 			citType = v
+		}
+		if citType < 0 || citType > 3 {
+			citType = 0
 		}
 	} else {
 		citType = lookupCitType(srcID)
@@ -2397,15 +2656,9 @@ func imagesHandler(w http.ResponseWriter, r *http.Request) {
 			}
 			dirs = append(dirs, name)
 		}
-		// sort already by ReadDir but ensure
-		// use simple sort
-		for i := 0; i < len(dirs); i++ {
-			for j := i + 1; j < len(dirs); j++ {
-				if strings.ToLower(dirs[j]) < strings.ToLower(dirs[i]) {
-					dirs[i], dirs[j] = dirs[j], dirs[i]
-				}
-			}
-		}
+		sort.Slice(dirs, func(i, j int) bool {
+			return strings.ToLower(dirs[i]) < strings.ToLower(dirs[j])
+		})
 		json.NewEncoder(w).Encode(map[string]interface{}{"dirs": dirs})
 		return
 	}
@@ -2425,7 +2678,7 @@ func imagesHandler(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(map[string]interface{}{"files": []string{}})
 		return
 	}
-	allowed := map[string]bool{".jpg": true, ".jpeg": true, ".png": true, ".gif": true, ".webp": true, ".svg": true, ".bmp": true, ".avif": true, ".JPG": true, ".JPEG": true, ".PNG": true}
+	allowed := map[string]bool{".jpg": true, ".jpeg": true, ".png": true, ".gif": true, ".webp": true, ".svg": true, ".bmp": true, ".avif": true}
 	files := []string{}
 	for _, e := range entries {
 		if e.IsDir() {
@@ -2436,21 +2689,14 @@ func imagesHandler(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 		ext := strings.ToLower(path.Ext(name))
-		if !allowed[ext] && !allowed[strings.ToUpper(ext)] {
-			// check lowercased
-			if !allowed[ext] {
-				continue
-			}
+		if !allowed[ext] {
+			continue
 		}
 		files = append(files, name)
 	}
-	for i := 0; i < len(files); i++ {
-		for j := i + 1; j < len(files); j++ {
-			if strings.ToLower(files[j]) < strings.ToLower(files[i]) {
-				files[i], files[j] = files[j], files[i]
-			}
-		}
-	}
+	sort.Slice(files, func(i, j int) bool {
+		return strings.ToLower(files[i]) < strings.ToLower(files[j])
+	})
 	json.NewEncoder(w).Encode(map[string]interface{}{"dir": clean, "files": files})
 }
 

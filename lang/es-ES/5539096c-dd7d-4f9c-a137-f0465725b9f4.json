@@ -1,0 +1,107 @@
+{
+   "title": "¿Se lleva o no se lleva? (Juego)",
+   "header": "¿Se lleva o no se lleva? (Juego)",
+   "sources": [
+      "5539096c-dd7d-4f9c-a137-f0465725b9f4"
+   ],
+   "scripts": [
+      "5539096c-dd7d-4f9c-a137-f0465725b9f4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/5539096c-dd7d-4f9c-a137-f0465725b9f4_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/514b3E22UcJtmHfPZgC406?si=RmGkLlTUSpyjoJuOrUte7A",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791424052"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerrequisitos\n\nEste juego refuerza el texto *Avanzando un orden y el complemento* (<htcite0>). Lee primero ese texto: te enseña la regla que vas a practicar aquí. El complemento hasta 10 es la cantidad que completa una columna hasta 10. Si sumas menos que esa cantidad, la columna se queda por debajo de 10 y no se lleva nada. Si sumas el complemento o más, la columna alcanza 10 y se lleva 1 al siguiente orden.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Avanzando un orden y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Juego\n\nEn cada nivel la pregunta es la misma: ¿esta columna lleva 1 al siguiente orden? El juego avanza siempre columna por columna, empezando por las unidades (<htcite0>).\n\nPara responder, sigue tres pasos:\n\n1. **Valor que ya tiene la columna.** Toma el dígito del primer número y suma el 1 que se llevó de la columna de la derecha, si lo hay. El juego muestra ese total.\n2. **Complemento hasta 10.** Pregunta cuánto falta para llegar a 10. Esa cantidad es el complemento.\n3. **El dígito que sumamos.** Si es menor que el complemento, el total se queda por debajo de 10 y la columna no se lleva nada. Si es igual o mayor que el complemento, el total alcanza 10 y la columna se lleva 1 a la columna siguiente.\n\nElige **Se lleva** o **No se lleva** en la columna resaltada. El juego responde, explica el motivo y dibuja los diez cuadrados del complemento hasta 10. Hay cuatro niveles — unidades, decenas, centenas y millares — y cada nivel añade una columna más.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Nuestros números actuales",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htCarryGame\"><span class=\"htCarryLevel\" id=\"htCarryLevel\"></span><div class=\"htCarryOrders\" id=\"htCarryOrders\"></div><span class=\"htCarryQuestion\" id=\"htCarryQuestion\"></span><div class=\"htCarryIncomingNote htCarryHidden\" id=\"htCarryIncomingNote\"></div><table class=\"htCarryTable\" id=\"htCarryTable\" aria-live=\"polite\"></table><div class=\"htCarryButtonsRow\"><button type=\"button\" id=\"htCarryBtn\" class=\"htCarryButton\">Se lleva</button><button type=\"button\" id=\"htCarryNotBtn\" class=\"htCarryButton\">No se lleva</button></div><div class=\"htCarryFeedback\" id=\"htCarryFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htCarrySquaresWrap htCarryHidden\" id=\"htCarrySquaresWrap\"><span class=\"htCarrySquaresLabel\" id=\"htCarrySquaresLabel\">Complemento hasta 10</span><div class=\"htCarrySquares\" id=\"htCarrySquares\" aria-hidden=\"true\"></div><span class=\"htCarrySquaresCaption\" id=\"htCarrySquaresCaption\"></span></div><div class=\"htCarryNextContainer\"><button type=\"button\" id=\"htCarryNextBtn\" class=\"reset-tutor-btn hidden\">Siguiente nivel</button></div><span id=\"htCarryLevelTemplate\" class=\"htCarryHidden\">Nivel {n} de 4</span><span id=\"htCarryQuestionTemplate\" class=\"htCarryHidden\">¿La columna de {order} lleva 1 al siguiente orden?</span><span id=\"htCarryOrder0\" class=\"htCarryHidden\">Unidades</span><span id=\"htCarryOrder1\" class=\"htCarryHidden\">Decenas</span><span id=\"htCarryOrder2\" class=\"htCarryHidden\">Centenas</span><span id=\"htCarryOrder3\" class=\"htCarryHidden\">Millares</span><span id=\"htCarryOrder4\" class=\"htCarryHidden\">Decenas de millar</span><span id=\"htCarryNextColumnLabel\" class=\"htCarryHidden\">Siguiente columna</span><span id=\"htCarryNextLabel\" class=\"htCarryHidden\">Siguiente nivel</span><span id=\"htCarryPlayAgainLabel\" class=\"htCarryHidden\">Jugar de nuevo</span><span id=\"htCarryIncomingTemplate\" class=\"htCarryHidden\">Se suma el 1 que se llevó de la columna anterior: {first} + 1 = {base}.</span><span id=\"htCarryMsgCarryCorrect\" class=\"htCarryHidden\">¡Correcto! El complemento de {base} hasta 10 es {comp}. Como {addend} es igual o mayor que {comp}, {base} + {addend} = {sum} alcanza 10, así que la columna de {order} lleva 1 al siguiente orden.</span><span id=\"htCarryMsgNotCorrect\" class=\"htCarryHidden\">¡Correcto! El complemento de {base} hasta 10 es {comp}. Como {addend} es menor que {comp}, {base} + {addend} = {sum} se queda por debajo de 10, así que la columna de {order} no lleva.</span><span id=\"htCarryMsgCarryWrong\" class=\"htCarryHidden\">Todavía no. El complemento de {base} hasta 10 es {comp}. Como {addend} es menor que {comp}, {base} + {addend} = {sum} se queda por debajo de 10. La columna de {order} no lleva.</span><span id=\"htCarryMsgNotWrong\" class=\"htCarryHidden\">Todavía no. El complemento de {base} hasta 10 es {comp}. Como {addend} es igual o mayor que {comp}, {base} + {addend} = {sum} alcanza 10. La columna de {order} lleva 1 al siguiente orden.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

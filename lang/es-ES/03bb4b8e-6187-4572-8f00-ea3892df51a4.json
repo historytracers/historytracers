@@ -1,6 +1,6 @@
 {
-   "title": "Mayor o Menor",
-   "header": "Mayor o Menor",
+   "title": "Comparar en más de una dirección",
+   "header": "Comparar en más de una dirección",
    "sources": [
       "03bb4b8e-6187-4572-8f00-ea3892df51a4"
    ],
@@ -14,25 +14,25 @@
          "spotify": false
       },
       {
-         "url": "https://spotifycreators-web.app.link/e/XVYPji3PUUb",
+         "url": "https://open.spotify.com/episode/0Brdm0BijvF0zhRU5cDX7k?si=RMn4Bl-EQ6aiE1oVV3indA",
          "external": true,
          "spotify": true
       }
    ],
    "index": [
-      "first_steps",
-      "literature",
-      "history"
+      "first_steps"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1791764741"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -41,76 +41,21 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p class=\"topdesc\"><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p>",
+               "text": "### Prerrequisito\n\nAntes de continuar, lee **Cuando el tamaño importa** (<htcite0>). En ese texto aprendimos a medir un objeto en una dirección con una regla y vimos que dos objetos son totalmente iguales solo cuando coinciden en todas las características que comparamos. Esta lección continúa esa idea.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
-                     "text": "Porto-Gonçalves, Carlos Walter",
-                     "page": "pp. 39-43",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2011",
-                        "month": "05",
-                        "day": "11"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2011",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "### Prerrequisito\n\nAntes de continuar con la lectura de este texto, recomendamos estudiar los materiales anteriores sobre igualdades y límites",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "82544083-aaad-4760-963b-f433bd3e8729",
+                     "uuid": "87f5f133-067e-439f-ab1d-eaf45e304079",
                      "text": "History Tracers Team",
-                     "page": "¿Somos realmente iguales?",
+                     "page": "Cuando el tamaño importa",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
-                     "text": "History Tracers Team",
-                     "page": "Límites en la naturaleza",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
+                        "year": "2026",
                         "month": "-1",
                         "day": "-1"
                      }
                   }
                ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
-         "id": "SECTION_conclusion",
-         "text": [
-            {
-               "text": "### Introducción\n\nEn los textos anteriores, presentamos las ideas relacionadas con la igualdad. Según la lógica, cuando algo no es igual, automáticamente se considera diferente. Sin embargo, simplemente afirmar que algo es diferente no proporciona detalles sobre el grado de esa diferencia. Ante este contexto, surge la necesidad de cuantificar las diferencias entre los objetos.",
-               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -120,97 +65,19 @@
          ]
       },
       {
-         "id": "SECTION_numbers",
+         "id": "SECTION_introduction",
          "text": [
             {
-               "text": "<h3>Relación numérica</h3><p class=\"desc\"><img id=\"imgMeter\"  class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figura 1</b>: Representación de escala centesimal.</p>",
+               "text": "### Introducción\n\nEn el texto anterior medimos objetos en una dirección: los colocamos sobre una regla y leímos cuánto miden. Pero un objeto no tiene una sola dimensión. También tiene un ancho, una altura, un color, una forma y un material, y cada una de estas características es otra **dirección** en la que podemos comparar un objeto con otro.\n\nCuando comparamos solo la longitud, conocemos apenas una parte de la historia. Dos objetos pueden tener la misma longitud y, aun así, ser diferentes en ancho, altura o color.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Al observar la Figura 1, podemos notar que los números estudiados previamente están dispuestos en secuencia. Cuando un número se encuentra después de otro, se dice que es **mayor**. Matemáticamente, utilizamos el símbolo (>) para expresar esta relación. Por ejemplo: *21 > 20*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
                "format": "markdown",
                "PostMention": ""
             },
             {
-               "text": "De manera similar, cuando un número aparece antes de otro, decimos que es **menor**. Para representarlo, usamos el símbolo (<). Por ejemplo: *20 < 21*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "Es importante destacar que la abertura del símbolo de comparación, ya sea el de mayor (>) o el de menor (<), siempre apunta hacia el número mayor.\n\nOtro punto relevante es que, cuando trabajamos con números significativamente mayores, utilizamos el símbolo (&#8811;). De la misma manera, para números significativamente menores, usamos el símbolo (&#8810;)",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><h4>Práctica</h4>Al establecer una desigualdad matemática, es fundamental recordar que, una vez definida, debe mantenerse. Esto significa que, si modificamos un lado de la ecuación, el otro debe cambiarse en la misma proporción. Hagamos un ejercicio con números y nuestras manos, usando flechas para ejemplificar:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table></p><p class=\"desc\"><b>Tabela 1</b>: Mantendo a desigualdade.</p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Deberíamos medir en otras direcciones?</b><br /><br />Ya sabemos comparar dos objetos en una dirección midiendo su longitud. Si los dos objetos tienen la misma longitud, ¿son necesariamente iguales? ¿Deberíamos medirlos en otras direcciones, como el ancho, la altura y el color, antes de decidir si son iguales?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -221,255 +88,30 @@
          ]
       },
       {
-         "id": "SECTION_bulding",
+         "id": "SECTION_direction",
          "text": [
             {
-               "text": "### El Menor como Base\n\nLa naturaleza comenzó formando estructuras pequeñas, como las partículas elementales, entre ellas los electrones. Estas partículas se agruparon para formar átomos, que a su vez dieron origen a las moléculas. Con el tiempo, las moléculas se combinaron, creando estructuras más complejas. Este proceso culminó en la formación de los primeros seres vivos, que evolucionaron a lo largo de miles de millones de años, dando lugar a la diversidad de especies que conocemos hoy, incluida la nuestra",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "6dfe4b3b-8338-46ab-8149-2e073414907e",
-                     "text": "NASA",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "34a775e9-d5b7-4bed-b5cd-28f77fc1aa65",
-                     "text": "Moody, E.R.R., Álvarez-Carretero, S., Mahendrarajah, T.A. et al",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "27ff155c-c38d-4619-a435-4d95fd55071d",
-                     "text": "Pirula",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "822840ab-a8dd-4f6a-b53e-ca5ab8d159ca",
-                     "text": "Pirula",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "d7dd7faf-23a6-4cb4-9c1a-a9bbb7d6f33d",
-                     "text": "Hossenfelder, Sabine",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p><table><tr><th>Átomo cuántico</th><th>Molécula de ADN</th><th>Seres Vivos</th></tr><tr><td><img id=\"imgQA\" onclick=\"htImageZoom('imgQA', '0%')\"  /></td><td><img id=\"imgDNA\" onclick=\"htImageZoom('imgDNA', '0%')\"  style=\"width:90%\" /></td><td><img id=\"img2Cat\" onclick=\"htImageZoom('img2Cat', '0%')\" style=\"width:70%;\"></td></tr><tr><td colspan=\"3\" style=\"text-align: center; font-size: 70%;\"><b>Figura 2</b>: Representación simplificada de un átomo de hidrógeno a la izquierda, una molécula de ADN al centro y seres vivos a la derecha</td></tr></table></p>",
+               "text": "### Medir en una nueva dirección\n\nLa buena noticia es que no tenemos que aprender un método nuevo. Medir en otra dirección sigue exactamente los mismos pasos que ya usamos:\n\n1. Elegir la dirección en la que queremos comparar los objetos; por ejemplo, el ancho.\n2. Colocar los dos objetos sobre la regla, de modo que un extremo de cada uno coincida con la marca **0**.\n3. Mantener los objetos rectos en esa dirección y leer la marca donde se detiene cada uno.\n4. Comparar las dos medidas.\n\nPara comparar el **ancho** de dos objetos, los medimos sobre la regla horizontal. Para comparar su **altura**, los medimos sobre la regla vertical. Para comparar su **color**, observamos esa característica y comprobamos si ambos objetos tienen el mismo color. En todos los casos el método no cambia: elegimos una dirección, medimos los dos objetos en esa dirección y luego comparamos las dos medidas.\n\nCuando las dos medidas coinciden, los objetos son **iguales en esa dirección**; cuando son distintas, los objetos son **diferentes en esa dirección**. Por eso dos objetos pueden ser iguales en una dirección y diferentes en otra.\n\nSi comparamos los objetos en una sola dirección, conocemos apenas una parte de la historia. Para decir si dos objetos son **totalmente iguales**, debemos repetir la misma medición en todas las direcciones que nos importan. Cuantas más direcciones comparemos, más completa será nuestra comparación.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
+               "format": "markdown",
                "PostMention": ""
             },
             {
-               "text": "#### Superposición\n\nAl igual que en la naturaleza, los humanos también construyen estructuras a partir de la unión de partes más pequeñas. Un ejemplo de esto es el **Templo 16 de Copán**, en Honduras, que pasó por distintas etapas constructivas a lo largo de aproximadamente 400 años. Como se muestra en la Figura 3, en la primera etapa se construyó una estructura más pequeña, y a medida que se añadieron nuevas capas sobre las anteriores, la construcción alcanzó dimensiones mayores",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
-                     "text": "Tuarez Mejia, L. F.",
-                     "page": "pp. 120-128",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
+               "text": "#### Práctica\n\nAbajo hay dos rectángulos del mismo color. Pulsa **+** y **−** para cambiar la longitud y la altura de cada rectángulo, y observa las reglas: las reglas de arriba y de abajo muestran la longitud, y la regla al lado de cada rectángulo muestra la altura.\n\nDos rectángulos son **totalmente iguales** solo cuando tienen la misma longitud y la misma altura. Intenta hacer que el rectángulo 1 sea igual al rectángulo 2 y lee la oración que aparece abajo.",
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\"  class=\"imgcenter\"/><b>Figura 3</b>: Cartel en el sitio arqueológico de Copán (<htcite0>). Foto tomada el <htdate1>, durante una visita al sitio.</p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "1e007481-9bd3-4a09-ad4d-6e812fe79641",
-                     "text": "Instituto Hondureño de Antropologia e Historia",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "02",
-                        "day": "01"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2024",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "2015",
-                     "month": "7",
-                     "day": "30"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
                "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_example",
-         "text": [
-            {
-               "text": "### Empezando Pequeño\n\nAl observar las grandes construcciones, como las pirámides presentes en el continente Americano (<i>Abya Yala</i>), resulta evidente que las montañas cercanas a estos sitios arqueológicos sirvieron de inspiración para ellas. Estas estructuras presentan bases amplias que se estrechan gradualmente hasta alcanzar la cima, como se ilustra en la **Figura 4**.\n\nAdemás de este modelo natural, descubrimientos recientes han revelado pequeñas maquetas utilizadas como referencia para la construcción de la ciudad sagrada de Caral, en Perú",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
-                     "text": "Ruta Caral",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "03c3743c-d268-4730-ba8e-d36b5c49e781",
-                     "text": "Caral Perú Oficial",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "3b18a263-71e9-4c61-a7fe-c23cbce65624",
-                     "text": "Zona Caral",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "9",
-                        "day": "28"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "b9af756b-558a-4292-b71b-d9b3cc47d570",
-                     "text": "de la Morena, Raquel",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\"  class=\"imgcenter\"/><b>Figura 4</b>: Pirámide H1 en el sitio arqueológico de Caral  (<htcite0> ; <htcite1>). Fotografía tomada el <htdate2>, durante una visita al sítio.</p>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
-                     "text": "Ruta Caral",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "11",
-                        "day": "02"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "03c3743c-d268-4730-ba8e-d36b5c49e781",
-                     "text": "Youtube - Caral Perú Oficial",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "11",
-                        "day": "02"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2024",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "2024",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "2017",
-                     "month": "6",
-                     "day": "13"
-                  }
-               ],
+               "text": "<div class=\"htRectApp\" id=\"htRectApp\"><div class=\"htRectBoard\"><div class=\"htRectHRuler\" id=\"htRectHRulerTop\"></div><div class=\"htRectControls\" data-htrect=\"1\"><span class=\"htRectLabel\">1</span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Longitud</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"1\" data-dim=\"len\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"1\" data-dim=\"len\">+</button></span></span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Altura</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"1\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"1\" data-dim=\"hei\">+</button></span></span></div><div class=\"htRectGrid\" id=\"htRectGrid1\"></div><div class=\"htRectVRuler\" id=\"htRectVRuler1\"></div><div class=\"htRectControls\" data-htrect=\"2\"><span class=\"htRectLabel\">2</span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Longitud</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"2\" data-dim=\"len\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"2\" data-dim=\"len\">+</button></span></span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Altura</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"2\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"2\" data-dim=\"hei\">+</button></span></span></div><div class=\"htRectGrid\" id=\"htRectGrid2\"></div><div class=\"htRectVRuler\" id=\"htRectVRuler2\"></div><div class=\"htRectHRuler\" id=\"htRectHRuler\"></div></div><div class=\"htRectFeedback\" id=\"htRectFeedback\"></div><span id=\"htRectMsgEqual\" class=\"htRectHidden\">El rectángulo 1 y el rectángulo 2 son totalmente iguales: tienen la misma longitud ({l1}) y la misma altura ({h1}).</span><span id=\"htRectMsgSameLenDiffHei\" class=\"htRectHidden\">El rectángulo 1 y el rectángulo 2 no son totalmente iguales: tienen la misma longitud ({l1}), pero con alturas diferentes ({h1} y {h2}).</span><span id=\"htRectMsgDiffLenSameHei\" class=\"htRectHidden\">El rectángulo 1 y el rectángulo 2 no son totalmente iguales: tienen la misma altura ({h1}), pero con longitudes diferentes ({l1} y {l2}).</span><span id=\"htRectMsgDiffLenDiffHei\" class=\"htRectHidden\">El rectángulo 1 y el rectángulo 2 no son totalmente iguales: tienen longitudes diferentes ({l1} y {l2}) y alturas diferentes ({h1} y {h2}).</span></div>",
+               "source": null,
+               "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
@@ -481,11 +123,11 @@
          "id": "SECTION_limits",
          "text": [
             {
-               "text": "### Límites\n\nLa relación entre \"mayor\" y \"menor\" también se utiliza para definir los límites. En nuestro texto anterior, mencionamos que los límites están determinados por valores máximos y mínimos. Además, discutimos que un límite puede interpretarse como la aproximación a un valor determinado. A continuación, exploraremos cómo aplicar los conceptos de \"mayor\" y \"menor\" para definir límites",
+               "text": "### Probando los límites\n\nComo vimos en **Límites en la naturaleza** (<htcite0>), un límite puede ser un máximo o un mínimo. Cuando medimos un objeto, en realidad no examinamos todo lo que hay dentro de él: solo observamos sus **extremos**, es decir, dónde empieza y dónde termina. En una longitud, esos extremos son los dos cabos; en una altura, son la base y la parte superior. En otras palabras, medir significa **probar los límites** del objeto en la dirección que elegimos.\n\nEsto nos da otra manera de entender la igualdad. Dos objetos son iguales en una dirección exactamente cuando sus límites en esa dirección coinciden. Así, también podemos entender una comparación como una comparación de límites:\n\n- Si los dos objetos empiezan en el mismo punto y se detienen en la misma marca, tienen la misma extensión en esa dirección, por lo que son iguales en ella.\n- Si uno se detiene antes que el otro, su límite es menor, así que se extiende menos.\n\nPor lo tanto, **los límites también pueden entenderse como una forma de comparar**. En lugar de mirar todo el objeto, podemos mirar solo dónde empieza y dónde termina, y comparar esos dos extremos.\n\nLa **Figura 1** muestra dos cuadrados del mismo color y del mismo tamaño. Las reglas que los rodean marcan los límites de cada cuadrado: ambos empiezan en 0 y terminan en 5 en todas las direcciones. Como los extremos son exactamente los mismos, los dos cuadrados son iguales.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "uuid": "7a462cd1-cfd1-4ac6-bde8-e8a64092388f",
                      "text": "History Tracers Team",
                      "page": "Límites en la naturaleza",
                      "date_time": {
@@ -500,128 +142,16 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p><p class=\"desc\"><b>Figura 5</b>: Círculo con raio 75.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
                "PostMention": ""
             },
             {
-               "text": "#### Límite Superior\n\nEl límite superior representa el mayor valor posible dentro de un contexto determinado. Por ejemplo, en la **Figura 5**, observamos un círculo con un radio (distancia del centro a la circunferencia) de valor 75. Como el círculo es una figura geométrica cerrada, el valor máximo para el radio puede expresarse matemáticamente como *r < 75*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "e58ad730-899f-49b6-aaf8-53cb39c31f0e",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 680 340\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:640px; display:block; margin:0 auto;\" aria-label=\"Dos cuadrados del mismo color y tamaño con reglas que muestran los mismos límites\"><line x1=\"120\" y1=\"120\" x2=\"600\" y2=\"120\" stroke=\"#c0392b\" stroke-width=\"2\" stroke-dasharray=\"8 5\"/><line x1=\"120\" y1=\"290\" x2=\"600\" y2=\"290\" stroke=\"#c0392b\" stroke-width=\"2\" stroke-dasharray=\"8 5\"/><rect x=\"120\" y=\"120\" width=\"170\" height=\"170\" fill=\"#2f6fb3\"/><rect x=\"430\" y=\"120\" width=\"170\" height=\"170\" fill=\"#2f6fb3\"/><line x1=\"120\" y1=\"106\" x2=\"290\" y2=\"106\" stroke=\"#333\" stroke-width=\"2\"/><line x1=\"120\" y1=\"99\" x2=\"120\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"120\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">0</text><line x1=\"154\" y1=\"99\" x2=\"154\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"154\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">1</text><line x1=\"188\" y1=\"99\" x2=\"188\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"188\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">2</text><line x1=\"222\" y1=\"99\" x2=\"222\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"222\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">3</text><line x1=\"256\" y1=\"99\" x2=\"256\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"256\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">4</text><line x1=\"290\" y1=\"99\" x2=\"290\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"290\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">5</text><line x1=\"104\" y1=\"120\" x2=\"104\" y2=\"290\" stroke=\"#333\" stroke-width=\"2\"/><line x1=\"97\" y1=\"290\" x2=\"111\" y2=\"290\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"91\" y=\"290\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">0</text><line x1=\"97\" y1=\"256\" x2=\"111\" y2=\"256\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"91\" y=\"256\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">1</text><line x1=\"97\" y1=\"222\" x2=\"111\" y2=\"222\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"91\" y=\"222\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">2</text><line x1=\"97\" y1=\"188\" x2=\"111\" y2=\"188\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"91\" y=\"188\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">3</text><line x1=\"97\" y1=\"154\" x2=\"111\" y2=\"154\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"91\" y=\"154\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">4</text><line x1=\"97\" y1=\"120\" x2=\"111\" y2=\"120\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"91\" y=\"120\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">5</text><line x1=\"430\" y1=\"106\" x2=\"600\" y2=\"106\" stroke=\"#333\" stroke-width=\"2\"/><line x1=\"430\" y1=\"99\" x2=\"430\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"430\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">0</text><line x1=\"464\" y1=\"99\" x2=\"464\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"464\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">1</text><line x1=\"498\" y1=\"99\" x2=\"498\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"498\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">2</text><line x1=\"532\" y1=\"99\" x2=\"532\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"532\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">3</text><line x1=\"566\" y1=\"99\" x2=\"566\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"566\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">4</text><line x1=\"600\" y1=\"99\" x2=\"600\" y2=\"113\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"600\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333\">5</text><line x1=\"414\" y1=\"120\" x2=\"414\" y2=\"290\" stroke=\"#333\" stroke-width=\"2\"/><line x1=\"407\" y1=\"290\" x2=\"421\" y2=\"290\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"401\" y=\"290\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">0</text><line x1=\"407\" y1=\"256\" x2=\"421\" y2=\"256\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"401\" y=\"256\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">1</text><line x1=\"407\" y1=\"222\" x2=\"421\" y2=\"222\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"401\" y=\"222\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">2</text><line x1=\"407\" y1=\"188\" x2=\"421\" y2=\"188\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"401\" y=\"188\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">3</text><line x1=\"407\" y1=\"154\" x2=\"421\" y2=\"154\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"401\" y=\"154\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">4</text><line x1=\"407\" y1=\"120\" x2=\"421\" y2=\"120\" stroke=\"#333\" stroke-width=\"2\"/><text x=\"401\" y=\"120\" font-size=\"18\" text-anchor=\"end\" dominant-baseline=\"middle\" fill=\"#333\">5</text><text x=\"360\" y=\"235\" font-size=\"52\" text-anchor=\"middle\" fill=\"#333\">=</text></svg><b>Figura 1</b>: Dos cuadrados del mismo color y del mismo tamaño. Las reglas marcan los mismos límites (0 y 5) alrededor de ambos, por lo que los cuadrados son iguales.</p>",
+               "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "#### Límite Inferior\n\nDe forma análoga, el límite inferior corresponde al menor valor permitido. Retomando el ejemplo de la **Figura 5**, consideremos el recorrido desde la circunferencia hacia el centro. Para que exista un radio, este debe ser mayor que cero. Por lo tanto, el menor valor posible para el radio se puede expresar como *r > 0*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "61b6b478-d49a-40ec-a68d-52767ebbb6cc",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "#### Límites en la Biología\n\nLos límites también son fundamentales en biología. En el trabajo de Alan R. Templeton, por ejemplo, se identificó un criterio claro para definir la existencia de una especie al comparar el ADN de poblaciones. Para evitar que se consideren razas diferentes, las diferencias genéticas (*d*) deben estar entre un valor mínimo de 0 y un máximo de 25, lo que se expresa matemáticamente como *0 < d < 25*",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                     "text": "Templeton A. R.",
-                     "page": "pp. 7 - 8",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                     "text": "Templeton A. R.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            },
-            {
-               "text": "Además, Templeton destacó que la variación genética entre humanos fue inferior a *5*, lo cual se encuentra dentro del rango propuesto (*0 < 5 < 25*)",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                     "text": "Templeton A. R.",
-                     "page": "pp. 7 - 8",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                     "text": "Templeton A. R.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
+               "imgdesc": "Dos cuadrados del mismo color y del mismo tamaño con reglas que marcan los mismos límites (0 y 5).",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       },
@@ -629,26 +159,13 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, analizamos cómo los conceptos de \"mayor\" y \"menor\" pueden utilizarse para establecer desigualdades. Asimismo, observamos que estos conceptos tienen un alcance más amplio, lo que permite profundizar y refinar la definición de límites presentada al final del capítulo anterior",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
-                     "text": "History Tracers Team",
-                     "page": "Límites en la naturaleza",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
+               "text": "### Conclusión\n\nEn esta lección aprendimos que comparar no se detiene en una sola dirección. Para comparar dos objetos en una nueva dirección, repetimos los mismos pasos que ya conocemos: elegir la dirección, medir los dos objetos en esa dirección y comparar las dos medidas. Cuando las medidas coinciden, los objetos son iguales en esa dirección; cuando son distintas, son diferentes en esa dirección.\n\nTambién vimos que una sola dirección no es suficiente. Dos objetos pueden tener la misma longitud y, aun así, ser diferentes en ancho, altura o color. Para decidir si dos objetos son **totalmente iguales**, debemos compararlos en **todas las direcciones que nos importan**. Cuantas más direcciones comparemos, más completa —y más confiable— será nuestra comparación.",
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             }
          ]
       }

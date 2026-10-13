@@ -20,6 +20,7 @@ func TestBuildPageURL(t *testing.T) {
 		class    string
 		lang     string
 		cal      string
+		font     string
 		want     string
 		wantHost string
 	}{
@@ -67,11 +68,26 @@ func TestBuildPageURL(t *testing.T) {
 			cal:   "julian",
 			want:  "http://127.0.0.1:54321/index.html?page=class_content&arg=d290f1ee-6c54-4b01-90e6-d701748f0851&lang=es-ES&cal=julian",
 		},
+		{
+			name: "font only",
+			addr: "127.0.0.1:8080",
+			font: "large",
+			want: "http://127.0.0.1:8080/index.html?font=large",
+		},
+		{
+			name:  "class, lang, cal, font",
+			addr:  "127.0.0.1:54321",
+			class: "d290f1ee-6c54-4b01-90e6-d701748f0851",
+			lang:  "es-ES",
+			cal:   "julian",
+			font:  "small",
+			want:  "http://127.0.0.1:54321/index.html?page=class_content&arg=d290f1ee-6c54-4b01-90e6-d701748f0851&lang=es-ES&cal=julian&font=small",
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := buildPageURL(tt.addr, tt.class, tt.lang, tt.cal)
+			got := buildPageURL(tt.addr, tt.class, tt.lang, tt.cal, tt.font)
 			if got != tt.want {
 				t.Errorf("buildPageURL() = %q, want %q", got, tt.want)
 			}
@@ -83,7 +99,7 @@ func TestBuildPageURL(t *testing.T) {
 }
 
 func TestBuildPageURLEmptyAddr(t *testing.T) {
-	got := buildPageURL("", "id", "", "")
+	got := buildPageURL("", "id", "", "", "")
 	if !strings.HasPrefix(got, "http://") {
 		t.Errorf("expected http prefix, got %q", got)
 	}
@@ -93,7 +109,7 @@ func TestBuildPageURLEmptyAddr(t *testing.T) {
 }
 
 func TestBuildPageURLOrder(t *testing.T) {
-	got := buildPageURL("127.0.0.1:1", "myclass", "en", "")
+	got := buildPageURL("127.0.0.1:1", "myclass", "en", "", "")
 	parts := strings.SplitN(got, "?", 2)
 	if len(parts) != 2 {
 		t.Fatalf("expected query string, got %q", got)
@@ -146,9 +162,14 @@ func TestStatusWriter(t *testing.T) {
 	if sw.status != http.StatusNotFound {
 		t.Errorf("after WriteHeader(404) status = %d, want 404", sw.status)
 	}
+	// net/http honours the first WriteHeader call; the recorder must do
+	// the same so the access log shows the code the client saw.
 	sw.WriteHeader(http.StatusInternalServerError)
-	if sw.status != http.StatusInternalServerError {
-		t.Errorf("after WriteHeader(500) status = %d, want 500", sw.status)
+	if sw.status != http.StatusNotFound {
+		t.Errorf("after WriteHeader(500) status = %d, want 404 (first wins)", sw.status)
+	}
+	if w.Code != http.StatusNotFound {
+		t.Errorf("underlying recorder code = %d, want 404 (first wins)", w.Code)
 	}
 }
 
@@ -186,7 +207,7 @@ func TestLogMiddleware(t *testing.T) {
 }
 
 func TestBuildPageURLLangAlone(t *testing.T) {
-	got := buildPageURL("127.0.0.1:9999", "", "es-ES", "")
+	got := buildPageURL("127.0.0.1:9999", "", "es-ES", "", "")
 	if !strings.HasSuffix(got, "lang=es-ES") {
 		t.Errorf("expected lang param, got %q", got)
 	}
@@ -371,5 +392,132 @@ func TestViewerTabScrollRestore(t *testing.T) {
 	// ...and restore the incoming tab offset after showing it.
 	if !strings.Contains(js, "htTabRestoreScroll(idx)") {
 		t.Errorf("expected selTab to restore the selected tab scroll offset")
+	}
+}
+
+func TestTokenRotationConcurrent(t *testing.T) {
+	// The token is rotated from request handlers and read on every
+	// authenticated request; concurrent access must not race (verified
+	// with -race). Note: checkToken is NOT asserted here because a
+	// concurrent rotation legitimately invalidates a just-read token.
+	rotateToken()
+	var wg sync.WaitGroup
+	for i := 0; i < 8; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for j := 0; j < 25; j++ {
+				rotateToken()
+				if tok := currentToken(); len(tok) != 64 {
+					t.Errorf("token has length %d, want 64 hex chars", len(tok))
+					return
+				}
+			}
+		}()
+	}
+	wg.Wait()
+	// Sequential sanity: the current token authenticates.
+	r, _ := http.NewRequest("POST", "/api/history/add", nil)
+	r.Header.Set("X-HT-Token", currentToken())
+	if !checkToken(r) {
+		t.Error("checkToken rejected the current token")
+	}
+	r.Header.Set("X-HT-Token", "wrong")
+	if checkToken(r) {
+		t.Error("checkToken accepted a wrong token")
+	}
+}
+
+func TestParseInt64Strict(t *testing.T) {
+	cases := []struct {
+		in   string
+		want int64
+	}{
+		{"42", 42},
+		{"  42  ", 42},
+		{"-5", -5},
+		{"", 0},
+		{"12abc", 0},
+		{"abc", 0},
+		{"0x10", 0},
+	}
+	for _, c := range cases {
+		if got := parseInt64(c.in); got != c.want {
+			t.Errorf("parseInt64(%q) = %d, want %d", c.in, got, c.want)
+		}
+	}
+}
+
+func TestWriteHistoryLockedRoundTrip(t *testing.T) {
+	dir := t.TempDir()
+	old := historyFile
+	historyFile = dir + "/history.csv"
+	defer func() { historyFile = old }()
+
+	entries := []historyEntry{
+		{Page: "main", ArgUUID: "a", People: "p", Time: 123, Title: "T", Lang: "en-US", Cal: "gregory"},
+	}
+	if err := writeHistoryLocked(entries); err != nil {
+		t.Fatalf("writeHistoryLocked failed: %v", err)
+	}
+	got := readHistoryLocked()
+	if len(got) != 1 || got[0].Title != "T" || got[0].Time != 123 {
+		t.Fatalf("round trip mismatch: %+v", got)
+	}
+}
+
+func TestWriteHistoryLockedError(t *testing.T) {
+	old := historyFile
+	historyFile = "/nonexistent-dir-ht/history.csv"
+	defer func() { historyFile = old }()
+	if err := writeHistoryLocked([]historyEntry{{Page: "main"}}); err == nil {
+		t.Fatal("expected error writing to an invalid path")
+	}
+	if err := writeFavoritesLocked([]historyEntry{{Page: "main"}}); err == nil {
+		t.Fatal("expected error writing favorites to an invalid path")
+	}
+}
+
+func TestMetricsPathCardinalityCap(t *testing.T) {
+	// Snapshot and restore the shared counters so this test cannot
+	// disturb count-sensitive tests.
+	metricsMu.Lock()
+	saved := metricsPathCounts
+	metricsPathCounts = map[string]int64{}
+	metricsMu.Unlock()
+	defer func() {
+		metricsMu.Lock()
+		metricsPathCounts = saved
+		metricsMu.Unlock()
+	}()
+
+	for i := 0; i < 600; i++ {
+		metricsRecord("GET", "/probe-"+strings.Repeat("x", 10)+"-"+string(rune('a'+i%26))+strings.Repeat("y", i%50), 200, time.Millisecond, 0, 0)
+	}
+	metricsMu.Lock()
+	n := len(metricsPathCounts)
+	_, overflow := metricsPathCounts["/other"]
+	metricsMu.Unlock()
+	if n > 513 {
+		t.Fatalf("metricsPathCounts grew to %d entries, want at most 513", n)
+	}
+	if !overflow {
+		t.Fatal("expected overflow bucket /other to be used")
+	}
+}
+
+func TestMetricsNegativeSizesClamped(t *testing.T) {
+	metricsMu.Lock()
+	beforeReq := metricsReqBytesTotal
+	beforeRes := metricsResBytesTotal
+	metricsMu.Unlock()
+	metricsRecord("GET", "/clamp-test", 200, time.Millisecond, -1, -1)
+	metricsMu.Lock()
+	dReq := metricsReqBytesTotal - beforeReq
+	dRes := metricsResBytesTotal - beforeRes
+	delete(metricsPathCounts, "/clamp-test")
+	metricsMu.Unlock()
+	if dReq != 0 || dRes != 0 {
+		t.Fatalf("negative sizes changed counters by req=%d res=%d, want 0,0", dReq, dRes)
 	}
 }

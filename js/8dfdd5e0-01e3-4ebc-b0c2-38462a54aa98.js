@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// Game that trains odd and even numbers by sharing circles into pairs.
+// Game that trains odd and even numbers by sharing circles into pairs, plus a
+// practice that compares three strings by length and color.
 // The localized texts (button labels and explanations) live in the class
-// JSON, so this file only wires the behavior and draws the circles.
+// JSON, so this file only wires the behavior and draws the markup.
 
 var localOddEven = {};
 
@@ -69,6 +70,112 @@ function htOddEvenNewNumber() {
     $("#oddEvenNewBtn").addClass("hidden");
 }
 
+//
+// Practice: compare three strings by length and color.
+//
+
+var localStrings = {};
+
+function htStringsMaxLength() {
+    return 10;
+}
+
+function htStringsBuildTrack(trackId, length, colorClass) {
+    var max = htStringsMaxLength();
+    var cells = "";
+
+    for (var i = 1; i <= max; i++) {
+        cells += "<span class=\"htStringsUnit" + (i <= length ? " " + colorClass : "") + "\"></span>";
+    }
+
+    $("#" + trackId).html(cells);
+}
+
+function htStringsBuildRuler() {
+    var max = htStringsMaxLength();
+    var cells = "";
+
+    for (var i = 1; i <= max; i++) {
+        cells += "<span class=\"htStringsTick\">" + i + "</span>";
+    }
+
+    $("#htStringsRuler").html(cells);
+}
+
+function htStringsFillTemplate(template, a, b, la, lb) {
+    return template
+        .replace(/\{a\}/g, a)
+        .replace(/\{b\}/g, b)
+        .replace(/\{la\}/g, la)
+        .replace(/\{lb\}/g, lb);
+}
+
+function htStringsComparison(a, b) {
+    var la = localStrings.lengths[a];
+    var lb = localStrings.lengths[b];
+    var sameColor = (localStrings.colors[a] === localStrings.colors[b]);
+    var sameLength = (la === lb);
+    var selector;
+
+    if (sameLength && sameColor) {
+        selector = "#htStringsMsgEqual";
+    } else if (sameColor) {
+        selector = "#htStringsMsgSameColorDiffLength";
+    } else if (sameLength) {
+        selector = "#htStringsMsgDiffColorSameLength";
+    } else {
+        selector = "#htStringsMsgDiffColorDiffLength";
+    }
+
+    return htStringsFillTemplate($(selector).html(), a, b, la, lb);
+}
+
+function htStringsRender() {
+    for (var i = 1; i <= 3; i++) {
+        htStringsBuildTrack("htStringsTrack" + i, localStrings.lengths[i], localStrings.colors[i]);
+    }
+
+    var pairs = [[1, 2], [1, 3], [2, 3]];
+    var html = "";
+
+    for (var p = 0; p < pairs.length; p++) {
+        html += "<p class=\"htStringsComparison\">" + htStringsComparison(pairs[p][0], pairs[p][1]) + "</p>";
+    }
+
+    $("#htStringsComparisons").html(html);
+}
+
+function htStringsChange(index, delta) {
+    var value = localStrings.lengths[index] + delta;
+
+    if (value < 1) {
+        value = 1;
+    } else if (value > htStringsMaxLength()) {
+        value = htStringsMaxLength();
+    }
+
+    localStrings.lengths[index] = value;
+    htStringsRender();
+}
+
+function htStringsInit() {
+    localStrings = {
+        "lengths": { "1": 4, "2": 4, "3": 5 },
+        "colors": { "1": "htStringsColorBlue", "2": "htStringsColorOrange", "3": "htStringsColorOrange" }
+    };
+
+    htStringsBuildRuler();
+    htStringsRender();
+
+    $(".htStringsPlus").on("click", function() {
+        htStringsChange(parseInt($(this).data("htstring")), 1);
+    });
+
+    $(".htStringsMinus").on("click", function() {
+        htStringsChange(parseInt($(this).data("htstring")), -1);
+    });
+}
+
 function htLoadContent() {
     htWriteNavigation();
 
@@ -87,6 +194,7 @@ function htLoadContent() {
     });
 
     htOddEvenNewNumber();
+    htStringsInit();
 
     return false;
 }

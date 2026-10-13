@@ -6,6 +6,7 @@
 - Always edit source files under `src/css/` and `src/js/` (e.g., `src/css/ht_math.css`, `src/js/ht_yupana.js`) instead of their minified/compiled counterparts in `css/` and `js/`. The compiled versions are generated during the build process.
 - No AI is allowed to do direct commits. All AI-generated changes must be submitted via pull request / branch and receive review and approval from human developers before merging. Do not run `git commit`, `git push`, or `gh pr merge` directly.
 - All files must use Unix/Linux line endings (LF, `\n`). Never use Windows line endings (CRLF, `\r\n`). When writing or editing files, ensure the content uses LF only. After writing a file, verify with a binary check that no `\r\n` sequences are present.
+- Everything added in this project (content HTML/tables, CSS, JS-generated markup, games) must be responsive: it must render without horizontal overflow on small screens (down to ~320px width). Reuse existing responsive classes and patterns (e.g. `tableTen` with its `@media (max-width: 600px)` rules in `src/css/ht_math.css`); put any new CSS in the **source** `src/css/` files, never in the compiled counterparts. Verify by rendering the added markup with headless Chromium using the real site CSS at desktop/tablet/phone widths and checking `scrollWidth <= clientWidth` before finishing.
 
 ## Adding new content (a new UUID group of files)
 

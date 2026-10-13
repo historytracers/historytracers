@@ -24,6 +24,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+	"unicode"
+	"unicode/utf8"
 )
 
 var srv *http.Server
@@ -39,10 +41,12 @@ var appVersion = "1.0.0"
 func versionHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Cache-Control", "no-store")
-	json.NewEncoder(w).Encode(map[string]string{
+	if err := json.NewEncoder(w).Encode(map[string]string{
 		"version":      appVersion,
 		"releases_url": "https://github.com/historytracers/historytracers/releases",
-	})
+	}); err != nil {
+		log.Printf("Warning: cannot write version response: %v", err)
+	}
 }
 
 type historyEntry struct {
@@ -63,6 +67,7 @@ var (
 	optionsMu     sync.Mutex
 	optionsFile   string
 	savedOptions  optionsData
+	tokenMu       sync.RWMutex
 	viewerToken   string
 	uuidFile      string
 	instanceUUID  []byte
@@ -72,6 +77,7 @@ type optionsData struct {
 	Lang            string `json:"lang"`
 	Cal             string `json:"cal"`
 	Recreio         string `json:"recreio"`
+	Font            string `json:"font"`
 	Port            string `json:"port"`
 	Home            string `json:"home"`
 	TLSCert         string `json:"tls_cert"`
@@ -117,8 +123,112 @@ var validRecreios = map[string]bool{
 	"60": true,
 }
 
+var validFonts = map[string]bool{
+	"small":   true,
+	"default": true,
+	"large":   true,
+}
+
+// jsString encodes s as a JSON double-quoted string literal safe for
+// embedding inside a <script> block. encoding/json HTML-escapes <, > and &
+// (as \u003c, \u003e, \u0026), which prevents </script> breakout that %q
+// does not stop.
+func jsString(s string) string {
+	b, err := json.Marshal(s)
+	if err != nil {
+		return `""`
+	}
+	return string(b)
+}
+
+// sanitizeLabelPath rejects values containing characters that break out of
+// JS string literals or HTML attributes. Legitimate file paths and home
+// URLs never contain them.
+func sanitizeLabelPath(s string) string {
+	if strings.ContainsAny(s, "<>\"'`\n\r\x00") {
+		return ""
+	}
+	if len(s) > 1024 {
+		return ""
+	}
+	return s
+}
+
+// clampLen truncates s to at most max bytes (on a UTF-8 boundary).
+func clampLen(s string, max int) string {
+	if len(s) <= max {
+		return s
+	}
+	s = s[:max]
+	for len(s) > 0 && !utf8.ValidString(s) {
+		s = s[:len(s)-1]
+	}
+	return s
+}
+
+// isValidHomeOrLastPage reports whether s is a safe in-app home/last-page
+// URL: an index.html path optionally followed by ?/#/& query, without
+// characters that break out of HTML/JS/HTTP contexts.
+func isValidHomeOrLastPage(s string) bool {
+	if s == "" || len(s) > 2048 {
+		return false
+	}
+	if strings.ContainsAny(s, "<>\"'`\\ \t\n\r\x00") {
+		return false
+	}
+	trimmed := strings.TrimLeft(s, "/")
+	if trimmed == "index.html" {
+		return true
+	}
+	for _, prefix := range []string{"index.html?", "index.html#", "index.html&"} {
+		if strings.HasPrefix(trimmed, prefix) {
+			return true
+		}
+	}
+	return false
+}
+
+// sanitizeMetricsLabel escapes s for use as a Prometheus label value:
+// backslash, double quote and newlines are escaped, control characters are
+// stripped, and the result is capped. Unlike Go %q this keeps UTF-8 text
+// intact so non-ASCII names stay readable in /metrics.
+func sanitizeMetricsLabel(s string) string {
+	s = clampLen(s, 128)
+	var b strings.Builder
+	b.Grow(len(s))
+	for _, r := range s {
+		switch r {
+		case '\\':
+			b.WriteString(`\\`)
+		case '"':
+			b.WriteString(`\"`)
+		case '\n':
+			b.WriteString(`\n`)
+		case '\r':
+			b.WriteString(`\r`)
+		default:
+			if unicode.IsControl(r) {
+				continue
+			}
+			b.WriteRune(r)
+		}
+	}
+	return b.String()
+}
+
 func checkToken(r *http.Request) bool {
+	tokenMu.RLock()
+	defer tokenMu.RUnlock()
 	return r.Header.Get("X-HT-Token") == viewerToken
+}
+
+// currentToken returns the active token under a read lock. Use it for
+// every read outside rotateToken; viewerToken itself must only be
+// touched with tokenMu held (rotateToken takes the write lock).
+func currentToken() string {
+	tokenMu.RLock()
+	defer tokenMu.RUnlock()
+	return viewerToken
 }
 
 func rotateToken() string {
@@ -126,11 +236,17 @@ func rotateToken() string {
 	if _, err := rand.Read(buf); err != nil {
 		log.Fatalf("Cannot generate secure token: %v", err)
 	}
+	tokenMu.Lock()
+	defer tokenMu.Unlock()
 	viewerToken = hex.EncodeToString(buf)
 	return viewerToken
 }
 
 func openExternalHandler(w http.ResponseWriter, r *http.Request) {
+	if !checkToken(r) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
 	target := r.URL.Query().Get("url")
 	if target == "" {
 		http.Error(w, "missing url", http.StatusBadRequest)
@@ -139,6 +255,14 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 	parsed, err := url.Parse(target)
 	if err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") {
 		http.Error(w, "invalid url scheme", http.StatusBadRequest)
+		return
+	}
+	if parsed.User != nil {
+		http.Error(w, "invalid url", http.StatusBadRequest)
+		return
+	}
+	if strings.ContainsAny(target, "\n\r\x00") {
+		http.Error(w, "invalid url", http.StatusBadRequest)
 		return
 	}
 	var cmd string
@@ -154,7 +278,11 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 		cmd = "xdg-open"
 		args = []string{target}
 	}
-	exec.Command(cmd, args...).Start()
+	if err := exec.Command(cmd, args...).Start(); err != nil {
+		log.Printf("Warning: cannot open external URL: %v", err)
+		http.Error(w, "cannot open url", http.StatusInternalServerError)
+		return
+	}
 	w.WriteHeader(http.StatusNoContent)
 }
 
@@ -181,16 +309,21 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Forbidden", http.StatusForbidden)
 			return
 		}
+		// Bound the body before parsing: the largest stored field is
+		// clamped to 8KB, so 64KB of form overhead is plenty.
+		r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 		entry := devEntry{
-			Type:     r.FormValue("type"),
-			Message:  r.FormValue("message"),
-			URL:      r.FormValue("url"),
-			Method:   r.FormValue("method"),
+			Type:     clampLen(r.FormValue("type"), 32),
+			Message:  clampLen(r.FormValue("message"), 8192),
+			URL:      clampLen(r.FormValue("url"), 2048),
+			Method:   clampLen(r.FormValue("method"), 16),
 			Duration: parseInt64(r.FormValue("duration")),
 			Time:     parseInt64(r.FormValue("time")),
 		}
-		if s := r.FormValue("status"); s != "" {
-			fmt.Sscanf(s, "%d", &entry.Status)
+		if s := strings.TrimSpace(r.FormValue("status")); s != "" {
+			if n, err := strconv.Atoi(s); err == nil && n >= 0 && n <= 599 {
+				entry.Status = n
+			}
 		}
 		if entry.Time == 0 {
 			entry.Time = time.Now().UnixMilli()
@@ -231,9 +364,15 @@ func devLogHandler(w http.ResponseWriter, r *http.Request) {
 
 		w.Header().Set("Content-Type", "application/json")
 		enc := json.NewEncoder(w)
-		enc.Encode(entries)
+		if err := enc.Encode(entries); err != nil {
+			log.Printf("Warning: cannot write dev log response: %v", err)
+		}
 
 	case http.MethodDelete:
+		if !checkToken(r) {
+			http.Error(w, "Forbidden", http.StatusForbidden)
+			return
+		}
 		devMu.Lock()
 		devLog = nil
 		devMu.Unlock()
@@ -275,7 +414,7 @@ func printStoreHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "body too large", http.StatusRequestEntityTooLarge)
 		return
 	}
-	buf := make([]byte, 8)
+	buf := make([]byte, 16)
 	if _, err := rand.Read(buf); err != nil {
 		http.Error(w, "cannot generate id", 500)
 		return
@@ -324,6 +463,18 @@ func printViewHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "missing id", 400)
 		return
 	}
+	// IDs are hex strings issued by printStoreHandler (32 chars); accept
+	// the previous 16-char form for in-flight entries from older runs.
+	if len(id) != 32 && len(id) != 16 {
+		http.Error(w, "invalid id", 400)
+		return
+	}
+	for _, c := range id {
+		if (c < '0' || c > '9') && (c < 'a' || c > 'f') && (c < 'A' || c > 'F') {
+			http.Error(w, "invalid id", 400)
+			return
+		}
+	}
 	printMu.Lock()
 	html, ok := printStore[id]
 	printMu.Unlock()
@@ -332,6 +483,7 @@ func printViewHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Header().Set("X-Content-Type-Options", "nosniff")
 	// Ensure self-print script is present even if caller omitted it
 	if !strings.Contains(html, "window.print") {
 		html = strings.Replace(html, "</body>", "<script>setTimeout(function(){try{window.print();}catch(e){}},400);</script></body>", 1)
@@ -343,10 +495,12 @@ func devPageHandler(w http.ResponseWriter, r *http.Request) {
 	lang := r.URL.Query().Get("lang")
 	if !validLangs[lang] {
 		// Accept partial match (e.g. "pt" -> "pt-BR")
-		for k := range validLangs {
-			if strings.HasPrefix(k, lang) {
-				lang = k
-				break
+		if lang != "" {
+			for k := range validLangs {
+				if strings.HasPrefix(k, lang) {
+					lang = k
+					break
+				}
 			}
 		}
 		if !validLangs[lang] {
@@ -387,7 +541,7 @@ document.title=lu.title;
 document.write('<div class="tabs"><div class="tab active" onclick="switchTab(0)">'+lu.console+'</div><div class="tab" onclick="switchTab(1)">'+lu.network+'</div><button class="btn" onclick="clearLog()">'+lu.clear+'</button></div><div class="content" id="console"></div><div class="content" id="network" style="display:none"></div>');
 var log=[];
 function switchTab(i){document.querySelectorAll('.tab').forEach(function(t,j){t.className=j==i?'tab active':'tab'});document.getElementById('console').style.display=i==0?'':'none';document.getElementById('network').style.display=i==1?'':'none'}
-function clearLog(){fetch('/api/dev/log',{method:'DELETE'}).then(function(){log=[];render()}).catch(function(){})}
+function clearLog(){var h={};try{var t=(parent&&parent.__ht_token)||window.__ht_token||sessionStorage.__ht_token||'';if(t)h['X-HT-Token']=t}catch(e){}fetch('/api/dev/log',{method:'DELETE',headers:h}).then(function(){log=[];render()}).catch(function(){})}
 function fetchLog(){fetch('/api/dev/log').then(function(r){return r.json()}).then(function(entries){log=entries;render()}).catch(function(){})}
 function render(){var c=document.getElementById('console'),n=document.getElementById('network');c.innerHTML='';n.innerHTML='';var errCount=0,netCount=0;for(var i=0;i<log.length;i++){var e=log[i];var d=new Date(e.time).toLocaleTimeString();if(e.type==='error'){errCount++;c.innerHTML+='<div class="entry entry-error"><span class="ts">'+d+'</span><span class="msg">'+esc(e.message)+'</span><br><span class="meta">'+esc(e.url)+'</span></div>'}else if(e.type==='network'){if(e.url.indexOf('/api/')>=0)continue;netCount++;var statusClass=e.status>=200&&e.status<300?'ok':'fail';n.innerHTML+='<div class="entry entry-network"><span class="ts">'+d+'</span><span class="url">'+esc(e.url)+'</span><br><span class="meta">'+esc(e.method)+' <span class="'+statusClass+'">'+e.status+'</span> '+(e.duration>0?e.duration+'ms':'')+'</span></div>'}}if(errCount===0)c.innerHTML='<div style="padding:8px;color:#666;font-style:italic">'+lu.noErrors+'</div>';if(netCount===0)n.innerHTML='<div style="padding:8px;color:#666;font-style:italic">'+lu.noNetwork+'</div>'}
 function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -397,8 +551,10 @@ fetchLog();
 }
 
 func parseInt64(s string) int64 {
-	var n int64
-	fmt.Sscanf(s, "%d", &n)
+	n, err := strconv.ParseInt(strings.TrimSpace(s), 10, 64)
+	if err != nil {
+		return 0
+	}
 	return n
 }
 
@@ -417,10 +573,14 @@ func initDataDir() {
 	default:
 		dataDir = filepath.Join(home, ".config", "HistoryTracers")
 	}
-	if err := os.MkdirAll(dataDir, 0755); err != nil {
+	if err := os.MkdirAll(dataDir, 0700); err != nil {
 		log.Printf("Warning: cannot create data directory %s: %v", dataDir, err)
 		dataDir = ""
+		return
 	}
+	// Tighten permissions on pre-existing directories (history.csv and
+	// friends contain browsing history): ignore errors on shared systems.
+	_ = os.Chmod(dataDir, 0700)
 }
 
 func initHistory() {
@@ -464,7 +624,7 @@ func initUUID() {
 	}
 	buf[6] = (buf[6] & 0x0f) | 0x40
 	buf[8] = (buf[8] & 0x3f) | 0x80
-	if err := os.WriteFile(uuidFile, buf, 0644); err != nil {
+	if err := os.WriteFile(uuidFile, buf, 0600); err != nil {
 		log.Printf("Warning: cannot write UUID file: %v", err)
 	}
 	instanceUUID = buf
@@ -481,13 +641,17 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			data = savedOptions
 		}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(data)
+		if err := json.NewEncoder(w).Encode(data); err != nil {
+			log.Printf("Warning: cannot write options response: %v", err)
+		}
 
 	case http.MethodPost:
 		if !checkToken(r) {
 			http.Error(w, "Forbidden", http.StatusForbidden)
 			return
 		}
+		// All fields are small scalars; bound the body before parsing.
+		r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
 		data, err := readOptions()
@@ -496,8 +660,7 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			data = savedOptions
 		}
 		if home := r.FormValue("home"); home != "" {
-			trimmed := strings.TrimLeft(home, "/")
-			if !strings.HasPrefix(trimmed, "index.html") {
+			if !isValidHomeOrLastPage(home) {
 				home = "/index.html"
 			}
 			data.Home = home
@@ -511,6 +674,9 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		if v := r.FormValue("recreio"); v != "" && validRecreios[v] {
 			data.Recreio = v
 		}
+		if v := r.FormValue("font"); v != "" && validFonts[v] {
+			data.Font = v
+		}
 		if v := r.FormValue("port"); v != "" {
 			if p, err := strconv.Atoi(v); err == nil && p >= 1 && p <= 65535 {
 				data.Port = v
@@ -522,17 +688,17 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			data.OpenLastPageSet = true
 		}
 		if v := r.FormValue("tls_cert"); v != "" {
-			data.TLSCert = v
+			data.TLSCert = sanitizeLabelPath(clampLen(v, 1024))
 		} else if _, ok := r.Form["tls_cert"]; ok {
 			data.TLSCert = ""
 		}
 		if v := r.FormValue("tls_key"); v != "" {
-			data.TLSKey = v
+			data.TLSKey = sanitizeLabelPath(clampLen(v, 1024))
 		} else if _, ok := r.Form["tls_key"]; ok {
 			data.TLSKey = ""
 		}
 		if v := r.FormValue("my_name"); v != "" {
-			data.MyName = v
+			data.MyName = clampLen(v, 128)
 		} else if _, ok := r.Form["my_name"]; ok {
 			data.MyName = ""
 		}
@@ -543,7 +709,7 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		savedOptions = data
 		rotateToken()
-		w.Header().Set("X-HT-Next-Token", viewerToken)
+		w.Header().Set("X-HT-Next-Token", currentToken())
 		w.WriteHeader(http.StatusNoContent)
 
 	default:
@@ -569,7 +735,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	optionsMu.Unlock()
 
-	var curLang, curCal, curRecreio, curPort, curHome string
+	var curLang, curCal, curRecreio, curFont, curPort, curHome string
 	if data.Lang != "" {
 		curLang = data.Lang
 	} else if lang != "" {
@@ -589,11 +755,40 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		curRecreio = "30"
 	}
+	if data.Font != "" {
+		curFont = data.Font
+	} else {
+		curFont = "default"
+	}
+	// Re-validate everything that flows into the HTML/JS sink below.
+	// readOptions already validates, but explicit checks here make the
+	// safety local to this handler and visible to static analysis.
+	if !validLangs[curLang] {
+		curLang = "en-US"
+	}
+	if !validCals[curCal] {
+		curCal = "gregory"
+	}
+	if !validRecreios[curRecreio] {
+		curRecreio = "30"
+	}
+	if !validFonts[curFont] {
+		curFont = "default"
+	}
 	curPort = data.Port
+	if curPort != "" {
+		if p, err := strconv.Atoi(curPort); err != nil || p < 1 || p > 65535 {
+			curPort = ""
+		} else {
+			curPort = strconv.Itoa(p)
+		}
+	}
 	curHome = data.Home
-	if curHome == "" {
+	if !isValidHomeOrLastPage(curHome) {
 		curHome = "/index.html"
 	}
+	tlsCertVal := sanitizeLabelPath(data.TLSCert)
+	tlsKeyVal := sanitizeLabelPath(data.TLSKey)
 	curOpenLast := isOpenLastPage(data)
 
 	defaultTLSDir := "/etc/historytracers/"
@@ -601,10 +796,23 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
 	}
 
+	// All JS string values are JSON-encoded (see jsString) so quotes,
+	// backslashes and </script> sequences cannot break out of the literal.
+	langJS := jsString(curLang)
+	calJS := jsString(curCal)
+	recJS := jsString(curRecreio)
+	fontJSVal := jsString(curFont)
+	portJS := jsString(curPort)
+	homeJSVal := jsString(curHome)
+	tlsCertJS := jsString(tlsCertVal)
+	tlsKeyJS := jsString(tlsKeyVal)
+	certDirJS := jsString(defaultTLSDir)
+	tokenJSVal := jsString(currentToken())
+
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
-<script>window.__ht_token='%s';</script>
+<script>window.__ht_token=%s;</script>
 <style>
 *{box-sizing:border-box}
 body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5;color:#333}
@@ -622,30 +830,34 @@ select{height:30px}
 .back a:hover{text-decoration:underline}
 </style></head><body>
 <script>
-var lang=%q;
-var cal=%q;
+var lang=%s;
+var cal=%s;
 var L={};
-L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',openLastLabel:'Abrir \u00faltima p\u00e1gina visitada ao iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
+L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',fontLabel:'Tamanho da letra',fontSmall:'Pequena',fontDefault:'Padr\u00e3o',fontLarge:'Grande',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',openLastLabel:'Abrir \u00faltima p\u00e1gina visitada ao iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
 L['pt']=L['pt-BR'];
-L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',openLastLabel:'Abrir la \u00faltima p\u00e1gina visitada al iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
+L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',fontLabel:'Tama\u00f1o de letra',fontSmall:'Peque\u00f1a',fontDefault:'Predeterminada',fontLarge:'Grande',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',openLastLabel:'Abrir la \u00faltima p\u00e1gina visitada al iniciar',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
 L['es']=L['es-ES'];
-L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',openLastLabel:'Open last visited page on startup',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
+L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',fontLabel:'Letter size',fontSmall:'Small',fontDefault:'Default',fontLarge:'Large',listenLabel:'Listen port',homeLabel:'Home page',openLastLabel:'Open last visited page on startup',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
 L['en']=L['en-US'];
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
-var recVal=%q;
-var portVal=%q;
-var homeVal=%q;
-var tlsCertVal=%q;
-var tlsKeyVal=%q;
-var certDir=%q;
+var recVal=%s;
+var fontVal=%s;
+var portVal=%s;
+var homeVal=%s;
+var tlsCertVal=%s;
+var tlsKeyVal=%s;
+var certDir=%s;
 var openLastVal=%v;
+function escAttr(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
 var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
 var langs=['pt-BR','en-US','es-ES'];
 var cals=['aymara','chinese','emesoamerican','french','gregory','hebrew','hispanic','inca','islamic','japanese','javanese','julian','mapuche','mesoamerican','persian','shaka'];
 var recreios=[15,25,30,35,45,50,60];
+var fonts=['small','default','large'];
 
 var html='<h2>'+l.title+'</h2>';
 html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lang">';
@@ -655,19 +867,23 @@ html+='<div class="form-group"><label>'+l.calLabel+'</label><select id="opt_cal"
 for(var i=0;i<cals.length;i++){
 	var sc=(function(){try{return parent.document.querySelector('#site_calendar option[value="'+cals[i]+'"]')}catch(e){return null}})();
 	var label=sc?sc.textContent:cals[i].charAt(0).toUpperCase()+cals[i].slice(1);
-	html+='<option value="'+cals[i]+'"'+(cals[i]===cal?' selected':'')+'>'+label+'</option>';
+	html+='<option value="'+cals[i]+'"'+(cals[i]===cal?' selected':'')+'>'+escHtml(label)+'</option>';
 }
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.recreioLabel+'</label><select id="opt_rec">';
 for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(String(recreios[i])===recVal?' selected':'')+'>'+recreios[i]+' '+l.recreioM+'</option>'}
 html+='</select></div>';
-html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
-html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
+html+='<div class="form-group"><label>'+l.fontLabel+'</label><select id="opt_font">';
+var fontLabels={'small':l.fontSmall,'default':l.fontDefault,'large':l.fontLarge};
+for(var i=0;i<fonts.length;i++){html+='<option value="'+fonts[i]+'"'+(fonts[i]===fontVal?' selected':'')+'>'+fontLabels[fonts[i]]+'</option>'}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+escAttr(portVal)+'"></div>';
+html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+escAttr(homeVal)+'"></div>';
 html+='<div class="form-group"><label><input type="checkbox" id="opt_open_last" '+(openLastVal?'checked':'')+'> '+l.openLastLabel+'</label></div>';
-html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
-html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+escAttr(certDir)+'cert.pem" value="'+escAttr(tlsCertVal)+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+escAttr(certDir)+'key.pem" value="'+escAttr(tlsKeyVal)+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
-html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+(localStorage.getItem('ht_my_name')||'')+'"></div>';
+html+='<div class="form-group"><label>My Name</label><input type="text" id="opt_my_name" placeholder="My Name" value="'+escAttr(localStorage.getItem('ht_my_name')||'')+'"></div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<div id="opt_status"></div>';
 html+='<div class="back"><a href="#" onclick="event.preventDefault();(parent.open||window.open)(window.location.origin+\'/index.html?page=\'+encodeURIComponent(parent.location.search.match(/[?&]page=([^&]*)/)?decodeURIComponent(RegExp.$1):\'main\')+\'&lang=\'+encodeURIComponent(lang)+\'&cal=\'+encodeURIComponent(cal))">'+l.back+'</a></div>';
@@ -677,6 +893,7 @@ document.getElementById('opt_apply').onclick=function(){
 	var nl=document.getElementById('opt_lang').value;
 	var nc=document.getElementById('opt_cal').value;
 	var nr=document.getElementById('opt_rec').value;
+	var nf=document.getElementById('opt_font').value;
 	var np=document.getElementById('opt_port').value;
 	var nh=document.getElementById('opt_home').value||'/index.html';
 	if(nh.indexOf('index.html')!==0&&nh.indexOf('/index.html')!==0){nh='/index.html'}
@@ -689,16 +906,16 @@ document.getElementById('opt_apply').onclick=function(){
 	var nm=document.getElementById('opt_my_name').value;
 	localStorage.setItem('ht_my_name',nm);
 	var ol=document.getElementById('opt_open_last').checked?'1':'0';
-	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)+'&open_last_page='+ol}).then(function(r){
+	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&font='+encodeURIComponent(nf)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&my_name='+encodeURIComponent(nm)+'&open_last_page='+ol}).then(function(r){
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
-		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);parent.location.href=pu.toString()}catch(e){}
+		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);pu.searchParams.set('font',nf);parent.location.href=pu.toString()}catch(e){}
 	}).catch(function(e){
 		s.className='status error';s.textContent=l.err+e.message;
 	});
 };
 </script>
-</body></html>`, viewerToken, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir, curOpenLast)
+</body></html>`, tokenJSVal, langJS, calJS, recJS, fontJSVal, portJS, homeJSVal, tlsCertJS, tlsKeyJS, certDirJS, curOpenLast)
 }
 
 func isOpenLastPage(d optionsData) bool {
@@ -718,17 +935,22 @@ func validateOptions(data *optionsData) {
 	if !validRecreios[data.Recreio] {
 		data.Recreio = ""
 	}
+	if !validFonts[data.Font] {
+		data.Font = ""
+	}
 	if data.Port != "" {
 		if p, err := strconv.Atoi(data.Port); err != nil || p < 1 || p > 65535 {
 			data.Port = ""
 		}
 	}
 	if data.Home != "" {
-		trimmed := strings.TrimLeft(data.Home, "/")
-		if !strings.HasPrefix(trimmed, "index.html") {
+		if !isValidHomeOrLastPage(data.Home) {
 			data.Home = ""
 		}
 	}
+	data.TLSCert = sanitizeLabelPath(clampLen(data.TLSCert, 1024))
+	data.TLSKey = sanitizeLabelPath(clampLen(data.TLSKey, 1024))
+	data.MyName = clampLen(data.MyName, 128)
 	if (data.TLSCert != "") != (data.TLSKey != "") {
 		data.TLSCert = ""
 		data.TLSKey = ""
@@ -738,8 +960,7 @@ func validateOptions(data *optionsData) {
 		data.OpenLastPageSet = true
 	}
 	if data.LastPage != "" {
-		trimmed := strings.TrimLeft(data.LastPage, "/")
-		if !strings.HasPrefix(trimmed, "index.html") {
+		if !isValidHomeOrLastPage(data.LastPage) {
 			data.LastPage = ""
 		} else {
 			u, err := url.Parse(data.LastPage)
@@ -818,11 +1039,38 @@ func allowedPage(name string) bool {
 }
 
 func safeContentKey(key string) bool {
-	if key == "" || key == "." || key == ".." {
+	if key == "" || len(key) > 128 {
 		return false
 	}
-	if strings.ContainsAny(key, "/\\") {
+	if key == "." || key == ".." || strings.HasPrefix(key, ".") {
 		return false
+	}
+	if strings.Contains(key, "..") {
+		return false
+	}
+	// Reject Windows reserved device names (CON, PRN, AUX, NUL, COM1-9,
+	// LPT1-9): even with an appended extension they address the device
+	// instead of a file (e.g. NUL.json reads the null device, CON.json
+	// blocks waiting for console input).
+	base := key
+	if i := strings.IndexByte(key, '.'); i >= 0 {
+		base = key[:i]
+	}
+	switch strings.ToUpper(base) {
+	case "CON", "PRN", "AUX", "NUL",
+		"COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9",
+		"LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9":
+		return false
+	}
+	// Allowlist: content file basenames (UUIDs and page slugs) only use
+	// these characters. This rejects path separators (/ and \), drive
+	// qualifiers (:), and anything else that could escape the language
+	// directory on any OS.
+	for i := 0; i < len(key); i++ {
+		c := key[i]
+		if (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9') && c != '_' && c != '-' && c != '.' {
+			return false
+		}
 	}
 	return true
 }
@@ -857,27 +1105,92 @@ func resolveContentTitleUncached(key, lang string) string {
 		}
 		langs = withLang
 	}
+	// Titles come from the startup-built index (see getTitleIndex), so
+	// user-controlled keys only ever perform map lookups and never reach
+	// a filesystem path expression.
+	idx := getTitleIndex()
 	for _, l := range langs {
-		b, err := os.ReadFile(filepath.Join(contentDir, "lang", l, key+".json"))
-		if err != nil {
-			continue
-		}
-		var data map[string]interface{}
-		if err := json.Unmarshal(b, &data); err != nil {
-			continue
-		}
-		if title, ok := data["title"]; ok {
-			if s, ok := title.(string); ok && s != "" {
-				return s
-			}
-		}
-		if header, ok := data["header"]; ok {
-			if s, ok := header.(string); ok && s != "" {
-				return s
-			}
+		if t, ok := idx[l+"|"+key]; ok && t != "" {
+			return t
 		}
 	}
 	return ""
+}
+
+var (
+	titleIndexMu  sync.RWMutex
+	titleIndexDir string
+	titleIndexSet bool
+	titleIndex    map[string]string // "lang|basename" -> title (header fallback)
+)
+
+// getTitleIndex returns the content-title index for the current contentDir,
+// rebuilding it when contentDir changes.
+func getTitleIndex() map[string]string {
+	titleIndexMu.RLock()
+	if titleIndexSet && titleIndexDir == contentDir {
+		defer titleIndexMu.RUnlock()
+		return titleIndex
+	}
+	titleIndexMu.RUnlock()
+	titleIndexMu.Lock()
+	defer titleIndexMu.Unlock()
+	if titleIndexSet && titleIndexDir == contentDir {
+		return titleIndex
+	}
+	titleIndex = buildTitleIndex(contentDir)
+	titleIndexDir = contentDir
+	titleIndexSet = true
+	return titleIndex
+}
+
+// buildTitleIndex scans <dir>/lang/<lang>/*.json once and records each
+// file's title (falling back to header). File names here come from the
+// directory listing itself, not from user input.
+func buildTitleIndex(dir string) map[string]string {
+	idx := make(map[string]string)
+	if dir == "" {
+		return idx
+	}
+	for _, l := range []string{"en-US", "pt-BR", "es-ES"} {
+		entries, err := os.ReadDir(filepath.Join(dir, "lang", l))
+		if err != nil {
+			continue
+		}
+		for _, e := range entries {
+			if e.IsDir() {
+				continue
+			}
+			name := e.Name()
+			if !strings.HasSuffix(name, ".json") {
+				continue
+			}
+			key := strings.TrimSuffix(name, ".json")
+			if !safeContentKey(key) {
+				continue
+			}
+			ck := l + "|" + key
+			if _, done := idx[ck]; done {
+				continue
+			}
+			b, err := os.ReadFile(filepath.Join(dir, "lang", l, name))
+			if err != nil {
+				continue
+			}
+			var data map[string]interface{}
+			if err := json.Unmarshal(b, &data); err != nil {
+				continue
+			}
+			if title, ok := data["title"].(string); ok && title != "" {
+				idx[ck] = title
+				continue
+			}
+			if header, ok := data["header"].(string); ok && header != "" {
+				idx[ck] = header
+			}
+		}
+	}
+	return idx
 }
 
 func contentTitle(page, arg, lang, stored string) string {
@@ -900,16 +1213,25 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "History not available", 500)
 		return
 	}
+	// All fields are small scalars; bound the body before parsing.
+	r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 	page := r.FormValue("page")
 	if !allowedPage(page) {
 		http.Error(w, "Invalid page", 400)
 		return
 	}
-	arg := r.FormValue("arg")
-	people := r.FormValue("people")
+	arg := clampLen(r.FormValue("arg"), 256)
+	people := clampLen(r.FormValue("people"), 256)
 	lang := r.FormValue("lang")
-	title := contentTitle(page, arg, lang, r.FormValue("title"))
+	if !validLangs[lang] {
+		lang = ""
+	}
+	storedTitle := clampLen(r.FormValue("title"), 512)
+	title := contentTitle(page, arg, lang, storedTitle)
 	cal := r.FormValue("cal")
+	if !validCals[cal] {
+		cal = ""
+	}
 	now := time.Now().Unix()
 
 	historyMu.Lock()
@@ -927,11 +1249,17 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	if len(entries) > 256 {
 		entries = entries[len(entries)-256:]
 	}
-	writeHistoryLocked(entries)
+	if err := writeHistoryLocked(entries); err != nil {
+		log.Printf("Warning: cannot write history.csv: %v", err)
+	}
 	rotateToken()
-	nextToken := viewerToken
+	nextToken := currentToken()
 
-	// Persist last visited page for startup restore (keep within historyMu critical section)
+	historyMu.Unlock()
+
+	// Persist last visited page for startup restore (outside the historyMu
+	// critical section to keep lock ordering simple: never hold historyMu
+	// while acquiring optionsMu).
 	optionsMu.Lock()
 	data, err := readOptions()
 	if err != nil {
@@ -959,10 +1287,8 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	optionsMu.Unlock()
 
-	historyMu.Unlock()
-
 	w.Header().Set("X-HT-Next-Token", nextToken)
-	return
+	w.WriteHeader(http.StatusNoContent)
 }
 
 func historyListHandler(w http.ResponseWriter, r *http.Request) {
@@ -983,7 +1309,9 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(entries)
+	if err := json.NewEncoder(w).Encode(entries); err != nil {
+		log.Printf("Warning: cannot write history list response: %v", err)
+	}
 }
 
 func historyPageHandler(w http.ResponseWriter, r *http.Request) {
@@ -1012,9 +1340,9 @@ a:hover{text-decoration:underline}
 <h2 id="title"></h2>
 <div id="hist"></div>
 <script>
-window.__ht_token=`+"`"+`%s`+"`"+`;
-var loc=`+"`"+`%s`+"`"+`||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
-var cal=`+"`"+`%s`+"`"+`||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
+window.__ht_token=%s;
+var loc=%s||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
+var cal=%s||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
 var L={};
 L['pt-BR']={title:'Historiador — Hist\u00f3rico Completo',empty:'(vazio)',err:'Erro ao carregar hist\u00f3rico.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Data/Hora'};
 L['pt']=L['pt-BR'];
@@ -1052,7 +1380,7 @@ function recordHistory(url,title){
 }
 function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 </script>
-</body></html>`, viewerToken, lang, cal)
+</body></html>`, jsString(viewerToken), jsString(lang), jsString(cal))
 }
 
 func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
@@ -1068,12 +1396,24 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Favorites not available", 500)
 		return
 	}
+	// All fields are small scalars; bound the body before parsing.
+	r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 	page := r.FormValue("page")
-	arg := r.FormValue("arg")
-	people := r.FormValue("people")
+	if !allowedPage(page) {
+		http.Error(w, "Invalid page", 400)
+		return
+	}
+	arg := clampLen(r.FormValue("arg"), 256)
+	people := clampLen(r.FormValue("people"), 256)
 	lang := r.FormValue("lang")
-	title := contentTitle(page, arg, lang, r.FormValue("title"))
+	if !validLangs[lang] {
+		lang = ""
+	}
+	title := contentTitle(page, arg, lang, clampLen(r.FormValue("title"), 512))
 	cal := r.FormValue("cal")
+	if !validCals[cal] {
+		cal = ""
+	}
 
 	favoritesMu.Lock()
 	defer favoritesMu.Unlock()
@@ -1096,9 +1436,11 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 			Time: time.Now().Unix(), Title: title, Lang: lang, Cal: cal,
 		})
 	}
-	writeFavoritesLocked(entries)
+	if err := writeFavoritesLocked(entries); err != nil {
+		log.Printf("Warning: cannot write favorites.csv: %v", err)
+	}
 	rotateToken()
-	w.Header().Set("X-HT-Next-Token", viewerToken)
+	w.Header().Set("X-HT-Next-Token", currentToken())
 }
 
 func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
@@ -1120,7 +1462,9 @@ func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(entries)
+	if err := json.NewEncoder(w).Encode(entries); err != nil {
+		log.Printf("Warning: cannot write favorites list response: %v", err)
+	}
 }
 
 func favoritesPageHandler(w http.ResponseWriter, r *http.Request) {
@@ -1149,8 +1493,8 @@ a:hover{text-decoration:underline}
 <h2 id="title"></h2>
 <div id="favs"></div>
 <script>
-var loc=`+"`"+`%s`+"`"+`||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
-var cal=`+"`"+`%s`+"`"+`||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
+var loc=%s||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
+var cal=%s||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
 var L={};
 L['pt-BR']={title:'Historiador — Favoritos',empty:'(vazio)',err:'Erro ao carregar favoritos.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Data/Hora'};
 L['pt']=L['pt-BR'];
@@ -1185,7 +1529,7 @@ fetch('/api/favorites/list').then(function(r){return r.json()}).then(function(en
 }).catch(function(){document.getElementById('favs').innerHTML='<p class="empty">'+l.err+'</p>'});
 function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 </script>
-</body></html>`, lang, cal)
+</body></html>`, jsString(lang), jsString(cal))
 }
 
 func readFavoritesLocked() []historyEntry {
@@ -1207,8 +1551,10 @@ func readFavoritesLocked() []historyEntry {
 		if len(rec) < 4 {
 			continue
 		}
-		var t int64
-		fmt.Sscanf(rec[3], "%d", &t)
+		if !allowedPage(rec[0]) {
+			continue
+		}
+		t := parseInt64(rec[3])
 		title := ""
 		if len(rec) >= 5 {
 			title = rec[4]
@@ -1229,19 +1575,25 @@ func readFavoritesLocked() []historyEntry {
 	return entries
 }
 
-func writeFavoritesLocked(entries []historyEntry) {
-	f, err := os.Create(favoritesFile)
+func writeFavoritesLocked(entries []historyEntry) error {
+	f, err := os.OpenFile(favoritesFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 	if err != nil {
-		log.Printf("Warning: cannot write favorites.csv: %v", err)
-		return
+		return err
 	}
-	defer f.Close()
 
 	w := csv.NewWriter(f)
 	for _, e := range entries {
-		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal})
+		if err := w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal}); err != nil {
+			_ = f.Close()
+			return err
+		}
 	}
 	w.Flush()
+	if err := w.Error(); err != nil {
+		_ = f.Close()
+		return err
+	}
+	return f.Close()
 }
 
 func readHistoryLocked() []historyEntry {
@@ -1266,8 +1618,7 @@ func readHistoryLocked() []historyEntry {
 		if !allowedPage(rec[0]) {
 			continue
 		}
-		var t int64
-		fmt.Sscanf(rec[3], "%d", &t)
+		t := parseInt64(rec[3])
 		title := ""
 		if len(rec) >= 5 {
 			title = rec[4]
@@ -1296,19 +1647,25 @@ func readHistoryLocked() []historyEntry {
 	return entries
 }
 
-func writeHistoryLocked(entries []historyEntry) {
-	f, err := os.Create(historyFile)
+func writeHistoryLocked(entries []historyEntry) error {
+	f, err := os.OpenFile(historyFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 	if err != nil {
-		log.Printf("Warning: cannot write history.csv: %v", err)
-		return
+		return err
 	}
-	defer f.Close()
 
 	w := csv.NewWriter(f)
 	for _, e := range entries {
-		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal})
+		if err := w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal}); err != nil {
+			_ = f.Close()
+			return err
+		}
 	}
 	w.Flush()
+	if err := w.Error(); err != nil {
+		_ = f.Close()
+		return err
+	}
+	return f.Close()
 }
 
 var projectFiles map[string]bool
@@ -1367,6 +1724,8 @@ func main() {
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
 	cal := flag.String("calendar", "",
 		"Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican, aymara, mapuche, inca, chinese, javanese, japanese)")
+	font := flag.String("font", "",
+		"Initial letter size (e.g. small, default, large)")
 	class := flag.String("class", "", "Initial class content UUID (e.g. d290f1ee-6c54-4b01-90e6-d701748f0851)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
 	tlsCert := flag.String("tls-cert", "", "TLS certificate file (enables HTTPS)")
@@ -1388,6 +1747,10 @@ func main() {
 	// -h/-help and flag errors are still printed to the terminal.
 	hideConsole()
 
+	if *font != "" && !validFonts[*font] {
+		*font = ""
+	}
+
 	contentDir = *dir
 	if *pathFlag != "" {
 		contentDir = *pathFlag
@@ -1401,7 +1764,7 @@ func main() {
 	initProjectFiles()
 
 	if *logFile != "" {
-		f, err := os.Create(*logFile)
+		f, err := os.OpenFile(*logFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 		if err != nil {
 			log.Fatalf("Cannot open log file: %v", err)
 		}
@@ -1436,6 +1799,9 @@ func main() {
 	if *cal == "" && savedOptions.Cal != "" {
 		*cal = savedOptions.Cal
 	}
+	if *font == "" && savedOptions.Font != "" {
+		*font = savedOptions.Font
+	}
 	if !portSet && savedOptions.Port != "" {
 		if p, err := strconv.Atoi(savedOptions.Port); err == nil && p >= 1 && p <= 65535 {
 			*port = p
@@ -1443,10 +1809,9 @@ func main() {
 	}
 	addr := resolveAddr(*port)
 	if *class != "" {
-		pageURL = buildPageURL(addr, *class, *lang, *cal)
+		pageURL = buildPageURL(addr, *class, *lang, *cal, *font)
 	} else if isOpenLastPage(savedOptions) && savedOptions.LastPage != "" {
-		trimmed := strings.TrimLeft(savedOptions.LastPage, "/")
-		if strings.HasPrefix(trimmed, "index.html") {
+		if isValidHomeOrLastPage(savedOptions.LastPage) {
 			if u2, err := url.Parse(savedOptions.LastPage); err == nil {
 				pg := u2.Query().Get("page")
 				if pg == "" || allowedPage(pg) {
@@ -1460,15 +1825,15 @@ func main() {
 					}
 					pageURL = fmt.Sprintf("%s://%s%s", scheme, addr, lp)
 				} else {
-					pageURL = buildPageURL(addr, "", *lang, *cal)
+					pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 				}
 			} else {
-				pageURL = buildPageURL(addr, "", *lang, *cal)
+				pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 			}
 		} else {
-			pageURL = buildPageURL(addr, "", *lang, *cal)
+			pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 		}
-	} else if savedOptions.Home != "" && strings.HasPrefix(strings.TrimLeft(savedOptions.Home, "/"), "index.html") {
+	} else if savedOptions.Home != "" && isValidHomeOrLastPage(savedOptions.Home) {
 		trimmed := strings.TrimLeft(savedOptions.Home, "/")
 		scheme := "http"
 		if useTLS {
@@ -1485,34 +1850,48 @@ func main() {
 		}
 		if *cal != "" {
 			u += sep + "cal=" + url.QueryEscape(*cal)
+			sep = "&"
+		}
+		if *font != "" {
+			u += sep + "font=" + url.QueryEscape(*font)
 		}
 		pageURL = u
 	} else {
-		pageURL = buildPageURL(addr, "", *lang, *cal)
+		pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 	}
 
+	if *lang != "" && !validLangs[*lang] {
+		*lang = ""
+	}
+	if *cal != "" && !validCals[*cal] {
+		*cal = ""
+	}
 	if *lang != "" {
-		langJS := "window.__ht_lang='" + *lang + "';"
+		langJS := "window.__ht_lang=" + jsString(*lang) + ";"
 		welcomePage = langJS + welcomePage
 		addressBarJS = langJS + addressBarJS
 	}
 	if *cal != "" {
-		calJS := "window.__ht_cal='" + *cal + "';"
+		calJS := "window.__ht_cal=" + jsString(*cal) + ";"
 		welcomePage = calJS + welcomePage
 		addressBarJS = calJS + addressBarJS
 	}
+	if *font != "" {
+		fontJS := "window.__ht_font=" + jsString(*font) + ";"
+		welcomePage = fontJS + welcomePage
+		addressBarJS = fontJS + addressBarJS
+	}
 	if savedOptions.Home != "" {
-		homeJS := "window.__ht_home='" + strings.ReplaceAll(savedOptions.Home, "'", "\\'") + "';"
-		welcomePage = homeJS + welcomePage
-		addressBarJS = homeJS + addressBarJS
+		safeHome := sanitizeLabelPath(savedOptions.Home)
+		if safeHome != "" && isValidHomeOrLastPage(safeHome) {
+			homeJS := "window.__ht_home=" + jsString(safeHome) + ";"
+			welcomePage = homeJS + welcomePage
+			addressBarJS = homeJS + addressBarJS
+		}
 	}
 	{
-		buf := make([]byte, 32)
-		if _, err := rand.Read(buf); err != nil {
-			log.Fatalf("Cannot generate secure token: %v", err)
-		}
-		viewerToken = hex.EncodeToString(buf)
-		tokenJS := "window.__ht_token='" + viewerToken + "';"
+		rotateToken()
+		tokenJS := "window.__ht_token=" + jsString(currentToken()) + ";"
 		welcomePage = tokenJS + welcomePage
 		addressBarJS = tokenJS + addressBarJS
 	}
@@ -1578,7 +1957,7 @@ func main() {
 	fmt.Println("Stopped.")
 }
 
-func buildPageURL(addr, class, lang, cal string) string {
+func buildPageURL(addr, class, lang, cal, font string) string {
 	scheme := "http"
 	if useTLS {
 		scheme = "https"
@@ -1595,6 +1974,10 @@ func buildPageURL(addr, class, lang, cal string) string {
 	}
 	if cal != "" {
 		u += sep + "cal=" + url.QueryEscape(cal)
+		sep = "&"
+	}
+	if font != "" {
+		u += sep + "font=" + url.QueryEscape(font)
 	}
 	return u
 }
@@ -1619,11 +2002,17 @@ func resolveAddr(port int) string {
 
 type statusWriter struct {
 	http.ResponseWriter
-	status int
+	status      int
+	wroteHeader bool
 }
 
 func (w *statusWriter) WriteHeader(code int) {
-	w.status = code
+	// net/http honours the first WriteHeader; record exactly that so the
+	// access log shows the code the client actually saw.
+	if !w.wroteHeader {
+		w.status = code
+		w.wroteHeader = true
+	}
 	w.ResponseWriter.WriteHeader(code)
 }
 
@@ -1631,6 +2020,9 @@ func logMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		sw := &statusWriter{ResponseWriter: w, status: 200}
 		next.ServeHTTP(sw, r)
-		accessLog.Printf("%s %s %d", r.Method, r.URL.Path, sw.status)
+		// Strip CR/LF so a crafted path cannot forge log lines.
+		method := strings.ReplaceAll(strings.ReplaceAll(r.Method, "\n", ""), "\r", "")
+		p := strings.ReplaceAll(strings.ReplaceAll(r.URL.Path, "\n", ""), "\r", "")
+		accessLog.Printf("%s %s %d", method, p, sw.status)
 	})
 }

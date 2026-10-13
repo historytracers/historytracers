@@ -28,6 +28,11 @@ var htAtlasIdx = new Map();
 
 var loadedIdx = [];
 var htIndexesOrder = [];
+// Titles of the index pages already received from the server, keyed by index
+// name (e.g. "physics" -> "Universe"). They are filled by htFillTopIdx() and
+// preferred by htSelectIndexName() so the navigation table always shows the
+// same name used by the index page itself instead of a static keyword.
+var htIndexTitles = {};
 var htCurrentPage = "";
 var htCurrentArg = "";
 var htAllowJsonLoad = false;
@@ -162,6 +167,9 @@ function htResetAllIndexes()
     loadedIdx = [];
     htPendingIndexes = [];
     htIndexesOrder = [];
+    // Index titles are language dependent, so they must be dropped together
+    // with the index maps when the page (or the language) is reloaded.
+    htIndexTitles = {};
     htCurrentPage = "";
     htCurrentArg = "";
     htAllowJsonLoad = false;
@@ -2087,9 +2095,8 @@ function htFillKeywords(table) {
         keywords.push(table[i]);
     }
 
-    $("#index_lang").html(keywords[39]);
     $("#index_theme").html(keywords[74]);
-    $("#index_recreio").html(keywords[141]);
+    htRefreshTopButtonTooltips();
     htUpdateCurrentDateOnIndex();
     setInterval(htCheckBreakReminder, 60000);
     htCheckBreakReminder();
@@ -2142,6 +2149,13 @@ function htSelectIndexMap(index)
 }
 
 function htSelectIndexName(index) {
+    // The title of the index page (e.g. "Universe" for physics.json) is the
+    // authoritative name: it keeps the navigation in sync with the page the
+    // link points to and with the sidebar menu.
+    if (typeof htIndexTitles[index] === "string" && htIndexTitles[index].length > 0) {
+        return htIndexTitles[index];
+    }
+
     const map = {
         families: keywords[8],
         first_steps: keywords[121],
@@ -3574,6 +3588,13 @@ function htFillTopIdx(idx, data, first)
         return;
     }
 
+    // Remember the title of a real index page: it is the name shown by the
+    // navigation table (e.g. "Universe" for physics.json) and must match the
+    // heading of the page the navigation links back to.
+    if (data.type === "index" && typeof data.title === "string" && data.title.length > 0) {
+        htIndexTitles[first] = data.title;
+    }
+
     htUpdateLoadedIdx(first);
 
     const localLang = $("#site_language").val();
@@ -4031,14 +4052,45 @@ if (typeof window !== 'undefined' && window.addEventListener) {
     window.addEventListener('load', htFitCalendarSelect);
     window.addEventListener('load', htSyncLanguageButton);
     window.addEventListener('load', htSyncBreakButton);
+    window.addEventListener('load', htSyncFontButton);
+}
+
+// Tooltip texts for the top-bar icon buttons, stored in
+// lang/<lang>/common_keywords.json (keywords[39], keywords[141] and
+// keywords[40]) so they are translated with the rest of the UI.
+// Those slots previously held the "Language", "Break" and "Date format"
+// labels, which were only written to the nonexistent #index_lang,
+// #index_recreio elements (keywords[40] had no readers at all).
+// Fallbacks are English.
+var htLangTipIdx = 39;
+var htBreakTipIdx = 141;
+var htCalTipIdx = 40;
+
+function htTopButtonTip(idx, fallback) {
+    try {
+        if (typeof keywords !== 'undefined' && keywords && keywords[idx]) {
+            return keywords[idx];
+        }
+    } catch (eTip) {
+    }
+    return fallback;
+}
+
+function htRefreshTopButtonTooltips() {
+    htFitCalendarSelect();
+    htSyncLanguageButton();
+    htSyncBreakButton();
+    htSyncFontButton();
 }
 
 // Calendar icon button: the visible control is a calendar symbol
 // (#site_calendar_btn) overlaying the native select (#site_calendar).
 // The select stays functional but invisible, so clicking the icon
-// opens the native popup with the current calendar selected. This
-// only mirrors the selected option text onto the button tooltip;
-// called on init, on change and after calendar option texts update.
+// opens the native popup with the current calendar selected. The select
+// overlays the button and captures all mouse events, so the tooltip
+// (tip + selected option text) is set on the select itself, with a copy
+// on the button; called on init, on change and after calendar option
+// texts update.
 // Kept under the historic htFitCalendarSelect name for callers
 // (js/index.js, minified bundles).
 function htFitCalendarSelect() {
@@ -4055,14 +4107,27 @@ function htFitCalendarSelect() {
         if (!text) {
             return 0;
         }
+        var tip = htTopButtonTip(htCalTipIdx, 'Calendar used to display dates');
+        var label = tip + ': ' + text;
         var btn = document.getElementById('site_calendar_btn');
         if (btn) {
             if (btn.setAttribute) {
-                btn.setAttribute('title', text);
-                btn.setAttribute('aria-label', 'Date format: ' + text);
+                btn.setAttribute('title', label);
+                btn.setAttribute('aria-label', label);
             } else {
-                btn.title = text;
+                btn.title = label;
             }
+        }
+        // The invisible select overlays the button and captures every mouse
+        // event, so the hover tooltip must live on the select itself; the
+        // button keeps a copy in case the overlay layout ever changes.
+        try {
+            if (sel.setAttribute) {
+                sel.setAttribute('title', label);
+            } else {
+                sel.title = label;
+            }
+        } catch (eSelTip) {
         }
         // Drop any stale fitted width from the old text-sized select.
         try {
@@ -4080,9 +4145,10 @@ function htFitCalendarSelect() {
 // Language icon button: the visible control is a language symbol
 // (#site_language_btn) overlaying the native select (#site_language).
 // The select stays functional but invisible, so clicking the icon
-// opens the native popup with the current language selected. This
-// only mirrors the selected option text onto the button tooltip;
-// called on init, on change and after language option texts update.
+// opens the native popup with the current language selected. The tooltip
+// (tip + selected option text) is set on the overlaying select, with a
+// copy on the button; called on init, on change and after language
+// option texts update.
 function htSyncLanguageButton() {
     try {
         if (typeof document === 'undefined' || !document.getElementById) {
@@ -4100,8 +4166,20 @@ function htSyncLanguageButton() {
         var btn = document.getElementById('site_language_btn');
         if (btn) {
             if (btn.setAttribute) {
-                btn.setAttribute('title', text);
-                btn.setAttribute('aria-label', 'Language: ' + text);
+                var langTip = htTopButtonTip(htLangTipIdx, 'Select the language to display the content');
+                var langLabel = langTip + ': ' + text;
+                btn.setAttribute('title', langLabel);
+                btn.setAttribute('aria-label', langLabel);
+                // See htFitCalendarSelect: the overlaying select is the real
+                // hover target, so it carries the tooltip as well.
+                try {
+                    if (sel.setAttribute) {
+                        sel.setAttribute('title', langLabel);
+                    } else {
+                        sel.title = langLabel;
+                    }
+                } catch (eSelTip) {
+                }
             } else {
                 btn.title = text;
             }
@@ -4123,8 +4201,8 @@ function htSyncLanguageButton() {
 // (#site_recreio_btn) overlaying the native select (#site_recreio).
 // The select stays functional but invisible, so clicking the icon
 // opens the native popup with the current break length selected.
-// This only mirrors the selected option text onto the button
-// tooltip; called on init and on change.
+// The tooltip (tip + selected option text) is set on the overlaying
+// select, with a copy on the button; called on init and on change.
 function htSyncBreakButton() {
     try {
         if (typeof document === 'undefined' || !document.getElementById) {
@@ -4142,13 +4220,148 @@ function htSyncBreakButton() {
         var btn = document.getElementById('site_recreio_btn');
         if (btn) {
             if (btn.setAttribute) {
-                btn.setAttribute('title', text);
-                btn.setAttribute('aria-label', 'Break: ' + text);
+                var breakTip = htTopButtonTip(htBreakTipIdx, 'Set the break interval and remember to drink some water');
+                var breakLabel = breakTip + ': ' + text;
+                btn.setAttribute('title', breakLabel);
+                btn.setAttribute('aria-label', breakLabel);
+                // See htFitCalendarSelect: the overlaying select is the real
+                // hover target, so it carries the tooltip as well.
+                try {
+                    if (sel.setAttribute) {
+                        sel.setAttribute('title', breakLabel);
+                    } else {
+                        sel.title = breakLabel;
+                    }
+                } catch (eSelTip) {
+                }
             } else {
                 btn.title = text;
             }
         }
         // Drop any stale width from the old inline select layout.
+        try {
+            if (sel.style) {
+                sel.style.width = '';
+            }
+        } catch (eWidth) {
+        }
+        return text.length;
+    } catch (e) {
+    }
+    return 0;
+}
+
+// Letter-size control: the visible control is a text-height symbol
+// (#site_font_size_btn) overlaying the native select (#site_font_size).
+// Three options: small, default (current font) and large. Default keeps
+// no class on <html> so the media queries keep controlling the size;
+// small/large add ht-font-small/ht-font-large, which win by specificity.
+// The choice persists in localStorage under ht_font_size.
+// Tooltip has an English fallback; option texts are language-neutral.
+function htGetStoredFontSize() {
+    try {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem) {
+            var stored = localStorage.getItem('ht_font_size');
+            if (stored === 'small' || stored === 'large' || stored === 'default') {
+                return stored;
+            }
+        }
+    } catch (e) {
+    }
+    return 'default';
+}
+
+function htApplyFontSize(size) {
+    try {
+        if (size !== 'small' && size !== 'large' && size !== 'default') {
+            size = 'default';
+        }
+        var htmlEl = null;
+        try {
+            if (typeof document !== 'undefined' && document.documentElement) {
+                htmlEl = document.documentElement;
+            }
+        } catch (eHtml) {
+        }
+        if (htmlEl && htmlEl.classList) {
+            try {
+                htmlEl.classList.remove('ht-font-small');
+                htmlEl.classList.remove('ht-font-large');
+                if (size === 'small') {
+                    htmlEl.classList.add('ht-font-small');
+                } else if (size === 'large') {
+                    htmlEl.classList.add('ht-font-large');
+                }
+            } catch (eClass) {
+            }
+        }
+        try {
+            if (typeof localStorage !== 'undefined' && localStorage.setItem) {
+                localStorage.setItem('ht_font_size', size);
+            }
+        } catch (eStore) {
+        }
+        try {
+            if (typeof htSyncTopBanner === 'function') {
+                htSyncTopBanner();
+            }
+        } catch (eBanner) {
+        }
+    } catch (e) {
+    }
+    return size;
+}
+
+function htSyncFontButton() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return 0;
+        }
+        var stored = htGetStoredFontSize();
+        var sel = document.getElementById('site_font_size');
+        if (!sel) {
+            htApplyFontSize(stored);
+            return 0;
+        }
+        var chosen = stored;
+        try {
+            var current = sel.value;
+            if (current === 'small' || current === 'large' || current === 'default') {
+                chosen = current;
+            } else if (sel.value !== stored) {
+                sel.value = stored;
+            }
+        } catch (eVal) {
+        }
+        htApplyFontSize(chosen);
+        if (!sel.options || sel.selectedIndex < 0) {
+            return 0;
+        }
+        var opt = sel.options[sel.selectedIndex];
+        var text = (opt && opt.text) || chosen;
+        if (!text) {
+            return 0;
+        }
+        var label = 'Letter size: ' + text;
+        var btn = document.getElementById('site_font_size_btn');
+        if (btn) {
+            if (btn.setAttribute) {
+                btn.setAttribute('title', label);
+                btn.setAttribute('aria-label', label);
+            } else {
+                btn.title = label;
+            }
+        }
+        // See htFitCalendarSelect: the overlaying select is the real hover
+        // target, so it carries the tooltip as well.
+        try {
+            if (sel.setAttribute) {
+                sel.setAttribute('title', label);
+            } else {
+                sel.title = label;
+            }
+        } catch (eSelTip) {
+        }
         try {
             if (sel.style) {
                 sel.style.width = '';
@@ -4190,6 +4403,7 @@ if (typeof document !== 'undefined' && document.addEventListener) {
         htFitCalendarSelect();
         htSyncLanguageButton();
         htSyncBreakButton();
+        htSyncFontButton();
     });
     document.addEventListener('change', function(e) {
         if (e && e.target && e.target.id === 'site_calendar') {
@@ -4200,6 +4414,10 @@ if (typeof document !== 'undefined' && document.addEventListener) {
         }
         if (e && e.target && e.target.id === 'site_recreio') {
             htSyncBreakButton();
+        }
+        if (e && e.target && e.target.id === 'site_font_size') {
+            htApplyFontSize(e.target.value);
+            htSyncFontButton();
         }
     });
     try {

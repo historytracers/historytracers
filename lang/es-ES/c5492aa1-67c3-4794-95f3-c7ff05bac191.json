@@ -20,17 +20,20 @@
       }
    ],
    "index": [
-      "history"
+      "history",
+      "physics"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1791510650"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -61,7 +64,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"topdesc\"><i><h3>Intervalo de tiempo</h3>Los intervalos temporales mostrados en esta página para la región de Europa están basados en la <i>Enciclopedia Británica</i>, pero no existe un período bien delimitado que sea aplicable a toda la región (<htcite0> ; <htcite1>).</i></p><p><h3>Prerrequisitos</h3>Para una mejor comprensión del tema, recomendamos que el lector estudie primero los siguientes contenidos:</p><p><ul><li><htcite2>: Presenta al lector el concepto de límites a través de ejemplos del cuerpo humano y líquidos.</li></ul></p>",
+               "text": "<p class=\"topdesc\"><i><h3>Intervalo de tiempo</h3>Los intervalos temporales mostrados en esta página para la región de Europa se basan en la <i>Enciclopedia Británica</i>, pero no existe un período bien delimitado que sea aplicable a toda la región (<htcite0> ; <htcite1>).</i></p><p><h3>Prerrequisitos</h3>Para una mejor comprensión del tema, recomendamos que el lector estudie primero los siguientes contenidos:</p><p><ul><li><b>Limites Naturales</b>: Presenta al lector el concepto de límites a través de ejemplos del cuerpo humano y líquidos (<htcite2>).</li></ul></p>",
                "source": [
                   {
                      "type": 1,
@@ -125,7 +128,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nLa humanidad tiene un origen común que se remonta a millones de años, como veremos a continuación. De esta manera, resulta tentador intentar agrupar a toda la humanidad en períodos de tiempo comunes.\n\nUn ejemplo de sistema temporal desarrollado para este tipo de agrupamiento es el **Sistema de Tres Edades**, concebido por Christian Jurgensen Thomsen para clasificar diferentes períodos de la prehistoria humana: Edad de Piedra, Edad de Bronce y Edad de Hierro (<htcite0>; <htcite1>; <htcite2>). Sin embargo, este tipo de agrupamiento merece una reflexión más cuidadosa.",
+               "text": "### Introducción\n\nLa **cronología** es la forma en que ordenamos los eventos en el tiempo. La humanidad tiene un origen común que se remonta a millones de años, como veremos a continuación. De esta manera, resulta tentador agrupar a toda la humanidad en períodos de tiempo comunes.\n\nUn ejemplo de sistema temporal desarrollado para este tipo de agrupamiento es el **Sistema de Tres Edades**, concebido por Christian Jurgensen Thomsen para clasificar diferentes períodos de la prehistoria humana según el material principal de las herramientas: Edad de Piedra, Edad de Bronce y Edad de Hierro (<htcite0>; <htcite1>; <htcite2>). Sin embargo, este tipo de agrupamiento merece una reflexión más cuidadosa.",
                "source": [
                   {
                      "type": 1,
@@ -171,7 +174,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Metalurgia o Rocas</b><br /><br />¿Sería posible utilizar el sistema de las tres edades para toda la humanidad?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Metalurgia o Piedra</b><br /><br />¿Sería posible utilizar el sistema de las tres edades para toda la humanidad?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -185,7 +188,7 @@
          "id": "SECTION_issues_time",
          "text": [
             {
-               "text": "### Desafíos en la Periodización Histórica\n\nLa periodización histórica presenta desafíos. Antes de avanzar, es importante comprender mejor los conceptos de periodización.",
+               "text": "### Desafíos en la Periodización Histórica\n\nLa **periodización** es la práctica de dividir la historia en períodos con nombre, como la Edad de Piedra o la Edad Media. La periodización histórica presenta desafíos. Antes de avanzar, es importante comprender mejor qué es la periodización y por qué es difícil.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -216,7 +219,7 @@
                "PostMention": ""
             },
             {
-               "text": "Sin embargo, las herramientas y tecnologías pueden variar de un lugar a otro. En el continente americano (*Abya Ayala*), por ejemplo, no evolucionaron de la misma forma que en Europa, resultando en períodos arqueológicos distintos. Además, áreas como los Andes y Mesoamérica presentan sus propias particularidades, lo que genera variaciones regionales significativas en los marcos temporales (<htcite0>; <htcite1>). Para más detalles, sugerimos los trabajos de John Howland Rowe (<htcite2> ; <htcite3>).\n\nVeamos dos ejemplos para entender mejor estas diferencias.",
+               "text": "Sin embargo, las herramientas y tecnologías pueden variar de un lugar a otro. En el continente americano (*Abya Yala*), por ejemplo, no evolucionaron de la misma forma que en Europa, resultando en períodos arqueológicos distintos. Además, áreas como los Andes y Mesoamérica presentan sus propias particularidades, lo que genera variaciones regionales significativas en los marcos temporales (<htcite0>; <htcite1>). Para más detalles, sugerimos los trabajos de John Howland Rowe (<htcite2> ; <htcite3>).\n\nVeamos dos ejemplos para entender mejor estas diferencias.",
                "source": [
                   {
                      "type": 1,
@@ -279,7 +282,7 @@
          "id": "SECTION_issues_3period",
          "text": [
             {
-               "text": "<p><h4>El sistema de las tres edades en América (<i>Abya Ayala</i>)</h4>Comprender a otros pueblos exige mucho estudio, para evitar equívocos. Analicemos algunos puntos del trabajo de Robert F. Heizer para dimensionar un poco esta complejidad:</p><p><ul><li>La división de la prehistoria humana en Edad de Piedra, Edad del Bronce (<htdate0> - <htdate1>) y Edad del Hierro (<htdate2> - <htdate3>) (<htcite0>).</li><li>El autor utiliza expresiones que sugieren una visión de que los pueblos indígenas eran inferiores en comparación con los europeos (<htcite1>). Algo demostrado falso en otra página de <i>History Tracers</i> (<htcite2>).</li><li>Heizer también discute la deconstrucción de la idea de que la Tierra tendría solo 6.000 años (<htcite3>).</li></ul></p>",
+               "text": "<p><h4>El sistema de las tres edades en América (<i>Abya Yala</i>)</h4>Comprender a otros pueblos exige mucho estudio a fin de evitar equívocos. Analicemos algunos puntos del trabajo de Robert F. Heizer para hacernos una idea de esta complejidad:</p><p><ul><li>La división de la prehistoria humana en Edad de Piedra, Edad del Bronce (<htdate0> - <htdate1>) y Edad del Hierro (<htdate2> - <htdate3>) (<htcite0>).</li><li>El autor utiliza expresiones que sugieren una visión según la cual los pueblos indígenas eran inferiores en comparación con los europeos (<htcite1>). Algo que ha sido demostrado falso en otra página de <i>History Tracers</i> (<htcite2>).</li><li>Heizer también discute la deconstrucción de la idea de que la Tierra tendría solo 6.000 años (<htcite3>).</li></ul></p>",
                "source": [
                   {
                      "type": 1,
@@ -576,7 +579,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>Pocos milenios después, en el norte del continente, la ciudad de Teotihuacán (<b>Figura 2</b>) floreció, con una población estimada de 100.000 habitantes, convirtiéndose en la sexta ciudad más grande del mundo de su época (<htcite0>).</p><p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 2</b>: Vista general de Teotihuacán. Foto tomada el <htdate1>, durante una visita al sitio.</p><p>Estructuras antiguas y complejas como estas no podrían ser construidas sin conocimiento y organización.</p><p><h4>¿Solo Hierro?</h4>Otro punto importante relacionado con el desconocimiento sobre los pueblos indígenas es la clasificación de los períodos históricos basada exclusivamente en metales como el hierro.</p><p>La metalurgia ya se practicaba en las Américas (<i>Abya Yala</i>), conociéndose trabajos con cobre (Cu), plata (Ag) y oro (Au) en el sur del continente desde hace al menos tres milenios (<htcite1>). También hay evidencia de que esta tecnología se difundió hasta el norte del continente a través de rutas marítimas (<i>Abya Yala</i>) (<htcite2>).</p>",
+               "text": "<p>Pocos milenios después, en el norte del continente, la ciudad de Teotihuacán (<b>Figura 2</b>) floreció, con una población estimada de 100.000 habitantes, convirtiéndose en la sexta ciudad más grande del mundo de la época (<htcite0>).</p><p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 2</b>: Vista general de Teotihuacán. Foto tomada el <htdate1>, durante una visita al sitio.</p><p>Estructuras antiguas y complejas como estas no podrían ser construidas sin conocimiento y organización.</p><p><h4>¿Solo Hierro?</h4>Otro punto importante relacionado con el desconocimiento sobre los pueblos indígenas es la clasificación de los períodos históricos basada exclusivamente en metales como el hierro.</p><p>La metalurgia ya se practicaba en las Américas (<i>Abya Yala</i>), conociéndose trabajos con cobre (Cu), plata (Ag) y oro (Au) en el sur del continente desde hace al menos tres milenios (<htcite1>). También hay evidencia de que esta tecnología se difundió hasta el norte del continente a través de rutas marítimas (<i>Abya Yala</i>) (<htcite2>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -679,7 +682,7 @@
          "id": "SECTION_Africa_period",
          "text": [
             {
-               "text": "### Períodos de África\n\nCuando hablamos de la humanidad en África, limitarnos únicamente a los últimos milenios, cuando surgió la escritura, puede conducir a los lectores a conclusiones erróneas. Entre las innumerables cualidades existentes en este continente está la posibilidad de utilizar, en profundidad, la interdisciplinariedad para conocer el origen de nuestra especie.\n\nEl Museo de Historia Natural posee un gráfico que demuestra la evolución de los homínidos hasta llegar a nuestra especie (<htcite0>). En esta página, reproducimos parte del gráfico, asociándolo a lo que vamos a estudiar.",
+               "text": "### Períodos de África\n\nCuando hablamos de la humanidad en África, limitarnos a los últimos milenios —el periodo cubierto por la escritura— puede conducir a los lectores a conclusiones erróneas, porque nuestra especie se originó en este continente. Una de las muchas cualidades de este continente es que nos permite utilizar, en profundidad, varias disciplinas juntas (interdisciplinariedad) para conocer el origen de nuestra especie.\n\nEl Museo de Historia Natural posee un gráfico que muestra la evolución de los homínidos hasta que apareció nuestra especie (<htcite0>). En esta página, reproducimos parte de ese gráfico y lo relacionamos con lo que vamos a estudiar.",
                "source": [
                   {
                      "type": 1,
@@ -710,7 +713,7 @@
                "PostMention": ""
             },
             {
-               "text": "A continuación, exponemos una tabla relacionada con los períodos del continente africano. A medida que contenidos de otras naciones sean introducidos en *History Tracers*, esta continuará siendo actualizada. Además, también colocaremos lado a lado el período utilizado por estudiosos de Europa (<htcite0>; <htcite1>; <htcite2>; <htcite3>) para simplificar comparaciones.",
+               "text": "A continuación, exponemos una tabla relacionada con los períodos del continente africano. A medida que contenidos de otras naciones se añadan a *History Tracers*, esta continuará siendo actualizada. Además, también colocaremos lado a lado los períodos utilizados por estudiosos de Europa (<htcite0>; <htcite1>; <htcite2>; <htcite3>) para simplificar comparaciones.",
                "source": [
                   {
                      "type": 1,
@@ -1266,7 +1269,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Todos somos...</b><br /><br />¿Alguna vez te has detenido a pensar que todos somos africanos?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Todos somos...</b><br /><br />¿Alguna vez has pensado que todos somos africanos?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -1280,7 +1283,7 @@
          "id": "SECTION_asia",
          "text": [
             {
-               "text": "### Periodos en Asia\n\nEl hecho de que Asia esté conectada por tierra con África hizo que este continente fuera el segundo en ser ocupado no solo por nuestra especie (**Figura 3**), sino también por otras especies del género *Homo*, como el *Homo erectus* (<htcite0>).",
+               "text": "### Períodos en Asia\n\nEl hecho de que Asia esté conectada por tierra con África hizo que Asia fuera el segundo continente en ser ocupado no solo por nuestra especie (**Figura 3**), sino también por otras especies del género *Homo*, como el *Homo erectus* (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -1311,7 +1314,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ante este escenario, procedemos a enumerar los periodos utilizados para el estudio de Asia.\n\nEn la **Tabla 2**, presentamos los períodos utilizados en China (Zhongguo, 中國), Japón (Nippon koku o Nihon koku 日本国) y Europa. A medida que se vayan añadiendo otras naciones a *History Tracers*, la tabla se actualizará.\n\nAntes de continuar, debemos destacar, con respecto a China (Zhongguo, 中國), que, de acuerdo con las fuentes consultadas, desde el <htdate0> sus períodos se definen según las dinastías que gobernaron la nación (<htcite0>). En lo que respecta a Japón (Nippon koku o Nihon koku 日本国), no fue posible observar otra especie del género *Homo* además de la nuestra, *Homo sapiens* (<htcite1>).",
+               "text": "Ante este escenario, procedemos a enumerar los períodos utilizados para estudiar Asia.\n\nEn la **Tabla 2**, presentamos los períodos utilizados en China (Zhongguo, 中國), Japón (Nippon koku o Nihon koku 日本国) y Europa. A medida que se vayan añadiendo otras naciones a *History Tracers*, la tabla se actualizará.\n\nAntes de continuar, debemos destacar, con respecto a China (Zhongguo, 中國), que, de acuerdo con las fuentes consultadas, desde el <htdate0>, sus períodos se definen según las dinastías que gobernaron la nación (<htcite0>). En lo que respecta a Japón (Nippon koku o Nihon koku 日本国), no fue posible observar otra especie del género *Homo* además de la nuestra, *Homo sapiens* (<htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -2024,7 +2027,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgTohoku\"  class=\"imgcenter\" onclick=\"htImageZoom('imgTohoku', '0%')\" /><b>Figura 4</b>: Kon'yo bankoku zenzu. Mantido por Tohoku University Main Library (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgTohoku\"  class=\"imgcenter\" onclick=\"htImageZoom('imgTohoku', '0%')\" /><b>Figura 4</b>: Kon'yo bankoku zenzu. Mantenido por Tohoku University Main Library (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -2055,7 +2058,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgZhongguo\"  class=\"imgcenter\" onclick=\"htImageZoom('imgZhongguo', '0%')\" /><b>Figura 5</b>: Projeção de Mercator dentro da pespectiva da China (Zhongguo, 中國). © Mapswire (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgZhongguo\"  class=\"imgcenter\" onclick=\"htImageZoom('imgZhongguo', '0%')\" /><b>Figura 5</b>: Proyección de Mercator desde la perspectiva de China (Zhongguo, 中國). © Mapswire (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -2082,7 +2085,7 @@
          "id": "SECTION_abya_yala_period",
          "text": [
             {
-               "text": "<p><h3>Períodos Arqueológicos en América (<i>Abya Yala</i>)</h3>Aunque se estima que el poblamiento de América comenzó hace aproximadamente 13.500 años, investigaciones más recientes sugieren que la ocupación humana pudo haber ocurrido incluso hace 30.000 años (<htcite0> ; <htcite1> ; <htcite2>). Estas discrepancias reflejan el avance continuo del conocimiento científico (<htcite3>), estrechamente vinculado al método científico (<htcite4>).</p><p>Dada esta complejidad, hemos optado por adoptar las clasificaciones temporales más comúnmente aceptadas en los estudios revisados:</p>",
+               "text": "<p><h3>Períodos Arqueológicos en América (<i>Abya Yala</i>)</h3>Aunque se estima que el poblamiento de América comenzó hace aproximadamente 13.500 años, investigaciones más recientes sugieren que la ocupación humana pudo haber ocurrido incluso hace 30.000 años (<htcite0> ; <htcite1> ; <htcite2>). Estas discrepancias reflejan el avance continuo del conocimiento científico (<htcite3>), estrechamente vinculado al método científico (<htcite4>).</p><p>Dada esta complejidad, hemos adoptado las clasificaciones temporales más comúnmente aceptadas en los estudios revisados:</p>",
                "source": [
                   {
                      "type": 1,
@@ -2707,7 +2710,7 @@
                "PostMention": ""
             },
             {
-               "text": "A pesar de que aún no tengamos conocimiento de un mapa análogo al de la **Figura 5** para América (*Ayba Yala*), a partir de él podemos inferir cómo sería ese mapa dentro de una perspectiva de los indígenas de la región, quienes, si bien no tenían un concepto de centro para todo el continente en el pasado, sí lo poseen en la actualidad (<htcite0>). De esta forma, adaptamos la proyección de Mercator para el continente, tal como se presenta a continuación:",
+               "text": "Aunque aún no conozcamos un mapa análogo al de la **Figura 5** para América (*Abya Yala*), a partir de él podemos inferir cómo sería ese mapa dentro de una perspectiva de los indígenas de la región, quienes, si bien no tenían un concepto de centro para todo el continente en el pasado, sí lo poseen en la actualidad (<htcite0>). De esta forma, adaptamos la proyección de Mercator para el continente, tal como se presenta a continuación:",
                "source": [
                   {
                      "type": 1,
@@ -2729,7 +2732,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgAbyaYala\"  class=\"imgcenter\" onclick=\"htImageZoom('imgAbyaYala', '0%')\" /><b>Figura 6</b>: Proyección de Mercator dentro de la perspectiva del continente americano (<i>Abya Yala</i>). © Mapswire (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgAbyaYala\"  class=\"imgcenter\" onclick=\"htImageZoom('imgAbyaYala', '0%')\" /><b>Figura 6</b>: Proyección de Mercator desde la perspectiva del continente americano (<i>Abya Yala</i>). © Mapswire (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,

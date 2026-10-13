@@ -20,14 +20,15 @@
       }
    ],
    "index": [
-      "history"
+      "history",
+      "physics"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788718936"
+      "1791504461"
    ],
    "authors": [
       ""
@@ -65,7 +66,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nNeste texto, exploraremos, entre outros temas, o conhecimento sobre a relação da nossa espécie com as demais, além da expansão do Universo.\n\nDessa forma, sugerimos estudar o primeiro capítulo do *Atlas* (<htcite0>), bem como o texto sobre humanos (<htcite1>), disponível no History Tracers, antes de prosseguir",
+               "text": "### Pré-requisitos\n\nNeste texto, exploraremos, entre outros temas, o conhecimento sobre a relação entre a nossa espécie e as demais, além da expansão do Universo.\n\nDessa forma, sugerimos estudar o primeiro capítulo do *Atlas* (<htcite0>), bem como o texto sobre humanos (<htcite1>), disponível no History Tracers, antes de prosseguir.",
                "source": [
                   {
                      "type": 1,
@@ -104,7 +105,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nComo usamos calendários diariamente, muitas vezes não atentamos para como eles foram criados e, principalmente, para como são utilizados.\n\nNeste texto, desejamos chamar a atenção para alguns detalhes que frequentemente levam as pessoas a conclusões que, embora não representem suas próprias realidades, passam a impressão de serem as \"únicas\" conclusões. Para deixar isso ainda mais claro, começaremos com uma reflexão.",
+               "text": "### Introdução\n\nComo usamos calendários diariamente, muitas vezes não prestamos atenção a como eles foram criados e, principalmente, a como são utilizados.\n\nNeste texto, desejamos chamar a atenção para alguns detalhes que frequentemente levam as pessoas a conclusões que, embora não representem suas próprias realidades, passam a impressão de serem as \"únicas\" conclusões. Para deixar isso ainda mais claro, começaremos com uma reflexão.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -314,18 +315,24 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"margin: auto; width: 100%;\"><iframe src=\"https://archive.org/details/primer-nueva-coronica-y-buen-gobierno-manuscrito/page/n1139/mode/2up\" width=\"100%\" height=\"560\" frameborder=\"0\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" allowfullscreen></iframe></p><p class=\"desc\"><b>Livro 1</b>: Página 1139 da obra de Felipe Guaman Poma de Ayala.</p>",
-               "source": null,
-               "date_time": [
+               "text": "<p class=\"desc\"><img id=\"imgPomaCalendar\" onclick=\"htImageZoom('imgPomaCalendar', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 3</b>: Página 1130 da obra de Felipe Guaman Poma de Ayala (<htcite0>).</p>",
+               "source": [
                   {
-                     "type": "gregory",
-                     "year": "2015",
-                     "month": "4",
-                     "day": "26"
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman",
+                     "page": "pp. 1130",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1615",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
+               "date_time": null,
                "isTable": false,
-               "imgdesc": "",
+               "imgdesc": "Página manuscrita em espanhol com o título grande CAPI PRI DE LOS MESES I AÑOS TRATEMOSA, seguida de texto manuscrito denso.",
                "format": "html",
                "PostMention": ""
             },
@@ -348,7 +355,7 @@
                "PostMention": ""
             },
             {
-               "text": "Se, por acaso, sua conclusão para essa reflexão foi \"sim\", é provável que, ao longo da vida, você tenha utilizado informações oriundas de um grupo limitado de fontes, o que pode dificultar a visualização de perspectivas além daquelas que lhe foram apresentadas.\n\nAtualmente, somos bilhões de pessoas no mundo, com culturas diversas. Mesmo assim, muitas vezes a cultura ainda é compreendida por meio de idéias formuladas há cerca de 250 anos, que não estão alinhadas com o entendimento contemporâneo desse conceito (<htcite0>).\n\nEssa complexidade levou pesquisadores a definir o termo \"biocultural\" para expressar as relações dos seres humanos entre si e também com outras espécies (<htcite1>). Utilizando esse conceito, podemos estudar outros povos do sul do continente americano (*Abya Yala*) que possuem calendários diferentes dos incas.\n\n#### Calendários bioculturais\n\nAo observarmos os povos mapuche e aymara, podemos notar que ambos utilizam calendários cujo ponto de partida é o solstício de inverno — o dia mais curto do ano no hemisfério sul — (<htcite2>). Entretanto, enquanto os mapuche celebram o Ano-Novo, o *We tripantu*, entre os dias 21 e 24 de junho, de acordo com o calendário gregoriano, os aymara celebram o *Machaq mara* no dia 21 de junho (<htcite3>).",
+               "text": "Se, por acaso, sua conclusão para essa reflexão foi \"sim\", é provável que, ao longo da sua vida, você tenha utilizado informações oriundas de um grupo limitado de fontes, o que pode dificultar a visualização de perspectivas além daquelas que lhe foram apresentadas.\n\nAtualmente, somos bilhões de pessoas no mundo, com culturas diversas. Mesmo assim, muitas vezes a cultura ainda é compreendida por meio de idéias formuladas há cerca de 250 anos, que não estão alinhadas com o entendimento contemporâneo desse conceito (<htcite0>).\n\nEssa complexidade levou pesquisadores a definir o termo \"biocultural\" para expressar as relações dos seres humanos entre si e também com outras espécies (<htcite1>). Utilizando esse conceito, podemos estudar outros povos do sul do continente americano (*Abya Yala*) que possuem calendários diferentes dos incas.\n\n#### Calendários bioculturais\n\nAo observarmos os povos mapuche e aymara, podemos notar que ambos utilizam calendários cujo ponto de partida é o solstício de inverno — o dia mais curto do ano no hemisfério sul — (<htcite2>). Entretanto, enquanto os mapuche celebram o Ano-Novo, o *We tripantu*, entre os dias 21 e 24 de junho, de acordo com o calendário gregoriano, os aymara celebram o *Machaq mara* no dia 21 de junho (<htcite3>).",
                "source": [
                   {
                      "type": 1,
@@ -420,7 +427,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Aqui, lá e em todo lugar</b><br /><br />Os povos dos Andes utilizaram o Sol e a Lua em seus calendários.<br /><br />Você entende que outros povos também utilizaram o Sol, a Lua e as estações do ano para criar seus calendários?<br /><br />Após o período do Ano-Novo entre 21 e 24 de junho, o <i>We tripantu</i>, além de marcar o começo do inverno no Hemisfério Sul, também inicia um novo período em que a exposição ao Sol começa a aumentar gradualmente, permitindo atividades de agricultura e pesca (<htcite0>).<br /><br />Esse fato — o Sol começa a ficar visível por mais tempo — também poderia ter afetado a vida das pessoas para além da alimentação?<br /><br />O fato de haver diferentes durações de dias e noites durante os solstícios, sendo que, no Sul, os dias mais curtos ocorrem em junho, enquanto, no Norte, ocorrem em dezembro (<htcite1>), poderia ter criado entendimentos semelhantes, mas com um intervalo de seis meses entre os povos?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Aqui, lá e em todo lugar</b><br /><br />Os povos dos Andes utilizaram o Sol e a Lua em seus calendários.<br /><br />Você percebe que outros povos também utilizaram o Sol, a Lua e as estações do ano para criar seus calendários?<br /><br />Após o período do Ano-Novo entre 21 e 24 de junho, o <i>We tripantu</i>, além de marcar o começo do inverno no Hemisfério Sul, também inicia um novo período em que a exposição ao Sol começa a aumentar gradualmente, permitindo atividades de agricultura e pesca (<htcite0>).<br /><br />Esse fato — o Sol começa a ficar visível por mais tempo — também poderia ter afetado a vida das pessoas para além da alimentação?<br /><br />O fato de haver diferentes durações de dias e noites durante os solstícios, sendo que, no Sul, os dias mais curtos ocorrem em junho, enquanto, no Norte, ocorrem em dezembro (<htcite1>), poderia ter criado entendimentos semelhantes, mas com um intervalo de seis meses entre os povos?</div></div></center>",
                "source": [
                   {
                      "type": 1,
@@ -454,7 +461,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Meu começo não é o seu começo\n\nDevido ao fato de as estações do ano não serem iguais em todo o planeta, não seria esperado que existisse um calendário comum, com um começo comum. Isso pode ser observado ao compararmos o dia de hoje nos calendários apresentados pelo History Tracers (**Tabela 1**):",
+               "text": "#### Meu começo não é o seu começo\n\nComo as estações do ano não são iguais em todo o planeta, não esperaríamos que existisse um calendário comum, com um começo comum. Isso pode ser observado ao compararmos o dia de hoje nos calendários apresentados pelo History Tracers (**Tabela 1**):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -551,7 +558,7 @@
                "PostMention": ""
             },
             {
-               "text": "|Descoberta|Descrição|Fonte|\n|------------|------------|--------------|\n|Idade do Universo (<htdate0>)|Atualizado para 13.82 bilhões de anos.|<htcite0>|\n|Tamanho do Universo (<htdate1>)|Atualizado para 94 bilhões de anos-luz.|<htcite1>|\n|Tamanho do Universo (<htdate2>)|Atualizado para 30 bilhões de anos-luz.|<htcite2>|\n|Tamanho do Universo (<htdate3>)|Atualizado para 25 bilhões de anos-luz.| <htcite3>; <htcite4>|\n|CMB (<htdate4>)|Confirmação das primeiras radiações do universo.|<htcite5>|\n|Tamanho do Universo (<htdate5>)|Atualizado para 4 bilhões de anos-luz.|<htcite6> ; <htcite7>|\n|Universo em expansão (<htdate6>)|Medidas demonstram que o universo não é estático.|<htcite8>|\n|Tamanho do Universo (<htdate7>)|Atualizado para 280 milhões de anos-luz.|<htcite9>|\n|Tamanho do Universo (<htdate8>)|Atualizado para 300.000 anos-luz.|<htcite10>|\n|Relatividade (<htdate9>)|Teoria que altera a percepção da gravidade e a relação entre espaço e tempo.|<htcite11>|\n|Céu não é azul (<htdate10>)|O espalhamento da luz na atmosfera cria a impressão de que o céu é azul.|<htcite12>|\n|Observamos uma nebulosa (<htdate11>)|Pela primeira vez é observado um berçário estelar.|<htcite13>|\n|Movimentos planetários (<htdate12>)|Explicação do movimento planetário.|<htcite14>|\n|Terra não é o centro do Universo (<htdate13>)|Demonstração de que a Terra é parte do universo e não seu centro.|<htcite15>|\n|Confirmamos o tamanho da terra (<htdate14> - <htdate15>)|Confirmação do tamanho e formato da Terra através de medições.|<htcite16>|\n|A terra é esférica (<htdate16>)|Demonstração da esfericidade da Terra.|<htcite17>|\n|Céu como nível acima (<htdate17> - <htdate18>)|Textos sumérios mostram a ideia do céu como um nível habitável.|<htcite18> ;<htcite19> ;  <htcite20> ; <htcite21>|",
+               "text": "|Descoberta|Descrição|Fonte|\n|------------|------------|--------------|\n|Idade do Universo (<htdate0>)|Atualizado para 13.82 bilhões de anos.|<htcite0>|\n|Tamanho do Universo (<htdate1>)|Atualizado para 94 bilhões de anos-luz.|<htcite1>|\n|Tamanho do Universo (<htdate2>)|Atualizado para 30 bilhões de anos-luz.|<htcite2>|\n|Tamanho do Universo (<htdate3>)|Atualizado para 25 bilhões de anos-luz.| <htcite3>; <htcite4>|\n|CMB (<htdate4>)|Confirmação das primeiras radiações do Universo.|<htcite5>|\n|Tamanho do Universo (<htdate5>)|Atualizado para 4 bilhões de anos-luz.|<htcite6> ; <htcite7>|\n|Universo em expansão (<htdate6>)|Medidas demonstram que o universo não é estático.|<htcite8>|\n|Tamanho do Universo (<htdate7>)|Atualizado para 280 milhões de anos-luz.|<htcite9>|\n|Tamanho do Universo (<htdate8>)|Atualizado para 300.000 anos-luz.|<htcite10>|\n|Relatividade (<htdate9>)|Teoria que altera a percepção da gravidade e a relação entre espaço e tempo.|<htcite11>|\n|Céu não é azul (<htdate10>)|O espalhamento da luz na atmosfera cria a impressão de que o céu é azul.|<htcite12>|\n|Observação de uma nebulosa (<htdate11>)|Pela primeira vez é observado um berçário estelar.|<htcite13>|\n|Movimentos planetários (<htdate12>)|Explicação do movimento planetário.|<htcite14>|\n|Terra não é o centro do Universo (<htdate13>)|Demonstração de que a Terra é parte do Universo e não seu centro.|<htcite15>|\n|Confirmação do tamanho da Terra (<htdate14> - <htdate15>)|Confirmação do tamanho e formato da Terra através de medições.|<htcite16>|\n|A Terra é esférica (<htdate16>)|Demonstração da esfericidade da Terra.|<htcite17>|\n|Céu como nível acima (<htdate17> - <htdate18>)|Textos sumérios mostram a ideia do céu como um nível habitável.|<htcite18> ;<htcite19> ;  <htcite20> ; <htcite21>|",
                "source": [
                   {
                      "type": 1,
@@ -977,7 +984,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 5: Não é muito grande?</b><br /><br />A solução de compreender nosso tempo a partir da idade do Universo resolve muitos problemas relacionados à contagem do tempo e à compreensão do cosmos, mas também levanta algumas questões importantes:<br /><br />A idade de aproximadamente 13,8 bilhões de anos é um valor muito maior do que qualquer data que utilizamos atualmente. Como a população em geral aceitaria essa mudança?<br /><br />As pessoas compreendem como sabemos que o Universo possui essa idade?<br /><br />Elas saberiam quais instrumentos utilizamos e como interpretar seus resultados?<br /><br />Ou prefeririam continuar utilizando calendários que, embora possam não estar totalmente conectados a fatos mensuráveis, ao menos se baseiam em ideias que já conseguem compreender?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 5: Não é muito grande?</b><br /><br />Compreender nosso tempo a partir da idade do Universo resolve muitos problemas relacionados à contagem do tempo e à compreensão do cosmos, mas também levanta algumas questões importantes:<br /><br />A idade de aproximadamente 13,8 bilhões de anos é um valor muito maior do que qualquer data que utilizamos atualmente. Como a população em geral aceitaria essa mudança?<br /><br />As pessoas compreendem como sabemos que o Universo possui essa idade?<br /><br />Elas saberiam quais instrumentos utilizamos e como interpretar seus resultados?<br /><br />Ou prefeririam continuar utilizando calendários que, embora possam não estar totalmente conectados a fatos mensuráveis, ao menos se baseiam em ideias que já conseguem compreender?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,

@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htSetImageSrc("imgAP", "images/HistoryTracers/Atom_Philosophical.png");
+    htSetImageSrc("imgDalton73", "images/Archive/newsystemofchemi01daltuoft_0087.jpg");
     htSetImageSrc("imgALICE", "images/CERN/2ALICEimages.jpg");
     htSetImageSrc("imgESA2", "images/ESA/Planck_history_of_Universe.jpg");
     return false;

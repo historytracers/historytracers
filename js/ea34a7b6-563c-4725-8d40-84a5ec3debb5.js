@@ -18,7 +18,9 @@ function htLoadContent() {
     htSetImageSrc("imgPD", "images/Archive/PedroDias.png");
     htSetImageSrc("Experiment", "images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg");
     htSetImageSrc("imgPoma", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_0362.jpg");
+    htSetImageSrc("imgPomaCalendar", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_1140.jpg");
     htSetImageSrc("imgMundus", "images/Archive/mundusnovuslette00vesp_0011.jpg");
+    htSetImageSrc("imgDalton73", "images/Archive/newsystemofchemi01daltuoft_0087.jpg");
     htPlusDivs(0);
 
     return false;

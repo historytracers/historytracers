@@ -1,0 +1,314 @@
+{
+   "title": "Quando o tamanho importa",
+   "header": "Quando o tamanho importa",
+   "sources": [
+      "87f5f133-067e-439f-ab1d-eaf45e304079"
+   ],
+   "scripts": [
+      "87f5f133-067e-439f-ab1d-eaf45e304079"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/87f5f133-067e-439f-ab1d-eaf45e304079_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/3NdAUvljSVFQgHAw8JFX71?si=jcMLDnxrQ4KYMktw3JYv2A",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791764747"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisito\n\nAntes de continuar, revise os dois textos em que esta lição se apoia: **Explorando a igualdade**, onde aprendemos o que significa comparar, e **Limites na Natureza**, onde um limite foi definido como um máximo, um mínimo ou uma aproximação. Aqui unimos essas duas ideias e as transformamos em uma única regra que você pode usar",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Team",
+                     "page": "Explorando a igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limites na Natureza",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nOs textos sobre igualdades nos ensinaram a decidir se duas coisas são iguais. Mas a igualdade por si só não basta: quando duas coisas — ou dois números — não são iguais, ainda precisamos dizer qual é maior e qual é menor, e mais tarde medir quanto elas diferem. Este texto prepara essas ferramentas: os símbolos de comparação, uma escala que os utiliza e a linguagem dos limites.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Qual símbolo vou usar...?</b><br /><br />Já vimos que existe um símbolo para a igualdade (=). Devemos usar o mesmo símbolo para dizer que algo é maior ou menor?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_comparison",
+         "text": [
+            {
+               "text": "### A regra de maior e menor\n\nUma regra nos diz como agir em uma determinada situação: diz o que devemos fazer e permanece a mesma cada vez que essa situação aparece. As regras de um jogo dizem o que conta como ponto; as regras de um calendário dizem como os dias se organizam. A matemática funciona do mesmo modo: antes de comparar ou calcular, entramos em acordo sobre como ler o que escrevemos, e esse acordo é uma regra.\n\nJá usamos uma regra assim: os textos sobre igualdades nos ensinaram que o símbolo (=) diz quando dois valores são iguais. A regra deste texto diz qual de dois números é maior e qual é menor.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMeter\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figura 1</b>: Uma escala centesimal: vai de 0 a 100 em intervalos iguais.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A Figura 1 é uma régua de medir: a tira reta e marcada que usamos para medir um comprimento. Aqui, no entanto, ela mede valores. As marcas longas trazem os números 0, 10, 20 e assim até 100, e as marcas mais curtas entre elas representam os valores intermediários. Como cada marca está igualmente espaçada de suas vizinhas, cada valor de 0 a 100 tem seu próprio lugar na régua, e podemos apontá-lo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Observe a Figura 1: os números que estudamos antes aparecem em ordem. Quando um número vem **depois** de outro, ele é **maior**. Escrevemos essa relação com o símbolo (>), assim *21 > 20* significa \"21 é maior que 20\".",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "O contrário também é verdadeiro: um número que vem **antes** de outro é **menor**. Usamos o símbolo (<), assim *20 < 21* significa \"20 é menor que 21\".",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Uma dica útil: o lado aberto do símbolo de comparação — seja o de maior (>) ou o de menor (<) — sempre fica voltado para o número maior. Confira com *21 > 20*: a abertura aponta para 21.\n\nQuando a diferença entre os dois números é enorme, a matemática oferece um atalho: (&#8811;) se lê \"muito maior que\", como em *1000000 &#8811; 20*, e (&#8810;) se lê \"muito menor que\", como em *20 &#8810; 1000000*.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h4>Prática</h4>Uma desigualdade é uma afirmação que precisa continuar verdadeira. Se alterarmos um dos lados, temos que alterar o outro ao mesmo tempo; caso contrário, a comparação se quebra. Experimente: use as setas para subir e descer as mãos e observe como os dois números mudam ao mesmo tempo:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\"  /></td><td id=\"tc7f1\"><button type=\"button\" class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\" aria-label=\"Aumentar ambos os números\" style=\"background:none;border:none;padding:0;cursor:pointer;\"></button>  <button type=\"button\" class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size:4em;color:#00f;background:none;border:none;padding:0;cursor:pointer;\" id=\"traineeDown0\" aria-label=\"Diminuir ambos os números\"></button></td></tr></table></p><p class=\"desc\"><b>Tabela 1</b>: Mantendo a desigualdade.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_direction",
+         "text": [
+            {
+               "text": "### Comparar em uma direção\n\nAntes de podermos comparar dois objetos, precisamos **medi-los**. Medir significa descobrir quanto algo mede **em uma direção**: ao longo de uma única linha. A ferramenta que usamos para isso é a **régua**, a tira reta e marcada que já aparece na **Figura 1**. Suas marcas estão igualmente espaçadas e cada uma traz um número, de modo que cada comprimento encontra o seu próprio número na régua.\n\nVamos usar a régua, passo a passo:\n\n1. Coloque o objeto ao longo da borda da régua, de modo que uma extremidade do objeto coincida com a marca **0**.\n2. Mantenha o objeto reto, sem incliná-lo, e observe a marca onde a outra extremidade para.\n3. O número encontrado ali é a **medida** do objeto: ele indica o comprimento do objeto na direção que você escolheu.\n\nPor exemplo, se um objeto para na marca **10**, sua medida é 10. Se outro objeto para na marca **20**, sua medida é 20.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Eles são realmente iguais?</b><br /><br />Dois objetos foram medidos ao longo da mesma linha e ambos pararam na mesma marca, de modo que ambos têm o mesmo comprimento. Isso os torna iguais? Poderiam continuar diferentes de alguma outra maneira?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora podemos comparar as duas medidas. Quando os dois objetos param na **mesma marca**, eles são **iguais em uma direção**: têm o mesmo comprimento. Quando cada objeto para em uma marca diferente, um é mais longo e o outro mais curto, e a regra de maior e menor nos diz qual medida é maior e qual é menor.\n\nAssim, para que dois objetos sejam **iguais em uma direção**, eles devem ter o mesmo comprimento. O mesmo comprimento é o **primeiro passo**, mas, como veremos, não é o único.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### O mesmo comprimento é apenas o primeiro passo\n\nTer o mesmo comprimento é um passo em direção à igualdade, mas não é todo o caminho. Imagine dois lápis exatamente do mesmo comprimento: um é **vermelho** e o outro é **azul**. Se colocarmos os dois sobre a régua, ambos param na mesma marca, de modo que têm o mesmo comprimento. Eles são iguais? Não. Compartilham o mesmo comprimento, mas têm **cores diferentes**, portanto não são objetos iguais.\n\nIsso nos ensina uma lição importante: dois objetos só são **totalmente iguais** quando coincidem em **todas as características** que comparamos, e não apenas em uma. O comprimento é uma **direção** de comparação; a cor, a forma e o material são outras direções. Dois objetos podem ser iguais em uma direção e diferentes em outra.\n\nPara comparar bem dois objetos, pergunte-se sempre:\n\n1. **Qual característica** estou comparando?\n2. Os dois objetos coincidem **nessa** característica?\n3. Eles também coincidem nas **outras** características que importam?",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Prática\n\nAbaixo há três fitas cujo comprimento você pode mudar. Use os botões **+** e **−** para alongar ou encurtar cada fita e observe a régua embaixo delas.\n\nDuas fitas são **totalmente iguais** somente quando têm o mesmo comprimento e a mesma cor. Tente deixar duas fitas totalmente iguais e leia as comparações que aparecem abaixo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htStringsApp\" id=\"htStringsApp\"><div class=\"htStringsGrid\"><span class=\"htStringsLabel\">1</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"1\" aria-label=\"Fita 1 mais curta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack1\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"1\" aria-label=\"Fita 1 mais longa\">+</button><span class=\"htStringsLabel\">2</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"2\" aria-label=\"Fita 2 mais curta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack2\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"2\" aria-label=\"Fita 2 mais longa\">+</button><span class=\"htStringsLabel\">3</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"3\" aria-label=\"Fita 3 mais curta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack3\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"3\" aria-label=\"Fita 3 mais longa\">+</button><span class=\"htStringsLabel\"></span><span class=\"htStringsSpacer\"></span><div class=\"htStringsRuler\" id=\"htStringsRuler\"></div><span class=\"htStringsSpacer\"></span></div><div class=\"htStringsComparisons\" id=\"htStringsComparisons\"></div><span id=\"htStringsMsgEqual\" class=\"htStringsHidden\">A fita {a} e a fita {b} são totalmente iguais, porque têm o mesmo comprimento ({la}) e a mesma cor.</span><span id=\"htStringsMsgSameColorDiffLength\" class=\"htStringsHidden\">A fita {a} e a fita {b} não são totalmente iguais, porque têm a mesma cor, mas comprimentos diferentes ({la} e {lb}).</span><span id=\"htStringsMsgDiffColorSameLength\" class=\"htStringsHidden\">A fita {a} e a fita {b} não são totalmente iguais, porque têm o mesmo comprimento ({la}), mas cores diferentes.</span><span id=\"htStringsMsgDiffColorDiffLength\" class=\"htStringsHidden\">A fita {a} e a fita {b} não são totalmente iguais, porque têm comprimentos diferentes ({la} e {lb}) e cores diferentes.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto construímos as ferramentas para comparar. Com os símbolos (>) e (<) dizemos qual de dois números é maior e qual é menor — o lado aberto sempre aponta para o número maior —, e os símbolos (&#8811;) e (&#8810;) marcam uma diferença muito maior ou muito menor. A Tabela 1 mostrou que uma desigualdade precisa continuar verdadeira: sempre que um lado muda, o outro precisa mudar junto, ou a comparação se quebra.\n\nDepois aprendemos que comparar começa por medir. Com uma régua descobrimos quanto algo mede **em uma direção**, e dois objetos que param na mesma marca são iguais nessa direção. Mas o mesmo comprimento é apenas o primeiro passo: a prática com as três fitas mostrou que dois objetos são **totalmente iguais** somente quando coincidem em **todas as características** que comparamos — o comprimento e a cor ao mesmo tempo —. Dois objetos podem ser iguais em uma direção e diferentes em outra, então, para comparar bem, sempre perguntamos quais características importam e se os objetos coincidem em todas elas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
