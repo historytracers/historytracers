@@ -18,7 +18,11 @@ EDITORSRC_DIR = src/editor
 comma := ,
 GO_PROXY_DEFAULT = https://proxy.golang.org$(comma)direct
 GO_PROXY = $(if $(strip $(subst $(comma), ,$(GOPROXY))),$(GOPROXY),$(GO_PROXY_DEFAULT))
-GO_RUN = PATH="$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" GOPROXY="$(GO_PROXY)" "$(GO_COMPILER)"
+# GO_FIPS_ENV is either empty or "env -u GOFIPS140" (see configure.ac):
+# it drops an inherited GOFIPS140 value that this Go toolchain rejects
+# (RHEL-like systems may export GOFIPS140=certified globally, which makes
+# every 'go' command fail with 'unknown GOFIPS140 version').
+GO_RUN = $(GO_FIPS_ENV) PATH="$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" GOPROXY="$(GO_PROXY)" "$(GO_COMPILER)"
 
 # CGo environment for MinGW cross-compilation (Windows)
 if NEED_MINGW

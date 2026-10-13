@@ -105,6 +105,29 @@ if test "x$go_path" != "x"; then
     PATH="$save_PATH"
 fi
 
+# GOFIPS140 hygiene: RHEL-like environments may export a GOFIPS140 value
+# (e.g. "certified") that the installed Go toolchain rejects, in which case
+# EVERY 'go' invocation dies with 'unknown GOFIPS140 version' - including
+# the probes below. If the toolchain fails with the inherited value but
+# works without it, drop the variable for this configure run and for all
+# builds (GO_FIPS_ENV), warning loudly. A value the toolchain accepts is
+# passed through untouched so FIPS setups keep working.
+GO_FIPS_ENV=""
+if test -n "${GOFIPS140:-}"; then
+    if "$GO_COMPILER" version >/dev/null 2>&1; then
+        : # accepted by this toolchain; keep the user's FIPS mode
+    else
+        unset GOFIPS140
+        if "$GO_COMPILER" version >/dev/null 2>&1; then
+            AC_MSG_WARN([inherited GOFIPS140 value is rejected by this Go toolchain; unsetting it for the build])
+            GO_FIPS_ENV="env -u GOFIPS140"
+        else
+            AC_MSG_WARN([$GO_COMPILER does not run even without GOFIPS140; the build will likely fail])
+        fi
+    fi
+fi
+AC_SUBST([GO_FIPS_ENV])
+
 # Continue with your existing compiler type detection
 AC_MSG_CHECKING([for Go compiler type])
 GO_VERSION_OUTPUT=`$GO_COMPILER version 2>/dev/null`
