@@ -55,12 +55,13 @@ override_dh_install:
 
 	# ===== DEVEL SUBPACKAGE (historytracers-devel) =====
 
-	# Copy everything from source root except build outputs, www/ and VCS/packaging temp dirs
+	# Copy everything from source root except build outputs, www/, VCS/packaging
+	# temp dirs and local run artifacts (redirect captures like err/out and logs)
 	dest=debian/historytracers-devel/usr/src/historytracers; \
 	install -d "$$dest"; \
 	for f in $(CURDIR)/* $(CURDIR)/.[!.]*; do \
 		[ -e "$$f" ] || continue; \
 		base=$$(basename "$$f"); \
-		case "$$base" in www|.git|debian|build|artifacts|rpmbuild) continue;; esac; \
+		case "$$base" in www|.git|debian|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|autom4te.cache) continue;; esac; \
 		cp -r "$$f" "$$dest"/; \
 	done

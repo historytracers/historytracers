@@ -92,11 +92,14 @@ install -m 644 %{_sourcedir}/www/images/img_options.json %{buildroot}/var/www/ht
 
 # ===== DEVEL SUBPACKAGE: source files =====
 
-# Copy top-level source entries except build outputs, www/ and packaging temp dirs
+# Copy top-level source entries except build outputs, www/, packaging temp
+# dirs and local run artifacts (redirect captures like err/out and logs not
+# only bloat the payload: they embed the BUILDROOT path and trip
+# /usr/lib/rpm/check-buildroot, aborting the build)
 cd %{_sourcedir}
 for entry in * .[!.]*; do \
   [ -e "$entry" ] || continue; \
-  case "$entry" in www|.git|build|artifacts|rpmbuild) continue;; esac; \
+  case "$entry" in www|.git|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|autom4te.cache) continue;; esac; \
   cp -r "$entry" %{buildroot}/usr/src/historytracers/; \
 done
 
