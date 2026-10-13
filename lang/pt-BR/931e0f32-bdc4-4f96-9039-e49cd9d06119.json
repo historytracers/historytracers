@@ -1,0 +1,118 @@
+{
+   "title": "Agrupando de três em três (Jogo)",
+   "header": "Agrupando de três em três (Jogo)",
+   "sources": [
+      "931e0f32-bdc4-4f96-9039-e49cd9d06119"
+   ],
+   "scripts": [
+      "931e0f32-bdc4-4f96-9039-e49cd9d06119"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/931e0f32-bdc4-4f96-9039-e49cd9d06119_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics",
+      "chemistry",
+      "biology",
+      "literature",
+      "history"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792030000"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo pratica as ideias do texto *Sempre presente* (<htcite0>). Antes de jogar, leia esse texto para entender que dividir por 3 é o mesmo que organizar o que temos em grupos de três.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a9086b63-70d4-4984-a353-1118305128b6",
+                     "text": "History Tracers Team",
+                     "page": "Sempre presente",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Jogo\n\nAparece um conjunto de elementos: eles podem ser frutas, estrelas, gatos, triângulos ou cães. O total é sempre um múltiplo de três — 3, 6, 9, 12, 15, 18, 21, 24, 27 ou 30. Sua tarefa é dizer em quantos grupos de três esses elementos podem ser organizados (<htcite0>).\n\nUse os botões para escolher o número de grupos. São três níveis: o primeiro pede de 1 a 3 grupos, o segundo de 4 a 6 e o terceiro de 7 a 10. A tabuada do 3 é mostrada ao lado para ajudar você (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a9086b63-70d4-4984-a353-1118305128b6",
+                     "text": "History Tracers Team",
+                     "page": "Sempre presente",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a tabuada (2 e 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htGroupThreesGame\"><div class=\"htGroupThreesColumns\"><div class=\"htGroupThreesPlay\"><span class=\"htGroupThreesLevel\" id=\"htGroupThreesLevel\"></span><span class=\"htGroupThreesQuestion\" id=\"htGroupThreesQuestion\">Em quantos grupos de 3 podemos organizar estes elementos?</span><span class=\"htGroupThreesTotal\" id=\"htGroupThreesTotal\"></span><div class=\"htGroupThreesElements\" id=\"htGroupThreesElements\"></div><div class=\"htGroupThreesButtonsRow\" id=\"htGroupThreesButtons\"></div><div class=\"htGroupThreesFeedback\" id=\"htGroupThreesFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htGroupThreesNextContainer\"><button type=\"button\" id=\"htGroupThreesNewBtn\" class=\"reset-tutor-btn\">🎲 Novo exercício</button><button type=\"button\" id=\"htGroupThreesNextBtn\" class=\"reset-tutor-btn hidden\">Próximo nível</button></div></div><div class=\"htGroupThreesTable\"><span class=\"htGroupThreesTableTitle\">Tabuada do 3</span><div id=\"mParent3\"></div></div></div><span id=\"htGroupThreesLevelTemplate\" class=\"htGroupThreesHidden\">Nível {n} de 3</span><span id=\"htGroupThreesTotalTemplate\" class=\"htGroupThreesHidden\">Total de {total} elementos</span><span id=\"htGroupThreesMsgCorrect\" class=\"htGroupThreesHidden\">🎉 Parabéns! Os {total} elementos, agrupados de três em três, formam {groups} grupos. Assim, {total} = 3 × {groups}.</span><span id=\"htGroupThreesMsgWrong\" class=\"htGroupThreesHidden\">Ainda não. Cada grupo tem 3 elementos. Conte quantos grupos de três cabem em {total} e tente novamente.</span><span id=\"htGroupThreesMsgFinal\" class=\"htGroupThreesHidden\">🎉🎉🎉 Parabéns! Você completou todos os níveis! 🎉🎉🎉</span><span id=\"htGroupThreesPlayAgain\" class=\"htGroupThreesHidden\">Jogar novamente</span><span id=\"htGroupThreesNextLabel\" class=\"htGroupThreesHidden\">Próximo nível</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

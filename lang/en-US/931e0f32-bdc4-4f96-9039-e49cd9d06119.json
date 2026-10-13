@@ -1,0 +1,118 @@
+{
+   "title": "Grouping in Threes (Game)",
+   "header": "Grouping in Threes (Game)",
+   "sources": [
+      "931e0f32-bdc4-4f96-9039-e49cd9d06119"
+   ],
+   "scripts": [
+      "931e0f32-bdc4-4f96-9039-e49cd9d06119"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/931e0f32-bdc4-4f96-9039-e49cd9d06119_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics",
+      "chemistry",
+      "biology",
+      "literature",
+      "history"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792030000"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game practices the ideas from the text *Always present* (<htcite0>). Before playing, read that text to understand how dividing by 3 is the same as organizing what we have into groups of three.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a9086b63-70d4-4984-a353-1118305128b6",
+                     "text": "History Tracers Team",
+                     "page": "Always present",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Game\n\nA set of elements appears: they can be fruits, stars, cats, triangles or dogs. The total is always a multiple of three — 3, 6, 9, 12, 15, 18, 21, 24, 27 or 30. Your task is to say into how many groups of three these elements can be organized (<htcite0>).\n\nUse the buttons to choose the number of groups. There are three levels: the first asks from 1 to 3 groups, the second from 4 to 6, and the third from 7 to 10. The multiplication table of 3 is shown on the side to help you (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a9086b63-70d4-4984-a353-1118305128b6",
+                     "text": "History Tracers Team",
+                     "page": "Always present",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (2 and 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htGroupThreesGame\"><div class=\"htGroupThreesColumns\"><div class=\"htGroupThreesPlay\"><span class=\"htGroupThreesLevel\" id=\"htGroupThreesLevel\"></span><span class=\"htGroupThreesQuestion\" id=\"htGroupThreesQuestion\">In how many groups of 3 can we organize these elements?</span><span class=\"htGroupThreesTotal\" id=\"htGroupThreesTotal\"></span><div class=\"htGroupThreesElements\" id=\"htGroupThreesElements\"></div><div class=\"htGroupThreesButtonsRow\" id=\"htGroupThreesButtons\"></div><div class=\"htGroupThreesFeedback\" id=\"htGroupThreesFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htGroupThreesNextContainer\"><button type=\"button\" id=\"htGroupThreesNewBtn\" class=\"reset-tutor-btn\">🎲 New exercise</button><button type=\"button\" id=\"htGroupThreesNextBtn\" class=\"reset-tutor-btn hidden\">Next level</button></div></div><div class=\"htGroupThreesTable\"><span class=\"htGroupThreesTableTitle\">Multiplication Table of 3</span><div id=\"mParent3\"></div></div></div><span id=\"htGroupThreesLevelTemplate\" class=\"htGroupThreesHidden\">Level {n} of 3</span><span id=\"htGroupThreesTotalTemplate\" class=\"htGroupThreesHidden\">Total of {total} elements</span><span id=\"htGroupThreesMsgCorrect\" class=\"htGroupThreesHidden\">🎉 Congratulations! The {total} elements, grouped in threes, form {groups} groups. So {total} = 3 × {groups}.</span><span id=\"htGroupThreesMsgWrong\" class=\"htGroupThreesHidden\">Not yet. Each group holds 3 elements. Count how many groups of three fit inside {total} and try again.</span><span id=\"htGroupThreesMsgFinal\" class=\"htGroupThreesHidden\">🎉🎉🎉 Congratulations! You completed all the levels! 🎉🎉🎉</span><span id=\"htGroupThreesPlayAgain\" class=\"htGroupThreesHidden\">Play again</span><span id=\"htGroupThreesNextLabel\" class=\"htGroupThreesHidden\">Next level</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
