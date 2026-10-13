@@ -660,6 +660,19 @@ ht_build_deb() {
     trap ht_deb_cleanup ERR
 
     echo "Building DEB package"
+
+    if ! command -v dpkg-buildpackage >/dev/null 2>&1; then
+        echo "ERROR: dpkg-buildpackage not found." >&2
+        echo "Install Debian packaging tools as root:" >&2
+        echo "  sudo ./packaging/historytracers-install-requirements.sh" >&2
+        echo "or: sudo apt-get install build-essential debhelper dpkg-dev fakeroot devscripts" >&2
+        exit 1
+    fi
+    if ! command -v dh >/dev/null 2>&1; then
+        echo "ERROR: debhelper (dh) not found." >&2
+        echo "Install it as root: sudo apt-get install debhelper" >&2
+        exit 1
+    fi
     # Install dependencies
     # apt-get update
     # apt-get install devscripts debhelper build-essential golang-go
@@ -758,6 +771,16 @@ ht_is_slackware() {
         return 0
     fi
     if [ -f /etc/os-release ] && grep -qi "slackware" /etc/os-release 2>/dev/null; then
+        return 0
+    fi
+    return 1
+}
+
+ht_is_debian() {
+    if [ -f /etc/debian_version ]; then
+        return 0
+    fi
+    if [ -f /etc/os-release ] && grep -Eq '^ID="?((debian)|(ubuntu)|(linuxmint)|(pop)|(elementary)|(zorin)|(kali)|(raspbian)|(neon))"?' /etc/os-release 2>/dev/null; then
         return 0
     fi
     return 1
@@ -1169,7 +1192,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Auto-detect: if on MSYS/MinGW/Cygwin and no builder flag was set, default to MSI
+# Auto-detect: if no builder flag was set, default based on environment
 if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] && [ "${MAKESLACKWARE}" = "0" ] && [ "${MAKESTATIC}" = "0" ]; then
     if ht_is_slackware; then
         echo "No package type specified; auto-selecting --slackbuild for Slackware environment."
@@ -1177,6 +1200,13 @@ if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] &&
     elif ht_is_msys; then
         echo "No package type specified; auto-selecting --msi for MSYS/MinGW environment."
         MAKEMSI="1"
+    elif ht_is_debian; then
+        echo "No package type specified; auto-selecting --deb for Debian environment."
+        MAKEDEB="1"
+    else
+        echo "WARNING: No package type specified (--deb/--rpm/--slackbuild/--msi/--static)."
+        echo "Only ht_compile will run; no packages will be produced."
+        ht_usage
     fi
 fi
 

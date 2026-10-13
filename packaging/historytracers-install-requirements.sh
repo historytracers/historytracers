@@ -96,7 +96,13 @@ install_debian() {
         xorg-dev \
         libcairo2-dev \
         libpango1.0-dev \
-        libgdk-pixbuf-2.0-dev
+        libgdk-pixbuf-2.0-dev \
+        build-essential \
+        debhelper \
+        dpkg-dev \
+        fakeroot \
+        devscripts \
+        systemd
     echo "Dependencies installed successfully."
 }
 
