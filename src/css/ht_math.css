@@ -3669,3 +3669,134 @@ p.desc svg {
     font-size: 0.55em;
   }
 }
+
+/*
+ * Greater or Smaller? game (content 548450ef-1b1a-4b9e-b578-2fef47abbd5b).
+ */
+.htGreaterSmallerGame {
+  margin: 1em auto;
+  max-width: 42em;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.htGreaterSmallerLevel {
+  display: block;
+  font-weight: bold;
+  color: #2c5f8a;
+  margin-bottom: 0.25em;
+}
+
+.htGreaterSmallerQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htGreaterSmallerCards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.htGreaterSmallerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 6em;
+  max-width: 100%;
+  padding: 0.5em 1em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.htGreaterSmallerLabel {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #555;
+}
+
+.htGreaterSmallerValue {
+  font-size: 1.6em;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.htGreaterSmallerOp {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2c5f8a;
+}
+
+.htGreaterSmallerButtonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htGreaterSmallerButton {
+  padding: 0.5em 1.2em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htGreaterSmallerButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htGreaterSmallerButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.htGreaterSmallerFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+}
+
+.htGreaterSmallerFeedback.htGreaterSmallerCorrect {
+  color: green;
+}
+
+.htGreaterSmallerFeedback.htGreaterSmallerWrong {
+  color: #c0392b;
+}
+
+.htGreaterSmallerNextContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htGreaterSmallerHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htGreaterSmallerValue {
+    font-size: 1.2em;
+  }
+
+  .htGreaterSmallerOp {
+    font-size: 1.5em;
+  }
+}
