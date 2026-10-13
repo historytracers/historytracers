@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
 #!/bin/bash
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! command -v uuidgen >/dev/null 2>&1; then
     echo "You must install \"diff\" to use this script"

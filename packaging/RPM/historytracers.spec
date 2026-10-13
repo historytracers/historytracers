@@ -102,6 +102,17 @@ for entry in * .[!.]*; do \
   case "$entry" in www|.git|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|autom4te.cache) continue;; esac; \
   cp -r "$entry" %{buildroot}/usr/src/historytracers/; \
 done
+# Drop stray Go build outputs left in the source tree (e.g. `go build`
+# without -o creates src/viewer/viewer, src/publisher/publisher). They are
+# ELF binaries and must not ship in the noarch devel subpackage, otherwise
+# the build fails with "Arch dependent binaries in noarch package".
+rm -f %{buildroot}/usr/src/historytracers/src/viewer/viewer \
+  %{buildroot}/usr/src/historytracers/src/publisher/publisher \
+  %{buildroot}/usr/src/historytracers/src/editor/editor \
+  %{buildroot}/usr/src/historytracers/src/viewer/historytracers \
+  %{buildroot}/usr/src/historytracers/src/publisher/historytracers-publisher \
+  %{buildroot}/usr/src/historytracers/src/editor/historytracers-editor
+find %{buildroot}/usr/src/historytracers/src -type f -exec sh -c 'file "$1" 2>/dev/null | grep -q " ELF " && rm -f "$1"' _ {} \;
 
 %pre
 getent group historytracers >/dev/null || groupadd -r historytracers

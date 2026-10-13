@@ -759,6 +759,11 @@ ht_build_slackware() {
     sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
     mkdir -p "${DST}/www"
     cp -R ./*.md LICENSE Makefile.am bodies configure.ac css csv editor.html gedcom historytracers-installer.sh historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
+    # Drop stray Go build outputs (e.g. src/viewer/viewer) so the source
+    # tarball stays free of ELF binaries.
+    rm -f "${DST}/src/viewer/viewer" "${DST}/src/publisher/publisher" "${DST}/src/editor/editor" \
+        "${DST}/src/viewer/historytracers" "${DST}/src/publisher/historytracers-publisher" "${DST}/src/editor/historytracers-editor"
+    find "${DST}/src" -type f -exec sh -c 'file "$1" 2>/dev/null | grep -q " ELF " && rm -f "$1"' _ {} \;
     mkdir -p "${DST}/images"
     cp images/img_options.json "${DST}/images/"
     sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json

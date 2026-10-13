@@ -65,3 +65,13 @@ override_dh_install:
 		case "$$base" in www|.git|debian|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|autom4te.cache) continue;; esac; \
 		cp -r "$$f" "$$dest"/; \
 	done
+	# Drop stray Go build outputs left in the source tree (e.g. `go build`
+	# without -o creates src/viewer/viewer). They are ELF binaries and must
+	# not ship in the Architecture: all devel package.
+	rm -f debian/historytracers-devel/usr/src/historytracers/src/viewer/viewer \
+		debian/historytracers-devel/usr/src/historytracers/src/publisher/publisher \
+		debian/historytracers-devel/usr/src/historytracers/src/editor/editor \
+		debian/historytracers-devel/usr/src/historytracers/src/viewer/historytracers \
+		debian/historytracers-devel/usr/src/historytracers/src/publisher/historytracers-publisher \
+		debian/historytracers-devel/usr/src/historytracers/src/editor/historytracers-editor
+	find debian/historytracers-devel/usr/src/historytracers/src -type f -exec sh -c 'file "$$1" 2>/dev/null | grep -q " ELF " && rm -f "$$1"' _ {} \;
