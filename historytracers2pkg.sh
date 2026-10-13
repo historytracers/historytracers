@@ -615,6 +615,14 @@ ht_build_rpm() {
     # dnf install -y rpmdevtools rpm-build make gcc golang autoconf automake which && dnf clean all
     echo "Building RPM package"
 
+    if ! command -v rpmbuild >/dev/null 2>&1; then
+        echo "ERROR: rpmbuild not found." >&2
+        echo "Install RPM packaging tools as root:" >&2
+        echo "  sudo ./packaging/historytracers-install-requirements.sh" >&2
+        echo "or: sudo dnf install rpm-build rpmdevtools" >&2
+        exit 1
+    fi
+
     # Packaged www/ must not expect local images (images/ ships separately);
     # update both the source and the already-generated www/ copies.
     for f in images/img_options.json www/images/img_options.json; do
@@ -781,6 +789,16 @@ ht_is_debian() {
         return 0
     fi
     if [ -f /etc/os-release ] && grep -Eq '^ID="?((debian)|(ubuntu)|(linuxmint)|(pop)|(elementary)|(zorin)|(kali)|(raspbian)|(neon))"?' /etc/os-release 2>/dev/null; then
+        return 0
+    fi
+    return 1
+}
+
+ht_is_fedora() {
+    if [ -f /etc/redhat-release ]; then
+        return 0
+    fi
+    if [ -f /etc/os-release ] && grep -Eq '^ID="?((fedora)|(rhel)|(centos)|(rocky)|(almalinux)|(nobara)|(ol)|(amzn))"?' /etc/os-release 2>/dev/null; then
         return 0
     fi
     return 1
@@ -1203,6 +1221,9 @@ if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] &&
     elif ht_is_debian; then
         echo "No package type specified; auto-selecting --deb for Debian environment."
         MAKEDEB="1"
+    elif ht_is_fedora; then
+        echo "No package type specified; auto-selecting --rpm for Fedora/RHEL environment."
+        MAKERPM="1"
     else
         echo "WARNING: No package type specified (--deb/--rpm/--slackbuild/--msi/--static)."
         echo "Only ht_compile will run; no packages will be produced."

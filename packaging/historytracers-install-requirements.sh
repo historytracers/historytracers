@@ -116,6 +116,17 @@ install_fedora() {
         echo "No package manager found (dnf/yum)."
         exit 1
     fi
+    # On RHEL clones (Alma/Rocky/CentOS/Oracle) many -devel packages live in
+    # CRB (EL9) / PowerTools (EL8) and EPEL, which are disabled by default.
+    case "$DISTRO_ID" in
+        rhel|centos|rocky|almalinux|ol)
+            $PKG_MGR install -y dnf-plugins-core epel-release 2>/dev/null || true
+            $PKG_MGR config-manager --set-enabled crb 2>/dev/null \
+                || $PKG_MGR config-manager --set-enabled powertools 2>/dev/null \
+                || $PKG_MGR config-manager --set-enabled PowerTools 2>/dev/null \
+                || true
+            ;;
+    esac
     $PKG_MGR install -y \
         autoconf \
         automake \
@@ -126,7 +137,6 @@ install_fedora() {
         nodejs \
         pkgconfig \
         gtk3-devel \
-        webkit2gtk4.1-devel \
         mesa-libGL-devel \
         libX11-devel \
         libXrandr-devel \
@@ -136,7 +146,22 @@ install_fedora() {
         libXxf86vm-devel \
         cairo-devel \
         pango-devel \
-        gdk-pixbuf2-devel
+        gdk-pixbuf2-devel \
+        rpm-build \
+        rpmdevtools
+    # WebKitGTK 4.1 devel package name differs per distro: Fedora uses
+    # webkit2gtk4.1-devel, RHEL9 clones (Alma/Rocky/CentOS) ship it as
+    # webkit2gtk3-devel (which provides webkit2gtk-4.1.pc).
+    if ! $PKG_MGR install -y webkit2gtk4.1-devel 2>/dev/null; then
+        echo "webkit2gtk4.1-devel not available, trying webkit2gtk3-devel (RHEL9 name)..."
+        $PKG_MGR install -y webkit2gtk3-devel
+    fi
+    if ! pkg-config --exists webkit2gtk-4.1 2>/dev/null \
+        && ! pkg-config --exists webkit2gtk-4.0 2>/dev/null; then
+        echo "ERROR: neither webkit2gtk-4.1 nor webkit2gtk-4.0 found via pkg-config." >&2
+        echo "Enable CRB/EPEL and install one of: webkit2gtk4.1-devel webkit2gtk3-devel" >&2
+        exit 1
+    fi
     echo "Dependencies installed successfully."
 }
 
