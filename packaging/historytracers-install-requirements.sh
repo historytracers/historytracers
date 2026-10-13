@@ -156,8 +156,11 @@ install_fedora() {
         echo "webkit2gtk4.1-devel not available, trying webkit2gtk3-devel (RHEL9 name)..."
         $PKG_MGR install -y webkit2gtk3-devel
     fi
-    if ! pkg-config --exists webkit2gtk-4.1 2>/dev/null \
-        && ! pkg-config --exists webkit2gtk-4.0 2>/dev/null; then
+    if pkg-config --exists webkit2gtk-4.1 2>/dev/null; then
+        :
+    elif ht_webkit41_compat_symlink; then
+        echo "WARNING: building viewer/editor against webkit2gtk-4.0 via 4.1 compatibility symlink." >&2
+    else
         echo "ERROR: neither webkit2gtk-4.1 nor webkit2gtk-4.0 found via pkg-config." >&2
         echo "Enable CRB/EPEL and install one of: webkit2gtk4.1-devel webkit2gtk3-devel" >&2
         exit 1
@@ -293,6 +296,32 @@ install_gentoo() {
     echo "Dependencies installed successfully."
 }
 
+# If only webkit2gtk-4.0 is available, expose it as webkit2gtk-4.1.
+# Both provide the same WebKit2 API header (webkit2/webkit2.h) and differ
+# only in the libsoup linkage; the viewer/editor only use the common API.
+# Best-effort: returns non-zero when neither 4.1 nor 4.0 is present.
+ht_webkit41_compat_symlink() {
+    if pkg-config --exists webkit2gtk-4.1 2>/dev/null; then
+        return 0
+    fi
+    if ! pkg-config --exists webkit2gtk-4.0 2>/dev/null; then
+        return 1
+    fi
+    echo "webkit2gtk-4.1 not found; providing a compatibility symlink to webkit2gtk-4.0..."
+    # Create a .pc symlink so pkg-config finds 4.0 as 4.1 (best-effort)
+    for pc in /usr/lib*/pkgconfig/webkit2gtk-4.0.pc /usr/lib64/pkgconfig/webkit2gtk-4.0.pc; do
+        if [ -f "$pc" ]; then
+            ln -sf "$pc" "$(dirname "$pc")/webkit2gtk-4.1.pc"
+            echo "Symlinked $(basename "$pc") -> webkit2gtk-4.1.pc"
+        fi
+    done
+    if pkg-config --exists webkit2gtk-4.1 2>/dev/null; then
+        echo "webkit2gtk-4.1 compatibility symlink works."
+        return 0
+    fi
+    return 1
+}
+
 install_slackware() {
     echo "Detected Slackware ($DISTRO_ID $DISTRO_VERSION)"
     if ! command -v slackpkg >/dev/null 2>&1; then
@@ -347,19 +376,8 @@ install_slackware() {
         echo "webkit2gtk-4.1 is already available."
         return
     fi
-    if pkg-config --exists webkit2gtk-4.0 2>/dev/null; then
-        echo "webkit2gtk-4.0 found; providing a compatibility symlink..."
-        # Create a .pc symlink so pkg-config finds 4.0 as 4.1 (best-effort)
-        for pc in /usr/lib*/pkgconfig/webkit2gtk-4.0.pc /usr/lib64/pkgconfig/webkit2gtk-4.0.pc; do
-            if [ -f "$pc" ]; then
-                ln -sf "$pc" "$(dirname "$pc")/webkit2gtk-4.1.pc"
-                echo "Symlinked $(basename "$pc") -> webkit2gtk-4.1.pc"
-            fi
-        done
-        if pkg-config --exists webkit2gtk-4.1 2>/dev/null; then
-            echo "webkit2gtk-4.1 compatibility symlink works."
-            return
-        fi
+    if ht_webkit41_compat_symlink; then
+        return
     fi
 
     echo ""

@@ -238,6 +238,14 @@ AS_IF([test "x$GOOS" != "xwindows" -a "x$GOOS" != "xdarwin"], [
         [AC_MSG_WARN([gtk+-3.0 not found; editor/viewer will not build on Linux])])
 ])
 
+# Check for WebKitGTK 4.1 (needed by editor/viewer on Linux via webview_go)
+HAVE_WEBKIT=no
+AS_IF([test "x$GOOS" != "xwindows" -a "x$GOOS" != "xdarwin"], [
+    PKG_CHECK_MODULES([WEBKIT], [webkit2gtk-4.1],
+        [HAVE_WEBKIT=yes],
+        [AC_MSG_WARN([webkit2gtk-4.1 not found; editor/viewer will not build on Linux])])
+])
+
 # Editor build option
 AC_ARG_ENABLE([editor],
     [AS_HELP_STRING([--disable-editor], [Disable building the editor])],
@@ -255,10 +263,10 @@ AS_IF([test "x$enable_editor" != "xno"], [
     ], [test "x$GOOS" = "xdarwin"], [
         build_editor=yes
     ], [
-        AS_IF([test "x$HAVE_GTK3" = "xyes"], [build_editor=yes], [
+        AS_IF([test "x$HAVE_GTK3" = "xyes" -a "x$HAVE_WEBKIT" = "xyes"], [build_editor=yes], [
             AS_IF([test "x$enable_editor" = "xyes"],
-                [AC_MSG_ERROR([Editor requires GTK3 development packages])],
-                [AC_MSG_WARN([GTK3 not found; editor disabled])])
+                [AC_MSG_ERROR([Editor requires GTK3 and webkit2gtk-4.1 development packages (e.g. libgtk-3-dev libwebkit2gtk-4.1-dev on Debian/Ubuntu, gtk3-devel plus webkit2gtk4.1-devel or webkit2gtk3-devel on Fedora/RHEL)])],
+                [AC_MSG_WARN([GTK3 or webkit2gtk-4.1 not found; editor disabled])])
         ])
     ])
 ])
@@ -271,7 +279,15 @@ AC_ARG_ENABLE([viewer],
     [enable_viewer=yes])
 
 build_viewer=no
-AS_IF([test "x$enable_viewer" != "xno"], [build_viewer=yes])
+AS_IF([test "x$enable_viewer" != "xno"], [
+    AS_IF([test "x$GOOS" = "xwindows" -o "x$GOOS" = "xdarwin"], [build_viewer=yes], [
+        AS_IF([test "x$HAVE_GTK3" = "xyes" -a "x$HAVE_WEBKIT" = "xyes"], [build_viewer=yes], [
+            AS_IF([test "x$enable_viewer" = "xyes"],
+                [AC_MSG_ERROR([Viewer requires GTK3 and webkit2gtk-4.1 development packages (e.g. libgtk-3-dev libwebkit2gtk-4.1-dev on Debian/Ubuntu, gtk3-devel plus webkit2gtk4.1-devel or webkit2gtk3-devel on Fedora/RHEL; on RHEL9 clones run packaging/historytracers-install-requirements.sh, or re-run configure with --disable-viewer)])],
+                [AC_MSG_WARN([GTK3 or webkit2gtk-4.1 not found; viewer disabled])])
+        ])
+    ])
+])
 AM_CONDITIONAL([BUILD_VIEWER], [test "x$build_viewer" = "xyes"])
 
  # Set default installation paths
