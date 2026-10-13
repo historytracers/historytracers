@@ -20,6 +20,7 @@ function htLoadContent() {
     htSetImageSrc("imgPoma", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_0362.jpg");
     htSetImageSrc("imgPomaCalendar", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_1140.jpg");
     htSetImageSrc("imgMundus", "images/Archive/mundusnovuslette00vesp_0011.jpg");
+    htSetImageSrc("imgDalton73", "images/Archive/newsystemofchemi01daltuoft_0087.jpg");
     htPlusDivs(0);
 
     return false;

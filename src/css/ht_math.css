@@ -39,6 +39,16 @@
   background: darkgray;
 }
 
+/* Word-based formulas (e.g. "Total supports = Total pieces × number of
+   supports"). MathML cannot break lines, so long formulas overflow the
+   .first_steps_reflection box on phones. Rendering the words as text with the
+   math font keeps the look of the other formulas and lets them wrap. */
+.htFormulaText {
+  font-size: 1.5em;
+  font-family: math, "Cambria Math", "STIX Two Math", serif;
+  overflow-wrap: break-word;
+}
+
 .chart:after {
   content: ' ';
   display: block; position: relative;
