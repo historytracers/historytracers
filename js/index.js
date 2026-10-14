@@ -127,8 +127,10 @@ function htParseIndexRequest() {
     }
 
     if (typeof htApplySelectValue === 'function') {
-        lang = htApplySelectValue('site_language', lang, 'en-US') || lang;
-        cal = htApplySelectValue('site_calendar', cal, 'gregory') || cal;
+        var langFallback = (typeof htResolveLangFallback === 'function') ? htResolveLangFallback() : 'en-US';
+        var calFallback = (typeof htResolveCalendarFallback === 'function') ? htResolveCalendarFallback() : 'gregory';
+        lang = htApplySelectValue('site_language', lang, langFallback) || lang;
+        cal = htApplySelectValue('site_calendar', cal, calFallback) || cal;
         font = htApplySelectValue('site_font_size', font, 'default') || font;
         rec = htApplySelectValue('site_recreio', rec, '30') || rec;
     } else {

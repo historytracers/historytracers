@@ -4318,12 +4318,99 @@ function htGetStoredRecreio() {
     return htSelectHasValue('site_recreio', v) ? v : '';
 }
 
+// Detects the calendar used by the environment (browser locale) and maps it
+// to one of the site calendar values. Returns '' only when no calendar
+// could be identified at all; callers fall back to 'gregory' instead.
+function htDetectLocalCalendar() {
+    try {
+        var cal = '';
+        if (typeof Intl !== 'undefined' && Intl.DateTimeFormat) {
+            var fmt = new Intl.DateTimeFormat();
+            if (fmt && typeof fmt.resolvedOptions === 'function') {
+                var ro = fmt.resolvedOptions();
+                if (ro && typeof ro.calendar === 'string') {
+                    cal = ro.calendar.toLowerCase();
+                }
+            }
+        }
+        if (!cal) {
+            return '';
+        }
+        // Intl names several Islamic variants; the site offers a single one.
+        if (cal.indexOf('islamic') === 0) {
+            return 'islamic';
+        }
+        switch (cal) {
+            case 'gregory':
+            case 'iso8601':
+                return 'gregory';
+            case 'hebrew':
+                return 'hebrew';
+            case 'persian':
+                return 'persian';
+            case 'chinese':
+                return 'chinese';
+            case 'japanese':
+                return 'japanese';
+            case 'indian':
+                return 'shaka';
+            default:
+                return '';
+        }
+    } catch (e) {
+    }
+    return '';
+}
+
+// Fallback resolvers for stale or missing stored values. They never return
+// an empty value: the language resolver identifies the environment idiom
+// ('en-' maps to 'en-US', 'es-' to 'es-ES', 'pt-' to 'pt-BR') and defaults
+// to 'en-US' when none of the three is found; the calendar resolver maps
+// the environment calendar (Gregorian, Muslim and the other supported
+// calendars) and defaults to 'gregory' when nothing is found. Whether the
+// resolved value is actually offered is still verified before any selection
+// (see htApplySelectValue).
+function htResolveLangFallback() {
+    try {
+        var lang = '';
+        if (typeof navigator !== 'undefined' && navigator) {
+            lang = navigator.language || navigator.userLanguage || '';
+        }
+        if (typeof lang === 'string' && lang.length >= 2) {
+            var prefix = lang.substring(0, 2).toLowerCase();
+            if (prefix === 'es') {
+                return 'es-ES';
+            }
+            if (prefix === 'pt') {
+                return 'pt-BR';
+            }
+            if (prefix === 'en') {
+                return 'en-US';
+            }
+        }
+    } catch (e) {
+    }
+    return 'en-US';
+}
+
+function htResolveCalendarFallback() {
+    try {
+        var d = htDetectLocalCalendar();
+        if (d) {
+            return d;
+        }
+    } catch (e) {
+    }
+    return 'gregory';
+}
+
 // Assigns value to the select only when value is offered as an option.
-// A stored value whose option no longer exists (for example a language made
-// unavailable) falls back to the given default instead of leaving the
-// control blank; when nothing was ever stored the control is left untouched,
-// keeping its HTML default. Returns the value effectively selected, or ''
-// when the select is missing or the assignment did not take effect.
+// When value is missing or its option no longer exists (for example a
+// language made unavailable), the environment-aware fallback is used
+// instead of leaving the control blank; only when there is neither a
+// usable value nor a usable fallback is the control left untouched.
+// Returns the value effectively selected, or '' when the select is missing
+// or the assignment did not take effect.
 function htApplySelectValue(id, value, fallback) {
     try {
         if (typeof document === 'undefined' || !document.getElementById) {
@@ -4336,7 +4423,7 @@ function htApplySelectValue(id, value, fallback) {
         var chosen = '';
         if (value && htSelectHasValue(id, value)) {
             chosen = value;
-        } else if (value && fallback && htSelectHasValue(id, fallback)) {
+        } else if (fallback && htSelectHasValue(id, fallback)) {
             chosen = fallback;
         }
         if (chosen) {
@@ -4368,8 +4455,8 @@ function htRestoreStoredPrefs() {
         if (typeof document === 'undefined' || !document.getElementById) {
             return false;
         }
-        var lang = htApplySelectValue('site_language', htPrefsRead(htPrefsKeys.lang), 'en-US');
-        var cal = htApplySelectValue('site_calendar', htPrefsRead(htPrefsKeys.calendar), 'gregory');
+        var lang = htApplySelectValue('site_language', htPrefsRead(htPrefsKeys.lang), htResolveLangFallback());
+        var cal = htApplySelectValue('site_calendar', htPrefsRead(htPrefsKeys.calendar), htResolveCalendarFallback());
         var rec = htApplySelectValue('site_recreio', htPrefsRead(htPrefsKeys.recreio), '30');
         var font = htApplySelectValue('site_font_size', htPrefsRead(htPrefsKeys.font), 'default');
         htApplyFontSize(font || 'default');
