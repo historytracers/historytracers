@@ -73,11 +73,13 @@ select#langSelect option{color:#000;background:#fff}
 #searchHighlightBackdrop{position:absolute;top:0;left:44px;right:0;bottom:0;padding:12px 12px 12px 8px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;white-space:pre-wrap;word-wrap:break-word;overflow:hidden;color:transparent;background:#1e272e;pointer-events:none;display:none;tab-size:2}
 #searchHighlightBackdrop mark{background:#e65100;color:transparent;border-radius:2px}
 #searchHighlightBackdrop mark.current{background:#ff9800;color:transparent;outline:1px solid #ffcc80}
-#editorArea.search-active{background:transparent !important;position:relative;z-index:1}
+#searchHighlightBackdrop .jkey{font-weight:bold;color:#eceff1}
+#editorArea.search-active,#editorArea.json-active{background:transparent !important;position:relative;z-index:1}
 .design-light #searchHighlightBackdrop{background:#fff}
 .design-light #searchHighlightBackdrop mark{background:#ffcc80}
 .design-light #searchHighlightBackdrop mark.current{background:#ff9800;outline:1px solid #e65100}
-.design-light #editorArea.search-active{background:transparent !important}
+.design-light #searchHighlightBackdrop .jkey{color:#000}
+.design-light #editorArea.search-active,.design-light #editorArea.json-active{background:transparent !important}
 #configFrame,#viewFrame{flex:1;border:none;width:100%;background:#fff}
 .tab.view{border-left:2px solid #80cbc4}
 #lineNumbers{width:44px;flex-shrink:0;padding:12px 6px 12px 10px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1b262c;color:#546e7a;text-align:right;overflow:hidden;user-select:none;border-right:1px solid #2b3b45}
@@ -1650,33 +1652,87 @@ function syncSearchScroll(){
 	var bd=document.getElementById('searchHighlightBackdrop');
 	if(bd) {bd.scrollTop=area.scrollTop; bd.scrollLeft=area.scrollLeft;}
 }
+function isJsonFile(){
+	var t=(currentTab>=0&&currentTab<tabs.length)?tabs[currentTab]:null;
+	if(!t||!t.path) return false;
+	return t.path.toLowerCase().slice(-5)==='.json';
+}
+function getJsonKeyRanges(val){
+	var ranges=[];
+	var re=/"(?:[^"\\\n]|\\.)*"(?=\s*:)/g;
+	var m;
+	while((m=re.exec(val))!==null){
+		if(m[0].length>0) ranges.push([m.index,m.index+m[0].length]);
+		if(m.index===re.lastIndex) re.lastIndex++;
+	}
+	return ranges;
+}
 function updateSearchHighlight(){
 	var area=document.getElementById('editorArea');
 	var bd=document.getElementById('searchHighlightBackdrop');
 	if(!bd||!area) return;
 	var query=document.getElementById('searchInput').value;
-	if(!query||searchMatches.length===0){
+	var hasSearch=!!(query&&searchMatches.length>0);
+	var val=area.value;
+	var jsonRanges=[];
+	if(isJsonFile()&&val.length<=500000){
+		try{ jsonRanges=getJsonKeyRanges(val); }catch(e){ jsonRanges=[]; }
+	}
+	var hasJson=jsonRanges.length>0;
+	if(!hasSearch&&!hasJson){
 		bd.style.display='none';
 		bd.innerHTML='';
 		area.classList.remove('search-active');
+		area.classList.remove('json-active');
 		return;
 	}
-	var val=area.value;
 	var html='';
-	var last=0;
-	for(var i=0;i<searchMatches.length;i++){
-		var pos=searchMatches[i];
-		html+=escHtml(val.substring(last,pos));
-		var m=escHtml(val.substring(pos,pos+query.length));
-		var cls=i===searchIndex?' class="current"':'';
-		html+='<mark'+cls+'>'+m+'</mark>';
-		last=pos+query.length;
+	if(!hasSearch){
+		var last=0;
+		for(var k=0;k<jsonRanges.length;k++){
+			var ks=jsonRanges[k][0],ke=jsonRanges[k][1];
+			if(ks>last) html+=escHtml(val.substring(last,ks));
+			html+='<span class="jkey">'+escHtml(val.substring(ks,ke))+'</span>';
+			last=ke;
+		}
+		html+=escHtml(val.substring(last));
+	}else{
+		var qlen=query.length;
+		var cuts=[0,val.length];
+		var i;
+		for(i=0;i<jsonRanges.length;i++){ cuts.push(jsonRanges[i][0]); cuts.push(jsonRanges[i][1]); }
+		for(i=0;i<searchMatches.length;i++){ cuts.push(searchMatches[i]); cuts.push(searchMatches[i]+qlen); }
+		cuts.sort(function(a,b){return a-b});
+		var uniq=[];
+		for(i=0;i<cuts.length;i++){
+			var c=cuts[i];
+			if(c<0) c=0;
+			if(c>val.length) c=val.length;
+			if(uniq.length===0||uniq[uniq.length-1]!==c) uniq.push(c);
+		}
+		var ki=0,si=0;
+		for(i=0;i<uniq.length-1;i++){
+			var s=uniq[i],e=uniq[i+1];
+			if(e<=s) continue;
+			while(ki<jsonRanges.length&&jsonRanges[ki][1]<=s) ki++;
+			var inKey=ki<jsonRanges.length&&jsonRanges[ki][0]<=s&&s<jsonRanges[ki][1];
+			while(si<searchMatches.length&&searchMatches[si]+qlen<=s) si++;
+			var inSearch=-1;
+			if(si<searchMatches.length&&searchMatches[si]<=s&&s<searchMatches[si]+qlen) inSearch=si;
+			var piece=escHtml(val.substring(s,e));
+			if(inKey) piece='<span class="jkey">'+piece+'</span>';
+			if(inSearch>=0){
+				var cls=inSearch===searchIndex?' class="current"':'';
+				piece='<mark'+cls+'>'+piece+'</mark>';
+			}
+			html+=piece;
+		}
 	}
-	html+=escHtml(val.substring(last));
 	if(val.length>0&&val.charAt(val.length-1)==='\n') html+='\n';
 	bd.innerHTML=html;
 	bd.style.display='block';
-	area.classList.add('search-active');
+	if(hasSearch) area.classList.add('search-active'); else area.classList.remove('search-active');
+	if(hasJson) area.classList.add('json-active'); else area.classList.remove('json-active');
 	syncSearchScroll();
 }
 function openSearch(){
