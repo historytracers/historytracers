@@ -4249,6 +4249,159 @@ function htSyncBreakButton() {
     return 0;
 }
 
+// Top-bar preference persistence: language, calendar, break interval and
+// letter size are kept in localStorage. The first visit stores the current
+// selections; any user change updates them; every later visit restores the
+// latest configuration before the page content loads. Explicit URL query
+// parameters (?lang=, ?cal=, ?rec=, ?font=) keep precedence over the stored
+// values because they represent a deliberate shared link.
+var htPrefsKeys = {
+    lang: 'ht_lang',
+    calendar: 'ht_calendar',
+    recreio: 'ht_recreio',
+    font: 'ht_font_size'
+};
+
+function htPrefsRead(key) {
+    try {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem) {
+            var v = localStorage.getItem(key);
+            if (typeof v === 'string' && v.length > 0 && v.length <= 64) {
+                return v;
+            }
+        }
+    } catch (e) {
+    }
+    return '';
+}
+
+function htPrefsWrite(key, value) {
+    try {
+        if (typeof localStorage !== 'undefined' && localStorage.setItem) {
+            if (typeof value === 'string' && value.length > 0 && value.length <= 64) {
+                localStorage.setItem(key, value);
+                return true;
+            }
+        }
+    } catch (e) {
+    }
+    return false;
+}
+
+// Reports whether the given select currently offers the value as an option,
+// so only real choices are ever restored from storage.
+function htSelectHasValue(id, value) {
+    try {
+        if (!value) {
+            return false;
+        }
+        if (typeof document !== 'undefined' && document.querySelector) {
+            return !!document.querySelector('#' + id + ' option[value="' + value + '"]');
+        }
+    } catch (e) {
+    }
+    return false;
+}
+
+function htGetStoredLang() {
+    var v = htPrefsRead(htPrefsKeys.lang);
+    return htSelectHasValue('site_language', v) ? v : '';
+}
+
+function htGetStoredCalendar() {
+    var v = htPrefsRead(htPrefsKeys.calendar);
+    return htSelectHasValue('site_calendar', v) ? v : '';
+}
+
+function htGetStoredRecreio() {
+    var v = htPrefsRead(htPrefsKeys.recreio);
+    return htSelectHasValue('site_recreio', v) ? v : '';
+}
+
+// Assigns value to the select only when value is offered as an option.
+// A stored value whose option no longer exists (for example a language made
+// unavailable) falls back to the given default instead of leaving the
+// control blank; when nothing was ever stored the control is left untouched,
+// keeping its HTML default. Returns the value effectively selected, or ''
+// when the select is missing or the assignment did not take effect.
+function htApplySelectValue(id, value, fallback) {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return '';
+        }
+        var sel = document.getElementById(id);
+        if (!sel) {
+            return '';
+        }
+        var chosen = '';
+        if (value && htSelectHasValue(id, value)) {
+            chosen = value;
+        } else if (value && fallback && htSelectHasValue(id, fallback)) {
+            chosen = fallback;
+        }
+        if (chosen) {
+            try {
+                sel.value = chosen;
+            } catch (eVal) {
+                return '';
+            }
+        }
+        var actual = '';
+        try {
+            actual = sel.value || '';
+        } catch (eRead) {
+        }
+        if (chosen && actual !== chosen) {
+            return '';
+        }
+        return actual;
+    } catch (e) {
+    }
+    return '';
+}
+
+// Applies the latest stored configuration to the top-bar selects. Selects
+// without a valid stored value are left untouched, keeping their HTML
+// defaults until the page initializer resolves them.
+function htRestoreStoredPrefs() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return false;
+        }
+        var lang = htApplySelectValue('site_language', htPrefsRead(htPrefsKeys.lang), 'en-US');
+        var cal = htApplySelectValue('site_calendar', htPrefsRead(htPrefsKeys.calendar), 'gregory');
+        var rec = htApplySelectValue('site_recreio', htPrefsRead(htPrefsKeys.recreio), '30');
+        var font = htApplySelectValue('site_font_size', htPrefsRead(htPrefsKeys.font), 'default');
+        htApplyFontSize(font || 'default');
+        return !!(lang || cal || rec || font);
+    } catch (e) {
+    }
+    return false;
+}
+
+// Stores the current top-bar selections, so the first visit records them
+// and later programmatic resolutions (URL parameters, defaults) persist.
+// Only values still offered as options are stored, so a selection left
+// blank by a removed option can never overwrite the stored configuration.
+function htStoreTopPrefs() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return false;
+        }
+        var ids = ['site_language', 'site_calendar', 'site_recreio', 'site_font_size'];
+        var keys = [htPrefsKeys.lang, htPrefsKeys.calendar, htPrefsKeys.recreio, htPrefsKeys.font];
+        for (var i = 0; i < ids.length; i++) {
+            var sel = document.getElementById(ids[i]);
+            if (sel && sel.value && htSelectHasValue(ids[i], sel.value)) {
+                htPrefsWrite(keys[i], sel.value);
+            }
+        }
+        return true;
+    } catch (e) {
+    }
+    return false;
+}
+
 // Letter-size control: the visible control is a text-height symbol
 // (#site_font_size_btn) overlaying the native select (#site_font_size).
 // Three options: small, default (current font) and large. Default keeps
@@ -4396,6 +4549,7 @@ function htOpenNativeSelect(id) {
 
 if (typeof document !== 'undefined' && document.addEventListener) {
     document.addEventListener('DOMContentLoaded', function() {
+        htRestoreStoredPrefs();
         htUpdateLayoutGutter();
         htSyncTopBanner();
         htFitCalendarSelect();
@@ -4405,12 +4559,15 @@ if (typeof document !== 'undefined' && document.addEventListener) {
     });
     document.addEventListener('change', function(e) {
         if (e && e.target && e.target.id === 'site_calendar') {
+            htPrefsWrite(htPrefsKeys.calendar, e.target.value);
             htFitCalendarSelect();
         }
         if (e && e.target && e.target.id === 'site_language') {
+            htPrefsWrite(htPrefsKeys.lang, e.target.value);
             htSyncLanguageButton();
         }
         if (e && e.target && e.target.id === 'site_recreio') {
+            htPrefsWrite(htPrefsKeys.recreio, e.target.value);
             htSyncBreakButton();
         }
         if (e && e.target && e.target.id === 'site_font_size') {
