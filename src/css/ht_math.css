@@ -39,6 +39,16 @@
   background: darkgray;
 }
 
+/* Word-based formulas (e.g. "Total supports = Total pieces × number of
+   supports"). MathML cannot break lines, so long formulas overflow the
+   .first_steps_reflection box on phones. Rendering the words as text with the
+   math font keeps the look of the other formulas and lets them wrap. */
+.htFormulaText {
+  font-size: 1.5em;
+  font-family: math, "Cambria Math", "STIX Two Math", serif;
+  overflow-wrap: break-word;
+}
+
 .chart:after {
   content: ' ';
   display: block; position: relative;
@@ -3657,5 +3667,287 @@ p.desc svg {
   .htRectVTick,
   .htRectHTick {
     font-size: 0.55em;
+  }
+}
+
+/*
+ * Greater or Smaller? game (content 548450ef-1b1a-4b9e-b578-2fef47abbd5b).
+ */
+.htGreaterSmallerGame {
+  margin: 1em auto;
+  max-width: 42em;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.htGreaterSmallerLevel {
+  display: block;
+  font-weight: bold;
+  color: #2c5f8a;
+  margin-bottom: 0.25em;
+}
+
+.htGreaterSmallerQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htGreaterSmallerCards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.htGreaterSmallerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 6em;
+  max-width: 100%;
+  padding: 0.5em 1em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.htGreaterSmallerLabel {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #555;
+}
+
+.htGreaterSmallerValue {
+  font-size: 1.6em;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.htGreaterSmallerOp {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2c5f8a;
+}
+
+.htGreaterSmallerButtonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htGreaterSmallerButton {
+  padding: 0.5em 1.2em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htGreaterSmallerButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htGreaterSmallerButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.htGreaterSmallerFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+}
+
+.htGreaterSmallerFeedback.htGreaterSmallerCorrect {
+  color: green;
+}
+
+.htGreaterSmallerFeedback.htGreaterSmallerWrong {
+  color: #c0392b;
+}
+
+.htGreaterSmallerNextContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htGreaterSmallerHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htGreaterSmallerValue {
+    font-size: 1.2em;
+  }
+
+  .htGreaterSmallerOp {
+    font-size: 1.5em;
+  }
+}
+
+/*
+ * Grouping in Threes game (content 931e0f32-bdc4-4f96-9039-e49cd9d06119).
+ */
+.htGroupThreesGame {
+  margin: 1em auto;
+  max-width: 52em;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.htGroupThreesColumns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1em;
+}
+
+.htGroupThreesPlay {
+  flex: 1 1 20em;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.htGroupThreesTable {
+  flex: 0 1 18em;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.htGroupThreesLevel {
+  display: block;
+  font-weight: bold;
+  color: #2c5f8a;
+  margin-bottom: 0.25em;
+}
+
+.htGroupThreesQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+.htGroupThreesTotal {
+  display: block;
+  color: #555;
+}
+
+.htGroupThreesElements {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  max-width: 100%;
+  margin: 0.5em auto;
+  min-height: 2em;
+}
+
+.htGroupThreesElement {
+  font-size: 1.5em;
+  line-height: 1.1;
+}
+
+.htGroupThreesGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  padding: 0.15em 0.35em;
+  margin: 0.1em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+}
+
+.htGroupThreesButtonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4em;
+  margin-top: 0.5em;
+}
+
+.htGroupThreesButton {
+  min-width: 2.4em;
+  padding: 0.4em 0.8em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htGroupThreesButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htGroupThreesButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.htGroupThreesFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+}
+
+.htGroupThreesFeedback.htGroupThreesCorrect {
+  color: green;
+}
+
+.htGroupThreesFeedback.htGroupThreesWrong {
+  color: #c0392b;
+}
+
+.htGroupThreesNextContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htGroupThreesTableTitle {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.htGroupThreesTable #mt3,
+.htGroupThreesTable #mtTable3 {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.htGroupThreesHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htGroupThreesElement {
+    font-size: 1.25em;
   }
 }
