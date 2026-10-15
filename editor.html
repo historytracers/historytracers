@@ -660,17 +660,44 @@ function saveEditorState(){
 	tabs[currentTab].scrollPos=area.scrollTop;
 }
 
+var gutterLineCount=-1;
+var gutterErrKey=null;
 function updateLineNumbers(){
 	var area=document.getElementById('editorArea');
 	var gutter=document.getElementById('lineNumbers');
-	var lines=area.value.split('\n');
+	if(!gutter||!area) return;
+	var val=area.value;
+	// Count lines without allocating one string per line: split() is costly for
+	// the large content files and this runs on every change/keystroke.
+	var count=1;
+	for(var i=0;i<val.length;i++){ if(val.charCodeAt(i)===10) count++; }
+	if(gutterLineCount<0){ gutter.innerHTML=''; gutterLineCount=0; }
 	var errLines=(currentTab>=0&&currentTab<tabs.length)?(tabs[currentTab].errorLines||[]):[];
-	var html='';
-	for(var i=1;i<=lines.length;i++){
-		var cls=errLines.indexOf(i)>=0?' class="line-num line-error"':' class="line-num"';
-		html+='<div'+cls+'>'+i+'</div>';
+	var errKey=errLines.join(',');
+	if(count>gutterLineCount){
+		var frag=document.createDocumentFragment();
+		for(var n=gutterLineCount+1;n<=count;n++){
+			var d=document.createElement('div');
+			d.className='line-num';
+			d.textContent=n;
+			frag.appendChild(d);
+		}
+		gutter.appendChild(frag);
+		gutterLineCount=count;
+	}else if(count<gutterLineCount){
+		for(var r=gutterLineCount;r>count;r--){
+			if(gutter.lastChild)gutter.removeChild(gutter.lastChild);
+		}
+		gutterLineCount=count;
 	}
-	gutter.innerHTML=html;
+	if(gutterErrKey!==errKey){
+		var kids=gutter.children;
+		for(var k=0;k<kids.length;k++){
+			var cls=errLines.indexOf(k+1)>=0?'line-num line-error':'line-num';
+			if(kids[k].className!==cls)kids[k].className=cls;
+		}
+		gutterErrKey=errKey;
+	}
 }
 
 function setErrorLines(lines){
