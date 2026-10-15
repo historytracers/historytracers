@@ -4249,6 +4249,246 @@ function htSyncBreakButton() {
     return 0;
 }
 
+// Top-bar preference persistence: language, calendar, break interval and
+// letter size are kept in localStorage. The first visit stores the current
+// selections; any user change updates them; every later visit restores the
+// latest configuration before the page content loads. Explicit URL query
+// parameters (?lang=, ?cal=, ?rec=, ?font=) keep precedence over the stored
+// values because they represent a deliberate shared link.
+var htPrefsKeys = {
+    lang: 'ht_lang',
+    calendar: 'ht_calendar',
+    recreio: 'ht_recreio',
+    font: 'ht_font_size'
+};
+
+function htPrefsRead(key) {
+    try {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem) {
+            var v = localStorage.getItem(key);
+            if (typeof v === 'string' && v.length > 0 && v.length <= 64) {
+                return v;
+            }
+        }
+    } catch (e) {
+    }
+    return '';
+}
+
+function htPrefsWrite(key, value) {
+    try {
+        if (typeof localStorage !== 'undefined' && localStorage.setItem) {
+            if (typeof value === 'string' && value.length > 0 && value.length <= 64) {
+                localStorage.setItem(key, value);
+                return true;
+            }
+        }
+    } catch (e) {
+    }
+    return false;
+}
+
+// Reports whether the given select currently offers the value as an option,
+// so only real choices are ever restored from storage.
+function htSelectHasValue(id, value) {
+    try {
+        if (!value) {
+            return false;
+        }
+        if (typeof document !== 'undefined' && document.querySelector) {
+            return !!document.querySelector('#' + id + ' option[value="' + value + '"]');
+        }
+    } catch (e) {
+    }
+    return false;
+}
+
+function htGetStoredLang() {
+    var v = htPrefsRead(htPrefsKeys.lang);
+    return htSelectHasValue('site_language', v) ? v : '';
+}
+
+function htGetStoredCalendar() {
+    var v = htPrefsRead(htPrefsKeys.calendar);
+    return htSelectHasValue('site_calendar', v) ? v : '';
+}
+
+function htGetStoredRecreio() {
+    var v = htPrefsRead(htPrefsKeys.recreio);
+    return htSelectHasValue('site_recreio', v) ? v : '';
+}
+
+// Detects the calendar used by the environment (browser locale) and maps it
+// to one of the site calendar values. Returns '' only when no calendar
+// could be identified at all; callers fall back to 'gregory' instead.
+function htDetectLocalCalendar() {
+    try {
+        var cal = '';
+        if (typeof Intl !== 'undefined' && Intl.DateTimeFormat) {
+            var fmt = new Intl.DateTimeFormat();
+            if (fmt && typeof fmt.resolvedOptions === 'function') {
+                var ro = fmt.resolvedOptions();
+                if (ro && typeof ro.calendar === 'string') {
+                    cal = ro.calendar.toLowerCase();
+                }
+            }
+        }
+        if (!cal) {
+            return '';
+        }
+        // Intl names several Islamic variants; the site offers a single one.
+        if (cal.indexOf('islamic') === 0) {
+            return 'islamic';
+        }
+        switch (cal) {
+            case 'gregory':
+            case 'iso8601':
+                return 'gregory';
+            case 'hebrew':
+                return 'hebrew';
+            case 'persian':
+                return 'persian';
+            case 'chinese':
+                return 'chinese';
+            case 'japanese':
+                return 'japanese';
+            case 'indian':
+                return 'shaka';
+            default:
+                return '';
+        }
+    } catch (e) {
+    }
+    return '';
+}
+
+// Fallback resolvers for stale or missing stored values. They never return
+// an empty value: the language resolver identifies the environment idiom
+// ('en-' maps to 'en-US', 'es-' to 'es-ES', 'pt-' to 'pt-BR') and defaults
+// to 'en-US' when none of the three is found; the calendar resolver maps
+// the environment calendar (Gregorian, Muslim and the other supported
+// calendars) and defaults to 'gregory' when nothing is found. Whether the
+// resolved value is actually offered is still verified before any selection
+// (see htApplySelectValue).
+function htResolveLangFallback() {
+    try {
+        var lang = '';
+        if (typeof navigator !== 'undefined' && navigator) {
+            lang = navigator.language || navigator.userLanguage || '';
+        }
+        if (typeof lang === 'string' && lang.length >= 2) {
+            var prefix = lang.substring(0, 2).toLowerCase();
+            if (prefix === 'es') {
+                return 'es-ES';
+            }
+            if (prefix === 'pt') {
+                return 'pt-BR';
+            }
+            if (prefix === 'en') {
+                return 'en-US';
+            }
+        }
+    } catch (e) {
+    }
+    return 'en-US';
+}
+
+function htResolveCalendarFallback() {
+    try {
+        var d = htDetectLocalCalendar();
+        if (d) {
+            return d;
+        }
+    } catch (e) {
+    }
+    return 'gregory';
+}
+
+// Assigns value to the select only when value is offered as an option.
+// When value is missing or its option no longer exists (for example a
+// language made unavailable), the environment-aware fallback is used
+// instead of leaving the control blank; only when there is neither a
+// usable value nor a usable fallback is the control left untouched.
+// Returns the value effectively selected, or '' when the select is missing
+// or the assignment did not take effect.
+function htApplySelectValue(id, value, fallback) {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return '';
+        }
+        var sel = document.getElementById(id);
+        if (!sel) {
+            return '';
+        }
+        var chosen = '';
+        if (value && htSelectHasValue(id, value)) {
+            chosen = value;
+        } else if (fallback && htSelectHasValue(id, fallback)) {
+            chosen = fallback;
+        }
+        if (chosen) {
+            try {
+                sel.value = chosen;
+            } catch (eVal) {
+                return '';
+            }
+        }
+        var actual = '';
+        try {
+            actual = sel.value || '';
+        } catch (eRead) {
+        }
+        if (chosen && actual !== chosen) {
+            return '';
+        }
+        return actual;
+    } catch (e) {
+    }
+    return '';
+}
+
+// Applies the latest stored configuration to the top-bar selects. Selects
+// without a valid stored value are left untouched, keeping their HTML
+// defaults until the page initializer resolves them.
+function htRestoreStoredPrefs() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return false;
+        }
+        var lang = htApplySelectValue('site_language', htPrefsRead(htPrefsKeys.lang), htResolveLangFallback());
+        var cal = htApplySelectValue('site_calendar', htPrefsRead(htPrefsKeys.calendar), htResolveCalendarFallback());
+        var rec = htApplySelectValue('site_recreio', htPrefsRead(htPrefsKeys.recreio), '30');
+        var font = htApplySelectValue('site_font_size', htPrefsRead(htPrefsKeys.font), 'default');
+        htApplyFontSize(font || 'default');
+        return !!(lang || cal || rec || font);
+    } catch (e) {
+    }
+    return false;
+}
+
+// Stores the current top-bar selections, so the first visit records them
+// and later programmatic resolutions (URL parameters, defaults) persist.
+// Only values still offered as options are stored, so a selection left
+// blank by a removed option can never overwrite the stored configuration.
+function htStoreTopPrefs() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return false;
+        }
+        var ids = ['site_language', 'site_calendar', 'site_recreio', 'site_font_size'];
+        var keys = [htPrefsKeys.lang, htPrefsKeys.calendar, htPrefsKeys.recreio, htPrefsKeys.font];
+        for (var i = 0; i < ids.length; i++) {
+            var sel = document.getElementById(ids[i]);
+            if (sel && sel.value && htSelectHasValue(ids[i], sel.value)) {
+                htPrefsWrite(keys[i], sel.value);
+            }
+        }
+        return true;
+    } catch (e) {
+    }
+    return false;
+}
+
 // Letter-size control: the visible control is a text-height symbol
 // (#site_font_size_btn) overlaying the native select (#site_font_size).
 // Three options: small, default (current font) and large. Default keeps
@@ -4396,6 +4636,7 @@ function htOpenNativeSelect(id) {
 
 if (typeof document !== 'undefined' && document.addEventListener) {
     document.addEventListener('DOMContentLoaded', function() {
+        htRestoreStoredPrefs();
         htUpdateLayoutGutter();
         htSyncTopBanner();
         htFitCalendarSelect();
@@ -4405,12 +4646,15 @@ if (typeof document !== 'undefined' && document.addEventListener) {
     });
     document.addEventListener('change', function(e) {
         if (e && e.target && e.target.id === 'site_calendar') {
+            htPrefsWrite(htPrefsKeys.calendar, e.target.value);
             htFitCalendarSelect();
         }
         if (e && e.target && e.target.id === 'site_language') {
+            htPrefsWrite(htPrefsKeys.lang, e.target.value);
             htSyncLanguageButton();
         }
         if (e && e.target && e.target.id === 'site_recreio') {
+            htPrefsWrite(htPrefsKeys.recreio, e.target.value);
             htSyncBreakButton();
         }
         if (e && e.target && e.target.id === 'site_font_size') {
