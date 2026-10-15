@@ -74,6 +74,7 @@ select#langSelect option{color:#000;background:#fff}
 #searchHighlightBackdrop mark{background:#e65100;color:transparent;border-radius:2px}
 #searchHighlightBackdrop mark.current{background:#ff9800;color:transparent;outline:1px solid #ffcc80}
 #searchHighlightBackdrop .jkey{font-weight:bold;color:#eceff1}
+#searchHighlightBackdrop .hl-line{white-space:pre-wrap;word-wrap:break-word}
 #editorArea.search-active,#editorArea.json-active{background:transparent !important;position:relative;z-index:1}
 .design-light #searchHighlightBackdrop{background:#fff}
 .design-light #searchHighlightBackdrop mark{background:#ffcc80}
@@ -1673,12 +1674,12 @@ function pasteFile(){
 
 var searchMatches=[];
 var searchIndex=-1;
-// JSON key highlighting rebuilds the whole overlay on every change, which is
-// expensive for large content files. While the user is typing we postpone it
-// (see scheduleSearchHighlight) and only re-render once typing pauses.
-var jsonHighlightTimer=null;
-var JSON_HIGHLIGHT_SYNC_LIMIT=100000; // bytes: smaller files are still rendered synchronously
-var JSON_HIGHLIGHT_DELAY=150;         // ms of idle typing before refreshing larger files
+// JSON key highlighting renders one block element per source line so an edit can
+// re-render just the changed line instead of rebuilding (and re-laying out) the
+// whole document, which is what made editing large files slow.
+// hlLineTexts holds the text currently rendered so an edit can be diffed down to
+// the affected lines.
+var hlLineTexts=null;
 
 function syncSearchScroll(){
 	var area=document.getElementById('editorArea');
@@ -1700,37 +1701,93 @@ function getJsonKeyRanges(val){
 	}
 	return ranges;
 }
+// Key ranges within a single line. `nextLine` lets a key whose ':' starts the
+// next line still match, mirroring the "\s*:" lookahead of getJsonKeyRanges.
+function getJsonKeyRangesInLine(line,nextLine){
+	var ranges=[];
+	var re=/"(?:[^"\\\n]|\\.)*"/g;
+	var m;
+	while((m=re.exec(line))!==null){
+		var after=line.substring(re.lastIndex);
+		if(/^\s*:/.test(after)||(after.length===0&&nextLine!==undefined&&/^\s*:/.test(nextLine))){
+			ranges.push([m.index,m.index+m[0].length]);
+		}
+		if(m.index===re.lastIndex) re.lastIndex++;
+	}
+	return ranges;
+}
+function jsonLineHtml(line,nextLine){
+	var ranges=getJsonKeyRangesInLine(line,nextLine);
+	var html='',last=0;
+	for(var k=0;k<ranges.length;k++){
+		var ks=ranges[k][0],ke=ranges[k][1];
+		if(ks>last) html+=escHtmlText(line.substring(last,ks));
+		html+='<span class="jkey">'+escHtmlText(line.substring(ks,ke))+'</span>';
+		last=ke;
+	}
+	html+=escHtmlText(line.substring(last));
+	return html;
+}
+function makeJsonLineNode(line,nextLine){
+	var el=document.createElement('div');
+	el.className='hl-line';
+	if(line.length===0){ el.appendChild(document.createElement('br')); }
+	else{ el.innerHTML=jsonLineHtml(line,nextLine); }
+	return el;
+}
+// Build the whole overlay in one string so the initial render (and any large
+// change) pays for a single HTML parse instead of thousands of DOM insertions.
+function jsonOverlayHtml(lines){
+	var html='';
+	for(var i=0;i<lines.length;i++){
+		html+='<div class="hl-line">';
+		if(lines[i].length===0) html+='<br>';
+		else html+=jsonLineHtml(lines[i], i+1<lines.length?lines[i+1]:undefined);
+		html+='</div>';
+	}
+	return html;
+}
+// Incremental per-line render: diff the new lines against what is already in the
+// overlay (common prefix + suffix) and rebuild only the changed block, so a
+// normal keystroke touches a single line instead of the whole document.
+function renderJsonOverlay(bd,lines){
+	var prev=hlLineTexts;
+	if(!prev){
+		bd.innerHTML=jsonOverlayHtml(lines);
+		hlLineTexts=lines;
+		return;
+	}
+	var n=lines.length;
+	var start=0;
+	var min=Math.min(prev.length,n);
+	while(start<min&&prev[start]===lines[start]) start++;
+	var suf=0;
+	while(suf<min-start&&prev[prev.length-1-suf]===lines[n-1-suf]) suf++;
+	var endOld=prev.length-suf;
+	var endNew=n-suf;
+	var kids=bd.children;
+	var ref=(endOld<kids.length)?kids[endOld]:null;
+	var removeCount=endOld-start;
+	for(var r=0;r<removeCount;r++) bd.removeChild(kids[start]);
+	var frag=document.createDocumentFragment();
+	for(var i=start;i<endNew;i++){
+		frag.appendChild(makeJsonLineNode(lines[i], i+1<n?lines[i+1]:undefined));
+	}
+	if(ref) bd.insertBefore(frag,ref); else bd.appendChild(frag);
+	hlLineTexts=lines;
+}
 function updateSearchHighlight(){
-	if(jsonHighlightTimer){ clearTimeout(jsonHighlightTimer); jsonHighlightTimer=null; }
 	var area=document.getElementById('editorArea');
 	var bd=document.getElementById('searchHighlightBackdrop');
 	if(!bd||!area) return;
 	var query=document.getElementById('searchInput').value;
 	var hasSearch=!!(query&&searchMatches.length>0);
 	var val=area.value;
-	var jsonRanges=[];
-	if(isJsonFile()&&val.length<=500000){
-		try{ jsonRanges=getJsonKeyRanges(val); }catch(e){ jsonRanges=[]; }
-	}
-	var hasJson=jsonRanges.length>0;
-	if(!hasSearch&&!hasJson){
-		bd.style.display='none';
-		bd.innerHTML='';
-		area.classList.remove('search-active');
-		area.classList.remove('json-active');
-		return;
-	}
-	var html='';
-	if(!hasSearch){
-		var last=0;
-		for(var k=0;k<jsonRanges.length;k++){
-			var ks=jsonRanges[k][0],ke=jsonRanges[k][1];
-			if(ks>last) html+=escHtmlText(val.substring(last,ks));
-			html+='<span class="jkey">'+escHtmlText(val.substring(ks,ke))+'</span>';
-			last=ke;
+	if(hasSearch){
+		var jsonRanges=[];
+		if(isJsonFile()&&val.length<=500000){
+			try{ jsonRanges=getJsonKeyRanges(val); }catch(e){ jsonRanges=[]; }
 		}
-		html+=escHtmlText(val.substring(last));
-	}else{
 		var qlen=query.length;
 		var cuts=[0,val.length];
 		var i;
@@ -1744,6 +1801,7 @@ function updateSearchHighlight(){
 			if(c>val.length) c=val.length;
 			if(uniq.length===0||uniq[uniq.length-1]!==c) uniq.push(c);
 		}
+		var html='';
 		var ki=0,si=0;
 		for(i=0;i<uniq.length-1;i++){
 			var s=uniq[i],e=uniq[i+1];
@@ -1761,35 +1819,29 @@ function updateSearchHighlight(){
 			}
 			html+=piece;
 		}
-	}
-	if(val.length>0&&val.charAt(val.length-1)==='\n') html+='\n';
-	bd.innerHTML=html;
-	bd.style.display='block';
-	if(hasSearch) area.classList.add('search-active'); else area.classList.remove('search-active');
-	if(hasJson) area.classList.add('json-active'); else area.classList.remove('json-active');
-	syncSearchScroll();
-}
-// Called while the user types in the editor. For large JSON files, defer the
-// full-overlay re-render until typing pauses so each keystroke stays cheap; the
-// textarea keeps its own background/text color, so only the bold key overlay is
-// briefly hidden (never the typed text). Small files and search navigation are
-// still rendered synchronously through updateSearchHighlight().
-function scheduleSearchHighlight(){
-	var area=document.getElementById('editorArea');
-	var isBig=isJsonFile()&&area&&area.value.length>JSON_HIGHLIGHT_SYNC_LIMIT;
-	if(!isBig){
-		if(jsonHighlightTimer){ clearTimeout(jsonHighlightTimer); jsonHighlightTimer=null; }
-		updateSearchHighlight();
+		if(val.length>0&&val.charAt(val.length-1)==='\n') html+='\n';
+		bd.innerHTML=html;
+		hlLineTexts=null;
+		bd.style.display='block';
+		area.classList.add('search-active');
+		area.classList.remove('json-active');
+		syncSearchScroll();
 		return;
 	}
-	if(jsonHighlightTimer) clearTimeout(jsonHighlightTimer);
-	var bd=document.getElementById('searchHighlightBackdrop');
+	// No active search: highlight JSON keys with the incremental per-line overlay.
+	if(isJsonFile()&&val.length>0&&val.length<=500000){
+		renderJsonOverlay(bd,val.split('\n'));
+		bd.style.display='block';
+		area.classList.remove('search-active');
+		area.classList.add('json-active');
+		syncSearchScroll();
+		return;
+	}
+	bd.style.display='none';
+	bd.innerHTML='';
+	hlLineTexts=null;
+	area.classList.remove('search-active');
 	area.classList.remove('json-active');
-	if(bd) bd.style.display='none';
-	jsonHighlightTimer=setTimeout(function(){
-		jsonHighlightTimer=null;
-		updateSearchHighlight();
-	}, JSON_HIGHLIGHT_DELAY);
 }
 function openSearch(){
 	var sb=document.getElementById('searchBar');
@@ -1910,7 +1962,7 @@ function searchKeydown(e){
 					document.getElementById('searchCount').textContent=(searchIndex+1)+' of '+searchMatches.length;
 					updateSearchHighlight();
 				}
-			} else scheduleSearchHighlight();
+			} else updateSearchHighlight();
 		});
 	}
 	var inp=document.getElementById('searchInput');
