@@ -32,10 +32,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788576549"
+      "1792018340"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -53,7 +55,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEste texto explorará conceptos abordados en el texto anterior (<htcite0>) para explicar la formación del átomo. Por eso, recomendamos estudiarlo antes de continuar.",
+               "text": "### Prerrequisitos\n\nEste texto explora las ideas que vimos en el texto anterior (<htcite0>) y las usa para explicar cómo se construye el átomo. Si las fracciones aún no te resultan familiares, te recomendamos estudiar ese texto antes de continuar.",
                "source": [
                   {
                      "type": 1,
@@ -80,7 +82,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nCuando estudiamos el átomo por primera vez (<htcite0>), observamos que nuestro entendimiento sobre él ha ido evolucionando con el tiempo. En términos generales, podemos decir que siempre hemos buscado algo que fuera indivisible.\n\nCon el avance del conocimiento, dejamos atrás la idea de un átomo indivisible para comprenderlo como una estructura formada por partículas elementales.",
+               "text": "### Introducción\n\nCuando estudiamos el átomo por primera vez (<htcite0>), observamos cómo cambió nuestra comprensión con el tiempo. En términos generales, podríamos decir que cada generación buscó algo indivisible — una parte que ya no pudiera dividirse.\n\nCon el avance del conocimiento dejamos atrás esa idea y empezamos a comprender el átomo como una estructura formada por partículas elementales. En este texto daremos un paso más: estudiaremos el átomo más pequeño que conocemos, el hidrógeno, y veremos de qué está hecho.",
                "source": [
                   {
                      "type": 1,
@@ -116,7 +118,7 @@
          "id": "SECTION_models",
          "text": [
             {
-               "text": "### Modelos Atómicos\n\nLa primera explicación del átomo que estudiamos —el modelo de Rutherford— proponía un átomo con un núcleo sólido compuesto por cargas positivas, los protones, y con electrones moviéndose a su alrededor. En ese mismo estudio, vimos que, años después, se descubrió otra partícula en el núcleo de los átomos pesados: el neutrón (<htcite0>).\n\n#### Casi allí\n\nEl modelo de Rutherford explicaba algunas mediciones observadas en el átomo, pero no todas. Es decir, era un modelo que aún necesitaba mejoras. Pero, ¿qué era exactamente lo que no explicaba?\n\n#### El Hidrógeno\n\nPara entender mejor lo que faltaba, estudiaremos el átomo más pequeño que conocemos: el átomo de hidrógeno.\n\nNuestros estudios sobre el átomo de hidrógeno muestran que posee internamente (<htcite1>):\n- Solo un protón en su núcleo;\n- Un electrón girando alrededor del núcleo.\n\nTeniendo en cuenta lo que ya estudiamos sobre fracciones (<htcite2>), podríamos decir que un átomo de hidrógeno puede representarse como:",
+               "text": "### Modelos Atómicos\n\nLa primera explicación del átomo que estudiamos —el modelo de Rutherford— proponía un átomo con un núcleo sólido formado por cargas positivas, los protones, y electrones girando a su alrededor. En ese mismo estudio vimos que, años después, se descubrió otra partícula en los núcleos de los átomos pesados: el neutrón (<htcite0>).\n\n#### Casi allí\n\nEl modelo de Rutherford explicaba algunas de las mediciones observadas en el átomo, pero no todas. Es decir, aún necesitaba mejoras. ¿Qué era exactamente lo que no lograba explicar?\n\n#### El hidrógeno\n\nPara entender lo que faltaba, estudiaremos el átomo más pequeño que conocemos: el hidrógeno. Es el átomo más simple de la naturaleza, y por eso es la mejor prueba para cualquier modelo atómico: si un modelo no explica el hidrógeno, tampoco explicará los átomos más grandes.\n\nLos estudios del átomo de hidrógeno muestran que su estructura interna es sencilla (<htcite1>):\n- un solo protón en el núcleo;\n- un electrón que gira a su alrededor.\n\nAplicando lo que ya sabemos de fracciones (<htcite2>), podríamos representar un átomo de hidrógeno así:",
                "source": [
                   {
                      "type": 1,
@@ -171,7 +173,7 @@
                "PostMention": ""
             },
             {
-               "text": "El **Cálculo 1** muestra cómo podemos representar el átomo mediante fracciones. Podemos leerlo de la siguiente manera: un átomo de hidrógeno tiene dos componentes (2/2) —una parte representada por el electrón que orbita el núcleo (1/2) y la otra por el protón dentro del núcleo (1/2).\n\nUsando el modelo de Rutherford, podríamos dibujarlo así:",
+               "text": "El **Cálculo 1** muestra cómo podemos representar el átomo mediante fracciones. Léelo así: un átomo de hidrógeno tiene dos componentes (2/2) — dos partes iguales que, juntas, forman el todo. Una es el electrón que orbita el núcleo (1/2) y la otra es el protón dentro del núcleo (1/2).\n\nUsando el modelo de Rutherford, podríamos dibujarlo así:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -189,7 +191,7 @@
                "PostMention": ""
             },
             {
-               "text": "En el **Gráfico 1** observamos que el protón, representado por el círculo blanco más grande con el signo positivo (+), es mucho mayor que el electrón, el círculo más pequeño de color naranja con el signo negativo (–).\n\nCon esta información, ahora podemos concentrarnos en algo que el modelo de Rutherford no podía explicar.\n\n#### El Átomo de Bohr\n\nAl observar una estrella, podemos saber exactamente de qué está compuesta analizando la luz que emite hacia nosotros (<htcite0>).\n\nEn el laboratorio, también podemos realizar un experimento similar. Al emitir luz continua sobre un gas y observar qué longitudes de onda no están presentes (porque fueron absorbidas), podemos identificar los elementos que contiene ese gas (<htcite1>).\n\nEl **Gráfico 2** muestra una simplificación del espectro del átomo de hidrógeno, estudiado por Lyman, Balmer y Paschen (<htcite2>):",
+               "text": "En el **Gráfico 1** vemos que el protón —el círculo blanco mayor con el signo más (+)— es mucho mayor que el electrón —el círculo rosa menor con el signo menos (–).\n\nCon esto en mente, podemos mirar ahora lo que el modelo de Rutherford no lograba explicar.\n\n#### El átomo de Bohr\n\nLa luz lleva información de la materia que la produjo. Al separar la luz de una estrella en un espectro y leer qué colores están presentes, podemos saber exactamente de qué está hecha esa estrella (<htcite0>).\n\nPodemos hacer lo mismo en el laboratorio. Si hacemos pasar luz continua a través de un gas y separamos la luz que sale, faltan algunos colores: el gas los absorbió. Como cada gas absorbe siempre el mismo conjunto de colores, esas líneas ausentes funcionan como una huella dactilar que identifica al elemento (<htcite1>).\n\nEl **Gráfico 2** muestra esa huella del hidrógeno: una versión simplificada de su espectro, trazada por Lyman, Balmer y Paschen (<htcite2>):",
                "source": [
                   {
                      "type": 1,
@@ -235,7 +237,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><svg viewbox=\"0 0 800 200\"><rect width=\"800\" height=\"180\" fill=\"#0f172a\"/><text x=\"400\" y=\"30\" text-anchor=\"middle\" fill=\"#e2e8f0\" font-family=\"Arial, sans-serif\" font-size=\"20\" font-weight=\"bold\">Representación de la emisión del átomo de Hidrógeno</text> <g transform=\"translate(50, 80)\"><line x1=\"0\" y1=\"70\" x2=\"700\" y2=\"70\" stroke=\"#64748b\" stroke-width=\"2\"/><text x=\"0\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">1</text><text x=\"80\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">90</text><text x=\"115\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">130</text><text x=\"165\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">365</text><text x=\"518\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">700</text><text x=\"590\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">820</text><text x=\"350\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">Comprimento de onda (nm)</text><text x=\"100\" y=\"0\" text-anchor=\"middle\" fill=\"#fbbf24\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Lyman</text><text x=\"200\" y=\"0\" text-anchor=\"middle\" fill=\"#34d399\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Balmer</text><text x=\"600\" y=\"0\" text-anchor=\"middle\" fill=\"#c084fc\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Paschen</text><rect x=\"175\" y=\"15\" width=\"350\" height=\"40\" fill=\"url(#visibleGradient)\" opacity=\"0.3\"/> <text x=\"350\" y=\"0\" text-anchor=\"middle\" fill=\"#e2e8f0\" font-family=\"Arial, sans-serif\" font-size=\"10\">Luz visível</text><line x1=\"91\" y1=\"15\" x2=\"91\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"1\"/><line x1=\"93\" y1=\"15\" x2=\"93\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"3\"/><line x1=\"102\" y1=\"15\" x2=\"102\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"1\"/> <line x1=\"175\" y1=\"15\" x2=\"175\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"2.0\"/><line x1=\"180\" y1=\"15\" x2=\"180\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"185\" y1=\"15\" x2=\"185\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"190\" y1=\"15\" x2=\"190\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"200\" y1=\"15\" x2=\"200\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/> <line x1=\"224\" y1=\"15\" x2=\"224\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/><line x1=\"274\" y1=\"15\" x2=\"274\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/><line x1=\"455\" y1=\"15\" x2=\"455\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/> <line x1=\"600\" y1=\"15\" x2=\"600\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"3.0\"/> <line x1=\"605\" y1=\"15\" x2=\"605\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"3.0\"/><line x1=\"609\" y1=\"15\" x2=\"609\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"612\" y1=\"15\" x2=\"612\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"620\" y1=\"15\" x2=\"620\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"630\" y1=\"15\" x2=\"630\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"650\" y1=\"15\" x2=\"650\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"675\" y1=\"15\" x2=\"675\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><defs><linearGradient id=\"visibleGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#8b5cf6\"/><stop offset=\"20%\" stop-color=\"#3b82f6\"/><stop offset=\"40%\" stop-color=\"#22c55e\"/><stop offset=\"60%\" stop-color=\"#eab308\"/><stop offset=\"80%\" stop-color=\"#f97316\"/><stop offset=\"100%\" stop-color=\"#ef4444\"/></linearGradient></defs></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Espectro del átomo de hidrógeno.</p>",
+               "text": "<p class=\"desc\"><svg viewbox=\"0 0 800 200\"><rect width=\"800\" height=\"180\" fill=\"#0f172a\"/><text x=\"400\" y=\"30\" text-anchor=\"middle\" fill=\"#e2e8f0\" font-family=\"Arial, sans-serif\" font-size=\"20\" font-weight=\"bold\">Espectro de emisión del átomo de hidrógeno</text> <g transform=\"translate(50, 80)\"><line x1=\"0\" y1=\"70\" x2=\"700\" y2=\"70\" stroke=\"#64748b\" stroke-width=\"2\"/><text x=\"0\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">1</text><text x=\"80\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">90</text><text x=\"115\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">130</text><text x=\"165\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">365</text><text x=\"518\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">700</text><text x=\"590\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">820</text><text x=\"350\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">Longitud de onda (nm)</text><text x=\"100\" y=\"0\" text-anchor=\"middle\" fill=\"#fbbf24\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Lyman</text><text x=\"200\" y=\"0\" text-anchor=\"middle\" fill=\"#34d399\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Balmer</text><text x=\"600\" y=\"0\" text-anchor=\"middle\" fill=\"#c084fc\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Paschen</text><rect x=\"175\" y=\"15\" width=\"350\" height=\"40\" fill=\"url(#visibleGradient)\" opacity=\"0.3\"/> <text x=\"350\" y=\"0\" text-anchor=\"middle\" fill=\"#e2e8f0\" font-family=\"Arial, sans-serif\" font-size=\"10\">Luz visible</text><line x1=\"91\" y1=\"15\" x2=\"91\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"1\"/><line x1=\"93\" y1=\"15\" x2=\"93\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"3\"/><line x1=\"102\" y1=\"15\" x2=\"102\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"1\"/> <line x1=\"175\" y1=\"15\" x2=\"175\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"2.0\"/><line x1=\"180\" y1=\"15\" x2=\"180\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"185\" y1=\"15\" x2=\"185\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"190\" y1=\"15\" x2=\"190\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"200\" y1=\"15\" x2=\"200\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/> <line x1=\"224\" y1=\"15\" x2=\"224\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/><line x1=\"274\" y1=\"15\" x2=\"274\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/><line x1=\"455\" y1=\"15\" x2=\"455\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/> <line x1=\"600\" y1=\"15\" x2=\"600\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"3.0\"/> <line x1=\"605\" y1=\"15\" x2=\"605\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"3.0\"/><line x1=\"609\" y1=\"15\" x2=\"609\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"612\" y1=\"15\" x2=\"612\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"620\" y1=\"15\" x2=\"620\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"630\" y1=\"15\" x2=\"630\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"650\" y1=\"15\" x2=\"650\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"675\" y1=\"15\" x2=\"675\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><defs><linearGradient id=\"visibleGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#8b5cf6\"/><stop offset=\"20%\" stop-color=\"#3b82f6\"/><stop offset=\"40%\" stop-color=\"#22c55e\"/><stop offset=\"60%\" stop-color=\"#eab308\"/><stop offset=\"80%\" stop-color=\"#f97316\"/><stop offset=\"100%\" stop-color=\"#ef4444\"/></linearGradient></defs></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Espectro del átomo de hidrógeno.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -244,7 +246,7 @@
                "PostMention": ""
             },
             {
-               "text": "La ausencia de líneas que cubran toda la imagen, como se ve en el **Gráfico 2**, llevó a Bohr a mejorar el modelo atómico propuesto por Rutherford.\n\nSegún Bohr, los electrones no pueden moverse libremente alrededor del núcleo; en cambio, se mueven solo en órbitas bien definidas.\n\nSe desplazan hacia órbitas mayores al recibir energía (luz) y regresan a órbitas menores al emitir luz (<htcite0>).\n\nEl **Gráfico 3** muestra el modelo de Bohr para el átomo de hidrógeno. En esta representación, el núcleo está pintado de amarillo para diferenciar las órbitas posibles del electrón.",
+               "text": "El **Gráfico 2** muestra que el espectro no es una banda continua de colores: es una serie de líneas separadas por espacios oscuros. Esa observación llevó a Bohr a mejorar el modelo propuesto por Rutherford.\n\nSegún Bohr, los electrones no pueden moverse libremente por donde quieran alrededor del núcleo; solo pueden ocupar órbitas bien definidas.\n\nUn electrón salta a una órbita mayor cuando absorbe energía (luz) y vuelve a una órbita menor cuando emite luz (<htcite0>). Cada uno de esos saltos corresponde a una de las líneas del **Gráfico 2**.\n\nEl **Gráfico 3** muestra el modelo de Bohr para el átomo de hidrógeno. En esta representación, el núcleo está pintado de amarillo para distinguirlo de las órbitas posibles del electrón.",
                "source": [
                   {
                      "type": 1,
@@ -280,7 +282,7 @@
          "id": "SECTION_partial",
          "text": [
             {
-               "text": "### Expandiendo el conocimiento\n\nCuando colisionamos partículas entre sí, podemos entender cómo está constituida la materia (**Figura 1**). Además de nuevos descubrimientos, esto también nos permite confirmar predicciones teóricas — entre ellas, el hecho de que los protones y neutrones tienen partículas internas (<htcite0>; <htcite1>).",
+               "text": "### Expandiendo el conocimiento\n\nOtra manera de mirar dentro de la materia es hacer chocar partículas entre sí y estudiar lo que sale (**Figura 1**). Eso es lo que hacen los aceleradores de partículas, como el Gran Colisionador de Hadrones del CERN: además de producir nuevos descubrimientos, estas colisiones nos permiten confirmar predicciones teóricas — entre ellas, el hecho de que los protones y neutrones están formados por partículas más pequeñas (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -336,7 +338,7 @@
                "PostMention": ""
             },
             {
-               "text": "La evolución de nuestro conocimiento sobre el protón no se ha detenido desde su descubrimiento (<htcite0>). Hoy en día, sabemos que dentro de los protones hay tres partículas que llamamos quarks, que, al igual que los electrones, son partículas fundamentales.\n\nLos quarks dentro de los protones, a su vez, se clasifican en dos tipos: *quarks up* y *quarks down*. En el caso del protón, sabemos que posee dos *ups* y un *down* (<htcite1>).",
+               "text": "Nuestro conocimiento sobre el protón ha seguido evolucionando desde su descubrimiento (<htcite0>). Hoy sabemos que el protón no es una partícula fundamental: está formado por tres partículas más pequeñas llamadas quarks, que — al igual que los electrones — no muestran estructura interna propia.\n\nLos quarks tienen varios tipos; los que se encuentran dentro de los protones se llaman *up* y *down*. Un protón contiene exactamente dos quarks *up* y un quark *down* (<htcite1>) — un detalle que usaremos en la próxima sección.",
                "source": [
                   {
                      "type": 1,
@@ -370,7 +372,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Representación</b><br /><br />Comenzamos nuestro estudio del átomo de hidrógeno con dos partículas, y las separamos en dos grupos (1/2), que, al ser sumados, retornan al átomo total (1).<br /><br />Descubrimos que el protón posee tres partículas elementales en su interior, conocidas como quarks. Es decir, el hidrógeno tendría, al menos, cuatro partículas fundamentales.<br /><br />¿Cómo podemos representar todas estas partículas elementares usando fracciones?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Representación</b><br /><br />Comenzamos nuestro estudio del átomo de hidrógeno con dos partículas y las separamos en dos mitades iguales (1/2): una para el electrón y otra para el protón. Al sumarlas, recuperan el átomo total (1).<br /><br />Descubrimos entonces que el propio protón contiene tres partículas elementales, los quarks. Es decir, el hidrógeno involucra al menos cuatro partículas fundamentales.<br /><br />¿Cómo podríamos representar todas estas partículas elementales con fracciones?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -384,7 +386,7 @@
          "id": "SECTION_visual",
          "text": [
             {
-               "text": "### Representando\n\nUna vez más, recurriremos a una hoja que será dividida para representar cada partícula fundamental, con el fin de comprender las fracciones y cómo se relacionan con las divisiones.\n\nComencemos representando el **Cálculo 1** como si fuera una hoja dividida: el lado izquierdo representará el electrón y el derecho, el protón, tal como hicimos en el texto anterior (<htcite0>).",
+               "text": "### Representando\n\nUna vez más usaremos una hoja de papel, ahora dividida para representar cada partícula fundamental, de modo que podamos relacionar las fracciones con la división.\n\nRepresentemos el **Cálculo 1** como una hoja partida en dos: la mitad izquierda representa el electrón y la derecha el protón, tal como hicimos en el texto anterior (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -406,7 +408,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th>electrón</th><th>próton</th></tr><tr><td style=\"height: 300px;\"></td><td style=\"height: 300px;\"></td></tr> </table></p><p class=\"desc\"><b>Tabla 1</b>: Hoja dividida que representa el electrón y el protón.</p>",
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th>electrón</th><th>protón</th></tr><tr><td style=\"height: 300px;\"></td><td style=\"height: 300px;\"></td></tr> </table></p><p class=\"desc\"><b>Tabla 1</b>: Hoja dividida que representa el electrón y el protón.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -415,7 +417,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como vimos, el protón posee internamente otras tres partículas llamadas quarks. Visualmente, podemos inferir que la hoja del lado derecho (el protón) deberá dividirse en tres partes iguales:",
+               "text": "Como el protón contiene internamente otras tres partículas llamadas quarks, podemos ver que la mitad derecha de la hoja (el protón) deberá dividirse ahora en tres partes iguales:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -424,7 +426,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th>electrón</th><th>protón</th></tr><tr><td style=\"height: 300px;\" rowspan=\"3\"></td><td><i>quark up</i></td></tr> <tr><td><i>quark up</i></td></tr> <tr><td><i>quark down</i></td></tr> </table></p><p class=\"desc\"><b>Tabla 2</b>: Hoja dividida que representa el electrón y el protón con sus quarks visibles.</p>",
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th>electrón</th><th>protón</th></tr><tr><td style=\"height: 300px;\" rowspan=\"3\"></td><td style=\"height: 100px;\"><i>quark up</i></td></tr> <tr><td style=\"height: 100px;\"><i>quark up</i></td></tr> <tr><td style=\"height: 100px;\"><i>quark down</i></td></tr> </table></p><p class=\"desc\"><b>Tabla 2</b>: Hoja dividida que representa el electrón y el protón con sus quarks visibles.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -433,7 +435,7 @@
                "PostMention": ""
             },
             {
-               "text": "Antes de continuar con los cálculos relacionados con los quarks, es importante destacar que, aunque las hojas divididas puedan dar la impresión de que los electrones son más grandes que los protones, cuando hablamos del tamaño de las partículas, lo que realmente importa es el modelo de Bohr, mostrado en el **Gráfico 3**.\n\nAhora podemos pasar a la representación mediante fracciones.\n\n#### Los quarks en el protón\n\nSi trabajáramos únicamente con el protón y sus quarks de forma aislada, podríamos representar los tres quarks (ignorando por ahora el hecho de que sean dos *up* y uno *down*) de la siguiente manera:",
+               "text": "Antes de continuar con los cálculos de los quarks, una advertencia: la hoja es solo una manera de llevar la cuenta de las partes. En papel, las dos mitades se ven igual de grandes y dividir el protón en tres filas hace que sus piezas parezcan pequeñas, pero nada de eso dice algo sobre los tamaños reales. Los tamaños reales son los del modelo de Bohr del **Gráfico 3**.\n\nAhora podemos representar las partículas con fracciones.\n\n#### Los quarks en el protón\n\nEmpecemos por el protón solo. Si tomamos el protón como un todo (1) dividido en sus tres quarks — ignorando por ahora que dos son *up* y uno es *down* —, podemos escribir:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -451,7 +453,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Quarks y protones en el átomo\n\nEl **Cálculo 2** muestra cómo sería la división interna del protón, pero debemos recordar que, en realidad, este representa la mitad (1/2) del átomo de hidrógeno. Una vez más, recurriremos a un concepto del texto anterior (<htcite0>) para lograr una aproximación más precisa.\n\nEsta vez, en lugar de considerar el protón como el todo (1), lo representaremos únicamente como la mitad del átomo (1/2). Así, multiplicaremos numerador y denominador por (3/3):",
+               "text": "#### Quarks y protones en el átomo\n\nEl **Cálculo 2** muestra el interior del protón, pero debemos recordar que, en el átomo completo, este protón es solo una mitad (1/2). Una vez más recurrimos a una idea del texto anterior (<htcite0>): una fracción conserva su valor cuando multiplicamos su numerador y su denominador por el mismo número.\n\nAsí que, en lugar de considerar el protón como el todo (1), lo tomamos como la mitad del átomo (1/2) y multiplicamos numerador y denominador por 3/3. Observa que 3/3 es simplemente 1, así que el valor no cambia: las dos mitades se cortan en tres piezas cada una y obtenemos sextos:",
                "source": [
                   {
                      "type": 1,
@@ -487,7 +489,7 @@
          "id": "SECTION_summing",
          "text": [
             {
-               "text": "### Reconstruyendo el todo\n\nDespués de haber visto cómo realizamos las separaciones de las partículas de los átomos, necesitamos entender cómo reagrupar todas esas partículas para formar nuevamente un solo átomo.\n\nA diferencia de los textos anteriores, en los que sumábamos valores divididos de manera igual, esta vez tenemos la mitad de una hoja que representa un electrón (1/2) y otra que representa tres quarks dentro del protón (3/6).\n\nEste escenario nos lleva a realizar la suma de una manera un poco diferente a simplemente sumar los números del numerador (<htcite0>).",
+               "text": "### Reconstruyendo el todo\n\nYa separamos el átomo en sus partes; ahora toca volver a unirlas en un solo átomo.\n\nA diferencia de los textos anteriores, en los que sumábamos partes cortadas todas de la misma manera, aquí las dos piezas están cortadas distinto: una mitad de la hoja representa al electrón (1/2) y la otra mitad a los tres quarks dentro del protón (3/6).\n\nSumar fracciones con denominadores distintos requiere entonces un paso extra en comparación con sumar simplemente los numeradores (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -509,7 +511,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Y ahora?</b><br /><br />Deseamos sumar las partes (1/2 y 3/6) con el fin de formar un solo átomo (1).<br /><br />¿Cómo, a partir de dos fracciones diferentes, podemos obtener el todo?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Y ahora?</b><br /><br />La meta es sumar las dos partes (1/2 y 3/6) y recuperar el único átomo (1).<br /><br />¿Cómo pueden sumarse dos fracciones con denominadores distintos para obtener el todo?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -518,7 +520,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como hemos estudiado, el total de las cantidades en fracciones está representado por el denominador —la parte inferior de las fracciones— (<htcite0>).\n\nAsociando este concepto con la idea de que la multiplicación es la suma repetitiva de elementos iguales (<htcite1>), podemos resolver la suma de elementos “diferentes” para obtener el todo.\n\n#### Paso a paso\n\nEl primer paso para realizar la suma es escribir exactamente lo que queremos sumar.\n\nEn nuestro ejemplo, queremos sumar los elementos de la electrosfera —lugar donde se encuentran los electrones— con los elementos del núcleo, para obtener el átomo de hidrógeno:",
+               "text": "Como ya estudiamos, el denominador de una fracción —el número de abajo— indica en cuántas partes iguales se ha dividido el todo (<htcite0>). Dos fracciones solo pueden sumarse cuando están divididas en la misma cantidad de partes.\n\nCombinando esto con la idea de que la multiplicación es la suma repetida de elementos iguales (<htcite1>), podemos volver comparables nuestras dos fracciones “diferentes” y sumarlas para obtener el todo.\n\n#### Paso a paso\n\nEl primer paso es escribir exactamente lo que queremos sumar.\n\nEn nuestro ejemplo, sumamos los elementos de la electrosfera —el lugar donde se encuentran los electrones— a los elementos del núcleo, y el resultado debe ser el átomo de hidrógeno:",
                "source": [
                   {
                      "type": 1,
@@ -552,7 +554,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>O átomo</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>eletrosfera</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>núcleo</mn></math></p><p class=\"desc\"><b>Cálculo 4</b>: Representación de la suma de la electrosfera y el núcleo</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>El átomo</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>electrosfera</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>núcleo</mn></math></p><p class=\"desc\"><b>Cálculo 4</b>: Representación de la suma de la electrosfera y el núcleo.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -561,7 +563,7 @@
                "PostMention": ""
             },
             {
-               "text": "En el **Cálculo 1**, el átomo representa el total (1). La electrosfera fue definida como la mitad del átomo (1/2), y el núcleo del átomo de hidrógeno —la otra mitad— fue identificado como un protón con tres quarks (3/6).",
+               "text": "En el **Cálculo 1**, el átomo es el todo (1). La electrosfera se definió como la mitad del átomo (1/2), y el núcleo del átomo de hidrógeno —la otra mitad— se identificó como un solo protón con tres quarks (3/6).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -579,7 +581,7 @@
                "PostMention": ""
             },
             {
-               "text": "En la siguiente etapa del cálculo debemos recordar que, siempre que ocurren reacciones en la materia, la materia se conserva (<htcite0>; <htcite1>). Esto significa que, si realizamos una operación en el lado derecho, también debemos realizarla en el lado izquierdo.\n\nAsí, reconstruiremos el todo recordando que el total inicial contenía dos partes (2/2), dejando el descubrimiento de los quarks (3/6) para la siguiente etapa. Por lo tanto, multiplicamos el **Cálculo 5** por 2:",
+               "text": "En la siguiente etapa debemos recordar que, en cualquier proceso que involucre materia, la materia se conserva (<htcite0>; <htcite1>). En una ecuación eso tiene un significado práctico: lo que hagamos del lado derecho también hay que hacerlo del lado izquierdo, o ambos lados dejan de ser iguales.\n\nAsí que primero reconstruimos el todo. Recordemos que el total inicial tenía dos partes (2/2), mientras que el descubrimiento de los quarks (3/6) llega en la etapa siguiente. Al multiplicar el **Cálculo 5** por 2 recuperamos esas dos partes:",
                "source": [
                   {
                      "type": 1,
@@ -640,7 +642,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para llegar a la parte que constituye los tres quarks, consideramos que la otra mitad (1/2) internamente tenía otras tres partes, lo que nos lleva a un total igual a 6/6.\n\nMultiplicando ambos lados por 6, tenemos:",
+               "text": "El **Cálculo 6** todavía tiene una fracción en el lado derecho (6/6). Al multiplicar ambos lados por 6 esa fracción desaparece, porque 6/6 × 6 = 6, y todos los términos quedan en números enteros mientras ambos lados siguen iguales:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -685,7 +687,7 @@
                "PostMention": ""
             },
             {
-               "text": "El **Cálculo 7** muestra que, a partir de las partes, logramos volver al todo del átomo. Para transformarlo nuevamente en 1, multiplicamos ambos lados por (1/12):",
+               "text": "El **Cálculo 7** muestra que las partes dan una ecuación equilibrada: 12 = 12. Para volver a un solo átomo, dividimos ambos lados entre 12 — lo mismo que multiplicarlos por (1/12):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -712,7 +714,7 @@
                "PostMention": ""
             },
             {
-               "text": "Finalmente, regresamos a nuestro estado inicial: un solo átomo representado mediante fracciones.\n\n### La simplificación no es omisión\n\nEn distintas situaciones de la vida, a menudo tenemos tantas tareas que simplemente memorizamos fórmulas y sustituimos números sin comprender el todo.\n\nPor ejemplo, veamos la **Fórmula 1** disponible en *Wolfran Mathworld* (<htcite0>):",
+               "text": "Finalmente, regresamos al punto de partida: un solo átomo representado mediante fracciones.\n\n### La simplificación no es omisión\n\nA menudo tenemos tantas tareas que terminamos memorizando fórmulas y sustituyendo números sin comprender nunca el todo.\n\nPor ejemplo, veamos la **Fórmula 1**, la regla para sumar fracciones, publicada en *Wolfram MathWorld* (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -752,7 +754,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>(1 × 6) + (2 × 3)</mn></mrow><mrow><mn>2 × 6</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>6 + 6</mn></mrow><mrow><mn>12</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>12</mn></mrow><mrow><mn>12</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></math></p> <p class=\"desc\"><b>Cálculo 9</b>: Suma de fracciones utilizando la Fórmula 1.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>(1 × 6) + (2 × 3)</mn></mrow><mrow><mn>2 × 6</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>6 + 6</mn></mrow><mrow><mn>12</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>12</mn></mrow><mrow><mn>12</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></math></p> <p class=\"desc\"><b>Cálculo 9</b>: Suma de fracciones con la Fórmula 1.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -770,7 +772,7 @@
                "PostMention": ""
             },
             {
-               "text": "Las fórmulas son una forma de resumir el entendimiento que tenemos de un fenómeno.\n\nPero si el fenómeno no se comprende, las fórmulas se convierten solo en grupos de letras y símbolos sin sentido.\n\nTodos los pasos que realizamos desde el **Cálculo 1** hasta el **Cálculo 8** están representados en el **Cálculo 9**.\n\nPor lo tanto, el hecho de que ambos tengan el mismo resultado no es una coincidencia.",
+               "text": "Las fórmulas resumen lo que entendemos de un fenómeno.\n\nPero si el fenómeno en sí no se comprende, una fórmula no es más que un grupo de letras y símbolos sin sentido.\n\nCada paso que dimos desde el **Cálculo 1** hasta el **Cálculo 8** ya está contenido en el **Cálculo 9**.\n\nQue ambos den el mismo resultado no es, por lo tanto, una coincidencia: la fórmula es el atajo, y los pasos son la razón por la que ese atajo funciona.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -784,7 +786,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto estudiamos más a fondo el átomo de hidrógeno y cómo, mediante fracciones, podemos representar las partículas que lo componen y, a partir de ellas, reconstruir el átomo completo.\n\nTambién aprendimos que, en el estudio de la naturaleza, todo lo que observamos puede resumirse en una fórmula. Sin embargo, si no comprendemos lo que estamos estudiando, difícilmente podremos formular una explicación coherente del fenómeno.",
+               "text": "### Conclusión\n\nEn este texto estudiamos más a fondo el átomo de hidrógeno y vimos cómo las fracciones nos permiten representar las partículas que componen un átomo —el electrón (1/2) y el protón con sus tres quarks (3/6)— y luego reconstruir el todo a partir de ellas.\n\nTambién vimos que todo lo que observamos en la naturaleza puede resumirse en una fórmula. Pero si no comprendemos lo que estamos estudiando, difícilmente podremos dar una explicación coherente del fenómeno: los pasos son los que dan sentido a la fórmula.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -799,17 +801,17 @@
       {
          "question": "¿El modelo atómico de Rutherford explica todo lo que conocemos sobre el átomo?",
          "yesNoAnswer": "No",
-         "additionalInfo": "El modelo era flexible con respecto a la órbita de los electrones, un hecho que no explicaba el espectro que observamos en los átomos."
+         "additionalInfo": "El modelo de Rutherford permitía a los electrones orbitar a cualquier distancia, por lo que no explica por qué los átomos absorben y emiten luz solo en longitudes de onda específicas — el espectro."
       },
       {
          "question": "¿El modelo atómico de Bohr explica el espectro de los átomos?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Al introducir que los electrones solo se mueven en órbitas específicas cuando reciben o liberan energía (luz), Bohr resolvió un problema que se observaba en el modelo de Rutherford."
+         "additionalInfo": "Al permitir que los electrones ocupen solo órbitas específicas, ganando o liberando energía (luz) al saltar entre ellas, Bohr explicó el espectro que el modelo de Rutherford no podía explicar."
       },
       {
          "question": "Para sumar fracciones con denominadores diferentes, ¿debemos unir todas las partes?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "El hecho de que multipliquemos (o ajustemos) los numeradores y los denominadores indica que estamos agrupando todas las partes de las fracciones."
+         "additionalInfo": "Ajustar el numerador y el denominador significa cortar ambas fracciones en la misma cantidad de partes iguales, de modo que después todas las partes puedan agruparse."
       }
    ],
    "game_v2": null,
