@@ -23,7 +23,8 @@ function htChessSelectCulture(culture) {
 function htLoadContent() {
     htWriteNavigation();
 
-		htSetImageSrc("imgChess", "images/BritishMuseum/mid_00269266_001.jpg");
+		htSetImageSrc("imgChess", "images/BritishMuseum/mid_00137035_001.jpg");
+	  htSetImageSrc("imgChinaChess", "images/BritishMuseum/mid_00269266_001.jpg");
 
     return false;
 }
