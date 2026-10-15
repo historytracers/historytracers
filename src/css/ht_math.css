@@ -4131,3 +4131,53 @@ p.desc svg {
 .design-dark .htChessPiecesDesc {
   color: #eceff1;
 }
+
+/* --- Xiangqi pieces (SECTION_xiangqi) --- */
+.htXiangqiPieces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75em;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+.htXiangqiPiece {
+  flex: 1 1 11em;
+  min-width: 0;
+  max-width: 15em;
+  box-sizing: border-box;
+  padding: 0.6em 0.8em;
+  border-radius: 15px;
+  background-color: #fbe9e7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.htXiangqiPieceSvg {
+  width: 2.6em;
+  height: 2.6em;
+  flex-shrink: 0;
+  display: block;
+}
+
+.htXiangqiPiece .htChessPieceIcon {
+  font-size: 2.6em;
+  line-height: 1;
+}
+
+.htXiangqiPieceText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.design-dark .htXiangqiPiece {
+  background-color: #37474f;
+}
