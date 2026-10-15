@@ -1646,6 +1646,12 @@ function pasteFile(){
 
 var searchMatches=[];
 var searchIndex=-1;
+// JSON key highlighting rebuilds the whole overlay on every change, which is
+// expensive for large content files. While the user is typing we postpone it
+// (see scheduleSearchHighlight) and only re-render once typing pauses.
+var jsonHighlightTimer=null;
+var JSON_HIGHLIGHT_SYNC_LIMIT=100000; // bytes: smaller files are still rendered synchronously
+var JSON_HIGHLIGHT_DELAY=150;         // ms of idle typing before refreshing larger files
 
 function syncSearchScroll(){
 	var area=document.getElementById('editorArea');
@@ -1668,6 +1674,7 @@ function getJsonKeyRanges(val){
 	return ranges;
 }
 function updateSearchHighlight(){
+	if(jsonHighlightTimer){ clearTimeout(jsonHighlightTimer); jsonHighlightTimer=null; }
 	var area=document.getElementById('editorArea');
 	var bd=document.getElementById('searchHighlightBackdrop');
 	if(!bd||!area) return;
@@ -1691,11 +1698,11 @@ function updateSearchHighlight(){
 		var last=0;
 		for(var k=0;k<jsonRanges.length;k++){
 			var ks=jsonRanges[k][0],ke=jsonRanges[k][1];
-			if(ks>last) html+=escHtml(val.substring(last,ks));
-			html+='<span class="jkey">'+escHtml(val.substring(ks,ke))+'</span>';
+			if(ks>last) html+=escHtmlText(val.substring(last,ks));
+			html+='<span class="jkey">'+escHtmlText(val.substring(ks,ke))+'</span>';
 			last=ke;
 		}
-		html+=escHtml(val.substring(last));
+		html+=escHtmlText(val.substring(last));
 	}else{
 		var qlen=query.length;
 		var cuts=[0,val.length];
@@ -1719,7 +1726,7 @@ function updateSearchHighlight(){
 			while(si<searchMatches.length&&searchMatches[si]+qlen<=s) si++;
 			var inSearch=-1;
 			if(si<searchMatches.length&&searchMatches[si]<=s&&s<searchMatches[si]+qlen) inSearch=si;
-			var piece=escHtml(val.substring(s,e));
+			var piece=escHtmlText(val.substring(s,e));
 			if(inKey) piece='<span class="jkey">'+piece+'</span>';
 			if(inSearch>=0){
 				var cls=inSearch===searchIndex?' class="current"':'';
@@ -1734,6 +1741,28 @@ function updateSearchHighlight(){
 	if(hasSearch) area.classList.add('search-active'); else area.classList.remove('search-active');
 	if(hasJson) area.classList.add('json-active'); else area.classList.remove('json-active');
 	syncSearchScroll();
+}
+// Called while the user types in the editor. For large JSON files, defer the
+// full-overlay re-render until typing pauses so each keystroke stays cheap; the
+// textarea keeps its own background/text color, so only the bold key overlay is
+// briefly hidden (never the typed text). Small files and search navigation are
+// still rendered synchronously through updateSearchHighlight().
+function scheduleSearchHighlight(){
+	var area=document.getElementById('editorArea');
+	var isBig=isJsonFile()&&area&&area.value.length>JSON_HIGHLIGHT_SYNC_LIMIT;
+	if(!isBig){
+		if(jsonHighlightTimer){ clearTimeout(jsonHighlightTimer); jsonHighlightTimer=null; }
+		updateSearchHighlight();
+		return;
+	}
+	if(jsonHighlightTimer) clearTimeout(jsonHighlightTimer);
+	var bd=document.getElementById('searchHighlightBackdrop');
+	area.classList.remove('json-active');
+	if(bd) bd.style.display='none';
+	jsonHighlightTimer=setTimeout(function(){
+		jsonHighlightTimer=null;
+		updateSearchHighlight();
+	}, JSON_HIGHLIGHT_DELAY);
 }
 function openSearch(){
 	var sb=document.getElementById('searchBar');
@@ -1854,7 +1883,7 @@ function searchKeydown(e){
 					document.getElementById('searchCount').textContent=(searchIndex+1)+' of '+searchMatches.length;
 					updateSearchHighlight();
 				}
-			} else updateSearchHighlight();
+			} else scheduleSearchHighlight();
 		});
 	}
 	var inp=document.getElementById('searchInput');
@@ -1882,6 +1911,9 @@ var templates={
 };
 
 function escHtml(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+// String-based HTML escape used by the highlight overlay, which runs over the
+// whole document on every change and must avoid creating a DOM node per chunk.
+function escHtmlText(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function insertReflexion(title, reflection){
   var area=document.getElementById('editorArea');
   if(area.style.display==='none'||currentTab<0){ toast(tr('selectFile'),'info'); return; }
