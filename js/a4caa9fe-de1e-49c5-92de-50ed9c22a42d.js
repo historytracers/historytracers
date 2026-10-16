@@ -2,12 +2,13 @@
 
 // "Practicing addition" exercise (content a4caa9fe-de1e-49c5-92de-50ed9c22a42d).
 // Two three-digit numbers are added column by column, from the units upwards.
-// The addition is laid out vertically, the way it is normally written, and the
-// squares below the board show the value already in the column (light blue)
-// plus the digits the player adds with the buttons (light yellow). When the
-// count of a column reaches ten, those ten squares are grouped and become the 1
-// carried to the next order. The localized texts live in the class JSON, so
-// this file only wires the behavior and draws the board.
+// The addition is laid out vertically, the way it is normally written. Below the
+// board, every square of the column is shown from the start: the value already
+// in the column is light blue and the bottom digit to be added is made of
+// neutral squares that turn light yellow as the player clicks the buttons. When
+// the count of a column reaches ten, those ten squares are grouped and become
+// the 1 carried to the next order. The localized texts live in the class JSON,
+// so this file only wires the behavior and draws the board.
 
 var localAdd = {};
 
@@ -88,39 +89,50 @@ function htAddBuildBoard() {
     $("#htAddTable").html(rows);
 }
 
-// Draws the squares of the column: "base" light blue squares are the value
-// already in the column and the light yellow ones are the digits the player has
-// added. Once the count reaches ten, those ten squares are grouped, showing the
-// 1 that goes to the next order, and the squares left outside the group show
-// the digit that stays in the column.
+// Draws the squares of the column. The whole column is shown from the start:
+// the "base" light blue squares are the value already in the column and the
+// remaining squares stand for the bottom digit to be added. Each click turns
+// one of those squares light yellow, and the ones not filled yet stay neutral.
+// Once the count reaches ten, those ten squares are grouped, showing the 1 that
+// goes to the next order, and the squares left outside the group show the digit
+// that stays in the column.
 function htAddDrawSquares() {
     var base = localAdd.base;
+    var addend = localAdd.addendDigit;
     var added = localAdd.added;
-    var total = base + added;
+    var total = base + addend;
     var html = "";
     var i;
 
-    function square(isBase) {
-        return "<span class=\"htAddSquare " + (isBase ? "htAddSquareBase" : "htAddSquareAdded") + "\"></span>";
+    function square(index) {
+        var cls;
+        if (index < base) {
+            cls = "htAddSquareBase";
+        } else if (index - base < added) {
+            cls = "htAddSquareAdded";
+        } else {
+            cls = "htAddSquarePending";
+        }
+        return "<span class=\"htAddSquare " + cls + "\"></span>";
     }
 
     if (total >= 10) {
         html += "<span class=\"htAddTenGroup\">";
         for (i = 0; i < 10; i++) {
-            html += square(i < base);
+            html += square(i);
         }
         html += "</span>";
         for (i = 10; i < total; i++) {
-            html += square(i < base);
+            html += square(i);
         }
     } else {
         for (i = 0; i < total; i++) {
-            html += square(i < base);
+            html += square(i);
         }
     }
 
     $("#htAddSquares").html(html);
-    $("#htAddSquaresCaption").text(base + " + " + added + " = " + total);
+    $("#htAddSquaresCaption").text(base + " + " + added + " = " + (base + added));
 }
 
 // Prepares the column that must be solved next.

@@ -3612,6 +3612,11 @@ p.desc svg {
   background-color: lightyellow;
 }
 
+/* Squares shown from the start that have not been filled by a click yet. */
+.htAddSquarePending {
+  background-color: white;
+}
+
 /* The ten squares that make the 1 carried to the next order. */
 .htAddTenGroup {
   display: inline-flex;
