@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791396114"
+      "1792158709"
    ],
    "authors": null,
    "reviewers": null,
@@ -68,7 +68,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "#### Practice Exercise\n\nReading about addition is helpful, but practice is essential for true understanding. Below is a table with an addition problem. Before using the controls (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) to check the result, try solving it on your own.\n\nWhen you finish the calculation, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can move on to the next problem by clicking the arrow (<i class=\"fa-solid fa-chevron-right\"></i>) below:",
+               "text": "#### Practice Exercise\n\nReading about addition is helpful, but practice is essential for true understanding. Below is an addition written vertically, column by column, from the units to the hundreds. In each column the light blue squares are the digit already there; use the up button (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i>) and the down button (<i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) to add the bottom digit of the second number in light yellow squares. When the ten squares are grouped, the 1 is carried to the next order.\n\nWhen you finish the calculation, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can move on to the next problem by clicking the button below:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -77,7 +77,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Addition of Numbers</th><th colspan=\"2\">Controls</th></tr> </table></p><p class=\"desc\"><b>Table 1</b>: Exercise for Adding Two Numbers.</p>",
+               "text": "<div class=\"htAddGame\"><div class=\"htAddOrders\" id=\"htAddOrders\"></div><span class=\"htAddQuestion\" id=\"htAddQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htAddIncomingNote\"></div><table class=\"htAddTable\" id=\"htAddTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htAddSquaresLabel\">Addition in the column</span><div class=\"htAddSquares\" id=\"htAddSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htAddSquaresCaption\"></span></div><div class=\"htAddButtonsRow\"><button type=\"button\" id=\"htAddUpBtn\" class=\"htAddButton\" aria-label=\"Add one square\"><i class=\"fa-solid fa-caret-up\"></i></button><button type=\"button\" id=\"htAddDownBtn\" class=\"htAddButton\" aria-label=\"Remove one square\"><i class=\"fa-solid fa-caret-down\"></i></button></div><div class=\"htAddFeedback\" id=\"htAddFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htAddNextBtn\" class=\"reset-tutor-btn hidden\">Next column</button></div><span id=\"htAddOrder0\" class=\"htAddHidden\">Units</span><span id=\"htAddOrder1\" class=\"htAddHidden\">Tens</span><span id=\"htAddOrder2\" class=\"htAddHidden\">Hundreds</span><span id=\"htAddQuestionTemplate\" class=\"htAddHidden\">The {order} column already holds {base}. Use the buttons to add the bottom digit of the second number.</span><span id=\"htAddIncomingTemplate\" class=\"htAddHidden\">The 1 carried from the previous column is added: {first} + 1 = {base}.</span><span id=\"htAddMsgCarryTemplate\" class=\"htAddHidden\">{base} + {added} = {sum}. It reaches 10, so the {order} column keeps {result} and carries 1 to the next order.</span><span id=\"htAddMsgNoCarryTemplate\" class=\"htAddHidden\">{base} + {added} = {sum}. It stays below 10, so the {order} column keeps {result}.</span><span id=\"htAddNextColumnLabel\" class=\"htAddHidden\">Next column</span><span id=\"htAddPlayAgainLabel\" class=\"htAddHidden\">New problem</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,

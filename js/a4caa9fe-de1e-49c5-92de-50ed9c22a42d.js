@@ -1,164 +1,313 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var local = {};
+// "Practicing addition" exercise (content a4caa9fe-de1e-49c5-92de-50ed9c22a42d).
+// Two three-digit numbers are added column by column, from the units upwards.
+// The addition is laid out vertically, the way it is normally written, and the
+// squares below the board show the value already in the column (light blue)
+// plus the digits the player adds with the buttons (light yellow). When the
+// count of a column reaches ten, those ten squares are grouped and become the 1
+// carried to the next order. The localized texts live in the class JSON, so
+// this file only wires the behavior and draws the board.
 
-function htSetWorkingValue(topValue, bottomValue)
-{
-    var tv = parseInt(topValue);
-    var bv = parseInt(bottomValue);
+var localAdd = {};
 
-    var tot = tv + bv;
-    if (tot < 10) {
-        local.stopValue = tot;
-        local.carriers = 0;
+var HT_ADD_DIGITS = 3;
+
+function htAddOrderName(order) {
+    return $("#htAddOrder" + order).text();
+}
+
+// Returns the digits of value from the units order upwards (index 0 = units).
+function htAddDigits(value, length) {
+    var digits = [];
+    var v = value;
+    for (var i = 0; i < length; i++) {
+        digits.push(v % 10);
+        v = Math.floor(v / 10);
+    }
+    return digits;
+}
+
+function htAddReplace(template, values) {
+    for (var key in values) {
+        template = template.replace(new RegExp("\\{" + key + "\\}", "g"), values[key]);
+    }
+    return template;
+}
+
+// Draws the vertical addition: the carry row, the two operands with the + sign,
+// the result line and the result row. The column being solved is highlighted and
+// a column shows its result digit only once it has been solved.
+function htAddBuildBoard() {
+    var d = HT_ADD_DIGITS;
+    var current = localAdd.column;
+    var fDigits = localAdd.firstDigits;
+    var aDigits = localAdd.addendDigits;
+
+    function opCell(content) {
+        return "<td class=\"htAddOp\">" + content + "</td>";
+    }
+    function cell(order, content) {
+        var cls = "htAddCell" + (order === current ? " htAddCellActive" : "");
+        return "<td class=\"" + cls + "\" data-order=\"" + order + "\">" + content + "</td>";
+    }
+
+    var rows = "";
+    // The carry out of column c is written above column c + 1.
+    rows += "<tr class=\"htAddCarryRow\">" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        var carryVal = "";
+        if (o >= 1 && localAdd.carries[o - 1] !== undefined) {
+            carryVal = localAdd.carries[o - 1] ? "1" : "";
+        }
+        rows += cell(o, carryVal);
+    }
+    rows += "</tr>";
+    // First operand
+    rows += "<tr>" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        rows += cell(o, o < d ? String(fDigits[o]) : "");
+    }
+    rows += "</tr>";
+    // Added operand, with the + sign in its own narrow column.
+    rows += "<tr>" + opCell("+");
+    for (var o = d; o >= 0; o--) {
+        rows += cell(o, o < d ? String(aDigits[o]) : "");
+    }
+    rows += "</tr>";
+    // Line
+    rows += "<tr class=\"htAddLine\"><td colspan=\"" + (d + 2) + "\"></td></tr>";
+    // Result
+    rows += "<tr class=\"htAddResultRow\">" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        var res = (localAdd.results[o] !== undefined) ? String(localAdd.results[o]) : "";
+        rows += cell(o, res);
+    }
+    rows += "</tr>";
+
+    $("#htAddTable").html(rows);
+}
+
+// Draws the squares of the column: "base" light blue squares are the value
+// already in the column and the light yellow ones are the digits the player has
+// added. Once the count reaches ten, those ten squares are grouped, showing the
+// 1 that goes to the next order, and the squares left outside the group show
+// the digit that stays in the column.
+function htAddDrawSquares() {
+    var base = localAdd.base;
+    var added = localAdd.added;
+    var total = base + added;
+    var html = "";
+    var i;
+
+    function square(isBase) {
+        return "<span class=\"htAddSquare " + (isBase ? "htAddSquareBase" : "htAddSquareAdded") + "\"></span>";
+    }
+
+    if (total >= 10) {
+        html += "<span class=\"htAddTenGroup\">";
+        for (i = 0; i < 10; i++) {
+            html += square(i < base);
+        }
+        html += "</span>";
+        for (i = 10; i < total; i++) {
+            html += square(i < base);
+        }
     } else {
-        local.stopValue = tot - 10;
-        local.carriers = 1;
-    }
-    local.workingValue = 0;
-}
-
-function htWriteValueOnScreen(cell, value)
-{
-    $(cell).html("<span class=\"text_to_paint\">"+value+"</span>");
-}
-
-function htWriteValueOnLine(line, value)
-{
-    for (let i = 0, j = 2; i < 3; i++, j++) {
-        htWriteValueOnScreen("#tc"+j+"f"+line, value[i]);
-    }
-}
-
-function htNewAddition() {
-    if (!local.stop) {
-        return false;
-    }
-    local.currentTop = 0;
-    local.currentBottom = 0;
-    local.stop = 0;
-
-    local.currentIdx = 4;
-    local.vectorIdx = 2;
-
-    for (let j = 1; j < 5; j++) {
-        for (let i = 1; i < 4; i++) {
-            $("#tc"+i+"f"+j).html("&nbsp;");
+        for (i = 0; i < total; i++) {
+            html += square(i < base);
         }
     }
-    $("#tc1f3").html("<span class=\"text_to_paint\">+</span>");
 
-    local.topValue = htGetRandomArbitrary(100, 999);
-    local.strTopValue = local.topValue.toString();
-    htWriteValueOnLine("2", local.strTopValue);
-
-    local.bottomValue =  htGetRandomArbitrary(100, 999);
-    local.strBottomValue = local.bottomValue.toString();
-    htWriteValueOnLine("3", local.bottomValue.toString());
-    $("#tc1f5").html(mathKeywords[11]+" <b>"+local.topValue+" + "+local.bottomValue+".</b><br />"+mathKeywords[12]+"<b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx]+").</b>");
-
-    local.totalValue = local.topValue + local.bottomValue;
-    htSetWorkingValue(local.strTopValue[local.vectorIdx], local.strBottomValue[local.vectorIdx]);
-    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", 0);
+    $("#htAddSquares").html(html);
+    $("#htAddSquaresCaption").text(base + " + " + added + " = " + total);
 }
 
-function htMoveAhead()
-{
-    if (local.stop == 1) {
-        return false;
-    }
+// Prepares the column that must be solved next.
+function htAddSetupColumn() {
+    var column = localAdd.column;
+    var firstDigit = localAdd.firstDigits[column];
+    var addendDigit = localAdd.addendDigits[column];
+    var base = firstDigit + localAdd.incoming;
+    var order = htAddOrderName(column);
 
-    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", local.workingValue);
-    local.currentIdx -= 1;
-    local.vectorIdx -= 1;
-    if (local.currentIdx > 1) {
-        htWriteValueOnScreen("#tc"+local.currentIdx+"f4", 0);
+    localAdd.answered = false;
+    localAdd.firstDigit = firstDigit;
+    localAdd.addendDigit = addendDigit;
+    localAdd.base = base;
+    localAdd.added = 0;
+
+    $("#htAddQuestion").text(htAddReplace($("#htAddQuestionTemplate").text(), {
+        order: order,
+        base: base
+    }));
+
+    // When a 1 comes from the previous column, say it explicitly: it is the
+    // reason the value already in this column is not just the first digit.
+    if (localAdd.incoming > 0) {
+        $("#htAddIncomingNote").text(htAddReplace($("#htAddIncomingTemplate").text(), {
+            first: firstDigit,
+            base: base
+        })).removeClass("htAddHidden");
     } else {
-        local.stop = 1;
+        $("#htAddIncomingNote").text("").addClass("htAddHidden");
     }
 
-    var bottomV = parseInt(local.strBottomValue[local.vectorIdx])+ local.carriers;
-    if (local.carriers == 1) {
-        htWriteValueOnScreen("#tc"+local.currentIdx+"f1", local.carriers);
+    $("#htAddFeedback").html("");
+    $("#htAddNextBtn").addClass("hidden");
+    $("#htAddUpBtn").prop("disabled", false);
+    $("#htAddDownBtn").prop("disabled", false);
+
+    $(".htAddOrder").removeClass("htAddOrderActive");
+    $(".htAddOrder[data-order='" + column + "']").addClass("htAddOrderActive");
+
+    htAddBuildBoard();
+    htAddDrawSquares();
+
+    // A bottom digit of 0 needs nothing added, so the column is already solved.
+    if (addendDigit === 0) {
+        htAddResolve();
+    }
+}
+
+// The buttons add or remove one yellow square at a time. The column is solved
+// as soon as the squares added match the bottom digit of the second number.
+function htAddChange(delta) {
+    if (localAdd.answered) {
+        return;
     }
 
-    if (!local.stop) {
-        var message = mathKeywords[12]+" <b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx];
-        if (local.carriers) {
-            message += ") + "+local.carriers+".</b><br />"+mathKeywords[13];
-        } else {
-            message += ").</b>";
+    var next = localAdd.added + delta;
+    if (next < 0) {
+        next = 0;
+    }
+    if (next > localAdd.addendDigit) {
+        next = localAdd.addendDigit;
+    }
+    localAdd.added = next;
+    htAddDrawSquares();
+
+    if (localAdd.added === localAdd.addendDigit) {
+        htAddResolve();
+    }
+}
+
+// Records the result digit of the column and the 1 it carries, if any.
+function htAddResolve() {
+    if (localAdd.answered) {
+        return;
+    }
+    localAdd.answered = true;
+
+    var column = localAdd.column;
+    var sum = localAdd.base + localAdd.added;
+    var carry = sum >= 10;
+    var order = htAddOrderName(column);
+
+    localAdd.carries[column] = carry ? 1 : 0;
+    localAdd.results[column] = sum % 10;
+    localAdd.lastCarry = carry ? 1 : 0;
+
+    htAddBuildBoard();
+
+    var template = carry ? $("#htAddMsgCarryTemplate").html() : $("#htAddMsgNoCarryTemplate").html();
+    $("#htAddFeedback").html(htAddReplace(template, {
+        base: localAdd.base,
+        added: localAdd.added,
+        sum: sum,
+        result: sum % 10,
+        order: order
+    }));
+
+    $("#htAddUpBtn").prop("disabled", true);
+    $("#htAddDownBtn").prop("disabled", true);
+
+    if (column >= HT_ADD_DIGITS - 1) {
+        // The whole addition is done. A carry out of the last column created a
+        // new order on the left, which holds only the carried 1.
+        if (carry) {
+            localAdd.results[HT_ADD_DIGITS] = 1;
+            htAddBuildBoard();
         }
-        $("#tc1f5").html(message);
-        htSetWorkingValue(local.strTopValue[local.vectorIdx], bottomV.toString());
+        $("#htAddFeedback").append("<br /><i class=\"fa-solid fa-medal\" style=\"font-size: 4em; color: gold;\"></i>");
+        $("#htAddNextBtn").text($("#htAddPlayAgainLabel").text()).removeClass("hidden");
     } else {
-        $("#tc1f5").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
-        if (local.stop && local.carriers) {
-            htWriteValueOnScreen("#tc1f1", local.carriers);
-        }
-        if (local.carriers) {
-            htWriteValueOnScreen("#tc1f4", 1);
-        }
-    }
-
-    return false;
-}
-
-function htAdditionUpdateValue(n)
-{
-    if (local.currentIdx < 1) {
-        return false;
-    }
-
-    if (local.workingValue == local.stopValue) {
-        htMoveAhead();
-        return false;
-    }
-
-    local.workingValue += n;
-
-    if (local.workingValue > 9) {
-        local.workingValue = 9;
-    }  else if (local.workingValue < 0) {
-        local.workingValue = 0;
-    }  
-    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", local.workingValue);
-
-    if (local.workingValue == local.stopValue) {
-        htAdditionUpdateValue(0);
-    }
-
-    return false;
-}
-
-function htAdditionAddCommonTable(id)
-{
-    var end = 4;
-    for (let i =1; i <= end; i++) {
-        var controls = "";
-        if (i == 1) {
-            controls = "<td id=\"tc5f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp"+id+"\" onclick=\"htAdditionUpdateValue(+1);\"></i> </td><td id=\"tc6f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown"+id+"\" onclick=\"htAdditionUpdateValue(-1);\"></i></td>";
-        }
-        var border = (i != 3) ? "style=\"border:none;\"" : "style=\"border:none;border-bottom: 1pt solid black;\"";
-        $("#yupana"+id+" tr:last").after("<tr id=\"tf"+i+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+i+"\" "+border+">&nbsp;</td> <td id=\"tc2f"+i+"\" "+border+">&nbsp;</td> <td id=\"tc3f"+i+"\" "+border+">&nbsp;</td> <td id=\"tc4f"+i+"\" "+border+">&nbsp;</td>"+controls+"</tr>");
+        $("#htAddNextBtn").text($("#htAddNextColumnLabel").text()).removeClass("hidden");
     }
 }
 
-function htAdditionDescRow(id)
-{
-    var imgID = 5;
-    $("#yupana"+id+" tr:last").after("<tr id=\"tf"+imgID+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+imgID+"\" colspan=\"4\"></td><td id=\"tc5f"+imgID+"\" style=\"background-color: white;\" colspan=\"2\"><i class=\"fa-solid fa-chevron-right\" style=\"font-size:3.0em;\" onclick=\"htNewAddition();\"></i></td></tr>");
+// Moves to the next column of the same addition, bringing the carry along, or
+// starts a new addition once the last column is done.
+function htAddNext() {
+    if (!localAdd.answered) {
+        return;
+    }
+
+    if (localAdd.column >= HT_ADD_DIGITS - 1) {
+        htAddNewProblem();
+        return;
+    }
+
+    localAdd.column += 1;
+    localAdd.incoming = localAdd.lastCarry;
+    htAddSetupColumn();
+}
+
+function htAddBuildOrders() {
+    var html = "";
+    for (var i = 0; i < HT_ADD_DIGITS; i++) {
+        html += "<span class=\"htAddOrder\" data-order=\"" + i + "\">" + htAddOrderName(i) + "</span>";
+    }
+    $("#htAddOrders").html(html);
+}
+
+function htAddNewProblem() {
+    localAdd.first = htGetRandomArbitrary(100, 1000);
+    localAdd.addend = htGetRandomArbitrary(100, 1000);
+    localAdd.firstDigits = htAddDigits(localAdd.first, HT_ADD_DIGITS);
+    localAdd.addendDigits = htAddDigits(localAdd.addend, HT_ADD_DIGITS);
+    localAdd.column = 0;
+    localAdd.incoming = 0;
+    localAdd.carries = {};
+    localAdd.results = {};
+
+    htAddSetupColumn();
 }
 
 function htLoadContent() {
-    local = { "strTopValue": "", "topValue": 0, "strBottomValue": "", "bottomValue": 0, "totalValue": 0, "carriers": 0, "workingValue": 0, "stopValue": 0, "currentTop": 0, "currentBottom": 0, "currentIdx": 4, "vectorIdx": 2, "stop": 1 }; 
-
     htWriteNavigation();
 
-    htAdditionAddCommonTable("0");
-    htAdditionDescRow("0")
+    localAdd = {
+        first: 0,
+        addend: 0,
+        firstDigits: [],
+        addendDigits: [],
+        column: 0,
+        incoming: 0,
+        carries: {},
+        results: {},
+        base: 0,
+        added: 0,
+        addendDigit: 0,
+        answered: false,
+        lastCarry: 0
+    };
 
-    htNewAddition();
+    htAddBuildOrders();
+
+    $("#htAddUpBtn").off("click").on("click", function() {
+        htAddChange(1);
+    });
+
+    $("#htAddDownBtn").off("click").on("click", function() {
+        htAddChange(-1);
+    });
+
+    $("#htAddNextBtn").off("click").on("click", function() {
+        htAddNext();
+    });
+
+    htAddNewProblem();
 
     return false;
 }

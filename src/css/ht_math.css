@@ -3490,6 +3490,200 @@ p.desc svg {
 }
 
 /*
+ * Practicing addition (content a4caa9fe-de1e-49c5-92de-50ed9c22a42d). The
+ * addition is laid out vertically, the way it is normally written, and the
+ * keep-ten squares of the Carry or Not Carry? game are reused to show each
+ * column being added.
+ */
+.htAddGame {
+  margin: 1em auto;
+  max-width: 42em;
+  text-align: center;
+}
+
+.htAddOrders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4em;
+  margin-bottom: 0.5em;
+}
+
+.htAddOrder {
+  padding: 0.2em 0.6em;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background-color: #f4f4f4;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.htAddOrderActive {
+  background-color: #2c5f8a;
+  border-color: #2c5f8a;
+  color: #fff;
+  font-weight: bold;
+}
+
+.htAddQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htAddIncomingNote {
+  margin-bottom: 0.5em;
+  color: #555;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.htAddTable {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.htAddOp,
+.htAddCell {
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.htAddCell {
+  width: 0.65em;
+  min-width: 0.65em;
+  border-radius: 4px;
+}
+
+.htAddOp {
+  width: 0.7em;
+  min-width: 0.7em;
+}
+
+.htAddCellActive {
+  background-color: lightblue;
+}
+
+.htAddLine td {
+  border-top: 3px solid #333;
+  padding: 0;
+}
+
+.htAddSquaresWrap {
+  margin-top: 0.75em;
+}
+
+.htAddSquaresLabel {
+  display: block;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #555;
+}
+
+.htAddSquares {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  max-width: 100%;
+  margin: 0.4em auto 0;
+}
+
+.htAddSquare {
+  box-sizing: border-box;
+  width: 1.6em;
+  height: 1.6em;
+  border: 2px solid #333;
+  border-radius: 4px;
+}
+
+.htAddSquareBase {
+  background-color: lightblue;
+}
+
+.htAddSquareAdded {
+  background-color: lightyellow;
+}
+
+/* The ten squares that make the 1 carried to the next order. */
+.htAddTenGroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border: 2px dashed #c0392b;
+  border-radius: 6px;
+}
+
+.htAddSquaresCaption {
+  display: block;
+  margin-top: 0.3em;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.htAddButtonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htAddButton {
+  padding: 0.5em 1.2em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.htAddButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htAddButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.htAddFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+}
+
+.htAddNextContainer {
+  margin-top: 0.75em;
+}
+
+.htAddHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htAddTable {
+    font-size: 1.2em;
+  }
+
+  .htAddSquare {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+/*
  * Rectangles comparison practice (content 03bb4b8e-6187-4572-8f00-ea3892df51a4).
  */
 .htRectApp {

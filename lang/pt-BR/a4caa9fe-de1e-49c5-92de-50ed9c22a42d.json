@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791396152"
+      "1792158732"
    ],
    "authors": null,
    "reviewers": null,
@@ -68,7 +68,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "### Praticando\n\nA leitura de um texto pode parecer suficiente, mas a prática é essencial para uma compreensão verdadeira. Na tabela a seguir, exercitaremos a soma de dois números. Antes de utilizar as setas laterais (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) para conferir sua resposta, tente calculá-la sozinho(a).\n\nAo concluir, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) e poderá passar para o próximo problema clicando na seta (<i class=\"fa-solid fa-chevron-right\"></i>):",
+               "text": "#### Praticando\n\nA leitura de um texto pode parecer suficiente, mas a prática é essencial para uma compreensão verdadeira. Abaixo está uma soma escrita na vertical, coluna por coluna, das unidades às centenas. Em cada coluna, os quadrados azul-claro são o dígito que já está lá; use o botão para cima (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i>) e o botão para baixo (<i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) para somar em quadrados amarelo-claro o dígito de baixo do segundo número. Quando os dez quadrados se agrupam, o 1 é transportado para a próxima ordem.\n\nAo concluir, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) e poderá passar para o próximo problema clicando no botão abaixo:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -77,7 +77,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Soma de Números</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\"><b>Tabela 1</b>: Exercício de soma de dois números.</p>",
+               "text": "<div class=\"htAddGame\"><div class=\"htAddOrders\" id=\"htAddOrders\"></div><span class=\"htAddQuestion\" id=\"htAddQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htAddIncomingNote\"></div><table class=\"htAddTable\" id=\"htAddTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htAddSquaresLabel\">Soma na coluna</span><div class=\"htAddSquares\" id=\"htAddSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htAddSquaresCaption\"></span></div><div class=\"htAddButtonsRow\"><button type=\"button\" id=\"htAddUpBtn\" class=\"htAddButton\" aria-label=\"Somar um quadrado\"><i class=\"fa-solid fa-caret-up\"></i></button><button type=\"button\" id=\"htAddDownBtn\" class=\"htAddButton\" aria-label=\"Remover um quadrado\"><i class=\"fa-solid fa-caret-down\"></i></button></div><div class=\"htAddFeedback\" id=\"htAddFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htAddNextBtn\" class=\"reset-tutor-btn hidden\">Próxima coluna</button></div><span id=\"htAddOrder0\" class=\"htAddHidden\">Unidades</span><span id=\"htAddOrder1\" class=\"htAddHidden\">Dezenas</span><span id=\"htAddOrder2\" class=\"htAddHidden\">Centenas</span><span id=\"htAddQuestionTemplate\" class=\"htAddHidden\">A coluna das {order} já tem {base}. Use os botões para somar o dígito de baixo do segundo número.</span><span id=\"htAddIncomingTemplate\" class=\"htAddHidden\">O 1 transportado da coluna anterior é somado: {first} + 1 = {base}.</span><span id=\"htAddMsgCarryTemplate\" class=\"htAddHidden\">{base} + {added} = {sum}. Chega a 10, então a coluna das {order} mantém {result} e transporta 1 para a próxima ordem.</span><span id=\"htAddMsgNoCarryTemplate\" class=\"htAddHidden\">{base} + {added} = {sum}. Fica abaixo de 10, então a coluna das {order} mantém {result}.</span><span id=\"htAddNextColumnLabel\" class=\"htAddHidden\">Próxima coluna</span><span id=\"htAddPlayAgainLabel\" class=\"htAddHidden\">Novo problema</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
