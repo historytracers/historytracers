@@ -96,24 +96,36 @@ function htAddBuildBoard() {
 // Once the count reaches ten, those ten squares are grouped, showing the 1 that
 // goes to the next order, and the squares left outside the group show the digit
 // that stays in the column.
+// The squares sitting between the value already in the column and the ten are
+// its complement: they are the ones that close the group of ten. They are
+// marked so the learner can see the complement and how those squares were used
+// during the addition.
 function htAddDrawSquares() {
     var base = localAdd.base;
     var addend = localAdd.addendDigit;
     var added = localAdd.added;
     var total = base + addend;
+    var complement = (base < 10) ? (10 - base) : 0;
     var html = "";
     var i;
 
     function square(index) {
-        var cls;
+        var cls = "htAddSquare";
         if (index < base) {
-            cls = "htAddSquareBase";
+            cls += " htAddSquareBase";
         } else if (index - base < added) {
-            cls = "htAddSquareAdded";
+            cls += " htAddSquareAdded";
         } else {
-            cls = "htAddSquarePending";
+            cls += " htAddSquarePending";
         }
-        return "<span class=\"htAddSquare " + cls + "\"></span>";
+        // Complement squares: from the value already in the column up to the ten.
+        if (index >= base && index < 10) {
+            cls += " htAddSquareComplement";
+            if (index - base < added) {
+                cls += " htAddSquareComplementUsed";
+            }
+        }
+        return "<span class=\"" + cls + "\"></span>";
     }
 
     if (total >= 10) {
@@ -133,6 +145,35 @@ function htAddDrawSquares() {
 
     $("#htAddSquares").html(html);
     $("#htAddSquaresCaption").text(base + " + " + added + " = " + (base + added));
+    htAddUpdateSquaresNote(added, complement);
+}
+
+// Spells out, for the column being solved, the complement and how the squares
+// were used: how many have been added, how many completed the ten and how many
+// stayed outside the group. It is refreshed on every click, so the highlight
+// follows the addition step by step.
+function htAddUpdateSquaresNote(added, complement) {
+    var note = htAddReplace($("#htAddSquaresUsedTemplate").text(), {
+        used: added
+    });
+
+    if (complement > 0) {
+        if (added < complement) {
+            note += " " + htAddReplace($("#htAddComplementPendingTemplate").text(), {
+                base: localAdd.base,
+                comp: complement,
+                missing: complement - added
+            });
+        } else {
+            note += " " + htAddReplace($("#htAddComplementUsedTemplate").text(), {
+                base: localAdd.base,
+                comp: complement,
+                outside: added - complement
+            });
+        }
+    }
+
+    $("#htAddSquaresNote").text(note);
 }
 
 // Prepares the column that must be solved next.

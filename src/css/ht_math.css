@@ -3617,6 +3617,19 @@ p.desc svg {
   background-color: white;
 }
 
+/* The squares between the value already in the column and the ten: its
+   complement, outlined so the learner sees which squares close the group. */
+.htAddSquareComplement {
+  box-shadow: inset 0 0 0 2px #e67e22;
+}
+
+/* A complement square that has already been added: it is one of the squares
+   used to complete the ten. */
+.htAddSquareComplementUsed {
+  background-color: #ffc078;
+  box-shadow: inset 0 0 0 2px #d35400;
+}
+
 /* The ten squares that make the 1 carried to the next order. */
 .htAddTenGroup {
   display: inline-flex;
@@ -3632,6 +3645,14 @@ p.desc svg {
   margin-top: 0.3em;
   font-size: 0.9em;
   color: #555;
+}
+
+/* Note that names the complement of the column and how the squares were used. */
+.htAddSquaresNote {
+  display: block;
+  margin-top: 0.2em;
+  font-size: 0.9em;
+  color: #8a4b08;
 }
 
 .htAddButtonsRow {
@@ -4165,4 +4186,234 @@ p.desc svg {
   .htGroupThreesElement {
     font-size: 1.25em;
   }
+}
+
+/* --- Chess: culture selector (SECTION_chess) --- */
+.htChessCultures {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto 1em auto;
+  text-align: center;
+}
+
+.htChessCulturesTitle {
+  margin: 0 0 0.75em 0;
+  font-weight: bold;
+}
+
+.htChessCultureButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.htChessCultureBtn {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5em 1.25em;
+  border: 2px solid #8d6e63;
+  border-radius: 25px;
+  background-color: #fff8e1;
+  color: #5d4037;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.htChessCultureBtn:hover,
+.htChessCultureBtn:focus {
+  background-color: #ffe082;
+}
+
+.htChessCultureBtn.active {
+  background-color: #8d6e63;
+  color: #fff8e1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.htChessCulturePanel {
+  display: none;
+}
+
+.htChessCulturePanel.active {
+  display: block;
+}
+
+.htChessCultureDesc {
+  margin: 0 0 1em 0;
+}
+
+.htChessPieces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75em;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+.htChessPiece {
+  flex: 1 1 7em;
+  min-width: 0;
+  max-width: 11em;
+  box-sizing: border-box;
+  padding: 0.75em 0.5em;
+  border-radius: 15px;
+  background-color: #fbe9e7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.htChessPieceSvg {
+  width: 2.75em;
+  height: 2.75em;
+  display: block;
+  color: #5d4037;
+}
+
+.htChessPieceIcon {
+  font-size: 2.75em;
+  line-height: 1;
+  color: #5d4037;
+}
+
+.htChessPieceIconWrap {
+  position: relative;
+  display: inline-block;
+  font-size: 2.75em;
+  line-height: 1;
+  color: #5d4037;
+}
+
+.htChessPieceHat {
+  position: absolute;
+  left: calc(36% - 5px);
+  top: -0.14em;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 0.78em;
+  height: 0.54em;
+  pointer-events: none;
+}
+
+.htChessPieceTerm {
+  font-weight: bold;
+  color: #7a3f06;
+  background-color: #ffe3ad;
+  border-radius: 0.6em;
+  padding: 0.05em 0.5em;
+  overflow-wrap: anywhere;
+}
+
+.htChessPieceName {
+  font-size: 0.8em;
+  color: #6d4c41;
+  overflow-wrap: anywhere;
+}
+
+.htChessPiecesDesc {
+  margin: 1em 0 0 0;
+  font-size: 0.95em;
+  color: #4e342e;
+}
+
+.design-dark .htChessCultureBtn {
+  border-color: #90a4ae;
+  background-color: #37474f;
+  color: #eceff1;
+}
+
+.design-dark .htChessCultureBtn:hover,
+.design-dark .htChessCultureBtn:focus {
+  background-color: #455a64;
+}
+
+.design-dark .htChessCultureBtn.active {
+  background-color: #546e7a;
+  color: #eceff1;
+}
+
+.design-dark .htChessPiece {
+  background-color: #37474f;
+}
+
+.design-dark .htChessPieceSvg {
+  color: #eceff1;
+}
+
+.design-dark .htChessPieceIcon {
+  color: #eceff1;
+}
+
+.design-dark .htChessPieceIconWrap {
+  color: #eceff1;
+}
+
+.design-dark .htChessPieceName {
+  color: #eceff1;
+}
+
+.design-dark .htChessPieceTerm {
+  color: #ffe3ad;
+  background-color: #5d4037;
+}
+
+.design-dark .htChessPiecesDesc {
+  color: #eceff1;
+}
+
+/* --- Xiangqi pieces (SECTION_xiangqi) --- */
+.htXiangqiPieces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75em;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+.htXiangqiPiece {
+  flex: 1 1 11em;
+  min-width: 0;
+  max-width: 15em;
+  box-sizing: border-box;
+  padding: 0.6em 0.8em;
+  border-radius: 15px;
+  background-color: #fbe9e7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.htXiangqiPieceSvg {
+  width: 2.6em;
+  height: 2.6em;
+  flex-shrink: 0;
+  display: block;
+}
+
+.htXiangqiPiece .htChessPieceIcon {
+  font-size: 2.6em;
+  line-height: 1;
+}
+
+.htXiangqiPieceText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.design-dark .htXiangqiPiece {
+  background-color: #37474f;
 }
