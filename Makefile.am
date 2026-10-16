@@ -18,6 +18,9 @@ endif
 # We're not building C programs, so tell Automake this is foreign
 AUTOMAKE_OPTIONS = foreign
 
+# Man page installed by 'make install' (section inferred from the .1 suffix)
+dist_man_MANS = packaging/man/historytracers.1
+
 # What to distribute
 EXTRA_DIST = $(PUBLISHERSRC_DIR)/main.go $(VIEWERSRC_DIR) $(EDITORSRC_DIR)
 
