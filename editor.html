@@ -679,7 +679,7 @@ function updateLineNumbers(){
 		var frag=document.createDocumentFragment();
 		for(var n=gutterLineCount+1;n<=count;n++){
 			var d=document.createElement('div');
-			d.className='line-num';
+			d.className=errLines.indexOf(n)>=0?'line-num line-error':'line-num';
 			d.textContent=n;
 			frag.appendChild(d);
 		}
@@ -1709,7 +1709,7 @@ function getJsonKeyRangesInLine(line,nextLine){
 	var m;
 	while((m=re.exec(line))!==null){
 		var after=line.substring(re.lastIndex);
-		if(/^\s*:/.test(after)||(after.length===0&&nextLine!==undefined&&/^\s*:/.test(nextLine))){
+		if(/^\s*:/.test(after)||(/^\s*$/.test(after)&&nextLine!==undefined&&/^\s*:/.test(nextLine))){
 			ranges.push([m.index,m.index+m[0].length]);
 		}
 		if(m.index===re.lastIndex) re.lastIndex++;
@@ -1763,6 +1763,10 @@ function renderJsonOverlay(bd,lines){
 	while(start<min&&prev[start]===lines[start]) start++;
 	var suf=0;
 	while(suf<min-start&&prev[prev.length-1-suf]===lines[n-1-suf]) suf++;
+	// Re-render the line immediately before the first change: its key
+	// highlighting depends on the following line, so it must not be left in
+	// the unchanged prefix.
+	if(start>0&&start<Math.max(prev.length,n)) start--;
 	var endOld=prev.length-suf;
 	var endNew=n-suf;
 	var kids=bd.children;
