@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792158721"
+      "1792160258"
    ],
    "authors": null,
    "reviewers": null,
@@ -41,18 +41,42 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerrequisitos\n\nEn este texto practicaremos la operación de suma. Antes de comenzar, sugerimos estudiar los textos del Capítulo 3 de la sección *Primeros Pasos* de **History Tracers** (<htcite0>).",
+               "text": "### Prerrequisitos\n\nEn este texto practicaremos la operación de suma. Antes de continuar con estos ejercicios, sugerimos estudiar el texto *Corriendo entre los números* (<htcite0>), el texto *Avanzando un orden y el complemento* (<htcite1>) y el juego *¿Se lleva o no se lleva? (Juego)* (<htcite2>).",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
                      "text": "History Tracers Team",
-                     "page": "Primeros pasos (Volumen 1)",
+                     "page": "Corriendo entre los números",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
-                        "month": "",
-                        "day": ""
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Avanzando un orden y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5539096c-dd7d-4f9c-a137-f0465725b9f4",
+                     "text": "History Tracers Team",
+                     "page": "¿Se lleva o no se lleva? (Juego)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -68,7 +92,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "#### Practicando\n\nLeer un texto puede parecer suficiente, pero la práctica es esencial para una comprensión verdadera. A continuación se muestra una suma escrita verticalmente, columna por columna, desde las unidades hasta las centenas. En cada columna, los cuadrados azul claro son el dígito que ya está ahí; usa el botón hacia arriba (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i>) y el botón hacia abajo (<i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) para sumar en cuadrados amarillo claro el dígito inferior del segundo número. Cuando los diez cuadrados se agrupan, el 1 se lleva a la siguiente posición.\n\nAl finalizar, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás pasar al siguiente problema haciendo clic en el botón de abajo:",
+               "text": "#### Practicando\n\nLeer un texto puede parecer suficiente, pero la práctica es esencial para una comprensión verdadera. A continuación se muestra una suma escrita verticalmente, columna por columna, desde las unidades hasta las centenas. En cada columna, los cuadrados azul claro son el dígito que ya está ahí; usa el botón hacia arriba (<span class=\"htAddButtonSample\"><i class=\"fa-solid fa-caret-up\"></i></span>) y el botón hacia abajo (<span class=\"htAddButtonSample\"><i class=\"fa-solid fa-caret-down\"></i></span>) para sumar en cuadrados amarillo claro el dígito inferior del segundo número. Cuando los diez cuadrados se agrupan, el 1 se lleva a la siguiente posición.\n\nAl finalizar, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás pasar al siguiente problema haciendo clic en el botón de abajo:",
                "source": null,
                "date_time": null,
                "isTable": false,

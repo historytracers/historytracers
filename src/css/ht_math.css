@@ -3657,6 +3657,22 @@ p.desc svg {
   cursor: default;
 }
 
+/* Inline sample of the buttons, used in the exercise description. */
+.htAddButtonSample {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15em 0.7em;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  background-color: #eaf3fb;
+  color: #2c5f8a;
+  cursor: default;
+  font-size: 1.2em;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
 .htAddFeedback {
   margin-top: 0.75em;
   min-height: 2.5em;
