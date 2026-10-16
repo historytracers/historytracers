@@ -44,31 +44,57 @@ function htDetectLocalLanguage()
 }
 
 function htSetIndexLang(urlParams) {
-    var lang = "en-US";
+    var lang = htDetectLocalLanguage();
+    if (typeof htGetStoredLang === 'function') {
+        var storedLang = htGetStoredLang();
+        if (storedLang && $("#site_language option[value='"+storedLang+"']").length > 0) {
+            lang = storedLang;
+        }
+    }
     if (urlParams.has('lang')) {
         var selLang = urlParams.get('lang');
         if ($("#site_language option[value='"+selLang+"']").length > 0) {
             lang = selLang;
         }
-    } else {
-        lang = htDetectLocalLanguage();
     }
 
     return lang;
 }
 
 function htSetIndexCal(urlParams) {
-    var cal = "";
+    var cal = "gregory";
+    if (typeof htGetStoredCalendar === 'function') {
+        var storedCal = htGetStoredCalendar();
+        if (storedCal && $("#site_calendar option[value='"+storedCal+"']").length > 0) {
+            cal = storedCal;
+        }
+    }
     if (urlParams.has('cal')) {
         var selCalendar = urlParams.get('cal');
         if ($("#site_calendar option[value='"+selCalendar+"']").length > 0) {
             cal = selCalendar;
         }
-    } else {
-        cal = "gregory";
     }
 
     return cal;
+}
+
+function htSetIndexRecreio(urlParams) {
+    var rec = "30";
+    if (typeof htGetStoredRecreio === 'function') {
+        var storedRec = htGetStoredRecreio();
+        if (storedRec && $("#site_recreio option[value='"+storedRec+"']").length > 0) {
+            rec = storedRec;
+        }
+    }
+    if (urlParams.has('rec')) {
+        var selRec = urlParams.get('rec');
+        if ($("#site_recreio option[value='"+selRec+"']").length > 0) {
+            rec = selRec;
+        }
+    }
+
+    return rec;
 }
 
 function htSetIndexFont(urlParams) {
@@ -90,6 +116,7 @@ function htParseIndexRequest() {
     var lang = htSetIndexLang(urlParams);
     var cal = htSetIndexCal(urlParams);
     var font = htSetIndexFont(urlParams);
+    var rec = htSetIndexRecreio(urlParams);
 
     if (urlParams.has('atlas_page')) {
         var selAtlas = urlParams.get('atlas_page');
@@ -99,9 +126,19 @@ function htParseIndexRequest() {
         $("#atlas").val(selAtlas);
     }
 
-    $('#site_language').val(lang);
-    $('#site_calendar').val(cal);
-    $('#site_font_size').val(font);
+    if (typeof htApplySelectValue === 'function') {
+        var langFallback = (typeof htResolveLangFallback === 'function') ? htResolveLangFallback() : 'en-US';
+        var calFallback = (typeof htResolveCalendarFallback === 'function') ? htResolveCalendarFallback() : 'gregory';
+        lang = htApplySelectValue('site_language', lang, langFallback) || lang;
+        cal = htApplySelectValue('site_calendar', cal, calFallback) || cal;
+        font = htApplySelectValue('site_font_size', font, 'default') || font;
+        rec = htApplySelectValue('site_recreio', rec, '30') || rec;
+    } else {
+        $('#site_language').val(lang);
+        $('#site_calendar').val(cal);
+        $('#site_font_size').val(font);
+        $('#site_recreio').val(rec);
+    }
     if (typeof htApplyFontSize === 'function') {
         htApplyFontSize(font);
     }
@@ -110,6 +147,9 @@ function htParseIndexRequest() {
     }
     if (typeof htFitCalendarSelect === 'function') {
         htFitCalendarSelect();
+    }
+    if (typeof htStoreTopPrefs === 'function') {
+        htStoreTopPrefs();
     }
 
     htLoadPage('index','json', '', false);
@@ -126,10 +166,16 @@ function htParseIndexRequest() {
     htLoadPage('theme','json', '', false);
 
     $('#site_language').on('change', function() {
+        if (typeof htStoreTopPrefs === 'function') {
+            htStoreTopPrefs();
+        }
         htReloadCurrentPage();
     });
 
     $('#site_calendar').on('change', function() {
+        if (typeof htStoreTopPrefs === 'function') {
+            htStoreTopPrefs();
+        }
         htReloadCurrentPage();
     });
 
