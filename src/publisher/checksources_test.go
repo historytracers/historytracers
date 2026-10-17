@@ -21,13 +21,13 @@ func TestHTIsCommonContentPath(t *testing.T) {
 		{
 			name: "unix common smartphone file",
 			src:  "/var/www/htdocs/historytracers/",
-			path: "/var/www/htdocs/historytracers/src/common/src/smartphone/en-US/x.json",
+			path: "/var/www/htdocs/historytracers/common/src/smartphone/en-US/x.json",
 			want: true,
 		},
 		{
 			name: "unix common top dir",
 			src:  "/var/www/htdocs/historytracers/",
-			path: "/var/www/htdocs/historytracers/src/common",
+			path: "/var/www/htdocs/historytracers/common",
 			want: true,
 		},
 		{
@@ -39,13 +39,13 @@ func TestHTIsCommonContentPath(t *testing.T) {
 		{
 			name: "windows common smartphone file",
 			src:  "C:\\inetpub\\wwwroot\\historytracers\\",
-			path: "C:\\inetpub\\wwwroot\\historytracers\\src\\common\\src\\smartphone\\en-US\\x.json",
+			path: "C:\\inetpub\\wwwroot\\historytracers\\common\\src\\smartphone\\en-US\\x.json",
 			want: true,
 		},
 		{
 			name: "windows mixed separators",
 			src:  "C:\\inetpub\\wwwroot\\historytracers\\",
-			path: "C:\\inetpub\\wwwroot\\historytracers\\src/common/src/smartphone/pt-BR/y.json",
+			path: "C:\\inetpub\\wwwroot\\historytracers\\common/src/smartphone/pt-BR/y.json",
 			want: true,
 		},
 		{
@@ -63,7 +63,7 @@ func TestHTIsCommonContentPath(t *testing.T) {
 		{
 			name: "unix sibling prefix not inside common",
 			src:  "/var/www/htdocs/historytracers/",
-			path: "/var/www/htdocs/historytracers/src/commonity/x.json",
+			path: "/var/www/htdocs/historytracers/commonity/x.json",
 			want: false,
 		},
 	}
