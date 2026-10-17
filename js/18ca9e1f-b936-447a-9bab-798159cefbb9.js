@@ -5,10 +5,12 @@
 // laid out column by column, from the units upwards, with the light blue
 // squares showing the value already in the column. Instead of adding the
 // bottom digit square by square with the buttons, the player types the digit
-// that the column keeps and the 1 carried to the next order, if any. The
-// squares then show how the typed values match the group of ten. The localized
-// texts live in the class JSON, so this file only wires the behavior and draws
-// the board.
+// that the column keeps and, when the column reaches ten, the 1 carried to the
+// box above the next order. The values are checked as they are typed: a wrong
+// value colours as many squares as the value written, the right values fill
+// them and are congratulated, and the button that moves to the next column
+// appears. The localized texts live in the class JSON, so this file only wires
+// the behavior and draws the board.
 
 var localAddIn = {};
 
@@ -235,7 +237,6 @@ function htAddInSetupColumn() {
     // Clear the fields and controls for the new column.
     $("#htAddInDigitInput").val("").prop("disabled", false);
     $("#htAddInCarryInput").val("").prop("disabled", false);
-    $("#htAddInCheckBtn").prop("disabled", false);
     $("#htAddInFeedback").html("");
     $("#htAddInNextBtn").addClass("hidden");
 
@@ -246,11 +247,19 @@ function htAddInSetupColumn() {
     htAddInDrawSquares(false);
 }
 
-// Reads the fields and resolves the column when the values are correct.
-// The carry field is only present when the column reaches ten; otherwise the
-// digit alone is enough. Otherwise it explains, with the complement, what still
-// does not match.
-function htAddInCheck() {
+// Colours the squares counted by a value that does not match the column: a
+// written digit colours that many squares, the rest keep their normal colours.
+function htAddInMarkWrittenSquares(count) {
+    var squares = $("#htAddInSquares .htAddSquare").removeClass("htAddSquareWritten");
+    var written = Math.max(0, Math.min(count, squares.length));
+    squares.slice(0, written).addClass("htAddSquareWritten");
+}
+
+// Checks the fields as they are typed, so the button that verified the column is
+// not needed. A wrong digit or carry colours the squares; the right values solve
+// the column at once. The carry field is only present when the column reaches
+// ten, so when there is no carry the digit alone solves it.
+function htAddInEvaluate() {
     if (localAddIn.answered) {
         return;
     }
@@ -261,40 +270,45 @@ function htAddInCheck() {
     var correctDigit = sum % 10;
     var correctCarry = sum >= 10 ? 1 : 0;
     var order = htAddInOrderName(localAddIn.column);
+    var complement = (base < 10) ? (10 - base) : 0;
     var digitRaw = $("#htAddInDigitInput").val();
     var carryRaw = $("#htAddInCarryInput").val();
 
-    if (digitRaw === "" || (localAddIn.carryNeeded && carryRaw === "")) {
-        var missing = localAddIn.carryNeeded ? $("#htAddInMissingTemplate").html() : $("#htAddInMissingDigitTemplate").html();
-        $("#htAddInFeedback").html(missing);
-        return;
-    }
+    var digitOk = digitRaw !== "" && parseInt(digitRaw, 10) === correctDigit;
+    var carryOk = !localAddIn.carryNeeded || (carryRaw !== "" && parseInt(carryRaw, 10) === correctCarry);
 
-    var digit = parseInt(digitRaw, 10);
-    var carry = localAddIn.carryNeeded ? parseInt(carryRaw, 10) : 0;
-    var complement = (base < 10) ? (10 - base) : 0;
-
-    if (digit === correctDigit && carry === correctCarry) {
-        htAddInResolve();
-        return;
-    }
-
-    if (digit !== correctDigit) {
+    if (digitRaw !== "" && !digitOk) {
+        htAddInMarkWrittenSquares(parseInt(digitRaw, 10));
         $("#htAddInFeedback").html(htAddInReplace($("#htAddInWrongDigitTemplate").html(), {
             order: order,
             base: base,
             comp: complement
         }));
-    } else {
+        return;
+    }
+
+    if (localAddIn.carryNeeded && carryRaw !== "" && !carryOk) {
+        htAddInMarkWrittenSquares(parseInt(carryRaw, 10));
         $("#htAddInFeedback").html(htAddInReplace($("#htAddInWrongCarryTemplate").html(), {
             order: order,
             base: base,
             added: addend
         }));
+        return;
+    }
+
+    htAddInMarkWrittenSquares(0);
+
+    if (digitOk && carryOk) {
+        htAddInResolve();
+    } else {
+        $("#htAddInFeedback").html("");
     }
 }
 
-// Records the result digit of the column and the 1 it carries, if any.
+// Records the result digit of the column and the 1 it carries, if any. When the
+// values are right the squares are filled and a congratulation is shown, together
+// with the button that moves to the next column (or to a new problem).
 function htAddInResolve() {
     if (localAddIn.answered) {
         return;
@@ -315,19 +329,19 @@ function htAddInResolve() {
     // and the group of ten shows the carried 1.
     htAddInDrawSquares(true);
 
-    var template = carry ? $("#htAddInMsgCarryTemplate").html() : $("#htAddInMsgNoCarryTemplate").html();
-    $("#htAddInFeedback").html(htAddInReplace(template, {
+    var explanation = htAddInReplace(carry ? $("#htAddInMsgCarryTemplate").html() : $("#htAddInMsgNoCarryTemplate").html(), {
         base: localAddIn.base,
         added: localAddIn.addendDigit,
         sum: sum,
         result: sum % 10,
         order: order
-    }));
+    });
 
     $("#htAddInDigitInput").prop("disabled", true);
     $("#htAddInCarryInput").prop("disabled", true);
-    $("#htAddInCheckBtn").prop("disabled", true);
 
+    var congrats;
+    var suffix = "";
     if (column >= HT_ADDIN_DIGITS - 1) {
         // The whole addition is done. A carry out of the last column created a
         // new order on the left, which holds only the carried 1.
@@ -335,11 +349,19 @@ function htAddInResolve() {
             localAddIn.results[HT_ADDIN_DIGITS] = 1;
             htAddInBuildBoard();
         }
-        $("#htAddInFeedback").append("<br /><i class=\"fa-solid fa-medal\" style=\"font-size: 4em; color: gold;\"></i>");
+        congrats = htAddInReplace($("#htAddInPerfectTemplate").html(), {
+            first: localAddIn.first,
+            addend: localAddIn.addend,
+            sum: localAddIn.first + localAddIn.addend
+        });
+        suffix = " <i class=\"fa-solid fa-medal\" style=\"font-size: 4em; color: gold;\"></i>";
         $("#htAddInNextBtn").text($("#htAddInPlayAgainLabel").text()).removeClass("hidden");
     } else {
+        congrats = $("#htAddInCongratsTemplate").html();
         $("#htAddInNextBtn").text($("#htAddInNextColumnLabel").text()).removeClass("hidden");
     }
+
+    $("#htAddInFeedback").html(congrats + "<br />" + explanation + suffix);
 }
 
 // Moves to the next column of the same addition, bringing the carry along, or
@@ -401,25 +423,14 @@ function htLoadContent() {
 
     htAddInBuildOrders();
 
-    $("#htAddInCheckBtn").off("click").on("click", function() {
-        htAddInCheck();
-    });
-
     $("#htAddInNextBtn").off("click").on("click", function() {
         htAddInNext();
     });
 
-    // Only digits can be typed in the fields.
+    // The values are checked as they are typed, so there is no verify button.
     $("#htAddInDigitInput, #htAddInCarryInput").off("input").on("input", function() {
         this.value = this.value.replace(/[^0-9]/g, "");
-    });
-
-    // Enter checks the column, the same as the button.
-    $("#htAddInDigitInput, #htAddInCarryInput").off("keydown").on("keydown", function(e) {
-        if (e.key === "Enter" || e.which === 13) {
-            e.preventDefault();
-            htAddInCheck();
-        }
+        htAddInEvaluate();
     });
 
     htAddInNewProblem();

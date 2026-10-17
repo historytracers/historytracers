@@ -3737,6 +3737,12 @@ p.desc svg {
   display: inline-block;
 }
 
+/* The squares counted by a value that does not match the column. */
+.htAddSquareWritten {
+  border-color: #c0392b;
+  background-color: #f9d6d5;
+}
+
 .htAddInput {
   box-sizing: border-box;
   width: 2rem;
