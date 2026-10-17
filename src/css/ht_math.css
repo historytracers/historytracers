@@ -3744,10 +3744,10 @@ p.desc svg {
 }
 
 /* The squares outside the group of ten when the column carries: they show the
-   number that stays in the column, making the expected number explicit. */
+   number that stays in the column, in the same light yellow used by the added
+   squares of the example. */
 .htAddSquareExpected {
-  border-color: #2e7d32;
-  background-color: #b7e4c7;
+  background-color: lightyellow;
 }
 
 .htAddInput {
