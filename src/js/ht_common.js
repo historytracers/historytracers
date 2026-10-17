@@ -548,7 +548,9 @@ function htUpdateCurrentDateOnIndex()
     var current_time = Math.floor(Date.now()/1000);
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
-    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
+    // 'long' renders the full month name on the top current date
+    // (e.g. "October 17, 2026" instead of "Oct 17, 2026").
+    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined, 'long');
     $("#current_day").html(text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
@@ -567,11 +569,106 @@ function htAdjustGregorianZeroYear(text)
     return parts.join(' ');
 }
 
-function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDate)
+// JavaScript Date objects can only represent about +/-271,821 years, so
+// Intl.DateTimeFormat fails ("Invalid time value" or "NaN") for very old
+// dates such as -2500000. The Julian-day arithmetic converters
+// (jd_to_islamic, jd_to_hebrew, ...) in js/calendar.js still work for any
+// date, so this helper renders those out-of-range dates: it converts the
+// date arithmetically and then formats a reference date that Intl can
+// handle, substituting the real day/year tokens. The reference keeps the
+// same month name (Islamic and Persian months always have the same name
+// for a given index; Hebrew months keep their names as long as the
+// reference year has the same leap-year structure - Adar I vs Adar and the
+// extra month 13 exist only in leap years).
+function htFormatOutOfRangeCalendar(calendarType, locale, julianDays, dateStyle)
+{
+    var target = undefined;
+    var referenceJd = 0;
+    switch (calendarType) {
+        case "islamic":
+            target = jd_to_islamic(julianDays);
+            // Day 1 keeps the reference inside month target[1] even when that
+            // month is short; the day token is replaced below anyway.
+            referenceJd = islamic_to_jd(1447, target[1], 1);
+            break;
+        case "hebrew":
+            target = jd_to_hebrew(julianDays);
+            referenceJd = htHebrewReferenceJd(target[1], hebrew_leap(target[0]));
+            break;
+        case "persian":
+            target = jd_to_persian(julianDays);
+            referenceJd = persian_to_jd(1404, target[1], 1);
+            break;
+        default:
+            // Gregorian: the reference year is always CE positive, so no era
+            // token is emitted here; the caller appends the BC suffix and
+            // replaces zero years exactly like the in-range code path.
+            target = jd_to_gregorian(julianDays);
+            referenceJd = gregorian_to_jd(2000, target[1], 1);
+            break;
+    }
+    if (!target || isNaN(target[0])) {
+        return '';
+    }
+
+    var refDate = jd_to_gregorian(referenceJd);
+    var ct = new Date(refDate[0], refDate[1] - 1, refDate[2], 0, 0, 0);
+    ct.setFullYear(refDate[0], refDate[1] - 1, refDate[2]);
+    if (isNaN(ct.getTime())) {
+        return (target[0] < 0) ? Math.abs(target[0]) + " " : target[0] + "";
+    }
+
+    var parts = new Intl.DateTimeFormat(locale, { dateStyle: dateStyle, calendar: calendarType }).formatToParts(ct);
+    var text = "";
+    for (var i = 0; i < parts.length; i++) {
+        var part = parts[i];
+        if (part.type == "day") {
+            text += target[2];
+        } else if (part.type == "year") {
+            if (calendarType == "gregory") {
+                // Historical convention: no year zero, so a negative
+                // astronomical year renders as the next positive year (-44
+                // becomes "45"); the BC suffix is added by the caller.
+                text += (target[0] < 0) ? Math.abs(target[0]) + 1 : target[0];
+            } else {
+                text += target[0];
+            }
+        } else {
+            text += part.value;
+        }
+    }
+    return text;
+}
+
+// htHebrewReferenceJd picks a jump-off Julian day for formatting a Hebrew
+// month name: a recent calendar year with the same leap-year structure as
+// the target year (non-leap for months 1..12, leap when the target year is
+// a leap year - needed for month 12/Adar I and for the 13th month).
+function htHebrewReferenceJd(month, needLeapYear)
+{
+    var limit = needLeapYear ? 13 : 12;
+    for (var year = 5760; year <= 5790; year++) {
+        if (hebrew_leap(year) === needLeapYear) {
+            if (month <= limit) {
+                return hebrew_to_jd(year, month, 1);
+            }
+        }
+    }
+    return hebrew_to_jd(needLeapYear ? 5779 : 5760, Math.min(month, limit), 1);
+}
+
+function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDate, dateStyle)
 {
     if (!calendarType || !locale) {
         console.error('Missing required parameters: calendarType and locale');
         return '';
+    }
+
+    // Calendar dates are always displayed with the full month name
+    // ("October 17, 2026", "Safar 16, 2577368 BC").  Callers that explicitly
+    // need another style can still pass one.
+    if (dateStyle === undefined) {
+        dateStyle = 'long';
     }
 
     var ct = undefined;
@@ -602,6 +699,7 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
     var text = "";
     var year = " "+keywords[43];
     var mesoamericanPeriod = 0;
+    var isHispanic = (calendarType == "hispanic");
     switch(calendarType) {
         case "gregory":
         case "hebrew":
@@ -625,7 +723,7 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
             var frCals = jd_to_french_revolutionary(julianDays);
             year = (frCals[0] < 0 ) ? Math.abs(frCals[0]) + " "+ keywords[43] : frCals[0]; 
 
-            text = "Année " + year + " Mois "+frMonth[frCals[1] - 1]+ " Décade "+frDecade[frCals[2] - 1]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
+            text = "Année " + year + " Mois "+frMonth[frCals[1]]+ " Décade "+frDecade[frCals[2]]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
             return text;
         case "shaka":
             var indianCal = jd_to_indian_civil(julianDays);
@@ -664,27 +762,59 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
         case "chinese":
             var tzOffset = -new Date().getTimezoneOffset() / 60;
             var chc = jd_to_chinese(julianDays, tzOffset);
+            // The sexagenary cycle repeats for negative (BC) years too, so
+            // reduce the index with a positive modulo; JavaScript's % keeps
+            // the sign of the dividend and would index chineseStems[-2].
+            var stemIdx = ((chc[0] - 2) % 10 + 10) % 10;
+            var branchIdx = ((chc[0] - 2) % 12 + 12) % 12;
             year = (chc[0] < 0) ? Math.abs(chc[0]) + " " + keywords[43] : chc[0];
-            var stem = chineseStems[(chc[0] - 2) % 10];
-            var branch = chineseBranches[(chc[0] - 2) % 12];
-            var animal = chineseAnimals[(chc[0] - 2) % 12];
+            var stem = chineseStems[stemIdx];
+            var branch = chineseBranches[branchIdx];
+            var animal = chineseAnimals[branchIdx];
             text = stem + "-" + branch + " (" + animal + ") (" + chineseMonths[chc[1]] + "), " + chc[2] + ", " + year;
             return text;
         case "hispanic":
-            intEpoch += 1199188800;
+            // The Hispanic era is 38 years ahead of the Gregorian calendar.
+            // Shift the calendar date (not a fixed number of seconds/days),
+            // so 1131 AD becomes Era 1169.  A 29 February that does not
+            // exist in the target year falls back to 28 February.
+            var hispanicYear = jd[0] + 38;
+            var hispanicMonth = jd[1];
+            var hispanicDay = jd[2];
+            if (hispanicMonth == 2 && hispanicDay == 29 &&
+                !leap_gregorian(hispanicYear)) {
+                hispanicDay = 28;
+            }
+            jd = new Array(hispanicYear, hispanicMonth, hispanicDay);
+            julianDays = gregorian_to_jd(hispanicYear, hispanicMonth, hispanicDay);
+            calendarType = "gregory";
+            break;
         default:
             calendarType = "gregory";
             break;
     }
 
-    if (unixEpoch != undefined) {
+    if (isHispanic) {
+        // Rebuild the Date from the shifted calendar date: setUTCSeconds()
+        // below would discard the era offset for unix epochs.
+        ct = new Date(jd[0], jd[1] - 1, jd[2], 0, 0, 0);
+        ct.setFullYear(jd[0], jd[1] - 1, jd[2]);
+    } else if (unixEpoch != undefined) {
         ct.setUTCSeconds(intEpoch);
     }
 
-    text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: calendarType }).format(ct);
+    var dateOutOfRange = isNaN(ct.getTime());
+    if (dateOutOfRange) {
+        // The requested moment does not fit in a Date object: fall back to
+        // the pure Julian-day arithmetic conversion so ancient dates (e.g.
+        // the Islamic calendar at -2500000) never render as "NaN".
+        text = htFormatOutOfRangeCalendar(calendarType, locale, julianDays, dateStyle);
+    } else {
+        text = new Intl.DateTimeFormat(locale, { dateStyle: dateStyle, calendar: calendarType }).format(ct);
+    }
 
     if (calendarType == "gregory") { 
-        var yearValue = ct.getFullYear();
+        var yearValue = dateOutOfRange ? jd[0] : ct.getFullYear();
         if (yearValue < 0) {
             text += " "+keywords[43];
         } else if (yearValue == 0) {
@@ -700,7 +830,20 @@ function htConvertGregorianYearToJD(gregoryYear)
     var ct = new Date();
     if (gregoryYear != "now") {
         var year = parseInt(gregoryYear);
+        // Only the month/day of "today" is taken from ct here, so for years
+        // beyond what a Date can hold (about +/-271,821 years) skip the
+        // setYear() call: it would make ct invalid (NaN month/day) and the
+        // Julian day below would become NaN. The year is converted purely
+        // arithmetically by gregorian_to_jd instead.
+        var month = ct.getMonth();
+        var day = ct.getDate();
+        if (isNaN(year)) {
+            return gregorian_to_jd(year, month, day);
+        }
         ct.setYear(year);
+        if (isNaN(ct.getTime())) {
+            return gregorian_to_jd(year, month, day);
+        }
     }
     // gregorian to jd will subtract an year before to convert
     return gregorian_to_jd(gregoryYear, ct.getMonth(), ct.getDate());

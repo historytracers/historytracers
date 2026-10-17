@@ -153,14 +153,14 @@ func htLoadDefaultSourcesFromTemplate() map[string]srcEntry {
 
 // htFindContentFilePath returns the path of the language content file for the
 // given language and UUID, checking both the top-level lang directory and the
-// smartphone location (src/common/src/smartphone/<lang>/). It returns an empty
+// smartphone location (common/src/smartphone/<lang>/). It returns an empty
 // string when the file does not exist in either location.
 func htFindContentFilePath(lang string, uid string) string {
 	fpath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, uid)
 	if _, err := os.Stat(fpath); err == nil {
 		return fpath
 	}
-	fpath = fmt.Sprintf("%ssrc/common/src/smartphone/%s/%s.json", CFG.SrcPath, lang, uid)
+	fpath = fmt.Sprintf("%scommon/src/smartphone/%s/%s.json", CFG.SrcPath, lang, uid)
 	if _, err := os.Stat(fpath); err == nil {
 		return fpath
 	}
@@ -168,12 +168,12 @@ func htFindContentFilePath(lang string, uid string) string {
 }
 
 // htIsCommonContentPath reports whether the given path points inside the
-// src/common submodule, whose contents are maintained in another repository
+// common submodule, whose contents are maintained in another repository
 // and therefore must never be rewritten by the publisher. Both the common
 // directory and the candidate path are normalized to forward slashes so
 // mixed-separator paths (e.g. Windows backslashes) are classified correctly.
 func htIsCommonContentPath(path string) bool {
-	commonPath := normalizeSlashes(CFG.SrcPath + "src/common")
+	commonPath := normalizeSlashes(CFG.SrcPath + "common")
 	return htIsWithinDir(commonPath, normalizeSlashes(path))
 }
 
@@ -215,10 +215,10 @@ func htCheckSources() {
 			}
 		}
 
-		// Smartphone content files live in src/common/src/smartphone/<lang>/.
+		// Smartphone content files live in common/src/smartphone/<lang>/.
 		// Scan them too so their source_menu references are checked and stored
 		// in the DB.
-		smartphoneDir := fmt.Sprintf("%ssrc/common/src/smartphone/%s/", CFG.SrcPath, lang)
+		smartphoneDir := fmt.Sprintf("%scommon/src/smartphone/%s/", CFG.SrcPath, lang)
 		sentries, err := os.ReadDir(smartphoneDir)
 		if err == nil {
 			for _, e := range sentries {
@@ -295,9 +295,9 @@ func htCheckSources() {
 
 			for _, f := range actualFixes {
 				if inCommon {
-					// Files under src/common live in another repository, so they are
+					// Files under common live in another repository, so they are
 					// reported but never modified here.
-					fmt.Printf("[REPORTED] %s/%s: source UUID %s date_time.year \"%s\" differs from published \"%s\" (file in src/common submodule; fix in its repo)\n",
+					fmt.Printf("[REPORTED] %s/%s: source UUID %s date_time.year \"%s\" differs from published \"%s\" (file in common submodule; fix in its repo)\n",
 						lang, uid, f.srcUUID, f.fileYear, f.fixedTo)
 					continue
 				}

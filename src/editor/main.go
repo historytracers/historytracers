@@ -1826,7 +1826,8 @@ document.getElementById('opt_apply').onclick=function(){
 	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)+'&my_name='+encodeURIComponent(nm)+'&smartphone_prefix='+encodeURIComponent(sp)+'&images_path='+encodeURIComponent(ip)}).then(function(r){
 		if(r.ok){
 			if(window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
-			if(window.parent&&window.parent.__ht_editor_opts){window.parent.__ht_editor_opts.smartphone_prefix=sp;window.parent.__ht_editor_opts.images_path=ip;}
+			if(window.parent&&window.parent.__ht_editor_opts){window.parent.__ht_editor_opts.lang=nl;window.parent.__ht_editor_opts.open_new_files=(nof==='true');window.parent.__ht_editor_opts.smartphone_prefix=sp;window.parent.__ht_editor_opts.images_path=ip;}
+			if(window.parent&&window.parent.setLang){window.parent.setLang(nl);var _pSel=window.parent.document&&window.parent.document.getElementById('langSelect');if(_pSel){_pSel.value=nl}}
 		}
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
