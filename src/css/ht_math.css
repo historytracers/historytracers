@@ -3726,6 +3726,43 @@ p.desc svg {
 }
 
 /*
+ * Practicing addition with typed values (content
+ * 18ca9e1f-b936-447a-9bab-798159cefbb9). It reuses the vertical addition board
+ * and the squares of the Practicing addition game, but the bottom digit is
+ * entered through text fields instead of the up and down buttons. The fields
+ * are placed in the position of the sum: the digit in the result row and the
+ * carry in the carry row, above the next order.
+ */
+.htAddInSlot {
+  display: inline-block;
+}
+
+.htAddInput {
+  box-sizing: border-box;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 4px;
+  color: #2c5f8a;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.htAddInput:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+.htAddInput:disabled {
+  background-color: #f4f4f4;
+  opacity: 0.6;
+}
+
+/*
  * Rectangles comparison practice (content 03bb4b8e-6187-4572-8f00-ea3892df51a4).
  */
 .htRectApp {
