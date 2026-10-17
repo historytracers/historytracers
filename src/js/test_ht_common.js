@@ -151,6 +151,20 @@ test('htConvertDate formats gregorian dates', () => {
   assert.equal(run(`htConvertDate('gregory', 'en-US', undefined, undefined, [2024, 1, 15])`), expected);
 });
 
+test('htConvertDate formats the full month name with dateStyle long', () => {
+  const { run } = createSandbox();
+  const ct = new Date(2024, 0, 15, 0, 0, 0);
+  ct.setFullYear(2024, 0, 15);
+  const expected = new Intl.DateTimeFormat('en-US', { dateStyle: 'long', calendar: 'gregory' }).format(ct);
+  assert.match(expected, /January/);
+  assert.equal(run(`htConvertDate('gregory', 'en-US', undefined, undefined, [2024, 1, 15], 'long')`), expected);
+  // The default remains the compact medium style ("Jan 15, 2024").
+  assert.equal(
+    run(`htConvertDate('gregory', 'en-US', undefined, undefined, [2024, 1, 15])`),
+    new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', calendar: 'gregory' }).format(ct)
+  );
+});
+
 test('htConvertDate handles year zero and negative years', () => {
   const { run } = createSandbox();
   assert.equal(run(`htConvertDate('gregory', 'en-US', undefined, undefined, [0, 1, 1])`), 'Jan 1, 0');

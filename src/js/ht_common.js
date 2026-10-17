@@ -548,7 +548,9 @@ function htUpdateCurrentDateOnIndex()
     var current_time = Math.floor(Date.now()/1000);
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
-    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
+    // 'long' renders the full month name on the top current date
+    // (e.g. "October 17, 2026" instead of "Oct 17, 2026").
+    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined, 'long');
     $("#current_day").html(text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
@@ -567,11 +569,18 @@ function htAdjustGregorianZeroYear(text)
     return parts.join(' ');
 }
 
-function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDate)
+function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDate, dateStyle)
 {
     if (!calendarType || !locale) {
         console.error('Missing required parameters: calendarType and locale');
         return '';
+    }
+
+    // 'medium' keeps the previous compact format ("Oct 17, 2026");
+    // callers may pass 'long' to spell out the full month name
+    // ("October 17, 2026").
+    if (dateStyle === undefined) {
+        dateStyle = 'medium';
     }
 
     var ct = undefined;
@@ -681,7 +690,7 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
         ct.setUTCSeconds(intEpoch);
     }
 
-    text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: calendarType }).format(ct);
+    text = new Intl.DateTimeFormat(locale, { dateStyle: dateStyle, calendar: calendarType }).format(ct);
 
     if (calendarType == "gregory") { 
         var yearValue = ct.getFullYear();
