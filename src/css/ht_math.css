@@ -3624,9 +3624,8 @@ p.desc svg {
 }
 
 /* A complement square that has already been added: it is one of the squares
-   used to complete the ten. */
+   used to complete the ten, outlined but with no orange background. */
 .htAddSquareComplementUsed {
-  background-color: #ffc078;
   box-shadow: inset 0 0 0 2px #d35400;
 }
 
@@ -3737,17 +3736,14 @@ p.desc svg {
   display: inline-block;
 }
 
-/* The squares counted by a value that does not match the column. */
+/* Squares covered by the written value: light yellow when they had no colour,
+   dark blue when they were already blue. */
 .htAddSquareWritten {
-  border-color: #c0392b;
-  background-color: #f9d6d5;
+  background-color: lightyellow;
 }
 
-/* The squares outside the group of ten when the column carries: they show the
-   number that stays in the column, in the same light yellow used by the added
-   squares of the example. */
-.htAddSquareExpected {
-  background-color: lightyellow;
+.htAddSquareBaseWritten {
+  background-color: darkblue;
 }
 
 .htAddInput {

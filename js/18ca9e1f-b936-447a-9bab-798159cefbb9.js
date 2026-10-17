@@ -250,23 +250,30 @@ function htAddInSetupColumn() {
 }
 
 // Colours the squares according to what the player writes in the digit field.
-// When the column carries, the digit that stays is the number of squares outside
-// the group of ten, so the value written colours that many of those squares;
-// otherwise the first N squares are coloured, N being the number written.
-// Nothing is coloured while the field is empty.
+// A square that already has blue turns dark blue; a square with no colour turns
+// light yellow. When the column carries, the digit that stays is the number of
+// squares outside the group of ten, so the value written colours that many of
+// those squares. Nothing is coloured while the field is empty.
 function htAddInMarkWrittenSquares(writtenDigit) {
-    var squares = $("#htAddInSquares .htAddSquare").removeClass("htAddSquareWritten").removeClass("htAddSquareExpected");
+    var squares = $("#htAddInSquares .htAddSquare").removeClass("htAddSquareWritten").removeClass("htAddSquareBaseWritten");
     if (writtenDigit === "") {
         return;
     }
     var written = parseInt(writtenDigit, 10);
+    var marked;
     if (localAddIn.carryNeeded) {
         var outside = squares.slice(10);
-        var mark = Math.max(0, Math.min(written, outside.length));
-        outside.slice(0, mark).addClass("htAddSquareExpected");
-        return;
+        marked = outside.slice(0, Math.max(0, Math.min(written, outside.length)));
+    } else {
+        marked = squares.slice(0, Math.max(0, Math.min(written, squares.length)));
     }
-    squares.slice(0, Math.max(0, Math.min(written, squares.length))).addClass("htAddSquareWritten");
+    marked.each(function() {
+        if ($(this).hasClass("htAddSquareBase")) {
+            $(this).addClass("htAddSquareBaseWritten");
+        } else {
+            $(this).addClass("htAddSquareWritten");
+        }
+    });
 }
 
 // Checks the fields as they are typed, so the button that verified the column is
