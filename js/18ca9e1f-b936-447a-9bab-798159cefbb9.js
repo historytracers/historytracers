@@ -9,8 +9,10 @@
 // box above the next order. The values are checked as they are typed: a wrong
 // value colours as many squares as the value written, the right values fill
 // them and are congratulated, and the button that moves to the next column
-// appears. The localized texts live in the class JSON, so this file only wires
-// the behavior and draws the board.
+// appears. When the column carries, writing a value colours the squares outside
+// the group of ten, making the number expected explicit, and they take priority
+// over the written value. The localized texts live in the class JSON, so this
+// file only wires the behavior and draws the board.
 
 var localAddIn = {};
 
@@ -247,11 +249,21 @@ function htAddInSetupColumn() {
     htAddInDrawSquares(false);
 }
 
-// Colours the squares counted by a value that does not match the column: a
-// written digit colours that many squares, the rest keep their normal colours.
-function htAddInMarkWrittenSquares(count) {
-    var squares = $("#htAddInSquares .htAddSquare").removeClass("htAddSquareWritten");
-    var written = Math.max(0, Math.min(count, squares.length));
+// Colours the squares according to what the player writes in the digit field.
+// When the column carries, the squares outside the group of ten are the number
+// that stays in the column, so they are the ones coloured to make the expected
+// number explicit; otherwise the first N squares are coloured, N being the
+// number written. Nothing is coloured while the field is empty.
+function htAddInMarkWrittenSquares(writtenDigit) {
+    var squares = $("#htAddInSquares .htAddSquare").removeClass("htAddSquareWritten").removeClass("htAddSquareExpected");
+    if (writtenDigit === "") {
+        return;
+    }
+    if (localAddIn.carryNeeded) {
+        squares.slice(10).addClass("htAddSquareExpected");
+        return;
+    }
+    var written = Math.max(0, Math.min(parseInt(writtenDigit, 10), squares.length));
     squares.slice(0, written).addClass("htAddSquareWritten");
 }
 
@@ -277,8 +289,11 @@ function htAddInEvaluate() {
     var digitOk = digitRaw !== "" && parseInt(digitRaw, 10) === correctDigit;
     var carryOk = !localAddIn.carryNeeded || (carryRaw !== "" && parseInt(carryRaw, 10) === correctCarry);
 
+    // Colour the squares according to the value written, before deciding whether
+    // it is right or wrong.
+    htAddInMarkWrittenSquares(digitRaw);
+
     if (digitRaw !== "" && !digitOk) {
-        htAddInMarkWrittenSquares(parseInt(digitRaw, 10));
         $("#htAddInFeedback").html(htAddInReplace($("#htAddInWrongDigitTemplate").html(), {
             order: order,
             base: base,
@@ -288,7 +303,6 @@ function htAddInEvaluate() {
     }
 
     if (localAddIn.carryNeeded && carryRaw !== "" && !carryOk) {
-        htAddInMarkWrittenSquares(parseInt(carryRaw, 10));
         $("#htAddInFeedback").html(htAddInReplace($("#htAddInWrongCarryTemplate").html(), {
             order: order,
             base: base,
@@ -296,8 +310,6 @@ function htAddInEvaluate() {
         }));
         return;
     }
-
-    htAddInMarkWrittenSquares(0);
 
     if (digitOk && carryOk) {
         htAddInResolve();

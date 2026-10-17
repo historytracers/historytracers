@@ -3743,6 +3743,13 @@ p.desc svg {
   background-color: #f9d6d5;
 }
 
+/* The squares outside the group of ten when the column carries: they show the
+   number that stays in the column, making the expected number explicit. */
+.htAddSquareExpected {
+  border-color: #2e7d32;
+  background-color: #b7e4c7;
+}
+
 .htAddInput {
   box-sizing: border-box;
   width: 2rem;
