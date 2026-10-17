@@ -143,6 +143,28 @@ test('htConvertGregorianYear converts gregorian years', () => {
   assert.match(meso, /Tzolkin:/);
 });
 
+test('htConvertGregorianYear handles years beyond the JS Date range', () => {
+  const { run } = createSandbox();
+  // -2500000 (e.g. the "Humans" entry in families.json) cannot be stored in
+  // a Date object; the Julian day must stay a real number so every calendar
+  // renders a year instead of "NaN".
+  const now = new Date();
+  const jd = run(`gregorian_to_jd(-2500000, ${now.getMonth()}, ${now.getDate()})`);
+  assert.equal(Number.isFinite(jd), true, 'jd should be finite, got: ' + jd);
+  const islamic = run(`htConvertGregorianYear('islamic', -2500000)`);
+  assert.match(String(islamic), /^25773\d\d BC$/, 'islamic: ' + islamic);
+  const hebrew = run(`htConvertGregorianYear('hebrew', -2500000)`);
+  assert.doesNotMatch(String(hebrew), /NaN/);
+  assert.match(String(hebrew), /^\d+ BC$/, 'hebrew: ' + hebrew);
+  const gregory = run(`htConvertGregorianYear('gregory', -2500000)`);
+  assert.equal(gregory, '2500000 BC');
+  const julian = run(`htConvertGregorianYear('julian', -2500000)`);
+  assert.doesNotMatch(String(julian), /NaN/);
+  // Far-future years must work too.
+  const future = run(`htConvertGregorianYear('islamic', 2500000)`);
+  assert.doesNotMatch(String(future), /NaN/);
+});
+
 test('htConvertDate formats gregorian dates', () => {
   const { run } = createSandbox();
   const ct = new Date(2024, 0, 15, 0, 0, 0);
@@ -169,6 +191,47 @@ test('htConvertDate handles year zero and negative years', () => {
   const { run } = createSandbox();
   assert.equal(run(`htConvertDate('gregory', 'en-US', undefined, undefined, [0, 1, 1])`), 'Jan 1, 0');
   assert.equal(run(`htConvertDate('gregory', 'en-US', undefined, undefined, [-44, 3, 15])`), 'Mar 15, 45 BC');
+});
+
+test('htConvertDate renders islamic dates far outside the JS Date range', () => {
+  const { run } = createSandbox();
+  // -2500000 years is beyond the ~271,821 years a Date can hold; the pure
+  // Intl path would give "Invalid time value"/"NaN".
+  const result = run(`htConvertDate('islamic', 'en-US', undefined, undefined, [-2500000, 1, 15])`);
+  assert.equal(String(result).includes('NaN'), false, 'no NaN in result: ' + result);
+  assert.equal(String(result).includes('Invalid'), false, 'no Invalid in result: ' + result);
+  // Year -2500000 converts to islamic year -2577368, month 2 (Safar).
+  assert.match(String(result), /^\S+\.? 16, -2577368 AH$/);
+  // The full-month style still gets the long month name.
+  const longResult = run(`htConvertDate('islamic', 'en-US', undefined, undefined, [-2500000, 1, 15], 'long')`);
+  assert.match(String(longResult), /Safar 16, -2577368 AH/);
+});
+
+test('htConvertDate renders ancient hebrew, persian and gregorian dates', () => {
+  const { run } = createSandbox();
+  const hebrewResult = run(`htConvertDate('hebrew', 'en-US', undefined, undefined, [-2500000, 1, 15])`);
+  assert.match(String(hebrewResult), /-2496211/);
+  const persianResult = run(`htConvertDate('persian', 'en-US', undefined, undefined, [-2500000, 1, 15])`);
+  assert.match(String(persianResult), /-2500625/);
+  // Just past the Date range the gregorian fallback keeps the same format as
+  // the in-range engine path ("Jan 15, 271001 BC").
+  const gregorianResult = run(`htConvertDate('gregory', 'en-US', undefined, undefined, [-272000, 1, 15])`);
+  assert.equal(String(gregorianResult), 'Jan 15, 272001 BC');
+  const zeroResult = run(`htConvertDate('gregory', 'en-US', undefined, undefined, [-272000, 1, 1])`);
+  assert.equal(String(zeroResult).includes('NaN'), false, 'no NaN in result: ' + zeroResult);
+});
+
+test('htFormatOutOfRangeCalendar keeps hebrew leap-month names', () => {
+  const { run } = createSandbox();
+  // Month 12 is "Adar" in non-leap years and "Adar I" in leap years, so the
+  // reference year must match the target year's leap structure.
+  const leapYear = run(`(function(){for(var y=-2499999;y>=-2500050;y--){if(hebrew_leap(y)) return y} return 0})()`);
+  assert.notEqual(leapYear, 0);
+  const leapJd = run(`hebrew_to_jd(${leapYear}, 12, 1)`);
+  assert.match(String(run(`htFormatOutOfRangeCalendar('hebrew', 'en-US', ${leapJd}, 'medium')`)), /Adar I/);
+  assert.equal(run(`hebrew_leap(5778)`), false);
+  const nonLeapJd = run(`hebrew_to_jd(5778, 12, 1)`);
+  assert.match(String(run(`new Intl.DateTimeFormat('en-US',{dateStyle:'medium',calendar:'hebrew'}).format((function(){var g=jd_to_gregorian(${nonLeapJd});var d=new Date(g[0],g[1]-1,g[2],0,0,0);d.setFullYear(g[0],g[1]-1,g[2]);return d})())`)), / Adar /);
 });
 
 test('htConvertDate converts unix epoch to gregorian', () => {
