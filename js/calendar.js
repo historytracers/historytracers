@@ -449,15 +449,30 @@ function paris_equinoxe_jd(year)
 
 var FRENCH_REVOLUTIONARY_EPOCH = 2375839.5;
 
+// The equinox series used by the French Revolutionary converter is fitted
+// around the present and becomes unreliable for very remote years.  Beyond
+// this Gregorian-year limit the converter uses the arithmetic fallback.
+var FRENCH_ASTRONOMICAL_YEAR_LIMIT = 10000;
+
 function annee_da_la_revolution(jd)
 {
-    var guess = jd_to_gregorian(jd)[0] - 2,
-        lasteq, nexteq, adr, guard;
+    var gregYear = jd_to_gregorian(jd)[0],
+        startYear, guess, lasteq, nexteq, adr, guard;
 
     // The equinox series is fitted around the present.  For very remote years
     // it diverges by thousands of days (or returns a non-finite value), which
-    // made the loop below run forever (e.g. year -2500000).  Detect that and
-    // use a Gregorian-anchored September equinox instead.
+    // made the loop below run forever (e.g. year -2500000).  Use a fixed
+    // Gregorian-year cutoff on the year in which the French year starts,
+    // matching french_revolutionary_to_jd(); keep the finite-value check and
+    // loop guards below as safety nets.
+    startYear = (jd < gregorian_to_jd(gregYear, 9, 22)) ?
+                gregYear - 1 : gregYear;
+    if (!isFinite(startYear) ||
+        Math.abs(startYear) > FRENCH_ASTRONOMICAL_YEAR_LIMIT) {
+        return french_arithmetic_year(jd);
+    }
+
+    guess = gregYear - 2;
     lasteq = paris_equinoxe_jd(guess);
     if (!isFinite(lasteq) ||
         Math.abs(lasteq - gregorian_to_jd(guess, 9, 22)) > 30) {
@@ -543,10 +558,13 @@ function french_revolutionary_to_jd(an, mois, decade, jour)
 
     // Keep the inverse consistent with french_arithmetic_year() for remote
     // years: Year "an" begins at the September equinox of Gregorian year
-    // an + 1791.  The iterative search below relies on the same astronomical
+    // an + 1791.  Use the same Gregorian-year cutoff as the forward
+    // conversion; the iterative search below relies on the astronomical
     // series that is unreliable at those distances.
-    if (Math.abs(an) > 100000) {
-        equinoxe = gregorian_to_jd(an + 1791, 9, 22);
+    var startYear = an + 1791;
+    if (!isFinite(startYear) ||
+        Math.abs(startYear) > FRENCH_ASTRONOMICAL_YEAR_LIMIT) {
+        equinoxe = gregorian_to_jd(startYear, 9, 22);
         return equinoxe + (30 * (mois - 1)) + (10 * (decade - 1)) + (jour - 1);
     }
 
@@ -1241,29 +1259,31 @@ function meanNewMoonBefore(jd)
 function jd_to_chinese_approximate(jd, tzOffset)
 {
     var localJd = jd - tzOffset / 24;
+    var monthStart = meanNewMoonBefore(localJd);
 
-    // Month 11 is the month containing the December solstice.  Anchor the
-    // solstice on the Gregorian calendar so the Chinese year keeps the
-    // usual relation with the Gregorian year instead of drifting after
-    // millions of mean tropical years.
+    // Month 11 is the month containing the December solstice.  Select the
+    // solstice whose month 11 begins at or before this lunation, so the
+    // month/year label stays stable throughout the whole lunation instead of
+    // changing when localJd crosses 21 December.
     var g = jd_to_gregorian(localJd)[0];
-    var decemberSolstice = gregorian_to_jd(g, 12, 21);
-    var solstice = (localJd < decemberSolstice) ?
-                   gregorian_to_jd(g - 1, 12, 21) : decemberSolstice;
+    var solstice = gregorian_to_jd(g, 12, 21);
+    if (meanNewMoonBefore(solstice) > monthStart) {
+        solstice = gregorian_to_jd(g - 1, 12, 21);
+    }
 
     var monthEleven = meanNewMoonBefore(solstice);
-    var monthStart = meanNewMoonBefore(localJd);
     var monthsFromEleven = Math.round((monthStart - monthEleven) /
                                       CHINESE_MEAN_SYNODIC);
     var month = ((monthsFromEleven + 10) % 12) + 1;
 
-    // Months 11 and 12 still belong to the Chinese year that started in the
-    // preceding Gregorian year when the solstice has not been reached yet;
-    // months 1..10 belong to the next one.
-    var year = g + 2698;
-    if (month >= 11 && localJd < decemberSolstice) {
-        year--;
+    // Months 11 and 12 belong to the Chinese year that started in the
+    // solstice's Gregorian year; months 1..10 belong to the following one.
+    var solsticeYear = jd_to_gregorian(solstice)[0];
+    var year = solsticeYear + 2698;
+    if (monthsFromEleven >= 2) {
+        year++;
     }
+
     var day = Math.floor(localJd - monthStart) + 1;
 
     return new Array(year, month, day, 0);

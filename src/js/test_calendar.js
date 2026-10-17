@@ -196,6 +196,34 @@ test('Julian-day wrappers used by the application convert correctly', () => {
   assert.deepEqual(runJSON(`calcGregSerial(${jd} - 1721424.5)`), [2024, 1, 15]);
 });
 
+test('Chinese approximate fallback keeps month and year stable within a lunation', () => {
+  const { run, runJSON } = createSandbox();
+  const start = run('gregorian_to_jd(-2500000, 12, 21)');
+  const first = runJSON(`jd_to_chinese_approximate(${start}, 0)`);
+
+  assert.notEqual(first[0], 0);
+  assert.equal(first[1], 11);
+  for (let day = 1; day < 28; day++) {
+    const next = runJSON(`jd_to_chinese_approximate(${start + day}, 0)`);
+    assert.deepEqual(next.slice(0, 2), first.slice(0, 2),
+                     `month/year changed inside the lunation at +${day} days`);
+  }
+});
+
+test('French Revolutionary cutoff maps consistently in both directions', () => {
+  const { run, runJSON } = createSandbox();
+
+  // Jan 10001 is still inside the astronomical cutoff window (French year
+  // starts in September 10000); Jan 10002 is beyond it and uses the fallback.
+  for (const year of [10001, 10002]) {
+    const jd = run(`gregorian_to_jd(${year}, 1, 15)`);
+    const date = runJSON(`jd_to_french_revolutionary(${jd})`);
+    assert.equal(date.every(Number.isFinite), true, `${year}: ${JSON.stringify(date)}`);
+    assert.equal(run(`french_revolutionary_to_jd.apply(null, ${JSON.stringify(date)})`), jd,
+                 `${year} round-trip`);
+  }
+});
+
 test('all calendar converters return finite values for extreme years', () => {
   const { run, runJSON } = createSandbox();
   const calendars = [
