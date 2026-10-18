@@ -307,11 +307,15 @@ function htAddNext() {
 }
 
 function htAddBuildOrders() {
-    var html = "";
+    var $orders = $("#htAddOrders");
+    $orders.empty();
     for (var i = 0; i < HT_ADD_DIGITS; i++) {
-        html += "<span class=\"htAddOrder\" data-order=\"" + i + "\">" + htAddOrderName(i) + "</span>";
+        $("<span>")
+            .addClass("htAddOrder")
+            .attr("data-order", i)
+            .text(htAddOrderName(i))
+            .appendTo($orders);
     }
-    $("#htAddOrders").html(html);
 }
 
 function htAddNewProblem() {

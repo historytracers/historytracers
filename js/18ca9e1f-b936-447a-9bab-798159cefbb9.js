@@ -403,11 +403,15 @@ function htAddInNext() {
 }
 
 function htAddInBuildOrders() {
-    var html = "";
+    var $orders = $("#htAddInOrders");
+    $orders.empty();
     for (var i = 0; i < HT_ADDIN_DIGITS; i++) {
-        html += "<span class=\"htAddOrder\" data-order=\"" + i + "\">" + htAddInOrderName(i) + "</span>";
+        $("<span>")
+            .addClass("htAddOrder")
+            .attr("data-order", i)
+            .text(htAddInOrderName(i))
+            .appendTo($orders);
     }
-    $("#htAddInOrders").html(html);
 }
 
 function htAddInNewProblem() {
