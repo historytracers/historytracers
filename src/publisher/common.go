@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -23,7 +24,7 @@ import (
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
 
-var indexFiles []string = []string{"gallery", "first_steps_menu", "first_steps", "first_steps_volume2", "shapes", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history", "philosophy", "atlas"}
+var indexFiles []string = []string{"gallery", "first_steps_menu", "first_steps", "first_steps_volume2", "sun_tzu_chess", "shapes", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history", "philosophy", "atlas"}
 
 var commonKeywords []string
 var mathKeywords []string
@@ -831,18 +832,21 @@ func htLoadKeywordFile(name string, lang string) error {
 	return nil
 }
 
+func htExerciseTextToAudio(htmlText string, lang string) string {
+	text, err := htHTML2Text("<p>"+htmlText+"</p>", lang)
+	if err != nil {
+		return htmlText
+	}
+	return strings.TrimSpace(text)
+}
+
 func htPrepareQuestions(questions []HTExercise, lang string) string {
 	strQuestions := commonKeywords[50] + ".\n\n"
 	// Write Questions
 	i := 1
 	for _, quest := range questions {
 		strQuestions += strconv.Itoa(i) + ". "
-		questText, err := htHTML2Text("<p>"+quest.Question+"</p>", lang)
-		if err != nil {
-			strQuestions += questText + "\n\n"
-		} else {
-			strQuestions += quest.Question + "\n\n"
-		}
+		strQuestions += htExerciseTextToAudio(quest.Question, lang) + "\n\n"
 		i++
 	}
 
@@ -850,12 +854,7 @@ func htPrepareQuestions(questions []HTExercise, lang string) string {
 	strQuestions += commonKeywords[134] + "s.\n\n"
 	for _, ans := range questions {
 		strQuestions += commonKeywords[134] + " " + strconv.Itoa(i) + ". "
-		ansText, err := htHTML2Text("<p>"+ans.AdditionalInfo+"</p>", lang)
-		if err != nil {
-			strQuestions += ansText + "\n\n"
-		} else {
-			strQuestions += ans.AdditionalInfo + "\n\n"
-		}
+		strQuestions += htExerciseTextToAudio(ans.AdditionalInfo, lang) + "\n\n"
 		i++
 	}
 
@@ -880,6 +879,136 @@ func htChangeTag2Keywords(text string) string {
 	return ret
 }
 
+func htReplaceMultiplication(text string, timesStr string) string {
+	operand := `(?:` +
+		`\b\d+(?:[.,/]\d+)*(?:[¹²³⁴⁵⁶⁷⁸⁹⁰]+)?%?` +
+		`|\b[A-Za-z]\b` +
+		`|\b[A-Za-z]+[ \t]*\([^()\n]*\)` +
+		`|\([^()\n]*\)` +
+		`)`
+
+	// The letter x is only a multiplication signal when it is surrounded by
+	// mathematical operands. This prevents ordinary words such as "xadrez"
+	// or "aux" from being changed.
+	xPattern := regexp.MustCompile(`(` + operand + `)[ \t]*\bx\b[ \t]*(` + operand + `)`)
+	for {
+		replaced := xPattern.ReplaceAllStringFunc(text, func(match string) string {
+			parts := xPattern.FindStringSubmatch(match)
+			return parts[1] + timesStr + parts[2]
+		})
+		if replaced == text {
+			break
+		}
+		text = replaced
+	}
+
+	// The multiplication sign is unambiguous, so it only needs operands
+	// touching it on both sides. Prose mentions such as "the sign ×, which"
+	// are left untouched because punctuation does not count as an operand.
+	crossPattern := regexp.MustCompile(`([\p{L}\p{N})])[ \t]*×[ \t]*([\p{L}\p{N}(])`)
+	for {
+		replaced := crossPattern.ReplaceAllStringFunc(text, func(match string) string {
+			parts := crossPattern.FindStringSubmatch(match)
+			return parts[1] + timesStr + parts[2]
+		})
+		if replaced == text {
+			break
+		}
+		text = replaced
+	}
+
+	return text
+}
+
+var mathOnlyLinePattern = regexp.MustCompile(`^[0-9\s.,+\-−×÷=/().\[\]%:²³⁴⁵⁶⁷⁸⁹⁰]+$`)
+
+func htIsMathOnlyLine(line string) bool {
+	trimmed := strings.TrimSpace(line)
+	if trimmed == "" {
+		return false
+	}
+
+	return mathOnlyLinePattern.MatchString(trimmed) && strings.ContainsAny(trimmed, "0123456789")
+}
+
+func htReplaceSubtraction(text string, lang string) string {
+	minusStr := " minus "
+	if lang == "pt-BR" || lang == "es-ES" {
+		minusStr = " menos "
+	}
+
+	operand := `(?:` +
+		`\b\d+(?:[.,/]\d+)*(?:[¹²³⁴⁵⁶⁷⁸⁹⁰]+)?%?` +
+		`|\b[A-Za-z]\b` +
+		`|\b[A-Za-z]+[ \t]*\([^()\n]*\)` +
+		`|\([^()\n]*\)` +
+		`)`
+
+	// An ASCII hyphen is also used for ranges and hyphenated words, so it is
+	// only converted when the line is an equation (or a standalone math line
+	// next to one). The Unicode minus sign is unambiguous and only needs
+	// mathematical operands on both sides.
+	hyphenPattern := regexp.MustCompile(`(` + operand + `)[ \t\x{00A0}]+-[ \t\x{00A0}]+(` + operand + `)`)
+	minusPattern := regexp.MustCompile(`(` + operand + `)[ \t\x{00A0}]*−[ \t\x{00A0}]*` + `(` + operand + `)`)
+	// In an equation, the Unicode minus can also separate word operands.
+	equationMinusPattern := regexp.MustCompile(`([\p{L}\p{N})])[ \t\x{00A0}]*−[ \t\x{00A0}]*([\p{L}\p{N}(])`)
+
+	lines := strings.Split(text, "\n")
+	equationLine := make([]bool, len(lines))
+	mathLine := make([]bool, len(lines))
+	for i, line := range lines {
+		equationLine[i] = strings.Contains(line, "=") ||
+			strings.Contains(line, "+") ||
+			strings.ContainsAny(line, "×÷")
+		mathLine[i] = htIsMathOnlyLine(line)
+	}
+
+	neighborIsEquation := func(index int) bool {
+		for i := index - 1; i >= 0; i-- {
+			if strings.TrimSpace(lines[i]) == "" {
+				continue
+			}
+			return equationLine[i]
+		}
+		return false
+	}
+	nextNeighborIsEquation := func(index int) bool {
+		for i := index + 1; i < len(lines); i++ {
+			if strings.TrimSpace(lines[i]) == "" {
+				continue
+			}
+			return equationLine[i]
+		}
+		return false
+	}
+
+	replaceWith := func(line string, pattern *regexp.Regexp) string {
+		for {
+			replaced := pattern.ReplaceAllStringFunc(line, func(match string) string {
+				parts := pattern.FindStringSubmatch(match)
+				return parts[1] + minusStr + parts[2]
+			})
+			if replaced == line {
+				return line
+			}
+			line = replaced
+		}
+	}
+
+	for i := range lines {
+		allowHyphen := equationLine[i] || (mathLine[i] && (neighborIsEquation(i) || nextNeighborIsEquation(i)))
+		if allowHyphen {
+			lines[i] = replaceWith(lines[i], hyphenPattern)
+		}
+		lines[i] = replaceWith(lines[i], minusPattern)
+		if equationLine[i] {
+			lines[i] = replaceWith(lines[i], equationMinusPattern)
+		}
+	}
+
+	return strings.Join(lines, "\n")
+}
+
 func htReplaceMath(text string, lang string) string {
 	timesStr := " times "
 	plusStr := " plus "
@@ -894,20 +1023,14 @@ func htReplaceMath(text string, lang string) string {
 		equalsStr = localKeywords[35]
 	}
 
-	ret := strings.ReplaceAll(text, " × ", timesStr)
-	ret = strings.ReplaceAll(ret, " x ", timesStr)
+	ret := htReplaceSubtraction(text, lang)
+	ret = htReplaceMultiplication(ret, timesStr)
+
 	ret = strings.ReplaceAll(ret, " + ", plusStr)
 	ret = strings.ReplaceAll(ret, " = ", equalsStr)
 
-	ret = strings.ReplaceAll(ret, "  ×  ", " "+timesStr+" ")
-	ret = strings.ReplaceAll(ret, "  x  ", " "+timesStr+" ")
 	ret = strings.ReplaceAll(ret, "  +  ", " "+plusStr+" ")
 	ret = strings.ReplaceAll(ret, "  =  ", " "+equalsStr+" ")
-
-	ret = strings.ReplaceAll(ret, " ×", " "+timesStr)
-	ret = strings.ReplaceAll(ret, "× ", timesStr+" ")
-	ret = strings.ReplaceAll(ret, " x", " "+timesStr)
-	ret = strings.ReplaceAll(ret, "x ", timesStr+" ")
 
 	ret = strings.ReplaceAll(ret, " +", " "+plusStr)
 	ret = strings.ReplaceAll(ret, "+ ", plusStr+" ")
@@ -997,7 +1120,128 @@ func htSuperscriptToWord(exp string, lang string) string {
 	return " to the " + exp + " power"
 }
 
+// htIsInternalContentLink reports whether href points to the History Tracers
+// index. Those links are navigation aids for the web page and should not be
+// read aloud in the generated audio.
+func htIsInternalContentLink(href string) bool {
+	trimmed := strings.TrimSpace(href)
+	if trimmed == "" {
+		return false
+	}
+
+	parsed, err := url.Parse(trimmed)
+	if err != nil {
+		return false
+	}
+
+	if parsed.Host != "" {
+		host := strings.ToLower(parsed.Hostname())
+		if host != "historytracers.org" && host != "www.historytracers.org" {
+			return false
+		}
+	}
+
+	path := strings.ToLower(parsed.Path)
+	for strings.HasPrefix(path, "./") || strings.HasPrefix(path, "../") {
+		path = strings.TrimPrefix(path, "./")
+		path = strings.TrimPrefix(path, "../")
+	}
+	path = strings.TrimPrefix(path, "/")
+
+	return path == "index.html" || strings.HasSuffix(path, "/index.html")
+}
+
+func htIsFullyParenthesized(text string) bool {
+	text = strings.TrimSpace(text)
+	if len(text) < 2 || text[0] != '(' || text[len(text)-1] != ')' {
+		return false
+	}
+
+	depth := 0
+	for i := 0; i < len(text); i++ {
+		switch text[i] {
+		case '(':
+			depth++
+		case ')':
+			depth--
+			if depth == 0 && i != len(text)-1 {
+				return false
+			}
+		}
+	}
+
+	return depth == 0
+}
+
+func htMathNodeToText(node *html.Node, lang string) string {
+	if node == nil {
+		return ""
+	}
+
+	if node.Type == html.TextNode {
+		return strings.TrimSpace(node.Data)
+	}
+
+	if node.Type == html.ElementNode && node.Data == "mfrac" {
+		child := node.FirstChild
+		if child == nil {
+			return ""
+		}
+		numerator := htMathNodeToText(child, lang)
+		denominator := ""
+		if child.NextSibling != nil {
+			denominator = htMathNodeToText(child.NextSibling, lang)
+		}
+		if numerator == "" || denominator == "" {
+			return ""
+		}
+		return htRenderMathFraction(numerator, denominator, lang)
+	}
+
+	var parts []string
+	for child := node.FirstChild; child != nil; child = child.NextSibling {
+		if part := htMathNodeToText(child, lang); part != "" {
+			parts = append(parts, part)
+		}
+	}
+
+	return strings.Join(parts, " ")
+}
+
+func htRenderMathFraction(numerator string, denominator string, lang string) string {
+	dividedByStr := "dividido por"
+	if len(mathKeywords) > 36 {
+		dividedByStr = strings.TrimSpace(mathKeywords[36])
+	}
+	if dividedByStr == "" {
+		dividedByStr = "dividido por"
+	}
+
+	needsParentheses := func(expression string) bool {
+		if strings.Contains(expression, dividedByStr) {
+			return true
+		}
+		return strings.ContainsAny(expression, "+−-×÷=")
+	}
+
+	if needsParentheses(numerator) && !htIsFullyParenthesized(numerator) {
+		numerator = "(" + numerator + ")"
+	}
+	if needsParentheses(denominator) && !htIsFullyParenthesized(denominator) {
+		denominator = "(" + denominator + ")"
+	}
+
+	return numerator + " " + dividedByStr + " " + denominator
+}
+
+var markdownFractionHTMLPattern = regexp.MustCompile(`(?is)<sup>(.*?)</sup>\s*(?:&frasl;|⁄|&#8260;)\s*<sub>(.*?)</sub>`)
+
 func htHTML2Text(htmlStr string, lang string) (string, error) {
+	// Markdown renders plain fractions such as "1/2" as
+	// <sup>1</sup>&frasl;<sub>2</sub>. Turn them back into MathML fractions
+	// so they become "1 divided by 2" instead of "⁄ 2".
+	htmlStr = markdownFractionHTMLPattern.ReplaceAllString(htmlStr, `<mfrac><mrow>$1</mrow><mrow>$2</mrow></mfrac>`)
+
 	doc, err := html.Parse(strings.NewReader(htmlStr))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%s", err)
@@ -1106,39 +1350,38 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 					}
 					b.WriteString(anchorText)
 				}
-				if href != "" {
+				if href != "" && !htIsInternalContentLink(href) {
 					b.WriteString(" (")
 					b.WriteString(href)
 					b.WriteString(")")
 				}
 			} else if n.Data == "mfrac" {
-				var numerator, denominator strings.Builder
+				previousIsFraction := n.PrevSibling != nil && n.PrevSibling.Type == html.ElementNode && n.PrevSibling.Data == "mfrac"
+				nextIsFraction := n.NextSibling != nil && n.NextSibling.Type == html.ElementNode && n.NextSibling.Data == "mfrac"
+				if previousIsFraction {
+					// Adjacent fractions in MathML represent implicit multiplication.
+					b.WriteString(" × ")
+				}
 				child := n.FirstChild
 				if child != nil {
-					collectMathMLText(child, &numerator, false)
-					child = child.NextSibling
-					if child != nil {
-						collectMathMLText(child, &denominator, false)
+					numText := htMathNodeToText(child, lang)
+					denText := ""
+					if child.NextSibling != nil {
+						denText = htMathNodeToText(child.NextSibling, lang)
 					}
-				}
-				numText := strings.TrimSpace(numerator.String())
-				denText := strings.TrimSpace(denominator.String())
-				if numText != "" && denText != "" {
-					if b.Len() > 0 {
-						last := b.String()[b.Len()-1]
-						if last != ' ' && last != '\n' {
-							b.WriteByte(' ')
+					if numText != "" && denText != "" {
+						if b.Len() > 0 {
+							last := b.String()[b.Len()-1]
+							if last != ' ' && last != '\n' {
+								b.WriteByte(' ')
+							}
 						}
+						fractionText := htRenderMathFraction(numText, denText, lang)
+						if previousIsFraction || nextIsFraction {
+							fractionText = "(" + fractionText + ")"
+						}
+						b.WriteString(fractionText)
 					}
-					b.WriteString(numText)
-					dividedByStr := "dividido por"
-					if len(mathKeywords) > 36 {
-						dividedByStr = strings.TrimSpace(mathKeywords[36])
-					}
-					b.WriteByte(' ')
-					b.WriteString(dividedByStr)
-					b.WriteByte(' ')
-					b.WriteString(denText)
 				}
 			} else if n.Data == "msup" || n.Data == "sup" {
 				var base, exponent strings.Builder

@@ -92,6 +92,18 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
 
 - `exercise_v2[].yesNoAnswer` must always be the literal string `"Yes"` or `"No"` (English). These values are used by the application algorithm, not displayed to the user. Never translate them to `"Sí"`, `"Sim"`, or any other language.
 
+## Citation style in lists
+
+When a text lists recommended content (for example in `SECTION_prerequisites`), use one bullet per citation with the cited title in **bold** (not italic), a colon, a short description of what the reader will find in it, and the `(<htciteN>)` marker at the **end of the line**:
+
+```markdown
+- **Title of the cited content**: what the reader will find in it (<htcite0>)
+```
+
+- Do not write the title in italics, and do not place `(<htciteN>)` in the middle of the sentence.
+- Keep the `source` array in the same order as the `<htciteN>` indices (`0..N-1`). When adding a new citation, append it to the end of the array and use the next index.
+- This is the pattern to use for every new citation list.
+
 ## Source evaluation
 
 - Always evaluate `sources` using the database `lang/sources/history_tracers.db` (tables `files`, `sources`, `citation`) as the single source of truth. Do not infer or validate `sources` from `lang/<lang>/<uuid>.json` `sources` arrays, `lang/<lang>/gallery*.json` group lists, or generated `lang/sources/*.json`.

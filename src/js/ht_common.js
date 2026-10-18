@@ -40,6 +40,7 @@ var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFirstStepsVolume2Idx = new Map();
+var htSunTzuChessIdx = new Map();
 var htShapesIdx = new Map();
 var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
@@ -185,6 +186,7 @@ function htResetAllIndexes()
         htHistoryIdx,
         htFirstStepsIdx,
         htFirstStepsVolume2Idx,
+        htSunTzuChessIdx,
         htShapesIdx,
         htMathGamesIdx,
         htFamilyIdx,
@@ -2271,6 +2273,7 @@ function htSelectIndexMap(index)
         literature: htLiteratureIdx,
         first_steps: htFirstStepsIdx,
         first_steps_volume2: htFirstStepsVolume2Idx,
+        sun_tzu_chess: htSunTzuChessIdx,
         shapes: htShapesIdx,
         math_games: htMathGamesIdx,
         families: htFamilyIdx,
@@ -2300,6 +2303,7 @@ function htSelectIndexName(index) {
         families: keywords[8],
         first_steps: keywords[121],
         first_steps_volume2: keywords[136],
+        sun_tzu_chess: "Sun Tzu, chess and math",
         shapes: keywords[142],
         atlas: "Atlas",
         literature: keywords[122],
@@ -3375,7 +3379,7 @@ function htFillStringOnPage(data, idx, page)
     // Case 3: append to group-map for specific pages
     const allowedPages = [
         "families", "history", "literature", "first_steps",
-        "first_steps_menu", "first_steps_volume2",
+        "first_steps_menu", "first_steps_volume2", "sun_tzu_chess",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry",
         "philosophy", "atlas", "gallery", "shapes"
@@ -3828,6 +3832,7 @@ function htLoadIndex(data, arg, page)
         families: htFamilyIdx,
         first_steps: htFirstStepsIdx,
         first_steps_volume2: htFirstStepsVolume2Idx,
+        sun_tzu_chess: htSunTzuChessIdx,
         history: htHistoryIdx,
         historical_events: htHistoricalEventsIdx,
         indigenous_who: htIndigenousWhoIdx,
