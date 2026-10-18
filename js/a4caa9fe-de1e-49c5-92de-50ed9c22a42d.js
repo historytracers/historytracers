@@ -44,6 +44,7 @@ function htAddBuildBoard() {
     var current = localAdd.column;
     var fDigits = localAdd.firstDigits;
     var aDigits = localAdd.addendDigits;
+    var total = localAdd.base + localAdd.added;
 
     function opCell(content) {
         return "<td class=\"htAddOp\">" + content + "</td>";
@@ -58,8 +59,14 @@ function htAddBuildBoard() {
     rows += "<tr class=\"htAddCarryRow\">" + opCell("");
     for (var o = d; o >= 0; o--) {
         var carryVal = "";
-        if (o >= 1 && localAdd.carries[o - 1] !== undefined) {
-            carryVal = localAdd.carries[o - 1] ? "1" : "";
+        if (o >= 1) {
+            if (o - 1 === current && !localAdd.answered) {
+                // Before the column is solved, preview the carry from the
+                // squares added so far.
+                carryVal = total >= 10 ? "1" : "";
+            } else if (localAdd.carries[o - 1] !== undefined) {
+                carryVal = localAdd.carries[o - 1] ? "1" : "";
+            }
         }
         rows += cell(o, carryVal);
     }
@@ -81,7 +88,13 @@ function htAddBuildBoard() {
     // Result
     rows += "<tr class=\"htAddResultRow\">" + opCell("");
     for (var o = d; o >= 0; o--) {
-        var res = (localAdd.results[o] !== undefined) ? String(localAdd.results[o]) : "";
+        var res;
+        if (o === current && !localAdd.answered) {
+            // Show the digit the column currently keeps as squares are added.
+            res = String(total % 10);
+        } else {
+            res = (localAdd.results[o] !== undefined) ? String(localAdd.results[o]) : "";
+        }
         rows += cell(o, res);
     }
     rows += "</tr>";
@@ -239,6 +252,7 @@ function htAddChange(delta) {
     }
     localAdd.added = next;
     htAddDrawSquares();
+    htAddBuildBoard();
 
     if (localAdd.added === localAdd.addendDigit) {
         htAddResolve();
