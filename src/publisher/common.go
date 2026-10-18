@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -1031,6 +1032,37 @@ func htSuperscriptToWord(exp string, lang string) string {
 	return " to the " + exp + " power"
 }
 
+// htIsInternalContentLink reports whether href points to the History Tracers
+// index. Those links are navigation aids for the web page and should not be
+// read aloud in the generated audio.
+func htIsInternalContentLink(href string) bool {
+	trimmed := strings.TrimSpace(href)
+	if trimmed == "" {
+		return false
+	}
+
+	parsed, err := url.Parse(trimmed)
+	if err != nil {
+		return false
+	}
+
+	if parsed.Host != "" {
+		host := strings.ToLower(parsed.Hostname())
+		if host != "historytracers.org" && host != "www.historytracers.org" {
+			return false
+		}
+	}
+
+	path := strings.ToLower(parsed.Path)
+	for strings.HasPrefix(path, "./") || strings.HasPrefix(path, "../") {
+		path = strings.TrimPrefix(path, "./")
+		path = strings.TrimPrefix(path, "../")
+	}
+	path = strings.TrimPrefix(path, "/")
+
+	return path == "index.html" || strings.HasSuffix(path, "/index.html")
+}
+
 func htHTML2Text(htmlStr string, lang string) (string, error) {
 	doc, err := html.Parse(strings.NewReader(htmlStr))
 	if err != nil {
@@ -1140,7 +1172,7 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 					}
 					b.WriteString(anchorText)
 				}
-				if href != "" {
+				if href != "" && !htIsInternalContentLink(href) {
 					b.WriteString(" (")
 					b.WriteString(href)
 					b.WriteString(")")

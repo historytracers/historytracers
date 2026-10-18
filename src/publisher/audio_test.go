@@ -393,13 +393,39 @@ func TestHTHTML2Text(t *testing.T) {
 		}
 	})
 
-	t.Run("link", func(t *testing.T) {
+	t.Run("external link", func(t *testing.T) {
 		got, err := htHTML2Text(`<a href="https://example.com">Example</a>`, "en-US")
 		if err != nil {
 			t.Fatal(err)
 		}
 		if !strings.Contains(got, "Example (https://example.com)") {
 			t.Errorf("got %q", got)
+		}
+	})
+
+	t.Run("internal navigation link", func(t *testing.T) {
+		got, err := htHTML2Text(`<a href="index.html?page=class_content&arg=first_steps_menu">First Steps</a>`, "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if strings.Contains(got, "index.html") || strings.Contains(got, "class_content") {
+			t.Errorf("internal link leaked: %q", got)
+		}
+		if strings.TrimSpace(got) != "First Steps" {
+			t.Errorf("anchor text not preserved: %q", got)
+		}
+	})
+
+	t.Run("absolute internal navigation link", func(t *testing.T) {
+		got, err := htHTML2Text(`<a href="https://historytracers.org/index.html?page=physics">Physics</a>`, "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if strings.Contains(got, "index.html") || strings.Contains(got, "historytracers.org") {
+			t.Errorf("internal link leaked: %q", got)
+		}
+		if strings.TrimSpace(got) != "Physics" {
+			t.Errorf("anchor text not preserved: %q", got)
 		}
 	})
 
@@ -435,6 +461,29 @@ func TestHTHTML2Text(t *testing.T) {
 	})
 }
 
+func TestHTIsInternalContentLink(t *testing.T) {
+	cases := []struct {
+		href string
+		want bool
+	}{
+		{href: "index.html?page=class_content&arg=first_steps_menu", want: true},
+		{href: "./index.html?page=physics", want: true},
+		{href: "../index.html", want: true},
+		{href: "/index.html?page=first_steps", want: true},
+		{href: "https://historytracers.org/index.html?page=physics", want: true},
+		{href: "https://www.historytracers.org/index.html?page=families", want: true},
+		{href: "https://example.com/index.html", want: false},
+		{href: "https://historytracers.org/images/logo.png", want: false},
+		{href: "mailto:contact@historytracers.org", want: false},
+		{href: "", want: false},
+	}
+	for _, tc := range cases {
+		if got := htIsInternalContentLink(tc.href); got != tc.want {
+			t.Errorf("htIsInternalContentLink(%q) = %v, want %v", tc.href, got, tc.want)
+		}
+	}
+}
+
 func TestHTIsInteractiveApp(t *testing.T) {
 	if !htIsInteractiveApp(`<canvas id="sorobanCanvas"></canvas>`) {
 		t.Error("soroban should be interactive")
@@ -463,6 +512,15 @@ func TestHTTextToHumanText(t *testing.T) {
 	md := &HTText{Text: "**Bold** text", Format: "markdown"}
 	if got := htTextToHumanText(md, "en-US", false); !strings.Contains(got, "Bold") {
 		t.Errorf("markdown text missing: %q", got)
+	}
+
+	internalLink := &HTText{Text: "[Physics](https://historytracers.org/index.html?page=physics)", Format: "markdown"}
+	got = htTextToHumanText(internalLink, "en-US", false)
+	if strings.Contains(got, "index.html") || strings.Contains(got, "historytracers.org") {
+		t.Errorf("internal markdown link leaked: %q", got)
+	}
+	if !strings.Contains(got, "Physics") {
+		t.Errorf("markdown link text missing: %q", got)
 	}
 }
 
