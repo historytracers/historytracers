@@ -46,6 +46,59 @@ func TestHTReplaceMultiplication(t *testing.T) {
 	}
 }
 
+func TestHTReplaceSubtraction(t *testing.T) {
+	cases := []struct {
+		name string
+		lang string
+		in   string
+		want string
+	}{
+		{name: "ascii hyphen in equation", lang: "en-US", in: "9 - 1 = 8", want: "9 minus 1 = 8"},
+		{name: "unicode minus in equation", lang: "en-US", in: "9 − 1 = 8", want: "9 minus 1 = 8"},
+		{name: "unicode minus in prose expression", lang: "en-US", in: "the subtraction of 1000 − 175?", want: "the subtraction of 1000 minus 175?"},
+		{name: "word operands in equation", lang: "en-US", in: "Protons in Tritium − Protons in Hydrogen = 1 − 1 = 0", want: "Protons in Tritium minus Protons in Hydrogen = 1 minus 1 = 0"},
+		{name: "standalone equation before another equation line", lang: "en-US", in: "1000 - 175.\n\n900 + 100 - 175.", want: "1000 minus 175.\n\n900 + 100 minus 175."},
+		{name: "hyphenated range", lang: "en-US", in: "581 - 618.", want: "581 - 618."},
+		{name: "numeric range with words", lang: "en-US", in: "91 - 100 Metate simétrico.", want: "91 - 100 Metate simétrico."},
+		{name: "minus sign in prose", lang: "en-US", in: "The minus sign (−) tells us the direction.", want: "The minus sign (−) tells us the direction."},
+		{name: "button label", lang: "en-US", in: "Use plus and − to change the value.", want: "Use plus and − to change the value."},
+		{name: "negative number", lang: "en-US", in: "-1 = -1", want: "-1 = -1"},
+		{name: "portuguese", lang: "pt-BR", in: "9 - 1 = 8", want: "9 menos 1 = 8"},
+		{name: "spanish", lang: "es-ES", in: "9 - 1 = 8", want: "9 menos 1 = 8"},
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			if got := htReplaceSubtraction(tc.in, tc.lang); got != tc.want {
+				t.Errorf("htReplaceSubtraction(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+			}
+		})
+	}
+}
+
+func TestHTReplaceMathSubtraction(t *testing.T) {
+	useRepoSource(t)
+
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "9 - 1 = 8", want: "9 minus 1 equals 8"},
+		{lang: "es-ES", in: "9 - 1 = 8", want: "9 menos 1 igual 8"},
+		{lang: "pt-BR", in: "9 - 1 = 8", want: "9 menos 1 igual 8"},
+		{lang: "en-US", in: "581 - 618.", want: "581 - 618."},
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.lang+"/"+tc.in, func(t *testing.T) {
+			if got := htReplaceMath(tc.in, tc.lang); got != tc.want {
+				t.Errorf("htReplaceMath(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+			}
+		})
+	}
+}
+
 func TestHTReplaceMathUsesLocalizedKeywords(t *testing.T) {
 	useRepoSource(t)
 

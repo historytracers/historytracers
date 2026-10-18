@@ -922,6 +922,95 @@ func htReplaceMultiplication(text string, timesStr string) string {
 	return text
 }
 
+var mathOnlyLinePattern = regexp.MustCompile(`^[0-9\s.,+\-−×÷=/().\[\]%:²³⁴⁵⁶⁷⁸⁹⁰]+$`)
+
+func htIsMathOnlyLine(line string) bool {
+	trimmed := strings.TrimSpace(line)
+	if trimmed == "" {
+		return false
+	}
+
+	return mathOnlyLinePattern.MatchString(trimmed) && strings.ContainsAny(trimmed, "0123456789")
+}
+
+func htReplaceSubtraction(text string, lang string) string {
+	minusStr := " minus "
+	if lang == "pt-BR" || lang == "es-ES" {
+		minusStr = " menos "
+	}
+
+	operand := `(?:` +
+		`\b\d+(?:[.,/]\d+)*(?:[¹²³⁴⁵⁶⁷⁸⁹⁰]+)?%?` +
+		`|\b[A-Za-z]\b` +
+		`|\b[A-Za-z]+[ \t]*\([^()\n]*\)` +
+		`|\([^()\n]*\)` +
+		`)`
+
+	// An ASCII hyphen is also used for ranges and hyphenated words, so it is
+	// only converted when the line is an equation (or a standalone math line
+	// next to one). The Unicode minus sign is unambiguous and only needs
+	// mathematical operands on both sides.
+	hyphenPattern := regexp.MustCompile(`(` + operand + `)[ \t\x{00A0}]+-[ \t\x{00A0}]+(` + operand + `)`)
+	minusPattern := regexp.MustCompile(`(` + operand + `)[ \t\x{00A0}]*−[ \t\x{00A0}]*` + `(` + operand + `)`)
+	// In an equation, the Unicode minus can also separate word operands.
+	equationMinusPattern := regexp.MustCompile(`([\p{L}\p{N})])[ \t\x{00A0}]*−[ \t\x{00A0}]*([\p{L}\p{N}(])`)
+
+	lines := strings.Split(text, "\n")
+	equationLine := make([]bool, len(lines))
+	mathLine := make([]bool, len(lines))
+	for i, line := range lines {
+		equationLine[i] = strings.Contains(line, "=") ||
+			strings.Contains(line, "+") ||
+			strings.ContainsAny(line, "×÷")
+		mathLine[i] = htIsMathOnlyLine(line)
+	}
+
+	neighborIsEquation := func(index int) bool {
+		for i := index - 1; i >= 0; i-- {
+			if strings.TrimSpace(lines[i]) == "" {
+				continue
+			}
+			return equationLine[i]
+		}
+		return false
+	}
+	nextNeighborIsEquation := func(index int) bool {
+		for i := index + 1; i < len(lines); i++ {
+			if strings.TrimSpace(lines[i]) == "" {
+				continue
+			}
+			return equationLine[i]
+		}
+		return false
+	}
+
+	replaceWith := func(line string, pattern *regexp.Regexp) string {
+		for {
+			replaced := pattern.ReplaceAllStringFunc(line, func(match string) string {
+				parts := pattern.FindStringSubmatch(match)
+				return parts[1] + minusStr + parts[2]
+			})
+			if replaced == line {
+				return line
+			}
+			line = replaced
+		}
+	}
+
+	for i := range lines {
+		allowHyphen := equationLine[i] || (mathLine[i] && (neighborIsEquation(i) || nextNeighborIsEquation(i)))
+		if allowHyphen {
+			lines[i] = replaceWith(lines[i], hyphenPattern)
+		}
+		lines[i] = replaceWith(lines[i], minusPattern)
+		if equationLine[i] {
+			lines[i] = replaceWith(lines[i], equationMinusPattern)
+		}
+	}
+
+	return strings.Join(lines, "\n")
+}
+
 func htReplaceMath(text string, lang string) string {
 	timesStr := " times "
 	plusStr := " plus "
@@ -936,7 +1025,8 @@ func htReplaceMath(text string, lang string) string {
 		equalsStr = localKeywords[35]
 	}
 
-	ret := htReplaceMultiplication(text, timesStr)
+	ret := htReplaceSubtraction(text, lang)
+	ret = htReplaceMultiplication(ret, timesStr)
 
 	ret = strings.ReplaceAll(ret, " + ", plusStr)
 	ret = strings.ReplaceAll(ret, " = ", equalsStr)
