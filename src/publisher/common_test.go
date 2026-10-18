@@ -330,14 +330,27 @@ func TestHTPrepareQuestions(t *testing.T) {
 	t.Cleanup(func() { commonKeywords = old })
 
 	questions := []HTExercise{
-		{Question: "Is this a question?", YesNoAnswer: "Yes", AdditionalInfo: "Yes, it is."},
+		{
+			Question:       "Is this a question?",
+			YesNoAnswer:    "Yes",
+			AdditionalInfo: "Operation:<br />754 - 728<br />700 + 50 + 4 - (700 + 20 + 8)<br />26",
+		},
 	}
 	got := htPrepareQuestions(questions, "en-US")
 
-	for _, want := range []string{"Questions.", "1. ", "Is this a question?", "Answers.", "Answer 1.", "Yes, it is."} {
+	for _, want := range []string{"Questions.", "1. ", "Is this a question?", "Answers.", "Answer 1.", "Operation:", "754 - 728", "700 + 50 + 4 - (700 + 20 + 8)", "26"} {
 		if !strings.Contains(got, want) {
 			t.Errorf("htPrepareQuestions output %q missing %q", got, want)
 		}
+	}
+	if strings.Contains(got, "<br") {
+		t.Errorf("htPrepareQuestions output still contains HTML: %q", got)
+	}
+	if !strings.Contains(got, "Operation:\n\n754 - 728") {
+		t.Errorf("exercise lines were not separated: %q", got)
+	}
+	if strings.Contains(got, "operation:754") || strings.Contains(got, "728700") {
+		t.Errorf("exercise calculation was concatenated: %q", got)
 	}
 }
 

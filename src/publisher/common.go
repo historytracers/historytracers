@@ -832,18 +832,21 @@ func htLoadKeywordFile(name string, lang string) error {
 	return nil
 }
 
+func htExerciseTextToAudio(htmlText string, lang string) string {
+	text, err := htHTML2Text("<p>"+htmlText+"</p>", lang)
+	if err != nil {
+		return htmlText
+	}
+	return strings.TrimSpace(text)
+}
+
 func htPrepareQuestions(questions []HTExercise, lang string) string {
 	strQuestions := commonKeywords[50] + ".\n\n"
 	// Write Questions
 	i := 1
 	for _, quest := range questions {
 		strQuestions += strconv.Itoa(i) + ". "
-		questText, err := htHTML2Text("<p>"+quest.Question+"</p>", lang)
-		if err != nil {
-			strQuestions += questText + "\n\n"
-		} else {
-			strQuestions += quest.Question + "\n\n"
-		}
+		strQuestions += htExerciseTextToAudio(quest.Question, lang) + "\n\n"
 		i++
 	}
 
@@ -851,12 +854,7 @@ func htPrepareQuestions(questions []HTExercise, lang string) string {
 	strQuestions += commonKeywords[134] + "s.\n\n"
 	for _, ans := range questions {
 		strQuestions += commonKeywords[134] + " " + strconv.Itoa(i) + ". "
-		ansText, err := htHTML2Text("<p>"+ans.AdditionalInfo+"</p>", lang)
-		if err != nil {
-			strQuestions += ansText + "\n\n"
-		} else {
-			strQuestions += ans.AdditionalInfo + "\n\n"
-		}
+		strQuestions += htExerciseTextToAudio(ans.AdditionalInfo, lang) + "\n\n"
 		i++
 	}
 
