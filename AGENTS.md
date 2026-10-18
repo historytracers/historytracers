@@ -33,7 +33,7 @@ A "group of files" is identified by a single UUID, e.g. `e0380670-cd02-46e8-abb8
    - `build/historytracers-publisher -langtest en-US:<uuid>` — checks JSON and line-count consistency.
    - `build/historytracers-publisher -globalangtest` — checks all UUID files.
    - `build/historytracers-publisher -checksources` — checks citation year/published consistency.
-8. Regenerate the compiled outputs: `build/historytracers-publisher -minify`. This updates `css/ht_math.css`, `index.html` (cache-busting version stamps), and `www/`. It may also rewrite unrelated files in the `src/common` submodule — revert those with `git checkout` in `src/common` if they are unrelated to the change.
+8. Regenerate the compiled outputs: `build/historytracers-publisher -minify`. This updates `css/ht_math.css`, `index.html` (cache-busting version stamps), and `www/`. It may also rewrite unrelated files in the `common` submodule — revert those with `git checkout` in `common` if they are unrelated to the change.
 
 ## Converting class files to smartphone files
 
@@ -194,7 +194,7 @@ Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images f
    - Check for unexpected changes too: rows the merge would drop (e.g. a file/citation present in ours but not in theirs) are deliberate branch content and must be kept.
 4. Verify the union: re-diff each table against both original versions; the merged DB should be a strict superset of each side (no rows lost from either).
 5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db` — **stop here for AI**. A human maintainer must review `git status`/`git diff --stat` and commit the staged changes.
-6. The `src/common` submodule pointer is also often updated by the merge — stage it (`git add src/common`); a human maintainer must commit it (working tree should be clean and detached).
+6. The `common` submodule pointer is also often updated by the merge — stage it (`git add common`); a human maintainer must commit it (working tree should be clean and detached).
 
 ### Windows-specific steps
 

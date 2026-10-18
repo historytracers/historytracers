@@ -36,7 +36,7 @@ func htRewriteSMGame(lang string, smGameFile string) error {
 // htTransformSMGame reads the SM game (or smartphone) file, applies the same
 // content transformations used by htRewriteSMGame, and writes the result to a
 // temporary file. It never modifies the source file, so it is safe to use for
-// content that lives in another repository (src/common). The returned path is
+// content that lives in another repository (common). The returned path is
 // the temporary file to use as the minification input.
 func htTransformSMGame(lang string, smGameFile string) (string, error) {
 	byteValue, err := htOpenFileReadClose(smGameFile)
@@ -112,7 +112,7 @@ func htValidateSMGameFormats() {
 	for _, dir := range htLangPaths {
 		smGameDirs := []string{
 			fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, dir),
-			fmt.Sprintf("%ssrc/common/src/smartphone/%s/", CFG.SrcPath, dir),
+			fmt.Sprintf("%scommon/src/smartphone/%s/", CFG.SrcPath, dir),
 		}
 		for _, smGameDir := range smGameDirs {
 			entries, err := os.ReadDir(smGameDir)

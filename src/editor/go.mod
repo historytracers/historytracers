@@ -44,6 +44,6 @@ require (
 	modernc.org/memory v1.12.1 // indirect
 )
 
-replace github.com/historytracers/common => ../common/src/go
+replace github.com/historytracers/common => ../../common/src/go
 
 replace github.com/webview/webview_go => ../viewer/webview_patch
