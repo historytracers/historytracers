@@ -503,6 +503,75 @@ func TestHTHTML2Text(t *testing.T) {
 		}
 	})
 
+	t.Run("math fraction with composite numerator", func(t *testing.T) {
+		got, err := htHTML2Text("<math><mfrac><mrow><mn>1</mn><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac></math>", "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(got, "(1 + 1) dividido por 2") {
+			t.Errorf("got %q", got)
+		}
+	})
+
+	t.Run("math fraction with composite denominator", func(t *testing.T) {
+		got, err := htHTML2Text("<math><mfrac><mn>1</mn><mrow><mn>2</mn><mo>×</mo><mn>3</mn></mrow></mfrac></math>", "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(got, "1 dividido por (2 × 3)") {
+			t.Errorf("got %q", got)
+		}
+	})
+
+	t.Run("nested math fractions", func(t *testing.T) {
+		got, err := htHTML2Text("<math><mfrac><mfrac><mn>b</mn><mn>c</mn></mfrac><mfrac><mn>a</mn><mn>c</mn></mfrac></mfrac></math>", "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(got, "(b dividido por c) dividido por (a dividido por c)") {
+			t.Errorf("got %q", got)
+		}
+	})
+
+	t.Run("markdown fraction", func(t *testing.T) {
+		html := htMarkdownToHTML("half (1/2) and 3/3")
+		got, err := htHTML2Text(html, "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(got, "half ( 1 dividido por 2 )") || !strings.Contains(got, "3 dividido por 3") {
+			t.Errorf("got %q", got)
+		}
+		if strings.Contains(got, "⁄") || strings.Contains(got, "( 2 )") {
+			t.Errorf("fraction slash was not converted: %q", got)
+		}
+	})
+
+	t.Run("adjacent math fractions are multiplied", func(t *testing.T) {
+		got, err := htHTML2Text("<math><mfrac><mn>b</mn><mn>c</mn></mfrac><mfrac><mn>c</mn><mn>a</mn></mfrac></math>", "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(got, "(b dividido por c) × (c dividido por a)") {
+			t.Errorf("got %q", got)
+		}
+	})
+
+	t.Run("math fraction with localized division", func(t *testing.T) {
+		old := mathKeywords
+		mathKeywords = make([]string, 37)
+		mathKeywords[36] = "divided by"
+		t.Cleanup(func() { mathKeywords = old })
+
+		got, err := htHTML2Text("<math><mfrac><mrow><mn>3</mn><mo>×</mo><mn>1</mn></mrow><mrow><mn>3</mn><mo>×</mo><mn>2</mn></mrow></mfrac></math>", "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(got, "(3 × 1) divided by (3 × 2)") {
+			t.Errorf("got %q", got)
+		}
+	})
+
 	t.Run("math superscript", func(t *testing.T) {
 		got, err := htHTML2Text("<math><msup><mi>c</mi><mn>2</mn></msup></math>", "en-US")
 		if err != nil {

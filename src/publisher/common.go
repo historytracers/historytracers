@@ -1151,7 +1151,97 @@ func htIsInternalContentLink(href string) bool {
 	return path == "index.html" || strings.HasSuffix(path, "/index.html")
 }
 
+func htIsFullyParenthesized(text string) bool {
+	text = strings.TrimSpace(text)
+	if len(text) < 2 || text[0] != '(' || text[len(text)-1] != ')' {
+		return false
+	}
+
+	depth := 0
+	for i := 0; i < len(text); i++ {
+		switch text[i] {
+		case '(':
+			depth++
+		case ')':
+			depth--
+			if depth == 0 && i != len(text)-1 {
+				return false
+			}
+		}
+	}
+
+	return depth == 0
+}
+
+func htMathNodeToText(node *html.Node, lang string) string {
+	if node == nil {
+		return ""
+	}
+
+	if node.Type == html.TextNode {
+		return strings.TrimSpace(node.Data)
+	}
+
+	if node.Type == html.ElementNode && node.Data == "mfrac" {
+		child := node.FirstChild
+		if child == nil {
+			return ""
+		}
+		numerator := htMathNodeToText(child, lang)
+		denominator := ""
+		if child.NextSibling != nil {
+			denominator = htMathNodeToText(child.NextSibling, lang)
+		}
+		if numerator == "" || denominator == "" {
+			return ""
+		}
+		return htRenderMathFraction(numerator, denominator, lang)
+	}
+
+	var parts []string
+	for child := node.FirstChild; child != nil; child = child.NextSibling {
+		if part := htMathNodeToText(child, lang); part != "" {
+			parts = append(parts, part)
+		}
+	}
+
+	return strings.Join(parts, " ")
+}
+
+func htRenderMathFraction(numerator string, denominator string, lang string) string {
+	dividedByStr := "dividido por"
+	if len(mathKeywords) > 36 {
+		dividedByStr = strings.TrimSpace(mathKeywords[36])
+	}
+	if dividedByStr == "" {
+		dividedByStr = "dividido por"
+	}
+
+	needsParentheses := func(expression string) bool {
+		if strings.Contains(expression, dividedByStr) {
+			return true
+		}
+		return strings.ContainsAny(expression, "+−-×÷=")
+	}
+
+	if needsParentheses(numerator) && !htIsFullyParenthesized(numerator) {
+		numerator = "(" + numerator + ")"
+	}
+	if needsParentheses(denominator) && !htIsFullyParenthesized(denominator) {
+		denominator = "(" + denominator + ")"
+	}
+
+	return numerator + " " + dividedByStr + " " + denominator
+}
+
+var markdownFractionHTMLPattern = regexp.MustCompile(`(?is)<sup>(.*?)</sup>\s*(?:&frasl;|⁄|&#8260;)\s*<sub>(.*?)</sub>`)
+
 func htHTML2Text(htmlStr string, lang string) (string, error) {
+	// Markdown renders plain fractions such as "1/2" as
+	// <sup>1</sup>&frasl;<sub>2</sub>. Turn them back into MathML fractions
+	// so they become "1 divided by 2" instead of "⁄ 2".
+	htmlStr = markdownFractionHTMLPattern.ReplaceAllString(htmlStr, `<mfrac><mrow>$1</mrow><mrow>$2</mrow></mfrac>`)
+
 	doc, err := html.Parse(strings.NewReader(htmlStr))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%s", err)
@@ -1266,33 +1356,32 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 					b.WriteString(")")
 				}
 			} else if n.Data == "mfrac" {
-				var numerator, denominator strings.Builder
+				previousIsFraction := n.PrevSibling != nil && n.PrevSibling.Type == html.ElementNode && n.PrevSibling.Data == "mfrac"
+				nextIsFraction := n.NextSibling != nil && n.NextSibling.Type == html.ElementNode && n.NextSibling.Data == "mfrac"
+				if previousIsFraction {
+					// Adjacent fractions in MathML represent implicit multiplication.
+					b.WriteString(" × ")
+				}
 				child := n.FirstChild
 				if child != nil {
-					collectMathMLText(child, &numerator, false)
-					child = child.NextSibling
-					if child != nil {
-						collectMathMLText(child, &denominator, false)
+					numText := htMathNodeToText(child, lang)
+					denText := ""
+					if child.NextSibling != nil {
+						denText = htMathNodeToText(child.NextSibling, lang)
 					}
-				}
-				numText := strings.TrimSpace(numerator.String())
-				denText := strings.TrimSpace(denominator.String())
-				if numText != "" && denText != "" {
-					if b.Len() > 0 {
-						last := b.String()[b.Len()-1]
-						if last != ' ' && last != '\n' {
-							b.WriteByte(' ')
+					if numText != "" && denText != "" {
+						if b.Len() > 0 {
+							last := b.String()[b.Len()-1]
+							if last != ' ' && last != '\n' {
+								b.WriteByte(' ')
+							}
 						}
+						fractionText := htRenderMathFraction(numText, denText, lang)
+						if previousIsFraction || nextIsFraction {
+							fractionText = "(" + fractionText + ")"
+						}
+						b.WriteString(fractionText)
 					}
-					b.WriteString(numText)
-					dividedByStr := "dividido por"
-					if len(mathKeywords) > 36 {
-						dividedByStr = strings.TrimSpace(mathKeywords[36])
-					}
-					b.WriteByte(' ')
-					b.WriteString(dividedByStr)
-					b.WriteByte(' ')
-					b.WriteString(denText)
 				}
 			} else if n.Data == "msup" || n.Data == "sup" {
 				var base, exponent strings.Builder
