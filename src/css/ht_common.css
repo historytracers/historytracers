@@ -291,7 +291,16 @@ div.right-sources {
   display: inline-flex;
   align-items: center;
 }
-.ht-layout .top-bar .ht-lang-btn,
+.ht-layout .top-bar .ht-lang-btn{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 1.3em;
+  line-height: 1;
+  color: inherit;
+}
+
 .ht-layout .top-bar .ht-font-btn,
 .ht-layout .top-bar .ht-break-btn,
 .ht-layout .top-bar .ht-cal-btn {
