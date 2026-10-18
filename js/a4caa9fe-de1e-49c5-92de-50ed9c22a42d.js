@@ -60,7 +60,7 @@ function htAddBuildBoard() {
     for (var o = d; o >= 0; o--) {
         var carryVal = "";
         if (o >= 1) {
-            if (o - 1 === current && !localAdd.answered) {
+            if (o - 1 === current && !localAdd.answered && localAdd.started) {
                 // Before the column is solved, preview the carry from the
                 // squares added so far.
                 carryVal = total >= 10 ? "1" : "";
@@ -89,7 +89,7 @@ function htAddBuildBoard() {
     rows += "<tr class=\"htAddResultRow\">" + opCell("");
     for (var o = d; o >= 0; o--) {
         var res;
-        if (o === current && !localAdd.answered) {
+        if (o === current && !localAdd.answered && localAdd.started) {
             // Show the digit the column currently keeps as squares are added.
             res = String(total % 10);
         } else {
@@ -202,6 +202,7 @@ function htAddSetupColumn() {
     localAdd.addendDigit = addendDigit;
     localAdd.base = base;
     localAdd.added = 0;
+    localAdd.started = false;
 
     $("#htAddQuestion").text(htAddReplace($("#htAddQuestionTemplate").text(), {
         order: order,
@@ -229,17 +230,24 @@ function htAddSetupColumn() {
 
     htAddBuildBoard();
     htAddDrawSquares();
-
-    // A bottom digit of 0 needs nothing added, so the column is already solved.
-    if (addendDigit === 0) {
-        htAddResolve();
-    }
 }
 
 // The buttons add or remove one yellow square at a time. The column is solved
 // as soon as the squares added match the bottom digit of the second number.
 function htAddChange(delta) {
     if (localAdd.answered) {
+        return;
+    }
+
+    // The first click only reveals the value already in the column. The
+    // following clicks add or remove squares.
+    if (!localAdd.started) {
+        localAdd.started = true;
+        htAddDrawSquares();
+        htAddBuildBoard();
+        if (localAdd.added === localAdd.addendDigit) {
+            htAddResolve();
+        }
         return;
     }
 
@@ -251,6 +259,7 @@ function htAddChange(delta) {
         next = localAdd.addendDigit;
     }
     localAdd.added = next;
+    localAdd.started = true;
     htAddDrawSquares();
     htAddBuildBoard();
 
