@@ -880,6 +880,47 @@ func htChangeTag2Keywords(text string) string {
 	return ret
 }
 
+func htReplaceMultiplication(text string, timesStr string) string {
+	operand := `(?:` +
+		`\b\d+(?:[.,/]\d+)*(?:[¹²³⁴⁵⁶⁷⁸⁹⁰]+)?%?` +
+		`|\b[A-Za-z]\b` +
+		`|\b[A-Za-z]+[ \t]*\([^()\n]*\)` +
+		`|\([^()\n]*\)` +
+		`)`
+
+	// The letter x is only a multiplication signal when it is surrounded by
+	// mathematical operands. This prevents ordinary words such as "xadrez"
+	// or "aux" from being changed.
+	xPattern := regexp.MustCompile(`(` + operand + `)[ \t]*\bx\b[ \t]*(` + operand + `)`)
+	for {
+		replaced := xPattern.ReplaceAllStringFunc(text, func(match string) string {
+			parts := xPattern.FindStringSubmatch(match)
+			return parts[1] + timesStr + parts[2]
+		})
+		if replaced == text {
+			break
+		}
+		text = replaced
+	}
+
+	// The multiplication sign is unambiguous, so it only needs operands
+	// touching it on both sides. Prose mentions such as "the sign ×, which"
+	// are left untouched because punctuation does not count as an operand.
+	crossPattern := regexp.MustCompile(`([\p{L}\p{N})])[ \t]*×[ \t]*([\p{L}\p{N}(])`)
+	for {
+		replaced := crossPattern.ReplaceAllStringFunc(text, func(match string) string {
+			parts := crossPattern.FindStringSubmatch(match)
+			return parts[1] + timesStr + parts[2]
+		})
+		if replaced == text {
+			break
+		}
+		text = replaced
+	}
+
+	return text
+}
+
 func htReplaceMath(text string, lang string) string {
 	timesStr := " times "
 	plusStr := " plus "
@@ -894,20 +935,13 @@ func htReplaceMath(text string, lang string) string {
 		equalsStr = localKeywords[35]
 	}
 
-	ret := strings.ReplaceAll(text, " × ", timesStr)
-	ret = strings.ReplaceAll(ret, " x ", timesStr)
+	ret := htReplaceMultiplication(text, timesStr)
+
 	ret = strings.ReplaceAll(ret, " + ", plusStr)
 	ret = strings.ReplaceAll(ret, " = ", equalsStr)
 
-	ret = strings.ReplaceAll(ret, "  ×  ", " "+timesStr+" ")
-	ret = strings.ReplaceAll(ret, "  x  ", " "+timesStr+" ")
 	ret = strings.ReplaceAll(ret, "  +  ", " "+plusStr+" ")
 	ret = strings.ReplaceAll(ret, "  =  ", " "+equalsStr+" ")
-
-	ret = strings.ReplaceAll(ret, " ×", " "+timesStr)
-	ret = strings.ReplaceAll(ret, "× ", timesStr+" ")
-	ret = strings.ReplaceAll(ret, " x", " "+timesStr)
-	ret = strings.ReplaceAll(ret, "x ", timesStr+" ")
 
 	ret = strings.ReplaceAll(ret, " +", " "+plusStr)
 	ret = strings.ReplaceAll(ret, "+ ", plusStr+" ")
