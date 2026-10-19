@@ -1,0 +1,238 @@
+{
+   "title": "Subtraction and the Complement",
+   "header": "Subtraction and the Complement",
+   "sources": [
+      "1adedc53-a246-49d1-aa42-cee0fd3aa553"
+   ],
+   "scripts": [
+      "1adedc53-a246-49d1-aa42-cee0fd3aa553"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/1adedc53-a246-49d1-aa42-cee0fd3aa553_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792367387"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nBefore continuing, we recommend studying the following texts first:\n\n- **Advancing an Order and the Complement**: presents the complement to 10 and explains when a sum advances to the next order (<htcite0>)\n- **Rereading**: presents the separation by orders, used here to decompose the minuend (<htcite1>)\n\nUnderstanding these texts will make it easier to follow the ideas presented here.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Advancing an Order and the Complement",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "text": "History Tracers Team",
+                     "page": "Rereading",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "07",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nA **complement to 10** is the number we must add to another number to reach 10. For example, the complement of 6 is 4, because 6 + 4 = 10. **Figure 1** shows this pair with squares: the six light blue squares are the number we already have, and the four light yellow squares complete the ten.\n\nIn this text we will see how this idea, already used in addition, also allows us to perform subtractions. We will not need any instrument: only the decimal orders and the squares.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 56\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Six light blue squares followed by four light yellow squares\"><title>Six light blue squares and four light yellow squares, ten in all</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figure 1</b>: The number 6 (light blue) and its complement 4 (light yellow), the ten squares together.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: What is left when the ten is incomplete?</b><br /><br />If we have 10 and we remove 7, how many are left? How does what is left relate to the complement of 7?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_subtraction",
+         "text": [
+            {
+               "text": "### Subtracting with the complement\n\nSuppose we want to calculate **12 − 7**. The units digit of 12 is 2, and it is smaller than 7, so we cannot remove 7 units directly. The idea is to decompose 12 into two parts: the units we already have (**2**) and one ten (**10**).\n\nWriting the subtraction with this decomposition:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>5</mi></math></p><p class=\"desc\"><b>Calculation 1: Subtraction of 12 − 7 using the complement.</b></p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Line 1**: we write the subtraction we want to perform.\n- **Line 2**: we replace 12 with 2 + 10.\n- **Line 3**: we reorganize the parentheses so that 7 is subtracted from the ten.\n- **Line 4**: using the complement, we replace 10 − 7 with 3.\n- **Line 5**: we add 3 to the 2 units, obtaining 5.\n\n**Figure 2** shows the same process with squares. We begin with twelve light blue squares, arranged as ten and two, which together represent 12. We remove the seven faded light yellow squares (25% opacity) from the ten; the three fully opaque light yellow squares that remain are the complement of 7. Together with the two light blue squares, they form the five squares of the result.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 120\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Ten squares with seven light yellow at 25% opacity and three light yellow, plus two light blue squares\"><title>Ten squares, seven light yellow at 25% opacity and three light yellow, above two light blue squares</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"0\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figure 2</b>: Subtraction of 12 − 7. From the ten (first row) seven squares are removed (light yellow at 25% opacity), leaving three (light yellow), which are the complement of 7. With the two units (light blue), they give 5.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### When the minuend is larger\n\nThe same reasoning works with any number. Consider **25 − 7**. Since the units digit of 25 (5) is smaller than 7, we decompose 25 into 15 + 10. We then use the complement of 7:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>25</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>18</mi></math></p><p class=\"desc\"><b>Calculation 2: Subtraction of 25 − 7 using the complement.</b></p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Line 1**: we write the subtraction we want to perform.\n- **Line 2**: we decompose 25 into 15 + 10.\n- **Line 3**: we reorganize the parentheses so that 7 is subtracted from the ten.\n- **Line 4**: using the complement, we replace 10 − 7 with 3.\n- **Line 5**: we add 3 to 15, obtaining 18.\n\n**Figure 3** shows the decomposition with squares. The first two rows are two tens (20 squares) and the third row is the five units, totaling 25. From one ten we remove seven squares: three remain. These three join the other fifteen squares, giving 18.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 184\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Three rows of squares showing the decomposition of twenty-five\"><title>Three rows of squares: seven light yellow at 25% opacity and three light yellow, above a row of ten and a row of five light blue squares</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"0\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"0\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figure 3</b>: Subtraction of 25 − 7. The two first rows are two tens and the third row is the five units, totaling 25. Seven squares are removed from one ten (light yellow at 25% opacity), leaving three (light yellow). These three join the other fifteen light blue squares, giving 18.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Is the ten borrowed?</b><br /><br />In the calculation 25 = 15 + 10, the ten is not taken from one column and moved to another: the minuend is rewritten as an equivalent sum. The complement then completes the ten we used. How does this differ from saying that we “borrow a ten”?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nThe complement to 10 allows us to subtract even when the digit we want to remove is larger than the units digit of the minuend. The procedure has three steps:\n- decompose the minuend into its units plus a ten;\n- calculate the complement of the digit to be subtracted, that is, 10 minus that digit;\n- add this complement to the units.\n\nThis procedure depends only on the decimal orders and not on any instrument. It also explains what is usually called “borrowing”: the ten is not lent and returned; the number is simply rewritten in an equivalent way so that the subtraction can be done with the complement.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Is the complement of 7 to 10 equal to 3?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Because 7 + 3 = 10, the number that completes the ten is 3."
+      },
+      {
+         "question": "In 12 − 7, do we remove 7 units directly from the 2 units of 12?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Since 2 is smaller than 7, we decompose 12 into 2 + 10 and use the complement of 7."
+      },
+      {
+         "question": "Does the complement method depend on the instrument used to calculate?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "The method uses only the decimal orders: it can be done with squares, on paper, or with any other tool."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
