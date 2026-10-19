@@ -85,7 +85,13 @@ function htSubBuildBoard() {
     // Result
     rows += "<tr class=\"htAddResultRow\">" + opCell("");
     for (var o = d; o >= 0; o--) {
-        var res = (localSub.results[o] !== undefined) ? String(localSub.results[o]) : "";
+        var res = "";
+        if (localSub.results[o] !== undefined) {
+            res = String(localSub.results[o]);
+        } else if (o === current && localSub.started) {
+            // Live result while the squares are being removed.
+            res = String(localSub.base - localSub.removed);
+        }
         rows += cell(o, res);
     }
     rows += "</tr>";
