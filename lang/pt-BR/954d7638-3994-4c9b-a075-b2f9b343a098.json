@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792364588"
+      "1792417989"
    ],
    "authors": [
       ""
@@ -54,13 +54,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nEste texto dará continuidade ao nosso ensino da utilização dos ábacos desenvolvidos na China (Zhongguo, 中國), no Japão (Nippon-koku ou Nihon-koku, 日本国) e na Rússia. Antes de prosseguir, recomendamos estudar primeiro os textos a seguir:\n\n- **Avançando uma ordem e o complemento**: apresenta quando uma soma sai da sua ordem e como o complemento marca o limite logo antes disso (<htcite0>)\n- **Vai um ou não vai? (Jogo)**: um jogo para decidir, coluna a coluna, se a soma leva 1 para a ordem seguinte, usando o complemento até 10 (<htcite1>)",
+               "text": "### Pré-requisitos\n\nEste texto dará continuidade ao nosso ensino da utilização dos ábacos desenvolvidos na China (Zhongguo, 中國), no Japão (Nippon-koku ou Nihon-koku, 日本国) e na Rússia. Antes de prosseguir, recomendamos estudar primeiro os textos a seguir:\n\n- **A subtração e o complemento**: explica, utilizando apenas as ordens decimais, por que o complemento permite subtrair quando o algarismo das unidades do minuendo é menor que o algarismo que queremos retirar (<htcite0>)\n- **Adicionando com Soroban, Suanpan (算盤) e Schyoty (счёты) - Parte 2**: apresenta o ábaco simplificado que utilizamos aqui e o movimento dos marcadores em direção à barra na adição (<htcite1>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
                      "text": "History Tracers Team",
-                     "page": "Avançando uma ordem e o complemento",
+                     "page": "A subtração e o complemento",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -70,14 +70,14 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "5539096c-dd7d-4f9c-a137-f0465725b9f4",
-                     "text": "History Tracers Team",
-                     "page": "Vai um ou não vai? (Jogo)",
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team (2026)",
+                     "page": "Adicionando com Soroban, Suanpan (算盤) e Schyoty (счёты) - Parte 2",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
-                        "month": "-1",
-                        "day": "-1"
+                        "month": "06",
+                        "day": "14"
                      }
                   }
                ],
@@ -199,121 +199,18 @@
                "PostMention": ""
             },
             {
-               "text": "#### Os complementos na soma\n\nQuando falamos dos complementos na soma, explicamos que **\"o valor do complemento era extraído de um número e somado ao outro\"** (<htcite0>). Poderíamos substituir a ideia de *extrair* pela de *subtrair*, pois esse valor era retirado de um dos números para ser somado ao outro.\n\n#### O complemento na subtração\n\nEm uma subtração, quando o algarismo que queremos retirar das unidades é maior do que as unidades do minuendo, podemos recorrer ao complemento para chegar ao resultado. Para deixar isso mais claro, reescreveremos os complementos que nos levam a 10 (<htcite1>):",
+               "text": "#### O complemento no ábaco\n\nEm **A subtração e o complemento** estudamos, utilizando apenas as ordens decimais, por que o complemento permite subtrair quando o algarismo das unidades do minuendo é menor que o algarismo que queremos retirar (<htcite0>). Aqui veremos apenas como esse raciocínio aparece nos movimentos do ábaco.\n\nPara **25 − 7**, escrevemos 25 como 15 + 10 e substituímos 10 − 7 por 3, o complemento de 7. O resultado é 15 + 3 = 18. No ábaco, isso se torna dois movimentos: um marcador que se afasta da barra na coluna das dezenas e três marcadores que se aproximam da barra na coluna das unidades.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
-                     "text": "History Tracers Team (2026)",
-                     "page": "Adicionando com Soroban, Suanpan (算盤) e Schyoty (счёты) - Parte 2",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "06",
-                        "day": "14"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
-                     "text": "History Tracers Team (2026)",
-                     "page": "Adicionando com Soroban, Suanpan (算盤) e Schyoty (счёты) - Parte 2",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "06",
-                        "day": "14"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>valor</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>complemento</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 1</b>: Complementos de 10.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Tal como está escrito, o **Cálculo 1** ainda não mostra como usaremos os complementos na subtração. Para deixar isso claro, subtrairemos, de ambos os lados de cada igualdade, o complemento que leva cada número a 10:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>4</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 2</b>: Subtração dos complementos de 10 de ambos os lados da igualdade.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Simplificando o **Cálculo 2**, chegamos à versão que realmente utilizaremos ao subtrair com complementos:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>4</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 3</b>: Os complementos de 10 reescritos como subtrações.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Graças ao **Cálculo 3**, podemos realizar subtrações nas quais o algarismo que queremos retirar das unidades é maior do que as unidades do minuendo.\n\nEm situações como essa, é comum ver professores que ensinam que estamos *\"pegando emprestado\"* uma dezena para fazer o cálculo (<htcite0>; <htcite1>). Entretanto, esse recurso didático merece uma explicação mais detalhada. Primeiro calcularemos 25 − 7 por meio da separação por ordens, um método que já estudamos (<htcite2>), pois é daí que surge a ideia de **\"pegar emprestada\"** uma dezena. Em seguida, repetiremos o cálculo no ábaco.",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
-                     "text": "Tomoko Hoult",
-                     "page": "20:42 - 21:30",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2021",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
-                     "text": "Amarteifio, Jessica",
-                     "page": "pp. 6",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
                      "text": "History Tracers Team",
-                     "page": "Releitura",
+                     "page": "A subtração e o complemento",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2025",
-                        "month": "07",
-                        "day": "30"
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -324,7 +221,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>25</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi> <mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>18</mi></math></p><p class=\"desc\"><b>Cálculo 4</b>: Subtração de 25 − 7 utilizando a separação por ordens.</p></div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: 25 − 7</b><br /><br />Primeiro, represente o valor <b>25</b> no ábaco: na coluna das dezenas, mova em direção à barra dois marcadores inferiores (2 × 10 = 20) e, na coluna das unidades, mova o marcador vermelho superior (<b>5</b>), de modo que 20 + 5 = 25.<br /><br /><b>1.</b> Agora, afaste da barra um marcador inferior na coluna das dezenas. O ábaco representará o número <b>15</b>.<br/><b>2.</b> Em seguida, na coluna das unidades, mova em direção à barra três marcadores inferiores — o complemento de <b>7</b> — de modo que o ábaco represente o número <b>18</b> (15 + 3 = 18).</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -333,48 +230,34 @@
                "PostMention": ""
             },
             {
-               "text": "No **Cálculo 4**, realizamos as seguintes etapas:\n- **Linha 1**: escrevemos a subtração que desejamos realizar.\n- **Linha 2**: como o algarismo das unidades de **25** (que é 5) é menor que **7**, o algarismo que desejamos subtrair, decompomos **25** em duas parcelas: **15 + 10**.\n- **Linha 3**: para deixar mais claro o cálculo, reorganizamos os parênteses, mostrando que desejamos utilizar o complemento de 7, isto é, **10 − 7**.\n- **Linha 4**: utilizando o **Cálculo 3**, substituímos **10 − 7** por seu resultado, **3**.\n- **Linha 5**: por fim, somamos **3** a **15**, obtendo o resultado desejado.\n\nCom o que vimos, podemos refletir sobre o conceito de **\"pegar emprestada\"** uma dezena, tal como é apresentado aos alunos.",
-               "source": [],
-               "date_time": [],
+               "text": "A **Prática 2** segue os mesmos passos do método do complemento, agora vistos no ábaco:\n- **Passo 1**: representamos o minuendo, **25**: dois marcadores inferiores em direção à barra na coluna das dezenas e o marcador superior em direção à barra na coluna das unidades.\n- **Passo 2**: afastamos da barra um marcador inferior na coluna das dezenas. O ábaco passa a representar **15**.\n- **Passo 3**: movemos **3** marcadores inferiores em direção à barra na coluna das unidades — o complemento de **7**. O ábaco passa a representar **18**.\n\nNo ábaco, subtrair **7** é feito, portanto, em dois movimentos: retiramos uma dezena da coluna das dezenas e somamos o complemento de **7** à coluna das unidades. Em números: **25 − 7 = 25 − 10 + 3 = 18**, o mesmo raciocínio explicado em **A subtração e o complemento** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
+                     "text": "History Tracers Team",
+                     "page": "A subtração e o complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Quando devolvemos o empréstimo?</b><br /><br />Quando pegamos algo emprestado, esperamos devolvê-lo mais tarde.<br /><br />Em uma subtração, em que momento exato devolvemos a dezena que pegamos <b>\"emprestada\"</b>?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Por que somar para subtrair?</b><br /><br />Na coluna das unidades queremos subtrair 7, mas na Prática 2 movemos 3 marcadores em direção à barra. Por que somamos o complemento em vez de retirar 7 marcadores? Como a dezena retirada da coluna das dezenas completa a subtração?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "A ideia de empréstimo, utilizada como recurso didático, pode parecer equivocada ou incompleta quando trabalhamos apenas com números. Entretanto, ao observarmos os movimentos realizados no ábaco, o processo torna-se mais claro. Para compreender melhor essa ideia, façamos uma nova prática.",
-               "source": [],
-               "date_time": [],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: 25 − 7</b><br /><br />Primeiro, represente o valor <b>25</b> no ábaco: na coluna das dezenas, mova em direção à barra dois marcadores inferiores (2 × 10 = 20) e, na coluna das unidades, mova o marcador vermelho superior (<b>5</b>), de modo que 20 + 5 = 25.<br /><br /><b>1.</b> Agora, afaste da barra um marcador inferior na coluna das dezenas. O ábaco representará o número <b>15</b> (\"pegamos emprestada\" uma dezena).<br/><b>2.</b> Em seguida, na coluna das unidades, mova em direção à barra três marcadores inferiores — o complemento de <b>7</b> — de modo que o ábaco represente o número <b>18</b> (15 + 3 = 18).</div></div></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "A **Prática 2** também pode ser interpretada pela perspectiva do empréstimo, tal como costuma ser apresentada nas escolas:\n- No primeiro passo, representamos o minuendo, o número do qual se subtrairá outro.\n- No segundo passo, \"pegamos emprestada\" uma dezena: afastamos uma dezena da coluna das dezenas, e o ábaco passa a representar **15**.\n- No terceiro passo, procuramos o valor que completa 10 — o complemento de **7** — e movemos **3** em direção à barra na coluna das unidades, de modo que o ábaco represente **18**.\n\nObserve que, pelo método utilizado no ábaco, o empréstimo é de fato \"devolvido\": ao mover em direção à barra o complemento do algarismo que queríamos subtrair, recompomos a dezena, tornando explícita a lógica do algoritmo da subtração.",
-               "source": [],
-               "date_time": [],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": ""
             }
          ]
@@ -383,8 +266,21 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, estudamos em profundidade o que significa **pegar emprestada** uma dezena em uma subtração. Vimos que esse procedimento não é simplesmente transferir uma dezena de um lugar para outro. Trata-se de um processo mais profundo, que envolve até mesmo a recomposição da dezena por meio do complemento.\n\nPara além do apoio visual dos ábacos, examinamos também uma perspectiva mais teórica, que mostrou que as quantidades numéricas são sempre preservadas: os números apenas se reorganizam para se chegar ao resultado desejado.",
-               "source": [],
+               "text": "### Conclusão\n\nNeste texto, utilizamos o ábaco para realizar subtrações em que o algarismo das unidades do minuendo é menor que o algarismo que queremos retirar. No ábaco, a dezena não é emprestada e devolvida: um marcador se afasta da barra na coluna das dezenas e o complemento do algarismo se aproxima da barra na coluna das unidades.\n\nO raciocínio do complemento, estudado com as ordens decimais, está em **A subtração e o complemento** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
+                     "text": "History Tracers Team",
+                     "page": "A subtração e o complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
