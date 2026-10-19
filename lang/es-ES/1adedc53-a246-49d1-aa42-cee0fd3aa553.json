@@ -23,13 +23,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792417944"
+      "1792447444"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -150,7 +150,7 @@
                "PostMention": ""
             },
             {
-               "text": "- **Línea 1**: escribimos la resta que queremos realizar.\n- **Línea 2**: sustituimos 12 por 2 + 10.\n- **Línea 3**: reorganizamos los paréntesis para restar 7 de la decena.\n- **Línea 4**: usando el complemento, sustituimos 10 − 7 por 3.\n- **Línea 5**: sumamos 3 a las 2 unidades y obtenemos 5.\n\nLa **Figura 2** muestra el mismo proceso con cuadrados. Comenzamos con doce cuadrados azul claro, dispuestos como diez y dos, que juntos representan 12. De la decena quitamos los siete cuadrados amarillo claro desvanecidos (25 % de opacidad); los tres cuadrados amarillo claro totalmente opacos que quedan son el complemento de 7. Junto con los dos cuadrados azul claro, forman los cinco cuadrados del resultado.",
+               "text": "- **Línea 1**: escribimos la resta que queremos realizar.\n- **Línea 2**: sustituimos 12 por 2 + 10.\n- **Línea 3**: reorganizamos los paréntesis para restar 7 de la decena.\n- **Línea 4**: usando el complemento, sustituimos 10 − 7 por 3.\n- **Línea 5**: sumamos 3 a las 2 unidades y obtenemos 5.\n\nLa **Figura 2** muestra el mismo proceso con cuadrados. Comenzamos con diez cuadrados amarillo claro y dos cuadrados azul claro, que juntos representan 12. De la decena quitamos los siete cuadrados amarillo claro desvanecidos (25 % de opacidad); los tres cuadrados amarillo claro totalmente opacos que quedan son el complemento de 7. Junto con los dos cuadrados azul claro, forman los cinco cuadrados del resultado.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -218,7 +218,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEl complemento a 10 nos permite restar incluso cuando la cifra que queremos quitar es mayor que la cifra de las unidades del minuendo. El procedimiento tiene tres pasos:\n- descomponer el minuendo en sus unidades más una decena;\n- calcular el complemento de la cifra que se va a restar, es decir, 10 menos esa cifra;\n- sumar este complemento a las unidades.\n\nEste procedimiento depende solo de los órdenes decimales y no de ningún instrumento. También explica lo que suele llamarse «pedir prestado»: la decena no se presta y se devuelve; el número simplemente se reescribe de forma equivalente para que la resta pueda hacerse con el complemento.",
+               "text": "### Conclusión\n\nEl complemento a 10 nos permite restar incluso cuando la cifra que queremos quitar es mayor que la cifra de las unidades del minuendo. El procedimiento tiene tres pasos:\n- descomponer el minuendo en sus unidades más la decena que vamos a usar, conservando las demás decenas y órdenes superiores;\n- calcular el complemento de la cifra que se va a restar, es decir, 10 menos esa cifra;\n- sumar este complemento a las unidades.\n\nEste procedimiento depende solo de los órdenes decimales y no de ningún instrumento. También explica lo que suele llamarse «pedir prestado»: la decena no se presta y se devuelve; el número simplemente se reescribe de forma equivalente para que la resta pueda hacerse con el complemento.",
                "source": null,
                "date_time": null,
                "isTable": false,

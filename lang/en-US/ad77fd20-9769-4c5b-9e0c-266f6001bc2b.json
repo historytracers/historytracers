@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792353845"
+      "1792447425"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -144,7 +146,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### What do I want to measure?\n\nTo test whether our hands are equal or equivalent (<htcite0>), we need to define what we will compare. For example, we can list three possible measurements:\n\n- Number of fingers;\n- Size of fingers;\n- Size of the hand.\n\nOnce we decide what to compare, we can state the result we expect. When we say our two hands are equal, we mean that no differences remain between them — the total of those differences is zero (<htcite1>).",
+               "text": "#### What do I want to measure?\n\nTo test whether our hands are equal or equivalent (<htcite0>), we need to define what we will compare. For example, we can list three possible measurements:\n\n- Number of fingers;\n- Size of fingers;\n- Size of the hand.\n\nOnce we decide what to compare, we can state the result we expect. When we say our two hands are equal, we mean that no differences remain between them — the difference is zero for each corresponding measurement (<htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -427,7 +429,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we recalled the four mathematical operations we studied and concluded that subtraction is the best one for comparing quantities. The farther apart two magnitudes are, the larger the result of subtracting one from the other: that is the path between them, as Graph 1 suggests. When the magnitudes are equal, the result is zero. In other words, measuring whether something is equal means observing the distance between the quantities being compared.",
+               "text": "### Conclusion\n\nIn this text, we recalled the four mathematical operations we studied and concluded that subtraction is the best one for comparing quantities. The farther apart two magnitudes are, the larger the distance between them: that distance is the absolute difference between the quantities, obtained by subtracting the smaller value from the larger one — it is the path between them suggested by Graph 1. When the magnitudes are equal, the result is zero. In other words, measuring whether something is equal means observing the distance between the quantities being compared.",
                "source": null,
                "date_time": null,
                "isTable": false,

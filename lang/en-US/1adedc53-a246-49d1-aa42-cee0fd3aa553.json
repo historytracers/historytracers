@@ -23,13 +23,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792417901"
+      "1792447419"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -150,7 +150,7 @@
                "PostMention": ""
             },
             {
-               "text": "- **Line 1**: we write the subtraction we want to perform.\n- **Line 2**: we replace 12 with 2 + 10.\n- **Line 3**: we reorganize the parentheses so that 7 is subtracted from the ten.\n- **Line 4**: using the complement, we replace 10 − 7 with 3.\n- **Line 5**: we add 3 to the 2 units, obtaining 5.\n\n**Figure 2** shows the same process with squares. We begin with twelve light blue squares, arranged as ten and two, which together represent 12. We remove the seven faded light yellow squares (25% opacity) from the ten; the three fully opaque light yellow squares that remain are the complement of 7. Together with the two light blue squares, they form the five squares of the result.",
+               "text": "- **Line 1**: we write the subtraction we want to perform.\n- **Line 2**: we replace 12 with 2 + 10.\n- **Line 3**: we reorganize the parentheses so that 7 is subtracted from the ten.\n- **Line 4**: using the complement, we replace 10 − 7 with 3.\n- **Line 5**: we add 3 to the 2 units, obtaining 5.\n\n**Figure 2** shows the same process with squares. We begin with ten light yellow squares and two light blue squares, which together represent 12. We remove the seven faded light yellow squares (25% opacity) from the ten; the three fully opaque light yellow squares that remain are the complement of 7. Together with the two light blue squares, they form the five squares of the result.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -218,7 +218,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nThe complement to 10 allows us to subtract even when the digit we want to remove is larger than the units digit of the minuend. The procedure has three steps:\n- decompose the minuend into its units plus a ten;\n- calculate the complement of the digit to be subtracted, that is, 10 minus that digit;\n- add this complement to the units.\n\nThis procedure depends only on the decimal orders and not on any instrument. It also explains what is usually called “borrowing”: the ten is not lent and returned; the number is simply rewritten in an equivalent way so that the subtraction can be done with the complement.",
+               "text": "### Conclusion\n\nThe complement to 10 allows us to subtract even when the digit we want to remove is larger than the units digit of the minuend. The procedure has three steps:\n- decompose the minuend into its units plus the ten we will use, keeping the remaining tens and higher orders;\n- calculate the complement of the digit to be subtracted, that is, 10 minus that digit;\n- add this complement to the units.\n\nThis procedure depends only on the decimal orders and not on any instrument. It also explains what is usually called “borrowing”: the ten is not lent and returned; the number is simply rewritten in an equivalent way so that the subtraction can be done with the complement.",
                "source": null,
                "date_time": null,
                "isTable": false,

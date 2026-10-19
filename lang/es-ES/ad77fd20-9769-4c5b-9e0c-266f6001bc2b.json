@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792353870"
+      "1792447452"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -144,7 +146,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### ¿Qué quiero medir?\n\nPara comprobar si nuestras manos son iguales o equivalentes (<htcite0>), necesitamos definir qué vamos a comparar. Por ejemplo, podemos enumerar tres medidas posibles:\n\n- Número de dedos;\n- Tamaño de los dedos;\n- Tamaño de la mano.\n\nUna vez que decidamos qué compararemos, podremos indicar el resultado esperado. Cuando decimos que nuestras dos manos son iguales, queremos decir que no queda ninguna diferencia entre ellas — el total de esas diferencias es cero (<htcite1>).",
+               "text": "#### ¿Qué quiero medir?\n\nPara comprobar si nuestras manos son iguales o equivalentes (<htcite0>), necesitamos definir qué vamos a comparar. Por ejemplo, podemos enumerar tres medidas posibles:\n\n- Número de dedos;\n- Tamaño de los dedos;\n- Tamaño de la mano.\n\nUna vez que decidamos qué compararemos, podremos indicar el resultado esperado. Cuando decimos que nuestras dos manos son iguales, queremos decir que no queda ninguna diferencia entre ellas — la diferencia es cero para cada medida correspondiente (<htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -214,7 +216,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Multiplicación\n\nLa multiplicación, que aprendimos, es sumar varias veces la misma cantidad (<htcite0>), nos daría cero si multiplicáramos el número de dedos por cero (<htcite1>). Ese hecho nos lleva a una reflexión:",
+               "text": "#### Multiplicación\n\nLa multiplicación, que aprendimos como suma repetida de la misma cantidad (<htcite0>), nos daría cero si multiplicáramos el número de dedos por cero (<htcite1>). Ese hecho nos lleva a una reflexión:",
                "source": [
                   {
                      "type": 1,
@@ -257,7 +259,7 @@
                "PostMention": ""
             },
             {
-               "text": "Multiplicar por cero no nos ayuda aquí, porque estamos comparando cantidades reales distintas de cero (nuestras propias manos). Y multiplicar nuestros dedos por cualquier otro número simplemente produce una cantidad nueva: nunca dice quán separadas están dos cantidades. Por ejemplo, al multiplicar nuestros dedos por 5, como en el **Cálculo 2**:",
+               "text": "Multiplicar por cero no nos ayuda aquí, porque estamos comparando cantidades reales distintas de cero (nuestras propias manos). Y multiplicar nuestros dedos por cualquier otro número simplemente produce una cantidad nueva: nunca dice cuán separadas están dos cantidades. Por ejemplo, al multiplicar nuestros dedos por 5, como en el **Cálculo 2**:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -306,7 +308,7 @@
                "PostMention": ""
             },
             {
-               "text": "Antes de ver la próxima operación, observe que dividir cero entre cinco (0/5) da el mismo resultado que multiplicar cero por cinco. Cero puede ser una respuesta correcta, pero no es la comparación que buscamos: no estamos repartiendo nada entre manos reales; estamos intentando compararlas. Observe también que dos cantidades iguales siempre dan 1 al dividirse — y el 1 nunca señala que no hay diferencia de la forma que necesitamos.\n\n#### La resta\n\nFinalmente, llegamos a la operación que estamos estudiando: la resta.\n\nConocemos esta operación como la que pone cantidades en movimiento, pues no podemos eliminar materia en el universo —solo se transforma (<htcite0>).\n\nAsí, cuando comparamos magnitudes, movemos las diferencias hasta que no queda ninguna. En otras palabras, la resta mide quán separadas están dos cantidades: cuando las cantidades son iguales, el resultado es cero.\n\nPodemos, entonces, comparar los dedos de las dos manos utilizando la resta de la siguiente forma:",
+               "text": "Antes de ver la próxima operación, observe que dividir cero entre cinco (0/5) da el mismo resultado que multiplicar cero por cinco. Cero puede ser una respuesta correcta, pero no es la comparación que buscamos: no estamos repartiendo nada entre manos reales; estamos intentando compararlas. Observe también que dos cantidades iguales siempre dan 1 al dividirse — y el 1 nunca señala que no hay diferencia de la forma que necesitamos.\n\n#### La resta\n\nFinalmente, llegamos a la operación que estamos estudiando: la resta.\n\nConocemos esta operación como la que pone cantidades en movimiento, pues no podemos eliminar materia en el universo —solo se transforma (<htcite0>).\n\nAsí, cuando comparamos magnitudes, movemos las diferencias hasta que no queda ninguna. En otras palabras, la resta mide cuán separadas están dos cantidades: cuando las cantidades son iguales, el resultado es cero.\n\nPodemos, entonces, comparar los dedos de las dos manos utilizando la resta de la siguiente forma:",
                "source": [
                   {
                      "type": 1,
@@ -427,7 +429,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, recordamos las cuatro operaciones matemáticas que estudiamos y concluimos que la resta es la mejor para comparar cantidades. Cuanto más separadas están dos magnitudes, mayor es el resultado de restar una de otra: ese es el camino entre ellas, como sugiere el Gráfico 1. Cuando las magnitudes son iguales, el resultado es cero. Es decir, medir si algo es igual significa observar la distancia entre las cantidades que se están comparando.",
+               "text": "### Conclusión\n\nEn este texto, recordamos las cuatro operaciones matemáticas que estudiamos y concluimos que la resta es la mejor para comparar cantidades. Cuanto más separadas están dos magnitudes, mayor es la distancia entre ellas: esa distancia es la diferencia absoluta entre las cantidades, la menor restada de la mayor — es el camino entre ellas que sugiere el Gráfico 1. Cuando las magnitudes son iguales, el resultado es cero. Es decir, medir si algo es igual significa observar la distancia entre las cantidades que se están comparando.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -460,7 +462,7 @@
       {
          "question": "¿Puede toda operación matemática producir cero —y, de ser así, todas ellas miden la diferencia?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Obtener cero como resultado no significa automáticamente que el cálculo haya respondido a nuestra pregunta. Solo la resta mide quán separadas están dos cantidades — esto es, si son iguales."
+         "additionalInfo": "Obtener cero como resultado no significa automáticamente que el cálculo haya respondido a nuestra pregunta. Solo la resta mide cuán separadas están dos cantidades — esto es, si son iguales."
       },
       {
          "question": "En una cesta blanca (B) con 6 manzanas y una cesta azul (A) con 2 manzanas, ¿el número de manzanas de las dos cestas es diferente?",

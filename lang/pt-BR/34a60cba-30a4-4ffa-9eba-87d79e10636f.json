@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792356635"
+      "1792447469"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -129,7 +131,7 @@
          "id": "SECTION_atom",
          "text": [
             {
-               "text": "### A família do hidrogênio\n\nEnquanto media o átomo de hidrogênio em <htdate0>, Francis William Aston notou que os valores obtidos para a massa do átomo de hidrogênio eram maiores do que o esperado, mesmo levando em conta os possíveis erros. Isso indicava haver algo inesperado em suas medições (<htcite0>).\n\n#### Recordando o átomo de hidrogênio\n\nQuando estudamos o átomo de hidrogênio, aprendemos que ele possui apenas um próton em seu núcleo e um elétron (<htcite1>). Essas duas partes nos permitem escrever o átomo em forma de fração, como mostrado no **Cálculo 1**.\n\nNo **Cálculo 1**, o átomo inteiro (1) é escrito como duas metades iguais (2/2): uma metade é o próton e a outra metade é o elétron.",
+               "text": "### A família do hidrogênio\n\nEnquanto media o átomo de hidrogênio em <htdate0>, Francis William Aston notou que os valores obtidos para a massa do átomo de hidrogênio eram maiores do que o esperado, mesmo levando em conta os possíveis erros. Isso indicava haver algo inesperado em suas medições (<htcite0>).\n\n#### Recordando o átomo de hidrogênio\n\nQuando estudamos o átomo de hidrogênio, aprendemos que ele possui apenas um próton em seu núcleo e um elétron (<htcite1>). Essas duas partes nos permitem escrever o átomo em forma de fração, como mostrado no **Cálculo 1**.\n\nNo **Cálculo 1**, o átomo inteiro (1) é escrito como duas metades (2/2): um componente é o próton e o outro é o elétron. As metades contam os dois componentes do átomo — não significam partes iguais da massa do átomo.",
                "source": [
                   {
                      "type": 1,
@@ -170,7 +172,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1 + 1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Cálculo 1</b>: O átomo de hidrogênio (1) dividido em seus dois componentes: o elétron (1/2) e o próton (1/2).</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1 + 1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Cálculo 1</b>: O átomo de hidrogênio (1) dividido em seus dois componentes: o elétron (1/2) e o próton (1/2) — as frações contam os componentes, não partes iguais da massa do átomo.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -397,7 +399,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: São iguais?</b><br /><br />O <b>Gráfico 1</b> mostra o espectro de luz do átomo de hidrogênio. Observe que, ao fundo, na região da luz visível, temos tons de azul à esquerda e de vermelho à direita. A luz está organizada por seus comprimentos de onda, e cada cor corresponde a um comprimento de onda diferente.<br /><br />Sabemos que a luz azul tem comprimento de onda de aproximadamente 400 nanômetros e a vermelha, de aproximadamente 700 nanômetros. Com isso em mente, podemos verificar se os dois círculos da <b>Tabela 1</b> são iguais ou não.<br /><br />1. O primeiro passo é medir o diâmetro dos dois círculos. Coloque a régua em um extremo de cada círculo, meça até o extremo oposto e subtraia os dois resultados. Nesta etapa, você verá que se trata do mesmo tipo de figura geométrica: círculos do mesmo tamanho.<br />2. Agora, subtraia o comprimento de onda associado à cor de um círculo do comprimento de onda associado à cor do outro (Vermelho − Azul = 700 − 400). O resultado não é igual a zero, portanto os círculos não são da mesma cor.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: São iguais?</b><br /><br />O <b>Gráfico 1</b> mostra o espectro de luz do átomo de hidrogênio. Observe que, ao fundo, na região da luz visível, temos tons de azul à esquerda e de vermelho à direita. A luz está organizada por seus comprimentos de onda, e cada cor corresponde a um comprimento de onda diferente.<br /><br />O azul e o vermelho correspondem a intervalos de comprimentos de onda, não a valores únicos e fixos: a luz azul está aproximadamente entre 450 e 500 nanômetros, e a vermelha, aproximadamente entre 620 e 750 nanômetros. Como valores ilustrativos dentro desses intervalos, usaremos aproximadamente 450 nanômetros para o azul e aproximadamente 700 nanômetros para o vermelho. Com isso em mente, podemos verificar se os dois círculos da <b>Tabela 1</b> são iguais ou não.<br /><br />1. O primeiro passo é medir o diâmetro dos dois círculos. Coloque a régua em um extremo de cada círculo, meça até o extremo oposto e subtraia os dois resultados. Nesta etapa, você verá que se trata do mesmo tipo de figura geométrica: círculos do mesmo tamanho.<br />2. Agora, subtraia o comprimento de onda associado à cor de um círculo do comprimento de onda associado à cor do outro (Vermelho − Azul = 700 − 450). O resultado não é igual a zero, portanto os círculos não são da mesma cor.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,

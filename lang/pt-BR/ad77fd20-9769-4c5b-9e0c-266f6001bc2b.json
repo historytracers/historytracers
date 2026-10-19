@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792353894"
+      "1792447469"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -144,7 +146,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### O que desejo medir?\n\nPara testarmos se nossas mãos são iguais ou equivalentes (<htcite0>), precisamos definir o que iremos comparar. Por exemplo, podemos listar três possíveis medidas:\n\n- Número de dedos;\n- Tamanho dos dedos;\n- Tamanho da mão.\n\nDepois que decidirmos o que comparar, podemos indicar o resultado esperado. Quando dizemos que nossas duas mãos são iguais, queremos dizer que não resta nenhuma diferença entre elas — o total dessas diferenças é zero (<htcite1>).",
+               "text": "#### O que desejo medir?\n\nPara testarmos se nossas mãos são iguais ou equivalentes (<htcite0>), precisamos definir o que iremos comparar. Por exemplo, podemos listar três possíveis medidas:\n\n- Número de dedos;\n- Tamanho dos dedos;\n- Tamanho da mão.\n\nDepois que decidirmos o que comparar, podemos indicar o resultado esperado. Quando dizemos que nossas duas mãos são iguais, queremos dizer que não resta nenhuma diferença entre elas — a diferença é zero para cada medida correspondiente (<htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -427,7 +429,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, relembramos as quatro operações matemáticas que estudamos e concluímos que a subtração é a melhor para comparar quantidades. Quanto mais distantes estão duas grandezas, maior é o resultado de subtrair uma da outra: é o caminho entre elas, como sugere o Gráfico 1. Quando as grandezas são iguais, esse resultado é zero. Ou seja, medir se algo é igual significa observar a distância entre as quantidades que estão sendo comparadas.",
+               "text": "### Conclusão\n\nNeste texto, relembramos as quatro operações matemáticas que estudamos e concluímos que a subtração é a melhor para comparar quantidades. Quanto mais distantes estão duas grandezas, maior é a distância entre elas: essa distância é a diferença absoluta entre as quantidades, a menor subtraída da maior — é o caminho entre elas que sugere o Gráfico 1. Quando as grandezas são iguais, esse resultado é zero. Ou seja, medir se algo é igual significa observar a distância entre as quantidades que estão sendo comparadas.",
                "source": null,
                "date_time": null,
                "isTable": false,

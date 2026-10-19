@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792356621"
+      "1792447452"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -129,7 +131,7 @@
          "id": "SECTION_atom",
          "text": [
             {
-               "text": "### La familia del hidrógeno\n\nMientras medía el átomo de hidrógeno en <htdate0>, Francis William Aston observó que los valores obtenidos para la masa del átomo de hidrógeno eran mayores de lo esperado, incluso teniendo en cuenta los posibles errores. Esto indicaba que había algo inesperado en sus mediciones (<htcite0>).\n\n#### Recordando el átomo de hidrógeno\n\nCuando estudiamos el átomo de hidrógeno, aprendemos que posee solo un protón en su núcleo y un electrón (<htcite1>). Esas dos partes nos permiten escribir el átomo en forma de fracción, como se muestra en el **Cálculo 1**.\n\nEn el **Cálculo 1**, el átomo completo (1) se escribe como dos mitades iguales (2/2): una mitad es el protón y la otra mitad es el electrón.",
+               "text": "### La familia del hidrógeno\n\nMientras medía el átomo de hidrógeno en <htdate0>, Francis William Aston observó que los valores obtenidos para la masa del átomo de hidrógeno eran mayores de lo esperado, incluso teniendo en cuenta los posibles errores. Esto indicaba que había algo inesperado en sus mediciones (<htcite0>).\n\n#### Recordando el átomo de hidrógeno\n\nCuando estudiamos el átomo de hidrógeno, aprendemos que posee solo un protón en su núcleo y un electrón (<htcite1>). Esas dos partes nos permiten escribir el átomo en forma de fracción, como se muestra en el **Cálculo 1**.\n\nEn el **Cálculo 1**, el átomo completo (1) se escribe como dos mitades (2/2): un componente es el protón y el otro es el electrón. Las mitades cuentan los dos componentes del átomo — no significan partes iguales de la masa del átomo.",
                "source": [
                   {
                      "type": 1,
@@ -170,7 +172,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1 + 1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Cálculo 1</b>: El átomo de hidrógeno (1) dividido en sus dos componentes: el electrón (1/2) y el protón (1/2).</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1 + 1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Cálculo 1</b>: El átomo de hidrógeno (1) dividido en sus dos componentes: el electrón (1/2) y el protón (1/2) — las fracciones cuentan los componentes, no partes iguales de la masa del átomo.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -397,7 +399,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: ¿Son iguales?</b><br /><br />El <b>Gráfico 1</b> muestra el espectro de luz del átomo de hidrógeno. Observe que, en el fondo, en la región de la luz visible, hay tonos de azul a la izquierda y de rojo a la derecha. La luz está organizada según sus longitudes de onda, y cada color corresponde a una longitud de onda distinta.<br /><br />Sabemos que la luz azul tiene una longitud de onda de aproximadamente 400 nanómetros y la roja, de aproximadamente 700 nanómetros. Con eso en mente, podemos comprobar si los dos círculos de la <b>Tabla 1</b> son iguales o no.<br /><br />1. El primer paso es medir el diámetro de los dos círculos. Coloque la regla en un extremo de cada círculo, mida hasta el extremo opuesto y reste los dos resultados. En esta etapa, verá que se trata del mismo tipo de figura geométrica: círculos del mismo tamaño.<br />2. Ahora, reste la longitud de onda asociada al color de un círculo de la longitud de onda asociada al color del otro (Rojo − Azul = 700 − 400). El resultado no es cero, por lo que los círculos no son del mismo color.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: ¿Son iguales?</b><br /><br />El <b>Gráfico 1</b> muestra el espectro de luz del átomo de hidrógeno. Observe que, en el fondo, en la región de la luz visible, hay tonos de azul a la izquierda y de rojo a la derecha. La luz está organizada según sus longitudes de onda, y cada color corresponde a una longitud de onda distinta.<br /><br />El azul y el rojo corresponden a intervalos de longitudes de onda, no a valores únicos y fijos: la luz azul está aproximadamente entre 450 y 500 nanómetros, y la roja, aproximadamente entre 620 y 750 nanómetros. Como valores ilustrativos dentro de esos intervalos, usaremos aproximadamente 450 nanómetros para el azul y aproximadamente 700 nanómetros para el rojo. Con eso en mente, podemos comprobar si los dos círculos de la <b>Tabla 1</b> son iguales o no.<br /><br />1. El primer paso es medir el diámetro de los dos círculos. Coloque la regla en un extremo de cada círculo, mida hasta el extremo opuesto y reste los dos resultados. En esta etapa, verá que se trata del mismo tipo de figura geométrica: círculos del mismo tamaño.<br />2. Ahora, reste la longitud de onda asociada al color de un círculo de la longitud de onda asociada al color del otro (Rojo − Azul = 700 − 450). El resultado no es cero, por lo que los círculos no son del mismo color.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,

@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792356599"
+      "1792447425"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -129,7 +131,7 @@
          "id": "SECTION_atom",
          "text": [
             {
-               "text": "### The Hydrogen Family\n\nWhile measuring the hydrogen atom in <htdate0>, Francis William Aston found that the values he obtained for the mass of the hydrogen atom were greater than expected, even after allowing for possible errors. This suggested that something unexpected was present in his measurements (<htcite0>).\n\n#### Recalling the Hydrogen Atom\n\nWhen we study the hydrogen atom, we learn that it has only one proton in its nucleus and one electron (<htcite1>). Those two parts let us write the atom in fractional form, as shown in **Calculation 1**.\n\nIn **Calculation 1**, the whole atom (1) is written as two equal halves (2/2): one half is the proton, and the other half is the electron.",
+               "text": "### The Hydrogen Family\n\nWhile measuring the hydrogen atom in <htdate0>, Francis William Aston found that the values he obtained for the mass of the hydrogen atom were greater than expected, even after allowing for possible errors. This suggested that something unexpected was present in his measurements (<htcite0>).\n\n#### Recalling the Hydrogen Atom\n\nWhen we study the hydrogen atom, we learn that it has only one proton in its nucleus and one electron (<htcite1>). Those two parts let us write the atom in fractional form, as shown in **Calculation 1**.\n\nIn **Calculation 1**, the whole atom (1) is written as two halves (2/2): one component is the proton, and the other is the electron. The halves count the atom's two components — they do not mean equal shares of the atom's mass.",
                "source": [
                   {
                      "type": 1,
@@ -170,7 +172,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1 + 1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Calculation 1</b>: The hydrogen atom (1) split into its two components: the electron (1/2) and the proton (1/2).</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1 + 1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Calculation 1</b>: The hydrogen atom (1) split into its two components: the electron (1/2) and the proton (1/2) — the fractions count the components, not equal shares of the atom's mass.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -397,7 +399,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Are They the Same?</b><br /><br /><b>Graph 1</b> shows the light spectrum of the hydrogen atom. Notice that in the background — in the region of visible light — there are shades of blue on the left and red on the right. Light is ordered by its wavelengths, and each color corresponds to a different wavelength.<br /><br />We know that blue light has a wavelength of approximately 400 nanometers and red light approximately 700 nanometers. With that in mind, we can check whether the two circles in <b>Table 1</b> are the same or not.<br /><br />1. The first step is to measure the diameter of both circles. Place the ruler at one edge of each circle and measure to the opposite edge, then subtract the two results. In this step, you will see that they are the same type of geometric figure — circles of the same size.<br />2. Now, subtract the wavelength associated with the color of one circle from the wavelength associated with the color of the other (Red − Blue = 700 − 400). The result is not zero, so the circles are not the same color.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Are They the Same?</b><br /><br /><b>Graph 1</b> shows the light spectrum of the hydrogen atom. Notice that in the background — in the region of visible light — there are shades of blue on the left and red on the right. Light is ordered by its wavelengths, and each color corresponds to a different wavelength.<br /><br />Blue and red correspond to ranges of wavelengths, not to single fixed values: blue light lies roughly between 450 and 500 nanometers, and red light roughly between 620 and 750 nanometers. As illustrative values within those ranges, we will use approximately 450 nanometers for blue and approximately 700 nanometers for red. With that in mind, we can check whether the two circles in <b>Table 1</b> are the same or not.<br /><br />1. The first step is to measure the diameter of both circles. Place the ruler at one edge of each circle and measure to the opposite edge, then subtract the two results. In this step, you will see that they are the same type of geometric figure — circles of the same size.<br />2. Now, subtract the wavelength associated with the color of one circle from the wavelength associated with the color of the other (Red − Blue = 700 − 450). The result is not zero, so the circles are not the same color.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,

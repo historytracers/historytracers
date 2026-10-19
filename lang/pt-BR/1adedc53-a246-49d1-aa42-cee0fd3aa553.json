@@ -23,13 +23,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792417990"
+      "1792447463"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -150,7 +150,7 @@
                "PostMention": ""
             },
             {
-               "text": "- **Linha 1**: escrevemos a subtração que queremos realizar.\n- **Linha 2**: substituímos 12 por 2 + 10.\n- **Linha 3**: reorganizamos os parênteses para subtrair 7 da dezena.\n- **Linha 4**: usando o complemento, substituímos 10 − 7 por 3.\n- **Linha 5**: somamos 3 às 2 unidades e obtemos 5.\n\nA **Figura 2** mostra o mesmo processo com quadrados. Começamos com doze quadrados azul-claros, dispostos como dez e dois, que juntos representam 12. Da dezena retiramos os sete quadrados amarelo-claros esmaecidos (25% de opacidade); os três quadrados amarelo-claros totalmente opacos que restam são o complemento de 7. Juntamente com os dois quadrados azul-claros, formam os cinco quadrados do resultado.",
+               "text": "- **Linha 1**: escrevemos a subtração que queremos realizar.\n- **Linha 2**: substituímos 12 por 2 + 10.\n- **Linha 3**: reorganizamos os parênteses para subtrair 7 da dezena.\n- **Linha 4**: usando o complemento, substituímos 10 − 7 por 3.\n- **Linha 5**: somamos 3 às 2 unidades e obtemos 5.\n\nA **Figura 2** mostra o mesmo processo com quadrados. Começamos com dez quadrados amarelo-claros e dois quadrados azul-claros, que juntos representam 12. Da dezena retiramos os sete quadrados amarelo-claros esmaecidos (25% de opacidade); os três quadrados amarelo-claros totalmente opacos que restam são o complemento de 7. Juntamente com os dois quadrados azul-claros, formam os cinco quadrados do resultado.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -218,7 +218,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nO complemento para 10 nos permite subtrair mesmo quando o algarismo que queremos retirar é maior que o algarismo das unidades do minuendo. O procedimento tem três passos:\n- decompor o minuendo em suas unidades mais uma dezena;\n- calcular o complemento do algarismo a ser subtraído, isto é, 10 menos esse algarismo;\n- somar esse complemento às unidades.\n\nEsse procedimento depende apenas das ordens decimais e não de nenhum instrumento. Também explica o que costuma ser chamado de «pedir emprestado»: a dezena não é emprestada e devolvida; o número apenas é reescrito de forma equivalente para que a subtração possa ser feita com o complemento.",
+               "text": "### Conclusão\n\nO complemento para 10 nos permite subtrair mesmo quando o algarismo que queremos retirar é maior que o algarismo das unidades do minuendo. O procedimento tem três passos:\n- decompor o minuendo em suas unidades mais a dezena que vamos usar, mantendo as demais dezenas e ordens superiores;\n- calcular o complemento do algarismo a ser subtraído, isto é, 10 menos esse algarismo;\n- somar esse complemento às unidades.\n\nEsse procedimento depende apenas das ordens decimais e não de nenhum instrumento. Também explica o que costuma ser chamado de «pedir emprestado»: a dezena não é emprestada e devolvida; o número apenas é reescrito de forma equivalente para que a subtração possa ser feita com o complemento.",
                "source": null,
                "date_time": null,
                "isTable": false,
