@@ -3557,9 +3557,13 @@ p.desc svg {
 }
 
 .htAddCell {
-  width: 0.65em;
-  min-width: 0.65em;
+  width: 1.1em;
+  min-width: 1.1em;
   border-radius: 4px;
+}
+
+.htAddStruck {
+  text-decoration: line-through;
 }
 
 .htAddOp {

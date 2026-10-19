@@ -55,25 +55,23 @@ function htSubBuildBoard() {
     }
 
     var rows = "";
-    // The borrow out of column c is written above column c + 1.
+    // The regrouped minuend is written above the original digits.
     rows += "<tr class=\"htAddCarryRow\">" + opCell("");
     for (var o = d; o >= 0; o--) {
-        var borrowVal = "";
-        if (o >= 1) {
-            if (o - 1 === current && !localSub.answered && localSub.started) {
-                // Before the column is solved, preview the borrow it needs.
-                borrowVal = localSub.borrowOut ? "1" : "";
-            } else if (localSub.borrows[o - 1] !== undefined) {
-                borrowVal = localSub.borrows[o - 1] ? "1" : "";
-            }
-        }
-        rows += cell(o, borrowVal);
+        rows += cell(o, localSub.regroup[o] !== undefined ? String(localSub.regroup[o]) : "");
     }
     rows += "</tr>";
     // Minuend
     rows += "<tr>" + opCell("");
     for (var o = d; o >= 0; o--) {
-        rows += cell(o, o < d ? String(tDigits[o]) : "");
+        var minuendCell = "";
+        if (o < d) {
+            minuendCell = String(tDigits[o]);
+            if (localSub.regroup[o] !== undefined) {
+                minuendCell = "<span class=\"htAddStruck\">" + minuendCell + "</span>";
+            }
+        }
+        rows += cell(o, minuendCell);
     }
     rows += "</tr>";
     // Subtrahend, with the - sign in its own narrow column.
@@ -250,6 +248,35 @@ function htSubSetupColumn() {
     htSubDrawSquares();
 }
 
+// On the first click, show the regrouping: the next column's minuend is reduced
+// by 1 and the current column's minuend becomes 1X (or the incoming borrow is
+// applied). The original digits are struck through and the new values are
+// written above them, so the learner sees the regrouped minuend before
+// subtracting.
+function htSubApplyRegroup() {
+    var column = localSub.column;
+
+    if (localSub.incoming > 0 || localSub.borrowOut) {
+        localSub.regroup[column] = localSub.base;
+    }
+
+    if (localSub.borrowOut) {
+        var next = column + 1;
+        var carry = 1;
+        while (next < HT_SUB_DIGITS && carry) {
+            var value = localSub.topDigits[next] - 1;
+            if (value < 0) {
+                localSub.regroup[next] = 9;
+                carry = 1;
+            } else {
+                localSub.regroup[next] = value;
+                carry = 0;
+            }
+            next++;
+        }
+    }
+}
+
 // The buttons remove or put back one square at a time. The column is solved as
 // soon as the squares removed match the bottom digit of the second number.
 function htSubChange(delta) {
@@ -257,7 +284,16 @@ function htSubChange(delta) {
         return;
     }
 
-    localSub.started = true;
+    if (!localSub.started) {
+        localSub.started = true;
+        htSubApplyRegroup();
+        if (localSub.borrowOut) {
+            // The first click only shows the regrouped minuend.
+            htSubDrawSquares();
+            htSubBuildBoard();
+            return;
+        }
+    }
 
     var next = localSub.removed + delta;
     if (next < 0) {
@@ -355,6 +391,7 @@ function htSubNewProblem() {
     localSub.incoming = 0;
     localSub.borrows = {};
     localSub.results = {};
+    localSub.regroup = {};
 
     htSubSetupColumn();
 }
@@ -380,7 +417,8 @@ function htLoadContent() {
         chained: false,
         answered: false,
         started: false,
-        lastBorrow: 0
+        lastBorrow: 0,
+        regroup: {}
     };
 
     htSubBuildOrders();
