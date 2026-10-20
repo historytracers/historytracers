@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1785165357"
+      "1792417900"
    ],
    "authors": [
       ""
@@ -54,18 +54,30 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text continues the teaching of using the abacuses developed in China (Zhongguo, 中國), Japan (Nippon-koku or Nihon-koku, 日本国) and Russia. For a better understanding, we suggest studying all the texts presented in Chapter 3 of the *Math Games* section (<htcite0>).",
+               "text": "### Prerequisites\n\nThis text continues our teaching of the abacuses developed in China (Zhongguo, 中國), Japan (Nippon-koku or Nihon-koku, 日本国), and Russia. Before continuing, we recommend studying the following texts first:\n\n- **Subtraction and the Complement**: explains, using only decimal orders, why the complement allows us to subtract when the units digit of the minuend is smaller than the digit we want to remove (<htcite0>)\n- **Adding with Soroban, Suanpan (算盤) and Schyoty (счёты) - Part 2**: presents the simplified abacus used here and how the markers move toward the beam in addition (<htcite1>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "e546e051-47bb-4451-a6ed-d78468bc93f3",
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
                      "text": "History Tracers Team",
-                     "page": "Math Games",
+                     "page": "Subtraction and the Complement",
                      "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team (2026)",
+                     "page": "Adding with Soroban, Suanpan (算盤) and Schyoty (счёты) - Part 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "06",
+                        "day": "14"
                      }
                   }
                ],
@@ -81,7 +93,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nWhen we first worked with the Soroban, Suanpan (算盤) and Schyoty (счёты) abacuses, we always moved the markers toward the beam, whether to represent a number, or to add or multiply values (<htcite0>).\n\nWhen we begin to study subtraction, we observe that, by comparing it to a path, we can understand it as a return to a place (<htcite1>).\n\nGiven this scenario, reflect:",
+               "text": "### Introduction\n\nWhen we first worked with the Soroban, Suanpan (算盤), and Schyoty (счёты) abacuses, we always moved the markers toward the beam — whether to represent a number or to add or multiply values (<htcite0>).\n\nWhen we began to study subtraction, we saw that, if we compare it to a walk along a path, we can understand it as the return to a place we have already visited (<htcite1>).\n\nWith this image in mind, reflect:",
                "source": [
                   {
                      "type": 1,
@@ -115,7 +127,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: From there to here, from here to there</b><br /><br />Considering that, to increase values on the abacuses, we move the markers toward the beam, to decrease values, do we move the markers away from it?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: From there to here, from here to there</b><br /><br />Considering that, to increase the values on the abacuses, we move the markers toward the beam: to decrease values, do we move the markers away from the beam?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -129,7 +141,7 @@
          "id": "SECTION_sub",
          "text": [
             {
-               "text": "### Subtracting on the abacus\n\nFor a better understanding of the subtraction steps on the abacus, we will use in this text a simplified version of the abacus, with only two columns. This version was already used when we began studying addition with the abacus (<htcite0>).",
+               "text": "### Subtracting on the abacus\n\nTo make the subtraction steps easier to follow, in this text we will focus on a simplified view of the abacus with only two columns: units and tens. We already used this simplified view when we began studying addition with the abacus (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -169,7 +181,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### The case of units\n\nThe understanding that, on the abacus, moving the markers away from the beam means we are subtracting the values they represent can be confirmed through a movement exercise.\n\nLet's do Practice 1 to confirm this idea.",
+               "text": "#### The case of the units\n\nOn the abacus, moving markers away from the beam means we are subtracting the values those markers represent. We can confirm this idea with a movement exercise.\n\nLet's do Practice 1 to check it.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -178,7 +190,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Visualizing</b><br /><br />First, represent the value <b>9</b> on one of the abacuses, that is, move a red marker toward the beam.<br /><br /><b>1.</b> Now, move the marker worth <b>5</b> away from the beam and observe that the abacus will now represent the value <b>4</b>.<br/><b>2.</b> Then, one by one, move the blue markers, each worth <b>1</b>, away from the beam and observe that the value represented by the abacus also decreases by one unit with each movement.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Visualizing subtraction</b><br /><br />First, represent the value <b>9</b> on the abacus: move the upper red marker (worth <b>5</b>) and all four lower blue markers (each worth <b>1</b>) toward the beam, so that 5 + 4 = 9.<br /><br /><b>1.</b> Now, move the upper red marker (worth <b>5</b>) away from the beam and observe that the abacus will represent the value <b>4</b>.<br/><b>2.</b> Then, one by one, move the lower blue markers (each worth <b>1</b>) away from the beam and observe that the value represented by the abacus decreases by one unit with each movement — from <b>4</b> down to <b>0</b>.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -187,121 +199,18 @@
                "PostMention": ""
             },
             {
-               "text": "#### Complements in addition\n\nWhen discussing complements in addition, we taught that **\"the complement value was extracted from one number and added to the other\"** (<htcite0>). We could rewrite the word extracted as subtracted, since that value was taken from one number to be added to the other.\n\n#### The complement in subtraction\n\nIn a subtraction, when we are subtracting a larger value from the units of a smaller one, we can resort to the complement to arrive at the result. To make this clearer, we will rewrite the complements needed to reach 10 (<htcite1>):",
+               "text": "#### The complement on the abacus\n\nIn **Subtraction and the Complement** we studied, using only the decimal orders, why the complement allows us to subtract when the units digit of the minuend is smaller than the digit we want to remove (<htcite0>). Here we will see only how that reasoning appears in the movements of the abacus.\n\nFor **25 − 7**, we write 25 as 15 + 10 and replace 10 − 7 with 3, the complement of 7. The result is 15 + 3 = 18. On the abacus, this becomes two movements: one marker away from the beam in the tens column and three markers toward the beam in the units column.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
-                     "text": "History Tracers Team (2026)",
-                     "page": "Adding with Soroban, Suanpan (算盤) and Schyoty (счёты) - Part 2",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "06",
-                        "day": "14"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
-                     "text": "History Tracers Team (2026)",
-                     "page": "Adding with Soroban, Suanpan (算盤) and Schyoty (счёты) - Part 2",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "06",
-                        "day": "14"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>valor</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>complemento</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 1</b>: Complementos de 10.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Calculation 1, as it is written, may not make explicit how we will use complements in subtraction. To solve this problem, we will subtract, from both sides of each equality, the complement corresponding to each number to reach 10:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>4</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 2</b>: Retirada dos complementos de 10.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Simplifying Calculation 2, we arrive at the version of the calculations with complements that we will use:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667e m\">-</mo><mi>4</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 3</b>: Representação dos complementos de 10 para números menores ou iguais a 10.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "From Calculation 3, we can perform subtractions in which the units digit we want to subtract is larger than the units digit of the minuend.\n\nIn situations like this, it is common to observe teachers teaching that we are *\"borrowing\"* a ten to perform the calculation (<htcite0>; <htcite1>). However, this didactic device deserves a more detailed explanation. First, we will perform the calculation 25 − 7 through the separation of orders, which we have already studied (<htcite2>), since this is where the idea of **\"borrowing\"** comes from. Then, we will use the abacus.",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
-                     "text": "Tomoko Hoult",
-                     "page": "20:42 - 21:30",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2021",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
-                     "text": "Amarteifio, Jessica",
-                     "page": "pp. 6",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
                      "text": "History Tracers Team",
-                     "page": "Rereading",
+                     "page": "Subtraction and the Complement",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2025",
-                        "month": "07",
-                        "day": "30"
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -312,7 +221,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>25</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi> <mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>18</mi></math  </p><p class=\"desc\"><b>Calculation 4</b>: Subtraction of 25 − 7 using separation by orders.</p></div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: 25 − 7</b><br /><br />First, represent the value <b>25</b> on the abacus: in the tens column, move two lower markers toward the beam (2 × 10 = 20), and in the units column, move the upper red marker toward the beam (<b>5</b>), so that 20 + 5 = 25.<br /><br /><b>1.</b> Now, move one lower marker away from the beam in the tens column. The abacus will represent the number <b>15</b>.<br/><b>2.</b> Then, in the units column, move three lower markers toward the beam — the complement of <b>7</b> — so that the abacus represents the number <b>18</b> (15 + 3 = 18).</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -321,48 +230,34 @@
                "PostMention": ""
             },
             {
-               "text": "In Calculation 4, we performed the following steps:\n- **Line 1**: we wrote the subtraction we wish to perform.\n- **Line 2**: since the units digit of **25** is smaller than the number **7** we want to subtract, we decompose **25** into two parts: **15 + 10**.\n- **Line 3**: to make the calculation clearer, we reorganize the parentheses, making it explicit that we want to use the complement of 7, that is, **10 − 7**.\n- **Line 4**: using Calculation 3, we replace **10 − 7** with its result, **3**.\n- **Line 5**: finally, we add **3** to **15**, obtaining the desired result.\n\nWith this explained, we can reflect on the concept of **\"borrowing\"** as presented didactically to students.",
-               "source": [],
-               "date_time": [],
+               "text": "**Practice 2** follows the same steps as the complement method, now seen on the abacus:\n- **Step 1**: we represent the minuend, **25**: two lower markers toward the beam in the tens column and the upper marker toward the beam in the units column.\n- **Step 2**: we move one lower marker away from the beam in the tens column. The abacus now represents **15**.\n- **Step 3**: we move **3** lower markers toward the beam in the units column — the complement of **7**. The abacus now represents **18**.\n\nOn the abacus, subtracting **7** is therefore done in two movements: we remove one ten from the tens column and add the complement of **7** to the units column. In numbers: **25 − 7 = 25 − 10 + 3 = 18**, the same reasoning explained in **Subtraction and the Complement** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
+                     "text": "History Tracers Team",
+                     "page": "Subtraction and the Complement",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: When do we pay back the loan?</b><br /><br />When we borrow something, we expect to return it later.<br /><br />In a subtraction problem, at what point do we return the amount we <b>\"borrowed\"</b>?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Why add to subtract?</b><br /><br />In the units column we want to subtract 7, but in Practice 2 we move 3 markers toward the beam. Why do we add the complement instead of removing 7 markers? How does the ten removed from the tens column complete the subtraction?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "The idea of borrowing, used as a didactic resource, may seem mistaken or incomplete when we work only with numbers. However, when we observe the movements performed on the abacus, this process becomes more evident. To better understand this interpretation, let's do a new practice.",
-               "source": [],
-               "date_time": [],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: 25 - 7</b><br /><br />First, represent the value <b>25</b> on one of the abacuses, that is, move a red marker toward the beam.<br /><br /><b>1.</b> Now, move one marker away from the beam in the tens column. The abacus will now represent the number <b>15</b>.<br/><b>2.</b> Then, add <b>3</b> to the units, which is the complement of <b>7</b>, making the abacus represent the number <b>18</b>.</div></div></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Practice 2 can also be interpreted from the borrowing perspective, normally presented in schools:\n- In the first step, we represent the larger number from which we want to subtract another.\n- In the second step, we \"borrow\" a ten, reducing one ten and making the abacus represent the value **15**.\n- In the third step, we observe which value is needed to complete 10, that is, the complement of **7**, and add **3** to the units, making the abacus represent the value **18**.\n\nNotice that, by the methodology used on the abacus, the loan is effectively \"repaid\", because when we add the complement of the number we wanted to subtract, we recompose the ten, making the logic of the subtraction algorithm explicit.",
-               "source": [],
-               "date_time": [],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": ""
             }
          ]
@@ -371,8 +266,21 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we studied in depth what it means to **borrow** a ten in a subtraction. We saw that this procedure is not simply transferring a ten from one side to another. It is a deeper process, which even involves the recomposition of the ten through the complement.\n\nIn addition to this visualization provided by the abacuses, we also saw a more theoretical perspective, which showed that numerical quantities are always preserved, with only a reorganization of numbers to arrive at the desired result.",
-               "source": [],
+               "text": "### Conclusion\n\nIn this text we used the abacus to perform subtractions in which the units digit of the minuend is smaller than the digit we want to remove. On the abacus, the ten is not borrowed and returned: one marker moves away from the beam in the tens column and the complement of the digit moves toward the beam in the units column.\n\nThe reasoning behind the complement, studied with decimal orders, is in **Subtraction and the Complement** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
+                     "text": "History Tracers Team",
+                     "page": "Subtraction and the Complement",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

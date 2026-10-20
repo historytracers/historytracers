@@ -15,6 +15,7 @@ function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc("imgMetropolitan0", "images/MetropolitanMuseum/1987.394.70.jpeg");
     htSetImageSrc("imgMetropolitan1", "images/MetropolitanMuseum/DP23088.jpg");
+    htSetImageSrc("imgMetropolitan2", "images/MetropolitanMuseum/DP119519.jpg");
     htPlusDivs(0);
 
     return false;

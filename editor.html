@@ -74,6 +74,7 @@ select#langSelect option{color:#000;background:#fff}
 #searchHighlightBackdrop mark{background:#e65100;color:transparent;border-radius:2px}
 #searchHighlightBackdrop mark.current{background:#ff9800;color:transparent;outline:1px solid #ffcc80}
 #searchHighlightBackdrop .jkey{font-weight:bold;color:#eceff1}
+#searchHighlightBackdrop .hl-line{white-space:pre-wrap;word-wrap:break-word}
 #editorArea.search-active,#editorArea.json-active{background:transparent !important;position:relative;z-index:1}
 .design-light #searchHighlightBackdrop{background:#fff}
 .design-light #searchHighlightBackdrop mark{background:#ffcc80}
@@ -660,17 +661,44 @@ function saveEditorState(){
 	tabs[currentTab].scrollPos=area.scrollTop;
 }
 
+var gutterLineCount=-1;
+var gutterErrKey=null;
 function updateLineNumbers(){
 	var area=document.getElementById('editorArea');
 	var gutter=document.getElementById('lineNumbers');
-	var lines=area.value.split('\n');
+	if(!gutter||!area) return;
+	var val=area.value;
+	// Count lines without allocating one string per line: split() is costly for
+	// the large content files and this runs on every change/keystroke.
+	var count=1;
+	for(var i=0;i<val.length;i++){ if(val.charCodeAt(i)===10) count++; }
+	if(gutterLineCount<0){ gutter.innerHTML=''; gutterLineCount=0; }
 	var errLines=(currentTab>=0&&currentTab<tabs.length)?(tabs[currentTab].errorLines||[]):[];
-	var html='';
-	for(var i=1;i<=lines.length;i++){
-		var cls=errLines.indexOf(i)>=0?' class="line-num line-error"':' class="line-num"';
-		html+='<div'+cls+'>'+i+'</div>';
+	var errKey=errLines.join(',');
+	if(count>gutterLineCount){
+		var frag=document.createDocumentFragment();
+		for(var n=gutterLineCount+1;n<=count;n++){
+			var d=document.createElement('div');
+			d.className=errLines.indexOf(n)>=0?'line-num line-error':'line-num';
+			d.textContent=n;
+			frag.appendChild(d);
+		}
+		gutter.appendChild(frag);
+		gutterLineCount=count;
+	}else if(count<gutterLineCount){
+		for(var r=gutterLineCount;r>count;r--){
+			if(gutter.lastChild)gutter.removeChild(gutter.lastChild);
+		}
+		gutterLineCount=count;
 	}
-	gutter.innerHTML=html;
+	if(gutterErrKey!==errKey){
+		var kids=gutter.children;
+		for(var k=0;k<kids.length;k++){
+			var cls=errLines.indexOf(k+1)>=0?'line-num line-error':'line-num';
+			if(kids[k].className!==cls)kids[k].className=cls;
+		}
+		gutterErrKey=errKey;
+	}
 }
 
 function setErrorLines(lines){
@@ -1646,6 +1674,12 @@ function pasteFile(){
 
 var searchMatches=[];
 var searchIndex=-1;
+// JSON key highlighting renders one block element per source line so an edit can
+// re-render just the changed line instead of rebuilding (and re-laying out) the
+// whole document, which is what made editing large files slow.
+// hlLineTexts holds the text currently rendered so an edit can be diffed down to
+// the affected lines.
+var hlLineTexts=null;
 
 function syncSearchScroll(){
 	var area=document.getElementById('editorArea');
@@ -1667,6 +1701,85 @@ function getJsonKeyRanges(val){
 	}
 	return ranges;
 }
+// Key ranges within a single line. `nextLine` lets a key whose ':' starts the
+// next line still match, mirroring the "\s*:" lookahead of getJsonKeyRanges.
+function getJsonKeyRangesInLine(line,nextLine){
+	var ranges=[];
+	var re=/"(?:[^"\\\n]|\\.)*"/g;
+	var m;
+	while((m=re.exec(line))!==null){
+		var after=line.substring(re.lastIndex);
+		if(/^\s*:/.test(after)||(/^\s*$/.test(after)&&nextLine!==undefined&&/^\s*:/.test(nextLine))){
+			ranges.push([m.index,m.index+m[0].length]);
+		}
+		if(m.index===re.lastIndex) re.lastIndex++;
+	}
+	return ranges;
+}
+function jsonLineHtml(line,nextLine){
+	var ranges=getJsonKeyRangesInLine(line,nextLine);
+	var html='',last=0;
+	for(var k=0;k<ranges.length;k++){
+		var ks=ranges[k][0],ke=ranges[k][1];
+		if(ks>last) html+=escHtmlText(line.substring(last,ks));
+		html+='<span class="jkey">'+escHtmlText(line.substring(ks,ke))+'</span>';
+		last=ke;
+	}
+	html+=escHtmlText(line.substring(last));
+	return html;
+}
+function makeJsonLineNode(line,nextLine){
+	var el=document.createElement('div');
+	el.className='hl-line';
+	if(line.length===0){ el.appendChild(document.createElement('br')); }
+	else{ el.innerHTML=jsonLineHtml(line,nextLine); }
+	return el;
+}
+// Build the whole overlay in one string so the initial render (and any large
+// change) pays for a single HTML parse instead of thousands of DOM insertions.
+function jsonOverlayHtml(lines){
+	var html='';
+	for(var i=0;i<lines.length;i++){
+		html+='<div class="hl-line">';
+		if(lines[i].length===0) html+='<br>';
+		else html+=jsonLineHtml(lines[i], i+1<lines.length?lines[i+1]:undefined);
+		html+='</div>';
+	}
+	return html;
+}
+// Incremental per-line render: diff the new lines against what is already in the
+// overlay (common prefix + suffix) and rebuild only the changed block, so a
+// normal keystroke touches a single line instead of the whole document.
+function renderJsonOverlay(bd,lines){
+	var prev=hlLineTexts;
+	if(!prev){
+		bd.innerHTML=jsonOverlayHtml(lines);
+		hlLineTexts=lines;
+		return;
+	}
+	var n=lines.length;
+	var start=0;
+	var min=Math.min(prev.length,n);
+	while(start<min&&prev[start]===lines[start]) start++;
+	var suf=0;
+	while(suf<min-start&&prev[prev.length-1-suf]===lines[n-1-suf]) suf++;
+	// Re-render the line immediately before the first change: its key
+	// highlighting depends on the following line, so it must not be left in
+	// the unchanged prefix.
+	if(start>0&&start<Math.max(prev.length,n)) start--;
+	var endOld=prev.length-suf;
+	var endNew=n-suf;
+	var kids=bd.children;
+	var ref=(endOld<kids.length)?kids[endOld]:null;
+	var removeCount=endOld-start;
+	for(var r=0;r<removeCount;r++) bd.removeChild(kids[start]);
+	var frag=document.createDocumentFragment();
+	for(var i=start;i<endNew;i++){
+		frag.appendChild(makeJsonLineNode(lines[i], i+1<n?lines[i+1]:undefined));
+	}
+	if(ref) bd.insertBefore(frag,ref); else bd.appendChild(frag);
+	hlLineTexts=lines;
+}
 function updateSearchHighlight(){
 	var area=document.getElementById('editorArea');
 	var bd=document.getElementById('searchHighlightBackdrop');
@@ -1674,29 +1787,11 @@ function updateSearchHighlight(){
 	var query=document.getElementById('searchInput').value;
 	var hasSearch=!!(query&&searchMatches.length>0);
 	var val=area.value;
-	var jsonRanges=[];
-	if(isJsonFile()&&val.length<=500000){
-		try{ jsonRanges=getJsonKeyRanges(val); }catch(e){ jsonRanges=[]; }
-	}
-	var hasJson=jsonRanges.length>0;
-	if(!hasSearch&&!hasJson){
-		bd.style.display='none';
-		bd.innerHTML='';
-		area.classList.remove('search-active');
-		area.classList.remove('json-active');
-		return;
-	}
-	var html='';
-	if(!hasSearch){
-		var last=0;
-		for(var k=0;k<jsonRanges.length;k++){
-			var ks=jsonRanges[k][0],ke=jsonRanges[k][1];
-			if(ks>last) html+=escHtml(val.substring(last,ks));
-			html+='<span class="jkey">'+escHtml(val.substring(ks,ke))+'</span>';
-			last=ke;
+	if(hasSearch){
+		var jsonRanges=[];
+		if(isJsonFile()&&val.length<=500000){
+			try{ jsonRanges=getJsonKeyRanges(val); }catch(e){ jsonRanges=[]; }
 		}
-		html+=escHtml(val.substring(last));
-	}else{
 		var qlen=query.length;
 		var cuts=[0,val.length];
 		var i;
@@ -1710,6 +1805,7 @@ function updateSearchHighlight(){
 			if(c>val.length) c=val.length;
 			if(uniq.length===0||uniq[uniq.length-1]!==c) uniq.push(c);
 		}
+		var html='';
 		var ki=0,si=0;
 		for(i=0;i<uniq.length-1;i++){
 			var s=uniq[i],e=uniq[i+1];
@@ -1719,7 +1815,7 @@ function updateSearchHighlight(){
 			while(si<searchMatches.length&&searchMatches[si]+qlen<=s) si++;
 			var inSearch=-1;
 			if(si<searchMatches.length&&searchMatches[si]<=s&&s<searchMatches[si]+qlen) inSearch=si;
-			var piece=escHtml(val.substring(s,e));
+			var piece=escHtmlText(val.substring(s,e));
 			if(inKey) piece='<span class="jkey">'+piece+'</span>';
 			if(inSearch>=0){
 				var cls=inSearch===searchIndex?' class="current"':'';
@@ -1727,13 +1823,29 @@ function updateSearchHighlight(){
 			}
 			html+=piece;
 		}
+		if(val.length>0&&val.charAt(val.length-1)==='\n') html+='\n';
+		bd.innerHTML=html;
+		hlLineTexts=null;
+		bd.style.display='block';
+		area.classList.add('search-active');
+		area.classList.remove('json-active');
+		syncSearchScroll();
+		return;
 	}
-	if(val.length>0&&val.charAt(val.length-1)==='\n') html+='\n';
-	bd.innerHTML=html;
-	bd.style.display='block';
-	if(hasSearch) area.classList.add('search-active'); else area.classList.remove('search-active');
-	if(hasJson) area.classList.add('json-active'); else area.classList.remove('json-active');
-	syncSearchScroll();
+	// No active search: highlight JSON keys with the incremental per-line overlay.
+	if(isJsonFile()&&val.length>0&&val.length<=500000){
+		renderJsonOverlay(bd,val.split('\n'));
+		bd.style.display='block';
+		area.classList.remove('search-active');
+		area.classList.add('json-active');
+		syncSearchScroll();
+		return;
+	}
+	bd.style.display='none';
+	bd.innerHTML='';
+	hlLineTexts=null;
+	area.classList.remove('search-active');
+	area.classList.remove('json-active');
 }
 function openSearch(){
 	var sb=document.getElementById('searchBar');
@@ -1882,6 +1994,9 @@ var templates={
 };
 
 function escHtml(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+// String-based HTML escape used by the highlight overlay, which runs over the
+// whole document on every change and must avoid creating a DOM node per chunk.
+function escHtmlText(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function insertReflexion(title, reflection){
   var area=document.getElementById('editorArea');
   if(area.style.display==='none'||currentTab<0){ toast(tr('selectFile'),'info'); return; }

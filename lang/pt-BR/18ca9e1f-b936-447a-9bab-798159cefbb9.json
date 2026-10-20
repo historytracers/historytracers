@@ -1,0 +1,171 @@
+{
+   "title": "Exercitando a soma digitando os valores",
+   "header": "Exercitando a soma digitando os valores",
+   "sources": [
+      "18ca9e1f-b936-447a-9bab-798159cefbb9"
+   ],
+   "scripts": [
+      "18ca9e1f-b936-447a-9bab-798159cefbb9"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/18ca9e1f-b936-447a-9bab-798159cefbb9_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5px7dxFKtZHy6yvowmxJCy?si=WqR0MkGwRjWQzjmZPwsydA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792331238"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nNeste texto, exercitaremos a operação de soma digitando os valores. Antes de começar este exercício, sugerimos estudar:\n\n- **Correndo entre os números**: como a soma funciona com números maiores, com uma analogia da arquitetura mesoamericana e um método passo a passo para somar números de qualquer tamanho (<htcite0>)\n- **Avançando uma ordem e o complemento**: a regra de avançar uma ordem (o transporte) e o complemento para 10 (<htcite1>)\n- **Vai um ou não vai? (Jogo)**: um jogo para decidir, coluna por coluna, se a soma transporta 1 para a próxima ordem (<htcite2>)\n- **Exercitando a soma**: um exercício para praticar a soma coluna por coluna com quadrados e o complemento para 10 (<htcite3>)\n- **A arte de estudar**: os cinco fatores de Sun Tzu e como usá-los como estratégia para aprender (<htcite4>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
+                     "text": "History Tracers Team",
+                     "page": "Correndo entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Avançando uma ordem e o complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5539096c-dd7d-4f9c-a137-f0465725b9f4",
+                     "text": "History Tracers Team",
+                     "page": "Vai um ou não vai? (Jogo)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4caa9fe-de1e-49c5-92de-50ed9c22a42d",
+                     "text": "History Tracers Team",
+                     "page": "Exercitando a soma",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "A arte de estudar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_suntzu",
+         "text": [
+            {
+               "text": "### Os 5 fatores de Sun Tzu (孙子)\n\nPara fazer os exercícios, recomendamos usar os 5 fatores de Sun Tzu (os mesmos de **A arte de estudar** (<htcite0>) da seguinte forma:\n\n- **A lei da moral**: Não pare em apenas um exercício. Para reforçar o que você aprendeu, pratique até se sentir mais confortável e espalhe a prática em mais de um dia.\n- **Paraíso**: Visualize os números que você está somando com o seu próprio corpo. Toda vez que somar um número a outro, verifique se o resultado se mantém dentro da contagem dos seus dedos ou se vai além dela. Depois, tente recriar em outros cenários as somas que está fazendo aqui, para perceber que a mesma ideia aparece em toda parte.\n- **Terra**: Em toda soma, os quadrados representam os dígitos. Quando uma coluna transporta 1, o resultado pode passar dos 10 valores possíveis (os dígitos de 0 a 9), e surgem quadrados extras fora do grupo de dez. Então, antes de somar dois dígitos, pergunte-se: o segundo dígito é maior ou menor que o complemento do primeiro? A resposta diz se a coluna vai transportar 1.\n- **O comandante**: Como comandante do seu aprendizado, você deve:\n    - Ser benevolente consigo mesmo e com as pessoas que ainda não entenderam a soma, e ajudá-las a aprender.\n    - Ser honesto consigo mesmo e não permitir que a sua confiança subestime ou superestime o problema à sua frente.\n    - Respeitar-se, lembrando que existem diferentes maneiras de entender a matemática. Descubra a maneira com a qual você se sinta confortável e siga-a. No History Tracers, faremos o nosso melhor para ajudar você a encontrar o seu caminho.\n    - Usar a sua sabedoria para identificar as suas fraquezas, a fim de treiná-las e transformá-las em forças.\n    - Usar a sua sinceridade para ver onde você precisa melhorar e não criar barreiras por causa das dificuldades que você possa encontrar.\n- **Método e disciplina**: Reserve um período de tempo para treinar todos os dias e respeite o seu tempo de descanso.\n",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "A arte de estudar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Exercício de prática\n\nLer sobre a soma ajuda, mas praticar é essencial para compreendê-la de verdade. Abaixo há uma soma escrita na vertical, coluna por coluna, das unidades às centenas. Em cada coluna:\n\n1. Os quadrados azul-claro mostram o dígito que já está na coluna.\n2. Digite na caixa da linha do resultado o dígito que fica na coluna.\n3. Quando a soma chega a dez, aparece uma caixa de transporte acima da próxima ordem: digite 1 nela. Quando a soma fica abaixo de dez, não há caixa de transporte.\n\nOs valores são verificados à medida que você digita. Se um dígito estiver incorreto, os quadrados são coloridos de acordo com o número digitado, e uma dica lembra o complemento. Quando a soma transporta, os quadrados além do grupo de dez são coloridos, mostrando o dígito que fica na coluna. Quando os dois valores estão corretos, os quadrados são preenchidos, aparece um parabéns e é mostrado o botão que passa para a próxima coluna.\n\nAntes de digitar, observe o complemento do valor que já está na coluna: o complemento diz quantos quadrados ainda faltam para chegar a dez. Se o dígito de baixo for pelo menos o complemento, a soma chega a dez e o 1 é transportado para a próxima ordem; os quadrados que ficam fora do grupo de dez são o dígito que fica na coluna.\n\n**Exemplo: 8 + 7.** A coluna já tem 8 quadrados azul-claro, aos quais se soma o 7 do número de baixo. O complemento de 8 para chegar a dez é 2, então os 2 primeiros quadrados fecham o grupo de dez (o 1 transportado para a próxima ordem), e os 5 quadrados restantes ficam fora do grupo: esse é o dígito 5. Digite 5 na caixa da linha do resultado e 1 na caixa de transporte acima da próxima ordem:<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div><span class=\"htAddSquaresCaption\">8 + 7 = 15</span>\n\nAo terminar o cálculo, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) e poderá passar para o próximo problema clicando no botão abaixo:\n",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htAddGame\"><div class=\"htAddOrders\" id=\"htAddInOrders\"></div><span class=\"htAddQuestion\" id=\"htAddInQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htAddInIncomingNote\"></div><table class=\"htAddTable\" id=\"htAddInTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htAddInSquaresLabel\">Soma nesta coluna</span><div class=\"htAddSquares\" id=\"htAddInSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htAddInSquaresCaption\"></span><span class=\"htAddSquaresNote\" id=\"htAddInSquaresNote\"></span></div><span id=\"htAddInInputHome\" class=\"htAddHidden\"><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htAddInDigitInput\" aria-label=\"Dígito que a coluna mantém\" /><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htAddInCarryInput\" aria-label=\"Transporte para a próxima ordem\" /></span><div class=\"htAddFeedback\" id=\"htAddInFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htAddInNextBtn\" class=\"reset-tutor-btn hidden\">Próxima coluna</button></div><span id=\"htAddInOrder0\" class=\"htAddHidden\">Unidades</span><span id=\"htAddInOrder1\" class=\"htAddHidden\">Dezenas</span><span id=\"htAddInOrder2\" class=\"htAddHidden\">Centenas</span><span id=\"htAddInQuestionTemplate\" class=\"htAddHidden\">A coluna das {order} já tem {base}. Some o dígito de baixo {added}: digite na linha do resultado o dígito que fica na coluna e, quando a soma chegar a dez, digite 1 na caixa de transporte acima da próxima ordem.</span><span id=\"htAddInIncomingTemplate\" class=\"htAddHidden\">O 1 transportado da coluna anterior é somado: {first} + 1 = {base}.</span><span id=\"htAddInMsgCarryTemplate\" class=\"htAddHidden\">{base} + {added} = {sum}. Chega a 10, então a coluna das {order} mantém {result} e transporta 1 para a próxima ordem.</span><span id=\"htAddInMsgNoCarryTemplate\" class=\"htAddHidden\">{base} + {added} = {sum}. Fica abaixo de 10, então a coluna das {order} mantém {result}.</span><span id=\"htAddInWrongDigitTemplate\" class=\"htAddHidden\">Esse dígito não está correto. Lembre-se do complemento de {base} para dez: {comp}. Use-o para encontrar o dígito que fica na coluna das {order}.</span><span id=\"htAddInWrongCarryTemplate\" class=\"htAddHidden\">O transporte não está correto. Verifique {base} + {added}: quando a soma chega a dez, o transporte deve ser 1.</span><span id=\"htAddInCongratsTemplate\" class=\"htAddHidden\">✅ Correto! Clique em 'Próxima coluna' para continuar.</span><span id=\"htAddInPerfectTemplate\" class=\"htAddHidden\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br>{first} + {addend} = {sum}<br>Bom trabalho!</span><span id=\"htAddInNextColumnLabel\" class=\"htAddHidden\">Próxima coluna</span><span id=\"htAddInPlayAgainLabel\" class=\"htAddHidden\">Novo problema</span><span id=\"htAddInSquaresUsedTemplate\" class=\"htAddHidden\">Quadrados usados: {used}.</span><span id=\"htAddInComplementPendingTemplate\" class=\"htAddHidden\">Complemento de {base} para dez: {comp}. Ainda faltam {missing} quadrados para completar o dez.</span><span id=\"htAddInComplementUsedTemplate\" class=\"htAddHidden\">Complemento de {base} para dez: {comp}. Quadrados que completaram o dez: {comp}; quadrados fora do dez: {outside}.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
