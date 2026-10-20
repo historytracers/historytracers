@@ -3,15 +3,16 @@
 // "Practicing subtraction with typed values" (content cc21bf40-cb71-4f3c-a82a-8785f5d97611).
 // Same vertical subtraction as the "Practicing subtraction" game: the subtraction is
 // laid out column by column, from the units upwards, with the squares showing the
-// value available in the column. Instead of removing the squares one by one with the
-// up and down buttons, the player types the digit that the column keeps and, when the
-// column borrows 1 from the next order, types 1 in the borrow box above the next
-// order. The values are checked as they are typed: a wrong value shows a tip about
-// the complement to ten or the borrow, the right values remove the squares of the
-// bottom digit (they turn light yellow), reduce the next order's digit in the
-// regrouped row and are congratulated, and the button that moves to the next column
-// appears. The localized texts live in the class JSON, so this file only wires the
-// behavior and draws the board.
+// value available in the column. Everything written on top of the minuend is typed
+// by the player, exactly as it is written by hand. When the previous column borrowed
+// 1, the adjusted digit is written first on the top row; when the column borrows 1
+// from the next order, the player types 1 in the borrow box above the next order and
+// writes on the top row the value that now stays in the column (the digit plus ten).
+// The digit that the column keeps is typed in the box on the result row. The values
+// are checked as they are typed: a wrong value shows a tip, the right values remove
+// the squares of the bottom digit (they turn light yellow), and the button that
+// moves to the next column appears. The localized texts live in the class JSON, so
+// this file only wires the behavior and draws the board.
 
 var localSubIn = {};
 
@@ -39,12 +40,12 @@ function htSubInReplace(template, values) {
     return template;
 }
 
-// Draws the vertical subtraction: the regrouped row, the two operands with the - sign,
+// Draws the vertical subtraction: the top row, the two operands with the - sign,
 // the result line and the result row. The column being solved is highlighted and a
-// column shows its result digit only once it has been solved. The two value fields
-// live inside the board: the digit is typed in the result row of the column being
-// solved and the borrow is typed in the regrouped row, above the next order, exactly
-// where the 1 taken from the next order is written by hand.
+// column shows its result digit only once it has been solved. The three value
+// fields live inside the board: the top-row value is typed in the top row of the
+// column being solved, the borrow is typed in the top row, above the next order,
+// and the digit that the column keeps is typed in the result row.
 function htSubInBuildBoard() {
     var d = HT_SUBIN_DIGITS;
     var current = localSubIn.column;
@@ -60,34 +61,63 @@ function htSubInBuildBoard() {
         return "<td class=\"" + cls + "\" data-order=\"" + order + "\">" + content + "</td>";
     }
 
+    // How the top row shows the values written for a column: the adjusted digit
+    // that was written first stays struck out when the column also borrows and the
+    // value becomes digit plus ten, as it is crossed out by hand.
+    function topValue(order) {
+        var value = String(localSubIn.regroup[order]);
+        if (localSubIn.reduceValues[order] !== undefined && localSubIn.regroup[order] !== localSubIn.reduceValues[order]) {
+            value = "<span class=\"htAddStruck\">" + localSubIn.reduceValues[order] + "</span>" + value;
+        }
+        return value;
+    }
+
     // The value fields are part of the board, so take them out before the table
     // is rebuilt, otherwise the rebuild would destroy them.
-    $("#htSubInDigitInput, #htSubInBorrowInput").appendTo("#htSubInInputHome");
+    $("#htSubInDigitInput, #htSubInBorrowInput, #htSubInTopInput").appendTo("#htSubInInputHome");
 
     var rows = "";
-    // The regrouped minuend is written above the original digits. When the column
-    // being solved borrows, the 1 taken from the next order is typed above it.
+    // The top row: every value written above the minuend is typed by the player.
+    // The adjusted digit of the column being solved, the 1 borrowed by the column
+    // being solved, above the next order, and the final values of the solved
+    // columns are shown here.
     rows += "<tr class=\"htAddCarryRow\">" + opCell("");
     for (var o = d; o >= 0; o--) {
         var regroup = "";
         if (localSubIn.regroup[o] !== undefined) {
-            regroup = String(localSubIn.regroup[o]);
+            regroup = topValue(o);
+        } else if (localSubIn.borrows[o - 1] === 1) {
+            // The 1 taken from this order by the previous column, already typed.
+            regroup = "1";
         }
-        // The borrow field sits above the next order, but only when the column
-        // actually borrows.
-        if (pending && localSubIn.borrowNeeded && o === current + 1) {
+        // The field for the value the column being solved writes on top.
+        if (pending && o === current && localSubIn.topSlot === "reduce") {
+            regroup = "<span id=\"htSubInTopSlot\"></span>";
+        } else if (pending && o === current && localSubIn.topSlot === "final") {
+            regroup = "";
+            if (localSubIn.reduceValues[o] !== undefined) {
+                regroup += "<span class=\"htAddStruck\">" + localSubIn.reduceValues[o] + "</span>";
+            }
+            regroup += "<span id=\"htSubInTopSlot\"></span>";
+        }
+        // The borrow field sits above the next order, but only while the borrow
+        // has not been typed yet.
+        if (pending && o === current + 1 && localSubIn.borrowNeeded && !localSubIn.borrowTyped) {
             regroup = "<span id=\"htSubInBorrowSlot\"></span>";
         }
         rows += cell(o, regroup);
     }
     rows += "</tr>";
-    // Minuend
+    // Minuend: the original digit is struck out once the player writes a value
+    // above it, exactly as it is crossed out by hand.
     rows += "<tr>" + opCell("");
     for (var o = d; o >= 0; o--) {
         var minuendCell = "";
         if (o < d) {
             minuendCell = String(tDigits[o]);
-            if (localSubIn.regroup[o] !== undefined) {
+            var struck = localSubIn.regroup[o] !== undefined ||
+                (pending && o === current && localSubIn.topSlot !== "none");
+            if (struck) {
                 minuendCell = "<span class=\"htAddStruck\">" + minuendCell + "</span>";
             }
         }
@@ -118,21 +148,24 @@ function htSubInBuildBoard() {
 
     // Put the value fields in the position of the subtraction.
     if (pending) {
-        $("#htSubInDigitSlot").append($("#htSubInDigitInput"));
-        if (localSubIn.borrowNeeded) {
+        if (localSubIn.topSlot === "reduce" || localSubIn.topSlot === "final") {
+            $("#htSubInTopSlot").append($("#htSubInTopInput"));
+        }
+        if (localSubIn.borrowNeeded && !localSubIn.borrowTyped) {
             $("#htSubInBorrowSlot").append($("#htSubInBorrowInput"));
         }
+        $("#htSubInDigitSlot").append($("#htSubInDigitInput"));
     }
 }
 
-// Draws the squares of the column. The value available in the column is shown from
-// the start: the first squares are light blue and the squares of the bottom digit
-// are white, waiting to be removed. When the column borrows, ten squares arrive
-// grouped: the bottom digit is removed from that group and the squares left in it,
-// outlined, are the complement to ten; the squares already in the column stay
-// outside the group and are added to the complement to form the result digit. Once
-// the values are right, the white squares turn light yellow, as they are removed,
-// and the light blue squares that remain are the digit that stays in the column.
+// Draws the squares of the column. The base squares are light blue from the start
+// and the squares of the bottom digit are white, waiting to be removed. When the
+// column borrows, ten squares arrive grouped: the bottom digit is removed from
+// that group and the squares left in it, outlined, are the complement to ten; the
+// squares already in the column stay outside the group and are added to the
+// complement to form the result digit. Once the values are right, the white
+// squares turn light yellow, as they are removed, and the light blue squares that
+// remain are the digit that stays in the column.
 function htSubInDrawSquares(revealed) {
     var base = localSubIn.base;
     var bottom = localSubIn.bottomDigit;
@@ -215,9 +248,11 @@ function htSubInUpdateSquaresNote(revealed) {
 
 // Prepares the column that must be solved next. A 1 borrowed by the previous
 // column is taken from the top digit; if the top digit is then smaller than the
-// bottom digit, the column borrows ten squares from the next order. The regrouped
-// minuend of the column is written above the original digit right away, and the
-// borrow field is only added to the board when the column actually borrows.
+// bottom digit, the column borrows ten squares from the next order. Nothing is
+// written in advance: the player writes all the values on top. When the previous
+// column borrowed 1, the first step is to write the adjusted digit on the top
+// row, and the borrow field is only added to the board when the column actually
+// borrows.
 function htSubInSetupColumn() {
     var column = localSubIn.column;
     var topDigit = localSubIn.topDigits[column];
@@ -249,12 +284,21 @@ function htSubInSetupColumn() {
     localSubIn.bottomDigit = bottomDigit;
     // The borrow field is only added to the board when the column borrows.
     localSubIn.borrowNeeded = borrowOut === 1;
+    localSubIn.borrowTyped = false;
     localSubIn.answered = false;
 
-    // The regrouped minuend of this column: the digit reduced by the borrow of the
-    // previous column, or the digit that takes ten squares from the next order.
-    if (localSubIn.incoming > 0 || localSubIn.borrowNeeded) {
-        localSubIn.regroup[column] = available;
+    // Staged entries, all typed by the player. When the previous column borrowed
+    // 1 (and the digit still exists after the 1 is removed), the first step is to
+    // write the adjusted digit on the top row. When the column borrows, the next
+    // step asks for the value that now stays in the column: the digit plus ten.
+    var reduceEntry = localSubIn.incoming > 0 && afterIncoming >= 0;
+    localSubIn.stage = reduceEntry ? "reduce" : "solve";
+    if (localSubIn.stage === "reduce") {
+        localSubIn.topSlot = "reduce";
+        localSubIn.topExpected = afterIncoming;
+    } else {
+        localSubIn.topSlot = localSubIn.borrowNeeded ? "final" : "none";
+        localSubIn.topExpected = localSubIn.borrowNeeded ? available : null;
     }
 
     var order = htSubInOrderName(column);
@@ -266,23 +310,25 @@ function htSubInSetupColumn() {
     }));
 
     var note = "";
-    if (chained) {
+    if (localSubIn.stage === "reduce") {
+        // First the adjusted digit is written, then the column is checked.
+        note = htSubInReplace($("#htSubInIncomingTemplate").text(), {
+            top: topDigit,
+            first: afterIncoming
+        });
+    } else if (chained) {
         note = $("#htSubInChainedTemplate").text();
-    } else {
-        if (localSubIn.incoming > 0) {
-            note = htSubInReplace($("#htSubInIncomingTemplate").text(), {
-                top: topDigit,
-                first: afterIncoming
-            });
-        }
-        if (borrowed) {
-            var borrowNote = htSubInReplace($("#htSubInBorrowTemplate").text(), {
-                first: afterIncoming,
-                bottom: bottomDigit,
-                base: available
-            });
-            note += (note.length > 0 ? " " : "") + borrowNote;
-        }
+    } else if (borrowed) {
+        note = htSubInReplace($("#htSubInBorrowTemplate").text(), {
+            first: afterIncoming,
+            bottom: bottomDigit,
+            base: available
+        });
+    } else if (localSubIn.incoming > 0) {
+        note = htSubInReplace($("#htSubInIncomingTemplate").text(), {
+            top: topDigit,
+            first: afterIncoming
+        });
     }
     $("#htSubInNote").text(note);
     if (note.length > 0) {
@@ -291,9 +337,12 @@ function htSubInSetupColumn() {
         $("#htSubInNote").addClass("htAddHidden");
     }
 
-    // Clear the fields and controls for the new column.
-    $("#htSubInDigitInput").val("").prop("disabled", false);
-    $("#htSubInBorrowInput").val("").prop("disabled", false);
+    // Clear the fields and enable the ones of the current step: during the first
+    // step only the value written on top is asked, so the digit and the borrow
+    // wait until the top value is right.
+    $("#htSubInTopInput").val("").prop("disabled", localSubIn.topSlot === "none");
+    $("#htSubInBorrowInput").val("").prop("disabled", !(localSubIn.stage === "solve" && localSubIn.borrowNeeded));
+    $("#htSubInDigitInput").val("").prop("disabled", localSubIn.stage !== "solve");
     $("#htSubInFeedback").html("");
     $("#htSubInNextBtn").addClass("hidden");
 
@@ -304,10 +353,49 @@ function htSubInSetupColumn() {
     htSubInDrawSquares(false);
 }
 
+// The player writes a top value while typing, so a two-digit value like 13 is
+// still being written when only its first digit is there: only values that can
+// no longer become the right one show the tip.
+function htSubInTopPartial(raw) {
+    var expected = String(localSubIn.topExpected);
+    return localSubIn.topExpected >= 10 && raw.length < expected.length && expected.indexOf(raw) === 0;
+}
+
+// Records the adjusted digit written on top when the previous column borrowed 1.
+// If the column also borrows from the next order, the value written on top must
+// be updated afterwards: the digit written first stays crossed out and the value
+// with the ten squares is written next. Otherwise the adjusted digit is the value
+// that stays on top and only the digit of the result row is asked.
+function htSubInAcceptReduce() {
+    var column = localSubIn.column;
+
+    localSubIn.reduceValues[column] = localSubIn.topExpected;
+    if (localSubIn.borrowNeeded) {
+        localSubIn.stage = "solve";
+        localSubIn.topSlot = "final";
+        localSubIn.topExpected = localSubIn.base;
+        $("#htSubInTopInput").val("");
+    } else {
+        localSubIn.regroup[column] = localSubIn.reduceValues[column];
+        localSubIn.stage = "solve";
+        localSubIn.topSlot = "none";
+        localSubIn.topExpected = null;
+    }
+
+    $("#htSubInFeedback").html("");
+    // The top value of the column is written; ask now for the borrow and the
+    // digit that the column keeps.
+    $("#htSubInBorrowInput").prop("disabled", !localSubIn.borrowNeeded);
+    $("#htSubInDigitInput").prop("disabled", false);
+
+    htSubInBuildBoard();
+}
+
 // Checks the fields as they are typed, so the button that verifies the column is
-// not needed. A wrong digit or a wrong borrow shows a tip; the right values solve
-// the column at once. The borrow field is only present when the column borrows,
-// so when there is no borrow the digit alone solves it.
+// not needed. A wrong value shows a tip; the right values solve the column at
+// once. The steps are ordered: first the adjusted digit written on top (when the
+// previous column borrowed 1), then the value written on top together with the
+// borrow when the column borrows, and finally the digit that the column keeps.
 function htSubInEvaluate() {
     if (localSubIn.answered) {
         return;
@@ -317,12 +405,70 @@ function htSubInEvaluate() {
     var bottom = localSubIn.bottomDigit;
     var result = base - bottom;
     var order = htSubInOrderName(localSubIn.column);
-    var digitRaw = $("#htSubInDigitInput").val();
+    var topRaw = $("#htSubInTopInput").val();
     var borrowRaw = $("#htSubInBorrowInput").val();
+    var digitRaw = $("#htSubInDigitInput").val();
 
-    var digitOk = digitRaw !== "" && parseInt(digitRaw, 10) === result;
+    // Step 1: the adjusted digit written on top, when the previous column
+    // borrowed 1.
+    if (localSubIn.stage === "reduce") {
+        if (topRaw === "") {
+            $("#htSubInFeedback").html("");
+            return;
+        }
+        if (parseInt(topRaw, 10) === localSubIn.topExpected) {
+            htSubInAcceptReduce();
+        } else if (!htSubInTopPartial(topRaw)) {
+            $("#htSubInFeedback").html(htSubInReplace($("#htSubInWrongTopTemplate").html(), {
+                top: localSubIn.topDigits[localSubIn.column],
+                first: localSubIn.afterIncoming
+            }));
+        }
+        return;
+    }
+
+    // Step 2: when the column borrows, the value written on top stays crossed
+    // out and the value with ten more squares is written.
+    var topWritten = localSubIn.topSlot !== "final";
+    if (localSubIn.topSlot === "final") {
+        if (topRaw !== "" && parseInt(topRaw, 10) === localSubIn.topExpected) {
+            localSubIn.regroup[localSubIn.column] = localSubIn.topExpected;
+            localSubIn.topSlot = "none";
+            $("#htSubInFeedback").html("");
+            topWritten = true;
+            htSubInBuildBoard();
+        } else if (topRaw !== "" && !htSubInTopPartial(topRaw)) {
+            $("#htSubInFeedback").html(htSubInReplace(
+                localSubIn.chained ? $("#htSubInWrongTopChainedTemplate").html() : $("#htSubInWrongTopBorrowTemplate").html(),
+                {
+                    first: localSubIn.afterIncoming,
+                    bottom: bottom,
+                    base: base
+                }
+            ));
+            return;
+        } else {
+            $("#htSubInFeedback").html("");
+            return;
+        }
+    }
+
+    // The borrow of the column, typed above the next order.
     var borrowOk = !localSubIn.borrowNeeded || (borrowRaw !== "" && parseInt(borrowRaw, 10) === 1);
+    if (localSubIn.borrowNeeded && borrowRaw !== "" && !borrowOk) {
+        $("#htSubInFeedback").html(htSubInReplace($("#htSubInWrongBorrowTemplate").html(), {
+            first: localSubIn.afterIncoming,
+            bottom: bottom
+        }));
+        return;
+    }
+    if (borrowOk && localSubIn.borrowNeeded) {
+        localSubIn.borrows[localSubIn.column] = 1;
+        localSubIn.borrowTyped = true;
+    }
 
+    // The digit that the column keeps, typed on the result row.
+    var digitOk = digitRaw !== "" && parseInt(digitRaw, 10) === result;
     if (digitRaw !== "" && !digitOk) {
         $("#htSubInFeedback").html(htSubInReplace($("#htSubInWrongDigitTemplate").html(), {
             order: order,
@@ -332,26 +478,19 @@ function htSubInEvaluate() {
         return;
     }
 
-    if (localSubIn.borrowNeeded && borrowRaw !== "" && !borrowOk) {
-        $("#htSubInFeedback").html(htSubInReplace($("#htSubInWrongBorrowTemplate").html(), {
-            first: localSubIn.afterIncoming,
-            bottom: bottom
-        }));
-        return;
-    }
-
-    if (digitOk && borrowOk) {
+    if (topWritten && borrowOk && digitOk) {
         htSubInResolve();
     } else {
         $("#htSubInFeedback").html("");
+        htSubInBuildBoard();
     }
 }
 
-// Records the result digit of the column and the 1 it borrows, if any. The squares
-// of the bottom digit are removed (they turn light yellow), the digit of the next
-// order is reduced and written above the original one, and a congratulation is
-// shown, together with the button that moves to the next column (or to a new
-// problem).
+// Records the result digit of the column. The squares of the bottom digit are
+// removed (they turn light yellow) and a congratulation is shown, together with
+// the button that moves to the next column (or to a new problem). The reduced
+// digits of the next columns are not written here: the player writes them on top
+// when solving those columns.
 function htSubInResolve() {
     if (localSubIn.answered) {
         return;
@@ -366,25 +505,6 @@ function htSubInResolve() {
     localSubIn.results[column] = result;
     localSubIn.lastBorrow = localSubIn.borrowOut ? 1 : 0;
 
-    // The columns ahead are regrouped by the borrow taken: the digit of the next
-    // order is reduced by 1 (or a borrowed zero becomes nine and the borrow
-    // continues to the next order).
-    if (localSubIn.borrowOut) {
-        var next = column + 1;
-        var carry = 1;
-        while (next < HT_SUBIN_DIGITS && carry) {
-            var value = localSubIn.topDigits[next] - 1;
-            if (value < 0) {
-                localSubIn.regroup[next] = 9;
-                carry = 1;
-            } else {
-                localSubIn.regroup[next] = value;
-                carry = 0;
-            }
-            next++;
-        }
-    }
-
     htSubInBuildBoard();
     // The typed values remove the squares: the bottom digit turns light yellow
     // and the light blue squares that remain are the digit that stays.
@@ -398,6 +518,7 @@ function htSubInResolve() {
         order: order
     });
 
+    $("#htSubInTopInput").prop("disabled", true);
     $("#htSubInDigitInput").prop("disabled", true);
     $("#htSubInBorrowInput").prop("disabled", true);
 
@@ -463,6 +584,7 @@ function htSubInNewProblem() {
     localSubIn.borrows = {};
     localSubIn.results = {};
     localSubIn.regroup = {};
+    localSubIn.reduceValues = {};
 
     htSubInSetupColumn();
 }
@@ -480,6 +602,7 @@ function htLoadContent() {
         borrows: {},
         results: {},
         regroup: {},
+        reduceValues: {},
         base: 0,
         bottomDigit: 0,
         afterIncoming: 0,
@@ -487,6 +610,10 @@ function htLoadContent() {
         borrowed: false,
         chained: false,
         borrowNeeded: false,
+        borrowTyped: false,
+        stage: "solve",
+        topSlot: "none",
+        topExpected: null,
         answered: false,
         lastBorrow: 0
     };
@@ -498,7 +625,7 @@ function htLoadContent() {
     });
 
     // The values are checked as they are typed, so there is no verify button.
-    $("#htSubInDigitInput, #htSubInBorrowInput").off("input").on("input", function() {
+    $("#htSubInTopInput, #htSubInDigitInput, #htSubInBorrowInput").off("input").on("input", function() {
         this.value = this.value.replace(/[^0-9]/g, "");
         htSubInEvaluate();
     });
