@@ -3566,6 +3566,13 @@ p.desc svg {
   text-decoration: line-through;
 }
 
+/* Borrow mark written next to the value of the column that the previous column
+ * took 1 from: small, struck out (the value written on top replaced it). */
+.htAddBorrowMark {
+  font-size: 0.65em;
+  vertical-align: super;
+}
+
 .htAddOp {
   width: 0.7em;
   min-width: 0.7em;

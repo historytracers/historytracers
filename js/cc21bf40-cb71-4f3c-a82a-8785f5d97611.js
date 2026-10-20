@@ -61,13 +61,23 @@ function htSubInBuildBoard() {
         return "<td class=\"" + cls + "\" data-order=\"" + order + "\">" + content + "</td>";
     }
 
-    // How the top row shows the values written for a column: the adjusted digit
-    // that was written first stays struck out when the column also borrows and the
-    // value becomes digit plus ten, as it is crossed out by hand.
+    // How the top row shows the values written for a column: the borrow mark of
+    // the previous column (a small struck 1, because the value written on top
+    // replaces it), the adjusted digit written first, struck out when the column
+    // also borrows, and the final value with the ten squares added.
+    function borrowMark(order) {
+        if (localSubIn.borrows[order - 1] !== 1) {
+            return "";
+        }
+        return "<span class=\"htAddStruck htAddBorrowMark\">1</span>";
+    }
     function topValue(order) {
-        var value = String(localSubIn.regroup[order]);
-        if (localSubIn.reduceValues[order] !== undefined && localSubIn.regroup[order] !== localSubIn.reduceValues[order]) {
-            value = "<span class=\"htAddStruck\">" + localSubIn.reduceValues[order] + "</span>" + value;
+        var value = borrowMark(order);
+        if (localSubIn.regroup[order] !== undefined) {
+            if (localSubIn.reduceValues[order] !== undefined && localSubIn.regroup[order] !== localSubIn.reduceValues[order]) {
+                value += "<span class=\"htAddStruck\">" + localSubIn.reduceValues[order] + "</span>";
+            }
+            value += String(localSubIn.regroup[order]);
         }
         return value;
     }
@@ -90,11 +100,13 @@ function htSubInBuildBoard() {
             // The 1 taken from this order by the previous column, already typed.
             regroup = "1";
         }
-        // The field for the value the column being solved writes on top.
+        // The field for the value the column being solved writes on top. The
+        // borrow mark of the previous column stays beside it struck out: the
+        // value the player writes replaces that 1.
         if (pending && o === current && localSubIn.topSlot === "reduce") {
-            regroup = "<span id=\"htSubInTopSlot\"></span>";
+            regroup = borrowMark(o) + "<span id=\"htSubInTopSlot\"></span>";
         } else if (pending && o === current && localSubIn.topSlot === "final") {
-            regroup = "";
+            regroup = borrowMark(o);
             if (localSubIn.reduceValues[o] !== undefined) {
                 regroup += "<span class=\"htAddStruck\">" + localSubIn.reduceValues[o] + "</span>";
             }
