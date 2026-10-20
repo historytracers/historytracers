@@ -260,11 +260,12 @@ function htSubInUpdateSquaresNote(revealed) {
 
 // Prepares the column that must be solved next. A 1 borrowed by the previous
 // column is taken from the top digit; if the top digit is then smaller than the
-// bottom digit, the column borrows ten squares from the next order. Nothing is
-// written in advance: the player writes all the values on top. When the previous
-// column borrowed 1, the first step is to write the adjusted digit on the top
-// row, and the borrow field is only added to the board when the column actually
-// borrows.
+// bottom digit, the column borrows ten squares from the next order. The player
+// writes all the values on top, although the adjusted digit of this column may
+// already be there when it was written with the borrow of the previous column.
+// When the previous column borrowed 1, the first step is to write the adjusted
+// digit on the top row, and the borrow field is only added to the board when the
+// column actually borrows.
 function htSubInSetupColumn() {
     var column = localSubIn.column;
     var topDigit = localSubIn.topDigits[column];
@@ -274,6 +275,10 @@ function htSubInSetupColumn() {
     var borrowOut = 0;
     var borrowed = false;
     var chained = false;
+    // The previous column may have written the adjusted digit of this column
+    // already, when the player typed that value in the borrow box instead of
+    // the 1. In that case the value on top is already there.
+    var prewritten = localSubIn.regroup[column] !== undefined;
 
     if (available < 0) {
         // The previous column borrowed from a zero. This column borrows from the
@@ -303,14 +308,21 @@ function htSubInSetupColumn() {
     // 1 (and the digit still exists after the 1 is removed), the first step is to
     // write the adjusted digit on the top row. When the column borrows, the next
     // step asks for the value that now stays in the column: the digit plus ten.
-    var reduceEntry = localSubIn.incoming > 0 && afterIncoming >= 0;
+    // A value written in advance with the borrow of the previous column skips
+    // the adjusted digit: only the value with ten squares (when this column also
+    // borrows) and the digit that stays are still missing.
+    if (prewritten) {
+        localSubIn.reduceValues[column] = localSubIn.regroup[column];
+    }
+    var reduceEntry = !prewritten && localSubIn.incoming > 0 && afterIncoming >= 0;
     localSubIn.stage = reduceEntry ? "reduce" : "solve";
-    if (localSubIn.stage === "reduce") {
+    if (reduceEntry) {
         localSubIn.topSlot = "reduce";
         localSubIn.topExpected = afterIncoming;
     } else {
-        localSubIn.topSlot = localSubIn.borrowNeeded ? "final" : "none";
-        localSubIn.topExpected = localSubIn.borrowNeeded ? available : null;
+        var needTop = localSubIn.borrowNeeded && (!prewritten || localSubIn.regroup[column] !== available);
+        localSubIn.topSlot = needTop ? "final" : "none";
+        localSubIn.topExpected = needTop ? available : null;
     }
 
     var order = htSubInOrderName(column);
@@ -465,12 +477,30 @@ function htSubInEvaluate() {
         }
     }
 
-    // The borrow of the column, typed above the next order.
-    var borrowOk = !localSubIn.borrowNeeded || (borrowRaw !== "" && parseInt(borrowRaw, 10) === 1);
+    // The borrow of the column, typed above the next order. The player may also
+    // write there the value that stays in the next order after lending the 1
+    // (for example 8 when 9 lends 1). That value is the adjusted digit of the
+    // next column, so it is written on top of that order and the borrow is
+    // taken at the same time.
+    var next = localSubIn.column + 1;
+    var nextReduced = localSubIn.topDigits[next] - 1;
+    var nextTop = (nextReduced < 0) ? 9 : nextReduced;
+    var borrowIsNextTop = localSubIn.borrowNeeded && next < HT_SUBIN_DIGITS &&
+        borrowRaw !== "" && nextTop !== 1 && parseInt(borrowRaw, 10) === nextTop;
+    var borrowOk = !localSubIn.borrowNeeded ||
+        (borrowRaw !== "" && (parseInt(borrowRaw, 10) === 1 || borrowIsNextTop));
+    if (borrowOk && localSubIn.borrowNeeded) {
+        localSubIn.borrows[localSubIn.column] = 1;
+        localSubIn.borrowTyped = true;
+        if (borrowIsNextTop) {
+            localSubIn.regroup[next] = nextTop;
+        }
+    }
     if (localSubIn.borrowNeeded && borrowRaw !== "" && !borrowOk) {
         $("#htSubInFeedback").html(htSubInReplace($("#htSubInWrongBorrowTemplate").html(), {
             first: localSubIn.afterIncoming,
-            bottom: bottom
+            bottom: bottom,
+            next: htSubInOrderName(next)
         }));
         return;
     }
