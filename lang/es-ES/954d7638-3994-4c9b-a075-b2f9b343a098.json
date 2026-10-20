@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1785165381"
+      "1792417942"
    ],
    "authors": [
       ""
@@ -54,18 +54,30 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEste texto continúa la enseñanza del uso de los ábacos desarrollados en China (Zhongguo, 中國), Japón (Nippon-koku o Nihon-koku, 日本国) y Rusia. Para una mejor comprensión, sugerimos estudiar todos los textos presentados en el Capítulo 3 de la sección *Juegos Matemáticos* (<htcite0>).",
+               "text": "### Prerrequisitos\n\nEste texto continúa nuestra enseñanza del uso de los ábacos desarrollados en China (Zhongguo, 中國), Japón (Nippon-koku o Nihon-koku, 日本国) y Rusia. Antes de continuar, recomendamos estudiar primero los siguientes textos:\n\n- **La resta y el complemento**: explica, utilizando solo los órdenes decimales, por qué el complemento permite restar cuando la cifra de las unidades del minuendo es menor que la cifra que queremos quitar (<htcite0>)\n- **Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) - Parte 2**: presenta el ábaco simplificado que utilizamos aquí y el movimiento de los marcadores hacia la barra en la suma (<htcite1>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "e546e051-47bb-4451-a6ed-d78468bc93f3",
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
                      "text": "History Tracers Team",
-                     "page": "Juegos Matemáticos",
+                     "page": "La resta y el complemento",
                      "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team (2026)",
+                     "page": "Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) - Parte 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "06",
+                        "day": "14"
                      }
                   }
                ],
@@ -81,7 +93,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nAl trabajar inicialmente con los ábacos Soroban, Suanpan (算盤) y Schyoty (счёты), siempre movimos los marcadores hacia la barra, ya sea para representar un número, o para sumar o multiplicar valores (<htcite0>).\n\nAl comenzar a estudiar la resta, observamos que, al compararla con un camino, podemos entenderla como un retorno a un lugar (<htcite1>).\n\nAnte este escenario, reflexione:",
+               "text": "### Introducción\n\nCuando trabajamos por primera vez con los ábacos Soroban, Suanpan (算盤) y Schyoty (счёты), siempre movimos los marcadores hacia la barra, ya sea para representar un número, ya sea para sumar o multiplicar valores (<htcite0>).\n\nCuando comenzamos a estudiar la resta, observamos que, si comparamos la resta con un camino, podemos entenderla como el regreso a un lugar que ya visitamos (<htcite1>).\n\nCon esta imagen en mente, reflexione:",
                "source": [
                   {
                      "type": 1,
@@ -115,7 +127,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: De allá para acá, de acá para allá</b><br /><br />Considerando que, para aumentar los valores en los ábacos, movemos los marcadores hacia la barra, para disminuir los valores, ¿alejamos los marcadores de ella?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: De allá para acá, de acá para allá</b><br /><br />Si, para aumentar los valores en los ábacos, movemos los marcadores hacia la barra: para disminuir los valores, ¿alejamos los marcadores de la barra?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -129,7 +141,7 @@
          "id": "SECTION_sub",
          "text": [
             {
-               "text": "### Restando en el ábaco\n\nPara una mejor comprensión de los pasos de la resta en el ábaco, utilizaremos en este texto una versión simplificada del ábaco, con solo dos columnas. Esta versión ya se utilizó cuando comenzamos a estudiar la suma con el ábaco (<htcite0>).",
+               "text": "### Restando en el ábaco\n\nPara seguir con mayor facilidad los pasos de la resta en el ábaco, en este texto nos centraremos en una versión simplificada del ábaco, con solo dos columnas: las unidades y las decenas. Ya utilizamos esta versión simplificada cuando comenzamos a estudiar la suma con el ábaco (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -160,7 +172,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There is/are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span><span id=\"suanpanColumnNumber\" style=\"display: none; visibility: hidden;\">2</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button><button id=\"btnSchyotyMode\" class=\"mode-btn\">Schyoty (счёты)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">¡Hay columna(s) con valores mayores a 9! Cada dígito debe permanecer entre 0 y 9.</span><span id=\"suanpanColumnNumber\" style=\"display: none; visibility: hidden;\">2</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button><button id=\"btnSchyotyMode\" class=\"mode-btn\">Schyoty (счёты)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -169,7 +181,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### El caso de las unidades\n\nEl entendimiento de que, en el ábaco, al alejar los marcadores de la barra estamos restando los valores que representan puede confirmarse mediante un ejercicio de movimiento.\n\nRealicemos la Práctica 1 para confirmar esta idea.",
+               "text": "#### El caso de las unidades\n\nEn el ábaco, alejar los marcadores de la barra significa que estamos restando los valores que esos marcadores representan. Podemos confirmar esta idea mediante un ejercicio de movimiento.\n\nRealicemos la Práctica 1 para comprobarlo.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -178,7 +190,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Visualizando</b><br /><br />Primero, represente el valor <b>9</b> en uno de los ábacos, es decir, mueva un marcador rojo hacia la barra.<br /><br /><b>1.</b> Ahora, aleje de la barra el marcador que vale <b>5</b> y observe que el ábaco pasará a representar el valor <b>4</b>.<br/><b>2.</b> Luego, aleje uno por uno los marcadores azules, que valen <b>1</b>, y observe que el valor representado por el ábaco también disminuye una unidad con cada movimiento.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Visualizando la resta</b><br /><br />Primero, represente el valor <b>9</b> en el ábaco: mueva hacia la barra el marcador rojo superior (que vale <b>5</b>) y los cuatro marcadores azules inferiores (cada uno vale <b>1</b>), de modo que 5 + 4 = 9.<br /><br /><b>1.</b> Ahora, aleje de la barra el marcador rojo superior (que vale <b>5</b>) y observe que el ábaco pasará a representar el valor <b>4</b>.<br/><b>2.</b> Luego, aleje uno por uno los marcadores azules inferiores (cada uno vale <b>1</b>) y observe que el valor representado por el ábaco disminuye una unidad con cada movimiento: de <b>4</b> hasta <b>0</b>.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -187,121 +199,18 @@
                "PostMention": ""
             },
             {
-               "text": "#### Los complementos en la suma\n\nAl hablar de los complementos en la suma, enseñamos que **\"el valor del complemento se extraía de un número y se sumaba al otro\"** (<htcite0>). Podríamos reescribir la palabra extraído por restado, dado que ese valor fue quitado de uno de los números para sumarse al otro.\n\n#### El complemento en la resta\n\nEn una resta, cuando estamos restando un valor mayor de las unidades de otro menor, podemos recurrir al complemento para llegar al resultado. Para dejar esto más claro, reescribiremos los complementos necesarios para llegar a 10 (<htcite1>):",
+               "text": "#### El complemento en el ábaco\n\nEn **La resta y el complemento** estudiamos, utilizando solo los órdenes decimales, por qué el complemento permite restar cuando la cifra de las unidades del minuendo es menor que la cifra que queremos quitar (<htcite0>). Aquí veremos únicamente cómo ese razonamiento aparece en los movimientos del ábaco.\n\nPara **25 − 7**, escribimos 25 como 15 + 10 y sustituimos 10 − 7 por 3, el complemento de 7. El resultado es 15 + 3 = 18. En el ábaco, esto se convierte en dos movimientos: un marcador que se aleja de la barra en la columna de las decenas y tres marcadores que se acercan a la barra en la columna de las unidades.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
-                     "text": "History Tracers Team (2026)",
-                     "page": "Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) - Parte 2",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "06",
-                        "day": "14"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
-                     "text": "History Tracers Team (2026)",
-                     "page": "Sumando con Soroban, Suanpan (算盤) y Schyoty (счёты) - Parte 2",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "06",
-                        "day": "14"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>valor</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>complemento</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 1</b>: Complementos de 10.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "El Cálculo 1, tal como está escrito, puede no dejar explícito cómo utilizaremos los complementos en la resta. Para resolver este problema, restaremos de ambos lados de cada igualdad el complemento correspondiente a cada número para llegar a 10:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>4</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 2</b>: Retirada dos complementos de 10.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Simplificando el Cálculo 2, llegamos a la versión de los cálculos con complementos que utilizaremos:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>0</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>1</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>2</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667e m\">-</mo><mi>4</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>5</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>6</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 3</b>: Representação dos complementos de 10 para números menores ou iguais a 10.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "A partir del Cálculo 3, podemos realizar restas en las cuales la cifra de las unidades que deseamos restar es mayor que la cifra de las unidades del minuendo.\n\nEn situaciones como esta, es común observar a profesores enseñando que estamos *\"pidiendo prestada\"* una decena para realizar el cálculo (<htcite0>; <htcite1>). Sin embargo, este artificio didáctico merece una explicación más detallada. Primero realizaremos el cálculo 25 − 7 mediante la separación de órdenes, que ya estudiamos (<htcite2>), pues es de ahí que surge la idea de **\"prestar\"**. A continuación, utilizaremos el ábaco.",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
-                     "text": "Tomoko Hoult",
-                     "page": "20:42 - 21:30",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2021",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
-                     "text": "Amarteifio, Jessica",
-                     "page": "pp. 6",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
                      "text": "History Tracers Team",
-                     "page": "Relectura",
+                     "page": "La resta y el complemento",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2025",
-                        "month": "07",
-                        "day": "30"
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -312,7 +221,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\">  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>25</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi> <mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>18</mi></math  </p><p class=\"desc\"><b>Cálculo 4</b>: Resta de 25 − 7 utilizando la separación por órdenes.</p></div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: 25 − 7</b><br /><br />Primero, represente el valor <b>25</b> en el ábaco: en la columna de las decenas, mueva hacia la barra dos marcadores inferiores (2 × 10 = 20) y, en la columna de las unidades, mueva el marcador rojo superior (<b>5</b>), de modo que 20 + 5 = 25.<br /><br /><b>1.</b> Ahora, aleje de la barra un marcador inferior en la columna de las decenas. El ábaco representará el número <b>15</b>.<br/><b>2.</b> Luego, en la columna de las unidades, mueva hacia la barra tres marcadores inferiores — el complemento de <b>7</b> — de modo que el ábaco represente el número <b>18</b> (15 + 3 = 18).</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -321,48 +230,34 @@
                "PostMention": ""
             },
             {
-               "text": "En el Cálculo 4, realizamos los siguientes pasos:\n- **Línea 1**: escribimos la resta que deseamos realizar.\n- **Línea 2**: como la cifra de las unidades de **25** es menor que el número **7** que deseamos restar, descomponemos **25** en dos partes: **15 + 10**.\n- **Línea 3**: para dejar más claro el cálculo, reorganizamos los paréntesis, explicitando que deseamos utilizar el complemento de 7, esto es, **10 − 7**.\n- **Línea 4**: utilizando el Cálculo 3, sustituimos **10 − 7** por su resultado, **3**.\n- **Línea 5**: por último, sumamos **3** a **15**, obteniendo el resultado deseado.\n\nCon lo expuesto, podemos reflexionar sobre el concepto de **\"préstamo\"** presentado didácticamente a los alumnos.",
-               "source": [],
-               "date_time": [],
+               "text": "La **Práctica 2** sigue los mismos pasos que el método del complemento, ahora vistos en el ábaco:\n- **Paso 1**: representamos el minuendo, **25**: dos marcadores inferiores hacia la barra en la columna de las decenas y el marcador superior hacia la barra en la columna de las unidades.\n- **Paso 2**: alejamos de la barra un marcador inferior en la columna de las decenas. El ábaco pasa a representar **15**.\n- **Paso 3**: movemos **3** marcadores inferiores hacia la barra en la columna de las unidades — el complemento de **7**. El ábaco pasa a representar **18**.\n\nEn el ábaco, restar **7** se realiza, por lo tanto, en dos movimientos: quitamos una decena de la columna de las decenas y sumamos el complemento de **7** a la columna de las unidades. En números: **25 − 7 = 25 − 10 + 3 = 18**, el mismo razonamiento explicado en **La resta y el complemento** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
+                     "text": "History Tracers Team",
+                     "page": "La resta y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Cuándo devolvemos el préstamo?</b><br /><br />Cuando tomamos algo prestado, esperamos devolverlo posteriormente.<br /><br />En una resta, ¿en qué momento devolvemos la cantidad que <b>\"tomamos prestada\"</b>?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Por qué sumar para restar?</b><br /><br />En la columna de las unidades queremos restar 7, pero en la Práctica 2 movemos 3 marcadores hacia la barra. ¿Por qué sumamos el complemento en lugar de quitar 7 marcadores? ¿Cómo completa la resta la decena que quitamos de la columna de las decenas?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "La idea de préstamo, utilizada como recurso didáctico, puede parecer equivocada o incompleta cuando trabajamos solo con números. Sin embargo, al observar los movimientos realizados en el ábaco, este proceso se vuelve más evidente. Para comprender mejor esta interpretación, realicemos una nueva práctica.",
-               "source": [],
-               "date_time": [],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: 25 - 7</b><br /><br />Primero, represente el valor <b>25</b> en uno de los ábacos, es decir, mueva un marcador rojo hacia la barra.<br /><br /><b>1.</b> Ahora, aleje un marcador de la barra en la columna de las decenas. El ábaco pasará a representar el número <b>15</b>.<br/><b>2.</b> Luego, añada <b>3</b> a las unidades, que es el complemento de <b>7</b>, haciendo que el ábaco represente el número <b>18</b>.</div></div></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "La Práctica 2 también puede interpretarse desde la perspectiva del préstamo, normalmente presentada en las escuelas:\n- En la primera etapa, representamos el número mayor del cual deseamos restar otro.\n- En la segunda etapa, \"tomamos prestada\" una decena, reduciendo una decena y haciendo que el ábaco represente el valor **15**.\n- En la tercera etapa, observamos qué valor falta para completar 10, es decir, el complemento de **7**, y añadimos **3** a las unidades, haciendo que el ábaco represente el valor **18**.\n\nObserve que, por la metodología utilizada en el ábaco, el préstamo es efectivamente \"devuelto\", pues al añadir el complemento del número que deseábamos restar, recomponemos la decena, haciendo explícita la lógica del algoritmo de resta.",
-               "source": [],
-               "date_time": [],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": ""
             }
          ]
@@ -371,8 +266,21 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, estudiamos en profundidad lo que significa el acto de **tomar prestada** una decena en una resta. Vimos que este procedimiento no es simplemente transferir una decena de un lado a otro. Se trata de un proceso más profundo, que involucra, incluso, la recomposición de la decena mediante el complemento.\n\nAdemás de esta visualización proporcionada por los ábacos, vimos también una perspectiva más teórica, que mostró que las cantidades numéricas siempre se preservan, habiendo solo una reorganización de los números para llegar al resultado deseado.",
-               "source": [],
+               "text": "### Conclusión\n\nEn este texto utilizamos el ábaco para realizar restas en las que la cifra de las unidades del minuendo es menor que la cifra que queremos quitar. En el ábaco, la decena no se pide prestada y se devuelve: un marcador se aleja de la barra en la columna de las decenas y el complemento de la cifra se acerca a la barra en la columna de las unidades.\n\nEl razonamiento del complemento, estudiado con los órdenes decimales, está en **La resta y el complemento** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
+                     "text": "History Tracers Team",
+                     "page": "La resta y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

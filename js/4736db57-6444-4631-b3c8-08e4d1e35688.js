@@ -1,242 +1,447 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var local = {};
+// "Practicing subtraction" exercise (content 4736db57-6444-4631-b3c8-08e4d1e35688).
+// Two three-digit numbers are subtracted column by column, from the units upwards.
+// The subtraction is laid out vertically, the way it is normally written. Below the
+// board, every square available in the column is shown from the start: the value
+// already in the column is light blue and the squares removed with the buttons turn
+// light yellow. When the top digit is smaller than the bottom digit, ten squares are
+// borrowed from the next order; those ten squares are grouped, the bottom digit is
+// removed from the group, and the squares left in it are the complement to ten. The
+// localized texts live in the class JSON, so this file only wires the behavior and
+// draws the board.
 
-function htSetWorkingValue(topValue, bottomValue)
-{
-    var tv = parseInt(topValue);
-    var bv = parseInt(bottomValue);
+var localSub = {};
 
-    local.stopValue = tv - bv;
-    local.workingValue = 0;
+var HT_SUB_DIGITS = 3;
+
+function htSubOrderName(order) {
+    return $("#htSubOrder" + order).text();
 }
 
-function htWriteValueOnScreen(cell, value, possibleOverline)
-{
-    var localClass = (local.carriers && possibleOverline) ? "text_to_paint_overline" : "text_to_paint";
-    $(cell).html("<span class=\""+localClass+"\">"+value+"</span>");
+// Returns the digits of value from the units order upwards (index 0 = units).
+function htSubDigits(value, length) {
+    var digits = [];
+    var v = value;
+    for (var i = 0; i < length; i++) {
+        digits.push(v % 10);
+        v = Math.floor(v / 10);
+    }
+    return digits;
 }
 
-function htWriteValueOnLine(line, value, possibleOverline)
-{
-    for (let i = 0, j = 2; i < 3; i++, j++) {
-        htWriteValueOnScreen("#tc"+j+"f"+line, value[i], possibleOverline);
+function htSubReplace(template, values) {
+    for (var key in values) {
+        template = template.replace(new RegExp("\\{" + key + "\\}", "g"), values[key]);
     }
+    return template;
 }
 
-function htNewSubtraction() {
-    if (!local.stop) {
-        return false;
+// Draws the vertical subtraction: the borrow row, the two operands with the - sign,
+// the result line and the result row. The column being solved is highlighted and a
+// column shows its result digit only once it has been solved.
+function htSubBuildBoard() {
+    var d = HT_SUB_DIGITS;
+    var current = localSub.column;
+    var tDigits = localSub.topDigits;
+    var bDigits = localSub.bottomDigits;
+
+    function opCell(content) {
+        return "<td class=\"htAddOp\">" + content + "</td>";
+    }
+    function cell(order, content) {
+        var cls = "htAddCell" + (order === current ? " htAddCellActive" : "");
+        return "<td class=\"" + cls + "\" data-order=\"" + order + "\">" + content + "</td>";
     }
 
-    local.currentTop = 0;
-    local.currentBottom = 0;
-    local.stop = 0;
-    local.reorganizedValue = [];
-    local.cmpTopValue = [ ];
-
-    local.currentIdx = 4;
-    local.vectorIdx = 2;
-    local.carriers = 0;
-
-    for (let j = 1; j < 5; j++) {
-        for (let i = 1; i < 5; i++) {
-            $("#tc"+i+"f"+j).html("&nbsp;");
-        }
+    var rows = "";
+    // The regrouped minuend is written above the original digits.
+    rows += "<tr class=\"htAddCarryRow\">" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        rows += cell(o, localSub.regroup[o] !== undefined ? String(localSub.regroup[o]) : "");
     }
-    $("#tc1f3").html("<span class=\"text_to_paint\">-</span>");
-
-    local.topValue = htGetRandomArbitrary(100, 999);
-    local.bottomValue =  htGetRandomArbitrary(100, 999);
-
-    if (local.topValue < local.bottomValue) {
-        let change = local.bottomValue;
-        local.bottomValue = local.topValue;
-        local.topValue = change;
-    }
-
-    local.strTopValue = local.topValue.toString();
-
-    local.strBottomValue = local.bottomValue.toString();
-
-    local.totalValue = local.topValue - local.bottomValue;
-    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", 0, false);
-
-    var c = 10;
-    var c1 = 1;
-    var carr = 0;
-    var workTopValue = local.topValue;
-    var workBottomValue = local.bottomValue;
-    for (let i = 2; i >= 0; i--) {
-        var tv = workTopValue % c;
-        var bv = workBottomValue % c;
-
-        tv = parseInt(tv / c1);
-        local.cmpTopValue.push(tv);
-        bv = parseInt(bv / c1);
-        if (carr == 1) {
-            if (i != 0) {
-                if (tv == 0) {
-                    tv = c1;
-                    carr = 0;
-                } else {
-                    tv -= 1;
-                    carr = 0;
-                }
-            } else {
-                tv -= 1;
+    rows += "</tr>";
+    // Minuend
+    rows += "<tr>" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        var minuendCell = "";
+        if (o < d) {
+            minuendCell = String(tDigits[o]);
+            if (localSub.regroup[o] !== undefined) {
+                minuendCell = "<span class=\"htAddStruck\">" + minuendCell + "</span>";
             }
         }
-        let end = tv;
-        if (carr && tv == 10) {
-            end = 9;
-            carr = 0;
-            local.carriers = 1;
-        } else if (tv == c1 && tv >= 10) {
-            end = tv - 1;
-        } else if (bv > tv) {
-            end += 10;
-            carr = 1;
-            local.carriers = 1;
-        }
-
-        if (end == 10 && i == 0) {
-            end = 1;
-        }
-        local.reorganizedValue.push(end);
-
-        c *= 10;
-        c1 *= 10;
-        workTopValue -= tv;
-        workBottomValue -= bv;
+        rows += cell(o, minuendCell);
     }
-    local.reorganizedValue.reverse();
-    local.cmpTopValue.reverse();
-    local.hundredsSubValue = local.reorganizedValue[0];
-    var finalText = mathKeywords[30]+" <b>"+local.topValue+" - "+local.bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+local.reorganizedValue[local.vectorIdx]+" - "+local.strBottomValue[local.vectorIdx]+")</b>";
-    if (local.carriers) {
-        for (let i = 0; i <= local.vectorIdx; i++) {
-            let val = local.reorganizedValue[i];
-            let displayVal;
-            if (i === 0) {
-                displayVal = local.hundredsSubValue;
-            } else if (i === local.vectorIdx) {
-                displayVal = val;
-            } else {
-                displayVal = val % 10;
-            }
-            htWriteValueOnScreen("#tc"+(local.currentIdx - local.vectorIdx + i)+"f1", displayVal, false);
-        }
-        if (local.reorganizedValue[local.vectorIdx] > local.cmpTopValue[local.vectorIdx]) {
-            finalText += "<br />"+mathKeywords[32];
-        }
+    rows += "</tr>";
+    // Subtrahend, with the - sign in its own narrow column.
+    rows += "<tr>" + opCell("-");
+    for (var o = d; o >= 0; o--) {
+        rows += cell(o, o < d ? String(bDigits[o]) : "");
     }
-    var topVal = (local.vectorIdx === 0) ? local.hundredsSubValue : local.reorganizedValue[local.vectorIdx];
-    htSetWorkingValue(topVal, local.strBottomValue[local.vectorIdx]);
+    rows += "</tr>";
+    // Line
+    rows += "<tr class=\"htAddLine\"><td colspan=\"" + (d + 2) + "\"></td></tr>";
+    // Result
+    rows += "<tr class=\"htAddResultRow\">" + opCell("");
+    for (var o = d; o >= 0; o--) {
+        var res = "";
+        if (localSub.results[o] !== undefined) {
+            res = String(localSub.results[o]);
+        } else if (o === current && localSub.started) {
+            // Live result while the squares are being removed.
+            res = String(localSub.base - localSub.removed);
+        }
+        rows += cell(o, res);
+    }
+    rows += "</tr>";
 
-    htWriteValueOnLine("2", local.strTopValue, true);
-    htWriteValueOnLine("3", local.strBottomValue, false);
-    $("#tc1f5").html(finalText);
+    $("#htSubTable").html(rows);
 }
 
-function htMoveAhead()
-{
-    if (local.stop == 1) {
-        return false;
+// Draws the squares of the column. The light blue squares are the value available
+// in the column and each click turns one of them light yellow, as it is removed.
+// When the column needs to borrow, a group of ten squares is shown first: the
+// bottom digit is removed from that group and the squares left in it, outlined,
+// are the complement to ten. The squares already in the column stay outside the
+// group and are added to the complement to form the result digit.
+function htSubDrawSquares() {
+    var base = localSub.base;
+    var removed = localSub.removed;
+    var bottom = localSub.bottomDigit;
+    var borrowed = localSub.borrowed;
+    var outside = borrowed ? base - 10 : base;
+    var html = "";
+    var i;
+
+    function square(index, inTen) {
+        var cls = "htAddSquare";
+        if (index < removed) {
+            cls += " htAddSquareRemoved";
+        } else {
+            cls += " htAddSquareBase";
+        }
+        // Complement squares: the part of the borrowed ten that stays after the
+        // bottom digit has been removed.
+        if (inTen && index >= bottom) {
+            cls += " htAddSquareComplement";
+        }
+        return "<span class=\"" + cls + "\"></span>";
     }
 
-    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", local.workingValue, false);
-    local.currentIdx -= 1;
-    local.vectorIdx -= 1;
-
-    if (local.currentIdx > 1) {
-        htWriteValueOnScreen("#tc"+local.currentIdx+"f4", 0, false);
+    if (borrowed) {
+        html += "<span class=\"htAddTenGroup\">";
+        for (i = 0; i < 10; i++) {
+            html += square(i, true);
+        }
+        html += "</span>";
+        for (i = 0; i < outside; i++) {
+            html += "<span class=\"htAddSquare htAddSquareBase\"></span>";
+        }
     } else {
-        local.stop = 1;
-    }
-
-    if (local.vectorIdx < 0) {
-        $("#tc1f5").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
-        return false;
-    }
-
-    var bottomV = parseInt(local.strBottomValue[local.vectorIdx]);
-    if (local.currentIdx > 2 && local.cmpTopValue[local.vectorIdx] != local.reorganizedValue[local.vectorIdx]) {
-        htWriteValueOnScreen("#tc"+local.currentIdx+"f1", local.reorganizedValue[local.vectorIdx], false);
-    }
-
-    if (!local.stop) {
-        var message = mathKeywords[31]+" <b>("+local.reorganizedValue[local.vectorIdx]+" - "+local.strBottomValue[local.vectorIdx]+")</b>";
-        if (local.carriers) {
-            if (local.reorganizedValue[local.vectorIdx] > local.cmpTopValue[local.vectorIdx]) {
-                message += "<br />"+mathKeywords[32];
-            }
+        for (i = 0; i < base; i++) {
+            html += square(i, false);
         }
-        $("#tc1f5").html(message);
-        var topVal = (local.vectorIdx === 0) ? local.hundredsSubValue : local.reorganizedValue[local.vectorIdx];
-        htSetWorkingValue(topVal, bottomV.toString());
-    } else {
-        $("#tc1f5").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
     }
 
-    return false;
+    $("#htSubSquares").html(html);
+    $("#htSubSquaresCaption").text(base + " - " + removed + " = " + (base - removed));
+    htSubUpdateSquaresNote();
 }
 
-function htSubtractionUpdateValue(n)
-{
-    if (local.currentIdx < 1) {
-        return false;
+// Spells out how many squares have been removed and how many remain. In a column
+// that borrows, it also shows the complement to ten and the squares already in
+// the column, so the learner can follow the regrouping step by step.
+function htSubUpdateSquaresNote() {
+    var note;
+    if (localSub.borrowed) {
+        note = htSubReplace($("#htSubBorrowSquaresTemplate").text(), {
+            removed: localSub.removed,
+            bottom: localSub.bottomDigit,
+            comp: 10 - localSub.bottomDigit,
+            remaining: 10 - localSub.removed,
+            outside: localSub.base - 10
+        });
+    } else {
+        note = htSubReplace($("#htSubSquaresUsedTemplate").text(), {
+            removed: localSub.removed,
+            remaining: localSub.base - localSub.removed
+        });
     }
 
-    if (local.workingValue == local.stopValue) {
-        htMoveAhead();
+    $("#htSubSquaresNote").text(note);
+}
+
+// Prepares the column that must be solved next. A 1 borrowed by the previous
+// column is taken from the top digit; if the top digit is then smaller than the
+// bottom digit, the column borrows ten squares from the next order.
+function htSubSetupColumn() {
+    var column = localSub.column;
+    var topDigit = localSub.topDigits[column];
+    var bottomDigit = localSub.bottomDigits[column];
+    var afterIncoming = topDigit - localSub.incoming;
+    var available = afterIncoming;
+    var borrowOut = 0;
+    var borrowed = false;
+    var chained = false;
+
+    if (available < 0) {
+        // The previous column borrowed from a zero. This column borrows from the
+        // next order and turns the zero into nine.
+        available += 10;
+        borrowOut = 1;
+        chained = true;
+    }
+    if (available < bottomDigit) {
+        available += 10;
+        borrowOut = 1;
+        borrowed = true;
+    }
+
+    localSub.afterIncoming = afterIncoming;
+    localSub.base = available;
+    localSub.borrowOut = borrowOut;
+    localSub.borrowed = borrowed;
+    localSub.chained = chained;
+    localSub.bottomDigit = bottomDigit;
+    localSub.removed = 0;
+    localSub.started = false;
+    localSub.answered = false;
+
+    var order = htSubOrderName(column);
+
+    $("#htSubQuestion").text(htSubReplace($("#htSubQuestionTemplate").text(), {
+        order: order,
+        base: available,
+        bottom: bottomDigit
+    }));
+
+    var note = "";
+    if (chained) {
+        note = $("#htSubChainedTemplate").text();
+    } else {
+        if (localSub.incoming > 0) {
+            note = htSubReplace($("#htSubIncomingTemplate").text(), {
+                top: topDigit,
+                first: afterIncoming
+            });
+        }
+        if (borrowed) {
+            var borrowNote = htSubReplace($("#htSubBorrowTemplate").text(), {
+                first: afterIncoming,
+                bottom: bottomDigit,
+                base: available
+            });
+            note += (note.length > 0 ? " " : "") + borrowNote;
+        }
+    }
+    $("#htSubNote").text(note);
+    if (note.length > 0) {
+        $("#htSubNote").removeClass("htAddHidden");
+    } else {
+        $("#htSubNote").addClass("htAddHidden");
+    }
+
+    $("#htSubFeedback").html("");
+    $("#htSubNextBtn").addClass("hidden");
+    $("#htSubUpBtn").prop("disabled", false);
+    $("#htSubDownBtn").prop("disabled", false);
+
+    $(".htAddOrder").removeClass("htAddOrderActive");
+    $(".htAddOrder[data-order='" + column + "']").addClass("htAddOrderActive");
+
+    htSubBuildBoard();
+    htSubDrawSquares();
+}
+
+// On the first click, show the regrouping: the next column's minuend is reduced
+// by 1 and the current column's minuend becomes 1X (or the incoming borrow is
+// applied). The original digits are struck through and the new values are
+// written above them, so the learner sees the regrouped minuend before
+// subtracting.
+function htSubApplyRegroup() {
+    var column = localSub.column;
+
+    if (localSub.incoming > 0 || localSub.borrowOut) {
+        localSub.regroup[column] = localSub.base;
+    }
+
+    if (localSub.borrowOut) {
+        var next = column + 1;
+        var carry = 1;
+        while (next < HT_SUB_DIGITS && carry) {
+            var value = localSub.topDigits[next] - 1;
+            if (value < 0) {
+                localSub.regroup[next] = 9;
+                carry = 1;
+            } else {
+                localSub.regroup[next] = value;
+                carry = 0;
+            }
+            next++;
+        }
+    }
+}
+
+// The buttons remove or put back one square at a time. The column is solved as
+// soon as the squares removed match the bottom digit of the second number.
+function htSubChange(delta) {
+    if (localSub.answered) {
         return;
     }
 
-    local.workingValue += n;
-
-    if (local.workingValue > 9) {
-        local.workingValue = 9;
-    }  else if (local.workingValue < 0) {
-        local.workingValue = 0;
-    }  
-    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", local.workingValue, false);
-
-    if (local.workingValue == local.stopValue) {
-        htSubtractionUpdateValue(0);
-    }
-
-    return false;
-}
-
-function htAdditionAddCommonTable(id)
-{
-    var end = 4;
-    for (let i =1; i <= end; i++) {
-        var controls = "";
-        if (i == 1) {
-            controls = "<td id=\"tc5f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp"+id+"\" onclick=\"htSubtractionUpdateValue(+1);\"></i> </td><td id=\"tc6f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown"+id+"\" onclick=\"htSubtractionUpdateValue(-1);\"></i></td>";
+    if (!localSub.started) {
+        localSub.started = true;
+        htSubApplyRegroup();
+        if (localSub.borrowOut) {
+            // The first click only shows the regrouped minuend.
+            htSubDrawSquares();
+            htSubBuildBoard();
+            return;
         }
-        var border = (i != 3) ? "style=\"border:none;\"" : "style=\"border:none;border-bottom: 1pt solid black;\"";
-        $("#yupana"+id+" tr:last").after("<tr id=\"tf"+i+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+i+"\" "+border+">&nbsp;</td> <td id=\"tc2f"+i+"\" "+border+">&nbsp;</td> <td id=\"tc3f"+i+"\" "+border+">&nbsp;</td> <td id=\"tc4f"+i+"\" "+border+">&nbsp;</td>"+controls+"</tr>");
+    }
+
+    var next = localSub.removed + delta;
+    if (next < 0) {
+        next = 0;
+    }
+    if (next > localSub.bottomDigit) {
+        next = localSub.bottomDigit;
+    }
+    localSub.removed = next;
+
+    htSubDrawSquares();
+    htSubBuildBoard();
+
+    if (localSub.removed === localSub.bottomDigit) {
+        htSubResolve();
     }
 }
 
-function htAdditionDescRow(id)
-{
-    var imgID = 5;
-    $("#yupana"+id+" tr:last").after("<tr id=\"tf"+imgID+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+imgID+"\" colspan=\"4\"></td><td id=\"tc5f"+imgID+"\" style=\"background-color: white;\" colspan=\"2\"><i class=\"fa-solid fa-chevron-right\" style=\"font-size:3.0em;\" onclick=\"htNewSubtraction();\"></i></td></tr>");
+// Records the result digit of the column and the 1 it borrows, if any.
+function htSubResolve() {
+    if (localSub.answered) {
+        return;
+    }
+    localSub.answered = true;
+
+    var column = localSub.column;
+    var result = localSub.base - localSub.removed;
+    var order = htSubOrderName(column);
+
+    localSub.borrows[column] = localSub.borrowOut ? 1 : 0;
+    localSub.results[column] = result;
+    localSub.lastBorrow = localSub.borrowOut ? 1 : 0;
+
+    htSubBuildBoard();
+
+    var template = localSub.borrowOut ? $("#htSubMsgBorrowTemplate").html() : $("#htSubMsgNoBorrowTemplate").html();
+    $("#htSubFeedback").html(htSubReplace(template, {
+        base: localSub.base,
+        removed: localSub.removed,
+        result: result,
+        order: order
+    }));
+
+    $("#htSubUpBtn").prop("disabled", true);
+    $("#htSubDownBtn").prop("disabled", true);
+
+    if (column >= HT_SUB_DIGITS - 1) {
+        $("#htSubFeedback").append("<br /><i class=\"fa-solid fa-medal\" style=\"font-size: 4em; color: gold;\"></i>");
+        $("#htSubNextBtn").text($("#htSubPlayAgainLabel").text()).removeClass("hidden");
+    } else {
+        $("#htSubNextBtn").text($("#htSubNextColumnLabel").text()).removeClass("hidden");
+    }
+}
+
+// Moves to the next column of the same subtraction, bringing the borrow along, or
+// starts a new subtraction once the last column is done.
+function htSubNext() {
+    if (!localSub.answered) {
+        return;
+    }
+
+    if (localSub.column >= HT_SUB_DIGITS - 1) {
+        htSubNewProblem();
+        return;
+    }
+
+    localSub.column += 1;
+    localSub.incoming = localSub.lastBorrow;
+    htSubSetupColumn();
+}
+
+function htSubBuildOrders() {
+    var $orders = $("#htSubOrders");
+    $orders.empty();
+    for (var i = 0; i < HT_SUB_DIGITS; i++) {
+        $("<span>")
+            .addClass("htAddOrder")
+            .attr("data-order", i)
+            .text(htSubOrderName(i))
+            .appendTo($orders);
+    }
+}
+
+function htSubNewProblem() {
+    localSub.top = htGetRandomArbitrary(100, 1000);
+    localSub.bottom = htGetRandomArbitrary(100, 1000);
+    if (localSub.top < localSub.bottom) {
+        var change = localSub.bottom;
+        localSub.bottom = localSub.top;
+        localSub.top = change;
+    }
+    localSub.topDigits = htSubDigits(localSub.top, HT_SUB_DIGITS);
+    localSub.bottomDigits = htSubDigits(localSub.bottom, HT_SUB_DIGITS);
+    localSub.column = 0;
+    localSub.incoming = 0;
+    localSub.borrows = {};
+    localSub.results = {};
+    localSub.regroup = {};
+
+    htSubSetupColumn();
 }
 
 function htLoadContent() {
-    local = { "strTopValue": "", "topValue": 0, "strBottomValue": "", "bottomValue": 0, "totalValue": 0, "carriers": 0, "workingValue": 0, "stopValue": 0, "currentTop": 0, "currentBottom": 0, "currentIdx": 4, "vectorIdx": 2, "stop": 1, "reorganizedValue": [], "cmpTopValue": [], "answerVector": undefined, "hundredsSubValue": 0 }; 
-
     htWriteNavigation();
 
-    htAdditionAddCommonTable("0");
-    htAdditionDescRow("0")
+    localSub = {
+        top: 0,
+        bottom: 0,
+        topDigits: [],
+        bottomDigits: [],
+        column: 0,
+        incoming: 0,
+        borrows: {},
+        results: {},
+        base: 0,
+        removed: 0,
+        bottomDigit: 0,
+        afterIncoming: 0,
+        borrowOut: 0,
+        borrowed: false,
+        chained: false,
+        answered: false,
+        started: false,
+        lastBorrow: 0,
+        regroup: {}
+    };
 
-    htNewSubtraction();
+    htSubBuildOrders();
+
+    $("#htSubUpBtn").off("click").on("click", function() {
+        htSubChange(-1);
+    });
+
+    $("#htSubDownBtn").off("click").on("click", function() {
+        htSubChange(1);
+    });
+
+    $("#htSubNextBtn").off("click").on("click", function() {
+        htSubNext();
+    });
+
+    htSubNewProblem();
 
     return false;
 }

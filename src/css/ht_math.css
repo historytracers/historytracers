@@ -3490,10 +3490,11 @@ p.desc svg {
 }
 
 /*
- * Practicing addition (content a4caa9fe-de1e-49c5-92de-50ed9c22a42d). The
- * addition is laid out vertically, the way it is normally written, and the
+ * Practicing addition (content a4caa9fe-de1e-49c5-92de-50ed9c22a42d) and
+ * practicing subtraction (content 4736db57-6444-4631-b3c8-08e4d1e35688). The
+ * operation is laid out vertically, the way it is normally written, and the
  * keep-ten squares of the Carry or Not Carry? game are reused to show each
- * column being added.
+ * column being added or subtracted.
  */
 .htAddGame {
   margin: 1em auto;
@@ -3556,9 +3557,13 @@ p.desc svg {
 }
 
 .htAddCell {
-  width: 0.65em;
-  min-width: 0.65em;
+  width: 1.1em;
+  min-width: 1.1em;
   border-radius: 4px;
+}
+
+.htAddStruck {
+  text-decoration: line-through;
 }
 
 .htAddOp {
@@ -3614,6 +3619,11 @@ p.desc svg {
 }
 
 .htAddSquareAdded {
+  background-color: lightyellow;
+}
+
+/* A square removed in the subtraction game. */
+.htAddSquareRemoved {
   background-color: lightyellow;
 }
 

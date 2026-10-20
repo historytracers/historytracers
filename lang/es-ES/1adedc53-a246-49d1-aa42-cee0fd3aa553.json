@@ -1,0 +1,256 @@
+{
+   "title": "La resta y el complemento",
+   "header": "La resta y el complemento",
+   "sources": [
+      "1adedc53-a246-49d1-aa42-cee0fd3aa553"
+   ],
+   "scripts": [
+      "1adedc53-a246-49d1-aa42-cee0fd3aa553"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/1adedc53-a246-49d1-aa42-cee0fd3aa553_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/63uE3vjzUyM3ccOKnkIzHl?si=wplEICzmSDOzEWAxHUHp2A",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792447444"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nAntes de continuar, recomendamos estudiar primero los siguientes textos:\n\n- **Avanzando un orden y el complemento**: presenta el complemento a 10 y explica cuándo una suma avanza al siguiente orden (<htcite0>)\n- **Releyendo**: presenta la separación por órdenes, utilizada aquí para descomponer el minuendo (<htcite1>)\n\nComprender estos textos facilitará el seguimiento de las ideas presentadas aquí.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Avanzando un orden y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "text": "History Tracers Team",
+                     "page": "Releyendo",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "07",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nUn **complemento a 10** es el número que debemos sumar a otro número para llegar a 10. Por ejemplo, el complemento de 6 es 4, porque 6 + 4 = 10. La **Figura 1** muestra este par con cuadrados: los seis cuadrados azul claro son el número que ya tenemos, y los cuatro cuadrados amarillo claro completan el diez.\n\nEn este texto veremos cómo esta idea, ya utilizada en la suma, también nos permite realizar restas. No necesitaremos ningún instrumento: solo los órdenes decimales y los cuadrados.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 56\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Seis cuadrados azul claro seguidos de cuatro cuadrados amarillo claro\"><title>Seis cuadrados azul claro y cuatro cuadrados amarillo claro, diez en total</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figura 1</b>: El número 6 (azul claro) y su complemento 4 (amarillo claro), los diez cuadrados juntos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Antes de comenzar, nombramos la cantidad de la que se resta: el **minuendo** es la cantidad a la que se le resta otra (<htcite0>). En 12 − 7, el minuendo es 12.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "51fe65ef-edec-4cba-ad91-2d6470b979e4",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Minuend",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Qué queda cuando el diez está incompleto?</b><br /><br />Si tenemos 10 y quitamos 7, ¿cuántos quedan? ¿Cómo se relaciona lo que queda con el complemento de 7?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_subtraction",
+         "text": [
+            {
+               "text": "### Restar con el complemento\n\nSupongamos que queremos calcular **12 − 7**. La cifra de las unidades de 12 es 2, y es menor que 7, por lo que no podemos quitar 7 unidades directamente. La idea es descomponer 12 en dos partes: las unidades que ya tenemos (**2**) y una decena (**10**).\n\nEscribiendo la resta con esta descomposición:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>5</mi></math></p><p class=\"desc\"><b>Cálculo 1: Resta de 12 − 7 utilizando el complemento.</b></p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Línea 1**: escribimos la resta que queremos realizar.\n- **Línea 2**: sustituimos 12 por 2 + 10.\n- **Línea 3**: reorganizamos los paréntesis para restar 7 de la decena.\n- **Línea 4**: usando el complemento, sustituimos 10 − 7 por 3.\n- **Línea 5**: sumamos 3 a las 2 unidades y obtenemos 5.\n\nLa **Figura 2** muestra el mismo proceso con cuadrados. Comenzamos con diez cuadrados amarillo claro y dos cuadrados azul claro, que juntos representan 12. De la decena quitamos los siete cuadrados amarillo claro desvanecidos (25 % de opacidad); los tres cuadrados amarillo claro totalmente opacos que quedan son el complemento de 7. Junto con los dos cuadrados azul claro, forman los cinco cuadrados del resultado.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 120\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Diez cuadrados con siete amarillo claro al 25 % de opacidad y tres amarillo claro, más dos cuadrados azul claro\"><title>Diez cuadrados, siete amarillo claro al 25 % de opacidad y tres amarillo claro, sobre dos cuadrados azul claro</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"0\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figura 2</b>: Resta de 12 − 7. De la decena (primera fila) se quitan siete cuadrados (amarillo claro al 25 % de opacidad) y quedan tres (amarillo claro), que son el complemento de 7. Con las dos unidades (azul claro), dan 5.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Cuando el minuendo es mayor\n\nEl mismo razonamiento funciona con cualquier número. Consideremos **25 − 7**. Como la cifra de las unidades de 25 (5) es menor que 7, descomponemos 25 en 15 + 10. Luego usamos el complemento de 7:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>25</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mo lspace=\"0.1667em\" rspace=\"0.1667em\">(</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">)</mo></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>18</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>18</mi></math></p><p class=\"desc\"><b>Cálculo 2: Resta de 25 − 7 utilizando el complemento.</b></p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Línea 1**: escribimos la resta que queremos realizar.\n- **Línea 2**: descomponemos 25 en 15 + 10.\n- **Línea 3**: reorganizamos los paréntesis para restar 7 de la decena.\n- **Línea 4**: usando el complemento, sustituimos 10 − 7 por 3.\n- **Línea 5**: sumamos 3 a 15 y obtenemos 18.\n\nLa **Figura 3** muestra la descomposición con cuadrados. Las dos primeras filas son dos decenas (20 cuadrados) y la tercera fila son las cinco unidades, totalizando 25. De una decena quitamos siete cuadrados: quedan tres. Estos tres se unen a los otros quince cuadrados y dan 18.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 632 184\" width=\"100%\" style=\"max-width:632px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Tres filas de cuadrados que muestran la descomposición de veinticinco\"><title>Tres filas de cuadrados: siete amarillo claro al 25 % de opacidad y tres amarillo claro, sobre una fila de diez y otra de cinco cuadrados azul claro</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" fill-opacity=\"0.25\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightyellow\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"0\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"320\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"384\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"448\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"512\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"576\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"0\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"64\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"128\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"192\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/><rect x=\"256\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333333\" stroke-width=\"2\"/></svg></p><p class=\"desc\"><b>Figura 3</b>: Resta de 25 − 7. Las dos primeras filas son dos decenas y la tercera fila son las cinco unidades, totalizando 25. De una decena se quitan siete cuadrados (amarillo claro al 25 % de opacidad) y quedan tres (amarillo claro). Estos tres se unen a los otros quince cuadrados azul claro y dan 18.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Se presta la decena?</b><br /><br />En el cálculo 25 = 15 + 10, la decena no se toma de una columna y se traslada a otra: el minuendo se reescribe como una suma equivalente. Luego el complemento completa la decena que utilizamos. ¿En qué se diferencia esto de decir que «pedimos prestada una decena»?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEl complemento a 10 nos permite restar incluso cuando la cifra que queremos quitar es mayor que la cifra de las unidades del minuendo. El procedimiento tiene tres pasos:\n- descomponer el minuendo en sus unidades más la decena que vamos a usar, conservando las demás decenas y órdenes superiores;\n- calcular el complemento de la cifra que se va a restar, es decir, 10 menos esa cifra;\n- sumar este complemento a las unidades.\n\nEste procedimiento depende solo de los órdenes decimales y no de ningún instrumento. También explica lo que suele llamarse «pedir prestado»: la decena no se presta y se devuelve; el número simplemente se reescribe de forma equivalente para que la resta pueda hacerse con el complemento.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿El complemento de 7 a 10 es igual a 3?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como 7 + 3 = 10, el número que completa la decena es 3."
+      },
+      {
+         "question": "En 12 − 7, ¿quitamos 7 unidades directamente de las 2 unidades de 12?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Como 2 es menor que 7, descomponemos 12 en 2 + 10 y usamos el complemento de 7."
+      },
+      {
+         "question": "¿El método del complemento depende del instrumento que se utilice para calcular?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "El método utiliza solo los órdenes decimales: se puede hacer con cuadrados, en papel o con cualquier otra herramienta."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
