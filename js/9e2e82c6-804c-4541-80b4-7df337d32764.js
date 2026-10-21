@@ -247,9 +247,6 @@ function htDivisionUpdateValue(n)
 }
 
 function htNewDivision() {
-    if (!local.stop || (local.idx > 7 && local.working > local.divisor)) {
-        return false;
-    }
     local.results = "";
     local.workingValue = 0;
     local.idx = 2;
@@ -275,7 +272,7 @@ function htNewDivision() {
     local.usingValue = local.divisionSteps.steps[local.divisionStepsIdx].value;
     local.stopValue = local.divisionSteps.steps[local.divisionStepsIdx].quotient;
     local.quotientStart = local.divisionSteps.steps[local.divisionStepsIdx].value.toString().length - 1;
-    local.quotientText = local.workingValue;
+    local.quotientText = local.workingValue.toString();
     local.promptHtml = mathKeywords[37]+" <b>"+local.usingValue+" ÷ "+local.divisor+"</b><br />"+additionalText;
 
     local.stop = false;
