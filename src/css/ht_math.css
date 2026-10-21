@@ -4558,6 +4558,35 @@ p.desc svg {
   visibility: hidden;
 }
 
+/* Both long-division layouts shown together (Algorithm 1 and 2) */
+.htLongDivisionAlgorithms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5em;
+  margin: 1em 0;
+}
+
+.htLongDivisionAlgorithm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 1 14em;
+  min-width: 0;
+  max-width: 22em;
+  text-align: center;
+}
+
+.htLongDivisionAlgorithm table {
+  margin: 0 auto;
+}
+
+.htLongDivisionAlgorithm p.desc {
+  margin-bottom: 0;
+}
+
 .htLongDivisionTop .htLongDivisionHighlight {
   color: blue;
 }
