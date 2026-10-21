@@ -11,6 +11,7 @@ MAKEDEB="0"
 MAKESLACKWARE="0"
 MAKEMSI="0"
 MAKESTATIC="0"
+MAKEDOCKER="0"
 
 ht_compile() {
     echo "Formating and publishing content"
@@ -588,6 +589,106 @@ HTSTATIC_HEADER
     trap - ERR
 }
 
+ht_is_docker_available() {
+    # Detect the container CLI first (prefer docker over podman). The daemon
+    # status is reported separately so users get an accurate error message
+    # when the CLI exists but the daemon is unreachable (e.g. docker socket
+    # permissions) or the CLI is outside PATH (non-login shells often lack
+    # /usr/local/bin).
+    DOCKER_ENGINE=""
+    DOCKER_CLI=""
+    DOCKER_DAEMON_OK="0"
+    DOCKER_INFO_ERROR=""
+
+    local cmd p
+    for cmd in docker podman; do
+        if command -v "${cmd}" >/dev/null 2>&1; then
+            DOCKER_ENGINE="${cmd}"
+            DOCKER_CLI="$(command -v "${cmd}")"
+            break
+        fi
+        for p in "/usr/local/bin/${cmd}" "/usr/bin/${cmd}" "/opt/homebrew/bin/${cmd}"; do
+            if [ -x "${p}" ]; then
+                DOCKER_ENGINE="${cmd}"
+                DOCKER_CLI="${p}"
+                break 2
+            fi
+        done
+    done
+    if [ -z "${DOCKER_ENGINE}" ]; then
+        return 1
+    fi
+
+    if "${DOCKER_CLI}" info >/dev/null 2>&1; then
+        DOCKER_DAEMON_OK="1"
+    else
+        # Keep the first lines of the diagnosic output for error reporting
+        DOCKER_INFO_ERROR="$("${DOCKER_CLI}" info 2>&1 >/dev/null | head -n 3)"
+    fi
+    return 0
+}
+
+ht_build_docker() {
+    echo "Building Docker container image"
+
+    VERSION="$(ht_get_version)"
+    echo "Version: ${VERSION}"
+
+    if ! ht_is_docker_available; then
+        echo "ERROR: neither docker nor podman was found (also searched /usr/local/bin, /usr/bin)." >&2
+        echo "Install a container engine as root:" >&2
+        echo "  sudo ./packaging/historytracers-install-requirements.sh" >&2
+        echo "or install docker/podman with your package manager." >&2
+        exit 1
+    fi
+
+    if [ "${DOCKER_DAEMON_OK}" != "1" ]; then
+        echo "ERROR: ${DOCKER_ENGINE} CLI found at ${DOCKER_CLI}, but the container daemon is not usable." >&2
+        if [ -n "${DOCKER_INFO_ERROR}" ]; then
+            echo "Diagnostic:" >&2
+            echo "${DOCKER_INFO_ERROR}" >&2
+        fi
+        if echo "${DOCKER_INFO_ERROR}" | grep -qi "permission denied"; then
+            echo "Fix daemon access (the current user is not allowed to talk to the daemon socket):" >&2
+            echo "  sudo usermod -aG docker \$(whoami) && newgrp docker   # docker group" >&2
+            echo "or run this script with sudo:" >&2
+            echo "  sudo ./historytracers2pkg.sh --docker" >&2
+        elif echo "${DOCKER_INFO_ERROR}" | grep -qiE "Cannot connect|is the docker daemon|daemon (not )?running"; then
+            echo "Start the daemon (as root): sudo systemctl start docker   (or: sudo dockerd)" >&2
+        fi
+        exit 1
+    fi
+
+    if [ ! -d www ]; then
+        echo "ERROR: www directory not found. Run ht_compile first."
+        exit 1
+    fi
+    if [ ! -f packaging/Docker/Dockerfile ]; then
+        echo "ERROR: packaging/Docker/Dockerfile not found."
+        exit 1
+    fi
+
+    IMAGE_NAME="historytracers"
+    IMAGE_VERSIONED="${IMAGE_NAME}:${VERSION}"
+    IMAGE_LATEST="${IMAGE_NAME}:latest"
+
+    # Build the image (context is the repo root; only www/ is copied in).
+    "${DOCKER_CLI}" build \
+        -t "${IMAGE_VERSIONED}" \
+        -t "${IMAGE_LATEST}" \
+        -f packaging/Docker/Dockerfile .
+
+    # Export the image tarball to artifacts/ so it can be distributed
+    # without a registry: docker load < historytracers-<version>-docker.tar.gz
+    DOCKER_TARBALL="artifacts/historytracers-${VERSION}-docker.tar.gz"
+    echo "Exporting image to ${DOCKER_TARBALL}"
+    mkdir -p artifacts
+    "${DOCKER_CLI}" save "${IMAGE_VERSIONED}" | gzip > "${DOCKER_TARBALL}"
+    echo "Image exported: ${DOCKER_TARBALL} ($(du -h "${DOCKER_TARBALL}" | cut -f1))"
+
+    echo "Container image built: ${IMAGE_VERSIONED} (${IMAGE_LATEST})"
+}
+
 ht_usage() {
     cat <<HTDOC
         bash historytracers2pkg.sh [OPTIONS]
@@ -597,6 +698,7 @@ ht_usage() {
         --slackbuild, -s        Create SlackBuilds files
         --msi, -m               Create MSI package (Windows/MSYS only)
         --static, -t            Create static installer (self-extracting .sh + tar.gz)
+        --docker, -c            Create Docker container image (webserver + www content)
         --validate, -v          Check if current script has issues.
         --help, -h              Show this Help
 HTDOC
@@ -1209,6 +1311,10 @@ while [[ $# -gt 0 ]]; do
             MAKESTATIC="1"
             shift #pass argument
             ;;
+        "--docker" | "-c")
+            MAKEDOCKER="1"
+            shift #pass argument
+            ;;
         "--validate" | "-v")
             ht_validate_myself;
             exit 0;
@@ -1225,7 +1331,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Auto-detect: if no builder flag was set, default based on environment
-if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] && [ "${MAKESLACKWARE}" = "0" ] && [ "${MAKESTATIC}" = "0" ]; then
+if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] && [ "${MAKESLACKWARE}" = "0" ] && [ "${MAKESTATIC}" = "0" ] && [ "${MAKEDOCKER}" = "0" ]; then
     if ht_is_slackware; then
         echo "No package type specified; auto-selecting --slackbuild for Slackware environment."
         MAKESLACKWARE="1"
@@ -1239,7 +1345,7 @@ if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] &&
         echo "No package type specified; auto-selecting --rpm for Fedora/RHEL environment."
         MAKERPM="1"
     else
-        echo "WARNING: No package type specified (--deb/--rpm/--slackbuild/--msi/--static)."
+        echo "WARNING: No package type specified (--deb/--rpm/--slackbuild/--msi/--static/--docker)."
         echo "Only ht_compile will run; no packages will be produced."
         ht_usage
     fi
@@ -1261,6 +1367,10 @@ fi
 
 if [ "${MAKESTATIC}" = "1" ]; then
     ht_build_static
+fi
+
+if [ "${MAKEDOCKER}" = "1" ]; then
+    ht_build_docker
 fi
 
 # This must be always the last
