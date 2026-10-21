@@ -388,6 +388,11 @@ test('htFillWebPage joins array reviewers and substitutes CodeRabbit', () => {
   assert.equal(reviewersOf('CodeRabbit, CodeRabbit and Team'), CODE_RABBIT_LINK + ', ' + CODE_RABBIT_LINK + ' and Team');
   assert.equal(reviewersOf(null), 'Reviewers of History Tracers');
   assert.equal(reviewersOf([]), 'Reviewers of History Tracers');
+  assert.equal(reviewersOf(['']), 'Reviewers of History Tracers');
+  assert.equal(reviewersOf(['   ']), 'Reviewers of History Tracers');
+  assert.equal(reviewersOf('   '), 'Reviewers of History Tracers');
+  assert.equal(reviewersOf(['Alice', '']), 'Alice');
+  assert.equal(reviewersOf(['', 'CodeRabbit', '']), CODE_RABBIT_LINK);
 });
 
 test('htFillWebPage joins array reviewers and substitutes Qodo', () => {

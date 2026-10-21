@@ -3449,7 +3449,14 @@ function htFillWebPage(page, data)
             page_authors = data.authors;
         }
     }
-    if (data?.reviewers != null && data.reviewers.length > 0) page_reviewers = data.reviewers;
+    if (data?.reviewers != null) {
+        if (Array.isArray(data.reviewers)) {
+            const filteredReviewers = data.reviewers.filter(r => String(r).trim().length > 0);
+            if (filteredReviewers.length > 0) page_reviewers = filteredReviewers;
+        } else if (String(data.reviewers).trim().length > 0) {
+            page_reviewers = data.reviewers;
+        }
+    }
 
     if (Array.isArray(page_reviewers)) {
         const reviewersText = page_reviewers.join(", ");

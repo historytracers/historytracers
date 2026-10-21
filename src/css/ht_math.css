@@ -3786,6 +3786,13 @@ p.desc svg {
   opacity: 0.6;
 }
 
+/* Top-row value field: two digits fit in it (for example 13 when a column
+ * borrows ten squares). */
+.htAddInputTop {
+  width: 2.6rem;
+  min-width: 2.6rem;
+}
+
 /*
  * Rectangles comparison practice (content 03bb4b8e-6187-4572-8f00-ea3892df51a4).
  */
