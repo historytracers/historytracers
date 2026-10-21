@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://open.spotify.com/episode/4t6684FbPPNYPdHnakc3TF?si=mv9TQSn7Q8Wcl0Tt-Xxj7A",
+         "url": "https://open.spotify.com/episode/65TnrGPUWmT3yNF3t09qo5?si=ubcReQoySoWAe95PpR0npg",
          "external": true,
          "spotify": true
       }
@@ -31,7 +31,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791382554"
+      "1792601219"
    ],
    "authors": [
       ""
@@ -47,7 +47,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerrequisitos\n\nEste texto presenta una aplicación para que el lector practique la división. Para comprenderlo mejor, recomendamos el estudio de los textos anteriores de este capítulo (<htcite0>).",
+               "text": "### Prerequisitos\n\nEste texto presenta una aplicación para practicar la división. Antes de usarla, le recomendamos estudiar los textos anteriores de este capítulo (<htcite0>), que introducen las tablas de multiplicar y otras ideas básicas que necesitará aquí.",
                "source": [
                   {
                      "type": 1,
@@ -74,13 +74,13 @@
          "id": "SECTION_practicing",
          "text": [
             {
-               "text": "### Practicando\n\nLa lectura de un texto puede parecer suficiente, pero la práctica es esencial para una comprensión completa. En este texto, tenemos una aplicación que, por defecto, elige números aleatoriamente en el campo de las **Tabla de Multiplicar**; sin embargo, si deseas estudiar solo una, podrás seleccionar la tabla del 1 al 9. A través de esta aplicación, es posible practicar la división utilizando lo que conocemos como el **algoritmo de la división larga** (<htcite0>).\n\nEn la tabla siguiente, proponemos la división de un número por otro. Antes de utilizar las flechas laterales (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) para comprobar el resultado, intente calcularla.\n\nAl concluir, recibirá una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrá hacer un nuevo cálculo haciendo clic en el botón correspondiente (<i class=\"fa-solid fa-chevron-right\"></i>):",
+               "text": "### Practicando\n\nLeer un texto es un buen comienzo, pero comprender de verdad la división requiere práctica. En esta aplicación, el menú **Tablas de multiplicar** le permite elegir con qué tabla trabajar. Por defecto está en **Aleatorio**, de modo que cada vez se elige un nuevo divisor; si prefiere concentrarse en una sola tabla, seleccione un número del 1 al 9.\n\nEl ejercicio usa el **algoritmo de la división larga** (<htcite0>), el método paso a paso para dividir números a mano. Recuerde: cuando un número no divide a otro exactamente, lo que sobra se llama **resto**.\n\nEn la siguiente tabla, proponemos dividir un número entre otro. Use las flechas laterales (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) para comprobar cada parte del cálculo e intente averiguar la respuesta antes de mirarla.\n\nCuando termine, recibirá una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>). Haga clic en la flecha derecha (<i class=\"fa-solid fa-chevron-right\"></i>) para iniciar un nuevo cálculo.\n\nLos botones de **Formato de la división** le permiten elegir cómo se escribe la división: con el **Resultado debajo** de la barra (como en muchos libros escolares) o con el **Resultado encima** de ella (un formato que aparece en documentos matemáticos históricos).",
                "source": [
                   {
                      "type": 1,
                      "uuid": "4742a2d6-a3c5-4883-beb5-8ed0240fa9a7",
                      "text": "Weisstein, Eric W.",
-                     "page": "Long Division",
+                     "page": "División larga",
                      "date_time": {
                         "type": "",
                         "year": "",
@@ -96,7 +96,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><b>Tabla de Multiplicar:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatorio</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "text": "<p><b>Tablas de multiplicar:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatorio</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -105,7 +105,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htLongDivisionFormat\"><b>Formato de la división:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Resultado abajo</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Resultado arriba</button></p>",
+               "text": "<p class=\"htLongDivisionFormat\"><b>Formato de la división:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Resultado debajo</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Resultado encima</button></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -114,7 +114,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">División</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\"><b>Tabla 1</b>: Ejercicio de división entre dos números.</p>",
+               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">División</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\"><b>Tabla 1</b>: Ejercicio de división con dos números.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
