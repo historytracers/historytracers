@@ -1,0 +1,637 @@
+{
+   "title": "The Relationship Between Multiplication and Division",
+   "header": "The Relationship Between Multiplication and Division",
+   "sources": [
+      "8d6586b8-178b-4806-a050-ef5a8704f5e1"
+   ],
+   "scripts": [
+      "8d6586b8-178b-4806-a050-ef5a8704f5e1"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792607642"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nTo understand the long division algorithm, it is essential to know multiplication well. Before continuing, we recommend studying all the texts about multiplication in the *First steps (Volume 1)* section:\n\n- **Adding the same numbers**: shows that multiplying is a way of adding the same number several times (<htcite0>)\n- **The result is (Phase II)**: presents the names of the terms of a multiplication and of its result (<htcite1>)\n- **Inversion**: explores the inverse relationship between multiplication and division (<htcite2>)\n- **Yupana (multiplication)**: teaches how to multiply with the Inca yupana (<htcite3>)\n- **Multiplying with Soroban, Suanpan (算盤) and Schyoty (счёты)**: presents multiplication on these abacuses (<htcite4>)\n- **Drawing the multiplication**: shows how to represent a multiplication with drawings (<htcite5>)\n- **Understanding the Multiplication Table (0 and 1)**: studies the multiplication tables of 0 and 1 (<htcite6>)\n- **Understanding the Multiplication Table (2 and 3)**: studies the multiplication tables of 2 and 3 (<htcite7>)\n- **Multiplying with the body (Level 1)**: practices multiplication using the body, level 1 (<htcite8>)\n- **Understanding the Multiplication Table (4 and 5)**: studies the multiplication tables of 4 and 5 (<htcite9>)\n- **Multiplying with the body (Level 2)**: practices multiplication using the body, level 2 (<htcite10>)\n- **Learning from nature**: observes multiplication patterns present in nature (<htcite11>)\n- **Understanding the Multiplication Table (6 and 7)**: studies the multiplication tables of 6 and 7 (<htcite12>)\n- **Understanding the Multiplication Table (8 and 9)**: studies the multiplication tables of 8 and 9 (<htcite13>)\n- **Understanding the Multiplication Tables (Summary)**: summarizes all the multiplication tables (<htcite14>)\n- **Multiplying the Findings**: applies the multiplication tables to what has been discovered (<htcite15>)\n- **Reading and Multiplying**: shows multiplication while reading a text (<htcite16>)\n- **Rereading**: revisits multiplication through rereading (<htcite17>)\n- **Soroban, Suanpan (算盤) and Schyoty (счёты) in rereading**: uses these abacuses while rereading (<htcite18>)\n- **Soroban, Suanpan (算盤) and Schyoty (счёты): multiplication in practice**: practices multiplication on these abacuses (<htcite19>)\n- **Our Week**: uses the seven days of the week in multiplication (<htcite20>)\n- **Practicing multiplication with Soroban, Suanpan (算盤) and Schyoty (счёты)**: offers an application to practice multiplication (<htcite21>)\n- **Multiplying without barriers with Soroban, Suanpan (算盤) and Schyoty (счёты)**: goes further in practicing multiplication on these abacuses (<htcite22>)\n- **Mesoamerican calendars**: relates multiplication to Mesoamerican calendars (<htcite23>)\n- **Mesoamerican sums**: presents sums and multiplication in Mesoamerican records (<htcite24>)\n- **Mesoamerican Multiplication**: multiplies with Mesoamerican numerals (<htcite25>)\n- **Ages and Pyramids**: applies multiplication to ages and pyramids (<htcite26>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d862242c-0538-4b18-8b32-4a84d4a5858e",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "71a07afa-964d-4e43-93c1-b2e0ed330acb",
+                     "text": "History Tracers Team",
+                     "page": "The result is (Phase II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc",
+                     "text": "History Tracers Team",
+                     "page": "Inversion",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9a7a978b-3fac-422c-8e41-3ef1a24e88f3",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (multiplication)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8bf96824-262d-4a55-bd39-2dbb887c1dc0",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with Soroban, Suanpan (算盤) and Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a648cecf-238e-4294-a012-3830ff833d67",
+                     "text": "History Tracers Team",
+                     "page": "Drawing the multiplication",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2acc8c3a-8b10-4b67-8d70-ec1113e691c4",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f7f4988d-1427-4e26-a6a8-c375c57924c7",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (2 and 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "59648475-3d23-45fe-8d6e-f3def1a2729b",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with the body (Level 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad9516ac-2893-4649-8d62-7f9cfe69cc64",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (4 and 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4b96e7c-627b-46d0-820c-409a1e9f47b8",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with the body (Level 2)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a0afca38-89d0-4fda-a133-e26e092d19e0",
+                     "text": "History Tracers Team",
+                     "page": "Learning from nature",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "833029d7-d81e-477a-9008-102d52d61983",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (6 and 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e730ab7c-ed0b-4b3c-8f57-3dea7965ff2e",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (8 and 9)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6535fc4d-c1f9-423f-963f-5ec705b3640b",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Tables (Summary)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4f0474ba-3c05-43cd-8528-d3f383eae556",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying the Findings",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "90b9c9c5-31f3-4e5e-9830-0be18210eded",
+                     "text": "History Tracers Team",
+                     "page": "Reading and Multiplying",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c7b8826a-f0fe-483e-bb9c-409ec775fcd8",
+                     "text": "History Tracers Team",
+                     "page": "Rereading",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2836521c-6ddd-4fb9-a78d-b1b12db94883",
+                     "text": "History Tracers Team",
+                     "page": "Soroban, Suanpan (算盤) and Schyoty (счёты) in rereading",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2bf58492-72be-4fbc-99b4-a0a3d4a0df31",
+                     "text": "History Tracers Team",
+                     "page": "Soroban, Suanpan (算盤) and Schyoty (счёты): multiplication in practice",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e3215ef1-b193-4c27-bc6c-c32a68b64e60",
+                     "text": "History Tracers Team",
+                     "page": "Our Week",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "078f3c4e-08fc-454c-8510-1a98a7e45a40",
+                     "text": "History Tracers Team",
+                     "page": "Practicing multiplication with Soroban, Suanpan (算盤) and Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "052bd667-eb38-4e87-8c05-439cfd9c4178",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying without barriers with Soroban, Suanpan (算盤) and Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2f058a42-fc65-42cc-961f-b8a5e95c47b2",
+                     "text": "History Tracers Team",
+                     "page": "Mesoamerican calendars",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "68ecf470-69b8-4fcb-b5f8-36f7ee5aee66",
+                     "text": "History Tracers Team",
+                     "page": "Mesoamerican sums",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "648170f0-672f-4f9b-8746-492f7f9ad455",
+                     "text": "History Tracers Team",
+                     "page": "Mesoamerican Multiplication",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "24e520c6-c99d-4b3e-a836-20d919b7859c",
+                     "text": "History Tracers Team",
+                     "page": "Ages and Pyramids",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nSharing, measuring and comparing have been part of human life since its beginning: dividing food among the members of a family, distributing seeds in a field or organizing the days of a calendar.\n\nWhenever we share something in equal parts, we are dividing. And division keeps a close relationship with another operation that we already know well: multiplication.\n\nBefore continuing, let us reflect:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Two connected operations</b><br /><br />If we know that 4 × 5 = 20, what can we say about 20 ÷ 4 and 20 ÷ 5? Are multiplication and division related? How?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_multiplication_division",
+         "text": [
+            {
+               "text": "### Multiplication and division",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent4\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Each row of the table presents a multiplication and, at the same time, two divisions. For example, the row 4 × 5 = 20 tells us that:\n- 20 ÷ 4 = 5, because 4 × 5 = 20;\n- 20 ÷ 5 = 4, because 5 × 4 = 20.\n\nThis happens because division is the inverse operation of multiplication: if a × b = c and neither a nor b is zero, then c ÷ a = b and c ÷ b = a.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>a</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">x</mo><mn>b</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>c</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">⇔</mo><mn>c</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">÷</mo><mn>a</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>b</mn></math></p><p class=\"desc\"><b>Formula 1</b>: The relationship between multiplication and division.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The multiplication table is, therefore, a powerful tool for dividing: when we want to divide a number by 4, we look in the table of 4 for the multiplication that produces that number.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_long_division",
+         "text": [
+            {
+               "text": "### The long division",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "When the numbers are larger, we can use the **long division algorithm**. It consists of dividing digit by digit, starting from the highest place value, and obtaining the quotient one digit at a time (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4742a2d6-a3c5-4883-beb5-8ed0240fa9a7",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Long Division",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"htLongDivision htLongDivisionParts\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>Dividend </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> Divisor </td></tr> <tr><td>Remainder </td><td> Quotient</td></tr></table></p><p class=\"desc\"><b>Algorithm 1</b>: Parts of the long-division algorithm.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The same division can also be written in a single line:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>Dividend</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>Quotient</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">x</mo><mn>Divisor</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>Remainder</mn></math></p><p class=\"desc\"><b>Formula 2</b>: The division written as a formula.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "There are two common ways of writing a long division. Choose the one you prefer:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htLongDivisionFormat\"><b>Division format:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Result below</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Result on top</button></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As an example, we will divide 320 by 5:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 20 </td><td> &nbsp; </td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr></table></p><p class=\"desc\"><b>Calculation 1</b>: Division of 320 by 5.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In the representation with **result below**, the quotient appears below the divisor, as in **Calculation 1**. In the representation with **result on top**, the quotient appears above the dividend. To divide, we follow the same steps in both representations:\n- we divide the highest place value by the divisor;\n- we multiply the quotient digit by the divisor and subtract the result;\n- we bring down the next place value and repeat until the units are used.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_squares",
+         "text": [
+            {
+               "text": "### Multiplication and division with squares",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Let us see multiplication and division happening with squares. Consider a rectangle formed by 3 rows of 4 squares:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 248 184\" width=\"100%\" style=\"max-width:248px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Rectangle with 3 rows of 4 squares, 12 squares in total\"><title>Three rows of four squares</title><rect x=\"0\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"64\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"128\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"192\" y=\"0\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"0\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"64\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"128\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"192\" y=\"64\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"0\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"64\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"128\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"192\" y=\"128\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/></svg><b>Figure 1</b>: A rectangle with 3 rows of 4 squares.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Counting the squares, we find 12. Therefore, 3 × 4 = 12: this is multiplication.\n\nThe same 12 squares can be shared in different ways:\n- in 3 equal rows, each row has 12 ÷ 3 = 4 squares;\n- in 4 equal columns, each column has 12 ÷ 4 = 3 squares.\n\nMultiplication and division describe the same rectangle from different points of view.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Now, suppose we want to share the same 12 squares in groups of 5:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 328 240\" width=\"100%\" style=\"max-width:328px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Twelve squares grouped in fives: two groups of five and two squares left over\"><title>Two groups of five squares and two squares left over</title><rect x=\"0\" y=\"0\" width=\"328\" height=\"72\" rx=\"8\" fill=\"none\" stroke=\"#c0392b\" stroke-width=\"2\" stroke-dasharray=\"8 4\"/><rect x=\"8\" y=\"8\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"72\" y=\"8\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"136\" y=\"8\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"200\" y=\"8\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"264\" y=\"8\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"0\" y=\"84\" width=\"328\" height=\"72\" rx=\"8\" fill=\"none\" stroke=\"#c0392b\" stroke-width=\"2\" stroke-dasharray=\"8 4\"/><rect x=\"8\" y=\"92\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"72\" y=\"92\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"136\" y=\"92\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"200\" y=\"92\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"264\" y=\"92\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"8\" y=\"172\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/><rect x=\"72\" y=\"172\" width=\"56\" height=\"56\" rx=\"4\" fill=\"lightblue\" stroke=\"#333\" stroke-width=\"2\"/></svg><b>Figure 2</b>: Twelve squares grouped in fives: two complete groups of five and two squares left over.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "We can form 2 complete groups and 2 squares remain: 12 = 2 × 5 + 2, that is, 12 ÷ 5 = 2 with remainder 2. The remainder is the part that is not enough to form another group.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we learned that multiplication and division are inverse operations: each multiplication gives us two divisions, and the multiplication table helps us divide.\n\nWe also met the long division algorithm, learned the names of its parts and saw that it can be written in two ways: with the result below or with the result on top.\n\nFinally, with squares, we saw that multiplying and dividing are two ways of looking at the same arrangement, and that a division can leave a remainder.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
