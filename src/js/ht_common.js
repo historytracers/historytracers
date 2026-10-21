@@ -40,6 +40,7 @@ var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFirstStepsVolume2Idx = new Map();
+var htSunTzuChessIdx = new Map();
 var htShapesIdx = new Map();
 var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
@@ -185,6 +186,7 @@ function htResetAllIndexes()
         htHistoryIdx,
         htFirstStepsIdx,
         htFirstStepsVolume2Idx,
+        htSunTzuChessIdx,
         htShapesIdx,
         htMathGamesIdx,
         htFamilyIdx,
@@ -548,7 +550,9 @@ function htUpdateCurrentDateOnIndex()
     var current_time = Math.floor(Date.now()/1000);
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
-    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
+    // 'long' renders the full month name on the top current date
+    // (e.g. "October 17, 2026" instead of "Oct 17, 2026").
+    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined, 'long');
     $("#current_day").html(text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
@@ -567,11 +571,106 @@ function htAdjustGregorianZeroYear(text)
     return parts.join(' ');
 }
 
-function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDate)
+// JavaScript Date objects can only represent about +/-271,821 years, so
+// Intl.DateTimeFormat fails ("Invalid time value" or "NaN") for very old
+// dates such as -2500000. The Julian-day arithmetic converters
+// (jd_to_islamic, jd_to_hebrew, ...) in js/calendar.js still work for any
+// date, so this helper renders those out-of-range dates: it converts the
+// date arithmetically and then formats a reference date that Intl can
+// handle, substituting the real day/year tokens. The reference keeps the
+// same month name (Islamic and Persian months always have the same name
+// for a given index; Hebrew months keep their names as long as the
+// reference year has the same leap-year structure - Adar I vs Adar and the
+// extra month 13 exist only in leap years).
+function htFormatOutOfRangeCalendar(calendarType, locale, julianDays, dateStyle)
+{
+    var target = undefined;
+    var referenceJd = 0;
+    switch (calendarType) {
+        case "islamic":
+            target = jd_to_islamic(julianDays);
+            // Day 1 keeps the reference inside month target[1] even when that
+            // month is short; the day token is replaced below anyway.
+            referenceJd = islamic_to_jd(1447, target[1], 1);
+            break;
+        case "hebrew":
+            target = jd_to_hebrew(julianDays);
+            referenceJd = htHebrewReferenceJd(target[1], hebrew_leap(target[0]));
+            break;
+        case "persian":
+            target = jd_to_persian(julianDays);
+            referenceJd = persian_to_jd(1404, target[1], 1);
+            break;
+        default:
+            // Gregorian: the reference year is always CE positive, so no era
+            // token is emitted here; the caller appends the BC suffix and
+            // replaces zero years exactly like the in-range code path.
+            target = jd_to_gregorian(julianDays);
+            referenceJd = gregorian_to_jd(2000, target[1], 1);
+            break;
+    }
+    if (!target || isNaN(target[0])) {
+        return '';
+    }
+
+    var refDate = jd_to_gregorian(referenceJd);
+    var ct = new Date(refDate[0], refDate[1] - 1, refDate[2], 0, 0, 0);
+    ct.setFullYear(refDate[0], refDate[1] - 1, refDate[2]);
+    if (isNaN(ct.getTime())) {
+        return (target[0] < 0) ? Math.abs(target[0]) + " " : target[0] + "";
+    }
+
+    var parts = new Intl.DateTimeFormat(locale, { dateStyle: dateStyle, calendar: calendarType }).formatToParts(ct);
+    var text = "";
+    for (var i = 0; i < parts.length; i++) {
+        var part = parts[i];
+        if (part.type == "day") {
+            text += target[2];
+        } else if (part.type == "year") {
+            if (calendarType == "gregory") {
+                // Historical convention: no year zero, so a negative
+                // astronomical year renders as the next positive year (-44
+                // becomes "45"); the BC suffix is added by the caller.
+                text += (target[0] < 0) ? Math.abs(target[0]) + 1 : target[0];
+            } else {
+                text += target[0];
+            }
+        } else {
+            text += part.value;
+        }
+    }
+    return text;
+}
+
+// htHebrewReferenceJd picks a jump-off Julian day for formatting a Hebrew
+// month name: a recent calendar year with the same leap-year structure as
+// the target year (non-leap for months 1..12, leap when the target year is
+// a leap year - needed for month 12/Adar I and for the 13th month).
+function htHebrewReferenceJd(month, needLeapYear)
+{
+    var limit = needLeapYear ? 13 : 12;
+    for (var year = 5760; year <= 5790; year++) {
+        if (hebrew_leap(year) === needLeapYear) {
+            if (month <= limit) {
+                return hebrew_to_jd(year, month, 1);
+            }
+        }
+    }
+    return hebrew_to_jd(needLeapYear ? 5779 : 5760, Math.min(month, limit), 1);
+}
+
+function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDate, dateStyle)
 {
     if (!calendarType || !locale) {
         console.error('Missing required parameters: calendarType and locale');
         return '';
+    }
+
+    // Calendar dates are always displayed with the full month name
+    // ("October 17, 2026", "Safar 16, 2577368 BC").  Callers that explicitly
+    // need another style can still pass one.
+    if (dateStyle === undefined) {
+        dateStyle = 'long';
     }
 
     var ct = undefined;
@@ -602,6 +701,7 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
     var text = "";
     var year = " "+keywords[43];
     var mesoamericanPeriod = 0;
+    var isHispanic = (calendarType == "hispanic");
     switch(calendarType) {
         case "gregory":
         case "hebrew":
@@ -625,7 +725,7 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
             var frCals = jd_to_french_revolutionary(julianDays);
             year = (frCals[0] < 0 ) ? Math.abs(frCals[0]) + " "+ keywords[43] : frCals[0]; 
 
-            text = "Année " + year + " Mois "+frMonth[frCals[1] - 1]+ " Décade "+frDecade[frCals[2] - 1]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
+            text = "Année " + year + " Mois "+frMonth[frCals[1]]+ " Décade "+frDecade[frCals[2]]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
             return text;
         case "shaka":
             var indianCal = jd_to_indian_civil(julianDays);
@@ -664,27 +764,59 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
         case "chinese":
             var tzOffset = -new Date().getTimezoneOffset() / 60;
             var chc = jd_to_chinese(julianDays, tzOffset);
+            // The sexagenary cycle repeats for negative (BC) years too, so
+            // reduce the index with a positive modulo; JavaScript's % keeps
+            // the sign of the dividend and would index chineseStems[-2].
+            var stemIdx = ((chc[0] - 2) % 10 + 10) % 10;
+            var branchIdx = ((chc[0] - 2) % 12 + 12) % 12;
             year = (chc[0] < 0) ? Math.abs(chc[0]) + " " + keywords[43] : chc[0];
-            var stem = chineseStems[(chc[0] - 2) % 10];
-            var branch = chineseBranches[(chc[0] - 2) % 12];
-            var animal = chineseAnimals[(chc[0] - 2) % 12];
+            var stem = chineseStems[stemIdx];
+            var branch = chineseBranches[branchIdx];
+            var animal = chineseAnimals[branchIdx];
             text = stem + "-" + branch + " (" + animal + ") (" + chineseMonths[chc[1]] + "), " + chc[2] + ", " + year;
             return text;
         case "hispanic":
-            intEpoch += 1199188800;
+            // The Hispanic era is 38 years ahead of the Gregorian calendar.
+            // Shift the calendar date (not a fixed number of seconds/days),
+            // so 1131 AD becomes Era 1169.  A 29 February that does not
+            // exist in the target year falls back to 28 February.
+            var hispanicYear = jd[0] + 38;
+            var hispanicMonth = jd[1];
+            var hispanicDay = jd[2];
+            if (hispanicMonth == 2 && hispanicDay == 29 &&
+                !leap_gregorian(hispanicYear)) {
+                hispanicDay = 28;
+            }
+            jd = new Array(hispanicYear, hispanicMonth, hispanicDay);
+            julianDays = gregorian_to_jd(hispanicYear, hispanicMonth, hispanicDay);
+            calendarType = "gregory";
+            break;
         default:
             calendarType = "gregory";
             break;
     }
 
-    if (unixEpoch != undefined) {
+    if (isHispanic) {
+        // Rebuild the Date from the shifted calendar date: setUTCSeconds()
+        // below would discard the era offset for unix epochs.
+        ct = new Date(jd[0], jd[1] - 1, jd[2], 0, 0, 0);
+        ct.setFullYear(jd[0], jd[1] - 1, jd[2]);
+    } else if (unixEpoch != undefined) {
         ct.setUTCSeconds(intEpoch);
     }
 
-    text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: calendarType }).format(ct);
+    var dateOutOfRange = isNaN(ct.getTime());
+    if (dateOutOfRange) {
+        // The requested moment does not fit in a Date object: fall back to
+        // the pure Julian-day arithmetic conversion so ancient dates (e.g.
+        // the Islamic calendar at -2500000) never render as "NaN".
+        text = htFormatOutOfRangeCalendar(calendarType, locale, julianDays, dateStyle);
+    } else {
+        text = new Intl.DateTimeFormat(locale, { dateStyle: dateStyle, calendar: calendarType }).format(ct);
+    }
 
     if (calendarType == "gregory") { 
-        var yearValue = ct.getFullYear();
+        var yearValue = dateOutOfRange ? jd[0] : ct.getFullYear();
         if (yearValue < 0) {
             text += " "+keywords[43];
         } else if (yearValue == 0) {
@@ -700,7 +832,20 @@ function htConvertGregorianYearToJD(gregoryYear)
     var ct = new Date();
     if (gregoryYear != "now") {
         var year = parseInt(gregoryYear);
+        // Only the month/day of "today" is taken from ct here, so for years
+        // beyond what a Date can hold (about +/-271,821 years) skip the
+        // setYear() call: it would make ct invalid (NaN month/day) and the
+        // Julian day below would become NaN. The year is converted purely
+        // arithmetically by gregorian_to_jd instead.
+        var month = ct.getMonth();
+        var day = ct.getDate();
+        if (isNaN(year)) {
+            return gregorian_to_jd(year, month, day);
+        }
         ct.setYear(year);
+        if (isNaN(ct.getTime())) {
+            return gregorian_to_jd(year, month, day);
+        }
     }
     // gregorian to jd will subtract an year before to convert
     return gregorian_to_jd(gregoryYear, ct.getMonth(), ct.getDate());
@@ -2128,6 +2273,7 @@ function htSelectIndexMap(index)
         literature: htLiteratureIdx,
         first_steps: htFirstStepsIdx,
         first_steps_volume2: htFirstStepsVolume2Idx,
+        sun_tzu_chess: htSunTzuChessIdx,
         shapes: htShapesIdx,
         math_games: htMathGamesIdx,
         families: htFamilyIdx,
@@ -2157,6 +2303,7 @@ function htSelectIndexName(index) {
         families: keywords[8],
         first_steps: keywords[121],
         first_steps_volume2: keywords[136],
+        sun_tzu_chess: "Sun Tzu, chess and math",
         shapes: keywords[142],
         atlas: "Atlas",
         literature: keywords[122],
@@ -3232,7 +3379,7 @@ function htFillStringOnPage(data, idx, page)
     // Case 3: append to group-map for specific pages
     const allowedPages = [
         "families", "history", "literature", "first_steps",
-        "first_steps_menu", "first_steps_volume2",
+        "first_steps_menu", "first_steps_volume2", "sun_tzu_chess",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry",
         "philosophy", "atlas", "gallery", "shapes"
@@ -3302,7 +3449,14 @@ function htFillWebPage(page, data)
             page_authors = data.authors;
         }
     }
-    if (data?.reviewers != null && data.reviewers.length > 0) page_reviewers = data.reviewers;
+    if (data?.reviewers != null) {
+        if (Array.isArray(data.reviewers)) {
+            const filteredReviewers = data.reviewers.filter(r => String(r).trim().length > 0);
+            if (filteredReviewers.length > 0) page_reviewers = filteredReviewers;
+        } else if (String(data.reviewers).trim().length > 0) {
+            page_reviewers = data.reviewers;
+        }
+    }
 
     if (Array.isArray(page_reviewers)) {
         const reviewersText = page_reviewers.join(", ");
@@ -3685,6 +3839,7 @@ function htLoadIndex(data, arg, page)
         families: htFamilyIdx,
         first_steps: htFirstStepsIdx,
         first_steps_volume2: htFirstStepsVolume2Idx,
+        sun_tzu_chess: htSunTzuChessIdx,
         history: htHistoryIdx,
         historical_events: htHistoricalEventsIdx,
         indigenous_who: htIndigenousWhoIdx,
@@ -4249,6 +4404,246 @@ function htSyncBreakButton() {
     return 0;
 }
 
+// Top-bar preference persistence: language, calendar, break interval and
+// letter size are kept in localStorage. The first visit stores the current
+// selections; any user change updates them; every later visit restores the
+// latest configuration before the page content loads. Explicit URL query
+// parameters (?lang=, ?cal=, ?rec=, ?font=) keep precedence over the stored
+// values because they represent a deliberate shared link.
+var htPrefsKeys = {
+    lang: 'ht_lang',
+    calendar: 'ht_calendar',
+    recreio: 'ht_recreio',
+    font: 'ht_font_size'
+};
+
+function htPrefsRead(key) {
+    try {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem) {
+            var v = localStorage.getItem(key);
+            if (typeof v === 'string' && v.length > 0 && v.length <= 64) {
+                return v;
+            }
+        }
+    } catch (e) {
+    }
+    return '';
+}
+
+function htPrefsWrite(key, value) {
+    try {
+        if (typeof localStorage !== 'undefined' && localStorage.setItem) {
+            if (typeof value === 'string' && value.length > 0 && value.length <= 64) {
+                localStorage.setItem(key, value);
+                return true;
+            }
+        }
+    } catch (e) {
+    }
+    return false;
+}
+
+// Reports whether the given select currently offers the value as an option,
+// so only real choices are ever restored from storage.
+function htSelectHasValue(id, value) {
+    try {
+        if (!value) {
+            return false;
+        }
+        if (typeof document !== 'undefined' && document.querySelector) {
+            return !!document.querySelector('#' + id + ' option[value="' + value + '"]');
+        }
+    } catch (e) {
+    }
+    return false;
+}
+
+function htGetStoredLang() {
+    var v = htPrefsRead(htPrefsKeys.lang);
+    return htSelectHasValue('site_language', v) ? v : '';
+}
+
+function htGetStoredCalendar() {
+    var v = htPrefsRead(htPrefsKeys.calendar);
+    return htSelectHasValue('site_calendar', v) ? v : '';
+}
+
+function htGetStoredRecreio() {
+    var v = htPrefsRead(htPrefsKeys.recreio);
+    return htSelectHasValue('site_recreio', v) ? v : '';
+}
+
+// Detects the calendar used by the environment (browser locale) and maps it
+// to one of the site calendar values. Returns '' only when no calendar
+// could be identified at all; callers fall back to 'gregory' instead.
+function htDetectLocalCalendar() {
+    try {
+        var cal = '';
+        if (typeof Intl !== 'undefined' && Intl.DateTimeFormat) {
+            var fmt = new Intl.DateTimeFormat();
+            if (fmt && typeof fmt.resolvedOptions === 'function') {
+                var ro = fmt.resolvedOptions();
+                if (ro && typeof ro.calendar === 'string') {
+                    cal = ro.calendar.toLowerCase();
+                }
+            }
+        }
+        if (!cal) {
+            return '';
+        }
+        // Intl names several Islamic variants; the site offers a single one.
+        if (cal.indexOf('islamic') === 0) {
+            return 'islamic';
+        }
+        switch (cal) {
+            case 'gregory':
+            case 'iso8601':
+                return 'gregory';
+            case 'hebrew':
+                return 'hebrew';
+            case 'persian':
+                return 'persian';
+            case 'chinese':
+                return 'chinese';
+            case 'japanese':
+                return 'japanese';
+            case 'indian':
+                return 'shaka';
+            default:
+                return '';
+        }
+    } catch (e) {
+    }
+    return '';
+}
+
+// Fallback resolvers for stale or missing stored values. They never return
+// an empty value: the language resolver identifies the environment idiom
+// ('en-' maps to 'en-US', 'es-' to 'es-ES', 'pt-' to 'pt-BR') and defaults
+// to 'en-US' when none of the three is found; the calendar resolver maps
+// the environment calendar (Gregorian, Muslim and the other supported
+// calendars) and defaults to 'gregory' when nothing is found. Whether the
+// resolved value is actually offered is still verified before any selection
+// (see htApplySelectValue).
+function htResolveLangFallback() {
+    try {
+        var lang = '';
+        if (typeof navigator !== 'undefined' && navigator) {
+            lang = navigator.language || navigator.userLanguage || '';
+        }
+        if (typeof lang === 'string' && lang.length >= 2) {
+            var prefix = lang.substring(0, 2).toLowerCase();
+            if (prefix === 'es') {
+                return 'es-ES';
+            }
+            if (prefix === 'pt') {
+                return 'pt-BR';
+            }
+            if (prefix === 'en') {
+                return 'en-US';
+            }
+        }
+    } catch (e) {
+    }
+    return 'en-US';
+}
+
+function htResolveCalendarFallback() {
+    try {
+        var d = htDetectLocalCalendar();
+        if (d) {
+            return d;
+        }
+    } catch (e) {
+    }
+    return 'gregory';
+}
+
+// Assigns value to the select only when value is offered as an option.
+// When value is missing or its option no longer exists (for example a
+// language made unavailable), the environment-aware fallback is used
+// instead of leaving the control blank; only when there is neither a
+// usable value nor a usable fallback is the control left untouched.
+// Returns the value effectively selected, or '' when the select is missing
+// or the assignment did not take effect.
+function htApplySelectValue(id, value, fallback) {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return '';
+        }
+        var sel = document.getElementById(id);
+        if (!sel) {
+            return '';
+        }
+        var chosen = '';
+        if (value && htSelectHasValue(id, value)) {
+            chosen = value;
+        } else if (fallback && htSelectHasValue(id, fallback)) {
+            chosen = fallback;
+        }
+        if (chosen) {
+            try {
+                sel.value = chosen;
+            } catch (eVal) {
+                return '';
+            }
+        }
+        var actual = '';
+        try {
+            actual = sel.value || '';
+        } catch (eRead) {
+        }
+        if (chosen && actual !== chosen) {
+            return '';
+        }
+        return actual;
+    } catch (e) {
+    }
+    return '';
+}
+
+// Applies the latest stored configuration to the top-bar selects. Selects
+// without a valid stored value are left untouched, keeping their HTML
+// defaults until the page initializer resolves them.
+function htRestoreStoredPrefs() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return false;
+        }
+        var lang = htApplySelectValue('site_language', htPrefsRead(htPrefsKeys.lang), htResolveLangFallback());
+        var cal = htApplySelectValue('site_calendar', htPrefsRead(htPrefsKeys.calendar), htResolveCalendarFallback());
+        var rec = htApplySelectValue('site_recreio', htPrefsRead(htPrefsKeys.recreio), '30');
+        var font = htApplySelectValue('site_font_size', htPrefsRead(htPrefsKeys.font), 'default');
+        htApplyFontSize(font || 'default');
+        return !!(lang || cal || rec || font);
+    } catch (e) {
+    }
+    return false;
+}
+
+// Stores the current top-bar selections, so the first visit records them
+// and later programmatic resolutions (URL parameters, defaults) persist.
+// Only values still offered as options are stored, so a selection left
+// blank by a removed option can never overwrite the stored configuration.
+function htStoreTopPrefs() {
+    try {
+        if (typeof document === 'undefined' || !document.getElementById) {
+            return false;
+        }
+        var ids = ['site_language', 'site_calendar', 'site_recreio', 'site_font_size'];
+        var keys = [htPrefsKeys.lang, htPrefsKeys.calendar, htPrefsKeys.recreio, htPrefsKeys.font];
+        for (var i = 0; i < ids.length; i++) {
+            var sel = document.getElementById(ids[i]);
+            if (sel && sel.value && htSelectHasValue(ids[i], sel.value)) {
+                htPrefsWrite(keys[i], sel.value);
+            }
+        }
+        return true;
+    } catch (e) {
+    }
+    return false;
+}
+
 // Letter-size control: the visible control is a text-height symbol
 // (#site_font_size_btn) overlaying the native select (#site_font_size).
 // Three options: small, default (current font) and large. Default keeps
@@ -4396,6 +4791,7 @@ function htOpenNativeSelect(id) {
 
 if (typeof document !== 'undefined' && document.addEventListener) {
     document.addEventListener('DOMContentLoaded', function() {
+        htRestoreStoredPrefs();
         htUpdateLayoutGutter();
         htSyncTopBanner();
         htFitCalendarSelect();
@@ -4405,12 +4801,15 @@ if (typeof document !== 'undefined' && document.addEventListener) {
     });
     document.addEventListener('change', function(e) {
         if (e && e.target && e.target.id === 'site_calendar') {
+            htPrefsWrite(htPrefsKeys.calendar, e.target.value);
             htFitCalendarSelect();
         }
         if (e && e.target && e.target.id === 'site_language') {
+            htPrefsWrite(htPrefsKeys.lang, e.target.value);
             htSyncLanguageButton();
         }
         if (e && e.target && e.target.id === 'site_recreio') {
+            htPrefsWrite(htPrefsKeys.recreio, e.target.value);
             htSyncBreakButton();
         }
         if (e && e.target && e.target.id === 'site_font_size') {

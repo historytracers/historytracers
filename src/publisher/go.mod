@@ -24,6 +24,6 @@ require (
 	modernc.org/memory v1.11.0 // indirect
 )
 
-replace github.com/historytracers/common => ../common/src/go
+replace github.com/historytracers/common => ../../common/src/go
 
 require github.com/historytracers/common v0.0.0-20260702181604-c40f654376d7

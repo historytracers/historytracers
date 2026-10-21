@@ -41,6 +41,8 @@ function htLoadContent() {
     htSetImageSrc("imgAbacus", "images/BritishMuseum/289044001.jpg");
     htSetImageSrc("imgGizaBM", "images/BritishMuseum/mid_00539475_001.jpg");
     htSetImageSrc("imgSaqqaraBM", "images/BritishMuseum/mid_EPF1915.jpg");
+    htSetImageSrc("imgItalianChess", "images/BritishMuseum/mid_00137035_001.jpg");
+    htSetImageSrc("imgChanggiSet", "images/BritishMuseum/mid_00269266_001.jpg");
     htPlusDivs(0);
 
     return false;

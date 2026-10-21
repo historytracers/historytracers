@@ -993,7 +993,7 @@ func htConvertSMGameToAudio() {
 	for _, lang := range htLangPaths {
 		smGameDirs := []string{
 			fmt.Sprintf("%slang/%s/smGame", CFG.SrcPath, lang),
-			fmt.Sprintf("%ssrc/common/src/smartphone/%s", CFG.SrcPath, lang),
+			fmt.Sprintf("%scommon/src/smartphone/%s", CFG.SrcPath, lang),
 		}
 		for _, smGameDir := range smGameDirs {
 			isSmartphone := strings.Contains(smGameDir, "smartphone")

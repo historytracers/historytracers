@@ -31,10 +31,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791382542"
+      "1792447425"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -43,16 +45,52 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nIn this text, we will practice the subtraction operation. Before starting, we suggest studying the texts from Chapter 3 of the *First Steps* section of **History Tracers** (<htcite0>).",
+               "text": "### Prerequisites\n\nIn this text, we will practice the subtraction operation. Before proceeding with these exercises, we suggest studying:\n\n- **Returning**: how subtraction is presented as a form of return (<htcite0>)\n- **Subtraction and the Complement**: how to use the complement to 10 to perform subtractions (<htcite1>)\n- **Subtracting with the Yupana**: how subtraction works with the Inca Yupana (<htcite2>)\n- **The art of studying**: Sun Tzu's five factors and how to use them as a strategy for learning (<htcite3>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "uuid": "964083ad-c587-43dc-9649-5b578714ab44",
                      "text": "History Tracers Team",
-                     "page": "First steps (Volume 1)",
+                     "page": "Returning",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
+                     "text": "History Tracers Team",
+                     "page": "Subtraction and the Complement",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f17ec53f-af65-4708-bcc1-a140287d4dd9",
+                     "text": "History Tracers Team",
+                     "page": "Subtracting with the Yupana",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "The art of studying",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -70,8 +108,21 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "#### Practice Exercise\n\nReading a text may seem sufficient, but practice is essential for true understanding. In the following table, we will practice subtracting two numbers. The top number will always be larger than the bottom one. However, in some cases, in certain columns (units, tens, or hundreds), the digit of the top number may be smaller than the one below. When this happens, you need to regroup: mark the original number in black and write the regrouped value above it.\n\nBefore using the controls (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) to check your answer, try solving it on your own.\n\nWhen you finish the calculation, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can move on to the next problem by clicking the arrow (<i class=\"fa-solid fa-chevron-right\"></i>) below:",
-               "source": null,
+               "text": "### Sun Tzu's (孙子) 5 factors\n\nTo do the exercises, we recommend using Sun Tzu's 5 factors (the same ones from **The art of studying** (<htcite0>)) as follows:\n\n- **The law of morale**: Do not stop after a single exercise. To reinforce what you have learned, practice until you feel more comfortable, and spread your practice over more than one day.\n- **Heaven**: Visualize the numbers you are subtracting with your own body. Every time you subtract one number from another, check whether the result stays within the count of your fingers or goes beyond it. Then try to recreate the subtractions you are doing here in other scenarios, so you realize that the same idea appears everywhere.\n- **Terrain**: In every subtraction, squares represent the digits. When the top digit is smaller than the bottom digit, the column borrows 1 from the next order: ten squares are grouped, the bottom digit is removed from that group, and the squares left in the group are the complement to ten. So, before you start subtracting two digits, ask yourself: is the bottom digit greater than the adjusted top digit — the top digit reduced by one when the previous column borrowed 1? That answer tells you whether the column will need to borrow 1.\n- **The commander**: As the commander of your learning, you should:\n    - Be benevolent with yourself and with people who have not understood subtraction yet, and help them learn.\n    - Be honest with yourself, and do not let your confidence underestimate or overestimate the problem ahead of you.\n    - Respect yourself by remembering that there are different ways to understand math. Discover the way that makes you feel comfortable and follow it. At History Tracers, we will do our best to help you find your road.\n    - Use your wisdom to identify your weaknesses, so you can train them and turn them into strengths.\n    - Use your sincerity to see where you need to improve, and do not build barriers because of the difficulties you may find.\n- **Method and discipline**: Set aside a period of time to train every day, and respect your rest time.\n\n### Practice Exercise\n\nReading about subtraction helps, but practice is essential for real understanding. Below is a subtraction written vertically, column by column, from the units to the hundreds. In each column:\n\n1. The light blue squares show the digits available in the column.\n2. Use the down button (<span class=\"htAddButtonSample\"><i class=\"fa-solid fa-caret-down\"></i></span>) to remove one square and the up button (<span class=\"htAddButtonSample\"><i class=\"fa-solid fa-caret-up\"></i></span>) to put one back, until the light yellow squares match the bottom digit of the second number.\n3. When the top digit is smaller than the bottom digit, the column borrows ten squares from the next order: those ten squares are grouped, and the squares left in the group after removing the bottom digit are the complement to ten.\n\nBefore clicking the buttons, compare the top and bottom digits: if the top digit is smaller, the column will need to borrow 1 from the next order. Then associate the squares with the result: the removed squares match the bottom digit, and the squares that remain are the digit that stays in the column. In a column that borrows, the complement to ten is the part of the borrowed ten that remains.\n\n**Example: 13 - 7.** The column has 3 light blue squares, and 7 must be removed. Since 3 is smaller than 7, the column borrows 1 from the next order, which adds a group of ten squares: 3 + 10 = 13. The 7 is removed from the borrowed ten, and the complement of 7 to ten is 3, so 3 squares stay in the group; with the 3 squares already in the column, the result is 6:<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareBase htAddSquareComplement\"></span><span class=\"htAddSquare htAddSquareBase htAddSquareComplement\"></span><span class=\"htAddSquare htAddSquareBase htAddSquareComplement\"></span></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span></div><span class=\"htAddSquaresCaption\">13 - 7 = 6</span>\n\nWhen you finish the calculation, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and you can move on to the next problem by clicking the button below:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "The art of studying",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -79,7 +130,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Subtraction of Numbers</th><th colspan=\"2\">Controls</th></tr> </table></p><p class=\"desc\"><b>Table 1</b>: Exercise for Subtracting Two Numbers.</p>",
+               "text": "<div class=\"htAddGame\"><div class=\"htAddOrders\" id=\"htSubOrders\"></div><span class=\"htAddQuestion\" id=\"htSubQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htSubNote\"></div><table class=\"htAddTable\" id=\"htSubTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htSubSquaresLabel\">Subtraction in this column</span><div class=\"htAddSquares\" id=\"htSubSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htSubSquaresCaption\"></span><span class=\"htAddSquaresNote\" id=\"htSubSquaresNote\"></span></div><div class=\"htAddButtonsRow\"><button type=\"button\" id=\"htSubUpBtn\" class=\"htAddButton\" aria-label=\"Put one square back\"><i class=\"fa-solid fa-caret-up\"></i></button><button type=\"button\" id=\"htSubDownBtn\" class=\"htAddButton\" aria-label=\"Remove one square\"><i class=\"fa-solid fa-caret-down\"></i></button></div><div class=\"htAddFeedback\" id=\"htSubFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htSubNextBtn\" class=\"reset-tutor-btn hidden\">Next column</button></div><span id=\"htSubOrder0\" class=\"htAddHidden\">Units</span><span id=\"htSubOrder1\" class=\"htAddHidden\">Tens</span><span id=\"htSubOrder2\" class=\"htAddHidden\">Hundreds</span><span id=\"htSubQuestionTemplate\" class=\"htAddHidden\">The {order} column has {base} squares available. Now use the buttons to remove the bottom digit of the second number.</span><span id=\"htSubIncomingTemplate\" class=\"htAddHidden\">The 1 borrowed by the previous column is removed first: {top} - 1 = {first}.</span><span id=\"htSubBorrowTemplate\" class=\"htAddHidden\">{first} is smaller than {bottom}, so 1 is borrowed from the next order: {first} + 10 = {base}.</span><span id=\"htSubChainedTemplate\" class=\"htAddHidden\">The previous column borrowed 1 from this column and it is 0, so it borrows from the next order: 0 - 1 + 10 = 9.</span><span id=\"htSubMsgBorrowTemplate\" class=\"htAddHidden\">{base} - {removed} = {result}. The 1 borrowed from the next order is used, and the {order} column keeps {result}.</span><span id=\"htSubMsgNoBorrowTemplate\" class=\"htAddHidden\">{base} - {removed} = {result}. The {order} column keeps {result}.</span><span id=\"htSubNextColumnLabel\" class=\"htAddHidden\">Next column</span><span id=\"htSubPlayAgainLabel\" class=\"htAddHidden\">New problem</span><span id=\"htSubSquaresUsedTemplate\" class=\"htAddHidden\">Squares removed: {removed}. Squares remaining: {remaining}.</span><span id=\"htSubBorrowSquaresTemplate\" class=\"htAddHidden\">Squares removed from the borrowed ten: {removed}. Right now {remaining} squares stay in the ten; when all {bottom} have been removed, the complement of the bottom digit to ten ({comp}) will stay. There are also {outside} squares already in the column.</span></div>",
                "source": null,
                "date_time": null,
                "isTable": false,

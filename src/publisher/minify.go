@@ -323,7 +323,7 @@ func htRewriteAndMinifySMSubDir(lang string, srcDir string, outDir string, rewri
 				fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
 			}
 		} else {
-			// Content lives in another repository (src/common). Transform it
+			// Content lives in another repository (common). Transform it
 			// into a temporary file without modifying the source, and use that
 			// temporary file as the minification input.
 			tmpFile, err := htTransformSMGame(lang, smGameFile)
@@ -360,11 +360,11 @@ func htRewriteAndMinifySMGame(lang string) {
 	htRewriteAndMinifySMSubDir(lang,
 		fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, lang),
 		fmt.Sprintf("%slang/%s/smGame/", CFG.ContentPath, lang), true)
-	// smartphone content moved to src/common/src/smartphone/<lang>/ but the
+	// smartphone content moved to common/src/smartphone/<lang>/ but the
 	// published output keeps the historical lang/<lang>/smartphone/ location.
 	// The source lives in another repository, so it must never be rewritten.
 	htRewriteAndMinifySMSubDir(lang,
-		fmt.Sprintf("%ssrc/common/src/smartphone/%s/", CFG.SrcPath, lang),
+		fmt.Sprintf("%scommon/src/smartphone/%s/", CFG.SrcPath, lang),
 		fmt.Sprintf("%slang/%s/smartphone/", CFG.ContentPath, lang), false)
 }
 
@@ -376,7 +376,7 @@ func htMinifyJSON() {
 			continue
 		}
 		if i == HTDirLangEnUSSmartphone || i == HTDirLangEsESSmartphone || i == HTDirLangPtBRSmartphone {
-			// Smartphone content now lives in src/common/src/smartphone/ and
+			// Smartphone content now lives in common/src/smartphone/ and
 			// is handled by htRewriteAndMinifySMGame.
 			continue
 		}

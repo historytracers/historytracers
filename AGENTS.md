@@ -33,7 +33,7 @@ A "group of files" is identified by a single UUID, e.g. `e0380670-cd02-46e8-abb8
    - `build/historytracers-publisher -langtest en-US:<uuid>` — checks JSON and line-count consistency.
    - `build/historytracers-publisher -globalangtest` — checks all UUID files.
    - `build/historytracers-publisher -checksources` — checks citation year/published consistency.
-8. Regenerate the compiled outputs: `build/historytracers-publisher -minify`. This updates `css/ht_math.css`, `index.html` (cache-busting version stamps), and `www/`. It may also rewrite unrelated files in the `src/common` submodule — revert those with `git checkout` in `src/common` if they are unrelated to the change.
+8. Regenerate the compiled outputs: `build/historytracers-publisher -minify`. This updates `css/ht_math.css`, `index.html` (cache-busting version stamps), and `www/`. It may also rewrite unrelated files in the `common` submodule — revert those with `git checkout` in `common` if they are unrelated to the change.
 
 ## Converting class files to smartphone files
 
@@ -91,6 +91,18 @@ Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `
 ## Content JSON conventions
 
 - `exercise_v2[].yesNoAnswer` must always be the literal string `"Yes"` or `"No"` (English). These values are used by the application algorithm, not displayed to the user. Never translate them to `"Sí"`, `"Sim"`, or any other language.
+
+## Citation style in lists
+
+When a text lists recommended content (for example in `SECTION_prerequisites`), use one bullet per citation with the cited title in **bold** (not italic), a colon, a short description of what the reader will find in it, and the `(<htciteN>)` marker at the **end of the line**:
+
+```markdown
+- **Title of the cited content**: what the reader will find in it (<htcite0>)
+```
+
+- Do not write the title in italics, and do not place `(<htciteN>)` in the middle of the sentence.
+- Keep the `source` array in the same order as the `<htciteN>` indices (`0..N-1`). When adding a new citation, append it to the end of the array and use the next index.
+- This is the pattern to use for every new citation list.
 
 ## Source evaluation
 
@@ -182,7 +194,7 @@ Gallery JSON (`lang/XX-YY/<uuid>.json` with `index: ["gallery"]`) lists images f
    - Check for unexpected changes too: rows the merge would drop (e.g. a file/citation present in ours but not in theirs) are deliberate branch content and must be kept.
 4. Verify the union: re-diff each table against both original versions; the merged DB should be a strict superset of each side (no rows lost from either).
 5. `cp /tmp/merged.db lang/sources/history_tracers.db && git add lang/sources/history_tracers.db` — **stop here for AI**. A human maintainer must review `git status`/`git diff --stat` and commit the staged changes.
-6. The `src/common` submodule pointer is also often updated by the merge — stage it (`git add src/common`); a human maintainer must commit it (working tree should be clean and detached).
+6. The `common` submodule pointer is also often updated by the merge — stage it (`git add common`); a human maintainer must commit it (working tree should be clean and detached).
 
 ### Windows-specific steps
 

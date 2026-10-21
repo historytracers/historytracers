@@ -1,0 +1,118 @@
+{
+   "title": "Maior ou Menor? (Jogo)",
+   "header": "Maior ou Menor? (Jogo)",
+   "sources": [
+      "548450ef-1b1a-4b9e-b578-2fef47abbd5b"
+   ],
+   "scripts": [
+      "548450ef-1b1a-4b9e-b578-2fef47abbd5b"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/548450ef-1b1a-4b9e-b578-2fef47abbd5b_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1fCTUYi8rfAdddXsYmFAnM?si=culhQm0dSzaoHWhBAnZxhQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1791940984"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nEste jogo pratica as ideias do texto *Quando o tamanho importa* (<htcite0>). Antes de jogar, leia esse texto para entender a regra que diz qual de dois números é maior ou menor, e como o lado aberto do símbolo sempre fica voltado para o número maior.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "87f5f133-067e-439f-ab1d-eaf45e304079",
+                     "text": "History Tracers Team",
+                     "page": "Quando o tamanho importa",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Game\n\nDois números aparecem: **A** à esquerda e **B** à direita. Pergunte-se: B é maior que A? Ou seja, os números estão em ordem (A < B)? (<htcite0>; <htcite1>).\n\nEscolha **Em ordem** quando o número da direita for maior que o da esquerda, ou **Fora de ordem** quando for menor. O lado aberto do símbolo sempre fica voltado para o número maior. Há quatro níveis: o primeiro usa números de 0 a 25, o segundo de 100 a 1000, e os dois últimos usam uma diferença enorme, por isso escrevemos muito maior (≫) e muito menor (≪). O jogo explica cada resposta. Para tentar outro par, clique no botão **Novo exercício**, e após uma resposta correta você pode ir para o **Próximo nível**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htGreaterSmallerGame\"><span class=\"htGreaterSmallerLevel\" id=\"htGreaterSmallerLevel\"></span><span class=\"htGreaterSmallerQuestion\" id=\"htGreaterSmallerQuestion\">Os números estão em ordem? O número B é maior que o A?</span><div class=\"htGreaterSmallerCards\"><div class=\"htGreaterSmallerCard\"><span class=\"htGreaterSmallerLabel\">A</span><span class=\"htGreaterSmallerValue text_to_paint\" id=\"htGreaterSmallerLeft\">0</span></div><span class=\"htGreaterSmallerOp\" id=\"htGreaterSmallerOp\">&lt;</span><div class=\"htGreaterSmallerCard\"><span class=\"htGreaterSmallerLabel\">B</span><span class=\"htGreaterSmallerValue text_to_paint\" id=\"htGreaterSmallerRight\">1</span></div></div><div class=\"htGreaterSmallerButtonsRow\"><button type=\"button\" id=\"htGreaterSmallerInBtn\" class=\"htGreaterSmallerButton\">Em ordem</button><button type=\"button\" id=\"htGreaterSmallerNotBtn\" class=\"htGreaterSmallerButton\">Fora de ordem</button></div><div class=\"htGreaterSmallerFeedback\" id=\"htGreaterSmallerFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htGreaterSmallerNextContainer\"><button type=\"button\" id=\"htGreaterSmallerNewBtn\" class=\"reset-tutor-btn\">🎲 Novo exercício</button><button type=\"button\" id=\"htGreaterSmallerNextBtn\" class=\"reset-tutor-btn hidden\">Próximo nível</button></div><span id=\"htGreaterSmallerLevelTemplate\" class=\"htGreaterSmallerHidden\">Nível {n} de 4</span><span id=\"htGreaterSmallerMsgCorrect\" class=\"htGreaterSmallerHidden\">🎉 Parabéns! O número {big} é maior que {small} ({small} < {big}).</span><span id=\"htGreaterSmallerMsgCorrectMuch\" class=\"htGreaterSmallerHidden\">🎉 Parabéns! O número {big} é muito maior que {small} ({big} ≫ {small}).</span><span id=\"htGreaterSmallerMsgWrong\" class=\"htGreaterSmallerHidden\">Vamos relembrar: O número {small} é menor que o número {big}. ({small} < {big}).</span><span id=\"htGreaterSmallerMsgWrongMuch\" class=\"htGreaterSmallerHidden\">Vamos relembrar: O número {small} é muito menor que o número {big}. ({small} ≪ {big}).</span><span id=\"htGreaterSmallerMsgFinal\" class=\"htGreaterSmallerHidden\">🎉🎉🎉 Parabéns! Você completou todos os níveis! 🎉🎉🎉</span><span id=\"htGreaterSmallerPlayAgain\" class=\"htGreaterSmallerHidden\">Jogar novamente</span><span id=\"htGreaterSmallerNextLabel\" class=\"htGreaterSmallerHidden\">Próximo nível</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

@@ -3490,6 +3490,310 @@ p.desc svg {
 }
 
 /*
+ * Practicing addition (content a4caa9fe-de1e-49c5-92de-50ed9c22a42d) and
+ * practicing subtraction (content 4736db57-6444-4631-b3c8-08e4d1e35688). The
+ * operation is laid out vertically, the way it is normally written, and the
+ * keep-ten squares of the Carry or Not Carry? game are reused to show each
+ * column being added or subtracted.
+ */
+.htAddGame {
+  margin: 1em auto;
+  max-width: 42em;
+  text-align: center;
+}
+
+.htAddOrders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4em;
+  margin-bottom: 0.5em;
+}
+
+.htAddOrder {
+  padding: 0.2em 0.6em;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background-color: #f4f4f4;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.htAddOrderActive {
+  background-color: #2c5f8a;
+  border-color: #2c5f8a;
+  color: #fff;
+  font-weight: bold;
+}
+
+.htAddQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htAddIncomingNote {
+  margin-bottom: 0.5em;
+  color: #555;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.htAddTable {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.htAddOp,
+.htAddCell {
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.htAddCell {
+  width: 1.1em;
+  min-width: 1.1em;
+  border-radius: 4px;
+}
+
+.htAddStruck {
+  text-decoration: line-through;
+}
+
+.htAddOp {
+  width: 0.7em;
+  min-width: 0.7em;
+}
+
+.htAddCellActive {
+  background-color: lightblue;
+}
+
+.design-dark .htAddCellActive {
+  background-color: #2c5f8a;
+  color: #eceff1;
+}
+
+.htAddLine td {
+  border-top: 3px solid #333;
+  padding: 0;
+}
+
+.htAddSquaresWrap {
+  margin-top: 0.75em;
+}
+
+.htAddSquaresLabel {
+  display: block;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #555;
+}
+
+.htAddSquares {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  max-width: 100%;
+  margin: 0.4em auto 0;
+}
+
+.htAddSquare {
+  box-sizing: border-box;
+  width: 1.6em;
+  height: 1.6em;
+  border: 2px solid #333;
+  border-radius: 4px;
+}
+
+.htAddSquareBase {
+  background-color: lightblue;
+}
+
+.htAddSquareAdded {
+  background-color: lightyellow;
+}
+
+/* A square removed in the subtraction game. */
+.htAddSquareRemoved {
+  background-color: lightyellow;
+}
+
+/* Squares shown from the start that have not been filled by a click yet. */
+.htAddSquarePending {
+  background-color: white;
+}
+
+/* The squares between the value already in the column and the ten: its
+   complement, outlined so the learner sees which squares close the group. */
+.htAddSquareComplement {
+  box-shadow: inset 0 0 0 2px #e67e22;
+}
+
+/* A complement square that has already been added: it is one of the squares
+   used to complete the ten, outlined but with no orange background. */
+.htAddSquareComplementUsed {
+  box-shadow: inset 0 0 0 2px #d35400;
+}
+
+/* The ten squares that make the 1 carried to the next order. */
+.htAddTenGroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border: 2px dashed #c0392b;
+  border-radius: 6px;
+}
+
+.htAddSquaresCaption {
+  display: block;
+  margin-top: 0.3em;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Note that names the complement of the column and how the squares were used. */
+.htAddSquaresNote {
+  display: block;
+  margin-top: 0.2em;
+  font-size: 0.9em;
+  color: #8a4b08;
+}
+
+.htAddButtonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htAddButton {
+  padding: 0.5em 1.2em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.htAddButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htAddButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Inline sample of the buttons, used in the exercise description. */
+.htAddButtonSample {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15em 0.7em;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  background-color: #eaf3fb;
+  color: #2c5f8a;
+  cursor: default;
+  font-size: 1.2em;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.htAddFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+}
+
+.htAddNextContainer {
+  margin-top: 0.75em;
+}
+
+.htAddHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htAddTable {
+    font-size: 1.2em;
+  }
+
+  .htAddSquare {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+/*
+ * Practicing addition with typed values (content
+ * 18ca9e1f-b936-447a-9bab-798159cefbb9). It reuses the vertical addition board
+ * and the squares of the Practicing addition game, but the bottom digit is
+ * entered through text fields instead of the up and down buttons. The fields
+ * are placed in the position of the sum: the digit in the result row and the
+ * carry in the carry row, above the next order.
+ */
+.htAddInSlot {
+  display: inline-block;
+}
+
+/* Squares covered by the written value: light yellow when they had no colour,
+   dark blue when they were already blue. */
+.htAddSquareWritten {
+  background-color: lightyellow;
+}
+
+.htAddSquareBaseWritten {
+  background-color: darkblue;
+}
+
+.htAddInput {
+  box-sizing: border-box;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 4px;
+  color: #2c5f8a;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.htAddInput:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+.htAddInput:disabled {
+  background-color: #f4f4f4;
+  opacity: 0.6;
+}
+
+/* Top-row value field: two digits fit in it (for example 13 when a column
+ * borrows ten squares). */
+.htAddInputTop {
+  width: 2.6rem;
+  min-width: 2.6rem;
+}
+
+/*
  * Rectangles comparison practice (content 03bb4b8e-6187-4572-8f00-ea3892df51a4).
  */
 .htRectApp {
@@ -3668,4 +3972,516 @@ p.desc svg {
   .htRectHTick {
     font-size: 0.55em;
   }
+}
+
+/*
+ * Greater or Smaller? game (content 548450ef-1b1a-4b9e-b578-2fef47abbd5b).
+ */
+.htGreaterSmallerGame {
+  margin: 1em auto;
+  max-width: 42em;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.htGreaterSmallerLevel {
+  display: block;
+  font-weight: bold;
+  color: #2c5f8a;
+  margin-bottom: 0.25em;
+}
+
+.htGreaterSmallerQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htGreaterSmallerCards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.htGreaterSmallerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 6em;
+  max-width: 100%;
+  padding: 0.5em 1em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.htGreaterSmallerLabel {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #555;
+}
+
+.htGreaterSmallerValue {
+  font-size: 1.6em;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.htGreaterSmallerOp {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2c5f8a;
+}
+
+.htGreaterSmallerButtonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htGreaterSmallerButton {
+  padding: 0.5em 1.2em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htGreaterSmallerButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htGreaterSmallerButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.htGreaterSmallerFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+}
+
+.htGreaterSmallerFeedback.htGreaterSmallerCorrect {
+  color: green;
+}
+
+.htGreaterSmallerFeedback.htGreaterSmallerWrong {
+  color: #c0392b;
+}
+
+.htGreaterSmallerNextContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htGreaterSmallerHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htGreaterSmallerValue {
+    font-size: 1.2em;
+  }
+
+  .htGreaterSmallerOp {
+    font-size: 1.5em;
+  }
+}
+
+/*
+ * Grouping in Threes game (content 931e0f32-bdc4-4f96-9039-e49cd9d06119).
+ */
+.htGroupThreesGame {
+  margin: 1em auto;
+  max-width: 52em;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.htGroupThreesColumns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1em;
+}
+
+.htGroupThreesPlay {
+  flex: 1 1 20em;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.htGroupThreesTable {
+  flex: 0 1 18em;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.htGroupThreesLevel {
+  display: block;
+  font-weight: bold;
+  color: #2c5f8a;
+  margin-bottom: 0.25em;
+}
+
+.htGroupThreesQuestion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+.htGroupThreesTotal {
+  display: block;
+  color: #555;
+}
+
+.htGroupThreesElements {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  max-width: 100%;
+  margin: 0.5em auto;
+  min-height: 2em;
+}
+
+.htGroupThreesElement {
+  font-size: 1.5em;
+  line-height: 1.1;
+}
+
+.htGroupThreesGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  padding: 0.15em 0.35em;
+  margin: 0.1em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+}
+
+.htGroupThreesButtonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4em;
+  margin-top: 0.5em;
+}
+
+.htGroupThreesButton {
+  min-width: 2.4em;
+  padding: 0.4em 0.8em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htGroupThreesButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htGroupThreesButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.htGroupThreesFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+}
+
+.htGroupThreesFeedback.htGroupThreesCorrect {
+  color: green;
+}
+
+.htGroupThreesFeedback.htGroupThreesWrong {
+  color: #c0392b;
+}
+
+.htGroupThreesNextContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htGroupThreesTableTitle {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.htGroupThreesTable #mt3,
+.htGroupThreesTable #mtTable3 {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.htGroupThreesHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htGroupThreesElement {
+    font-size: 1.25em;
+  }
+}
+
+/* --- Chess: culture selector (SECTION_chess) --- */
+.htChessCultures {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto 1em auto;
+  text-align: center;
+}
+
+.htChessCulturesTitle {
+  margin: 0 0 0.75em 0;
+  font-weight: bold;
+}
+
+.htChessCultureButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.htChessCultureBtn {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5em 1.25em;
+  border: 2px solid #8d6e63;
+  border-radius: 25px;
+  background-color: #fff8e1;
+  color: #5d4037;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.htChessCultureBtn:hover,
+.htChessCultureBtn:focus {
+  background-color: #ffe082;
+}
+
+.htChessCultureBtn.active {
+  background-color: #8d6e63;
+  color: #fff8e1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.htChessCulturePanel {
+  display: none;
+}
+
+.htChessCulturePanel.active {
+  display: block;
+}
+
+.htChessCultureDesc {
+  margin: 0 0 1em 0;
+}
+
+.htChessPieces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75em;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+.htChessPiece {
+  flex: 1 1 7em;
+  min-width: 0;
+  max-width: 11em;
+  box-sizing: border-box;
+  padding: 0.75em 0.5em;
+  border-radius: 15px;
+  background-color: #fbe9e7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.htChessPieceSvg {
+  width: 2.75em;
+  height: 2.75em;
+  display: block;
+  color: #5d4037;
+}
+
+.htChessPieceIcon {
+  font-size: 2.75em;
+  line-height: 1;
+  color: #5d4037;
+}
+
+.htChessPieceIconWrap {
+  position: relative;
+  display: inline-block;
+  font-size: 2.75em;
+  line-height: 1;
+  color: #5d4037;
+}
+
+.htChessPieceHat {
+  position: absolute;
+  left: calc(36% - 5px);
+  top: -0.14em;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 0.78em;
+  height: 0.54em;
+  pointer-events: none;
+}
+
+.htChessPieceTerm {
+  font-weight: bold;
+  color: #7a3f06;
+  background-color: #ffe3ad;
+  border-radius: 0.6em;
+  padding: 0.05em 0.5em;
+  overflow-wrap: anywhere;
+}
+
+.htChessPieceName {
+  font-size: 0.8em;
+  color: #6d4c41;
+  overflow-wrap: anywhere;
+}
+
+.htChessPiecesDesc {
+  margin: 1em 0 0 0;
+  font-size: 0.95em;
+  color: #4e342e;
+}
+
+.design-dark .htChessCultureBtn {
+  border-color: #90a4ae;
+  background-color: #37474f;
+  color: #eceff1;
+}
+
+.design-dark .htChessCultureBtn:hover,
+.design-dark .htChessCultureBtn:focus {
+  background-color: #455a64;
+}
+
+.design-dark .htChessCultureBtn.active {
+  background-color: #546e7a;
+  color: #eceff1;
+}
+
+.design-dark .htChessPiece {
+  background-color: #37474f;
+}
+
+.design-dark .htChessPieceSvg {
+  color: #eceff1;
+}
+
+.design-dark .htChessPieceIcon {
+  color: #eceff1;
+}
+
+.design-dark .htChessPieceIconWrap {
+  color: #eceff1;
+}
+
+.design-dark .htChessPieceName {
+  color: #eceff1;
+}
+
+.design-dark .htChessPieceTerm {
+  color: #ffe3ad;
+  background-color: #5d4037;
+}
+
+.design-dark .htChessPiecesDesc {
+  color: #eceff1;
+}
+
+/* --- Xiangqi pieces (SECTION_xiangqi) --- */
+.htXiangqiPieces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75em;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+.htXiangqiPiece {
+  flex: 1 1 11em;
+  min-width: 0;
+  max-width: 15em;
+  box-sizing: border-box;
+  padding: 0.6em 0.8em;
+  border-radius: 15px;
+  background-color: #fbe9e7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.htXiangqiPieceSvg {
+  width: 2.6em;
+  height: 2.6em;
+  flex-shrink: 0;
+  display: block;
+}
+
+.htXiangqiPiece .htChessPieceIcon {
+  font-size: 2.6em;
+  line-height: 1;
+}
+
+.htXiangqiPieceText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.design-dark .htXiangqiPiece {
+  background-color: #37474f;
 }
