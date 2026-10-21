@@ -33,6 +33,16 @@ SUB_FILES=	pkg-install pkg-message historytracers
 
 PLIST_SUB+=	PORTVERSION=${PORTVERSION}
 
+# The distfile ships no pre-built www/ tree: generate the web content on
+# the target with the publisher the same way ht_compile() in
+# historytracers2pkg.sh does (needs common/ from the submodule and
+# creates ./audios itself).
+post-build:
+.if ${PORT_OPTIONS:MWWW}
+	cd ${WRKSRC} && ${MKDIR} /var/log/historytracers 2>/dev/null; \
+	${WRKSRC}/build/historytracers-publisher -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf >> historytracers.log 2>&1
+.endif
+
 post-install-VIEWER-on:
 	${INSTALL_PROGRAM} ${WRKSRC}/build/historytracers ${STAGEDIR}${PREFIX}/bin/historytracers
 	${SED} -e 's,%%PREFIX%%,${PREFIX},g' ${FILESDIR}/historytracers.in > ${WRKDIR}/historytracers

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
 
-  <Package Name="HistoryTracers" Version="1.0.0"
+  <Package Name="HistoryTracers" Version="$(var.MsiVersion)"
            Manufacturer="History Tracers Team"
            UpgradeCode="3A7F4D2E-1B5C-8F9A-0D3E-6C2B4A8F1E7D"
            Scope="perMachine">

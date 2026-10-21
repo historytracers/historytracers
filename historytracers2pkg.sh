@@ -477,10 +477,15 @@ if [ -f "\$SRC/lib/systemd/system/historytracers.service" ]; then
     fi
     if [ -n "\$SYSTEMD_DEST" ]; then
         if install -m 644 "\$SRC/lib/systemd/system/historytracers.service" "\$SYSTEMD_DEST" 2>/dev/null; then
-            # Patch WorkingDirectory and ExecStart to match PREFIX
-            sed -i "s|WorkingDirectory=/usr/share/historytracers|WorkingDirectory=\${PREFIX}/share/historytracers|g" "\$SYSTEMD_DEST" 2>/dev/null || true
+            # Patch WorkingDirectory and ExecStart (including the -dir argument)
+            # to match PREFIX. The service unit ships pointing at the standard
+            # docroot (/var/www/htdocs/historytracers), so patch those strings.
+            sed -i "s|WorkingDirectory=/var/www/htdocs/historytracers|WorkingDirectory=\${PREFIX}/share/historytracers/www|g" "\$SYSTEMD_DEST" 2>/dev/null || true
+            sed -i "s|WorkingDirectory=/usr/share/historytracers|WorkingDirectory=\${PREFIX}/share/historytracers/www|g" "\$SYSTEMD_DEST" 2>/dev/null || true
+            sed -i "s|ExecStart=/usr/bin/historytracers -dir /var/www/htdocs/historytracers|ExecStart=\${PREFIX}/bin/historytracers -dir \${PREFIX}/share/historytracers/www|g" "\$SYSTEMD_DEST" 2>/dev/null || true
             sed -i "s|ExecStart=/usr/bin/historytracers|ExecStart=\${PREFIX}/bin/historytracers|g" "\$SYSTEMD_DEST" 2>/dev/null || true
             sed -i "s|ExecStart=/usr/local/bin/historytracers|ExecStart=\${PREFIX}/bin/historytracers|g" "\$SYSTEMD_DEST" 2>/dev/null || true
+            sed -i "s|-dir /var/www/htdocs/historytracers|-dir \${PREFIX}/share/historytracers/www|g" "\$SYSTEMD_DEST" 2>/dev/null || true
             echo "  installed \$SYSTEMD_DEST"
             SYSTEMD_INSTALLED=1
             if [ -z "\$DESTDIR" ] && [ "\$(id -u 2>/dev/null || echo 0)" = "0" ] && command -v systemctl >/dev/null 2>&1; then
@@ -585,7 +590,7 @@ HTSTATIC_HEADER
 
 ht_usage() {
     cat <<HTDOC
-        bash ht2pkg.sh [OPTIONS]
+        bash historytracers2pkg.sh [OPTIONS]
 
         --deb, -d               Create Debian package
         --rpm, -r               Create RPM package
@@ -758,7 +763,10 @@ ht_build_slackware() {
     # disabled since images/ ships in a separate tarball.
     sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
     mkdir -p "${DST}/www"
-    cp -R ./*.md LICENSE Makefile.am bodies configure.ac css csv editor.html gedcom historytracers-installer.sh historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
+    cp -R ./*.md LICENSE Makefile.am bodies common configure.ac css csv editor.html gedcom historytracers-installer.sh historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
+    # Strip dangling submodule metadata: common/.git is a gitlink file that
+    # means nothing outside this clone.
+    rm -f "${DST}/common/.git"
     # Drop stray Go build outputs (e.g. src/viewer/viewer) so the source
     # tarball stays free of ELF binaries.
     rm -f "${DST}/src/viewer/viewer" "${DST}/src/publisher/publisher" "${DST}/src/editor/editor" \
@@ -1158,6 +1166,7 @@ PSEOF
         #"${WIXDIR}/editor-fragment.wxs" \
         -o "$OUTPUT_MSI" \
         -arch x64 \
+        -d MsiVersion="$MSI_VERSION" \
         -d BuildDir="$BUILD_DIR" \
         -d WwwDir="$WWW_DIR" \
         -d ImagesDir="$IMAGES_DIR" \

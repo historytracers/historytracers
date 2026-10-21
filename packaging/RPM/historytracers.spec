@@ -95,13 +95,19 @@ install -m 644 %{_sourcedir}/www/images/img_options.json %{buildroot}/var/www/ht
 # Copy top-level source entries except build outputs, www/, packaging temp
 # dirs and local run artifacts (redirect captures like err/out and logs not
 # only bloat the payload: they embed the BUILDROOT path and trip
-# /usr/lib/rpm/check-buildroot, aborting the build)
+# /usr/lib/rpm/check-buildroot, aborting the build). Also skip
+# autotools-generated files (bootstrap regenerates them) and the publisher
+# cache.
 cd %{_sourcedir}
 for entry in * .[!.]*; do \
   [ -e "$entry" ] || continue; \
-  case "$entry" in www|.git|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|autom4te.cache) continue;; esac; \
+  case "$entry" in www|.git|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|config.h|config.h.in|config.guess|config.sub|install-sh|missing|Makefile|Makefile.in|configure|aclocal.m4|autom4te.cache|build-aux|.ht_src_cache) continue;; esac; \
+  case "$entry" in *~) continue;; esac; \
   cp -r "$entry" %{buildroot}/usr/src/historytracers/; \
 done
+# Strip dangling submodule metadata: common/.git is a gitlink file that
+# means nothing outside the original clone.
+rm -f %{buildroot}/usr/src/historytracers/common/.git
 # Drop stray Go build outputs left in the source tree (e.g. `go build`
 # without -o creates src/viewer/viewer, src/publisher/publisher). They are
 # ELF binaries and must not ship in the noarch devel subpackage, otherwise

@@ -68,6 +68,13 @@ cat packaging/Slackware/historytracers-www-desc > "$PKG_WWW/install/slack-desc"
 chmod +x historytracers-installer.sh
 ./historytracers-installer.sh
 
+# Generate the web content on the target: the source tarball ships no
+# pre-built www/, so run the publisher the same way ht_compile() in
+# historytracers2pkg.sh does. Needs the common/ submodule source (Go
+# dependency of the publisher) and creates ./audios itself.
+mkdir -p /var/log/historytracers 2>/dev/null || true
+./build/historytracers-publisher -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf >> historytracers.log 2>&1
+
 # Install the binaries
 install -m 755 build/historytracers "$PKG/usr/bin/historytracers"
 #if [ -f build/historytracers-editor ]; then
@@ -118,13 +125,19 @@ if [ -f README.md ]; then
   install -m 644 README.md "$PKG/usr/doc/$PRGNAM/"
 fi
 
-# Install source code (devel): everything except generated www/, build outputs and VCS
+# Install source code (devel): everything except generated www/, build
+# outputs, VCS, autotools-generated files (bootstrap regenerates them) and
+# publisher caches
 mkdir -p "$PKG/usr/src/$PRGNAM"
 for item in * .[!.]*; do
   [ -e "$item" ] || continue
-  case "$(basename "$item")" in www|.git|build|historytracers.log) continue;; esac
+  case "$(basename "$item")" in www|.git|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|config.h|config.h.in|config.guess|config.sub|install-sh|missing|Makefile|Makefile.in|configure|aclocal.m4|autom4te.cache|build-aux|.ht_src_cache) continue;; esac
+  case "$item" in *~) continue;; esac
   cp -R "$item" "$PKG/usr/src/$PRGNAM/"
 done
+# Strip dangling submodule metadata: common/.git is a gitlink file that
+# means nothing outside the original clone
+rm -f "$PKG/usr/src/$PRGNAM/common/.git"
 
 chmod 755 "$PKG/install/doinst.sh"
 chmod 755 "$PKG_WWW/install/doinst.sh"

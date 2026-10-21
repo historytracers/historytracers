@@ -17,7 +17,7 @@
 
 FROM fedora:44
 
-RUN dnf install -y make gcc golang nodejs autoconf automake which tar gzip findutils coreutils sed gawk && dnf clean all
+RUN dnf install -y make gcc golang nodejs autoconf automake which tar gzip findutils coreutils sed gawk diffutils pkgconf-pkg-config && dnf clean all
 
 WORKDIR /workspace
 COPY . .

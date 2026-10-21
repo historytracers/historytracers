@@ -43,6 +43,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # The publisher needs the common/ submodule (Go replace directive
+          # in src/publisher/go.mod points at common/src/go); without it the
+          # static build in the Docker container fails.
+          submodules: recursive
 
       - name: Resolve version
         id: version
@@ -102,19 +106,28 @@ jobs:
           set -e
           VERSION="${{ steps.version.outputs.version }}"
           echo "Creating source archives for version $VERSION"
-          # Ensure artifacts exists (static step already created it, but guard for workflow_dispatch without tag)
           mkdir -p artifacts
-          # Use git archive so the archives contain the exact committed tree
-          # with a versioned top-level directory (historytracers-<version>/)
-          git archive --format=tar.gz --prefix="historytracers-${VERSION}/" -o "artifacts/historytracers-${VERSION}.tar.gz" HEAD
-          git archive --format=zip --prefix="historytracers-${VERSION}/" -o "artifacts/historytracers-${VERSION}.zip" HEAD
-          # Fallback for environments without git archive (should not happen on ubuntu-latest)
-          if [ ! -f "artifacts/historytracers-${VERSION}.tar.gz" ]; then
-            tar --exclude=.git --exclude=artifacts --exclude=www --exclude=build -czf "artifacts/historytracers-${VERSION}.tar.gz" .
-          fi
-          if [ ! -f "artifacts/historytracers-${VERSION}.zip" ]; then
-            zip -r "artifacts/historytracers-${VERSION}.zip" . -x ".git/*" "artifacts/*" "www/*" "build/*"
-          fi
+          # git archive cannot recurse into submodules: the source tree must
+          # contain common/ because the publisher's Go module resolves
+          # github.com/historytracers/common via a replace directive to
+          # common/src/go. Archive the checked-out working tree instead,
+          # keeping the same versioned top-level directory.
+          STAGE="$(mktemp -d)"
+          mkdir -p "${STAGE}/historytracers-${VERSION}"
+          tar -cf - \
+            --exclude='./.git' \
+            --exclude='./artifacts' \
+            --exclude='./www' \
+            --exclude='./build' \
+            --exclude='./common/.git' \
+            --exclude='./historytracers.log' \
+            . | tar -xf - -C "${STAGE}/historytracers-${VERSION}"
+          (
+            cd "$STAGE" && \
+            tar -czf "${GITHUB_WORKSPACE}/artifacts/historytracers-${VERSION}.tar.gz" "historytracers-${VERSION}" && \
+            zip -qr "${GITHUB_WORKSPACE}/artifacts/historytracers-${VERSION}.zip" "historytracers-${VERSION}"
+          )
+          rm -rf "$STAGE"
           ls -lh artifacts/
           echo "Source archives created:"
           ls -lh "artifacts/historytracers-${VERSION}.tar.gz" "artifacts/historytracers-${VERSION}.zip"

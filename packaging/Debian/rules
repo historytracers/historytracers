@@ -56,15 +56,21 @@ override_dh_install:
 	# ===== DEVEL SUBPACKAGE (historytracers-devel) =====
 
 	# Copy everything from source root except build outputs, www/, VCS/packaging
-	# temp dirs and local run artifacts (redirect captures like err/out and logs)
+	# temp dirs, local run artifacts (redirect captures like err/out and logs),
+	# autotools-generated files (bootstrap regenerates them) and the publisher
+	# cache.
 	dest=debian/historytracers-devel/usr/src/historytracers; \
 	install -d "$$dest"; \
 	for f in $(CURDIR)/* $(CURDIR)/.[!.]*; do \
 		[ -e "$$f" ] || continue; \
 		base=$$(basename "$$f"); \
-		case "$$base" in www|.git|debian|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|autom4te.cache) continue;; esac; \
+		case "$$base" in www|.git|debian|build|artifacts|rpmbuild|err|out|historytracers.log|config.log|config.status|config.h|config.h.in|config.guess|config.sub|install-sh|missing|Makefile|Makefile.in|configure|aclocal.m4|autom4te.cache|build-aux|.ht_src_cache) continue;; esac; \
+		case "$$base" in *~) continue;; esac; \
 		cp -r "$$f" "$$dest"/; \
 	done
+	# Strip dangling submodule metadata: common/.git is a gitlink file that
+	# means nothing outside the original clone.
+	rm -f debian/historytracers-devel/usr/src/historytracers/common/.git
 	# Drop stray Go build outputs left in the source tree (e.g. `go build`
 	# without -o creates src/viewer/viewer). They are ELF binaries and must
 	# not ship in the Architecture: all devel package.

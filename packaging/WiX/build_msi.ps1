@@ -330,6 +330,7 @@ Write-Host "Building MSI..."
 & $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest `
     -o $msiOut `
     -arch x64 `
+    -d MsiVersion=$msiVersion `
     -d BuildDir=$buildDir `
     -d WwwDir=$wwwSource `
     -d ImagesDir=$imagesSource `
