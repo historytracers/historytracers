@@ -529,7 +529,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como exemplo, dividamos 320 por 5. Primeiro, 5 não entra no 3 das centenas, de modo que o primeiro dígito do quociente fica nas dezenas. 5 entra em 32 seis vezes (5 × 60 = 300) e deixa 20. Ao baixar o 0 continuamos com 20, e 5 entra em 20 quatro vezes (5 × 4 = 20) e deixa 0. O quociente é 64, com resto 0:",
+               "text": "Como exemplo, dividamos 29 por 4. O número 29 tem 2 dezenas e 9 unidades. Começamos pelo maior valor posicional, as dezenas: como 2 é menor que 4, não há dígito para as dezenas no quociente. Em seguida, tomamos as 2 dezenas junto com as 9 unidades, o que dá 29 unidades. Ao dividir 29 em grupos de 4, obtemos 7 grupos (7 × 4 = 28) e sobra 1 unidade. O quociente é 7, com resto 1:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -538,7 +538,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 20 </td><td> &nbsp; </td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr></table></p><p class=\"desc\"><b>Cálculo 1</b>: Divisão de 320 por 5.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 29 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 4 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 28 </td><td>7</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 1 </td><td> &nbsp; </td></tr></table></p><p class=\"desc\"><b>Cálculo 1</b>: Divisão de 29 por 4.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -553,6 +553,24 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prova real\n\nPara confirmar o resultado, usamos a relação entre a multiplicação e a divisão da **Fórmula 2**: a divisão é a operação inversa da multiplicação. Se o quociente é 7 e o divisor é 4, então 7 × 4 = 28. Somando o resto, 1, obtemos 28 + 1 = 29, que é exatamente o dividendo. Como recuperamos o dividendo, o quociente 7 e o resto 1 estão corretos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>7</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">x</mo><mn>4</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>29</mn></math></p><p class=\"desc\"><b>Cálculo 2</b>: Prova real da divisão de 29 por 4.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]

@@ -529,7 +529,7 @@
                "PostMention": ""
             },
             {
-               "text": "As an example, let us divide 320 by 5. First, 5 does not go into the 3 of the hundreds place, so the first digit of the quotient goes in the tens. 5 goes into 32 six times (5 × 60 = 300), leaving 20. Bringing down the 0 keeps 20, and 5 goes into 20 four times (5 × 4 = 20), leaving 0. The quotient is 64, with remainder 0:",
+               "text": "As an example, let us divide 29 by 4. The number 29 has 2 tens and 9 units. We start with the highest place value, the tens: since 2 is less than 4, there is no digit for the tens place in the quotient. We then take the 2 tens together with the 9 units, which gives 29 units. Dividing 29 into groups of 4, we get 7 groups (7 × 4 = 28) and 1 unit left over. The quotient is 7, with remainder 1:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -538,7 +538,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 20 </td><td> &nbsp; </td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr></table></p><p class=\"desc\"><b>Calculation 1</b>: Division of 320 by 5.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 29 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 4 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 28 </td><td>7</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 1 </td><td> &nbsp; </td></tr></table></p><p class=\"desc\"><b>Calculation 1</b>: Division of 29 by 4.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -553,6 +553,24 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "### Real proof\n\nTo confirm the result, we use the relationship between multiplication and division from **Formula 2**: division is the inverse of multiplication. If the quotient is 7 and the divisor is 4, then 7 × 4 = 28. Adding the remainder, 1, we obtain 28 + 1 = 29, which is exactly the dividend. Since we recovered the dividend, the quotient 7 and the remainder 1 are correct.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>7</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">x</mo><mn>4</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>1</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>29</mn></math></p><p class=\"desc\"><b>Calculation 2</b>: Real proof of the division of 29 by 4.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]
