@@ -409,7 +409,16 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 20 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 1</b>: Division of 320 by 5.</p>",
+               "text": "<p class=\"htLongDivisionFormat\"><b>Division format:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Result below</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Result on top</button></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 20 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 1</b>: Division of 320 by 5.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -458,7 +467,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">3</span>20 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr></table></p><p class=\"desc\"><b>Calculation 2</b>: Division of 3 by 5.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">3</span>20 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr></table></p><p class=\"desc\"><b>Calculation 2</b>: Division of 3 by 5.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -489,7 +498,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">32</span>0 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td>&nbsp; </td><td><span style=\"color: blue;\">6</span></td></tr> </table></p><p class=\"desc\"><b>Calculation 3</b>: Division of 32 by 5.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">32</span>0 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td>&nbsp; </td><td><span style=\"color: blue;\">6</span></td></tr> </table></p><p class=\"desc\"><b>Calculation 3</b>: Division of 32 by 5.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -543,7 +552,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">320</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">300</span> </td><td>6</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 5</b>: Subtraction of 300 from 320.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">320</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">300</span> </td><td>6</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 5</b>: Subtraction of 300 from 320.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -561,7 +570,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>6</td></tr><tr><td>&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">2</span>0 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 6</b>: Division of 2 by 5.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>6</td></tr><tr><td>&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">2</span>0 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 6</b>: Division of 2 by 5.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -592,7 +601,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>6<span style=\"color: blue;\">4</span></td></tr><tr><td>&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">20</span> </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 7</b>: Division of 20 by 5.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>6<span style=\"color: blue;\">4</span></td></tr><tr><td>&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">20</span> </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 7</b>: Division of 20 by 5.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -610,7 +619,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">20</span> </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp;  <span style=\"color: blue;\">20</span></td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">0</span></td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 8</b>: Subtraction of 20 from 20.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">20</span> </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp;  <span style=\"color: blue;\">20</span></td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">0</span></td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Calculation 8</b>: Subtraction of 20 from 20.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -641,7 +650,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>Dividend </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> Divisor </td></tr> <tr><td>Remainder </td><td> Quotient</td></tr></table></p><p class=\"desc\"><b>Algorithm 1</b>: Parts of the long-division algorithm.</p>",
+               "text": "<p><table class=\"htLongDivision htLongDivisionParts\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>Dividend </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> Divisor </td></tr> <tr><td>Remainder </td><td> Quotient</td></tr></table></p><p class=\"desc\"><b>Algorithm 1</b>: Parts of the long-division algorithm.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -783,17 +792,17 @@
       {
          "question": "When using the same amount of dough (320 grams) to make 6 tortillas, will the final result also be 64 grams?",
          "yesNoAnswer": "No",
-         "additionalInfo": "As we increase the final number of tortillas, we are making smaller tortillas, since they all start with the same amount of dough. Therefore, 320 divided by 6 equals 53 with a remainder of 2.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 6 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>53</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 18 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2</td><td> &nbsp; </td></tr> </table></p>"
+         "additionalInfo": "As we increase the final number of tortillas, we are making smaller tortillas, since they all start with the same amount of dough. Therefore, 320 divided by 6 equals 53 with a remainder of 2.<br /><p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 6 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>53</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 18 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2</td><td> &nbsp; </td></tr> </table></p>"
       },
       {
          "question": "When using the same amount of dough (320 grams) to make 4 tortillas, will the final result also be 64 grams?",
          "yesNoAnswer": "No",
-         "additionalInfo": "As we decrease the final number of tortillas, we are making larger tortillas, since they all start with the same amount of dough. Therefore, 320 divided by 4 equals 80, with no remainder: 320 is a multiple of 4.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 4 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 320 </td><td>80</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 0 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 0 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr> </table></p>"
+         "additionalInfo": "As we decrease the final number of tortillas, we are making larger tortillas, since they all start with the same amount of dough. Therefore, 320 divided by 4 equals 80, with no remainder: 320 is a multiple of 4.<br /><p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 4 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 320 </td><td>80</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 0 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 0 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr> </table></p>"
       },
       {
          "question": "When using the same amount of dough (320 grams) to make 2 tortillas, will the final result be 160 grams?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "As we decrease the final number of tortillas, we are making larger tortillas, since they all start with the same amount of dough. Therefore, 320 divided by 2 equals 160: that is double the size obtained when dividing by 4 (80 g). In other words, each time we halve the number of tortillas, each tortilla becomes twice as big.<br />Furthermore, we note that, for the first time, we performed the division of the units, since they were not used together with the tens.<br />Finally, we highlight that, since the remainder is zero, this indicates that 320 is a multiple of 2, as well as of 4 and of 5.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 2 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 200 </td><td>160</td></tr><tr><td>&nbsp; 120 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 120 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr> <tr><td style=\"border-bottom: 2px solid black;\">- &nbsp;&nbsp;&nbsp; 0 </td><td> &nbsp; </td></tr>  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr></table></p>"
+         "additionalInfo": "As we decrease the final number of tortillas, we are making larger tortillas, since they all start with the same amount of dough. Therefore, 320 divided by 2 equals 160: that is double the size obtained when dividing by 4 (80 g). In other words, each time we halve the number of tortillas, each tortilla becomes twice as big.<br />Furthermore, we note that, for the first time, we performed the division of the units, since they were not used together with the tens.<br />Finally, we highlight that, since the remainder is zero, this indicates that 320 is a multiple of 2, as well as of 4 and of 5.<br /><p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 2 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 200 </td><td>160</td></tr><tr><td>&nbsp; 120 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 120 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr> <tr><td style=\"border-bottom: 2px solid black;\">- &nbsp;&nbsp;&nbsp; 0 </td><td> &nbsp; </td></tr>  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr></table></p>"
       }
    ],
    "game_v2": null,
