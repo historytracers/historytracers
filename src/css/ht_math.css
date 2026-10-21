@@ -4581,6 +4581,48 @@ p.desc svg {
   color: #64b5f6;
 }
 
+/* Interactive division exercise (9e2e82c6): top visualization */
+.htDivisionTopTable {
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.htDivisionTopStage {
+  text-align: center;
+  padding: 0.5em 0;
+  white-space: nowrap;
+}
+
+.htDivisionTopStage .htLongDivisionTop {
+  display: inline-table;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.htDivisionTopArrows {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1.2em;
+}
+
+.htDivisionTopArrows .upArrowWithFA,
+.htDivisionTopArrows .downArrowWithFA {
+  font-size: 2.5em;
+  cursor: pointer;
+  margin: 0 0.1em;
+}
+
+.htDivisionTopPrompt {
+  text-align: center;
+  padding: 0.4em 0.2em;
+}
+
+.htDivisionTopNext {
+  text-align: center;
+}
+
 @media screen and (max-width: 600px) {
   .htLongDivisionFormatBtn {
     font-size: 0.85em;
