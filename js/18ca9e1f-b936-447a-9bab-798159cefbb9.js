@@ -303,9 +303,20 @@ function htAddInEvaluate() {
     htAddInMarkWrittenSquares(digitRaw);
 
     if (digitRaw !== "" && !digitOk) {
-        $("#htAddInFeedback").html(htAddInReplace($("#htAddInWrongDigitTemplate").html(), {
+        // The tip covers both numbers of the column: the complement of the
+        // value already in the column and how the bottom digit compares to it.
+        var wrongTemplate;
+        if (base >= 10) {
+            wrongTemplate = $("#htAddInWrongDigitOverTemplate").html();
+        } else if (addend >= complement) {
+            wrongTemplate = $("#htAddInWrongDigitTenTemplate").html();
+        } else {
+            wrongTemplate = $("#htAddInWrongDigitTemplate").html();
+        }
+        $("#htAddInFeedback").html(htAddInReplace(wrongTemplate, {
             order: order,
             base: base,
+            added: addend,
             comp: complement
         }));
         return;
