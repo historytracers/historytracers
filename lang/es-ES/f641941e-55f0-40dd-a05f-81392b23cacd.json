@@ -1,0 +1,114 @@
+{
+   "title": "Multiplicando con grupos (0 a 3)",
+   "header": "Multiplicando con grupos (0 a 3)",
+   "sources": [
+      "f641941e-55f0-40dd-a05f-81392b23cacd"
+   ],
+   "scripts": [
+      "f641941e-55f0-40dd-a05f-81392b23cacd"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f641941e-55f0-40dd-a05f-81392b23cacd_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792681804"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEste juego practica las tablas de multiplicar del 0, el 1, el 2 y el 3. Antes de jugar, te sugerimos repasar:\n\n- **Multiplicando con el cuerpo (Fase 1)**: un juego para practicar la multiplicación con las tablas que ya conoces (<htcite0>)\n- **Entendiendo la tabla de multiplicar (2 y 3)**: cómo se relaciona la multiplicación con los triángulos y con la tabla de multiplicar (<htcite1>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "59648475-3d23-45fe-8d6e-f3def1a2729b",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando con el cuerpo (Fase 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f7f4988d-1427-4e26-a6a8-c375c57924c7",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la tabla de multiplicar (2 y 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Reglas generales\n\nEl juego tiene tres niveles. A la izquierda aparece una multiplicación; a la derecha se muestra su resultado con grupos de caracteres. Cada rectángulo de la derecha contiene tantos caracteres como el primer factor, y el número de rectángulos es el segundo factor. Por ejemplo, 2 × 4 muestra dos caracteres en cada uno de cuatro rectángulos.\n\nEn el primer nivel aparecen tres multiplicaciones: una es de la tabla del 0 y dos son de la tabla del 1. En el segundo nivel aparecen dos multiplicaciones, ambas de la tabla del 2. En el tercer nivel aparecen dos multiplicaciones, ambas de la tabla del 3. Selecciona una multiplicación y luego su resultado; si la pareja es correcta, ambos quedan resaltados. Cuando aciertes todas las parejas, completas el nivel y puedes pasar al siguiente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### El juego\n\nUne cada multiplicación de la izquierda con su resultado de la derecha. El resultado también se muestra como grupos de caracteres, así puedes contarlos para comprobar tu respuesta.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupLevel\" class=\"level-badge\"></span></p><p><div id=\"multGroupGame\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupLeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupRightCol\"></div></div></p><p id=\"multGroupFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupLevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡CORRECTO! 🎉🎉🎉<br />¡Acertaste todas las parejas de este nivel!</p><p id=\"multGroupAllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br />¡Acertaste todas las multiplicaciones!</p><p style=\"text-align: center\"><button id=\"multGroupReset\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button></p><p style=\"text-align: center\"><button id=\"multGroupNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupWordLevel\" style=\"display: none\">Nivel</span><span id=\"multGroupWordNextLevel\" style=\"display: none\">Siguiente nivel</span><span id=\"multGroupWordPlayAgain\" style=\"display: none\">Jugar de nuevo</span><span id=\"multGroupWordWrongPair\" style=\"display: none\">%RESULT% no es el resultado de %EXPRESSION%. Inténtalo de nuevo.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

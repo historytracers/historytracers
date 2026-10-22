@@ -2805,6 +2805,76 @@ p.desc svg {
   text-decoration-color: #eceff1;
 }
 
+/* Multiplying with Groups (f641941e): match a multiplication with its result
+   drawn as characters grouped inside rectangles. Reuses the .orderGame
+   two-column matching layout. */
+.htMultGroupGame {
+  width: 100%;
+}
+
+.htMultGroupLeftCol {
+  flex: 0 0 auto;
+}
+
+.htMultGroupRightCol {
+  flex: 1 1 16em;
+  min-width: 0;
+}
+
+.htMultGroupExprBtn {
+  font-size: 1.15em;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.htMultGroupResultBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.5em 0.6em;
+  white-space: normal;
+}
+
+.htMultGroupValue {
+  font-size: 1.35em;
+  line-height: 1;
+}
+
+.htMultGroupsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  max-width: 100%;
+}
+
+.htMultGroupBox {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05em;
+  min-width: 1.7em;
+  min-height: 1.7em;
+  padding: 0.1em 0.2em;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  background-color: #eaf3fb;
+  box-sizing: border-box;
+}
+
+.htMultGroupIcon {
+  font-size: clamp(0.75rem, 2.4vw, 1rem);
+  line-height: 1;
+}
+
+.design-dark .htMultGroupBox {
+  background-color: #263238;
+  border-color: #90a4ae;
+}
+
 /* Around the World (6c071696): tour of the first counting tools created by
    humanity, with a "represent the number" practice game for each instrument. */
 .atw-game {
