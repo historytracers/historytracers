@@ -23,7 +23,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792681804"
+      "1792688681"
    ],
    "authors": null,
    "reviewers": null,
@@ -35,7 +35,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nThis game practices the multiplication tables of 0, 1, 2 and 3. Before you play, we suggest reviewing:\n\n- **Multiplying with the body (Level 1)**: a game to practice multiplication with the times tables you already know (<htcite0>)\n- **Understanding the Multiplication Table (2 and 3)**: how multiplication relates to triangles and to the multiplication table (<htcite1>)",
+               "text": "### Prerequisites\n\nThis game practices the multiplication tables of 0, 1, 2 and 3. Before you play, we suggest reviewing:\n\n- **Multiplying with the body (Level 1)**: a game to practice multiplication with the times tables you already know (<htcite0>)\n- **Understanding the Multiplication Table (0 and 1)**: how the multiplication tables of 0 and 1 work (<htcite2>)\n- **Understanding the Multiplication Table (2 and 3)**: how multiplication relates to triangles and to the multiplication table (<htcite1>)\n\nThose activities prepare you to see each multiplication here as a picture of equal groups.",
                "source": [
                   {
                      "type": 1,
@@ -60,6 +60,18 @@
                         "month": "-1",
                         "day": "-1"
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2acc8c3a-8b10-4b67-8d70-ec1113e691c4",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
                   }
                ],
                "date_time": null,
@@ -74,7 +86,7 @@
          "id": "SECTION_rules",
          "text": [
             {
-               "text": "### General rules\n\nThe game has three levels. On the left, a multiplication appears; on the right, its result is shown with groups of characters. Each rectangle on the right holds as many characters as the first factor, and the number of rectangles is the second factor. For example, 2 × 4 shows two characters in each of four rectangles.\n\nIn the first level, three multiplications appear: one is from the 0 times table and two are from the 1 times table. In the second level, two multiplications appear, both from the 2 times table. In the third level, two multiplications appear, both from the 3 times table. Select a multiplication and then its result; if the pair is correct, both stay highlighted. When you match every pair, you complete the level and can move on to the next one.",
+               "text": "### General rules\n\nThis game helps you see multiplication as equal groups. On the left, you will see a multiplication; on the right, its result appears together with a picture of groups of characters.\n\nEach rectangle on the right is one group. Every rectangle holds as many characters as the first factor, and the number of rectangles is the second factor. For example, 2 × 4 shows two characters in each of four rectangles — that is four groups of two, and the result is 8. When the first factor is 0, no characters appear, because zero times any number is zero.\n\nThe game has three levels:\n\n- **Level 1**: three multiplications — one from the 0 times table and two from the 1 times table.\n- **Level 2**: two multiplications, both from the 2 times table.\n- **Level 3**: two multiplications, both from the 3 times table.\n\nTo play, select a multiplication on the left and then its result on the right. If the pair is correct, both stay highlighted. When you match every pair, you complete the level and can move on to the next one.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -88,7 +100,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "### The Game\n\nMatch each multiplication on the left with its result on the right. The result is also shown as groups of characters, so you can count them to check your answer.",
+               "text": "### The Game\n\nMatch each multiplication on the left with its result on the right. The result also appears as groups of characters, so you can count them to check your answer. If a pair is wrong, a message will ask you to try again.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -97,7 +109,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align: center\"><span id=\"multGroupLevel\" class=\"level-badge\"></span></p><p><div id=\"multGroupGame\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupLeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupRightCol\"></div></div></p><p id=\"multGroupFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupLevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the pairs in this level!</p><p id=\"multGroupAllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the multiplications!</p><p style=\"text-align: center\"><button id=\"multGroupReset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"multGroupNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupWordLevel\" style=\"display: none\">Level</span><span id=\"multGroupWordNextLevel\" style=\"display: none\">Next level</span><span id=\"multGroupWordPlayAgain\" style=\"display: none\">Play again</span><span id=\"multGroupWordWrongPair\" style=\"display: none\">%RESULT% is not the result of %EXPRESSION%. Try again.</span>",
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupLevel\" class=\"level-badge\"></span></p><p><div id=\"multGroupGame\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupLeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupRightCol\"></div></div></p><p id=\"multGroupFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupLevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the pairs in this level!</p><p id=\"multGroupAllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the multiplications!</p><p style=\"text-align: center\"><button id=\"multGroupReset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"multGroupNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupWordLevel\" style=\"display: none\">Level</span><span id=\"multGroupWordNextLevel\" style=\"display: none\">Next level</span><span id=\"multGroupWordPlayAgain\" style=\"display: none\">Play again</span><span id=\"multGroupWordWrongPair\" style=\"display: none\">%RESULT% is not the result of %EXPRESSION%. Count the characters and try again.</span>",
                "source": null,
                "date_time": null,
                "isTable": false,
