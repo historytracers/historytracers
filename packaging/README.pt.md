@@ -128,9 +128,42 @@ genérica de código-fonte usada pelo SlackBuild.
 
 ### Windows (MSI)
 
-Dê um duplo clique em `artifacts/HistoryTracers-1.0.0.msi` (ou execute
-`msiexec /i HistoryTracers-1.0.0.msi`). Construído apenas em
-Windows/MSYS com o WiX Toolset.
+Dê um duplo clique em `artifacts/HistoryTracers.msi` (ou execute
+`msiexec /i HistoryTracers.msi`). Construído apenas em Windows/MSYS
+com o WiX Toolset. O nome do arquivo não leva versão; a versão fica
+nos metadados do MSI (`ProductVersion`).
+
+Por padrão é feita uma **instalação completa**: o binário do
+visualizador, os atalhos do menu Iniciar e o conteúdo web em
+`Program Files\HistoryTracers\`.
+
+Duas opções de instalação são controladas por propriedades do msiexec
+(sem assistente):
+
+- `INSTALLTYPE=ContentOnly`: não instala binário nem atalhos; todo o
+  conteúdo `www/` é copiado para um diretório `historytracers/`
+  criado dentro da pasta indicada em `CONTENTROOT` (caminho absoluto,
+  com ou sem barra invertida final). A instalação completa é o padrão
+  quando a propriedade não é definida.
+- `INSTALLIMAGES=0`: o pacote de imagens de museus é instalado por
+  padrão em ambos os tipos de instalação; use esta propriedade para
+  omiti-lo.
+
+ Exemplos de uso:
+
+```bat
+:: Instalação completa (padrão)
+msiexec /i HistoryTracers.msi
+
+:: Apenas conteúdo web: D:\Sites\historytracers\ recebe todos os arquivos www/
+msiexec /i HistoryTracers.msi INSTALLTYPE=ContentOnly CONTENTROOT="D:\Sites"
+
+:: Apenas conteúdo, sem as imagens
+msiexec /i HistoryTracers.msi INSTALLTYPE=ContentOnly CONTENTROOT="D:\Sites" INSTALLIMAGES=0
+```
+
+Um `CONTENTROOT` inválido ou ausente no modo de apenas conteúdo aborta
+a instalação com uma mensagem explicativa.
 
 ### Estático (instalador auto-extrator)
 

@@ -107,7 +107,9 @@ if (Test-Path $infoFile) {
     if ($m -and $m.Matches[0].Groups[1].Value) { $msiVersion = $m.Matches[0].Groups[1].Value }
   }
 }
-$msiOut          = Join-Path $OutputDir "HistoryTracers-$msiVersion.msi"
+# Output released without a version in the name; ProductVersion still
+# carries $msiVersion inside the MSI metadata.
+$msiOut          = Join-Path $OutputDir "HistoryTracers.msi"
 
 # ---- Helper: directory-aware ID generation for v6 fragments ----
 function Get-DirId {

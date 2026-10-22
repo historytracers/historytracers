@@ -124,9 +124,40 @@ source tree used by the SlackBuild.
 
 ### Windows (MSI)
 
-Double-click `artifacts/HistoryTracers-1.0.0.msi` (or run
-`msiexec /i HistoryTracers-1.0.0.msi`). Built only under Windows/MSYS
-with the WiX Toolset.
+Double-click `artifacts/HistoryTracers.msi` (or run
+`msiexec /i HistoryTracers.msi`). Built only under Windows/MSYS with
+the WiX Toolset. The file name carries no version; the version is kept
+in the MSI metadata (`ProductVersion`).
+
+By default this performs a **full installation**: the viewer binary,
+Start Menu shortcuts and the web content under
+`Program Files\HistoryTracers\`.
+
+Two install options are driven by msiexec properties (no wizard):
+
+- `INSTALLTYPE=ContentOnly`: installs no binary and no shortcuts; all
+  the `www/` content is copied flat into a `historytracers/` directory
+  created inside the folder given by `CONTENTROOT` (absolute path,
+  with or without a trailing backslash). The full installation is the
+  default when the property is not set.
+- `INSTALLIMAGES=0`: the museum image payload is installed by default
+  in both install types; use this property to skip it.
+
+ Usage examples:
+
+```bat
+:: Full installation (default)
+msiexec /i HistoryTracers.msi
+
+:: Web content only: D:\Sites\historytracers\ receives every www/ file
+msiexec /i HistoryTracers.msi INSTALLTYPE=ContentOnly CONTENTROOT="D:\Sites"
+
+:: Content only, without the images payload
+msiexec /i HistoryTracers.msi INSTALLTYPE=ContentOnly CONTENTROOT="D:\Sites" INSTALLIMAGES=0
+```
+
+An invalid or missing `CONTENTROOT` in content-only mode aborts the
+installation with an explanatory error.
 
 ### Static (self-extracting installer)
 

@@ -9,7 +9,63 @@
     <Media Id="1" Cabinet="historytracers.cab" EmbedCab="yes" CompressionLevel="high" />
 
     <!-- ============================================================ -->
-    <!-- Directory Structure                                         -->
+    <!-- Install options (see contentroot.js for the custom action)    -->
+    <!-- ============================================================ -->
+    <!--
+      INSTALLTYPE   - "Full" (default when unset): viewer binary + web
+                      content installed under
+                      ProgramFiles64Folder\HistoryTracers\www.
+                      "ContentOnly": no binary, no Start Menu shortcuts; the
+                      web content is installed flat into
+                      <CONTENTROOT>\historytracers\.
+      CONTENTROOT   - Target root folder of the content-only install. An
+                      absolute path with or without a trailing backslash,
+                      e.g. CONTENTROOT="D:\Sites". Required (and validated by
+                      custom action CA.NormalizeContentRoot) when
+                      INSTALLTYPE=ContentOnly; ignored otherwise.
+      INSTALLIMAGES - "0" skips the museum image payload (default "1":
+                      images are installed in both install types).
+    -->
+    <!-- Command-line only public properties (no Property table row needed):
+         INSTALLTYPE  = Full()/ContentOnly, CONTENTROOT = target root folder,
+         INSTALLIMAGES default. See comment above and contentroot.js. -->
+    <Property Id="INSTALLIMAGES" Value="1" />
+
+    <!-- Restores the content root remembered at install time when a
+         content-only product is repaired/modified without properties. -->
+    <Property Id="HTREMEMBEREDCONTENTROOT">
+      <RegistrySearch Id="Ht_RememberedContentRoot" Root="HKLM"
+                      Key="Software\HistoryTracers\Installer"
+                      Name="ContentRoot" Type="raw" />
+    </Property>
+
+    <!-- Persists (both install types) the content root for later
+         repair/uninstall resolution; empty in the Full mode. -->
+    <Component Id="CONTENTROOT_reg" Directory="PROGRAMMENUDIR" Guid="*">
+      <RegistryValue Root="HKLM" Key="Software\HistoryTracers\Installer"
+                     Name="ContentRoot" Type="string"
+                     Value="[CONTENTROOTCLEAN]" KeyPath="yes" />
+    </Component>
+
+    <Binary Id="NormalizeContentRootScript"
+            SourceFile="$(var.ProjectDir)\packaging\WiX\contentroot.js" />
+    <CustomAction Id="CA.NormalizeContentRoot"
+                  BinaryRef="NormalizeContentRootScript"
+                  JScriptCall="NormalizeContentRoot"
+                  Execute="immediate"
+                  Return="check" />
+
+    <InstallExecuteSequence>
+      <Custom Action="CA.NormalizeContentRoot" Before="CostFinalize"
+              Condition="NOT REMOVED" />
+    </InstallExecuteSequence>
+    <InstallUISequence>
+      <Custom Action="CA.NormalizeContentRoot" Before="CostFinalize"
+              Condition="NOT REMOVED" />
+    </InstallUISequence>
+
+    <!-- ============================================================ -->
+    <!-- Directory Structure                                          -->
     <!-- ============================================================ -->
     <StandardDirectory Id="ProgramFiles64Folder">
       <Directory Id="INSTALLDIR" Name="HistoryTracers">
@@ -66,6 +122,7 @@
     <Feature Id="MainApplication" Title="HistoryTracers Viewer"
              Description="The HistoryTracers viewer application"
              Level="1" Display="expand">
+      <Level Condition='INSTALLTYPE="ContentOnly"' Value="0" />
       <ComponentRef Id="PROGRAMMENUDIR_comp" />
       <ComponentRef Id="INSTALLDIR_reg" />
       <ComponentGroupRef Id="CG_MAIN_BIN" />
@@ -76,11 +133,13 @@
              Level="1">
       <ComponentGroupRef Id="CG_OPTIONS" />
       <ComponentGroupRef Id="CG_WWW" />
+      <ComponentRef Id="CONTENTROOT_reg" />
     </Feature>
 
     <Feature Id="Images" Title="Image Files"
              Description="Additional museum and institutional image files"
              Level="1">
+      <Level Condition='INSTALLIMAGES="0"' Value="0" />
       <ComponentGroupRef Id="CG_IMAGES" />
     </Feature>
 
