@@ -110,6 +110,9 @@ func TestHTReplaceMathUsesLocalizedKeywords(t *testing.T) {
 		{lang: "en-US", in: "2 x 3 + 1 = 7", want: "2 times 3 plus 1 equals 7"},
 		{lang: "es-ES", in: "2 x 3 + 1 = 7", want: "2 veces 3 más 1 igual 7"},
 		{lang: "pt-BR", in: "2 x 3 + 1 = 7", want: "2 vezes 3 mais 1 igual 7"},
+		{lang: "en-US", in: "20 ÷ 4 = 5", want: "20 divided by 4 equals 5"},
+		{lang: "es-ES", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5"},
+		{lang: "pt-BR", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5"},
 		{lang: "pt-BR", in: "Sun Tzu, o xadrez e a matemática", want: "Sun Tzu, o xadrez e a matemática"},
 	}
 
@@ -129,6 +132,65 @@ func TestHTReplaceMathFallsBackToEnglish(t *testing.T) {
 	want := "2 times 3 plus 1 equals 7"
 	if got != want {
 		t.Errorf("htReplaceMath fallback = %q, want %q", got, want)
+	}
+
+	got = htReplaceMath("20 ÷ 4 = 5", "en-US")
+	want = "20 divided by 4 equals 5"
+	if got != want {
+		t.Errorf("htReplaceMath division fallback = %q, want %q", got, want)
+	}
+}
+
+func TestHTAdjustAudioStringBeforeWriteDivision(t *testing.T) {
+	useRepoSource(t)
+
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "20 ÷ 4 = 5", want: "20 divided by 4 equals 5."},
+		{lang: "es-ES", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5."},
+		{lang: "pt-BR", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5."},
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.lang, func(t *testing.T) {
+			got := strings.TrimSpace(htAdjustAudioStringBeforeWrite(tc.in, tc.lang))
+			if got != tc.want {
+				t.Errorf("htAdjustAudioStringBeforeWrite(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+			}
+		})
+	}
+}
+
+func TestHTAudioTextConvertsDivisionSymbol(t *testing.T) {
+	useRepoSource(t)
+
+	cases := []struct {
+		name   string
+		lang   string
+		format string
+		in     string
+		want   string
+	}{
+		{name: "markdown/en-US", lang: "en-US", format: "markdown", in: "20 ÷ 4 = 5", want: "20 divided by 4 equals 5."},
+		{name: "markdown/es-ES", lang: "es-ES", format: "markdown", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5."},
+		{name: "markdown/pt-BR", lang: "pt-BR", format: "markdown", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5."},
+		{name: "mathml/en-US", lang: "en-US", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "20 divided by 4 equals 5."},
+		{name: "mathml/es-ES", lang: "es-ES", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "20 dividido por 4 igual 5."},
+		{name: "mathml/pt-BR", lang: "pt-BR", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "20 dividido por 4 igual 5."},
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			txt := HTText{Text: tc.in, Format: tc.format}
+			audioText := htTextToHumanText(&txt, tc.lang, false)
+			audioText = htAdjustAudioStringBeforeWrite(audioText, tc.lang)
+			if got := strings.TrimSpace(audioText); got != tc.want {
+				t.Errorf("audio text for %q in %q = %q, want %q", tc.in, tc.lang, got, tc.want)
+			}
+		})
 	}
 }
 
