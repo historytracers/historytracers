@@ -64,7 +64,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nIn addition to exploring the concepts studied in the previous texts of this chapter (<htcite0>), with emphasis on the text about cuisine (<htcite1>), we suggest studying the text about the Bantu migration (<htcite2>), in order to understand the entire context explained in the following section.",
+               "text": "### Prerequisites\n\nIn addition to exploring the concepts studied in the previous texts of this chapter (<htcite0>), with emphasis on the text about cuisine (<htcite1>), we suggest studying the text about the Bantu migration (<htcite2>) and the text about the relationship between multiplication and division (<htcite3>), in order to understand the entire context explained in the following section.",
                "source": [
                   {
                      "type": 1,
@@ -98,6 +98,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8d6586b8-178b-4806-a050-ef5a8704f5e1",
+                     "text": "History Tracers Team",
+                     "page": "The Relationship Between Multiplication and Division",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -628,7 +640,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Units\n\nIn this flour-division example, when we reached the units, we had 0 left to divide by 5. This means we performed an exact division; that is, 320 is a multiple of 5 (<htcite0>).\n\n#### Representation\n\nWhen a division is finished, we can express it through the names of its parts, which we will now introduce:",
+               "text": "#### Units\n\nIn this flour-division example, when we reached the units, we had 0 left to divide by 5. This means we performed an exact division; that is, 320 is a multiple of 5 (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -647,51 +659,6 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><table class=\"htLongDivision htLongDivisionParts\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>Dividend </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> Divisor </td></tr> <tr><td>Remainder </td><td> Quotient</td></tr></table></p><p class=\"desc\"><b>Algorithm 1</b>: Parts of the long-division algorithm.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "This structure can also be rewritten in a single line as:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>Dividend</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>Quotient</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">x</mo><mn>Divisor</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>Remainder</mn></math></p><p class=\"desc\"><b>Formula 1</b>: The division written as a formula.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Finally, substituting the values:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>320</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>64</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">x</mo><mn>5</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mn>0</mn></math></p><p class=\"desc\"><b>Calculation 9</b>: Rewriting <b>Calculation 8</b>.</p></div></div></center>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
                "PostMention": ""
             }
          ]
