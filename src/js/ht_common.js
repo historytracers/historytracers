@@ -2586,6 +2586,33 @@ function htFillPIXQRCode(id, size) {
     }
 }
 
+// keywords[52] ends with "or PIX using the QR code:" — place the same QR
+// image used in the side bar right after that note in the main content.
+function htEnsureContentPIXQRCode() {
+    var $sn = $("#family_common_sn");
+    if ($sn.length === 0) {
+        return;
+    }
+    if ($("#htPixQRCode").length > 0) {
+        return;
+    }
+    var $host = $sn.closest("p");
+    if ($host.length === 0) {
+        $host = $sn;
+    }
+    $host.after('<p><center><div id="htPixQRCode"></div></center></p>');
+    htFillPIXQRCode("#htPixQRCode", "10%");
+}
+
+function htFillFamilyCommonSN() {
+    var $sn = $("#family_common_sn");
+    if ($sn.length === 0 || typeof keywords === 'undefined' || !keywords || keywords.length <= 52) {
+        return;
+    }
+    $sn.html(keywords[52]);
+    htEnsureContentPIXQRCode();
+}
+
 function htFillDivAuthorsContent(target, lastUpdate, authors, reviewers) {
     if (lastUpdate <= 0 || !target) {
         return;
@@ -3028,9 +3055,7 @@ function htProccessData(data, optional) {
         htFillHTDate(data.fill_dates);
     }
 
-    if ($("#family_common_sn").length > 0) {
-        $("#family_common_sn").html(keywords[52]);
-    }
+    htFillFamilyCommonSN();
 
 }
 
@@ -3672,7 +3697,11 @@ function htFillWebPage(page, data)
 
     for (const [selector, code] of Object.entries(reflections)) {
         if ($(selector).length) {
-            htAddTreeReflection(selector, code);
+            if (selector === "#family_common_sn") {
+                htFillFamilyCommonSN();
+            } else {
+                htAddTreeReflection(selector, code);
+            }
         }
     }
 

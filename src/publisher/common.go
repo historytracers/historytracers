@@ -864,7 +864,16 @@ func htPrepareQuestions(questions []HTExercise, lang string) string {
 func htChangeTag2Keywords(text string) string {
 	ret := strings.ReplaceAll(text, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
 	ret = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
-	ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>", commonKeywords[52])
+	// keywords[52] ends with "or PIX using the QR code:" — place the same
+	// content-area QR (htPixQRCode) right after that note, outside the
+	// enclosing <p><b>…</b></p> so the markup stays valid.
+	const pixQR = `<p><center><div id="htPixQRCode"></div></center></p>`
+	if strings.Contains(ret, `<span id="family_common_sn"></span></b></p>`) {
+		ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span></b></p>",
+			commonKeywords[52]+"</b></p>"+pixQR)
+	}
+	ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>",
+		commonKeywords[52]+pixQR)
 	ret = strings.ReplaceAll(ret, "<span id=\"htChartMsg\"></span>", commonKeywords[112])
 	ret = strings.ReplaceAll(ret, "<span id=\"htAgeMsg\"></span>", commonKeywords[131])
 	ret = strings.ReplaceAll(ret, "<p id=\"htChinaZhongguo\"></p>", commonKeywords[137])
