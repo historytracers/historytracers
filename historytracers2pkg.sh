@@ -1025,7 +1025,9 @@ ht_build_msi() {
     WWW_DIR="${PROJECT_DIR}/www"
     IMAGES_DIR="${WWW_DIR}/images"
     MSI_VERSION="$(ht_get_version)"
-    OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers-${MSI_VERSION}.msi"
+    # ProductVersion stays ${MSI_VERSION}; the file itself is released
+    # without a version in the name.
+    OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers.msi"
 
     # Write PowerShell fragment generator to a temp file (avoids bash escaping issues)
     PS_GEN="$(mktemp -t wix_gen_XXXXXX.ps1 2>/dev/null || echo "${TMPDIR:-/tmp}/wix_gen_$$.ps1")"
