@@ -294,7 +294,8 @@ function htLoadContent() {
             { text: '3', value: '3' },
             { text: '4', value: '4' },
             { text: '5', value: '5' },
-            { text: '6', value: '7' },
+            { text: '6', value: '6' },
+            { text: '7', value: '7' },
             { text: '8', value: '8' },
             { text: '9', value: '9' }
         ];
@@ -313,6 +314,9 @@ function htLoadContent() {
 
     $(document).off("click.htDivisionFormat").on("click.htDivisionFormat", ".htLongDivisionFormatBtn", function (event) {
         event.preventDefault();
+        if ($("#yupana0").length === 0) {
+            return false;
+        }
         htDivisionSetVisualization($(this).attr("data-htldformat"));
         return false;
     });

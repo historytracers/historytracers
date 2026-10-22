@@ -35,7 +35,7 @@
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -196,7 +196,7 @@
          "id": "SECTION_gregorian",
          "text": [
             {
-               "text": "### The Gregorian Calendar\n\nHumanity has created different calendars according to its beliefs and needs. Some of them are available in History Tracers, at the top right, so you can read content using the calendars we are accustomed to in daily life.\n\nIn this section, we discuss the Gregorian calendar.\n\n#### The Shortest Month in the Gregorian Calendar\n\nAccording to the Gregorian calendar, February has 28 days in most years, but 29 days every four years, in what is known as a leap year (<htcite0>).\n\nLooking at the seven times table, we see that 28 is divisible by 7. In other words, that month can contain an exact number of weeks, as shown in **Calculation 1** (<htcite1>):",
+               "text": "### The Gregorian Calendar\n\nHumanity has created different calendars according to its beliefs and needs. Some of them are available in History Tracers, at the top right, so you can read content using the calendars we are accustomed to in daily life.\n\nIn this section, we discuss the Gregorian calendar.\n\n#### The Shortest Month in the Gregorian Calendar\n\nAccording to the Gregorian calendar, February has 28 days in most years, but 29 days in leap years: a year is a leap year if it is divisible by 4, except for years divisible by 100 that are not divisible by 400 (<htcite0>).\n\nLooking at the seven times table, we see that 28 is divisible by 7. In other words, that month can contain an exact number of weeks, as shown in **Calculation 1** (<htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -248,7 +248,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### The Other Months\n\nAs a consequence of **Calculation 1** and, especially, of the seven times table, any month with between 29 and 31 days cannot contain exactly 4 full weeks.\n\nLet us take a 31-day month as an example:",
+               "text": "#### The Other Months\n\nAs a consequence of **Calculation 1** and, especially, of the seven times table, any month with between 29 and 31 days contains four full weeks plus some remaining days, and therefore cannot consist of only four weeks.\n\nLet us take a 31-day month as an example:",
                "source": null,
                "date_time": null,
                "isTable": false,

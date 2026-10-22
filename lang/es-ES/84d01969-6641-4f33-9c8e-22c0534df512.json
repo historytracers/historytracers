@@ -35,7 +35,7 @@
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -196,7 +196,7 @@
          "id": "SECTION_gregorian",
          "text": [
             {
-               "text": "### Calendario Gregoriano\n\nLa humanidad ha creado diferentes calendarios de acuerdo con sus creencias y necesidades. Algunos de ellos están disponibles en History Tracers, en la parte superior derecha, para que pueda leer los contenidos según los calendarios a los que estamos acostumbrados en la vida cotidiana.\n\nEn esta sección, trataremos el calendario gregoriano.\n\n#### El mes más corto en el calendario Gregoriano\n\nDe acuerdo con el calendario gregoriano, febrero tiene 28 días en la mayoría de los años, pero 29 días cada cuatro años, en un año conocido como bisiesto (<htcite0>).\n\nAl observar la tabla del 7, vemos que 28 es divisible por 7. Es decir, ese mes puede contener un número exacto de semanas, como se demuestra en el **Cálculo 1** (<htcite1>):",
+               "text": "### Calendario Gregoriano\n\nLa humanidad ha creado diferentes calendarios de acuerdo con sus creencias y necesidades. Algunos de ellos están disponibles en History Tracers, en la parte superior derecha, para que pueda leer los contenidos según los calendarios a los que estamos acostumbrados en la vida cotidiana.\n\nEn esta sección, trataremos el calendario gregoriano.\n\n#### El mes más corto en el calendario Gregoriano\n\nDe acuerdo con el calendario gregoriano, febrero tiene 28 días en la mayoría de los años, pero 29 días en los años bisiestos: un año es bisiesto si es divisible por 4, excepto los años divisibles por 100 que no son divisibles por 400 (<htcite0>).\n\nAl observar la tabla del 7, vemos que 28 es divisible por 7. Es decir, ese mes puede contener un número exacto de semanas, como se demuestra en el **Cálculo 1** (<htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -248,7 +248,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Los demás meses\n\nComo consecuencia del **Cálculo 1** y, sobre todo, de la tabla del 7, cualquier mes con entre 29 y 31 días no puede contener exactamente 4 semanas completas.\n\nTomemos como ejemplo un mes de 31 días:",
+               "text": "#### Los demás meses\n\nComo consecuencia del **Cálculo 1** y, sobre todo, de la tabla del 7, cualquier mes con entre 29 y 31 días contiene cuatro semanas completas más algunos días restantes y, por lo tanto, no puede consistir solo en cuatro semanas.\n\nTomemos como ejemplo un mes de 31 días:",
                "source": null,
                "date_time": null,
                "isTable": false,
