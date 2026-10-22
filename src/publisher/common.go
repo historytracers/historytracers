@@ -1013,6 +1013,7 @@ func htReplaceMath(text string, lang string) string {
 	timesStr := " times "
 	plusStr := " plus "
 	equalsStr := " equals "
+	divisionStr := " divided by "
 
 	localKeywords, err := htLoadKeywordsDirect(lang, "math_keywords")
 	if err == nil && len(localKeywords) > 34 {
@@ -1022,9 +1023,13 @@ func htReplaceMath(text string, lang string) string {
 	if err == nil && len(localKeywords) > 35 {
 		equalsStr = localKeywords[35]
 	}
+	if err == nil && len(localKeywords) > 36 {
+		divisionStr = " " + strings.TrimSpace(localKeywords[36]) + " "
+	}
 
 	ret := htReplaceSubtraction(text, lang)
 	ret = htReplaceMultiplication(ret, timesStr)
+	ret = htReplaceDivision(ret, divisionStr)
 
 	ret = strings.ReplaceAll(ret, " + ", plusStr)
 	ret = strings.ReplaceAll(ret, " = ", equalsStr)
@@ -1039,6 +1044,27 @@ func htReplaceMath(text string, lang string) string {
 	ret = strings.ReplaceAll(ret, "= ", equalsStr+" ")
 
 	return ret
+}
+
+// htReplaceDivision converts the division sign between two operands into the
+// localized "divided by" wording used by the audio files. Prose mentions of
+// the sign where punctuation, not an operand, surrounds it (for example
+// "the sign ÷, which") are left untouched, following the same rule used for
+// the multiplication sign.
+func htReplaceDivision(text string, divisionStr string) string {
+	divisionPattern := regexp.MustCompile(`([\p{L}\p{N})])[ \t]*÷[ \t]*([\p{L}\p{N}(])`)
+	for {
+		replaced := divisionPattern.ReplaceAllStringFunc(text, func(match string) string {
+			parts := divisionPattern.FindStringSubmatch(match)
+			return parts[1] + divisionStr + parts[2]
+		})
+		if replaced == text {
+			break
+		}
+		text = replaced
+	}
+
+	return text
 }
 
 func htLoadKeywordsDirect(lang string, name string) ([]string, error) {
