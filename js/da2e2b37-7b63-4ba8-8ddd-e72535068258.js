@@ -6,6 +6,8 @@ var localCounterDa2e2b37 = 0;
 function htLoadContent() {
     htSetImageSrc("lefthand", "images/HistoryTracers/0Left_Hand_Small.png");
     htSetImageSrc("righthand", "images/HistoryTracers/0Right_Hand_Small.png");
+    htWriteMultiplicationTable("#mParent0", 0);
+    htWriteMultiplicationTable("#mParent1", 1);
     return false;
 }
 
