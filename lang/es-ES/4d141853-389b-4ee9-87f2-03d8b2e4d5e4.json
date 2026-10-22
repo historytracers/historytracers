@@ -1,0 +1,179 @@
+{
+   "title": "Ejercitando la suma con números elegidos",
+   "header": "Ejercitando la suma con números elegidos",
+   "sources": [
+      "4d141853-389b-4ee9-87f2-03d8b2e4d5e4"
+   ],
+   "scripts": [
+      "4d141853-389b-4ee9-87f2-03d8b2e4d5e4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/4d141853-389b-4ee9-87f2-03d8b2e4d5e4_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics",
+      "chemistry"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792675546"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos\n\nEn este texto, ejercitaremos la suma escribiendo los valores, pero con números elegidos por ti. Antes de continuar con este ejercicio, te sugerimos estudiar:\n\n- **Corriendo entre los números**: cómo funciona la suma con números más grandes, usando una analogía de la arquitectura mesoamericana y un método paso a paso para sumar números de cualquier tamaño (<htcite0>)\n- **Avanzando un orden y el complemento**: la regla de avanzar un orden (llevar) y el complemento a 10 (<htcite1>)\n- **¿Se lleva o no se lleva? (Juego)**: un juego para decidir, columna por columna, si la suma lleva 1 al siguiente orden (<htcite2>)\n- **Ejercitando la suma**: un ejercicio para practicar la suma columna por columna con cuadrados y el complemento a 10 (<htcite3>)\n- **Ejercitando la suma escribiendo los valores**: la misma suma vertical escribiendo el dígito que conserva cada columna, pero con números generados al azar (<htcite4>)\n- **El arte de estudiar**: los cinco factores de Sun Tzu y cómo usarlos como estrategia para aprender (<htcite5>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
+                     "text": "History Tracers Team",
+                     "page": "Corriendo entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
+                     "text": "History Tracers Team",
+                     "page": "Avanzando un orden y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5539096c-dd7d-4f9c-a137-f0465725b9f4",
+                     "text": "History Tracers Team",
+                     "page": "¿Se lleva o no se lleva? (Juego)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4caa9fe-de1e-49c5-92de-50ed9c22a42d",
+                     "text": "History Tracers Team",
+                     "page": "Ejercitando la suma",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18ca9e1f-b936-447a-9bab-798159cefbb9",
+                     "text": "History Tracers Team",
+                     "page": "Ejercitando la suma escribiendo los valores",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "El arte de estudiar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_suntzu",
+         "text": [
+            {
+               "text": "### Los 5 factores de Sun Tzu (孙子)\n\nPara hacer los ejercicios, recomendamos usar los 5 factores de Sun Tzu (los mismos de **El arte de estudiar** (<htcite0>)) de la siguiente manera:\n\n- **La ley de la moral**: No te limites a un solo ejercicio. Para reforzar lo que aprendiste, practica hasta sentirte más cómodo y reparte la práctica en más de un día.\n- **El paraíso**: Visualiza los números que estás sumando con tu propio cuerpo. Cada vez que sumes un número a otro, comprueba si el resultado se mantiene dentro del conteo de tus dedos o si lo supera. Después, intenta recrear en otros escenarios las sumas que estás haciendo aquí, para que veas que la misma idea aparece en todas partes.\n- **La tierra**: En cada suma, los cuadrados representan los dígitos. Cuando una columna acarrea 1, el resultado puede superar los 10 valores posibles (los dígitos del 0 al 9), y aparecen cuadrados extra fuera del grupo de diez. Así que, antes de empezar a sumar dos dígitos, pregúntate: ¿el segundo dígito es mayor o menor que el complemento del primero? La respuesta te dice si la columna acarreará 1.\n- **El comandante**: Como comandante de tu aprendizaje, debes:\n    - Ser benevolente contigo mismo y con las personas que aún no entienden la suma, y ayudarlas a aprender.\n    - Ser honesto contigo mismo y no permitir que tu confianza subestime o sobreestime el problema que tienes delante.\n    - Respetarte a ti mismo, recordando que hay diferentes maneras de entender las matemáticas. Descubre la manera con la que te sientas cómodo y síguela. En History Tracers haremos todo lo posible para ayudarte a encontrar tu camino.\n    - Usar tu sabiduría para identificar tus debilidades, a fin de entrenarlas y convertirlas en fortalezas.\n    - Usar tu sinceridad para ver dónde tienes que mejorar y no levantar barreras por las dificultades que puedas encontrar.\n- **Método y disciplina**: Reserva un período de tiempo para entrenar todos los días y respeta tu tiempo de descanso.\n",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "El arte de estudiar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Ejercicio de práctica\n\nLeer sobre la suma ayuda, pero practicar es esencial para comprenderla de verdad. En esta variación, tú eliges los números: escribe dos números entre 0 y 99999 en los dos campos y haz clic en **Comenzar**. Después, la suma se escribe en vertical, columna por columna, desde las unidades hacia arriba, con tantas columnas como necesiten los números. En cada columna:\n\n1. Los cuadrados azul claro muestran el dígito que ya está en la columna.\n2. Escribe en la casilla de la fila del resultado el dígito que queda en la columna.\n3. Cuando la suma llega a diez, aparece una casilla del acarreo sobre la siguiente orden: escribe 1 en ella. Cuando la suma se mantiene por debajo de diez, no hay casilla de acarreo.\n\nLos valores se comprueban a medida que escribes. Si un dígito es incorrecto, los cuadrados se colorean según el número escrito, y una pista te recuerda el complemento. Si la suma acarrea, se colorean los cuadrados más allá del grupo de diez, mostrando el dígito que queda en la columna. Cuando los dos valores son correctos, los cuadrados se llenan, aparece una felicitación y se muestra el botón que pasa a la siguiente columna.\n\nAntes de escribir, observa el complemento del valor que ya está en la columna: el complemento indica cuántos cuadrados faltan para llegar a diez. Si el dígito inferior es al menos el complemento, la suma llega a diez y se acarrea 1 al siguiente orden; los cuadrados que quedan fuera del grupo de diez son el dígito que queda en la columna.\n\n**Ejemplo: 8 + 7.** La columna ya tiene 8 cuadrados azul claro, a los que se suma el 7 del número de abajo. El complemento de 8 para llegar a diez es 2, así que los 2 primeros cuadrados cierran el grupo de diez (el 1 que se acarrea al siguiente orden), y los 5 cuadrados que quedan fuera del grupo son el dígito 5. Escribe 5 en la casilla de la fila del resultado y 1 en la casilla del acarreo sobre la siguiente orden:<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div><span class=\"htAddSquaresCaption\">8 + 7 = 15</span>\n\nAl terminar el cálculo, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y el botón de abajo vuelve a los campos, para que elijas otros números y practiques de nuevo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htAddTypedSetup\" id=\"htAddTypedSetup\"><span class=\"htAddTypedSetupTitle\" id=\"htAddTypedSetupTitle\">Escribe dos números entre 0 y 99999</span><div class=\"htAddTypedFields\"><label class=\"htAddTypedField\" for=\"htAddTypedFirst\"><span id=\"htAddTypedFirstLabel\">Primer número</span><input type=\"text\" inputmode=\"numeric\" maxlength=\"5\" autocomplete=\"off\" id=\"htAddTypedFirst\" aria-label=\"Primer número (0 a 99999)\" /></label><label class=\"htAddTypedField\" for=\"htAddTypedSecond\"><span id=\"htAddTypedSecondLabel\">Segundo número</span><input type=\"text\" inputmode=\"numeric\" maxlength=\"5\" autocomplete=\"off\" id=\"htAddTypedSecond\" aria-label=\"Segundo número (0 a 99999)\" /></label></div><div class=\"htAddTypedError\" id=\"htAddTypedError\" role=\"alert\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htAddTypedStartBtn\" class=\"reset-tutor-btn\">Comenzar</button></div><span id=\"htAddTypedErrorTemplate\" class=\"htAddHidden\">Cada número debe estar entre {min} y {max}.</span></div><div class=\"htAddGame htAddHidden\" id=\"htAddTypedGame\"><div class=\"htAddOrders\" id=\"htAddTypedOrders\"></div><span class=\"htAddQuestion\" id=\"htAddTypedQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htAddTypedIncomingNote\"></div><table class=\"htAddTable\" id=\"htAddTypedTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htAddTypedSquaresLabel\">Suma en esta columna</span><div class=\"htAddSquares\" id=\"htAddTypedSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htAddTypedSquaresCaption\"></span><span class=\"htAddSquaresNote\" id=\"htAddTypedSquaresNote\"></span></div><span id=\"htAddTypedInputHome\" class=\"htAddHidden\"><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htAddTypedDigitInput\" aria-label=\"Dígito que conserva la columna\" /><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htAddTypedCarryInput\" aria-label=\"Acarreo a la siguiente orden\" /></span><div class=\"htAddFeedback\" id=\"htAddTypedFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htAddTypedNextBtn\" class=\"reset-tutor-btn hidden\">Siguiente columna</button></div><span id=\"htAddTypedOrder0\" class=\"htAddHidden\">Unidades</span><span id=\"htAddTypedOrder1\" class=\"htAddHidden\">Decenas</span><span id=\"htAddTypedOrder2\" class=\"htAddHidden\">Centenas</span><span id=\"htAddTypedOrder3\" class=\"htAddHidden\">Millares</span><span id=\"htAddTypedOrder4\" class=\"htAddHidden\">Decenas de millar</span><span id=\"htAddTypedQuestionTemplate\" class=\"htAddHidden\">La columna de las {order} ya tiene {base}. Suma el dígito inferior {added}: escribe en la fila del resultado el dígito que queda en la columna y, si la suma llega a diez, escribe 1 en la casilla del acarreo sobre la siguiente orden.</span><span id=\"htAddTypedIncomingTemplate\" class=\"htAddHidden\">El 1 acarreado de la columna anterior se suma: {first} + 1 = {base}.</span><span id=\"htAddTypedMsgCarryTemplate\" class=\"htAddHidden\">{base} + {added} = {sum}. Alcanza 10, así que la columna de las {order} conserva {result} y acarrea 1 al siguiente orden.</span><span id=\"htAddTypedMsgNoCarryTemplate\" class=\"htAddHidden\">{base} + {added} = {sum}. No llega a 10, así que la columna de las {order} conserva {result}.</span><span id=\"htAddTypedWrongDigitTemplate\" class=\"htAddHidden\">Ese dígito no es correcto. La columna ya tiene {base} y el dígito inferior es {added}. El complemento de {base} para diez es {comp}. Como {added} es menor que {comp}, la suma se queda por debajo de diez: suma los {added} cuadrados a los {base} que ya están en la columna para encontrar el dígito que queda en la columna de las {order}.</span><span id=\"htAddTypedWrongDigitTenTemplate\" class=\"htAddHidden\">Ese dígito no es correcto. La columna ya tiene {base} y el dígito inferior es {added}. El complemento de {base} para diez es {comp}. Como {added} es igual o mayor que {comp}, se completa el diez y se lleva 1 al siguiente orden: los cuadrados que quedan fuera del grupo de diez son el dígito que queda en la columna de las {order}.</span><span id=\"htAddTypedWrongDigitOverTemplate\" class=\"htAddHidden\">Ese dígito no es correcto. La columna ya tiene {base} cuadrados, así que el grupo de diez ya está completo. Suma el dígito inferior {added} fuera de ese grupo y lleva 1 al siguiente orden: los cuadrados que quedan fuera del grupo de diez son el dígito que queda en la columna de las {order}.</span><span id=\"htAddTypedWrongCarryTemplate\" class=\"htAddHidden\">El acarreo no es correcto. Comprueba {base} + {added}: cuando la suma llega a diez, el acarreo debe ser 1.</span><span id=\"htAddTypedCongratsTemplate\" class=\"htAddHidden\">✅ ¡Correcto! Haz clic en 'Siguiente columna' para continuar.</span><span id=\"htAddTypedPerfectTemplate\" class=\"htAddHidden\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br>{first} + {addend} = {sum}<br>¡Buen trabajo!</span><span id=\"htAddTypedNextColumnLabel\" class=\"htAddHidden\">Siguiente columna</span><span id=\"htAddTypedNewNumbersLabel\" class=\"htAddHidden\">Nuevos números</span><span id=\"htAddTypedSquaresUsedTemplate\" class=\"htAddHidden\">Cuadrados usados: {used}.</span><span id=\"htAddTypedComplementPendingTemplate\" class=\"htAddHidden\">Complemento de {base} para diez: {comp}. Aún faltan {missing} cuadrados para completar el diez.</span><span id=\"htAddTypedComplementUsedTemplate\" class=\"htAddHidden\">Complemento de {base} para diez: {comp}. Cuadrados que completaron el diez: {comp}; cuadrados fuera del diez: {outside}.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

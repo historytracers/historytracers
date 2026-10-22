@@ -3794,6 +3794,69 @@ p.desc svg {
 }
 
 /*
+ * Practicing addition with chosen numbers (content
+ * 4d141853-389b-4ee9-87f2-03d8b2e4d5e4). Before the vertical addition board
+ * appears, two fields let the reader choose the operands.
+ */
+.htAddTypedSetup {
+  margin: 1em auto;
+  max-width: 30em;
+  text-align: center;
+}
+
+.htAddTypedSetupTitle {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htAddTypedFields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75em;
+}
+
+.htAddTypedField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+  font-weight: bold;
+}
+
+.htAddTypedField input {
+  box-sizing: border-box;
+  width: 8em;
+  max-width: 100%;
+  padding: 0.35em 0.5em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.htAddTypedField input:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+.design-dark .htAddTypedField input {
+  background-color: #263238;
+  border-color: #546e7a;
+  color: #eceff1;
+}
+
+.htAddTypedError {
+  min-height: 1.5em;
+  margin-top: 0.5em;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+/*
  * Rectangles comparison practice (content 03bb4b8e-6187-4572-8f00-ea3892df51a4).
  */
 .htRectApp {
