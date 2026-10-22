@@ -1265,7 +1265,6 @@ PSEOF
         "${WIXDIR}/images-fragment.wxs" \
         "${WIXDIR}/build-fragment.wxs" \
         "${WIXDIR}/options-fragment.wxs" \
-        #"${WIXDIR}/editor-fragment.wxs" \
         -o "$OUTPUT_MSI" \
         -arch x64 \
         -d MsiVersion="$MSI_VERSION" \
