@@ -924,7 +924,8 @@ ht_msi_cleanup() {
         [ -f "$f" ] || continue
         sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' "$f" 2>/dev/null || true
     done
-    rm -rf "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" 2>/dev/null || true
+    rm -rf "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" \
+           "${WIXDIR}/build-fragment.wxs" "${WIXDIR}/options-fragment.wxs" 2>/dev/null || true
 }
 
 ht_build_msi() {
@@ -1018,6 +1019,26 @@ ht_build_msi() {
     WIX_HAS_HARVEST=false
     if "$WIXEXE" harvest --help >/dev/null 2>&1; then
         WIX_HAS_HARVEST=true
+    fi
+
+    # Ensure UI extension (provides the WixUI install wizard screens):
+    # historytracers.wxs references <ui:WixUI> in the
+    # 'http://wixtoolset.org/schemas/v4/wxs/ui' namespace, which must be
+    # linked with -ext WixToolset.UI.wixext or wix build fails with WIX0200.
+    if ! "$WIXEXE" extension list -g 2>/dev/null | grep -q "WixToolset.UI.wixext"; then
+        echo "Installing WixToolset.UI.wixext extension..."
+        WIX_VER="$("$WIXEXE" --version 2>/dev/null | sed 's/^[vV]*//; s/[+].*//' | tr -d '\r')"
+        if [ -n "$WIX_VER" ]; then
+            "$WIXEXE" extension add -g "WixToolset.UI.wixext/$WIX_VER" 2>/dev/null || true
+        fi
+        if ! "$WIXEXE" extension list -g 2>/dev/null | grep -q "WixToolset.UI.wixext"; then
+            "$WIXEXE" extension add -g "WixToolset.UI.wixext" 2>/dev/null || true
+        fi
+        if ! "$WIXEXE" extension list -g 2>/dev/null | grep -q "WixToolset.UI.wixext"; then
+            echo "ERROR: could not install WixToolset.UI.wixext extension (needed for the installer wizard UI)."
+            echo "Try: wix extension add -g WixToolset.UI.wixext"
+            exit 1
+        fi
     fi
 
     PROJECT_DIR="$(pwd)"
@@ -1262,6 +1283,7 @@ PSEOF
     # ---- Step 3: Build MSI (compile + link in one step) ----
     echo "Building MSI..."
     "$WIXEXE" build \
+        -ext WixToolset.UI.wixext \
         "${WIXDIR}/historytracers.wxs" \
         "${WIXDIR}/www-fragment.wxs" \
         "${WIXDIR}/images-fragment.wxs" \

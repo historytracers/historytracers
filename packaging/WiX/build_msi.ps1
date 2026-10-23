@@ -111,6 +111,25 @@ if (Test-Path $infoFile) {
 # carries $msiVersion inside the MSI metadata.
 $msiOut          = Join-Path $OutputDir "HistoryTracers.msi"
 
+# ---- Ensure UI extension (provides the WixUI install wizard screens) ----
+$uiExtName = "WixToolset.UI.wixext"
+$extensionList = & $wix extension list -g 2>$null
+if (($extensionList -join "`n") -notmatch [regex]::Escape($uiExtName)) {
+    # Extension version must match the wix.exe version (e.g. 6.0.1 -> 6.0.1)
+    $wixVer = (& $wix --version) -replace '^[v]?', ''
+    & $wix extension add -g "$uiExtName/$wixVer"
+    if ($LASTEXITCODE -ne 0) {
+        # Fall back to whatever the feed serves for this toolset
+        & $wix extension add -g $uiExtName
+    }
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Could not install $uiExtName extension (required for the installer UI screens). Try: wix extension add -g $uiExtName"
+        exit 1
+    }
+    Write-Host "Installed $uiExtName extension"
+}
+$uiExtArgs = @("-ext", "WixToolset.UI.wixext")
+
 # ---- Helper: directory-aware ID generation for v6 fragments ----
 function Get-DirId {
     param([string]$relDir, [hashtable]$knownMap, [hashtable]$generated)
@@ -330,6 +349,7 @@ if (-not (Test-Path $imgHarvest)) {
 # ---- Step 3: Build MSI with wix.exe build ----
 Write-Host "Building MSI..."
 & $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest `
+    @uiExtArgs `
     -o $msiOut `
     -arch x64 `
     -d MsiVersion=$msiVersion `

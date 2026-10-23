@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
 
   <Package Name="HistoryTracers" Version="$(var.MsiVersion)"
            Manufacturer="History Tracers Team"
@@ -121,7 +122,8 @@
     <!-- ============================================================ -->
     <Feature Id="MainApplication" Title="HistoryTracers Viewer"
              Description="The HistoryTracers viewer application"
-             Level="1" Display="expand">
+             Level="1" Display="expand"
+             ConfigurableDirectory="INSTALLDIR">
       <Level Condition='INSTALLTYPE="ContentOnly"' Value="0" />
       <ComponentRef Id="PROGRAMMENUDIR_comp" />
       <ComponentRef Id="INSTALLDIR_reg" />
@@ -156,10 +158,19 @@
     </Feature>
 
     <!-- ============================================================ -->
-    <!-- UI Configuration (uses built-in MSI UI)                     -->
+    <!-- UI Configuration (install wizard)                            -->
     <!-- ============================================================ -->
-    <Property Id="ApplicationFolderName" Value="HistoryTracers" />
-    <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+    <!-- Wizard screens: Welcome -> License -> Customize (option      -->
+    <!-- checkboxes, e.g. Image Files; Browse to pick the install     -->
+    <!-- path; ConfigurableDirectory="INSTALLDIR" on MainApplication  -->
+    <!-- enables the path picker) -> Verify -> Progress -> Done.      -->
+    <!-- Linked against WixToolset.UI.wixext (see build_msi.ps1).     -->
+    <!-- Command-line msiexec properties (INSTALLTYPE, CONTENTROOT,   -->
+    <!-- INSTALLIMAGES, INSTALLDIR=...) still take precedence when    -->
+    <!-- provided; e.g. INSTALLIMAGES=0 pre-unchecks Image Files.     -->
+    <!-- Replaced the dead WiX v3 leftovers (ApplicationFolderName,   -->
+    <!-- WixAppFolder) which silently produced a no-UI MSI.           -->
+    <ui:WixUI Id="WixUI_FeatureTree" InstallDirectory="INSTALLDIR" />
 
     <!-- Major upgrade -->
     <MajorUpgrade DowngradeErrorMessage="A newer version of HistoryTracers is already installed."
