@@ -9,6 +9,12 @@
 
     <Media Id="1" Cabinet="historytracers.cab" EmbedCab="yes" CompressionLevel="high" />
 
+    <!-- License agreement shown by the wizard's License screen: the full
+         GPL-3.0 text (repo root LICENSE converted to RTF). The path is
+         resolved from the ProjectDir preprocessor variable passed by both
+         build scripts (build_msi.ps1 and historytracers2pkg.sh). -->
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\packaging\WiX\gpl3.rtf" />
+
     <!-- ============================================================ -->
     <!-- Install options (see contentroot.js for the custom action)    -->
     <!-- ============================================================ -->
