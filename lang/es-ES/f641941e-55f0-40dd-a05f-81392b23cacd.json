@@ -26,7 +26,9 @@
       "1792688706"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -109,7 +111,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align: center\"><span id=\"multGroupLevel\" class=\"level-badge\"></span></p><p><div id=\"multGroupGame\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupLeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupRightCol\"></div></div></p><p id=\"multGroupFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupLevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡CORRECTO! 🎉🎉🎉<br />¡Acertaste todas las parejas de este nivel!</p><p id=\"multGroupAllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br />¡Acertaste todas las multiplicaciones!</p><p style=\"text-align: center\"><button id=\"multGroupReset\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button></p><p style=\"text-align: center\"><button id=\"multGroupNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupWordLevel\" style=\"display: none\">Nivel</span><span id=\"multGroupWordNextLevel\" style=\"display: none\">Siguiente nivel</span><span id=\"multGroupWordPlayAgain\" style=\"display: none\">Jugar de nuevo</span><span id=\"multGroupWordWrongPair\" style=\"display: none\">%RESULT% no es el resultado de %EXPRESSION%. Cuenta los caracteres e inténtalo de nuevo.</span>",
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupLevel\" class=\"level-badge\"></span></p><p><div id=\"multGroupGame\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupLeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupRightCol\"></div></div></p><p id=\"multGroupFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupLevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡CORRECTO! 🎉🎉🎉<br />¡Acertaste todas las parejas de este nivel!</p><p id=\"multGroupAllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br />¡Acertaste todas las multiplicaciones!</p><p style=\"text-align: center\"><button id=\"multGroupReset\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button></p><p style=\"text-align: center\"><button id=\"multGroupNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupWordLevel\" style=\"display: none\">Nivel</span><span id=\"multGroupWordNextLevel\" style=\"display: none\">Siguiente nivel</span><span id=\"multGroupWordPlayAgain\" style=\"display: none\">Jugar de nuevo</span><span id=\"multGroupWordWrongPair\" style=\"display: none\">%RESULT% no es el resultado de %EXPRESSION%. Cuenta los caracteres e inténtalo de nuevo.</span><span id=\"multGroupWordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroupWordNoGroups\" style=\"display: none\">Sin grupos.</span>",
                "source": null,
                "date_time": null,
                "isTable": false,

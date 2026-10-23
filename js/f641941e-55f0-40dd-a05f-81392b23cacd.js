@@ -111,10 +111,25 @@ function htMultGroupBuild() {
     for (let i = 0; i < rightItems.length; i++) {
         var pair = localMultGroup.pairs[rightItems[i].id];
         var groups = rightItems[i].html === "" ? "" : "<span class=\"htMultGroupsWrap\">" + rightItems[i].html + "</span>";
-        rightHtml += "<button type=\"button\" class=\"orderGameBtn htMultGroupResultBtn\" id=\"multGroupRight" + rightItems[i].id + "\" data-id=\"" + rightItems[i].id + "\" aria-label=\"" + pair.result + "\" onclick=\"htMultGroupSelect('Right', " + rightItems[i].id + ");\"><span class=\"htMultGroupValue\">" + pair.result + "</span>" + groups + "</button>";
+        rightHtml += "<button type=\"button\" class=\"orderGameBtn htMultGroupResultBtn\" id=\"multGroupRight" + rightItems[i].id + "\" data-id=\"" + rightItems[i].id + "\" onclick=\"htMultGroupSelect('Right', " + rightItems[i].id + ");\"><span class=\"htMultGroupValue\">" + pair.result + "</span>" + groups + "</button>";
     }
     $("#multGroupLeftCol").html(leftHtml);
     $("#multGroupRightCol").html(rightHtml);
+
+    // The groups are decorative for sighted users, so the accessible name must
+    // also describe them: "10. Groups: 2. Characters per group: 5."
+    var groupWord = $("#multGroupWordGroups").text();
+    var noGroupsWord = $("#multGroupWordNoGroups").text();
+    for (let i = 0; i < rightItems.length; i++) {
+        var labelPair = localMultGroup.pairs[rightItems[i].id];
+        var groupDescription = noGroupsWord;
+        if (labelPair.first > 0) {
+            groupDescription = groupWord
+                .split("%COUNT%").join(labelPair.second)
+                .split("%SIZE%").join(labelPair.first);
+        }
+        $("#multGroupRight" + rightItems[i].id).attr("aria-label", labelPair.result + ". " + groupDescription);
+    }
 
     var levelWord = $("#multGroupWordLevel").text();
     $("#multGroupLevel").text(levelWord + " " + localMultGroup.level + "/" + HT_MULT_GROUP_MAX_LEVEL);
@@ -163,7 +178,7 @@ function htMultGroupEvaluatePair() {
         var message = $("#multGroupWordWrongPair").text()
             .split("%RESULT%").join(localMultGroup.pairs[rightId].result)
             .split("%EXPRESSION%").join(htMultGroupExpression(localMultGroup.pairs[leftId]));
-        $("#multGroupFeedback").html(message).show();
+        $("#multGroupFeedback").text(message).show();
         $("#multGroupLeft" + leftId).removeClass("orderGameBtnSelected");
         $("#multGroupRight" + rightId).removeClass("orderGameBtnSelected");
         localMultGroup.selectedLeft = null;
