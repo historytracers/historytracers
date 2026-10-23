@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+History Tracers installer strings - Brazilian Portuguese (pt-BR).
+Used with: wix build -loc HistoryTracers.pt-BR.wxl -culture pt-BR
+-->
+<WixLocalization xmlns="http://wixtoolset.org/schemas/v4/wxl" Culture="pt-BR">
+  <String Id="DowngradeErrorMessage" Value="Uma versão mais recente do HistoryTracers já está instalada." />
+  <String Id="MainApplicationTitle" Overridable="yes" Value="Visualizador de HistoryTracers" />
+  <String Id="MainApplicationDescription" Overridable="yes" Value="O aplicativo visualizador do HistoryTracers" />
+  <String Id="WebContentTitle" Overridable="yes" Value="Conteúdo web" />
+  <String Id="WebContentDescription" Overridable="yes" Value="Conteúdo web estático (pode ser usado com Apache ou IIS sem o visualizador)" />
+  <String Id="ImagesTitle" Overridable="yes" Value="Arquivos de imagens" />
+  <String Id="ImagesDescription" Overridable="yes" Value="Arquivos de imagens adicionais de museus e instituições" />
+  <String Id="PublisherTitle" Overridable="yes" Value="Ferramenta de publicação" />
+  <String Id="PublisherDescription" Overridable="yes" Value="Ferramenta de publicação de conteúdo (para autores de conteúdo)" />
+  <String Id="ShortcutViewerDescription" Value="Iniciar o visualizador de HistoryTracers" />
+  <String Id="ShortcutUninstallDescription" Value="Desinstalar o HistoryTracers" />
+</WixLocalization>

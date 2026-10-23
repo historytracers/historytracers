@@ -1046,9 +1046,10 @@ ht_build_msi() {
     WWW_DIR="${PROJECT_DIR}/www"
     IMAGES_DIR="${WWW_DIR}/images"
     MSI_VERSION="$(ht_get_version)"
-    # ProductVersion stays ${MSI_VERSION}; the file itself is released
-    # without a version in the name.
-    OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers.msi"
+    # One installer per project language (en-US keeps the plain file name
+    # used in the packaging READMEs); ProductVersion stays ${MSI_VERSION}.
+    OUTPUT_DIR="${PROJECT_DIR}/artifacts"
+    MSI_LANGS="en-US es-ES pt-BR"
 
     # Write PowerShell fragment generator to a temp file (avoids bash escaping issues)
     PS_GEN="$(mktemp -t wix_gen_XXXXXX.ps1 2>/dev/null || echo "${TMPDIR:-/tmp}/wix_gen_$$.ps1")"
@@ -1280,22 +1281,37 @@ PSEOF
 
     rm -f "$PS_GEN"
 
-    # ---- Step 3: Build MSI (compile + link in one step) ----
-    echo "Building MSI..."
-    "$WIXEXE" build \
-        -ext WixToolset.UI.wixext \
-        "${WIXDIR}/historytracers.wxs" \
-        "${WIXDIR}/www-fragment.wxs" \
-        "${WIXDIR}/images-fragment.wxs" \
-        "${WIXDIR}/build-fragment.wxs" \
-        "${WIXDIR}/options-fragment.wxs" \
-        -o "$OUTPUT_MSI" \
-        -arch x64 \
-        -d MsiVersion="$MSI_VERSION" \
-        -d BuildDir="$BUILD_DIR" \
-        -d WwwDir="$WWW_DIR" \
-        -d ImagesDir="$IMAGES_DIR" \
-        -d ProjectDir="$PROJECT_DIR"
+    # ---- Step 3: Build MSIs (one per project language; -culture also picks
+    #      the matching WixUI built-in strings, e.g. es-ES -> ProductLanguage 3082) ----
+    for CULTURE in ${MSI_LANGS}; do
+        case "$CULTURE" in
+            en-US) MSI_NAME="HistoryTracers.msi"; LICENSE_RTF="${WIXDIR}/gpl3.rtf";;
+            *)     MSI_NAME="HistoryTracers-${CULTURE}.msi"; LICENSE_RTF="${WIXDIR}/gpl3.${CULTURE}.rtf";;
+        esac
+        LOC_FILE="${WIXDIR}/HistoryTracers.${CULTURE}.wxl"
+        if [ ! -f "$LOC_FILE" ] || [ ! -f "$LICENSE_RTF" ]; then
+            echo "ERROR: missing localization inputs: $LOC_FILE $LICENSE_RTF"
+            exit 1
+        fi
+        echo "Building MSI (${CULTURE})..."
+        "$WIXEXE" build \
+            -ext WixToolset.UI.wixext \
+            "${WIXDIR}/historytracers.wxs" \
+            "${WIXDIR}/www-fragment.wxs" \
+            "${WIXDIR}/images-fragment.wxs" \
+            "${WIXDIR}/build-fragment.wxs" \
+            "${WIXDIR}/options-fragment.wxs" \
+            -culture "$CULTURE" \
+            -loc "$LOC_FILE" \
+            -o "$OUTPUT_DIR/$MSI_NAME" \
+            -arch x64 \
+            -d MsiVersion="$MSI_VERSION" \
+            -d BuildDir="$BUILD_DIR" \
+            -d WwwDir="$WWW_DIR" \
+            -d ImagesDir="$IMAGES_DIR" \
+            -d ProjectDir="$PROJECT_DIR" \
+            -d LicenseRtf="$LICENSE_RTF"
+    done
 
     # ---- Cleanup ----
     rm -f "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" \

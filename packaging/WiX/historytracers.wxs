@@ -9,11 +9,15 @@
 
     <Media Id="1" Cabinet="historytracers.cab" EmbedCab="yes" CompressionLevel="high" />
 
-    <!-- License agreement shown by the wizard's License screen: the full
-         GPL-3.0 text (repo root LICENSE converted to RTF). The path is
-         resolved from the ProjectDir preprocessor variable passed by both
-         build scripts (build_msi.ps1 and historytracers2pkg.sh). -->
-    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\packaging\WiX\gpl3.rtf" />
+    <!-- License agreement shown by the wizard's License screen. The path
+         is provided per language build from both build scripts
+         (build_msi.ps1 and historytracers2pkg.sh):
+           en-US -> packaging\WiX\gpl3.rtf
+           es-ES -> packaging\WiX\gpl3.es-ES.rtf
+           pt-BR -> packaging\WiX\gpl3.pt-BR.rtf
+         All three share the official (English) GPL-3.0 text; only the
+         preceding image-copyright notice is translated. -->
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.LicenseRtf)" />
 
     <!-- ============================================================ -->
     <!-- Install options (see contentroot.js for the custom action)    -->
@@ -98,7 +102,7 @@
     <!-- ============================================================ -->
     <Component Id="PROGRAMMENUDIR_comp" Directory="PROGRAMMENUDIR" Guid="*">
       <Shortcut Id="S_Viewer" Name="HistoryTracers Viewer"
-                Description="Launch HistoryTracers Viewer"
+                Description="!(loc.ShortcutViewerDescription)"
                 Target="[INSTALLDIR]historytracers.exe"
                 WorkingDirectory="INSTALLDIR" />
       <!--Shortcut Id="S_Editor" Name="HistoryTracers Editor"
@@ -106,7 +110,7 @@
                 Target="[INSTALLDIR]historytracers-editor.exe"
                 WorkingDirectory="INSTALLDIR" /-->
       <Shortcut Id="S_Uninstall" Name="Uninstall HistoryTracers"
-                Description="Uninstall HistoryTracers"
+                Description="!(loc.ShortcutUninstallDescription)"
                 Target="[System64Folder]msiexec.exe"
                 Arguments="/x [ProductCode]" />
       <RemoveFolder Id="PROGRAMMENUDIR_rem" On="uninstall" />
@@ -126,8 +130,8 @@
     <!-- ============================================================ -->
     <!-- Features                                                     -->
     <!-- ============================================================ -->
-    <Feature Id="MainApplication" Title="HistoryTracers Viewer"
-             Description="The HistoryTracers viewer application"
+    <Feature Id="MainApplication" Title="!(loc.MainApplicationTitle)"
+             Description="!(loc.MainApplicationDescription)"
              Level="1" Display="expand"
              ConfigurableDirectory="INSTALLDIR">
       <Level Condition='INSTALLTYPE="ContentOnly"' Value="0" />
@@ -136,16 +140,16 @@
       <ComponentGroupRef Id="CG_MAIN_BIN" />
     </Feature>
 
-    <Feature Id="WebContent" Title="Web Content"
-             Description="Static web content (usable with Apache or IIS without the viewer)"
+    <Feature Id="WebContent" Title="!(loc.WebContentTitle)"
+             Description="!(loc.WebContentDescription)"
              Level="1">
       <ComponentGroupRef Id="CG_OPTIONS" />
       <ComponentGroupRef Id="CG_WWW" />
       <ComponentRef Id="CONTENTROOT_reg" />
     </Feature>
 
-    <Feature Id="Images" Title="Image Files"
-             Description="Additional museum and institutional image files"
+    <Feature Id="Images" Title="!(loc.ImagesTitle)"
+             Description="!(loc.ImagesDescription)"
              Level="1">
       <Level Condition='INSTALLIMAGES="0"' Value="0" />
       <ComponentGroupRef Id="CG_IMAGES" />
@@ -157,8 +161,8 @@
       <ComponentGroupRef Id="CG_EDITOR_BIN" />
     </Feature-->
 
-    <Feature Id="Publisher" Title="Publisher Tool"
-             Description="Content publishing tool (for content authors)"
+    <Feature Id="Publisher" Title="!(loc.PublisherTitle)"
+             Description="!(loc.PublisherDescription)"
              Level="3">
       <ComponentGroupRef Id="CG_PUBLISHER_BIN" />
     </Feature>
@@ -179,7 +183,7 @@
     <ui:WixUI Id="WixUI_FeatureTree" InstallDirectory="INSTALLDIR" />
 
     <!-- Major upgrade -->
-    <MajorUpgrade DowngradeErrorMessage="A newer version of HistoryTracers is already installed."
+    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeErrorMessage)"
                   AllowSameVersionUpgrades="yes" />
 
   </Package>

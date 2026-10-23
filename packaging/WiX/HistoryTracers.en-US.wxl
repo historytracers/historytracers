@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+History Tracers installer strings - English (en-US).
+Used with: wix build -loc HistoryTracers.en-US.wxl -culture en-US
+-->
+<WixLocalization xmlns="http://wixtoolset.org/schemas/v4/wxl" Culture="en-US">
+  <String Id="DowngradeErrorMessage" Value="A newer version of HistoryTracers is already installed." />
+  <String Id="MainApplicationTitle" Overridable="yes" Value="HistoryTracers Viewer" />
+  <String Id="MainApplicationDescription" Overridable="yes" Value="The HistoryTracers viewer application" />
+  <String Id="WebContentTitle" Overridable="yes" Value="Web Content" />
+  <String Id="WebContentDescription" Overridable="yes" Value="Static web content (usable with Apache or IIS without the viewer)" />
+  <String Id="ImagesTitle" Overridable="yes" Value="Image Files" />
+  <String Id="ImagesDescription" Overridable="yes" Value="Additional museum and institutional image files" />
+  <String Id="PublisherTitle" Overridable="yes" Value="Publisher Tool" />
+  <String Id="PublisherDescription" Overridable="yes" Value="Content publishing tool (for content authors)" />
+  <String Id="ShortcutViewerDescription" Value="Launch HistoryTracers Viewer" />
+  <String Id="ShortcutUninstallDescription" Value="Uninstall HistoryTracers" />
+</WixLocalization>

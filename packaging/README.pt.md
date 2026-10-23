@@ -133,12 +133,25 @@ Dê um duplo clique em `artifacts/HistoryTracers.msi` (ou execute
 com o WiX Toolset. O nome do arquivo não leva versão; a versão fica
 nos metadados do MSI (`ProductVersion`).
 
+O instalador é publicado nos três idiomas do projeto, com um MSI por
+idioma:
+
+- `artifacts/HistoryTracers.msi` - inglês (padrão)
+- `artifacts/HistoryTracers-es-ES.msi` - espanhol (es-ES)
+- `artifacts/HistoryTracers-pt-BR.msi` - português do Brasil (pt-BR)
+
+Cada variante localiza as telas do assistente (boas-vindas, contrato
+de licença, seleção de funcionalidades, caminho de instalação) e o
+aviso de licença; as propriedades do msiexec mostradas abaixo
+funcionam da mesma forma em todos os idiomas.
+
 Por padrão é feita uma **instalação completa**: o binário do
 visualizador, os atalhos do menu Iniciar e o conteúdo web em
 `Program Files\HistoryTracers\`.
 
 Duas opções de instalação são controladas por propriedades do msiexec
-(sem assistente):
+(automatizáveis; a árvore de funcionalidades do assistente é o
+equivalente interativo):
 
 - `INSTALLTYPE=ContentOnly`: não instala binário nem atalhos; todo o
   conteúdo `www/` é copiado para um diretório `historytracers/`

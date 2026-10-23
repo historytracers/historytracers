@@ -107,9 +107,20 @@ if (Test-Path $infoFile) {
     if ($m -and $m.Matches[0].Groups[1].Value) { $msiVersion = $m.Matches[0].Groups[1].Value }
   }
 }
-# Output released without a version in the name; ProductVersion still
-# carries $msiVersion inside the MSI metadata.
-$msiOut          = Join-Path $OutputDir "HistoryTracers.msi"
+# Output one installer per project language (en-US keeps the plain
+# HistoryTracers.msi name used in the packaging READMEs); ProductVersion
+# still carries $msiVersion inside the MSI metadata.
+$MsiLanguages = @("en-US", "es-ES", "pt-BR")
+$MsiNames      = @{
+  "en-US" = "HistoryTracers.msi"
+  "es-ES" = "HistoryTracers-es-ES.msi"
+  "pt-BR" = "HistoryTracers-pt-BR.msi"
+}
+$LicenseRtfs   = @{
+  "en-US" = "$WixDir\gpl3.rtf"
+  "es-ES" = "$WixDir\gpl3.es-ES.rtf"
+  "pt-BR" = "$WixDir\gpl3.pt-BR.rtf"
+}
 
 # ---- Ensure UI extension (provides the WixUI install wizard screens) ----
 $uiExtName = "WixToolset.UI.wixext"
@@ -346,18 +357,24 @@ if (-not (Test-Path $imgHarvest)) {
     exit 1
 }
 
-# ---- Step 3: Build MSI with wix.exe build ----
-Write-Host "Building MSI..."
-& $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest `
-    @uiExtArgs `
-    -o $msiOut `
-    -arch x64 `
-    -d MsiVersion=$msiVersion `
-    -d BuildDir=$buildDir `
-    -d WwwDir=$wwwSource `
-    -d ImagesDir=$imagesSource `
-    -d ProjectDir=$ProjectDir
-if ($LASTEXITCODE -ne 0) { Write-Error "wix build failed"; exit 1 }
+# ---- Step 3: Build MSIs (one per project language; -culture also picks the
+#      matching WixUI built-in strings, e.g. es-ES -> ProductLanguage 3082) ----
+foreach ($culture in $MsiLanguages) {
+    Write-Host "Building MSI ($culture)..."
+    & $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest `
+        @uiExtArgs `
+        -culture $culture `
+        -loc $WixDir\HistoryTracers.$culture.wxl `
+        -o (Join-Path $OutputDir $MsiNames[$culture]) `
+        -arch x64 `
+        -d MsiVersion=$msiVersion `
+        -d BuildDir=$buildDir `
+        -d WwwDir=$wwwSource `
+        -d ImagesDir=$imagesSource `
+        -d ProjectDir=$ProjectDir `
+        -d LicenseRtf=$($LicenseRtfs[$culture])
+    if ($LASTEXITCODE -ne 0) { Write-Error "wix build failed for $culture"; exit 1 }
+}
 
 # ---- Cleanup ----
 if (-not $KeepFragments) {
