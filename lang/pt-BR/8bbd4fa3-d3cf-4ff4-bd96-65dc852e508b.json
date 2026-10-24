@@ -22,10 +22,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792851044"
+      "1792882087"
    ],
    "authors": null,
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -129,7 +131,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Por que o produto é sempre par?\n\nOlhe para as respostas da tabuada do dois: 2, 4, 6, 8, 10, 12... Todas são **números pares**, o que significa que podem ser divididos em duas partes iguais sem sobrar nada (<htcite0>). Multiplicar por 2 dobra um número, e um dobro sempre pode ser partido em duas metades iguais. Então o produto de qualquer multiplicação por 2 é sempre par!",
+               "text": "#### Por que o produto de um número inteiro é sempre par?\n\nOlhe para as respostas da tabuada do dois: 2, 4, 6, 8, 10, 12... Todas são **números pares**, o que significa que podem ser divididos em duas partes iguais sem sobrar nada (<htcite0>). Multiplicar por 2 dobra um número inteiro, e um dobro sempre pode ser partido em duas metades iguais. Então o produto de qualquer número inteiro multiplicado por 2 é sempre par!",
                "source": [
                   {
                      "type": 1,
@@ -345,9 +347,9 @@
          "additionalInfo": "Dois grupos de quatro são 4 + 4 = 8, então 2 × 4 = 8."
       },
       {
-         "question": "Multiplicar um número por 2 sempre dá um número par?",
+         "question": "Multiplicar um número inteiro por 2 sempre dá um número par?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "O dobro de qualquer número inteiro é par: 2, 4, 6, 8, 10..."
+         "additionalInfo": "O dobro de qualquer número inteiro sempre é par: 2, 4, 6, 8, 10..."
       },
       {
          "question": "3 × 3 é igual a 6?",

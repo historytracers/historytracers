@@ -22,10 +22,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792850999"
+      "1792882042"
    ],
    "authors": null,
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -129,7 +131,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Why is the product always even?\n\nLook at the answers of the table of two: 2, 4, 6, 8, 10, 12... Every one of them is an **even number**, which means it can be divided into two equal parts with nothing left over (<htcite0>). Multiplying by 2 doubles a number, and a double can always be split into two equal halves. So the product of any multiplication by 2 is always even!",
+               "text": "#### Why is the product of a whole number always even?\n\nLook at the answers of the table of two: 2, 4, 6, 8, 10, 12... Every one of them is an **even number**, which means it can be divided into two equal parts with nothing left over (<htcite0>). Multiplying by 2 doubles a whole number, and a double can always be split into two equal halves. So the product of any whole number multiplied by 2 is always even!",
                "source": [
                   {
                      "type": 1,
@@ -345,9 +347,9 @@
          "additionalInfo": "Two groups of four are 4 + 4 = 8, so 2 × 4 = 8."
       },
       {
-         "question": "Does multiplying a number by 2 always give an even number?",
+         "question": "Does multiplying a whole number by 2 always give an even number?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Doubling any whole number gives an even number: 2, 4, 6, 8, 10..."
+         "additionalInfo": "Doubling any whole number always gives an even number: 2, 4, 6, 8, 10..."
       },
       {
          "question": "Is 3 × 3 equal to 6?",

@@ -22,10 +22,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792851018"
+      "1792882062"
    ],
    "authors": null,
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -129,7 +131,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### ¿Por qué el producto siempre es par?\n\nMira las respuestas de la tabla del dos: 2, 4, 6, 8, 10, 12... Todas son **números pares**, lo que significa que se pueden dividir en dos partes iguales sin que sobre nada (<htcite0>). Multiplicar por 2 duplica un número, y un doble siempre se puede partir en dos mitades iguales. ¡Así que el producto de cualquier multiplicación por 2 siempre es par!",
+               "text": "#### ¿Por qué el producto de un número entero siempre es par?\n\nMira las respuestas de la tabla del dos: 2, 4, 6, 8, 10, 12... Todas son **números pares**, lo que significa que se pueden dividir en dos partes iguales sin que sobre nada (<htcite0>). Multiplicar por 2 duplica un número entero, y un doble siempre se puede partir en dos mitades iguales. ¡Así que el producto de cualquier número entero multiplicado por 2 siempre es par!",
                "source": [
                   {
                      "type": 1,
@@ -345,9 +347,9 @@
          "additionalInfo": "Dos grupos de cuatro son 4 + 4 = 8, entonces 2 × 4 = 8."
       },
       {
-         "question": "¿Multiplicar un número por 2 siempre da un número par?",
+         "question": "¿Multiplicar un número entero por 2 siempre da un número par?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "El doble de cualquier número entero es par: 2, 4, 6, 8, 10..."
+         "additionalInfo": "El doble de cualquier número entero siempre es par: 2, 4, 6, 8, 10..."
       },
       {
          "question": "¿3 × 3 es igual a 6?",
