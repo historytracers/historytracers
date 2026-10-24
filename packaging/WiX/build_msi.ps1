@@ -367,6 +367,7 @@ foreach ($culture in $MsiLanguages) {
         -loc $WixDir\HistoryTracers.$culture.wxl `
         -o (Join-Path $OutputDir $MsiNames[$culture]) `
         -arch x64 `
+        -pdbtype none `
         -d MsiVersion=$msiVersion `
         -d BuildDir=$buildDir `
         -d WwwDir=$wwwSource `

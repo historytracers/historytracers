@@ -1305,6 +1305,7 @@ PSEOF
             -loc "$LOC_FILE" \
             -o "$OUTPUT_DIR/$MSI_NAME" \
             -arch x64 \
+            -pdbtype none \
             -d MsiVersion="$MSI_VERSION" \
             -d BuildDir="$BUILD_DIR" \
             -d WwwDir="$WWW_DIR" \
