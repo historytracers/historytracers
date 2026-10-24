@@ -1,0 +1,181 @@
+{
+   "title": "Ejercitando la resta con números elegidos",
+   "header": "Ejercitando la resta con números elegidos",
+   "sources": [
+      "91cc765a-206a-4215-bc55-3b3adcc40727"
+   ],
+   "scripts": [
+      "91cc765a-206a-4215-bc55-3b3adcc40727"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/91cc765a-206a-4215-bc55-3b3adcc40727_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "biology",
+      "chemistry",
+      "math_games",
+      "history",
+      "physics"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792858089"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEn este ejercicio, practicarás la resta escribiendo tú mismo los valores, columna por columna, con números que elijas. Antes de empezar, te sugerimos estudiar:\n\n- **Regresando**: cómo se presenta la resta como una forma de regreso (<htcite0>)\n- **La resta y el complemento**: cómo usar el complemento a 10 para hacer restas (<htcite1>)\n- **Resta con la Yupana**: cómo funciona la resta con la Yupana inca (<htcite2>)\n- **Ejercitando la resta**: un ejercicio para practicar la resta columna por columna con cuadrados y el complemento a 10 (<htcite3>)\n- **Ejercitando la resta escribiendo los valores**: la misma resta vertical escribiendo los valores, pero con números generados al azar (<htcite4>)\n- **El arte de estudiar**: los cinco factores de Sun Tzu y cómo usarlos como estrategia para aprender (<htcite5>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "964083ad-c587-43dc-9649-5b578714ab44",
+                     "text": "History Tracers Team",
+                     "page": "Regresando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1adedc53-a246-49d1-aa42-cee0fd3aa553",
+                     "text": "History Tracers Team",
+                     "page": "La resta y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f17ec53f-af65-4708-bcc1-a140287d4dd9",
+                     "text": "History Tracers Team",
+                     "page": "Resta con la Yupana",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4736db57-6444-4631-b3c8-08e4d1e35688",
+                     "text": "History Tracers Team",
+                     "page": "Ejercitando la resta",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cc21bf40-cb71-4f3c-a82a-8785f5d97611",
+                     "text": "History Tracers Team",
+                     "page": "Ejercitando la resta escribiendo los valores",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "El arte de estudiar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_suntzu",
+         "text": [
+            {
+               "text": "### Los 5 factores de Sun Tzu (孙子)\n\nPara hacer los ejercicios, recomendamos usar los 5 factores de Sun Tzu (los mismos que aparecen en **El arte de estudiar** (<htcite0>)) de la siguiente manera:\n\n- **La ley de la moral**: No te limites a un solo ejercicio. Para reforzar lo que aprendiste, practica hasta sentirte más cómodo y reparte la práctica en más de un día.\n- **El paraíso**: Visualiza los números que estás restando con tu propio cuerpo. Cada vez que restes un número de otro, comprueba si el resultado se mantiene dentro del conteo de tus dedos o si lo supera. Después, intenta recrear en otros escenarios las restas que estás haciendo aquí, para que veas que la misma idea aparece en todas partes.\n- **La tierra**: En cada resta, los cuadrados representan los dígitos. Cuando el dígito de arriba es menor que el de abajo, la columna pide prestado 1 al siguiente orden: se agrupan diez cuadrados, se quita de ese grupo el dígito de abajo y los cuadrados que quedan en el grupo son el complemento a diez. Así que, antes de empezar a restar dos dígitos, pregúntate: ¿el dígito de abajo es mayor que el dígito de arriba ajustado — el de arriba reducido en uno cuando la columna anterior pidió prestado 1? La respuesta te dice si la columna necesitará pedir prestado 1.\n- **El comandante**: Como comandante de tu aprendizaje, debes:\n    - Ser benevolente contigo mismo y con las personas que aún no entienden la resta, y ayudarlas a aprender.\n    - Ser honesto contigo mismo y no permitir que tu confianza subestime o sobreestime el problema que tienes delante.\n    - Respetarte, recordando que hay diferentes maneras de entender las matemáticas. Descubre la manera en la que te sientas mejor y síguela. En History Tracers haremos todo lo posible para ayudarte a encontrar tu camino.\n    - Usar tu sabiduría para identificar tus debilidades, a fin de entrenarlas y convertirlas en fortalezas.\n    - Usar tu sinceridad para ver dónde tienes que mejorar y no levantar barreras por las dificultades que puedas encontrar.\n- **Método y disciplina**: Reserva un rato para entrenar todos los días y respeta tu tiempo de descanso.\n",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "El arte de estudiar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Ejercicio de práctica\n\nLeer sobre la resta ayuda, pero practicar es esencial para comprenderla de verdad. En este ejercicio, tú eliges los números: escribe dos números entre 0 y 99999 en los dos campos y haz clic en **Comenzar**. El segundo número no puede ser mayor que el primero, porque la resta se hace con números enteros y el resultado no puede ser negativo. Puedes empezar con números más pequeños — por ejemplo, 25 - 13 — e ir subiendo hasta los más grandes. Después, la resta se escribe en vertical, columna por columna, desde las unidades hacia arriba, con tantas columnas como necesiten los números. En cada columna:\n\n1. Los cuadrados azul claro muestran el dígito disponible en la columna, y los cuadrados blancos muestran el dígito inferior del segundo número, el que va a quitarse.\n2. Cuando la columna anterior pidió prestado 1, el dígito de arriba debe ajustarse antes que nada: escribe el dígito ajustado en la fila de arriba, sobre el dígito original.\n3. Escribe en la casilla de la fila del resultado el dígito que queda en la columna: es el número de cuadrados azul claro que se mantienen.\n4. Cuando el dígito de arriba es menor que el de abajo, la columna pide prestado 1 al siguiente orden: aparece una casilla de préstamo sobre el siguiente orden — escribe 1 en ella — y el valor escrito arriba debe actualizarse, porque la columna ahora tiene diez cuadrados más: escribe el nuevo valor (por ejemplo, 13 cuando el dígito escrito era 3) en la fila de arriba. Cuando el dígito de arriba no es menor, no hay casilla de préstamo.\n\nLos valores se comprueban mientras los escribes. Si un dígito no es correcto, una pista te recuerda el complemento a diez y cómo usarlo para encontrar el dígito que queda en la columna. Si el préstamo no es correcto, una pista te dice cuándo la columna pide prestado 1. Si el valor de la fila de arriba no es correcto, una pista explica cómo escribir el dígito ajustado o cómo sumar los diez cuadrados cuando la columna pide prestado. Cuando todos los valores son correctos, los cuadrados blancos se quitan, aparece un mensaje de felicitación y se muestra el botón que pasa a la siguiente columna.\n\n**Antes de escribir, compara los dos dígitos de la columna:** cuando el dígito de arriba es menor que el de abajo, la columna pide prestado — se agrupan diez cuadrados, el dígito inferior se quita de ese grupo y los cuadrados que quedan en el grupo son el complemento del dígito inferior a diez. Si sumas el complemento a los cuadrados que ya estaban en la columna, obtienes el dígito que queda. Cuando la columna no pide prestado, el dígito que queda es lo que se mantiene después de quitar el dígito inferior.\n\n**Ejemplo: 13 - 7.** La columna tiene 3 cuadrados azul claro y el dígito inferior es 7. Como 3 es menor que 7, la columna pide prestado 1 al siguiente orden: aparece una casilla de préstamo sobre el siguiente orden, llegan diez cuadrados agrupados y la columna pasa a tener 3 + 10 = 13 cuadrados. Ahora quita el 7 del diez prestado: el complemento de 7 a diez es 3, así que quedan 3 cuadrados en el grupo y, con los 3 cuadrados que ya estaban en la columna, el dígito que queda es 6. Escribe dos valores en la fila de arriba — 13 en esta columna y 1 en la casilla de préstamo sobre el siguiente orden — y después escribe 6 en la casilla de la fila del resultado:<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareRemoved\"></span><span class=\"htAddSquare htAddSquareBase htAddSquareComplement\"></span><span class=\"htAddSquare htAddSquareBase htAddSquareComplement\"></span><span class=\"htAddSquare htAddSquareBase htAddSquareComplement\"></span></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span></div><span class=\"htAddSquaresCaption\">13 - 7 = 6</span>\n\nAl terminar el cálculo, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y el botón de abajo vuelve a los campos, para que elijas otros números y practiques de nuevo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htAddTypedSetup\" id=\"htSubChosenSetup\"><span class=\"htAddTypedSetupTitle\" id=\"htSubChosenSetupTitle\">Escribe dos números entre 0 y 99999</span><div class=\"htAddTypedFields\"><label class=\"htAddTypedField\" for=\"htSubChosenFirst\"><span id=\"htSubChosenFirstLabel\">Primer número</span><input type=\"text\" inputmode=\"numeric\" maxlength=\"5\" autocomplete=\"off\" id=\"htSubChosenFirst\" aria-label=\"Primer número (0 a 99999)\" /></label><label class=\"htAddTypedField\" for=\"htSubChosenSecond\"><span id=\"htSubChosenSecondLabel\">Segundo número</span><input type=\"text\" inputmode=\"numeric\" maxlength=\"5\" autocomplete=\"off\" id=\"htSubChosenSecond\" aria-label=\"Segundo número (0 a 99999)\" /></label></div><div class=\"htAddTypedError\" id=\"htSubChosenError\" role=\"alert\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htSubChosenStartBtn\" class=\"reset-tutor-btn\">Comenzar</button></div><span id=\"htSubChosenErrorTemplate\" class=\"htAddHidden\">Cada número debe estar entre {min} y {max}.</span><span id=\"htSubChosenOrderErrorTemplate\" class=\"htAddHidden\">El segundo número no puede ser mayor que el primero.</span></div><div class=\"htAddGame htAddHidden\" id=\"htSubChosenGame\"><div class=\"htAddOrders\" id=\"htSubChosenOrders\"></div><span class=\"htAddQuestion\" id=\"htSubChosenQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htSubChosenNote\"></div><table class=\"htAddTable\" id=\"htSubChosenTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htSubChosenSquaresLabel\">Resta en esta columna</span><div class=\"htAddSquares\" id=\"htSubChosenSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htSubChosenSquaresCaption\"></span><span class=\"htAddSquaresNote\" id=\"htSubChosenSquaresNote\"></span></div><span id=\"htSubChosenInputHome\" class=\"htAddHidden\"><input type=\"text\" inputmode=\"numeric\" maxlength=\"2\" autocomplete=\"off\" class=\"htAddInput htAddInputTop\" id=\"htSubChosenTopInput\" aria-label=\"Valor escrito en la fila de arriba\" /><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htSubChosenDigitInput\" aria-label=\"Dígito que conserva la columna\" /><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htSubChosenBorrowInput\" aria-label=\"Préstamo pedido al siguiente orden\" /></span><div class=\"htAddFeedback\" id=\"htSubChosenFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htSubChosenNextBtn\" class=\"reset-tutor-btn hidden\">Siguiente columna</button></div><span id=\"htSubChosenOrder0\" class=\"htAddHidden\">Unidades</span><span id=\"htSubChosenOrder1\" class=\"htAddHidden\">Decenas</span><span id=\"htSubChosenOrder2\" class=\"htAddHidden\">Centenas</span><span id=\"htSubChosenOrder3\" class=\"htAddHidden\">Millares</span><span id=\"htSubChosenOrder4\" class=\"htAddHidden\">Decenas de millar</span><span id=\"htSubChosenQuestionTemplate\" class=\"htAddHidden\">La columna de las {order} tiene {base} cuadrados disponibles. Quita el dígito inferior del segundo número ({bottom}): escribe en la fila de arriba los valores conforme avanzas (el dígito ajustado cuando la columna anterior pidió prestado 1, el 1 en la casilla de préstamo sobre el siguiente orden y el resultado de sumar diez cuadrados cuando la columna pide prestado) y, después, escribe en la casilla de la fila del resultado el dígito que queda en la columna.</span><span id=\"htSubChosenIncomingTemplate\" class=\"htAddHidden\">El 1 que la columna anterior pidió prestado se quita primero: {top} - 1 = {first}.</span><span id=\"htSubChosenBorrowTemplate\" class=\"htAddHidden\">{first} es menor que {bottom}, así que se pide prestado 1 al siguiente orden: {first} + 10 = {base}.</span><span id=\"htSubChosenChainedTemplate\" class=\"htAddHidden\">La columna anterior pidió prestado 1 a esta columna y esta columna vale 0, así que pide prestado al siguiente orden: 0 - 1 + 10 = 9.</span><span id=\"htSubChosenMsgBorrowTemplate\" class=\"htAddHidden\">{base} - {removed} = {result}. Se usa el 1 prestado del siguiente orden y la columna de las {order} conserva {result}.</span><span id=\"htSubChosenMsgNoBorrowTemplate\" class=\"htAddHidden\">{base} - {removed} = {result}. La columna de las {order} conserva {result}.</span><span id=\"htSubChosenWrongDigitTemplate\" class=\"htAddHidden\">El dígito que escribiste no es correcto. Recuerda el complemento de {bottom} a diez: {comp}. Úsalo para comprobar cuántos cuadrados se mantienen en la columna de las {order}.</span><span id=\"htSubChosenWrongBorrowTemplate\" class=\"htAddHidden\">El préstamo que escribiste no es correcto. Comprueba los dígitos de la columna: {first} es menor que {bottom}, así que la columna pide prestado 1 al siguiente orden: escribe 1 en la casilla de préstamo sobre el siguiente orden.</span><span id=\"htSubChosenWrongTopTemplate\" class=\"htAddHidden\">El valor que escribiste arriba no es correcto. El 1 que la columna anterior pidió prestado se quita primero: {top} - 1 = {first}. Escribe {first} arriba.</span><span id=\"htSubChosenWrongTopBorrowTemplate\" class=\"htAddHidden\">El valor que escribiste arriba no es correcto. La columna pide prestado 1 al siguiente orden porque {first} es menor que {bottom}: escribe {first} + 10 = {base} arriba.</span><span id=\"htSubChosenWrongTopChainedTemplate\" class=\"htAddHidden\">El valor que escribiste arriba no es correcto. La columna anterior pidió prestado 1 a esta columna y esta columna vale 0, así que pide prestado al siguiente orden: 0 - 1 + 10 = 9. Escribe 9 arriba.</span><span id=\"htSubChosenCongratsTemplate\" class=\"htAddHidden\">✅ ¡Correcto! Haz clic en 'Siguiente columna' para continuar.</span><span id=\"htSubChosenPerfectTemplate\" class=\"htAddHidden\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br>{top} - {bottom} = {result}<br>¡Buen trabajo!</span><span id=\"htSubChosenNextColumnLabel\" class=\"htAddHidden\">Siguiente columna</span><span id=\"htSubChosenNewNumbersLabel\" class=\"htAddHidden\">Nuevos números</span><span id=\"htSubChosenSquaresPendingTemplate\" class=\"htAddHidden\">Los cuadrados blancos representan el dígito inferior {bottom}, que aún falta por quitar. Los cuadrados azul claro que se mantienen son el dígito que queda en la columna.</span><span id=\"htSubChosenSquaresBorrowPendingTemplate\" class=\"htAddHidden\">El dígito inferior {bottom} se quita del grupo de diez; los {comp} cuadrados que quedan en el grupo son el complemento de {bottom} a diez y, junto con los {outside} cuadrados que ya estaban en la columna, forman el dígito que queda.</span><span id=\"htSubChosenSquaresUsedTemplate\" class=\"htAddHidden\">Cuadrados quitados: {removed}. Cuadrados restantes: {remaining}.</span><span id=\"htSubChosenSquaresBorrowUsedTemplate\" class=\"htAddHidden\">El complemento de {bottom} a diez ({comp}) se queda en el grupo de diez. Junto con los {outside} cuadrados que ya estaban en la columna, da el dígito que queda: {result}.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
