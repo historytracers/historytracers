@@ -1,0 +1,114 @@
+{
+   "title": "Divisões: escrever o quociente",
+   "header": "Divisões: escrever o quociente",
+   "sources": [
+      "37819363-3b7a-46ca-bc3a-868cbac62a03"
+   ],
+   "scripts": [
+      "37819363-3b7a-46ca-bc3a-868cbac62a03"
+   ],
+   "audio": [],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792938824"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste texto apresenta um aplicativo para praticar a divisão. Antes de usá-lo, recomendamos estudar os textos anteriores deste capítulo (<htcite0>), que introduzem as tabelas de multiplicação e outras ideias básicas de que você precisará aqui.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros passos (Volume 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practicing",
+         "text": [
+            {
+               "text": "### Praticando\n\nLer um texto é um bom começo, mas compreender de verdade a divisão exige prática. Neste aplicativo, o menu **Tabelas de multiplicação** permite escolher com qual tabela trabalhar. Por padrão, está definido como **Aleatório**, de modo que um novo divisor é escolhido cada vez; se você preferir se concentrar em uma única tabela, selecione um número de 1 a 9.\n\nO exercício usa o **algoritmo da divisão** (<htcite0>), o método passo a passo para dividir números à mão. Lembre-se: quando um número não divide outro exatamente, o que sobra é chamado de **resto**.\n\nNa tabela a seguir, propomos dividir um número por outro. Em vez de usar as setas laterais, **escreva cada algarismo do quociente nas caixas de texto**. Assim que um algarismo está correto, o aplicativo realiza por você a multiplicação e a subtração daquela etapa e passa para a próxima caixa.\n\nQuando terminar, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>). Clique na seta para a direita (<i class=\"fa-solid fa-chevron-right\"></i>) para iniciar um novo cálculo.\n\nOs botões de **Formato da divisão** permitem escolher como a divisão é escrita: com o **Resultado abaixo** da barra (como em muitos livros escolares) ou com o **Resultado acima** dela (um formato que aparece em documentos matemáticos históricos).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4742a2d6-a3c5-4883-beb5-8ed0240fa9a7",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Divisão longa",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><b>Tabelas de multiplicação:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htLongDivisionFormat\"><b>Formato da divisão:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Resultado abaixo</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Resultado acima</button></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">Divisão</th></tr> </table></p><p class=\"desc\"><b>Tabela 1</b>: Exercício de divisão com caixas para o quociente.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
