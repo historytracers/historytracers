@@ -25,7 +25,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792963514"
+      "1792967758"
    ],
    "authors": null,
    "reviewers": [
@@ -48,7 +48,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nNesta aula praticamos a soma com as mesmas ferramentas que a humanidade criou para contar. O pré-requisito principal é **Ao redor do mundo (contando)**, onde essas ferramentas são apresentadas. Nenhuma habilidade prévia é necessária: somamos apenas dois números entre 1 e 9, e o resultado é sempre 10 ou mais, então cada rodada pratica o vai um. Antes de começar, sugerimos estudar:\n\n- **Ao redor do mundo (contando)**: o passeio pelas primeiras ferramentas de contagem criadas pela humanidade, que esta aula usa para praticar a soma (<htcite0>)\n- **Correndo entre os números**: como funciona a soma com números grandes, usando uma analogia da arquitetura mesoamericana e um método passo a passo para somar números de qualquer tamanho (<htcite1>)\n- **Avançando uma ordem e o complemento**: a regra de avançar uma ordem (o vai um) e o complemento de 10 (<htcite2>)\n- **Vai um ou não vai? (Jogo)**: um jogo para decidir, coluna por coluna, se a soma leva 1 para a próxima ordem (<htcite3>)\n- **Exercitando a soma**: um exercício para praticar a soma coluna por coluna com quadrados e o complemento de 10 (<htcite4>)\n- **Exercitando a soma digitando os valores**: a mesma soma vertical digitando o dígito que fica em cada coluna, com números gerados aleatoriamente (<htcite5>)",
+               "text": "### Pré-requisitos\n\nNesta aula praticamos a soma com as mesmas ferramentas que a humanidade criou para contar. O pré-requisito principal é **Ao redor do mundo (contando)**, onde essas ferramentas são apresentadas. Nenhuma habilidade prévia é necessária: somamos apenas dois números entre 1 e 9, e o resultado é sempre 10 ou mais, então cada rodada pratica o vai um. Antes de começar, sugerimos estudar:\n\n- **Ao redor do mundo (contando)**: o passeio pelas primeiras ferramentas de contagem criadas pela humanidade, que esta aula usa para praticar a soma (<htcite0>)\n- **Correndo entre os números**: como funciona a soma com números grandes, usando uma analogia da arquitetura mesoamericana e um método passo a passo para somar números de qualquer tamanho (<htcite1>)\n- **Avançando uma ordem e o complemento**: a regra de avançar uma ordem (o vai um) e o complemento de 10 (<htcite2>)\n- **Vai um ou não vai? (Jogo)**: um jogo para decidir, coluna por coluna, se a soma leva 1 para a próxima ordem (<htcite3>)\n- **Exercitando a soma**: um exercício para praticar a soma coluna por coluna com quadrados e o complemento de 10 (<htcite4>)\n- **Exercitando a soma digitando os valores**: a mesma soma vertical digitando o dígito que fica em cada coluna, com números gerados aleatoriamente (<htcite5>)\n\nEnquanto joga, observe a mesma regra em cada ferramenta: sempre que as unidades chegam a dez, essas dez se tornam uma unidade da próxima ordem.",
                "source": [
                   {
                      "type": 1,
@@ -135,58 +135,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nEm **Ao redor do mundo (contando)** visitamos algumas das primeiras ferramentas que a humanidade criou para contar (<htcite0>). Agora voltamos às mesmas ferramentas, mas com um novo objetivo: somar. Em cada jogo você somará dois números entre 1 e 9, e o resultado será sempre 10 ou mais, então você sempre precisará do vai um (<htcite1>; <htcite2>).",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
-                     "text": "History Tracers Team",
-                     "page": "Ao redor do mundo (contando)",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "a4caa9fe-de1e-49c5-92de-50ed9c22a42d",
-                     "text": "History Tracers Team",
-                     "page": "Exercitando a soma",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
-                     "text": "History Tracers Team",
-                     "page": "Correndo entre os números",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2026",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            }
-         ]
-      },
-      {
-         "id": "SECTION_mathematics",
-         "text": [
-            {
-               "text": "### A evolução da matemática\n\nA soma apareceu em todas as culturas porque nasce do mesmo ato humano de agrupar. Diferentes povos escreveram o resultado com ossos, nós, pontos, marcas ou contas, e cada ferramenta organizou a contagem à sua maneira (<htcite0>; <htcite1>; <htcite2>; <htcite3>). Nesta aula nos concentramos no momento em que o resultado chega a dez, porque é ali que aparece o vai um.",
+               "text": "### Introdução\n\nA soma apareceu em todas as culturas porque nasce do mesmo ato humano de agrupar. Diferentes povos escreveram o resultado com ossos, nós, pontos, marcas ou contas, e cada ferramenta organizou a contagem à sua maneira (<htcite0>; <htcite1>; <htcite2>; <htcite3>). Nesta aula nos concentramos no momento em que o resultado chega a dez, porque é ali que aparece o vai um.",
                "source": [
                   {
                      "type": 1,
@@ -249,7 +198,7 @@
          "id": "SECTION_carry",
          "text": [
             {
-               "text": "### Recordando o vai um e o complemento de 10\n\nAntes de usar as ferramentas, vamos recordar as duas ideias que fazem a soma funcionar.\n\nO **complemento de 10** de um dígito é quanto ainda falta para chegar a dez. O complemento de 9 é 1, o complemento de 6 é 4 e o complemento de 5 é 5.\n\nQuando a soma chega a dez, agrupamos essas dez unidades em uma unidade da próxima ordem. Esse grupo é o **vai um**, também chamado de *avançar uma ordem*. O dígito que permanece na coluna é o que sobra fora do grupo de dez.\n\n**Exemplo: 9 + 3.** O complemento de 9 é 1. Como 3 é maior ou igual a 1, completa-se o dez: levamos 1 para a próxima ordem e restam 2. Portanto, 9 + 3 = 12.\n\n<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div>\n<span class=\"htAddSquaresCaption\">9 + 3 = 12</span>\n<span class=\"htAddSquaresNote\">O grupo com borda tracejada é o dez: ele se torna o 1 que é levado para a próxima ordem. Os 2 quadrados fora do grupo ficam na coluna das unidades.</span>\n\nEm todos os jogos desta página os dois números estão entre 1 e 9 e o resultado é sempre 10 ou mais. Assim, cada rodada pratica o vai um e o complemento de 10 (<htcite0>; <htcite1>; <htcite2>).",
+               "text": "### Recordando o vai um e o complemento de 10\n\nAntes de usar as ferramentas, vamos recordar as duas ideias que fazem a soma funcionar.\n\nO **complemento de 10** de um dígito é quanto ainda falta para chegar a dez. O complemento de 9 é 1, o complemento de 6 é 4 e o complemento de 5 é 5.\n\nQuando a soma chega a dez, agrupamos essas dez unidades em uma unidade da próxima ordem. Esse grupo é o **vai um**, também chamado de *avançar uma ordem*. O dígito que permanece na coluna é o que sobra fora do grupo de dez.\n\n**Exemplo: 9 + 3.** O complemento de 9 é 1. Como 3 é maior ou igual a 1, completa-se o dez: tiramos 1 do 3, levamos 1 para a próxima ordem e restam 2 (3 - 1 = 2). Portanto, 9 + 3 = 12.\n\n<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div>\n<span class=\"htAddSquaresCaption\">9 + 3 = 12</span>\n<span class=\"htAddSquaresNote\">O grupo com borda tracejada é o dez: ele se torna o 1 que é levado para a próxima ordem. Os 2 quadrados fora do grupo ficam na coluna das unidades.</span>\n\nEm todos os jogos desta página os dois números estão entre 1 e 9 e o resultado é sempre 10 ou mais. Assim, cada rodada pratica o vai um e o complemento de 10 (<htcite0>; <htcite1>; <htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -309,7 +258,7 @@
          "id": "SECTION_africa",
          "text": [
             {
-               "text": "### Na África: somar com ossos\n\nAs primeiras marcas de contagem que conhecemos foram feitas em ossos. Para somar, as pessoas não precisavam de uma ferramenta nova: simplesmente continuavam marcando. Há milhares de anos não tínhamos o conceito de vai um; por isso, as pessoas continuavam fazendo marcas contínuas. Para somar 9 + 3 faziam 12 marcas, uma após a outra; não agrupavam dez marcas em um novo dez (<htcite0>; <htcite1>; <htcite2>).\n\n#### O jogo\n\nSome os dois números e coloque no osso o total de marcas. Os dedos levantados mostram os dois números; conte todos os dedos e depois faça uma marca contínua para cada unidade do resultado.",
+               "text": "### Na África: somar com ossos\n\nAs primeiras marcas de contagem que conhecemos foram feitas em ossos. Para somar, as pessoas não precisavam de uma ferramenta nova: simplesmente continuavam marcando. Há milhares de anos as pessoas ainda não usavam o vai um. Elas faziam marcas contínuas: para somar 9 + 3 faziam 12 marcas, uma após a outra, em vez de transformar dez marcas em um dez da próxima ordem (<htcite0>; <htcite1>; <htcite2>).\n\n#### O jogo\n\nSome os dois números e coloque no osso o total de marcas. Os dedos levantados mostram os dois números: conte todos os dedos juntos e depois faça uma marca no osso para cada unidade do resultado. Por exemplo, 9 + 3 = 12, então o osso recebe 12 marcas.",
                "source": [
                   {
                      "type": 1,
@@ -355,7 +304,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"atw-game\" data-atw=\"bones\"><p><div class=\"htBoneWrap\"><p class=\"htBonePrompt\" id=\"htBonePrompt\">Some os dois números, conte os dedos levantados e coloque no osso o total de marcas. <span id=\"atwaBoneEquation\" class=\"atw-target\"></span></p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>O osso</th><th>Setas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><div class=\"htBoneFill\"><span id=\"htBoneMarks\"></span></div></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Adicionar um\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remover um\"></button></div></td></tr></tbody></table><p class=\"atwa-note\">Há milhares de anos não tínhamos o conceito de vai um. Por isso, as pessoas continuavam fazendo marcas contínuas: para somar 9 + 3 faziam 12 marcas, uma após a outra, sem agrupar dez em uma nova ordem.</p><p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Nova prática</button> </p><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Parabéns! As marcas no osso coincidem com a soma! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p class=\"desc\">As setas ao lado do osso adicionam ou removem marcas.</p><span id=\"atwaBoneHandAltTpl\" class=\"text-store\">Mão com {n} dedos levantados</span></div></p></div>",
+               "text": "<div class=\"atw-game\" data-atw=\"bones\"><p><div class=\"htBoneWrap\"><p class=\"htBonePrompt\" id=\"htBonePrompt\">Some os dois números: conte os dedos levantados juntos e coloque no osso o total de marcas. <span id=\"atwaBoneEquation\" class=\"atw-target\"></span></p><table class=\"htBoneTable\"><thead><tr><th>Dedos levantados</th><th>O osso</th><th>Setas</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><div class=\"htBoneFill\"><span id=\"htBoneMarks\"></span></div></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Adicionar um\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remover um\"></button></div></td></tr></tbody></table><p class=\"atwa-note\">Há milhares de anos as pessoas ainda não usavam o vai um, então continuavam fazendo marcas contínuas: para somar 9 + 3 faziam 12 marcas, uma após a outra, em vez de transformar dez marcas em um dez da próxima ordem.</p><p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">Nova prática</button> </p><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Parabéns! As marcas no osso coincidem com a soma! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p class=\"desc\">As setas ao lado do osso adicionam ou removem marcas.</p><span id=\"atwaBoneHandAltTpl\" class=\"text-store\">Mão com {n} dedos levantados</span></div></p></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -369,7 +318,7 @@
          "id": "SECTION_quipu",
          "text": [
             {
-               "text": "### Na América: somar com quipus\n\nO quipu escreve os números na vertical em uma corda pendurada: as unidades ficam embaixo e as dezenas são empilhadas acima. Um nó na ordem das unidades vale 1; quando a ordem das unidades chega a dez nós, esses dez são removidos e um nó é colocado na ordem das dezenas, acima. O resultado aparece como um nó na ordem das dezenas e os nós restantes na ordem das unidades (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números. Coloque nós na ordem das **Unidades**, na parte de baixo da corda; quando ela chegar a dez nós, o jogo os remove e adiciona um nó à ordem das **Dezenas**, acima. Depois continue com as unidades até alcançar o resultado.",
+               "text": "### Na América: somar com quipus\n\nO quipu registra números com nós em uma corda pendurada: as unidades ficam embaixo e as dezenas são empilhadas acima. Um nó na ordem das unidades vale 1; quando essa ordem chega a dez nós, esses dez são removidos e um nó é colocado na ordem das dezenas, acima. O resultado aparece como um nó na ordem das dezenas e os nós restantes na ordem das unidades (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números. Coloque nós na ordem das **Unidades**, na parte de baixo da corda; quando essa ordem chegar a dez nós, o jogo os remove e adiciona um nó à ordem das **Dezenas**, acima. Depois continue adicionando nós nas unidades até alcançar o resultado. Por exemplo, 9 + 3 = 12: quando dez nós se tornarem um nó nas dezenas, adicione mais 2 nós nas unidades.",
                "source": [
                   {
                      "type": 1,
@@ -417,7 +366,7 @@
          "id": "SECTION_mesoamerica",
          "text": [
             {
-               "text": "### Na América: somar com números mesoamericanos\n\nNo sistema mesoamericano um ponto vale 1 e uma barra vale 5. Para somar, o resultado é escrito com tantas barras e pontos quantos forem necessários; ao chegar a dez, duas barras já representam dez (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números e represente o resultado com pontos e barras. Como o resultado é 10 ou mais, você usará pelo menos duas barras.",
+               "text": "### Na América: somar com números mesoamericanos\n\nNo sistema mesoamericano um ponto vale 1 e uma barra vale 5. Para somar, o resultado é escrito com tantas barras e pontos quantos forem necessários; duas barras valem 10, então um total de 10 ou mais sempre começa com duas barras (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números e represente o resultado com pontos e barras. Por exemplo, 9 + 3 = 12 são duas barras e dois pontos. Como o resultado é sempre 10 ou mais, você usará pelo menos duas barras.",
                "source": [
                   {
                      "type": 1,
@@ -465,7 +414,7 @@
          "id": "SECTION_europe",
          "text": [
             {
-               "text": "### Na Europa: somar com calculi\n\nOs *calculi* organizam a contagem por valor de posição. Somar com os *calculi* significa colocar o total nas colunas corretas: as marcas abaixo da barra valem 1 e as marcas acima da barra valem 5 (<htcite0>; <htcite1>; <htcite2>).\n\n#### O jogo\n\nSome os dois números e siga os passos mostrados abaixo dos *calculi*: primeiro escreva o primeiro número, depois some o segundo e leve 1 para a coluna das dezenas. Lembre-se de que o resultado é 10 ou mais, então a coluna das dezenas sempre receberá uma marca.",
+               "text": "### Na Europa: somar com calculi\n\nOs *calculi* organizam a contagem por valor de posição. Somar com os *calculi* significa colocar o total nas colunas corretas: uma marca abaixo da barra vale 1 e uma marca acima da barra vale 5 (<htcite0>; <htcite1>; <htcite2>).\n\n#### O jogo\n\nSome os dois números e siga os passos mostrados abaixo dos *calculi*: comece escrevendo o primeiro número, depois some o segundo número e leve 1 para a coluna das dezenas. Lembre-se de que o resultado é 10 ou mais, então a coluna das dezenas sempre receberá uma marca.",
                "source": [
                   {
                      "type": 1,
@@ -525,7 +474,7 @@
          "id": "SECTION_india",
          "text": [
             {
-               "text": "### Na Ásia (Índia): somar com numerais indo-arábicos\n\nOs numerais indo-arábicos nos permitem escrever o resultado de uma soma com apenas dez símbolos. Quando uma soma chega a dez, o vai um passa para a próxima posição e o dígito que fica é escrito na posição atual (<htcite0>; <htcite1>; <htcite2>).\n\n#### O jogo\n\nSome os dois números e escreva o resultado na soma vertical. Digite na linha do resultado o dígito que fica na coluna das unidades e digite 1 na caixa de vai um acima da coluna das dezenas. Cada par soma 10 ou mais, então o vai um é sempre necessário.",
+               "text": "### Na Ásia (Índia): somar com numerais indo-arábicos\n\nOs numerais indo-arábicos nos permitem escrever o resultado de uma soma com apenas dez símbolos. Quando uma soma chega a dez, o vai um passa para a próxima posição e o dígito que fica é escrito na posição atual (<htcite0>; <htcite1>; <htcite2>).\n\n#### O jogo\n\nSome os dois números e escreva o resultado na soma vertical. Digite na linha do resultado o dígito que fica na coluna das unidades e digite 1 na caixa de vai um acima da coluna das dezenas. Cada par soma 10 ou mais, então o vai um é sempre necessário. Por exemplo, 9 + 3 = 12: digite 2 nas unidades e 1 na caixa de vai um acima das dezenas.",
                "source": [
                   {
                      "type": 1,
@@ -585,7 +534,7 @@
          "id": "SECTION_china",
          "text": [
             {
-               "text": "### Na Ásia (China): somar com o suanpan\n\nNo suanpan, cada coluna representa um valor de posição. Para somar, mova as contas até que as colunas mostrem o total, levando uma conta para a próxima coluna quando uma coluna chega a dez (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números e siga os passos mostrados abaixo do suanpan: primeiro escreva o primeiro número, depois some o segundo e leve 1 para a coluna das dezenas. O resultado é sempre 10 ou mais, então a coluna das dezenas não ficará vazia.",
+               "text": "### Na Ásia (China): somar com o suanpan\n\nNo suanpan, cada coluna representa um valor de posição. Para somar, mova as contas até que as colunas mostrem o total, levando uma conta para a próxima coluna quando uma coluna chega a dez (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números e siga os passos mostrados abaixo do suanpan: comece escrevendo o primeiro número, depois some o segundo número e leve 1 para a coluna das dezenas. O resultado é sempre 10 ou mais, então a coluna das dezenas não ficará vazia.",
                "source": [
                   {
                      "type": 1,
@@ -633,7 +582,7 @@
          "id": "SECTION_yupana",
          "text": [
             {
-               "text": "### Na América: somar com a yupana\n\nA yupana, usada junto com os quipus, coloca sementes em uma grade onde cada linha é um valor de posição. No método *Yupana Inka Tawa Pukllay*, o primeiro número é marcado em vermelho, o segundo em azul e o resultado em verde; quando uma linha chega a dez, uma marca passa para a linha de cima (<htcite0>; <htcite1>; <htcite2>).\n\n#### O jogo\n\nSome os dois números com o método *Tawa Pukllay*. Siga os passos mostrados acima da yupana: escreva o primeiro número em vermelho, o segundo em azul, marque o resultado em verde e clique na célula cinza da linha das dezenas para levar 1.",
+               "text": "### Na América: somar com a yupana\n\nA yupana, usada junto com os quipus, coloca sementes em uma grade onde cada linha é um valor de posição. No método *Yupana Inka Tawa Pukllay*, o primeiro número é marcado em vermelho, o segundo em azul e o resultado em verde; quando uma linha chega a dez, uma marca passa para a linha de cima (<htcite0>; <htcite1>; <htcite2>).\n\n#### O jogo\n\nSome os dois números com o método *Tawa Pukllay*. Siga os passos mostrados acima da yupana: marque o primeiro número em vermelho, o segundo em azul e o resultado em verde; depois clique na célula cinza da linha das dezenas para levar 1.",
                "source": [
                   {
                      "type": 1,
@@ -693,7 +642,7 @@
          "id": "SECTION_japan",
          "text": [
             {
-               "text": "### Na Ásia (Japão): somar com o soroban\n\nO soroban chegou ao Japão vindo da China e mantém a mesma ideia: cada coluna é um valor de posição e as contas representam os dígitos do resultado (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números e siga os passos mostrados abaixo do soroban: primeiro escreva o primeiro número, depois some o segundo e leve 1 para a coluna das dezenas. Como o resultado é 10 ou mais, a coluna das dezenas sempre mostrará pelo menos uma conta.",
+               "text": "### Na Ásia (Japão): somar com o soroban\n\nO soroban chegou ao Japão vindo da China e segue a mesma ideia: cada coluna é um valor de posição e as contas representam os dígitos do resultado (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números e siga os passos mostrados abaixo do soroban: comece escrevendo o primeiro número, depois some o segundo número e leve 1 para a coluna das dezenas. Como o resultado é 10 ou mais, a coluna das dezenas sempre mostrará pelo menos uma conta.",
                "source": [
                   {
                      "type": 1,
@@ -741,7 +690,7 @@
          "id": "SECTION_russia",
          "text": [
             {
-               "text": "### Na Rússia: somar com o schyoty\n\nO schyoty é um ábaco vertical em que cada linha é um valor de posição. Para somar, mova as contas até que as linhas mostrem o total (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números e siga os passos mostrados abaixo do schyoty: primeiro escreva o primeiro número, depois some o segundo e leve 1 para a linha das dezenas. O resultado é sempre 10 ou mais, então a linha das dezenas também mostrará contas.",
+               "text": "### Na Rússia: somar com o schyoty\n\nO schyoty é um ábaco vertical em que cada linha é um valor de posição. Para somar, mova as contas até que as linhas mostrem o total (<htcite0>; <htcite1>).\n\n#### O jogo\n\nSome os dois números e siga os passos mostrados abaixo do schyoty: comece escrevendo o primeiro número, depois some o segundo número e leve 1 para a linha das dezenas. O resultado é sempre 10 ou mais, então a linha das dezenas também mostrará contas.",
                "source": [
                   {
                      "type": 1,
@@ -789,7 +738,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNesta aula usamos as mesmas ferramentas que a humanidade criou para contar (<htcite0>), mas agora para somar. Em todos os jogos o resultado foi 10 ou mais, então praticamos o vai um e o complemento de 10 várias e várias vezes.\n\nAs ferramentas mudam de uma cultura para outra, mas a ideia é a mesma: quando se completam dez unidades, elas se tornam uma unidade da próxima ordem. Entender isso nos permite somar com ossos, nós, pontos, marcas ou contas — e também com os numerais que escrevemos no papel.",
+               "text": "### Conclusão\n\nNesta aula usamos as mesmas ferramentas que a humanidade criou para contar (<htcite0>), mas agora para somar. Em todos os jogos o resultado foi 10 ou mais, então praticamos o vai um e o complemento de 10 muitas e muitas vezes.\n\nAs ferramentas mudam de uma cultura para outra, mas a ideia é a mesma: quando se completam dez unidades, elas se tornam uma unidade da próxima ordem. Entender isso nos permite somar com ossos, nós, pontos, marcas ou contas — e também com os numerais que escrevemos no papel.",
                "source": [
                   {
                      "type": 1,
