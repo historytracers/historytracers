@@ -155,6 +155,9 @@ function htDivisionTypedRender(shouldFocus) {
     var grid = (htDivisionTypedVisualization === "top") ? htDivisionTypedRenderTopHtml() : htDivisionTypedRenderBelowHtml();
     var html = '<div id="htDivisionTypedWrap" class="htDivisionTypedWrap">';
     html += grid;
+    if (localTyped.feedbackHtml !== "") {
+        html += '<div class="htDivisionTypedFeedback">' + localTyped.feedbackHtml + '</div>';
+    }
     html += '<div class="htDivisionTypedFooter"><div class="htDivisionTypedStatus">' + htDivisionTypedStatusHtml() + '</div>';
     html += '<i class="fa-solid fa-chevron-right htDivisionTypedNext" onclick="htNewDivisionTyped();"></i></div>';
     html += '</div>';
@@ -217,6 +220,7 @@ function htDivisionTypedAddStep(value) {
     localTyped.working = localTyped.working - localUse;
     localTyped.preview = null;
     localTyped.typedDigit = "";
+    localTyped.feedbackHtml = "";
 }
 
 function htMoveDivAheadTyped() {
@@ -248,6 +252,7 @@ function htDivisionTypedUpdateValue(digit) {
 
     if (digit === "") {
         localTyped.preview = null;
+        localTyped.feedbackHtml = "";
         htDivisionTypedRender(true);
         return false;
     }
@@ -257,6 +262,7 @@ function htDivisionTypedUpdateValue(digit) {
     if (isNaN(numeric)) {
         localTyped.typedDigit = "";
         localTyped.preview = null;
+        localTyped.feedbackHtml = "";
         htDivisionTypedRender(true);
         return false;
     }
@@ -268,6 +274,7 @@ function htDivisionTypedUpdateValue(digit) {
     }
 
     localTyped.preview = localTyped.divisor * numeric;
+    localTyped.feedbackHtml = mathKeywords[68];
     htDivisionTypedRender(true);
 
     return false;
@@ -280,6 +287,7 @@ function htNewDivisionTyped() {
     localTyped.preview = null;
     localTyped.medal = false;
     localTyped.typedDigit = "";
+    localTyped.feedbackHtml = "";
     var selector = $("#mtValues").val();
 
     localTyped.working = localTyped.dividend = htGetRandomArbitrary(10, 999);
@@ -308,7 +316,7 @@ function htNewDivisionTyped() {
 }
 
 function htLoadContent() {
-    localTyped = { "working": 0, "stopValue": 0, "divisor": 1, "usingValue": "", "idx": 2, "dividend": 0, "stop": true, "divisionSteps": [], "divisionStepsIdx": 0, "steps": [], "preview": null, "typedDigit": "", "firstStepIdx": 0, "promptHtml": "", "medal": false };
+    localTyped = { "working": 0, "stopValue": 0, "divisor": 1, "usingValue": "", "idx": 2, "dividend": 0, "stop": true, "divisionSteps": [], "divisionStepsIdx": 0, "steps": [], "preview": null, "typedDigit": "", "feedbackHtml": "", "firstStepIdx": 0, "promptHtml": "", "medal": false };
 
     htWriteNavigation();
 

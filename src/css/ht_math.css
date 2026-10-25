@@ -4820,6 +4820,19 @@ p.desc svg {
   overflow-wrap: break-word;
 }
 
+.htDivisionTypedFeedback {
+  max-width: 26em;
+  margin: 0.6em auto 0;
+  padding: 0.45em 0.9em;
+  background-color: #fff3cd;
+  border: 1px solid #f0c36d;
+  border-radius: 8px;
+  color: #8a4b08;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
 .htDivisionTypedNext {
   font-size: 2.6em;
   line-height: 1;
@@ -4880,6 +4893,12 @@ p.desc svg {
   background-color: #1b5e20;
   border-color: #66bb6a;
   color: #e8f5e9;
+}
+
+.design-dark .htDivisionTypedFeedback {
+  background-color: #4e342e;
+  border-color: #a1887f;
+  color: #ffcc80;
 }
 
 @media screen and (max-width: 600px) {
