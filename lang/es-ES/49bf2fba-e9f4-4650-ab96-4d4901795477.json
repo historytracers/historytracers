@@ -25,7 +25,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792962732"
+      "1792963466"
    ],
    "authors": null,
    "reviewers": [
@@ -48,8 +48,20 @@
                "PostMention": ""
             },
             {
-               "text": "### Requisitos previos\n\nEn esta clase practicamos la suma con las mismas herramientas que la humanidad creó para contar. No se requiere ninguna habilidad previa: solo sumamos dos números entre 1 y 9, y el resultado siempre es 10 o más, así que cada ronda practica el acarreo. Antes de empezar, sugerimos estudiar:\n\n- **Corriendo entre los números**: cómo funciona la suma con números grandes, usando una analogía de la arquitectura mesoamericana y un método paso a paso para sumar números de cualquier tamaño (<htcite0>)\n- **Avanzando un orden y el complemento**: la regla de avanzar un orden (el acarreo) y el complemento a 10 (<htcite1>)\n- **¿Se lleva o no se lleva? (Juego)**: un juego para decidir, columna por columna, si la suma lleva 1 al siguiente orden (<htcite2>)\n- **Ejercitando la suma**: un ejercicio para practicar la suma columna por columna con cuadrados y el complemento a 10 (<htcite3>)\n- **Ejercitando la suma escribiendo los valores**: la misma suma vertical escribiendo el dígito que queda en cada columna, con números generados al azar (<htcite4>)",
+               "text": "### Requisitos previos\n\nEn esta clase practicamos la suma con las mismas herramientas que la humanidad creó para contar. El requisito principal es **Alrededor del mundo (contando)**, donde se presentan estas herramientas. No se requiere ninguna habilidad previa: solo sumamos dos números entre 1 y 9, y el resultado siempre es 10 o más, así que cada ronda practica el acarreo. Antes de empezar, sugerimos estudiar:\n\n- **Alrededor del mundo (contando)**: el recorrido por las primeras herramientas de conteo creadas por la humanidad, que esta clase usa para practicar la suma (<htcite0>)\n- **Corriendo entre los números**: cómo funciona la suma con números grandes, usando una analogía de la arquitectura mesoamericana y un método paso a paso para sumar números de cualquier tamaño (<htcite1>)\n- **Avanzando un orden y el complemento**: la regla de avanzar un orden (el acarreo) y el complemento a 10 (<htcite2>)\n- **¿Se lleva o no se lleva? (Juego)**: un juego para decidir, columna por columna, si la suma lleva 1 al siguiente orden (<htcite3>)\n- **Ejercitando la suma**: un ejercicio para practicar la suma columna por columna con cuadrados y el complemento a 10 (<htcite4>)\n- **Ejercitando la suma escribiendo los valores**: la misma suma vertical escribiendo el dígito que queda en cada columna, con números generados al azar (<htcite5>)",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
@@ -123,8 +135,20 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nEn la clase anterior visitamos algunas de las primeras herramientas que la humanidad creó para contar. Ahora volvemos a las mismas herramientas, pero con un nuevo objetivo: sumar. En cada juego sumarás dos números entre 1 y 9, y el resultado siempre será 10 o más, así que siempre tendrás que llevar (<htcite0>; <htcite1>).",
+               "text": "### Introducción\n\nEn **Alrededor del mundo (contando)** visitamos algunas de las primeras herramientas que la humanidad creó para contar (<htcite0>). Ahora volvemos a las mismas herramientas, pero con un nuevo objetivo: sumar. En cada juego sumarás dos números entre 1 y 9, y el resultado siempre será 10 o más, así que siempre tendrás que llevar (<htcite1>; <htcite2>).",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "a4caa9fe-de1e-49c5-92de-50ed9c22a42d",
@@ -162,7 +186,7 @@
          "id": "SECTION_mathematics",
          "text": [
             {
-               "text": "### La evolución de las matemáticas\n\nLa suma apareció en todas las culturas porque nace del mismo acto humano de agrupar. Diferentes pueblos escribieron el resultado con huesos, nudos, puntos, marcas o cuentas, y cada herramienta organizó el conteo a su manera (<htcite0>; <htcite1>; <htcite2>). En esta clase nos centramos en el momento en que el resultado llega a diez, porque allí aparece el acarreo.",
+               "text": "### La evolución de las matemáticas\n\nLa suma apareció en todas las culturas porque nace del mismo acto humano de agrupar. Diferentes pueblos escribieron el resultado con huesos, nudos, puntos, marcas o cuentas, y cada herramienta organizó el conteo a su manera (<htcite0>; <htcite1>; <htcite2>; <htcite3>). En esta clase nos centramos en el momento en que el resultado llega a diez, porque allí aparece el acarreo.",
                "source": [
                   {
                      "type": 1,
@@ -193,6 +217,18 @@
                      "uuid": "a4caa9fe-de1e-49c5-92de-50ed9c22a42d",
                      "text": "History Tracers Team",
                      "page": "Ejercitando la suma",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -273,7 +309,7 @@
          "id": "SECTION_africa",
          "text": [
             {
-               "text": "### En África: sumar con huesos\n\nLas primeras marcas de conteo que conocemos se hicieron en huesos. Para sumar, las personas no necesitaban una herramienta nueva: simplemente seguían marcando. Hace miles de años no teníamos el concepto de acarreo; por eso, las personas seguían haciendo marcas continuas. Para sumar 9 + 3 hacían 12 marcas, una tras otra; no agrupaban diez marcas en un nuevo diez (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números y coloca en el hueso el total de marcas. Los dedos levantados muestran los dos números; cuenta todos los dedos y luego haz una marca continua por cada unidad del resultado.",
+               "text": "### En África: sumar con huesos\n\nLas primeras marcas de conteo que conocemos se hicieron en huesos. Para sumar, las personas no necesitaban una herramienta nueva: simplemente seguían marcando. Hace miles de años no teníamos el concepto de acarreo; por eso, las personas seguían haciendo marcas continuas. Para sumar 9 + 3 hacían 12 marcas, una tras otra; no agrupaban diez marcas en un nuevo diez (<htcite0>; <htcite1>; <htcite2>).\n\n#### El juego\n\nSuma los dos números y coloca en el hueso el total de marcas. Los dedos levantados muestran los dos números; cuenta todos los dedos y luego haz una marca continua por cada unidad del resultado.",
                "source": [
                   {
                      "type": 1,
@@ -292,6 +328,18 @@
                      "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
                      "text": "History Tracers Team",
                      "page": "Corriendo entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -321,13 +369,25 @@
          "id": "SECTION_quipu",
          "text": [
             {
-               "text": "### En América: sumar con quipus\n\nEl quipu escribe los números en vertical sobre una cuerda colgante: las unidades están abajo y las decenas se apilan encima. Un nudo en el orden de las unidades vale 1; cuando el orden de las unidades llega a diez nudos, esos diez se retiran y se coloca un nudo en el orden de las decenas, arriba. El resultado aparece como un nudo en el orden de las decenas y los nudos restantes en el orden de las unidades (<htcite0>).\n\n#### El juego\n\nSuma los dos números. Coloca nudos en el orden de las **Unidades**, en la parte inferior de la cuerda; cuando llegue a diez nudos, el juego los retira y añade un nudo al orden de las **Decenas**, arriba. Después continúa con las unidades hasta alcanzar el resultado.",
+               "text": "### En América: sumar con quipus\n\nEl quipu escribe los números en vertical sobre una cuerda colgante: las unidades están abajo y las decenas se apilan encima. Un nudo en el orden de las unidades vale 1; cuando el orden de las unidades llega a diez nudos, esos diez se retiran y se coloca un nudo en el orden de las decenas, arriba. El resultado aparece como un nudo en el orden de las decenas y los nudos restantes en el orden de las unidades (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números. Coloca nudos en el orden de las **Unidades**, en la parte inferior de la cuerda; cuando llegue a diez nudos, el juego los retira y añade un nudo al orden de las **Decenas**, arriba. Después continúa con las unidades hasta alcanzar el resultado.",
                "source": [
                   {
                      "type": 1,
                      "uuid": "a4caa9fe-de1e-49c5-92de-50ed9c22a42d",
                      "text": "History Tracers Team",
                      "page": "Ejercitando la suma",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -357,13 +417,25 @@
          "id": "SECTION_mesoamerica",
          "text": [
             {
-               "text": "### En América: sumar con números mesoamericanos\n\nEn el sistema mesoamericano un punto vale 1 y una barra vale 5. Para sumar, el resultado se escribe con tantas barras y puntos como sean necesarios; al llegar a diez, dos barras ya representan diez (<htcite0>).\n\n#### El juego\n\nSuma los dos números y representa el resultado con puntos y barras. Como el resultado es 10 o más, usarás al menos dos barras.",
+               "text": "### En América: sumar con números mesoamericanos\n\nEn el sistema mesoamericano un punto vale 1 y una barra vale 5. Para sumar, el resultado se escribe con tantas barras y puntos como sean necesarios; al llegar a diez, dos barras ya representan diez (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números y representa el resultado con puntos y barras. Como el resultado es 10 o más, usarás al menos dos barras.",
                "source": [
                   {
                      "type": 1,
                      "uuid": "68ecf470-69b8-4fcb-b5f8-36f7ee5aee66",
                      "text": "History Tracers Team",
                      "page": "Sumas mesoamericanas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -393,7 +465,7 @@
          "id": "SECTION_europe",
          "text": [
             {
-               "text": "### En Europa: sumar con calculi\n\nLos *calculi* organizan el conteo por valor de posición. Sumar con los *calculi* significa colocar el total en las columnas correctas: las marcas debajo de la barra valen 1 y las marcas encima de la barra valen 5 (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números y sigue los pasos que aparecen debajo de los *calculi*: primero escribe el primer número, después suma el segundo y lleva 1 a la columna de las decenas. Recuerda que el resultado es 10 o más, así que la columna de las decenas siempre recibirá una marca.",
+               "text": "### En Europa: sumar con calculi\n\nLos *calculi* organizan el conteo por valor de posición. Sumar con los *calculi* significa colocar el total en las columnas correctas: las marcas debajo de la barra valen 1 y las marcas encima de la barra valen 5 (<htcite0>; <htcite1>; <htcite2>).\n\n#### El juego\n\nSuma los dos números y sigue los pasos que aparecen debajo de los *calculi*: primero escribe el primer número, después suma el segundo y lleva 1 a la columna de las decenas. Recuerda que el resultado es 10 o más, así que la columna de las decenas siempre recibirá una marca.",
                "source": [
                   {
                      "type": 1,
@@ -412,6 +484,18 @@
                      "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
                      "text": "History Tracers Team",
                      "page": "Avanzando un orden y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -441,7 +525,7 @@
          "id": "SECTION_india",
          "text": [
             {
-               "text": "### En Asia (India): sumar con numerales indoárabes\n\nLos numerales indoárabes nos permiten escribir el resultado de una suma con solo diez símbolos. Cuando una suma llega a diez, el acarreo pasa a la siguiente posición y el dígito que queda se escribe en la posición actual (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números y escribe el resultado en la suma vertical. Escribe en la fila del resultado el dígito que queda en la columna de las unidades y escribe 1 en la casilla de acarreo sobre la columna de las decenas. Cada pareja suma 10 o más, así que el acarreo siempre es necesario.",
+               "text": "### En Asia (India): sumar con numerales indoárabes\n\nLos numerales indoárabes nos permiten escribir el resultado de una suma con solo diez símbolos. Cuando una suma llega a diez, el acarreo pasa a la siguiente posición y el dígito que queda se escribe en la posición actual (<htcite0>; <htcite1>; <htcite2>).\n\n#### El juego\n\nSuma los dos números y escribe el resultado en la suma vertical. Escribe en la fila del resultado el dígito que queda en la columna de las unidades y escribe 1 en la casilla de acarreo sobre la columna de las decenas. Cada pareja suma 10 o más, así que el acarreo siempre es necesario.",
                "source": [
                   {
                      "type": 1,
@@ -460,6 +544,18 @@
                      "uuid": "cabc9843-35ef-4e4f-92fd-17eda864b55e",
                      "text": "History Tracers Team",
                      "page": "Avanzando un orden y el complemento",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -489,13 +585,25 @@
          "id": "SECTION_china",
          "text": [
             {
-               "text": "### En Asia (China): sumar con el suanpan\n\nEn el suanpan, cada columna representa un valor de posición. Para sumar, mueve las cuentas hasta que las columnas muestren el total, llevando una cuenta a la siguiente columna cuando una columna llega a diez (<htcite0>).\n\n#### El juego\n\nSuma los dos números y sigue los pasos que aparecen debajo del suanpan: primero escribe el primer número, después suma el segundo y lleva 1 a la columna de las decenas. El resultado siempre es 10 o más, así que la columna de las decenas no quedará vacía.",
+               "text": "### En Asia (China): sumar con el suanpan\n\nEn el suanpan, cada columna representa un valor de posición. Para sumar, mueve las cuentas hasta que las columnas muestren el total, llevando una cuenta a la siguiente columna cuando una columna llega a diez (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números y sigue los pasos que aparecen debajo del suanpan: primero escribe el primer número, después suma el segundo y lleva 1 a la columna de las decenas. El resultado siempre es 10 o más, así que la columna de las decenas no quedará vacía.",
                "source": [
                   {
                      "type": 1,
                      "uuid": "20fe6243-9d1b-44bf-8357-e715cf88d820",
                      "text": "History Tracers Team",
                      "page": "Ejercitando la suma con Soroban, Suanpan (算盤) y Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -525,7 +633,7 @@
          "id": "SECTION_yupana",
          "text": [
             {
-               "text": "### En América: sumar con la yupana\n\nLa yupana, usada junto con los quipus, coloca semillas en una cuadrícula donde cada fila es un valor de posición. En el método *Yupana Inka Tawa Pukllay*, el primer número se marca en rojo, el segundo en azul y el resultado en verde; cuando una fila llega a diez, una marca pasa a la fila superior (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números con el método *Tawa Pukllay*. Sigue los pasos que aparecen sobre la yupana: escribe el primer número en rojo, el segundo en azul, marca el resultado en verde y haz clic en la casilla gris de la fila de las decenas para llevar 1.",
+               "text": "### En América: sumar con la yupana\n\nLa yupana, usada junto con los quipus, coloca semillas en una cuadrícula donde cada fila es un valor de posición. En el método *Yupana Inka Tawa Pukllay*, el primer número se marca en rojo, el segundo en azul y el resultado en verde; cuando una fila llega a diez, una marca pasa a la fila superior (<htcite0>; <htcite1>; <htcite2>).\n\n#### El juego\n\nSuma los dos números con el método *Tawa Pukllay*. Sigue los pasos que aparecen sobre la yupana: escribe el primer número en rojo, el segundo en azul, marca el resultado en verde y haz clic en la casilla gris de la fila de las decenas para llevar 1.",
                "source": [
                   {
                      "type": 1,
@@ -544,6 +652,18 @@
                      "uuid": "0a727c2c-6d7f-4bbd-8be1-40c4d881c15a",
                      "text": "History Tracers Team",
                      "page": "Ejercitando con la Yupana (Adición)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -573,13 +693,25 @@
          "id": "SECTION_japan",
          "text": [
             {
-               "text": "### En Asia (Japón): sumar con el soroban\n\nEl soroban llegó a Japón desde China y mantiene la misma idea: cada columna es un valor de posición y las cuentas representan los dígitos del resultado (<htcite0>).\n\n#### El juego\n\nSuma los dos números y sigue los pasos que aparecen debajo del soroban: primero escribe el primer número, después suma el segundo y lleva 1 a la columna de las decenas. Como el resultado es 10 o más, la columna de las decenas siempre mostrará al menos una cuenta.",
+               "text": "### En Asia (Japón): sumar con el soroban\n\nEl soroban llegó a Japón desde China y mantiene la misma idea: cada columna es un valor de posición y las cuentas representan los dígitos del resultado (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números y sigue los pasos que aparecen debajo del soroban: primero escribe el primer número, después suma el segundo y lleva 1 a la columna de las decenas. Como el resultado es 10 o más, la columna de las decenas siempre mostrará al menos una cuenta.",
                "source": [
                   {
                      "type": 1,
                      "uuid": "20fe6243-9d1b-44bf-8357-e715cf88d820",
                      "text": "History Tracers Team",
                      "page": "Ejercitando la suma con Soroban, Suanpan (算盤) y Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -609,13 +741,25 @@
          "id": "SECTION_russia",
          "text": [
             {
-               "text": "### En Rusia: sumar con el schyoty\n\nEl schyoty es un ábaco vertical en el que cada fila es un valor de posición. Para sumar, mueve las cuentas hasta que las filas muestren el total (<htcite0>).\n\n#### El juego\n\nSuma los dos números y sigue los pasos que aparecen debajo del schyoty: primero escribe el primer número, después suma el segundo y lleva 1 a la fila de las decenas. El resultado siempre es 10 o más, así que la fila de las decenas también mostrará cuentas.",
+               "text": "### En Rusia: sumar con el schyoty\n\nEl schyoty es un ábaco vertical en el que cada fila es un valor de posición. Para sumar, mueve las cuentas hasta que las filas muestren el total (<htcite0>; <htcite1>).\n\n#### El juego\n\nSuma los dos números y sigue los pasos que aparecen debajo del schyoty: primero escribe el primer número, después suma el segundo y lleva 1 a la fila de las decenas. El resultado siempre es 10 o más, así que la fila de las decenas también mostrará cuentas.",
                "source": [
                   {
                      "type": 1,
                      "uuid": "20fe6243-9d1b-44bf-8357-e715cf88d820",
                      "text": "History Tracers Team",
                      "page": "Ejercitando la suma con Soroban, Suanpan (算盤) y Schyoty (счёты)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -645,8 +789,21 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn esta clase usamos las mismas herramientas que la humanidad creó para contar, pero ahora para sumar. En todos los juegos el resultado fue 10 o más, así que practicamos el acarreo y el complemento a 10 una y otra vez.\n\nLas herramientas cambian de una cultura a otra, pero la idea es la misma: cuando se completan diez unidades, se convierten en una unidad del siguiente orden. Entender esto nos permite sumar con huesos, nudos, puntos, marcas o cuentas, y también con los numerales que escribimos en el papel.",
-               "source": null,
+               "text": "### Conclusión\n\nEn esta clase usamos las mismas herramientas que la humanidad creó para contar (<htcite0>), pero ahora para sumar. En todos los juegos el resultado fue 10 o más, así que practicamos el acarreo y el complemento a 10 una y otra vez.\n\nLas herramientas cambian de una cultura a otra, pero la idea es la misma: cuando se completan diez unidades, se convierten en una unidad del siguiente orden. Entender esto nos permite sumar con huesos, nudos, puntos, marcas o cuentas, y también con los numerales que escribimos en el papel.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Alrededor del mundo (contando)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
