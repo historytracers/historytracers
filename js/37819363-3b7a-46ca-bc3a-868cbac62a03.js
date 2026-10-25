@@ -300,7 +300,7 @@ function htNewDivisionTyped() {
     localTyped.divisionSteps = htLongDivisionTyped(localTyped.dividend, localTyped.divisor);
     var additionalText = "";
     if (localTyped.divisionSteps.steps[localTyped.divisionStepsIdx].quotient == 0) {
-        additionalText = mathKeywords[38];
+        additionalText = (localTyped.dividend >= 100) ? mathKeywords[69] : mathKeywords[39];
         localTyped.divisionStepsIdx++;
     }
     localTyped.firstStepIdx = localTyped.divisionStepsIdx;
