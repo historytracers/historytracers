@@ -98,7 +98,15 @@ function awaWords() {
         typedComplementUsed: awaWord("atwaWordTypedComplementUsed", "Complement of {base} to ten: {comp}. Squares that completed the ten: {comp}; squares outside the ten: {outside}."),
         typedNewProblem: awaWord("atwaWordTypedNewProblem", "New problem"),
         typedDigitAria: awaWord("atwaWordTypedDigitAria", "Digit that the column keeps"),
-        typedCarryAria: awaWord("atwaWordTypedCarryAria", "Carry to the next order")
+        typedCarryAria: awaWord("atwaWordTypedCarryAria", "Carry to the next order"),
+        yupanaStep1: awaWordHTML("atwaWordYupanaStep1", "Step 1: Set the first number <b>{a}</b> by clicking the cells of the {units} row."),
+        yupanaStep2: awaWordHTML("atwaWordYupanaStep2", "Step 2: Set the second number <b>{b}</b> by clicking the cells of the {units} row. The red markers show the first number."),
+        yupanaStep3: awaWordHTML("atwaWordYupanaStep3", "Step 3: {a} + {b} = {sum}. Mark <b>{result}</b> in green in the {units} row, then click the gray cell in the {tens} row to carry 1."),
+        yupanaCarryPrompt: awaWordHTML("atwaWordYupanaCarryPrompt", "Correct! Now click the gray cell in the {tens} row to place the carried 1."),
+        yupanaMovements: awaWordHTML("atwaWordYupanaMovements", "Movements in the {units} row: <b>{movements}</b>."),
+        yupanaNoMovements: awaWordHTML("atwaWordYupanaNoMovements", "No movement was needed in the {units} row."),
+        yupanaPerfect: awaWordHTML("atwaWordYupanaPerfect", "🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} + {b} = {sum}<br>Great job using the Yupana!"),
+        yupanaNew: awaWord("atwaWordYupanaNew", "New exercise")
     };
 }
 
@@ -1545,89 +1553,269 @@ function awaInitAbacus(container, words) {
 }
 
 //
-// Yupana -- same design as ht_yupana.js (arrows + hands + tawapukllay table)
-//
+// Yupana Inka Tawa Pukllay -- same algorithm as "Practicing with the Yupana
+// (Addition)" (b0bb8da3): set the first number in red, the second in blue,
+// resolve the row in green and carry 1 to the next row.
 
-function awaSetYupanaHands(value) {
-    if (value <= 10) {
-        htSetImageForMembers("#leftHandImg", "Left_Hand_Small.png",
-            "#rightHandImg", "Right_Hand_Small.png", value);
-        return;
+function awaYupanaColumnMovements(dA, dB, carry) {
+    var c1 = 0;
+    var c2 = 0;
+    var c3 = 0;
+    var c5 = 0;
+
+    function add(v) {
+        if (v === 5) c5++;
+        else if (v === 3) c3++;
+        else if (v === 2) c2++;
+        else if (v === 1) c1++;
     }
-    // The two hand pictures only show up to ten fingers. For sums above ten,
-    // both hands are full and the yupana table records the whole result.
-    var prefix = htGetImgSrcPrefix();
-    $("#leftHandImg").attr("src", prefix + "images/HistoryTracers/5Left_Hand_Small.png").attr("alt", "Hand 5");
-    $("#rightHandImg").attr("src", prefix + "images/HistoryTracers/5Right_Hand_Small.png").attr("alt", "Hand 5");
+
+    function addDigit(v) {
+        if (v === 1) add(1);
+        else if (v === 2) add(2);
+        else if (v === 3) add(3);
+        else if (v === 4) { add(3); add(1); }
+        else if (v === 5) add(5);
+        else if (v === 6) { add(5); add(1); }
+        else if (v === 7) { add(5); add(2); }
+        else if (v === 8) { add(5); add(3); }
+        else if (v === 9) { add(5); add(3); add(1); }
+    }
+
+    addDigit(dA);
+    addDigit(dB);
+    if (carry > 0) add(1);
+
+    var moves = [];
+    var guard = 0;
+    while (guard++ < 50) {
+        if (c5 >= 2) { c5 -= 2; moves.push({ name: "PISQA", op: "5 + 5 = 10" }); }
+        else if (c3 >= 2) { c3 -= 2; c1 += 1; c5 += 1; moves.push({ name: "KIMSA", op: "3 + 3 = 1 + 5" }); }
+        else if (c2 >= 2) { c2 -= 2; c1 += 1; c3 += 1; moves.push({ name: "ISKAY", op: "2 + 2 = 1 + 3" }); }
+        else if (c1 >= 5) { c1 -= 5; c5 += 1; moves.push({ name: "KINKIN", op: "1 + 1 + 1 + 1 + 1 = 5" }); }
+        else if (c1 >= 3) { c1 -= 3; c3 += 1; moves.push({ name: "KINKIN", op: "1 + 1 + 1 = 3" }); }
+        else if (c1 >= 2) { c1 -= 2; c2 += 1; moves.push({ name: "KINKIN", op: "1 + 1 = 2" }); }
+        else if (c2 >= 1 && c3 >= 1) { c2 -= 1; c3 -= 1; c5 += 1; moves.push({ name: "PICHANA", op: "2 + 3 = 5" }); }
+        else if (c1 >= 1 && c2 >= 1) { c1 -= 1; c2 -= 1; c3 += 1; moves.push({ name: "PICHANA", op: "1 + 2 = 3" }); }
+        else break;
+    }
+    return moves;
+}
+
+function awaYupanaMovementsText(moves) {
+    var names = [];
+    for (var i = 0; i < moves.length; i++) {
+        names.push(moves[i].name + " (" + moves[i].op + ")");
+    }
+    return names.join(", ");
+}
+
+function awaYupanaRowValue(state, rowIdx, kind) {
+    var values = [5, 3, 2, 1];
+    var sum = 0;
+    for (var c = 0; c < 4; c++) {
+        if (kind === "red" && state.red[rowIdx][c]) sum += values[c];
+        if (kind === "green" && state.green[rowIdx][c]) sum += values[c];
+    }
+    return sum;
 }
 
 function awaInitYupana(container, words) {
-    var value = 0;
-    var target = 10;
-    var won = false;
-    var targetEl = container.querySelector(".atw-yupana-target");
-    var correctEl = container.querySelector(".atw-yupana-correct");
-    if (correctEl) {
-        correctEl.innerHTML = awaCongrats(words.congrats, words.newRound);
-    }
+    var rows = 2;
+    var state = htYupanaNewState(rows);
+    var problem = null;
+    var phase = 1;
+    var done = false;
 
-    var buttons = awaElement("p", "atw-buttons");
-    var newBtn = awaButton(words.newRound || "New practice");
+    var panel = awaElement("div", "tutor-panel atwa-yupana-tutor");
+    var header = awaElement("div", "tutor-header");
+    var problemBox = awaElement("div", "problem-box atwa-yupana-problem");
+    var status = awaElement("span", "status-badge atwa-yupana-status");
+    header.appendChild(problemBox);
+    header.appendChild(status);
+
+    var message = awaElement("div", "step-message atwa-yupana-message");
+    var buttons = awaElement("div", "step-buttons");
+    var nextBtn = awaButton(words.nextStep, "step-btn primary atwa-yupana-next hidden");
+    var newBtn = awaButton(words.yupanaNew, "reset-tutor-btn atwa-yupana-new");
+    buttons.appendChild(nextBtn);
     buttons.appendChild(newBtn);
-    container.appendChild(buttons);
 
-    if ($("#leftHandImg").length) {
-        htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
-    }
-    if ($("#rightHandImg").length) {
-        htSetImageSrc("rightHandImg", "images/HistoryTracers/0Right_Hand_Small.png");
+    var feedback = awaElement("div", "atwa-yupana-feedback");
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+
+    panel.appendChild(header);
+    panel.appendChild(message);
+    panel.appendChild(buttons);
+    panel.appendChild(feedback);
+
+    function rowHtml(row) {
+        return '<tr id="tf' + row + '">' +
+            '<td id="tc1f' + row + '">' + htYupanaDrawFirstSquare() + '</td>' +
+            '<td id="tc2f' + row + '">' + htYupanaDrawSecondSquare() + '</td>' +
+            '<td id="tc3f' + row + '">' + htYupanaDrawThirdSquare() + '</td>' +
+            '<td id="tc4f' + row + '">' + htYupanaDrawFourthSquare() + '</td>' +
+            '</tr>';
     }
 
-    function render() {
-        awaSetYupanaHands(value);
-        htCleanYupanaDecimalValues("#yupana0", 2);
-        if (value > 0) {
-            htFillYupanaDecimalValues("#yupana0", value, 2, "red_dot_right_up");
+    var tableWrap = awaElement("p", "");
+    var table = awaElement("table", "tawapukllay");
+    table.id = "yupana0";
+    table.innerHTML = '<tr><th colspan="4"><i>Yupana</i></th></tr>' + rowHtml(1) + rowHtml(2);
+    tableWrap.appendChild(table);
+    container.appendChild(tableWrap);
+    container.appendChild(panel);
+
+    function clearFeedback() {
+        feedback.className = "atwa-yupana-feedback";
+        feedback.innerHTML = "";
+    }
+
+    function showCorrect(html) {
+        feedback.className = "atwa-yupana-feedback";
+        feedback.innerHTML = '<div class="success-message">' + html + '</div>';
+    }
+
+    function setPhase(p) {
+        phase = p;
+        status.style.display = "";
+        message.style.display = "";
+        status.textContent = awaFormat(words.stepStatus, { current: p, total: 3 });
+        nextBtn.classList.add("hidden");
+        clearFeedback();
+        if (p === 1) {
+            message.innerHTML = awaFormat(words.yupanaStep1, {
+                a: problem.a,
+                units: words.units
+            });
+        } else if (p === 2) {
+            message.innerHTML = awaFormat(words.yupanaStep2, {
+                b: problem.b,
+                units: words.units
+            });
+        } else {
+            message.innerHTML = awaFormat(words.yupanaStep3, {
+                a: problem.a,
+                b: problem.b,
+                sum: problem.sum,
+                result: problem.sum % 10,
+                units: words.units,
+                tens: words.tens
+            });
+            if (problem.sum % 10 === 0) {
+                state.gray[1][3] = true;
+                htYupanaStateRenderCell("#yupana0", state, 1, 3);
+                showCorrect(awaFormat(words.yupanaCarryPrompt, { tens: words.tens }));
+            }
         }
-        if (correctEl) {
-            won = (value === target);
-            correctEl.style.display = won ? "block" : "none";
-        }
     }
 
-    function newRound() {
-        var problem = awaAddition();
-        target = problem.sum;
-        value = 0;
-        won = false;
-        if (targetEl) {
-            targetEl.textContent = awaProblemText(problem);
-        }
-        render();
+    function newProblem() {
+        problem = awaAddition();
+        state = htYupanaNewState(rows);
+        htYupanaStateClear("#yupana0", state);
+        done = false;
+        problemBox.textContent = awaProblemText(problem);
+        setPhase(1);
     }
 
-    $("#traineeUp0").off("click").on("click", function () {
-        if (won) {
+    table.addEventListener("click", function (e) {
+        if (done) {
             return;
         }
-        if (value < target) {
-            value++;
-            render();
-        }
-    });
-    $("#traineeDown0").off("click").on("click", function () {
-        if (won) {
+        var td = e.target.closest ? e.target.closest("td") : null;
+        if (!td || !/^tc\d+f\d+$/.test(td.id)) {
             return;
         }
-        if (value > 0) {
-            value--;
-            render();
+        var parts = td.id.match(/^tc(\d+)f(\d+)$/);
+        var col = parseInt(parts[1], 10) - 1;
+        var row = parseInt(parts[2], 10);
+        var rowIdx = rows - row;
+
+        if (phase === 1) {
+            if (rowIdx !== 0) {
+                return;
+            }
+            htYupanaStateToggleCell("#yupana0", state, 0, col, "red");
+            if (awaYupanaRowValue(state, 0, "red") === problem.a) {
+                showCorrect(words.stepCorrect);
+                nextBtn.classList.remove("hidden");
+            } else {
+                clearFeedback();
+                nextBtn.classList.add("hidden");
+            }
+            return;
+        }
+
+        if (phase === 2) {
+            if (rowIdx !== 0) {
+                return;
+            }
+            htYupanaStateToggleCell("#yupana0", state, 0, col, "blue");
+            if (htYupanaStateGetBlueDigit(state, 0) === problem.b) {
+                showCorrect(words.stepCorrect);
+                nextBtn.classList.remove("hidden");
+            } else {
+                clearFeedback();
+                nextBtn.classList.add("hidden");
+            }
+            return;
+        }
+
+        // Phase 3: mark the result in green, then place the carried 1.
+        if (state.gray[1][3]) {
+            if (rowIdx === 1 && col === 3) {
+                state.gray[1][3] = false;
+                state.blue[1][3] = 1;
+                htYupanaStateRenderCell("#yupana0", state, 1, 3);
+                var moves = awaYupanaColumnMovements(problem.a, problem.b, 0);
+                var moveText = moves.length
+                    ? awaFormat(words.yupanaMovements, { units: words.units, movements: awaYupanaMovementsText(moves) })
+                    : awaFormat(words.yupanaNoMovements, { units: words.units });
+                htYupanaStateDrawGreen("#yupana0", state, problem.sum);
+                done = true;
+                message.innerHTML = "";
+                message.style.display = "none";
+                status.textContent = "";
+                status.style.display = "none";
+                nextBtn.classList.add("hidden");
+                feedback.className = "atwa-yupana-feedback";
+                feedback.innerHTML =
+                    '<div class="congrats">' + awaFormat(words.yupanaPerfect, {
+                        a: problem.a,
+                        b: problem.b,
+                        sum: problem.sum
+                    }) + '</div><div class="success-message">' + moveText + '</div>';
+            }
+            return;
+        }
+
+        if (rowIdx !== 0) {
+            return;
+        }
+        state.green[0][col] = !state.green[0][col];
+        htYupanaStateRenderCell("#yupana0", state, 0, col);
+        if (awaYupanaRowValue(state, 0, "green") === problem.sum % 10) {
+            state.gray[1][3] = true;
+            htYupanaStateRenderCell("#yupana0", state, 1, 3);
+            showCorrect(awaFormat(words.yupanaCarryPrompt, { tens: words.tens }));
+        } else {
+            clearFeedback();
         }
     });
 
-    newBtn.addEventListener("click", newRound);
+    nextBtn.addEventListener("click", function () {
+        if (phase === 1) {
+            setPhase(2);
+        } else if (phase === 2) {
+            setPhase(3);
+        }
+    });
 
-    newRound();
+    newBtn.addEventListener("click", newProblem);
+
+    newProblem();
 }
 
 //
