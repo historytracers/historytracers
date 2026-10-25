@@ -3001,6 +3001,24 @@ p.desc svg {
   color: #fff;
 }
 
+/* Around the World (Addition, 49bf2fba): reminder notes shown beside the
+   games, such as the absence of carry when counting with bones. */
+.atwa-note {
+  background: #fff4e5;
+  border-left: 4px solid #bf6b1f;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  margin: 0.8rem 0;
+  font-size: 0.95em;
+  overflow-wrap: break-word;
+}
+
+.design-dark .atwa-note {
+  background: #33291d;
+  border-left-color: #e0a05a;
+  color: #f0e6d8;
+}
+
 /*
  * Odd or Even game (content 8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98).
  */
@@ -3505,6 +3523,7 @@ p.desc svg {
   font-size: 0.9em;
   font-weight: bold;
   color: #555;
+  text-align: center;
 }
 
 .htCarrySquares {
@@ -3537,6 +3556,7 @@ p.desc svg {
   margin-top: 0.3em;
   font-size: 0.9em;
   color: #555;
+  text-align: center;
 }
 
 .htCarryNextContainer {
@@ -3664,6 +3684,7 @@ p.desc svg {
   font-size: 0.9em;
   font-weight: bold;
   color: #555;
+  text-align: center;
 }
 
 .htAddSquares {
@@ -3729,6 +3750,7 @@ p.desc svg {
   margin-top: 0.3em;
   font-size: 0.9em;
   color: #555;
+  text-align: center;
 }
 
 /* Note that names the complement of the column and how the squares were used. */
@@ -3737,6 +3759,7 @@ p.desc svg {
   margin-top: 0.2em;
   font-size: 0.9em;
   color: #8a4b08;
+  text-align: center;
 }
 
 .htAddButtonsRow {
