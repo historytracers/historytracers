@@ -1,0 +1,367 @@
+{
+   "title": "Aprendiendo la tabla de multiplicar (2 y 3)",
+   "header": "Aprendiendo la tabla de multiplicar (2 y 3)",
+   "sources": [
+      "8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b"
+   ],
+   "scripts": [
+      "8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/11w9FhmZ8AZ9XYM5QI3UQE?si=Nk7KCZZmRYen4ENrNKqGmQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792882062"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nAntes de empezar, te recomendamos leer *Aprendiendo la tabla de multiplicar (0 y 1)* (<htcite0>), donde aprendiste qué sucede cuando multiplicas por cero y por uno.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "da2e2b37-7b63-4ba8-8ddd-e72535068258",
+                     "text": "History Tracers Team",
+                     "page": "Aprendiendo la tabla de multiplicar (0 y 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nUna tabla de multiplicar es como un mapa de respuestas: cuando conocemos el mapa, ya no necesitamos contar todo otra vez. Hoy aprenderemos dos mapas más — la tabla del dos (2) y la tabla del tres (3). En el texto anterior aprendimos a multiplicar por cero y por uno, y aprendimos una fórmula que sirvió para los dos. El resultado de una multiplicación se llama **producto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Estas dos tablas son amigables porque podemos construirlas con pasitos: contando de dos en dos —2, 4, 6, 8, 10...— y de tres en tres —3, 6, 9, 12, 15...—. Ten ese ritmo de conteo presente y las reglas de abajo te parecerán naturales.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Fórmulas para el dos y el tres</b><br /><br />Haz una pausa y piensa: ¿es posible también crear fórmulas para multiplicar por 2 y 3?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_two",
+         "text": [
+            {
+               "text": "### Multiplicando por Dos (2)\n\nAhora pasamos a la tabla del dos. Multiplicar por dos significa sumar el mismo número dos veces, así que la respuesta siempre es el **doble** de ese número.\n\nUna manera práctica de verlo es con tus propias manos. Cada mano tiene cinco dedos y tienes dos manos —eso son dos grupos de cinco—. Cuenta todos los dedos juntos: 5 + 5 = 10, así que 5 × 2 = 10 dedos en total.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 1</b>: Dos manos, cada una con cinco dedos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Dos manos, cada una con cinco dedos.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Pares de calcetines</b><br />Un par de calcetines siempre tiene 2 calcetines. Supón que juntamos los calcetines en pares, y queremos saber cuántos calcetines hay en total. Prueba con distintos números de pares:<br />• 1 par: 2 × 1 = 2 calcetines.<br />• 2 pares: 2 × 2 = 4 calcetines.<br />• 4 pares: 2 × 4 = 8 calcetines.<br />• 6 pares: 2 × 6 = 12 calcetines.<br />¿Ves el patrón? Cada par nuevo agrega 2 calcetines más. Eso es contar de dos en dos: 2, 4, 6, 8, 10, 12!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### ¿Por qué el producto de un número entero siempre es par?\n\nMira las respuestas de la tabla del dos: 2, 4, 6, 8, 10, 12... Todas son **números pares**, lo que significa que se pueden dividir en dos partes iguales sin que sobre nada (<htcite0>). Multiplicar por 2 duplica un número entero, y un doble siempre se puede partir en dos mitades iguales. ¡Así que el producto de cualquier número entero multiplicado por 2 siempre es par!",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "130b6adb-161d-4fec-98e4-eaa384122753",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Número par",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Una Fórmula para la Tabla del Dos\n\nPodemos escribir esta regla como una fórmula que sirve para cualquier número **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 1</b>: Multiplicar cualquier número por dos es lo mismo que sumarlo consigo mismo.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Léela en voz alta: «dos por N es igual a N más N».\n- La respuesta siempre es el **doble** de N: el número sumado consigo mismo.\n- **N** es un marcador de posición para cualquier número, así que una sola regla cubre todas las multiplicaciones por dos de una vez.\n- Si **N** es 0, el producto es 0; si **N** es 1, el producto es 2 —exactamente lo que vimos en la tabla del cero y la tabla del uno—.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora inténtalo tú: pasa el mouse sobre cada multiplicación del recuadro de la izquierda. Al hacerlo, la tabla de la derecha resalta la fila correspondiente, de modo que puedes ver aparecer cada respuesta de la tabla del dos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Pares de zapatos</b><br /><br />Haz una pausa y piensa: si tienes 5 pares de zapatos, ¿cuántos zapatos tienes en total?<br /><br />(Pista: cuenta de dos en dos cinco veces: 2, 4, 6, 8, 10.)</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aquí está la respuesta a nuestra reflexión: cinco pares son cinco grupos de dos, así que 5 × 2 = 10 zapatos. Contar de dos en dos nos ayudó a encontrar la respuesta rápidamente. ¡Bien hecho!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_three",
+         "text": [
+            {
+               "text": "### Multiplicando por Tres (3)\n\nAhora pasamos a la tabla del tres. Multiplicar por tres significa sumar el mismo número tres veces.\n\nUn triángulo tiene tres lados. En la Figura 2, los tres triángulos tienen el mismo tamaño y cada triángulo tiene tres lados iguales. Contemos todos los lados juntos: ¡3, 6, 9! Así que 3 + 3 + 3 = 9, y eso significa que 3 × 3 = 9.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 440 180\" width=\"100%\" role=\"img\" aria-label=\"Tres triángulos equiláteros del mismo tamaño\"><g fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"20,160 120,160 70,73.4\"/><polygon points=\"170,160 270,160 220,73.4\"/><polygon points=\"320,160 420,160 370,73.4\"/></g><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\"><line x1=\"70.0\" y1=\"156.0\" x2=\"70.0\" y2=\"164.0\"/><line x1=\"91.5\" y1=\"118.7\" x2=\"98.5\" y2=\"114.7\"/><line x1=\"48.5\" y1=\"118.7\" x2=\"41.5\" y2=\"114.7\"/><line x1=\"220.0\" y1=\"156.0\" x2=\"220.0\" y2=\"164.0\"/><line x1=\"241.5\" y1=\"118.7\" x2=\"248.5\" y2=\"114.7\"/><line x1=\"198.5\" y1=\"118.7\" x2=\"191.5\" y2=\"114.7\"/><line x1=\"370.0\" y1=\"156.0\" x2=\"370.0\" y2=\"164.0\"/><line x1=\"391.5\" y1=\"118.7\" x2=\"398.5\" y2=\"114.7\"/><line x1=\"348.5\" y1=\"118.7\" x2=\"341.5\" y2=\"114.7\"/></g></svg></p><p class=\"desc\"><b>Figura 2</b>: Tres triángulos del mismo tamaño, cada uno con tres lados iguales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Tres triángulos del mismo tamaño, cada uno con tres lados iguales.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Lados de triángulos</b><br />Mira la Figura 2: cada triángulo tiene 3 lados, y los tres triángulos juntos tienen 3 + 3 + 3 = 9 lados en total. Supón que queremos contar todos los lados de cualquier grupo de triángulos. Prueba con distintos números de triángulos:<br />• 1 triángulo: 3 × 1 = 3 lados.<br />• 2 triángulos: 3 × 2 = 6 lados.<br />• 4 triángulos: 3 × 4 = 12 lados.<br />• 5 triángulos: 3 × 5 = 15 lados.<br />¿Ves el patrón? Cada triángulo nuevo agrega 3 lados más. Eso es contar de tres en tres: 3, 6, 9, 12, 15!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Una Fórmula para la Tabla del Tres\n\nPodemos escribir esta regla como una fórmula que sirve para cualquier número **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 2</b>: Multiplicar cualquier número por tres es lo mismo que sumarlo tres veces.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Léela en voz alta: «tres por N es igual a N más N más N».\n- La respuesta siempre es N sumado consigo mismo tres veces.\n- **N** es un marcador de posición para cualquier número, así que una sola regla cubre todas las multiplicaciones por tres de una vez.\n- Si **N** es 0, el producto es 0; si **N** es 1, el producto es 3 —exactamente lo que vimos en la tabla del cero y la tabla del uno—.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora inténtalo tú: pasa el mouse sobre cada multiplicación del recuadro de la izquierda. Al hacerlo, la tabla de la derecha resalta la fila correspondiente, de modo que puedes ver aparecer cada respuesta de la tabla del tres.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent3\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Cuánto es 2 × 3?</b><br /><br />Haz una pausa y piensa: cuenta de dos en dos tres veces —2, 4, 6— o usa la tabla del dos para encontrar la respuesta.<br /><br />Luego comprueba: ¿es el mismo resultado que con 3 × 2?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aquí está la respuesta a nuestra reflexión: contar de dos en dos tres veces da 2, 4, 6, así que 2 × 3 = 6. Y 3 × 2 = 6 también: contar de tres en tres dos veces da 3, 6. Puedes intercambiar los dos números: la respuesta no cambia. ¡Qué atajo tan útil!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nHemos aprendido dos tablas amigables nuevas:\n\n- Multiplicar por 2 significa sumar el número dos veces: 2, 4, 6, 8, 10, 12...\n- Multiplicar por 3 significa sumar el número tres veces: 3, 6, 9, 12, 15, 18...\n\nTambién vimos que 2 × 3 = 6 y que 3 × 2 = 6. Cambiar el orden de los factores no cambia el producto. (<htcite0>)\n\nSigue practicando con objetos reales —cuenta calcetines de dos en dos, cuenta los lados de los triángulos de tres en tres— y vuelve a explorar las tablas interactivas. Verás que estas dos tablas funcionan siempre.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc",
+                     "text": "History Tracers Team",
+                     "page": "Inversión",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿2 × 4 es igual a 8?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Dos grupos de cuatro son 4 + 4 = 8, entonces 2 × 4 = 8."
+      },
+      {
+         "question": "¿Multiplicar un número entero por 2 siempre da un número par?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "El doble de cualquier número entero siempre es par: 2, 4, 6, 8, 10..."
+      },
+      {
+         "question": "¿3 × 3 es igual a 6?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "No. Tres grupos de tres son 3 + 3 + 3 = 9, entonces 3 × 3 = 9. El producto 6 viene de 3 × 2."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
