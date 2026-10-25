@@ -72,13 +72,32 @@ function awaWords() {
         represent: awaWord("atwaWordRepresent", "Add and represent the result:"),
         missing: awaWord("atwaWordMissing", "Add and choose the correct result:"),
         value: awaWord("atwaWordValue", "Value"),
+        tens: awaWord("atwaWordTens", "Tens"),
+        units: awaWord("atwaWordUnits", "Units"),
         newRound: awaWord("atwaWordNewRound", "New practice"),
         add: awaWord("atwaWordAdd", "Add one"),
         remove: awaWord("atwaWordRemove", "Remove one"),
         correct: awaWord("atwaWordCorrect", "\u2713 Correct!"),
         congrats: awaWordHTML("atwaWordCongrats", "🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You represented the sum correctly!<br>Click '{button}' to practice more!"),
-        congratsChoice: awaWordHTML("atwaWordCongratsChoice", "🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You found the correct sum!<br>Click '{button}' to practice more!")
+        congratsChoice: awaWordHTML("atwaWordCongratsChoice", "🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You found the correct sum!<br>Click '{button}' to practice more!"),
+        nextStep: awaWord("atwaWordNextStep", "Next step"),
+        stepStatus: awaWord("atwaWordStepStatus", "Step {current}/{total}"),
+        stepCorrect: awaWordHTML("atwaWordStepCorrect", "Correct! Click 'Next step' to continue."),
+        abacusStep1: awaWordHTML("atwaWordAbacusStep1", "Step 1: Write the first number <b>{a}</b> in the {units} place."),
+        abacusStep2: awaWordHTML("atwaWordAbacusStep2", "Step 2: Add <b>{b}</b> in the {units} place. Since {a} + {b} = {sum} reaches 10, carry 1 to the {tens} place: remove the complement <b>{complement}</b> from the {units} place and add <b>1</b> to the {tens} place. The abacus should show <b>{sum}</b>."),
+        abacusStep3: awaWordHTML("atwaWordAbacusStep3", "Final: {a} + {b} = <b>{sum}</b>. The abacus should show this sum!"),
+        abacusPerfect: awaWordHTML("atwaWordAbacusPerfect", "🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} + {b} = {sum}<br>Great job using the abacus!")
     };
+}
+
+function awaFormat(template, data) {
+    var result = template;
+    for (var key in data) {
+        if (Object.prototype.hasOwnProperty.call(data, key)) {
+            result = result.split("{" + key + "}").join(data[key]);
+        }
+    }
+    return result;
 }
 
 function awaElement(tag, cls) {
@@ -97,6 +116,148 @@ function awaButton(label, cls) {
 }
 
 //
+// Step-by-step addition tutor shared by the calculi and the three abacuses.
+// It follows the same idea as "Practicing addition with Soroban, Suanpan and
+// Schyoty" (f91d9720): set the first number, perform the carry, verify result.
+//
+
+function awaCreateAbacusTutor(mount, anchor, words, getValue) {
+    var panel = awaElement("div", "tutor-panel atwa-tutor");
+    var header = awaElement("div", "tutor-header");
+    var problemBox = awaElement("div", "problem-box atwa-tutor-problem");
+    var status = awaElement("span", "status-badge atwa-tutor-status");
+    header.appendChild(problemBox);
+    header.appendChild(status);
+
+    var message = awaElement("div", "step-message atwa-tutor-message");
+    var buttons = awaElement("div", "step-buttons");
+    var nextBtn = awaButton(words.nextStep || "Next step", "step-btn primary atwa-tutor-next");
+    buttons.appendChild(nextBtn);
+
+    var feedback = awaElement("div", "atwa-tutor-feedback");
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+
+    panel.appendChild(header);
+    panel.appendChild(message);
+    panel.appendChild(buttons);
+    panel.appendChild(feedback);
+    if (anchor && anchor.parentNode === mount) {
+        anchor.insertAdjacentElement("afterend", panel);
+    } else {
+        mount.appendChild(panel);
+    }
+
+    var state = { problem: null, steps: [], idx: 0, complete: false };
+
+    function buildSteps(problem) {
+        var complement = 10 - problem.b;
+        return [
+            {
+                target: problem.a,
+                text: awaFormat(words.abacusStep1, {
+                    a: problem.a,
+                    units: words.units
+                })
+            },
+            {
+                target: problem.sum,
+                text: awaFormat(words.abacusStep2, {
+                    a: problem.a,
+                    b: problem.b,
+                    sum: problem.sum,
+                    complement: complement,
+                    units: words.units,
+                    tens: words.tens
+                })
+            },
+            {
+                target: problem.sum,
+                text: awaFormat(words.abacusStep3, {
+                    a: problem.a,
+                    b: problem.b,
+                    sum: problem.sum
+                })
+            }
+        ];
+    }
+
+    function renderStep() {
+        status.textContent = awaFormat(words.stepStatus, {
+            current: state.idx + 1,
+            total: state.steps.length
+        });
+        message.className = "step-message atwa-tutor-message";
+        message.innerHTML = state.steps[state.idx].text;
+    }
+
+    function update() {
+        if (!state.problem || state.complete) {
+            return;
+        }
+        var step = state.steps[state.idx];
+        var ok = (getValue() === step.target);
+        nextBtn.disabled = !ok;
+        if (ok) {
+            feedback.className = "success-message";
+            feedback.innerHTML = words.stepCorrect;
+        } else {
+            feedback.className = "atwa-tutor-feedback";
+            feedback.innerHTML = "";
+        }
+    }
+
+    function start(problem) {
+        state.problem = problem;
+        state.steps = buildSteps(problem);
+        state.idx = 0;
+        state.complete = false;
+        problemBox.textContent = awaProblemText(problem);
+        nextBtn.classList.remove("hidden");
+        nextBtn.disabled = true;
+        feedback.className = "atwa-tutor-feedback";
+        feedback.innerHTML = "";
+        renderStep();
+        update();
+    }
+
+    nextBtn.addEventListener("click", function () {
+        if (state.complete || !state.problem) {
+            return;
+        }
+        if (getValue() !== state.steps[state.idx].target) {
+            return;
+        }
+        if (state.idx < state.steps.length - 1) {
+            state.idx++;
+            renderStep();
+            update();
+            return;
+        }
+        state.complete = true;
+        status.textContent = "";
+        nextBtn.disabled = true;
+        nextBtn.classList.add("hidden");
+        message.className = "step-message congrats atwa-tutor-message";
+        message.innerHTML = awaFormat(words.abacusPerfect, {
+            a: state.problem.a,
+            b: state.problem.b,
+            sum: state.problem.sum
+        });
+        feedback.className = "atwa-tutor-feedback";
+        feedback.innerHTML = "";
+    });
+
+    return {
+        start: start,
+        update: update,
+        isComplete: function () {
+            return state.complete;
+        }
+    };
+}
+
+//
 // Quipu / Meso canvas helpers
 //
 
@@ -108,35 +269,61 @@ function awaCanvas(width, height) {
     return c;
 }
 
-function awaDrawQuipu(ctx, W, H, value) {
+function awaDrawQuipuPlaces(ctx, W, H, tens, units, labels) {
     var cord = "#a1887f";
     var knot = "#5d4037";
-    var mainY = H * 0.16;
-    var cordX = W * 0.5;
+    var mainY = H * 0.10;
+    var cordX = W * 0.38;
+    var bottomY = H * 0.88;
 
     ctx.strokeStyle = cord;
     ctx.lineWidth = Math.max(3, H * 0.02);
     ctx.beginPath();
-    ctx.moveTo(W * 0.10, mainY);
-    ctx.lineTo(W * 0.90, mainY);
+    ctx.moveTo(W * 0.08, mainY);
+    ctx.lineTo(W * 0.92, mainY);
     ctx.stroke();
 
+    // A quipu is read vertically: the units are at the bottom of the cord and
+    // the higher orders are stacked above them.
     ctx.beginPath();
     ctx.moveTo(cordX, mainY);
-    ctx.lineTo(cordX, H * 0.94);
+    ctx.lineTo(cordX, bottomY);
     ctx.stroke();
 
-    var count = Math.max(0, Math.min(20, value));
-    var top = mainY + H * 0.06;
-    var bottom = H * 0.88;
-    var gap = count > 1 ? (bottom - top) / (count - 1) : 0;
-    var radius = Math.min(H * 0.04, count > 1 ? gap * 0.45 : H * 0.04);
-    ctx.fillStyle = knot;
-    for (var i = 0; i < count; i++) {
-        var y = top + i * gap;
-        ctx.beginPath();
-        ctx.arc(cordX, y, radius, 0, Math.PI * 2);
-        ctx.fill();
+    var sections = [
+        { count: tens, label: labels.tens, fill: "#e3f2fd", color: "#1565c0",
+          top: mainY + H * 0.07, bottom: mainY + H * 0.30 },
+        { count: units, label: labels.units, fill: "#e8f5e9", color: "#2e7d32",
+          top: mainY + H * 0.36, bottom: H * 0.86 }
+    ];
+
+    for (var s = 0; s < sections.length; s++) {
+        var section = sections[s];
+        var count = Math.max(0, Math.min(9, section.count));
+        var gap = count > 1 ? (section.bottom - section.top) / (count - 1) : 0;
+        var radius = Math.min(H * 0.03, count > 1 ? gap * 0.42 : H * 0.03);
+        ctx.fillStyle = knot;
+        for (var i = 0; i < count; i++) {
+            var y = section.top + i * gap;
+            ctx.beginPath();
+            ctx.arc(cordX, y, radius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        var labelY = (section.top + section.bottom) / 2;
+        var labelX = cordX + W * 0.10;
+        ctx.font = 'bold 13px Verdana, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        var labelWidth = ctx.measureText(section.label).width + 16;
+        var labelHeight = 22;
+        ctx.fillStyle = section.fill;
+        ctx.fillRect(labelX - 8, labelY - labelHeight / 2, labelWidth, labelHeight);
+        ctx.strokeStyle = section.color;
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(labelX - 8, labelY - labelHeight / 2, labelWidth, labelHeight);
+        ctx.fillStyle = section.color;
+        ctx.fillText(section.label, labelX, labelY);
     }
 }
 
@@ -181,10 +368,7 @@ function awaDrawMeso(ctx, W, H, value) {
 }
 
 function awaCreateStepper(container, tool, words) {
-    var draw = {
-        quipu: awaDrawQuipu,
-        meso: awaDrawMeso
-    }[tool];
+    var isQuipu = (tool === "quipu");
 
     var wrap = awaElement("div", "atw-game-inner");
     container.appendChild(wrap);
@@ -220,16 +404,31 @@ function awaCreateStepper(container, tool, words) {
     buttons.appendChild(newBtn);
     wrap.appendChild(buttons);
 
-    var state = { problem: null, target: 10, value: 0 };
+    var state = { problem: null, target: 10, value: 0, tens: 0, units: 0 };
+
+    function currentValue() {
+        return isQuipu ? (state.tens * 10 + state.units) : state.value;
+    }
 
     function render() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw(ctx, canvas.width, canvas.height, state.value);
+        if (isQuipu) {
+            awaDrawQuipuPlaces(ctx, canvas.width, canvas.height, state.tens, state.units, {
+                tens: words.tens,
+                units: words.units
+            });
+            canvas.setAttribute("data-tens", String(state.tens));
+            canvas.setAttribute("data-units", String(state.units));
+            canvas.setAttribute("aria-label", words.tens + ": " + state.tens + ". " + words.units + ": " + state.units + ".");
+        } else {
+            awaDrawMeso(ctx, canvas.width, canvas.height, state.value);
+        }
         targetSpan.textContent = awaProblemText(state.problem);
-        valueSpan.textContent = (words.value || "Value") + ": " + state.value;
-        var reached = state.value === state.target;
-        decBtn.disabled = reached || state.value <= 0;
-        incBtn.disabled = reached || state.value >= state.target;
+        var value = currentValue();
+        valueSpan.textContent = (words.value || "Value") + ": " + value;
+        var reached = value === state.target;
+        decBtn.disabled = reached || value <= 0;
+        incBtn.disabled = reached || value >= state.target;
         correct.style.display = reached ? "block" : "none";
     }
 
@@ -237,20 +436,42 @@ function awaCreateStepper(container, tool, words) {
         state.problem = awaAddition();
         state.target = state.problem.sum;
         state.value = 0;
+        state.tens = 0;
+        state.units = 0;
         render();
     }
 
     decBtn.addEventListener("click", function () {
-        if (state.value > 0 && state.value < state.target) {
-            state.value--;
-            render();
+        if (currentValue() <= 0 || currentValue() >= state.target) {
+            return;
         }
+        if (isQuipu) {
+            if (state.units > 0) {
+                state.units--;
+            } else if (state.tens > 0) {
+                state.tens--;
+                state.units = 9;
+            }
+        } else {
+            state.value--;
+        }
+        render();
     });
     incBtn.addEventListener("click", function () {
-        if (state.value < state.target) {
-            state.value++;
-            render();
+        if (currentValue() >= state.target) {
+            return;
         }
+        if (isQuipu) {
+            if (state.units < 9) {
+                state.units++;
+            } else {
+                state.units = 0;
+                state.tens++;
+            }
+        } else {
+            state.value++;
+        }
+        render();
     });
     newBtn.addEventListener("click", newRound);
 
@@ -784,15 +1005,18 @@ function awaRomanAbacusHideSuccess() {
 }
 
 function awaRomanAbacusFillGame() {
-    var cmp = document.getElementById('romanAbacusCMP');
-    if (!cmp) return;
-
     awaRomanAbacusHideSuccess();
 
     var problem = awaAddition();
     localRomanAbacusController.problem = problem;
     localRomanAbacusController.target = problem.sum;
-    cmp.innerText = awaProblemText(problem);
+    var cmp = document.getElementById('romanAbacusCMP');
+    if (cmp) {
+        cmp.innerText = awaProblemText(problem);
+    }
+    if (localRomanAbacusController.tutor) {
+        localRomanAbacusController.tutor.start(problem);
+    }
 }
 
 function awaRomanAbacusUpdateDisplay() {
@@ -804,18 +1028,10 @@ function awaRomanAbacusUpdateDisplay() {
     var rEl = document.getElementById('romanAbacusRoman');
     if (rEl) rEl.innerHTML = awaRomanAbacusRomanHTML(val);
 
-    var sv = document.getElementById('romanAbacusSuccess');
-    if (sv) {
-        if (val === localRomanAbacusController.target) {
-            localRomanAbacusController.won = true;
-            sv.style.display = 'inline-block';
-            sv.style.visibility = 'visible';
-        } else {
-            localRomanAbacusController.won = false;
-            awaRomanAbacusHideSuccess();
-        }
-    } else {
-        localRomanAbacusController.won = false;
+    localRomanAbacusController.won = (val === localRomanAbacusController.target);
+    awaRomanAbacusHideSuccess();
+    if (localRomanAbacusController.tutor) {
+        localRomanAbacusController.tutor.update();
     }
 }
 
@@ -926,6 +1142,10 @@ function awaInitRoman(container, words) {
         successEl.style.whiteSpace = "normal";
         successEl.innerHTML = awaCongrats(words.congrats, awaControlLabel(document.getElementById("romanAbacusResetBtn")));
     }
+    var abacusContainer = container.querySelector(".roman-abacus-container") || container;
+    var abacusPanel = abacusContainer.querySelector(".roman-abacus-panel");
+    localRomanAbacusController.tutor = awaCreateAbacusTutor(
+        abacusContainer, abacusPanel, words, awaRomanAbacusComputeValue);
     awaRomanAbacusInit();
 }
 
@@ -955,6 +1175,7 @@ function awaInitAbacus(container, words) {
     }
 
     var ctrl = null;
+    var tutor = null;
     var state = { problem: null, target: 10, won: false };
 
     function buildController() {
@@ -1034,7 +1255,10 @@ function awaInitAbacus(container, words) {
             valueEl.textContent = String(val);
         }
         if (correctEl) {
-            correctEl.style.display = state.won ? "block" : "none";
+            correctEl.style.display = "none";
+        }
+        if (tutor) {
+            tutor.update();
         }
     }
 
@@ -1047,6 +1271,9 @@ function awaInitAbacus(container, words) {
         }
         reset();
         update();
+        if (tutor) {
+            tutor.start(state.problem);
+        }
     }
 
     function handlePointer(e) {
@@ -1119,6 +1346,9 @@ function awaInitAbacus(container, words) {
         newRound();
     });
 
+    var abacusContainer = container.querySelector(".soroban-container") || container;
+    var abacusPanel = abacusContainer.querySelector(".value-panel");
+    tutor = awaCreateAbacusTutor(abacusContainer, abacusPanel, words, currentValue);
     newRound();
 }
 

@@ -3019,6 +3019,20 @@ p.desc svg {
   color: #f0e6d8;
 }
 
+/* Step-by-step addition tutor used by the calculi and the three abacuses. */
+.atwa-tutor {
+  margin-top: 1rem;
+}
+
+.atwa-tutor .step-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.atwa-tutor-feedback {
+  margin-top: 0.5rem;
+}
+
 /*
  * Odd or Even game (content 8dfdd5e0-01e3-4ebc-b0c2-38462a54aa98).
  */
