@@ -86,7 +86,19 @@ function awaWords() {
         abacusStep1: awaWordHTML("atwaWordAbacusStep1", "Step 1: Write the first number <b>{a}</b> in the {units} place."),
         abacusStep2: awaWordHTML("atwaWordAbacusStep2", "Step 2: Add <b>{b}</b> in the {units} place. Since {a} + {b} = {sum} reaches 10, carry 1 to the {tens} place: remove the complement <b>{complement}</b> from the {units} place and add <b>1</b> to the {tens} place. The abacus should show <b>{sum}</b>."),
         abacusStep3: awaWordHTML("atwaWordAbacusStep3", "Final: {a} + {b} = <b>{sum}</b>. The abacus should show this sum!"),
-        abacusPerfect: awaWordHTML("atwaWordAbacusPerfect", "🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} + {b} = {sum}<br>Great job using the abacus!")
+        abacusPerfect: awaWordHTML("atwaWordAbacusPerfect", "🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} + {b} = {sum}<br>Great job using the abacus!"),
+        typedQuestion: awaWord("atwaWordTypedQuestion", "The {order} column already holds {base}. Add the bottom digit {added}: type the digit that stays in the column in the result row, and, if the sum reaches ten, type 1 in the carry box above the next order."),
+        typedSquaresLabel: awaWord("atwaWordTypedSquaresLabel", "Addition in this column"),
+        typedMsgCarry: awaWordHTML("atwaWordTypedMsgCarry", "{base} + {added} = {sum}. It reaches 10, so the {order} column keeps {result} and carries 1 to the next order."),
+        typedWrongDigitTen: awaWordHTML("atwaWordTypedWrongDigitTen", "That digit is not correct. The column already holds {base} and the bottom digit is {added}. The complement of {base} to ten is {comp}. Since {added} is equal to or greater than {comp}, the ten is completed and 1 is carried to the next order: the squares outside the group of ten are the digit that stays in the {order} column."),
+        typedWrongCarry: awaWordHTML("atwaWordTypedWrongCarry", "The carry is not correct. Check {base} + {added}: when the sum reaches ten, the carry must be 1."),
+        typedPerfect: awaWordHTML("atwaWordTypedPerfect", "🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} + {b} = {sum}<br>Great job!"),
+        typedSquaresUsed: awaWord("atwaWordTypedSquaresUsed", "Squares used: {used}."),
+        typedComplementPending: awaWord("atwaWordTypedComplementPending", "Complement of {base} to ten: {comp}. Squares still missing to complete the ten: {missing}."),
+        typedComplementUsed: awaWord("atwaWordTypedComplementUsed", "Complement of {base} to ten: {comp}. Squares that completed the ten: {comp}; squares outside the ten: {outside}."),
+        typedNewProblem: awaWord("atwaWordTypedNewProblem", "New problem"),
+        typedDigitAria: awaWord("atwaWordTypedDigitAria", "Digit that the column keeps"),
+        typedCarryAria: awaWord("atwaWordTypedCarryAria", "Carry to the next order")
     };
 }
 
@@ -479,93 +491,273 @@ function awaCreateStepper(container, tool, words) {
 }
 
 //
-// Addition with choices (Hindu-Arabic numerals)
+// Typed vertical addition (Hindu-Arabic numerals), based on the design of
+// "Practicing addition with typed values" (18ca9e1f). The player types the
+// digit that stays in the units column and the 1 carried to the tens column.
 //
 
-function awaCreateChoice(container, words) {
-    var wrap = awaElement("div", "atw-game-inner");
+function awaInitTyped(container, words) {
+    var wrap = awaElement("div", "htAddGame atwa-typed");
     container.appendChild(wrap);
 
-    var instruction = awaElement("p", "atw-instruction");
-    instruction.textContent = words.missing;
-    wrap.appendChild(instruction);
+    var orders = awaElement("div", "htAddOrders");
+    var tensOrder = awaElement("span", "htAddOrder");
+    tensOrder.textContent = words.tens;
+    var unitsOrder = awaElement("span", "htAddOrder htAddOrderActive");
+    unitsOrder.textContent = words.units;
+    orders.appendChild(tensOrder);
+    orders.appendChild(unitsOrder);
+    wrap.appendChild(orders);
 
-    var equation = awaElement("p", "atw-sequence");
-    wrap.appendChild(equation);
+    var question = awaElement("span", "htAddQuestion");
+    wrap.appendChild(question);
 
-    var choices = awaElement("div", "atw-choices");
-    wrap.appendChild(choices);
+    var table = awaElement("table", "htAddTable");
+    table.setAttribute("aria-live", "polite");
+    wrap.appendChild(table);
 
-    var correct = awaElement("p", "atw-correct");
-    correct.style.display = "none";
-    correct.innerHTML = awaCongrats(words.congratsChoice, words.newRound);
-    wrap.appendChild(correct);
+    var squaresWrap = awaElement("div", "htAddSquaresWrap");
+    var squaresLabel = awaElement("span", "htAddSquaresLabel");
+    squaresLabel.textContent = words.typedSquaresLabel;
+    var squares = awaElement("div", "htAddSquares");
+    squares.setAttribute("aria-hidden", "true");
+    var caption = awaElement("span", "htAddSquaresCaption");
+    var note = awaElement("span", "htAddSquaresNote");
+    squaresWrap.appendChild(squaresLabel);
+    squaresWrap.appendChild(squares);
+    squaresWrap.appendChild(caption);
+    squaresWrap.appendChild(note);
+    wrap.appendChild(squaresWrap);
 
-    var buttons = awaElement("p", "atw-buttons");
-    var newBtn = awaButton(words.newRound);
-    buttons.appendChild(newBtn);
-    wrap.appendChild(buttons);
+    var inputHome = awaElement("span", "htAddHidden");
+    var digitInput = document.createElement("input");
+    digitInput.type = "text";
+    digitInput.inputMode = "numeric";
+    digitInput.maxLength = 1;
+    digitInput.autocomplete = "off";
+    digitInput.className = "htAddInput atwa-typed-digit";
+    digitInput.setAttribute("aria-label", words.typedDigitAria);
+    var carryInput = document.createElement("input");
+    carryInput.type = "text";
+    carryInput.inputMode = "numeric";
+    carryInput.maxLength = 1;
+    carryInput.autocomplete = "off";
+    carryInput.className = "htAddInput atwa-typed-carry";
+    carryInput.setAttribute("aria-label", words.typedCarryAria);
+    inputHome.appendChild(digitInput);
+    inputHome.appendChild(carryInput);
+    wrap.appendChild(inputHome);
 
-    var state = { problem: null, selected: null, won: false };
+    var feedback = awaElement("div", "htAddFeedback");
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+    wrap.appendChild(feedback);
 
-    function buildChoices() {
-        var answer = state.problem.sum;
-        var offsets = [0, -1, 1, -2, 2];
-        var options = [];
-        for (var o = 0; o < offsets.length; o++) {
-            var candidate = answer + offsets[o];
-            if (candidate >= 0 && candidate <= 20 && options.indexOf(candidate) === -1) {
-                options.push(candidate);
-            }
-        }
-        for (var s = options.length - 1; s > 0; s--) {
-            var j = awaRandom(0, s);
-            var tmp = options[s];
-            options[s] = options[j];
-            options[j] = tmp;
-        }
-        choices.innerHTML = "";
-        for (var k = 0; k < options.length; k++) {
-            (function (num) {
-                var b = awaButton(String(num), "atw-choice");
-                b.addEventListener("click", function () {
-                    if (state.won) {
-                        return;
-                    }
-                    state.selected = num;
-                    render();
-                });
-                choices.appendChild(b);
-            })(options[k]);
+    var nextContainer = awaElement("div", "htAddNextContainer");
+    var nextBtn = awaButton(words.typedNewProblem, "reset-tutor-btn hidden");
+    nextContainer.appendChild(nextBtn);
+    wrap.appendChild(nextContainer);
+
+    var state = { problem: null, answered: false };
+
+    function buildBoard() {
+        inputHome.appendChild(digitInput);
+        inputHome.appendChild(carryInput);
+        var a = state.problem.a;
+        var b = state.problem.b;
+        var carrySlot = state.answered ? "1" : '<span class="atwa-typed-carry-slot"></span>';
+        var digitSlot = state.answered ? String(state.problem.sum % 10) : '<span class="atwa-typed-digit-slot"></span>';
+        table.innerHTML =
+            '<tr class="htAddCarryRow"><td class="htAddOp"></td>' +
+            '<td class="htAddCell">' + carrySlot + '</td>' +
+            '<td class="htAddCell"></td></tr>' +
+            '<tr><td class="htAddOp"></td><td class="htAddCell"></td>' +
+            '<td class="htAddCell htAddCellActive">' + a + '</td></tr>' +
+            '<tr><td class="htAddOp">+</td><td class="htAddCell"></td>' +
+            '<td class="htAddCell htAddCellActive">' + b + '</td></tr>' +
+            '<tr class="htAddLine"><td colspan="3"></td></tr>' +
+            '<tr class="htAddResultRow"><td class="htAddOp"></td>' +
+            '<td class="htAddCell">' + (state.answered ? "1" : "") + '</td>' +
+            '<td class="htAddCell htAddCellActive">' + digitSlot + '</td></tr>';
+        if (!state.answered) {
+            table.querySelector(".atwa-typed-carry-slot").appendChild(carryInput);
+            table.querySelector(".atwa-typed-digit-slot").appendChild(digitInput);
         }
     }
 
-    function render() {
-        equation.textContent = awaProblemText(state.problem) + " = ?";
-        var buttonsList = choices.getElementsByTagName("button");
-        for (var b = 0; b < buttonsList.length; b++) {
-            var val = parseInt(buttonsList[b].textContent, 10);
-            if (state.selected === val) {
-                buttonsList[b].classList.add("atw-choice-selected");
+    function drawSquares(revealed) {
+        var base = state.problem.a;
+        var addend = state.problem.b;
+        var total = state.problem.sum;
+        var added = revealed ? addend : 0;
+        var complement = 10 - base;
+        var html = "";
+        var i;
+
+        function square(index) {
+            var cls = "htAddSquare";
+            if (index < base) {
+                cls += " htAddSquareBase";
+            } else if (index - base < added) {
+                cls += " htAddSquareAdded";
             } else {
-                buttonsList[b].classList.remove("atw-choice-selected");
+                cls += " htAddSquarePending";
+            }
+            if (index >= base && index < 10) {
+                cls += " htAddSquareComplement";
+                if (index - base < added) {
+                    cls += " htAddSquareComplementUsed";
+                }
+            }
+            return '<span class="' + cls + '"></span>';
+        }
+
+        if (total >= 10) {
+            html += '<span class="htAddTenGroup">';
+            for (i = 0; i < 10; i++) {
+                html += square(i);
+            }
+            html += '</span>';
+            for (i = 10; i < total; i++) {
+                html += square(i);
+            }
+        } else {
+            for (i = 0; i < total; i++) {
+                html += square(i);
             }
         }
-        state.won = (state.selected === state.problem.sum);
-        correct.style.display = state.won ? "block" : "none";
+
+        squares.innerHTML = html;
+        caption.textContent = base + " + " + addend + " = " + (revealed ? total : "?");
+        var noteText = awaFormat(words.typedSquaresUsed, { used: added });
+        if (complement > 0) {
+            if (added < complement) {
+                noteText += " " + awaFormat(words.typedComplementPending, {
+                    base: base,
+                    comp: complement,
+                    missing: complement - added
+                });
+            } else {
+                noteText += " " + awaFormat(words.typedComplementUsed, {
+                    base: base,
+                    comp: complement,
+                    outside: added - complement
+                });
+            }
+        }
+        note.textContent = noteText;
     }
 
-    function newRound() {
+    function markWrittenSquares(writtenDigit) {
+        var nodes = squares.querySelectorAll(".htAddSquare");
+        for (var n = 0; n < nodes.length; n++) {
+            nodes[n].classList.remove("htAddSquareWritten");
+            nodes[n].classList.remove("htAddSquareBaseWritten");
+        }
+        if (writtenDigit === "") {
+            return;
+        }
+        var written = parseInt(writtenDigit, 10);
+        var start = state.problem.sum >= 10 ? 10 : 0;
+        var outside = [];
+        for (var k = start; k < nodes.length; k++) {
+            outside.push(nodes[k]);
+        }
+        var limit = Math.max(0, Math.min(written, outside.length));
+        for (var m = 0; m < limit; m++) {
+            if (outside[m].classList.contains("htAddSquareBase")) {
+                outside[m].classList.add("htAddSquareBaseWritten");
+            } else {
+                outside[m].classList.add("htAddSquareWritten");
+            }
+        }
+    }
+
+    function evaluate() {
+        if (state.answered) {
+            return;
+        }
+        var base = state.problem.a;
+        var addend = state.problem.b;
+        var sum = state.problem.sum;
+        var correctDigit = sum % 10;
+        var digitRaw = digitInput.value.replace(/[^0-9]/g, "");
+        var carryRaw = carryInput.value.replace(/[^0-9]/g, "");
+        digitInput.value = digitRaw;
+        carryInput.value = carryRaw;
+        var complement = 10 - base;
+        var digitOk = digitRaw !== "" && parseInt(digitRaw, 10) === correctDigit;
+        var carryOk = carryRaw !== "" && parseInt(carryRaw, 10) === 1;
+
+        markWrittenSquares(digitRaw);
+
+        if (digitRaw !== "" && !digitOk) {
+            feedback.innerHTML = awaFormat(words.typedWrongDigitTen, {
+                order: words.units,
+                base: base,
+                added: addend,
+                comp: complement
+            });
+            return;
+        }
+        if (carryRaw !== "" && !carryOk) {
+            feedback.innerHTML = awaFormat(words.typedWrongCarry, {
+                order: words.units,
+                base: base,
+                added: addend
+            });
+            return;
+        }
+        if (digitOk && carryOk) {
+            resolve();
+            return;
+        }
+        feedback.innerHTML = "";
+    }
+
+    function resolve() {
+        state.answered = true;
+        buildBoard();
+        drawSquares(true);
+        digitInput.disabled = true;
+        carryInput.disabled = true;
+        feedback.innerHTML = awaFormat(words.typedPerfect, {
+            a: state.problem.a,
+            b: state.problem.b,
+            sum: state.problem.sum
+        }) + "<br />" + awaFormat(words.typedMsgCarry, {
+            base: state.problem.a,
+            added: state.problem.b,
+            sum: state.problem.sum,
+            result: state.problem.sum % 10,
+            order: words.units
+        }) + ' <i class="fa-solid fa-medal" style="font-size: 4em; color: gold;"></i>';
+        nextBtn.classList.remove("hidden");
+    }
+
+    function newProblem() {
         state.problem = awaAddition();
-        state.selected = null;
-        state.won = false;
-        buildChoices();
-        render();
+        state.answered = false;
+        digitInput.disabled = false;
+        carryInput.disabled = false;
+        digitInput.value = "";
+        carryInput.value = "";
+        feedback.innerHTML = "";
+        nextBtn.classList.add("hidden");
+        question.textContent = awaFormat(words.typedQuestion, {
+            order: words.units,
+            base: state.problem.a,
+            added: state.problem.b
+        });
+        buildBoard();
+        drawSquares(false);
     }
 
-    newBtn.addEventListener("click", newRound);
+    digitInput.addEventListener("input", evaluate);
+    carryInput.addEventListener("input", evaluate);
+    nextBtn.addEventListener("click", newProblem);
 
-    newRound();
+    newProblem();
 }
 
 //
@@ -1452,8 +1644,8 @@ function awaInitGames() {
         this.setAttribute("data-atwa-ready", "1");
         if (tool === "quipu" || tool === "meso") {
             awaCreateStepper(this, tool, words);
-        } else if (tool === "choice") {
-            awaCreateChoice(this, words);
+        } else if (tool === "typed") {
+            awaInitTyped(this, words);
         } else if (tool === "bones") {
             awaInitBone(this);
         } else if (tool === "yupana") {
