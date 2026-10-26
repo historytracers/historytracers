@@ -112,8 +112,9 @@ function htDivisionTypedQuotientHtml() {
 }
 
 function htDivisionTypedRenderBelowHtml() {
+    var divisionLabel = (typeof mathKeywords !== "undefined" && mathKeywords.length > 70) ? mathKeywords[70] : "Division";
     var html = '<table id="yupana0" class="htDivisionTypedTable">';
-    html += '<tr><th colspan="2">Division</th></tr>';
+    html += '<tr><th colspan="2">' + divisionLabel + '</th></tr>';
 
     html += '<tr id="tf1" class="trCanBeRemoved"><td id="tc1f1" style="border:none;"><span id="tc1fd1">&nbsp; ' + localTyped.dividend + '</span></td>';
     html += '<td id="tc2f1" style="border:none;border-bottom: 2pt solid black; border-left: 2px solid black;"><span id="tc2fds1">' + localTyped.divisor + '</span></td></tr>';
@@ -290,9 +291,9 @@ function htNewDivisionTyped() {
     localTyped.feedbackHtml = "";
     var selector = $("#mtValues").val();
 
-    localTyped.working = localTyped.dividend = htGetRandomArbitrary(10, 999);
+    localTyped.working = localTyped.dividend = htGetRandomArbitrary(10, 1000);
 
-    localTyped.divisor = (selector == "-1") ? htGetRandomArbitrary(1, 9): parseInt(selector);
+    localTyped.divisor = (selector == "-1") ? htGetRandomArbitrary(1, 10): parseInt(selector);
 
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", localTyped.divisor);

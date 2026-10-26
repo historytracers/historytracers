@@ -19,12 +19,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792946238"
+      "1792976445"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -82,7 +84,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><b>Multiplication Tables:</b> <select id=\"mtValues\"><option value=\"-1\">Randomly</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "text": "<p><label for=\"mtValues\">Multiplication Tables:</label> <select id=\"mtValues\"><option value=\"-1\">Randomly</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -100,7 +102,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">Division</th></tr> </table></p><p class=\"desc\"><b>Table 1</b>: Division exercise with quotient boxes.</p>",
+               "text": "<div class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">Division</th></tr> </table></div><p class=\"desc\"><b>Table 1</b>: Division exercise with quotient boxes.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
