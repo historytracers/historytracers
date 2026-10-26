@@ -4881,11 +4881,19 @@ p.desc svg {
   font-size: clamp(6em, 45vw, 15em);
 }
 
+.htDivisionTypedQuotientRow {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .htDivisionTypedBox {
   box-sizing: border-box;
-  width: 1.7em;
-  height: 1.7em;
-  margin: 0 0.1em;
+  flex: none;
+  width: 1.5em;
+  min-width: 1.5em;
+  max-width: 1.5em;
+  height: 1.5em;
+  margin: 0 0.08em;
   padding: 0;
   background-color: #eaf3fb;
   border: 2px solid #2c5f8a;
@@ -4945,8 +4953,10 @@ p.desc svg {
   }
 
   .htDivisionTypedBox {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.4em;
+    min-width: 1.4em;
+    max-width: 1.4em;
+    height: 1.4em;
     margin: 0 0.05em;
   }
 }
