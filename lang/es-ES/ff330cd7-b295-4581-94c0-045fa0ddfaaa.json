@@ -1,0 +1,117 @@
+{
+   "title": "Divisiones: escribir el cociente y el resto",
+   "header": "Divisiones: escribir el cociente y el resto",
+   "sources": [
+      "ff330cd7-b295-4581-94c0-045fa0ddfaaa"
+   ],
+   "scripts": [
+      "ff330cd7-b295-4581-94c0-045fa0ddfaaa"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793034961"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerrequisitos\n\nEste texto presenta una aplicación para practicar la división. Antes de usarla, recomendamos estudiar los textos anteriores de este capítulo (<htcite0>), que introducen las tablas de multiplicar y otras ideas básicas que necesitarás aquí.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeros pasos (Volumen 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practicing",
+         "text": [
+            {
+               "text": "### Práctica\n\nLeer un texto es un buen comienzo, pero comprender de verdad la división requiere práctica. En esta aplicación, el menú **Tablas de multiplicar** permite elegir con qué tabla trabajar. Por defecto está en **Aleatorio**, así que se elige un nuevo divisor cada vez; si prefieres concentrarte en una sola tabla, selecciona un número del 1 al 9.\n\nEl ejercicio usa el **algoritmo de la división larga** (<htcite0>), el método paso a paso para dividir números a mano. Recuerda: cuando un número no divide exactamente a otro, la cantidad que sobra se llama **resto**.\n\nEn la siguiente tabla, proponemos dividir un número entre otro. Escribe cada cifra del cociente en las casillas de texto. Cuando la cifra sea correcta, la aplicación muestra el producto de ese paso; luego escribe el resultado de la resta en la casilla que aparece. En cuanto la resta sea correcta, la aplicación pasa a la siguiente cifra del cociente.\n\nCuando termines, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>). Haz clic en la flecha derecha (<i class=\"fa-solid fa-chevron-right\"></i>) para comenzar un nuevo cálculo.\n\nLos botones **Formato de división** permiten elegir cómo se escribe la división: con el **Resultado debajo** de la barra (como en muchos libros escolares) o con el **Resultado arriba** de ella (un formato que aparece en documentos matemáticos históricos).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4742a2d6-a3c5-4883-beb5-8ed0240fa9a7",
+                     "text": "Weisstein, Eric W.",
+                     "page": "División larga",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><label for=\"mtValues\">Tablas de multiplicar:</label> <select id=\"mtValues\"><option value=\"-1\">Aleatorio</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htLongDivisionFormat\"><b>Formato de división:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Resultado debajo</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Resultado arriba</button></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">División</th></tr> </table></div><p class=\"desc\"><b>Tabla 1</b>: Ejercicio de división con casillas para el cociente y para las restas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

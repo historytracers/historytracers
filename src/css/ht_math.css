@@ -4922,6 +4922,30 @@ p.desc svg {
   opacity: 0.55;
 }
 
+.htDivisionTypedRemainderBox {
+  box-sizing: border-box;
+  width: 3.2em;
+  min-width: 3.2em;
+  max-width: 3.2em;
+  height: 1.5em;
+  margin: 0 0.08em;
+  padding: 0 0.2em;
+  background-color: #fff8e1;
+  border: 2px solid #e67e22;
+  border-radius: 6px;
+  color: #8a4b08;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.design-dark .htDivisionTypedRemainderBox {
+  background-color: #37474f;
+  border-color: #ffb74d;
+  color: #ffcc80;
+}
+
 .design-dark .htDivisionTypedBox {
   background-color: #263238;
   border-color: #546e7a;
@@ -4956,6 +4980,14 @@ p.desc svg {
     width: 1.4em;
     min-width: 1.4em;
     max-width: 1.4em;
+    height: 1.4em;
+    margin: 0 0.05em;
+  }
+
+  .htDivisionTypedRemainderBox {
+    width: 2.9em;
+    min-width: 2.9em;
+    max-width: 2.9em;
     height: 1.4em;
     margin: 0 0.05em;
   }
