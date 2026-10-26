@@ -178,12 +178,14 @@ function htDivisionTypedSubRenderTopHtml() {
 
 function htDivisionTypedSubRender(shouldFocus) {
     var grid = (htDivisionTypedSubVisualization === "top") ? htDivisionTypedSubRenderTopHtml() : htDivisionTypedSubRenderBelowHtml();
+    var redoLabel = (typeof mathKeywords !== "undefined" && mathKeywords.length > 74) ? mathKeywords[74] : "Redo this calculation";
     var html = '<div id="htDivisionTypedSubWrap" class="htDivisionTypedWrap">';
     html += grid;
     if (localTypedSub.feedbackHtml !== "") {
         html += '<div class="htDivisionTypedFeedback">' + localTypedSub.feedbackHtml + '</div>';
     }
     html += '<div class="htDivisionTypedFooter"><div class="htDivisionTypedStatus">' + htDivisionTypedSubStatusHtml() + '</div>';
+    html += '<button type="button" class="htDivisionTypedRedo" onclick="htRedoDivisionTypedSub();" title="' + redoLabel + '" aria-label="' + redoLabel + '"><i class="fa-solid fa-rotate-left"></i></button>';
     html += '<i class="fa-solid fa-chevron-right htDivisionTypedNext" onclick="htNewDivisionTypedSub();"></i></div>';
     html += '</div>';
 
@@ -351,7 +353,7 @@ function htDivisionTypedSubUpdateRemainder(value, showFeedback) {
     return false;
 }
 
-function htNewDivisionTypedSub() {
+function htStartDivisionTypedSub(dividend, divisor, shouldFocus) {
     localTypedSub.idx = 2;
     localTypedSub.divisionStepsIdx = 0;
     localTypedSub.steps = [];
@@ -361,11 +363,9 @@ function htNewDivisionTypedSub() {
     localTypedSub.typedDigit = "";
     localTypedSub.remainderTyped = "";
     localTypedSub.feedbackHtml = "";
-    var selector = $("#mtValues").val();
 
-    localTypedSub.working = localTypedSub.dividend = htGetRandomArbitrary(10, 1000);
-
-    localTypedSub.divisor = (selector == "-1") ? htGetRandomArbitrary(1, 10): parseInt(selector);
+    localTypedSub.working = localTypedSub.dividend = dividend;
+    localTypedSub.divisor = divisor;
 
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", localTypedSub.divisor);
@@ -383,7 +383,21 @@ function htNewDivisionTypedSub() {
 
     localTypedSub.stop = false;
 
-    htDivisionTypedSubRender(false);
+    htDivisionTypedSubRender(shouldFocus);
+}
+
+function htNewDivisionTypedSub() {
+    var selector = $("#mtValues").val();
+    var dividend = htGetRandomArbitrary(10, 1000);
+    var divisor = (selector == "-1") ? htGetRandomArbitrary(1, 10) : parseInt(selector);
+
+    htStartDivisionTypedSub(dividend, divisor, false);
+
+    return false;
+}
+
+function htRedoDivisionTypedSub() {
+    htStartDivisionTypedSub(localTypedSub.dividend, localTypedSub.divisor, true);
 
     return false;
 }

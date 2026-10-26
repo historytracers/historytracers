@@ -154,12 +154,14 @@ function htDivisionTypedRenderTopHtml() {
 
 function htDivisionTypedRender(shouldFocus) {
     var grid = (htDivisionTypedVisualization === "top") ? htDivisionTypedRenderTopHtml() : htDivisionTypedRenderBelowHtml();
+    var redoLabel = (typeof mathKeywords !== "undefined" && mathKeywords.length > 74) ? mathKeywords[74] : "Redo this calculation";
     var html = '<div id="htDivisionTypedWrap" class="htDivisionTypedWrap">';
     html += grid;
     if (localTyped.feedbackHtml !== "") {
         html += '<div class="htDivisionTypedFeedback">' + localTyped.feedbackHtml + '</div>';
     }
     html += '<div class="htDivisionTypedFooter"><div class="htDivisionTypedStatus">' + htDivisionTypedStatusHtml() + '</div>';
+    html += '<button type="button" class="htDivisionTypedRedo" onclick="htRedoDivisionTyped();" title="' + redoLabel + '" aria-label="' + redoLabel + '"><i class="fa-solid fa-rotate-left"></i></button>';
     html += '<i class="fa-solid fa-chevron-right htDivisionTypedNext" onclick="htNewDivisionTyped();"></i></div>';
     html += '</div>';
 
@@ -281,7 +283,7 @@ function htDivisionTypedUpdateValue(digit) {
     return false;
 }
 
-function htNewDivisionTyped() {
+function htStartDivisionTyped(dividend, divisor, shouldFocus) {
     localTyped.idx = 2;
     localTyped.divisionStepsIdx = 0;
     localTyped.steps = [];
@@ -289,11 +291,9 @@ function htNewDivisionTyped() {
     localTyped.medal = false;
     localTyped.typedDigit = "";
     localTyped.feedbackHtml = "";
-    var selector = $("#mtValues").val();
 
-    localTyped.working = localTyped.dividend = htGetRandomArbitrary(10, 1000);
-
-    localTyped.divisor = (selector == "-1") ? htGetRandomArbitrary(1, 10): parseInt(selector);
+    localTyped.working = localTyped.dividend = dividend;
+    localTyped.divisor = divisor;
 
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", localTyped.divisor);
@@ -311,7 +311,21 @@ function htNewDivisionTyped() {
 
     localTyped.stop = false;
 
-    htDivisionTypedRender(false);
+    htDivisionTypedRender(shouldFocus);
+}
+
+function htNewDivisionTyped() {
+    var selector = $("#mtValues").val();
+    var dividend = htGetRandomArbitrary(10, 1000);
+    var divisor = (selector == "-1") ? htGetRandomArbitrary(1, 10) : parseInt(selector);
+
+    htStartDivisionTyped(dividend, divisor, false);
+
+    return false;
+}
+
+function htRedoDivisionTyped() {
+    htStartDivisionTyped(localTyped.dividend, localTyped.divisor, true);
 
     return false;
 }
