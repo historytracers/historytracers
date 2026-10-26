@@ -807,14 +807,28 @@ function awaBoneRenderHands() {
 
     var prefix = htGetImgSrcPrefix();
     var altTpl = $("#atwaBoneHandAltTpl").text() || "Hand with {n} raised fingers";
-    var html = "";
-    for (var i = 0; i < hands.length; i++) {
-        var alt = altTpl.split("{n}").join(hands[i].digit);
-        html += "<img id=\"atwaBoneHandImg" + i + "\" class=\"htBoneHandImg\" alt=\"" + alt +
-            "\" onclick=\"htImageZoom('atwaBoneHandImg" + i + "', '0%')\" src=\"" + prefix +
-            "images/HistoryTracers/" + hands[i].digit + hands[i].side + "_Hand_Small.png\" />";
+    var container = document.getElementById("htBoneHands");
+    if (!container) {
+        return;
     }
-    $("#htBoneHands").html(html);
+
+    // Build the images with DOM properties instead of concatenating HTML so
+    // localized text (the alt template) is never reinterpreted as markup.
+    container.textContent = "";
+    for (var i = 0; i < hands.length; i++) {
+        var img = document.createElement("img");
+        img.id = "atwaBoneHandImg" + i;
+        img.className = "htBoneHandImg";
+        img.alt = altTpl.split("{n}").join(hands[i].digit);
+        img.src = prefix + "images/HistoryTracers/" +
+            hands[i].digit + hands[i].side + "_Hand_Small.png";
+        (function (imageId) {
+            img.addEventListener("click", function () {
+                htImageZoom(imageId, "0%");
+            });
+        })(img.id);
+        container.appendChild(img);
+    }
 }
 
 function awaBoneRender() {
@@ -1163,8 +1177,14 @@ function awaRomanAbacusGetHitRegion(mouseX, mouseY) {
     return null;
 }
 
+function awaRomanAbacusIsLocked() {
+    return localRomanAbacusController.tutor
+        ? localRomanAbacusController.tutor.isComplete()
+        : localRomanAbacusController.won;
+}
+
 function awaRomanAbacusToggleUpper(col, beadIdx) {
-    if (localRomanAbacusController.won) return;
+    if (awaRomanAbacusIsLocked()) return;
     var colState = localRomanAbacusController.state[col];
     var currentUpper = colState.upper;
     if (beadIdx < currentUpper) {
@@ -1179,7 +1199,7 @@ function awaRomanAbacusToggleUpper(col, beadIdx) {
 }
 
 function awaRomanAbacusHandleLowerClick(col, beadIdx) {
-    if (localRomanAbacusController.won) return;
+    if (awaRomanAbacusIsLocked()) return;
     var colState = localRomanAbacusController.state[col];
     var currentLower = colState.lower;
     var isActive = (beadIdx < currentLower);
@@ -1228,10 +1248,12 @@ function awaRomanAbacusUpdateDisplay() {
     var rEl = document.getElementById('romanAbacusRoman');
     if (rEl) rEl.innerHTML = awaRomanAbacusRomanHTML(val);
 
-    localRomanAbacusController.won = (val === localRomanAbacusController.target);
     awaRomanAbacusHideSuccess();
     if (localRomanAbacusController.tutor) {
+        localRomanAbacusController.won = localRomanAbacusController.tutor.isComplete();
         localRomanAbacusController.tutor.update();
+    } else {
+        localRomanAbacusController.won = (val === localRomanAbacusController.target);
     }
 }
 
@@ -1248,7 +1270,7 @@ function awaRomanAbacusReset() {
 }
 
 function awaRomanAbacusHandleCanvasStart(e) {
-    if (localRomanAbacusController.won) {
+    if (awaRomanAbacusIsLocked()) {
         if (e.preventDefault) e.preventDefault();
         return;
     }
@@ -1286,7 +1308,7 @@ function awaRomanAbacusHandleKeydown(e) {
     } else if (e.key === 'ArrowRight') {
         localRomanAbacusController.focusedCol = Math.min(headings.length - 1, col + 1);
         e.preventDefault();
-    } else if (localRomanAbacusController.won) {
+    } else if (awaRomanAbacusIsLocked()) {
         e.preventDefault();
         return;
     } else if (e.key === 'ArrowUp' || e.key === '5') {
@@ -1448,17 +1470,23 @@ function awaInitAbacus(container, words) {
         });
     }
 
+    function isLocked() {
+        return tutor ? tutor.isComplete() : state.won;
+    }
+
     function update() {
         var val = currentValue();
-        state.won = (val === state.target);
+        if (tutor) {
+            state.won = tutor.isComplete();
+            tutor.update();
+        } else {
+            state.won = (val === state.target);
+        }
         if (valueEl) {
             valueEl.textContent = String(val);
         }
         if (correctEl) {
             correctEl.style.display = "none";
-        }
-        if (tutor) {
-            tutor.update();
         }
     }
 
@@ -1477,7 +1505,7 @@ function awaInitAbacus(container, words) {
     }
 
     function handlePointer(e) {
-        if (state.won) {
+        if (isLocked()) {
             if (e.preventDefault) e.preventDefault();
             return;
         }

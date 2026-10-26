@@ -32,12 +32,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792946276"
+      "1792976469"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -95,7 +97,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><b>Tablas de multiplicar:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatorio</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "text": "<p><label for=\"mtValues\">Tablas de multiplicar:</label> <select id=\"mtValues\"><option value=\"-1\">Aleatorio</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -113,7 +115,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">División</th></tr> </table></p><p class=\"desc\"><b>Tabla 1</b>: Ejercicio de división con casillas para el cociente.</p>",
+               "text": "<div class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">División</th></tr> </table></div><p class=\"desc\"><b>Tabla 1</b>: Ejercicio de división con casillas para el cociente.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
