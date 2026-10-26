@@ -807,14 +807,28 @@ function awaBoneRenderHands() {
 
     var prefix = htGetImgSrcPrefix();
     var altTpl = $("#atwaBoneHandAltTpl").text() || "Hand with {n} raised fingers";
-    var html = "";
-    for (var i = 0; i < hands.length; i++) {
-        var alt = altTpl.split("{n}").join(hands[i].digit);
-        html += "<img id=\"atwaBoneHandImg" + i + "\" class=\"htBoneHandImg\" alt=\"" + alt +
-            "\" onclick=\"htImageZoom('atwaBoneHandImg" + i + "', '0%')\" src=\"" + prefix +
-            "images/HistoryTracers/" + hands[i].digit + hands[i].side + "_Hand_Small.png\" />";
+    var container = document.getElementById("htBoneHands");
+    if (!container) {
+        return;
     }
-    $("#htBoneHands").html(html);
+
+    // Build the images with DOM properties instead of concatenating HTML so
+    // localized text (the alt template) is never reinterpreted as markup.
+    container.textContent = "";
+    for (var i = 0; i < hands.length; i++) {
+        var img = document.createElement("img");
+        img.id = "atwaBoneHandImg" + i;
+        img.className = "htBoneHandImg";
+        img.alt = altTpl.split("{n}").join(hands[i].digit);
+        img.src = prefix + "images/HistoryTracers/" +
+            hands[i].digit + hands[i].side + "_Hand_Small.png";
+        (function (imageId) {
+            img.addEventListener("click", function () {
+                htImageZoom(imageId, "0%");
+            });
+        })(img.id);
+        container.appendChild(img);
+    }
 }
 
 function awaBoneRender() {
