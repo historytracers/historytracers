@@ -25,7 +25,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792967705"
+      "1792974313"
    ],
    "authors": null,
    "reviewers": [
@@ -48,7 +48,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nIn this class we practice addition with the same tools that humanity created to count. The main prerequisite is **Around the World (Counting)**, where these tools are introduced. No previous skill is required: we only add two numbers between 1 and 9, and the result is always 10 or more, so every round practices the carry. Before starting, we suggest studying:\n\n- **Around the World (Counting)**: the tour of the first counting tools created by humanity, which this class uses to practice addition (<htcite0>)\n- **Running Among the Numbers**: how addition works with larger numbers, using an analogy from Mesoamerican architecture and a step-by-step method for adding numbers of any size (<htcite1>)\n- **Advancing an Order and the Complement**: the rule of advancing an order (carrying over) and the complement to 10 (<htcite2>)\n- **Carry or Not Carry? (Game)**: a game to decide, column by column, whether the sum carries 1 to the next order (<htcite3>)\n- **Practicing addition**: an exercise to practice addition column by column with squares and the complement to 10 (<htcite4>)\n- **Practicing addition with typed values**: the same vertical addition with the digit kept in each column typed in, with numbers generated at random (<htcite5>)\n\nAs you play, watch for the same rule in every tool: whenever the units reach ten, those ten become one unit of the next order.",
+               "text": "### Prerequisites\n\nIn this class we practice addition with the same tools that humanity created to count. The main prerequisite is **Around the World (Counting)**, where these tools are introduced. No previous skill is required: we only add two numbers between 1 and 9 and follow the movements of each tool. Before starting, we suggest studying:\n\n- **Around the World (Counting)**: the tour of the first counting tools created by humanity, which this class uses to practice addition (<htcite0>)\n- **Running Among the Numbers**: how addition works with larger numbers, using an analogy from Mesoamerican architecture and a step-by-step method for adding numbers of any size (<htcite1>)\n- **Advancing an Order and the Complement**: the rule of advancing an order (carrying over) and the complement to 10 (<htcite2>)\n- **Carry or Not Carry? (Game)**: a game to decide, column by column, whether the sum carries 1 to the next order (<htcite3>)\n- **Practicing addition**: an exercise to practice addition column by column with squares and the complement to 10 (<htcite4>)\n- **Practicing addition with typed values**: the same vertical addition with the digit kept in each column typed in, with numbers generated at random (<htcite5>)\n\nAs you play, watch for the same rule in every tool: whenever the units reach ten, those ten become one unit of the next order.",
                "source": [
                   {
                      "type": 1,
@@ -135,7 +135,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nAddition appeared in every culture because it comes from the same human act of grouping. Different peoples wrote the result with bones, knots, dots, markers or beads, and each tool organized the count in its own way (<htcite0>; <htcite1>; <htcite2>; <htcite3>). In this class we focus on the moment when the result reaches ten, because that is where the carry appears.",
+               "text": "### Introduction\n\nAddition appeared in every culture because it comes from the same human act of grouping. Different peoples wrote the result with bones, knots, dots, markers or beads, and each tool organized the count in its own way (<htcite0>; <htcite1>; <htcite2>).\n\nIn this class we present these tools according to the period in which they were made, following the explanations of the previous text, **Around the World (Counting)** (<htcite3>). We focus on how each tool records a group of ten, because that is where the carry appears.",
                "source": [
                   {
                      "type": 1,
@@ -198,7 +198,7 @@
          "id": "SECTION_carry",
          "text": [
             {
-               "text": "### Remembering the Carry and the Complement of 10\n\nBefore using the tools, let us remember the two ideas that make addition work.\n\nThe **complement to 10** of a digit is how much is still missing to reach ten. The complement of 9 is 1, the complement of 6 is 4, and the complement of 5 is 5.\n\nWhen the sum reaches ten, we group those ten units into one unit of the next order. That group is the **carry**, also called *advancing an order*. The digit that stays in the column is what is left outside the group of ten.\n\n**Example: 9 + 3.** The complement of 9 is 1. Because 3 is greater than or equal to 1, the ten can be completed: we take 1 from the 3, carry 1 to the next order, and 2 remain (3 - 1 = 2). Therefore, 9 + 3 = 12.\n\n<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div>\n<span class=\"htAddSquaresCaption\">9 + 3 = 12</span>\n<span class=\"htAddSquaresNote\">The dashed group is the ten: it becomes the 1 carried to the next order. The 2 squares outside the group stay in the units column.</span>\n\nIn every game on this page the two numbers are between 1 and 9 and their result is always 10 or more. This way, every round practices the carry and the complement of 10 (<htcite0>; <htcite1>; <htcite2>).",
+               "text": "### Remembering the Carry and the Complement of 10\n\nBefore using the tools, let us remember the two ideas that make addition work.\n\nThe **complement to 10** of a digit is how much is still missing to reach ten. The complement of 9 is 1, the complement of 6 is 4, and the complement of 5 is 5.\n\nWhen the sum reaches ten, we group those ten units into one unit of the next order. That group is the **carry**, also called *advancing an order*. The digit that stays in the column is what is left outside the group of ten.\n\n**Example: 9 + 3.** The complement of 9 is 1. Because 3 is greater than or equal to 1, the ten can be completed: we take 1 from the 3, carry 1 to the next order, and 2 remain (3 - 1 = 2). Therefore, 9 + 3 = 12.\n\n<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareBase\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div>\n<span class=\"htAddSquaresCaption\">9 + 3 = 12</span>\n<span class=\"htAddSquaresNote\">The dashed group is the ten: it becomes the 1 carried to the next order. The 2 squares outside the group stay in the units column.</span>\n\nEach tool represents the group of ten in its own way: a new knot in the next order, a horizontal bar, a bead in the next column, or a marker in the next row. This way, every round practices the carry and the complement of 10 (<htcite0>; <htcite1>; <htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -258,7 +258,7 @@
          "id": "SECTION_africa",
          "text": [
             {
-               "text": "### In Africa: Adding with Bones\n\nThe first counting marks we know of were made on bones. To add, people did not need a new tool: they simply kept marking. Thousands of years ago people did not yet use the carry. They made continuous marks: to add 9 + 3, they made 12 marks, one after another, instead of turning ten marks into a ten of the next order (<htcite0>; <htcite1>; <htcite2>).\n\n#### The Game\n\nAdd the two numbers and place on the bone the total number of marks. The raised fingers show the two numbers: count all the fingers together, and then make one mark on the bone for each unit of the result. For example, 9 + 3 = 12, so the bone receives 12 marks.",
+               "text": "### In Africa: Adding with Bones\n\nThe first counting marks we know of were made on bones. To add, people did not need a new tool: they simply kept marking. Thousands of years ago people did not yet use the carry. They made continuous marks in a row along the bone: to add 9 + 3, they made 12 marks, one after another, instead of turning ten marks into a ten of the next order (<htcite0>; <htcite1>; <htcite2>).\n\n#### The Game\n\nAdd the two numbers and place on the bone the total number of marks. The raised fingers show the two numbers: count all the fingers together, and then make one mark on the bone for each unit of the result. For example, 9 + 3 = 12, so the bone receives 12 marks.",
                "source": [
                   {
                      "type": 1,
@@ -304,7 +304,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"atw-game\" data-atw=\"bones\"><p><div class=\"htBoneWrap\"><p class=\"htBonePrompt\" id=\"htBonePrompt\">Add the two numbers: count the raised fingers together, then place the total number of marks on the bone. <span id=\"atwaBoneEquation\" class=\"atw-target\"></span></p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><div class=\"htBoneFill\"><span id=\"htBoneMarks\"></span></div></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Add one\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remove one\"></button></div></td></tr></tbody></table><p class=\"atwa-note\">Thousands of years ago people did not yet use the carry, so they made continuous marks without grouping: to add 9 + 3 they made 12 marks, one after another, instead of turning ten marks into a ten of the next order.</p><p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New practice</button> </p><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The marks on the bone match the sum! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p class=\"desc\">The arrows beside the bone add or remove marks.</p><span id=\"atwaBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span></div></p></div>",
+               "text": "<div class=\"atw-game\" data-atw=\"bones\"><p><div class=\"htBoneWrap\"><p class=\"htBonePrompt\" id=\"htBonePrompt\">Add the two numbers: count the raised fingers together, then place the total number of marks on the bone.<br /><center><span id=\"atwaBoneEquation\" class=\"atw-target\"></span></center></p><table class=\"htBoneTable\"><thead><tr><th>Raised fingers</th><th>The bone</th><th>Arrows</th></tr></thead><tbody><tr><td class=\"htBoneHandsCell\"><div class=\"htBoneHands\" id=\"htBoneHands\"></div></td><td class=\"htBoneBoneCell\"><div class=\"htBone\" id=\"htBone\"><div class=\"htBoneFill\"><span id=\"htBoneMarks\"></span></div></div></td><td class=\"htBoneArrowCell\"><div class=\"htBoneArrows\"><button type=\"button\" class=\"fa-solid fa-caret-up htBoneArrow htBoneArrowUp\" id=\"htBoneAdd\" aria-label=\"Add one\"></button><button type=\"button\" class=\"fa-solid fa-caret-down htBoneArrow htBoneArrowDown\" id=\"htBoneRemove\" aria-label=\"Remove one\"></button></div></td></tr></tbody></table><p style=\"display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;\"><button type=\"button\" id=\"htBoneNewNumber\" class=\"reset-tutor-btn\">New practice</button> </p><p id=\"htBoneCongrats\" class=\"htBoneCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> Congratulations! The marks on the bone match the sum! <i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i></p><p class=\"desc\">The arrows beside the bone add or remove marks.</p><span id=\"atwaBoneHandAltTpl\" class=\"text-store\">Hand with {n} raised fingers</span></div></p></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -366,7 +366,7 @@
          "id": "SECTION_mesoamerica",
          "text": [
             {
-               "text": "### In America: Adding with Mesoamerican Numbers\n\nIn the Mesoamerican system a dot is worth 1 and a bar is worth 5. To add, write the result with as many bars and dots as needed: two bars are worth 10, so a total of 10 or more always begins with two bars (<htcite0>; <htcite1>).\n\n#### The Game\n\nAdd the two numbers and represent the result with dots and bars. For example, 9 + 3 = 12 is written with two bars and two dots. Since the result is always 10 or more, you will use at least two bars.",
+               "text": "### In America: Adding with Mesoamerican Numbers\n\nIn the Mesoamerican system a dot is worth 1 and a bar is worth 5. To add, write the result with bars and dots: the bars are always horizontal and the dots sit above them. Two bars are worth 10 (<htcite0>; <htcite1>).\n\n#### The Game\n\nAdd the two numbers and represent the result with dots and bars. For example, 9 + 3 = 12 is written with two horizontal bars and two dots above them.",
                "source": [
                   {
                      "type": 1,
@@ -414,7 +414,7 @@
          "id": "SECTION_europe",
          "text": [
             {
-               "text": "### In Europe: Adding with Calculi\n\nThe *calculi* organize counting by place value. Adding on the *calculi* means placing the total in the correct columns: a marker below the bar is worth 1 and a marker above the bar is worth 5 (<htcite0>; <htcite1>; <htcite2>).\n\n#### The Game\n\nAdd the two numbers and follow the steps shown below the calculi: start by writing the first number, then add the second number and carry 1 to the tens column. Remember that the result is 10 or more, so the tens column will always receive a marker.",
+               "text": "### In Europe: Adding with Calculi\n\nThe *calculi* organize counting by place value. Adding on the *calculi* means placing the total in the correct columns: a marker below the bar is worth 1 and a marker above the bar is worth 5 (<htcite0>; <htcite1>; <htcite2>).\n\n#### The Game\n\nAdd the two numbers and follow the steps shown below the calculi: start by writing the first number, then add the second number and carry 1 to the tens column. Remember that the units are on the right and the tens to their left, so the carried 1 goes in the tens column.",
                "source": [
                   {
                      "type": 1,
@@ -474,7 +474,7 @@
          "id": "SECTION_india",
          "text": [
             {
-               "text": "### In Asia (India): Adding with Hindu-Arabic Numerals\n\nThe Hindu-Arabic numerals let us write the result of an addition with only ten symbols. When a sum reaches ten, the carry moves to the next place and the digit that stays is written in the current place (<htcite0>; <htcite1>; <htcite2>).\n\n#### The Game\n\nAdd the two numbers and write the result in the vertical addition. Type the digit that stays in the units column in the result row, and type 1 in the carry box above the tens column. Every pair adds up to 10 or more, so the carry is always needed. For example, 9 + 3 = 12: type 2 in the units and 1 in the carry box above the tens.",
+               "text": "### In Asia (India): Adding with Hindu-Arabic Numerals\n\nThe Hindu-Arabic numerals let us write the result of an addition with only ten symbols. When a sum reaches ten, the carry moves to the next place and the digit that stays is written in the current place (<htcite0>; <htcite1>; <htcite2>).\n\n#### The Game\n\nAdd the two numbers and write the result in the vertical addition. Type the digit that stays in the units column in the result row, and type 1 in the carry box above the tens column. The numerals are written horizontally from left to right, and the carry is written above the next place. For example, 9 + 3 = 12: type 2 in the units and 1 in the carry box above the tens.",
                "source": [
                   {
                      "type": 1,
@@ -534,7 +534,7 @@
          "id": "SECTION_china",
          "text": [
             {
-               "text": "### In Asia (China): Adding with the Suanpan\n\nOn the suanpan, each column represents a place value. To add, move the beads until the columns show the total, carrying one bead to the next column when a column reaches ten (<htcite0>; <htcite1>).\n\n#### The Game\n\nAdd the two numbers and follow the steps shown below the suanpan: start by writing the first number, then add the second number and carry 1 to the tens column. The result is always 10 or more, so the tens column will not stay empty.",
+               "text": "### In Asia (China): Adding with the Suanpan\n\nOn the suanpan, each column represents a place value. To add, move the beads until the columns show the total, carrying one bead to the next column when a column reaches ten (<htcite0>; <htcite1>).\n\n#### The Game\n\nAdd the two numbers and follow the steps shown below the suanpan: start by writing the first number, then add the second number and carry 1 to the tens column. The suanpan has two beads above the bar and five below it in each column.",
                "source": [
                   {
                      "type": 1,
@@ -582,8 +582,20 @@
          "id": "SECTION_yupana",
          "text": [
             {
-               "text": "### In America: Adding with the Yupana\n\nThe yupana, used together with the quipus, places seeds on a grid where each row is a place value. In the *Yupana Inka Tawa Pukllay* method, the first number is marked in red, the second in blue, and the result in green; when a row reaches ten, one marker moves to the row above (<htcite0>; <htcite1>; <htcite2>).\n\n#### The Game\n\nAdd the two numbers with the *Tawa Pukllay* method. Follow the steps above the yupana: mark the first number in red, the second in blue, and the result in green; then click the gray cell in the tens row to carry 1.",
+               "text": "### In America: Adding with the Yupana\n\nThe yupana, used together with the quipus, places seeds on a grid where each row is a place value (<htcite0>; <htcite1>). In this class we use the *\"Yupana Inka Tawa Pukllay\"* method, made and published by Dhavit Prem of the Associação Yupanki (<htcite2>; <htcite3>; <htcite4>). In this method, the first number is marked in red, the second in blue, and the result in green; when a row reaches ten, one marker moves to the row above (<htcite5>).\n\n#### The Game\n\nAdd the two numbers with the *Tawa Pukllay* method. Follow the steps below the yupana: mark the first number in red, the second in blue, and the result in green; then click the gray cell in the tens row to carry 1.",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "text": "History Tracers Team",
+                     "page": "Around the World (Counting)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
@@ -598,9 +610,9 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "0a727c2c-6d7f-4bbd-8be1-40c4d881c15a",
-                     "text": "History Tracers Team",
-                     "page": "Practicing with the Yupana (Addition)",
+                     "uuid": "5dbd2e9f-5631-407e-9b80-e3a5d4f8838f",
+                     "text": "Prem, Dhavit",
+                     "page": "Matemática Inka y la Yupana",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -610,9 +622,33 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "6c071696-8eb9-4bbe-8221-ffd71620c7e3",
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0a727c2c-6d7f-4bbd-8be1-40c4d881c15a",
                      "text": "History Tracers Team",
-                     "page": "Around the World (Counting)",
+                     "page": "Practicing with the Yupana (Addition)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -642,7 +678,7 @@
          "id": "SECTION_japan",
          "text": [
             {
-               "text": "### In Asia (Japan): Adding with the Soroban\n\nThe soroban reached Japan from China and follows the same idea: each column is a place value, and the beads represent the digits of the result (<htcite0>; <htcite1>).\n\n#### The Game\n\nAdd the two numbers and follow the steps shown below the soroban: start by writing the first number, then add the second number and carry 1 to the tens column. Since the result is 10 or more, the tens column will always show at least one bead.",
+               "text": "### In Asia (Japan): Adding with the Soroban\n\nThe soroban reached Japan from China and follows the same idea: each column is a place value, and the beads represent the digits of the result (<htcite0>; <htcite1>).\n\n#### The Game\n\nAdd the two numbers and follow the steps shown below the soroban: start by writing the first number, then add the second number and carry 1 to the tens column. The soroban has one bead above the bar and four below it in each column.",
                "source": [
                   {
                      "type": 1,
@@ -690,7 +726,7 @@
          "id": "SECTION_russia",
          "text": [
             {
-               "text": "### In Russia: Adding with the Schyoty\n\nThe schyoty is a vertical abacus in which each row is a place value. To add, move the beads until the rows show the total (<htcite0>; <htcite1>).\n\n#### The Game\n\nAdd the two numbers and follow the steps shown below the schyoty: start by writing the first number, then add the second number and carry 1 to the tens row. The result is always 10 or more, so the tens row will also show beads.",
+               "text": "### In Russia: Adding with the Schyoty\n\nThe schyoty is a vertical abacus in which each row is a place value. To add, move the beads until the rows show the total (<htcite0>; <htcite1>).\n\n#### The Game\n\nAdd the two numbers and follow the steps shown below the schyoty: start by writing the first number, then add the second number and carry 1 to the tens row. The schyoty is vertical: each row is a place value and the beads slide horizontally along the wires.",
                "source": [
                   {
                      "type": 1,
@@ -738,7 +774,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this class we used the same tools that humanity created to count (<htcite0>), but now to add. In every game the result was 10 or more, so we practiced the carry and the complement of 10 again and again.\n\nThe tools change from one culture to another, but the idea is the same: when ten units are completed, they become one unit of the next order. Understanding this lets us add with bones, knots, dots, markers or beads — and also with the numerals we write on paper.",
+               "text": "### Conclusion\n\nIn this class we used the same tools that humanity created to count (<htcite0>), but now to add. In every game we used the way each tool writes numbers — vertical cords, horizontal bars and marks, columns of beads — and practiced the carry and the complement of 10 again and again.\n\nThe tools change from one culture to another, but the idea is the same: when ten units are completed, they become one unit of the next order. Understanding this lets us add with bones, knots, dots, markers or beads — and also with the numerals we write on paper.",
                "source": [
                   {
                      "type": 1,
