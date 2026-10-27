@@ -30,13 +30,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1793041333"
+      "1793062571"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -318,7 +318,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### *KIMSA* (inverse)\n\n*KIMSA* means \"three\" in Quechua. In addition, the *KIMSA* movement splits two markers in square 3 into squares 1 and 5. In subtraction, we reverse this: start with a marker in square 5 (value 5) and subtract 1. The inverse movement opens the 5 into squares 1 and 3, removes the extra 1, and leaves 4. This represents the operation\n",
+               "text": "#### *KIMSA* (inverse)\n\n*KIMSA* means \"three\" in Quechua. In addition, the *KIMSA* movement splits two markers in square 3 into squares 1 and 5. In subtraction, we reverse this: start with a marker in square 5 (value 5) and subtract 1. The inverse movement first decomposes the 5 without changing its value into one marker in square 3 and two markers in square 1 (3 + 1 + 1 = 5); then it removes one of the unit markers, leaving 3 + 1 = 4. This represents the operation\n",
                "source": [
                   {
                      "type": 1,
@@ -466,7 +466,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### *PICHANA* (inverse)\n\n*PICHANA* means \"broom\" in Quechua. In addition, the *PICHANA* movement sweeps markers together from squares 1 and 2 into square 3. In subtraction, we reverse this broom. Two cases appear here: when a marker is in square 3 (value 3) and we need to subtract 2, or when a marker is in square 2 (value 2) and we need to subtract 1. In both cases, the inverse movement splits the value into markers in square 1, then removes one — this represents the operations\n",
+               "text": "#### *PICHANA* (inverse)\n\n*PICHANA* means \"broom\" in Quechua. In addition, the *PICHANA* movement sweeps markers together from squares 1 and 2 into square 3. In subtraction, we reverse this broom. Two cases appear here: when a marker is in square 3 (value 3) and we need to subtract 2, or when a marker is in square 2 (value 2) and we need to subtract 1. In the first case, the inverse movement decomposes the 3 into three unit markers in square 1 (1 + 1 + 1 = 3) and removes two of them, leaving 1. In the second case, it decomposes the 2 into two unit markers in square 1 (1 + 1 = 2) and removes one of them, leaving 1. This represents the operations\n",
                "source": [
                   {
                      "type": 1,

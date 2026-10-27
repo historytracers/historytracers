@@ -30,13 +30,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1793041362"
+      "1793062595"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -318,7 +318,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### *KIMSA* (inverso)\n\n*KIMSA* significa \"tres\" en quechua. En la suma, el movimiento *KIMSA* separa dos marcadores del cuadrante 3 hacia los cuadrantes 1 y 5. En la resta, invertimos esto: partimos de un marcador en el cuadrante 5 (valor 5) y restamos 1. El movimiento inverso abre el 5 en los cuadrantes 1 y 3, elimina el 1 sobrante y deja 4. Esto representa la operación\n",
+               "text": "#### *KIMSA* (inverso)\n\n*KIMSA* significa \"tres\" en quechua. En la suma, el movimiento *KIMSA* separa dos marcadores del cuadrante 3 hacia los cuadrantes 1 y 5. En la resta, invertimos esto: partimos de un marcador en el cuadrante 5 (valor 5) y restamos 1. El movimiento inverso primero descompone el 5 sin cambiar su valor en un marcador en el cuadrante 3 y dos marcadores en el cuadrante 1 (3 + 1 + 1 = 5); luego elimina uno de los marcadores de unidad, y deja 3 + 1 = 4. Esto representa la operación\n",
                "source": [
                   {
                      "type": 1,
@@ -466,7 +466,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### *PICHANA* (inverso)\n\n*PICHANA* significa \"escoba\" en quechua. En la suma, el movimiento *PICHANA* barre marcadores de los cuadrantes 1 y 2 hacia el cuadrante 3. En la resta, invertimos esa escoba. Aquí aparecen dos casos: cuando un marcador está en el cuadrante 3 (valor 3) y necesitamos restar 2, o cuando está en el cuadrante 2 (valor 2) y necesitamos restar 1. En ambos casos, el movimiento inverso divide el valor en marcadores del cuadrante 1 y luego elimina uno; esto representa las operaciones\n",
+               "text": "#### *PICHANA* (inverso)\n\n*PICHANA* significa \"escoba\" en quechua. En la suma, el movimiento *PICHANA* barre marcadores de los cuadrantes 1 y 2 hacia el cuadrante 3. En la resta, invertimos esa escoba. Aquí aparecen dos casos: cuando un marcador está en el cuadrante 3 (valor 3) y necesitamos restar 2, o cuando está en el cuadrante 2 (valor 2) y necesitamos restar 1. En el primer caso, el movimiento inverso descompone el 3 en tres marcadores de unidad en el cuadrante 1 (1 + 1 + 1 = 3) y elimina dos de ellos, y deja 1. En el segundo caso, descompone el 2 en dos marcadores de unidad en el cuadrante 1 (1 + 1 = 2) y elimina uno de ellos, y deja 1. Esto representa las operaciones\n",
                "source": [
                   {
                      "type": 1,
