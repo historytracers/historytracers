@@ -4876,16 +4876,57 @@ p.desc svg {
   cursor: pointer;
 }
 
+.htDivisionTypedRedo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1em;
+  height: 2.1em;
+  padding: 0;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 50%;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.htDivisionTypedRedo:hover,
+.htDivisionTypedRedo:focus-visible {
+  background-color: #d6e8f7;
+}
+
+.design-dark .htDivisionTypedRedo {
+  background-color: #263238;
+  border-color: #546e7a;
+  color: #eceff1;
+}
+
+.design-dark .htDivisionTypedRedo:hover,
+.design-dark .htDivisionTypedRedo:focus-visible {
+  background-color: #37474f;
+}
+
 .htDivisionTypedMedal {
   color: gold;
   font-size: clamp(6em, 45vw, 15em);
 }
 
+.htDivisionTypedQuotientRow {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .htDivisionTypedBox {
   box-sizing: border-box;
-  width: 1.7em;
-  height: 1.7em;
-  margin: 0 0.1em;
+  flex: none;
+  width: 1.5em;
+  min-width: 1.5em;
+  max-width: 1.5em;
+  height: 1.5em;
+  margin: 0 0.08em;
   padding: 0;
   background-color: #eaf3fb;
   border: 2px solid #2c5f8a;
@@ -4912,6 +4953,30 @@ p.desc svg {
 
 .htDivisionTypedPending {
   opacity: 0.55;
+}
+
+.htDivisionTypedRemainderBox {
+  box-sizing: border-box;
+  width: 3.2em;
+  min-width: 3.2em;
+  max-width: 3.2em;
+  height: 1.5em;
+  margin: 0 0.08em;
+  padding: 0 0.2em;
+  background-color: #fff8e1;
+  border: 2px solid #e67e22;
+  border-radius: 6px;
+  color: #8a4b08;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.design-dark .htDivisionTypedRemainderBox {
+  background-color: #37474f;
+  border-color: #ffb74d;
+  color: #ffcc80;
 }
 
 .design-dark .htDivisionTypedBox {
@@ -4945,8 +5010,122 @@ p.desc svg {
   }
 
   .htDivisionTypedBox {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.4em;
+    min-width: 1.4em;
+    max-width: 1.4em;
+    height: 1.4em;
     margin: 0 0.05em;
+  }
+
+  .htDivisionTypedRemainderBox {
+    width: 2.9em;
+    min-width: 2.9em;
+    max-width: 2.9em;
+    height: 1.4em;
+    margin: 0 0.05em;
+  }
+}
+
+/* Reader-chosen typed division exercise (549c8ddf): setup form */
+.htDivisionTypedUserSetup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em 0.7em;
+  max-width: 100%;
+  margin: 1em auto;
+  text-align: center;
+}
+
+.htDivisionTypedUserSetup label {
+  font-weight: 700;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.htDivisionTypedUserInput,
+.htDivisionTypedUserSelect {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0.35em 0.5em;
+  background-color: #f8f8ff;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  color: #1f2a0e;
+  font: inherit;
+  font-weight: 700;
+}
+
+.htDivisionTypedUserInput {
+  width: 5.5em;
+  text-align: center;
+}
+
+.htDivisionTypedUserStart {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0.4em 1.2em;
+  background-color: #2c5f8a;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.htDivisionTypedUserStart:hover,
+.htDivisionTypedUserStart:focus-visible {
+  background-color: #1e4666;
+}
+
+.htDivisionTypedUserError {
+  max-width: 30em;
+  margin: 0.4em auto;
+  color: #b00020;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.htDivisionTypedUserError:empty {
+  margin: 0;
+}
+
+.design-dark .htDivisionTypedUserInput,
+.design-dark .htDivisionTypedUserSelect {
+  background-color: #263238;
+  border-color: #546e7a;
+  color: #eceff1;
+}
+
+.design-dark .htDivisionTypedUserStart {
+  background-color: #546e7a;
+  border-color: #80cbc4;
+  color: #eceff1;
+}
+
+.design-dark .htDivisionTypedUserStart:hover,
+.design-dark .htDivisionTypedUserStart:focus-visible {
+  background-color: #37474f;
+}
+
+.design-dark .htDivisionTypedUserError {
+  color: #ff8a80;
+}
+
+@media screen and (max-width: 600px) {
+  .htDivisionTypedUserSetup {
+    gap: 0.35em 0.5em;
+  }
+
+  .htDivisionTypedUserInput {
+    width: 5em;
+  }
+
+  .htDivisionTypedUserStart {
+    padding: 0.4em 1em;
   }
 }

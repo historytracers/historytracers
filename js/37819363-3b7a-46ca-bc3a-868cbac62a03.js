@@ -90,15 +90,15 @@ function htDivisionTypedBoxHtml(stepIdx) {
     var label = (typeof mathKeywords !== "undefined" && mathKeywords.length > 27) ? mathKeywords[27] : "";
 
     if (stepIdx < localTyped.divisionStepsIdx) {
-        return '<input type="text" class="' + cls + ' htDivisionTypedDone" value="' +
+        return '<input type="text" class="' + cls + ' htDivisionTypedDone" size="1" value="' +
             localTyped.divisionSteps.steps[stepIdx].quotient + '" readonly tabindex="-1" aria-label="' + label + '" />';
     }
 
     if (stepIdx === localTyped.divisionStepsIdx && !localTyped.stop) {
-        return '<input type="text" class="' + cls + ' htDivisionTypedActive" id="htDivisionTypedInput" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="' + label + '" value="' + localTyped.typedDigit + '" />';
+        return '<input type="text" class="' + cls + ' htDivisionTypedActive" id="htDivisionTypedInput" maxlength="1" size="1" pattern="[0-9]*" inputmode="numeric" autocomplete="off" aria-label="' + label + '" value="' + localTyped.typedDigit + '" />';
     }
 
-    return '<input type="text" class="' + cls + ' htDivisionTypedPending" value="" readonly tabindex="-1" aria-label="' + label + '" />';
+    return '<input type="text" class="' + cls + ' htDivisionTypedPending" size="1" value="" readonly tabindex="-1" aria-label="' + label + '" />';
 }
 
 function htDivisionTypedQuotientHtml() {
@@ -124,7 +124,7 @@ function htDivisionTypedRenderBelowHtml() {
         var quotient = (row === 2) ? htDivisionTypedQuotientHtml() : "&nbsp;";
 
         html += '<tr id="tf' + row + '" class="trCanBeRemoved"><td id="tc1f' + row + '" style="' + border + '">' + htDivisionTypedStepValue(row) + '</td>';
-        html += '<td id="tc2f' + row + '" style="border:none;"><span id="tc2fds' + row + '">' + quotient + '</span></td></tr>';
+        html += '<td id="tc2f' + row + '" style="border:none;"><span id="tc2fds' + row + '" class="htDivisionTypedQuotientRow">' + quotient + '</span></td></tr>';
     }
 
     html += '</table>';
@@ -154,12 +154,14 @@ function htDivisionTypedRenderTopHtml() {
 
 function htDivisionTypedRender(shouldFocus) {
     var grid = (htDivisionTypedVisualization === "top") ? htDivisionTypedRenderTopHtml() : htDivisionTypedRenderBelowHtml();
+    var redoLabel = (typeof mathKeywords !== "undefined" && mathKeywords.length > 74) ? mathKeywords[74] : "Redo this calculation";
     var html = '<div id="htDivisionTypedWrap" class="htDivisionTypedWrap">';
     html += grid;
     if (localTyped.feedbackHtml !== "") {
         html += '<div class="htDivisionTypedFeedback">' + localTyped.feedbackHtml + '</div>';
     }
     html += '<div class="htDivisionTypedFooter"><div class="htDivisionTypedStatus">' + htDivisionTypedStatusHtml() + '</div>';
+    html += '<button type="button" class="htDivisionTypedRedo" onclick="htRedoDivisionTyped();" title="' + redoLabel + '" aria-label="' + redoLabel + '"><i class="fa-solid fa-rotate-left"></i></button>';
     html += '<i class="fa-solid fa-chevron-right htDivisionTypedNext" onclick="htNewDivisionTyped();"></i></div>';
     html += '</div>';
 
@@ -258,15 +260,15 @@ function htDivisionTypedUpdateValue(digit) {
         return false;
     }
 
-    var numeric = parseInt(digit, 10);
-
-    if (isNaN(numeric)) {
+    if (!/^[0-9]$/.test(digit)) {
         localTyped.typedDigit = "";
         localTyped.preview = null;
         localTyped.feedbackHtml = "";
         htDivisionTypedRender(true);
         return false;
     }
+
+    var numeric = parseInt(digit, 10);
 
     if (numeric === localTyped.stopValue) {
         htDivisionTypedAddStep(numeric);
@@ -281,7 +283,7 @@ function htDivisionTypedUpdateValue(digit) {
     return false;
 }
 
-function htNewDivisionTyped() {
+function htStartDivisionTyped(dividend, divisor, shouldFocus) {
     localTyped.idx = 2;
     localTyped.divisionStepsIdx = 0;
     localTyped.steps = [];
@@ -289,11 +291,9 @@ function htNewDivisionTyped() {
     localTyped.medal = false;
     localTyped.typedDigit = "";
     localTyped.feedbackHtml = "";
-    var selector = $("#mtValues").val();
 
-    localTyped.working = localTyped.dividend = htGetRandomArbitrary(10, 1000);
-
-    localTyped.divisor = (selector == "-1") ? htGetRandomArbitrary(1, 10): parseInt(selector);
+    localTyped.working = localTyped.dividend = dividend;
+    localTyped.divisor = divisor;
 
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", localTyped.divisor);
@@ -311,7 +311,21 @@ function htNewDivisionTyped() {
 
     localTyped.stop = false;
 
-    htDivisionTypedRender(false);
+    htDivisionTypedRender(shouldFocus);
+}
+
+function htNewDivisionTyped() {
+    var selector = $("#mtValues").val();
+    var dividend = htGetRandomArbitrary(10, 1000);
+    var divisor = (selector == "-1") ? htGetRandomArbitrary(1, 10) : parseInt(selector);
+
+    htStartDivisionTyped(dividend, divisor, false);
+
+    return false;
+}
+
+function htRedoDivisionTyped() {
+    htStartDivisionTyped(localTyped.dividend, localTyped.divisor, true);
 
     return false;
 }
@@ -368,6 +382,15 @@ function htLoadContent() {
         if (event.key === "Enter") {
             event.preventDefault();
             htDivisionTypedUpdateValue($(this).val());
+            return false;
+        }
+
+        if (event.ctrlKey || event.metaKey || event.altKey) {
+            return;
+        }
+
+        if (event.key.length === 1 && !/[0-9]/.test(event.key)) {
+            event.preventDefault();
             return false;
         }
     });
