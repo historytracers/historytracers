@@ -2805,6 +2805,76 @@ p.desc svg {
   text-decoration-color: #eceff1;
 }
 
+/* Multiplying with Groups (f641941e): match a multiplication with its result
+   drawn as characters grouped inside rectangles. Reuses the .orderGame
+   two-column matching layout. */
+.htMultGroupGame {
+  width: 100%;
+}
+
+.htMultGroupLeftCol {
+  flex: 0 0 auto;
+}
+
+.htMultGroupRightCol {
+  flex: 1 1 16em;
+  min-width: 0;
+}
+
+.htMultGroupExprBtn {
+  font-size: 1.15em;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.htMultGroupResultBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.5em 0.6em;
+  white-space: normal;
+}
+
+.htMultGroupValue {
+  font-size: 1.35em;
+  line-height: 1;
+}
+
+.htMultGroupsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  max-width: 100%;
+}
+
+.htMultGroupBox {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05em;
+  min-width: 1.7em;
+  min-height: 1.7em;
+  padding: 0.1em 0.2em;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  background-color: #eaf3fb;
+  box-sizing: border-box;
+}
+
+.htMultGroupIcon {
+  font-size: clamp(0.75rem, 2.4vw, 1rem);
+  line-height: 1;
+}
+
+.design-dark .htMultGroupBox {
+  background-color: #263238;
+  border-color: #90a4ae;
+}
+
 /* Around the World (6c071696): tour of the first counting tools created by
    humanity, with a "represent the number" practice game for each instrument. */
 .atw-game {
@@ -2929,6 +2999,38 @@ p.desc svg {
 .atw-choice-selected {
   background: #4caf50;
   color: #fff;
+}
+
+/* Around the World (Addition, 49bf2fba): reminder notes shown beside the
+   games, such as the absence of carry when counting with bones. */
+.atwa-note {
+  background: #fff4e5;
+  border-left: 4px solid #bf6b1f;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  margin: 0.8rem 0;
+  font-size: 0.95em;
+  overflow-wrap: break-word;
+}
+
+.design-dark .atwa-note {
+  background: #33291d;
+  border-left-color: #e0a05a;
+  color: #f0e6d8;
+}
+
+/* Step-by-step addition tutor used by the calculi and the three abacuses. */
+.atwa-tutor {
+  margin-top: 1rem;
+}
+
+.atwa-tutor .step-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.atwa-tutor-feedback {
+  margin-top: 0.5rem;
 }
 
 /*
@@ -3435,6 +3537,7 @@ p.desc svg {
   font-size: 0.9em;
   font-weight: bold;
   color: #555;
+  text-align: center;
 }
 
 .htCarrySquares {
@@ -3467,6 +3570,7 @@ p.desc svg {
   margin-top: 0.3em;
   font-size: 0.9em;
   color: #555;
+  text-align: center;
 }
 
 .htCarryNextContainer {
@@ -3594,6 +3698,7 @@ p.desc svg {
   font-size: 0.9em;
   font-weight: bold;
   color: #555;
+  text-align: center;
 }
 
 .htAddSquares {
@@ -3659,6 +3764,7 @@ p.desc svg {
   margin-top: 0.3em;
   font-size: 0.9em;
   color: #555;
+  text-align: center;
 }
 
 /* Note that names the complement of the column and how the squares were used. */
@@ -3667,6 +3773,7 @@ p.desc svg {
   margin-top: 0.2em;
   font-size: 0.9em;
   color: #8a4b08;
+  text-align: center;
 }
 
 .htAddButtonsRow {
@@ -3791,6 +3898,69 @@ p.desc svg {
 .htAddInputTop {
   width: 2.6rem;
   min-width: 2.6rem;
+}
+
+/*
+ * Practicing addition with chosen numbers (content
+ * 4d141853-389b-4ee9-87f2-03d8b2e4d5e4). Before the vertical addition board
+ * appears, two fields let the reader choose the operands.
+ */
+.htAddTypedSetup {
+  margin: 1em auto;
+  max-width: 30em;
+  text-align: center;
+}
+
+.htAddTypedSetupTitle {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+.htAddTypedFields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75em;
+}
+
+.htAddTypedField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+  font-weight: bold;
+}
+
+.htAddTypedField input {
+  box-sizing: border-box;
+  width: 8em;
+  max-width: 100%;
+  padding: 0.35em 0.5em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.htAddTypedField input:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+.design-dark .htAddTypedField input {
+  background-color: #263238;
+  border-color: #546e7a;
+  color: #eceff1;
+}
+
+.htAddTypedError {
+  min-height: 1.5em;
+  margin-top: 0.5em;
+  color: #c0392b;
+  font-weight: bold;
 }
 
 /*
@@ -4652,9 +4822,310 @@ p.desc svg {
   text-align: center;
 }
 
+/* Typed division exercise (37819363): layout and quotient text boxes */
+.htDivisionTypedWrap {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.htDivisionTypedTable {
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.htDivisionTypedTable td,
+.htDivisionTypedTable th {
+  width: auto;
+}
+
+.htDivisionTypedFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.6em;
+}
+
+.htDivisionTypedStatus {
+  max-width: 26em;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.htDivisionTypedFeedback {
+  max-width: 26em;
+  margin: 0.6em auto 0;
+  padding: 0.45em 0.9em;
+  background-color: #fff3cd;
+  border: 1px solid #f0c36d;
+  border-radius: 8px;
+  color: #8a4b08;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.htDivisionTypedNext {
+  font-size: 2.6em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.htDivisionTypedRedo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1em;
+  height: 2.1em;
+  padding: 0;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 50%;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.htDivisionTypedRedo:hover,
+.htDivisionTypedRedo:focus-visible {
+  background-color: #d6e8f7;
+}
+
+.design-dark .htDivisionTypedRedo {
+  background-color: #263238;
+  border-color: #546e7a;
+  color: #eceff1;
+}
+
+.design-dark .htDivisionTypedRedo:hover,
+.design-dark .htDivisionTypedRedo:focus-visible {
+  background-color: #37474f;
+}
+
+.htDivisionTypedMedal {
+  color: gold;
+  font-size: clamp(6em, 45vw, 15em);
+}
+
+.htDivisionTypedQuotientRow {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.htDivisionTypedBox {
+  box-sizing: border-box;
+  flex: none;
+  width: 1.5em;
+  min-width: 1.5em;
+  max-width: 1.5em;
+  height: 1.5em;
+  margin: 0 0.08em;
+  padding: 0;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.htDivisionTypedActive {
+  background-color: #fff8e1;
+  border-color: #e67e22;
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+.htDivisionTypedDone {
+  background-color: #e8f5e9;
+  border-color: #2e7d32;
+  color: #1b5e20;
+}
+
+.htDivisionTypedPending {
+  opacity: 0.55;
+}
+
+.htDivisionTypedRemainderBox {
+  box-sizing: border-box;
+  width: 3.2em;
+  min-width: 3.2em;
+  max-width: 3.2em;
+  height: 1.5em;
+  margin: 0 0.08em;
+  padding: 0 0.2em;
+  background-color: #fff8e1;
+  border: 2px solid #e67e22;
+  border-radius: 6px;
+  color: #8a4b08;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.design-dark .htDivisionTypedRemainderBox {
+  background-color: #37474f;
+  border-color: #ffb74d;
+  color: #ffcc80;
+}
+
+.design-dark .htDivisionTypedBox {
+  background-color: #263238;
+  border-color: #546e7a;
+  color: #eceff1;
+}
+
+.design-dark .htDivisionTypedActive {
+  background-color: #37474f;
+  border-color: #ffb74d;
+  outline-color: #ffb74d;
+}
+
+.design-dark .htDivisionTypedDone {
+  background-color: #1b5e20;
+  border-color: #66bb6a;
+  color: #e8f5e9;
+}
+
+.design-dark .htDivisionTypedFeedback {
+  background-color: #4e342e;
+  border-color: #a1887f;
+  color: #ffcc80;
+}
+
 @media screen and (max-width: 600px) {
   .htLongDivisionFormatBtn {
     font-size: 0.85em;
     padding: 5px 10px;
+  }
+
+  .htDivisionTypedBox {
+    width: 1.4em;
+    min-width: 1.4em;
+    max-width: 1.4em;
+    height: 1.4em;
+    margin: 0 0.05em;
+  }
+
+  .htDivisionTypedRemainderBox {
+    width: 2.9em;
+    min-width: 2.9em;
+    max-width: 2.9em;
+    height: 1.4em;
+    margin: 0 0.05em;
+  }
+}
+
+/* Reader-chosen typed division exercise (549c8ddf): setup form */
+.htDivisionTypedUserSetup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em 0.7em;
+  max-width: 100%;
+  margin: 1em auto;
+  text-align: center;
+}
+
+.htDivisionTypedUserSetup label {
+  font-weight: 700;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.htDivisionTypedUserInput,
+.htDivisionTypedUserSelect {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0.35em 0.5em;
+  background-color: #f8f8ff;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  color: #1f2a0e;
+  font: inherit;
+  font-weight: 700;
+}
+
+.htDivisionTypedUserInput {
+  width: 5.5em;
+  text-align: center;
+}
+
+.htDivisionTypedUserStart {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0.4em 1.2em;
+  background-color: #2c5f8a;
+  border: 2px solid #2c5f8a;
+  border-radius: 8px;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.htDivisionTypedUserStart:hover,
+.htDivisionTypedUserStart:focus-visible {
+  background-color: #1e4666;
+}
+
+.htDivisionTypedUserError {
+  max-width: 30em;
+  margin: 0.4em auto;
+  color: #b00020;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.htDivisionTypedUserError:empty {
+  margin: 0;
+}
+
+.design-dark .htDivisionTypedUserInput,
+.design-dark .htDivisionTypedUserSelect {
+  background-color: #263238;
+  border-color: #546e7a;
+  color: #eceff1;
+}
+
+.design-dark .htDivisionTypedUserStart {
+  background-color: #546e7a;
+  border-color: #80cbc4;
+  color: #eceff1;
+}
+
+.design-dark .htDivisionTypedUserStart:hover,
+.design-dark .htDivisionTypedUserStart:focus-visible {
+  background-color: #37474f;
+}
+
+.design-dark .htDivisionTypedUserError {
+  color: #ff8a80;
+}
+
+@media screen and (max-width: 600px) {
+  .htDivisionTypedUserSetup {
+    gap: 0.35em 0.5em;
+  }
+
+  .htDivisionTypedUserInput {
+    width: 5em;
+  }
+
+  .htDivisionTypedUserStart {
+    padding: 0.4em 1em;
   }
 }

@@ -1,0 +1,367 @@
+{
+   "title": "Aprendendo a Tabuada (2 e 3)",
+   "header": "Aprendendo a Tabuada (2 e 3)",
+   "sources": [
+      "8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b"
+   ],
+   "scripts": [
+      "8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5N6gGsxyJXucVnJ8jTLzA0?si=jHNv-wDZTLeSZ_EBi7tzRw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792882087"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nAntes de começar, recomendamos ler *Aprendendo a Tabuada (0 e 1)* (<htcite0>), onde você aprendeu o que acontece ao multiplicar por zero e por um.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "da2e2b37-7b63-4ba8-8ddd-e72535068258",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nUma tabuada é como um mapa de respostas: quando conhecemos o mapa, já não precisamos contar tudo de novo. Hoje vamos aprender dois mapas a mais — a tabuada do dois (2) e a tabuada do três (3). No texto anterior aprendimos a multiplicar por zero e por um, e aprendimos uma fórmula que serviu para os dois. O resultado de uma multiplicação é chamado de **produto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Essas duas tabuadas são amigáveis porque podemos construí-las aos poucos: contando de dois em dois — 2, 4, 6, 8, 10... — e de três em três — 3, 6, 9, 12, 15... —. Mantenha esse ritmo de contagem em mente e as regras abaixo parecerão naturais.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Fórmulas para o dois e o três</b><br /><br />Faça uma pausa e pense: é possível também criar fórmulas para multiplicar por 2 e 3?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_two",
+         "text": [
+            {
+               "text": "### Multiplicando por Dois (2)\n\nAgora passamos à tabuada do dois. Multiplicar por dois significa somar o mesmo número duas vezes, então a resposta é sempre o **dobro** desse número.\n\nUma maneira prática de ver isso é com as suas próprias mãos. Cada mão tem cinco dedos e você tem duas mãos — são dois grupos de cinco —. Conte todos os dedos juntos: 5 + 5 = 10, então 5 × 2 = 10 dedos no total.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 1</b>: Duas mãos, cada uma com cinco dedos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Duas mãos, cada uma com cinco dedos.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Pares de meias</b><br />Um par de meias sempre tem 2 meias. Suponha que juntamos as meias em pares, e queremos saber quantas meias há no total. Experimente com diferentes números de pares:<br />• 1 par: 2 × 1 = 2 meias.<br />• 2 pares: 2 × 2 = 4 meias.<br />• 4 pares: 2 × 4 = 8 meias.<br />• 6 pares: 2 × 6 = 12 meias.<br />Você percebe o padrão? Cada par novo acrescenta 2 meias. Isso é contar de dois em dois: 2, 4, 6, 8, 10, 12!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Por que o produto de um número inteiro é sempre par?\n\nOlhe para as respostas da tabuada do dois: 2, 4, 6, 8, 10, 12... Todas são **números pares**, o que significa que podem ser divididos em duas partes iguais sem sobrar nada (<htcite0>). Multiplicar por 2 dobra um número inteiro, e um dobro sempre pode ser partido em duas metades iguais. Então o produto de qualquer número inteiro multiplicado por 2 é sempre par!",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "130b6adb-161d-4fec-98e4-eaa384122753",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Número par",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Uma Fórmula para a Tabuada do Dois\n\nPodemos escrever esta regra como uma fórmula que vale para qualquer número **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 1</b>: Multiplicar qualquer número por dois é o mesmo que somá-lo a si mesmo.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Leia em voz alta: «dois vezes N é igual a N mais N».\n- A resposta é sempre o **dobro** de N — o número somado a si mesmo.\n- **N** é um marcador de posição para qualquer número, então uma única regra cobre todas as multiplicações por dois de uma vez.\n- Se **N** for 0, o produto é 0; se **N** for 1, o produto é 2 — exatamente o que vimos na tabuada do zero e na tabuada do um.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora tente você mesmo: passe o mouse sobre cada multiplicação da caixa à esquerda. Ao fazer isso, a tabela à direita destaca a linha correspondente, de modo que você pode ver cada resposta da tabuada do dois aparecer.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Pares de sapatos</b><br /><br />Faça uma pausa e pense: se você tem 5 pares de sapatos, quantos sapatos você tem no total?<br /><br />(Dica: conte de dois em dois cinco vezes: 2, 4, 6, 8, 10.)</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aqui está a resposta à nossa reflexão: cinco pares são cinco grupos de dois, então 5 × 2 = 10 sapatos. Contar de dois em dois nos ajudou a encontrar a resposta rapidamente. Muito bem!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_three",
+         "text": [
+            {
+               "text": "### Multiplicando por Três (3)\n\nAgora passamos à tabuada do três. Multiplicar por três significa somar o mesmo número três vezes.\n\nUm triângulo tem três lados. Na Figura 2, os três triângulos têm o mesmo tamanho e cada triângulo tem três lados iguais. Vamos contar todos os lados juntos: 3, 6, 9! Então 3 + 3 + 3 = 9, e isso significa que 3 × 3 = 9.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 440 180\" width=\"100%\" role=\"img\" aria-label=\"Três triângulos equiláteros do mesmo tamanho\"><g fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"20,160 120,160 70,73.4\"/><polygon points=\"170,160 270,160 220,73.4\"/><polygon points=\"320,160 420,160 370,73.4\"/></g><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\"><line x1=\"70.0\" y1=\"156.0\" x2=\"70.0\" y2=\"164.0\"/><line x1=\"91.5\" y1=\"118.7\" x2=\"98.5\" y2=\"114.7\"/><line x1=\"48.5\" y1=\"118.7\" x2=\"41.5\" y2=\"114.7\"/><line x1=\"220.0\" y1=\"156.0\" x2=\"220.0\" y2=\"164.0\"/><line x1=\"241.5\" y1=\"118.7\" x2=\"248.5\" y2=\"114.7\"/><line x1=\"198.5\" y1=\"118.7\" x2=\"191.5\" y2=\"114.7\"/><line x1=\"370.0\" y1=\"156.0\" x2=\"370.0\" y2=\"164.0\"/><line x1=\"391.5\" y1=\"118.7\" x2=\"398.5\" y2=\"114.7\"/><line x1=\"348.5\" y1=\"118.7\" x2=\"341.5\" y2=\"114.7\"/></g></svg></p><p class=\"desc\"><b>Figura 2</b>: Três triângulos do mesmo tamanho, cada um com três lados iguais.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Três triângulos do mesmo tamanho, cada um com três lados iguais.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Lados de triângulos</b><br />Olhe para a Figura 2: cada triângulo tem 3 lados, e os três triângulos juntos têm 3 + 3 + 3 = 9 lados no total. Suponha que queremos contar todos os lados de qualquer grupo de triângulos. Experimente com diferentes números de triângulos:<br />• 1 triângulo: 3 × 1 = 3 lados.<br />• 2 triângulos: 3 × 2 = 6 lados.<br />• 4 triângulos: 3 × 4 = 12 lados.<br />• 5 triângulos: 3 × 5 = 15 lados.<br />Você percebe o padrão? Cada triângulo novo acrescenta 3 lados. Isso é contar de três em três: 3, 6, 9, 12, 15!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Uma Fórmula para a Tabuada do Três\n\nPodemos escrever esta regra como uma fórmula que vale para qualquer número **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 2</b>: Multiplicar qualquer número por três é o mesmo que somá-lo três vezes.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Leia em voz alta: «três vezes N é igual a N mais N mais N».\n- A resposta é sempre N somado a si mesmo três vezes.\n- **N** é um marcador de posição para qualquer número, então uma única regra cobre todas as multiplicações por três de uma vez.\n- Se **N** for 0, o produto é 0; se **N** for 1, o produto é 3 — exatamente o que vimos na tabuada do zero e na tabuada do um.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora tente você mesmo: passe o mouse sobre cada multiplicação da caixa à esquerda. Ao fazer isso, a tabela à direita destaca a linha correspondente, de modo que você pode ver cada resposta da tabuada do três aparecer.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent3\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Quanto é 2 × 3?</b><br /><br />Faça uma pausa e pense: conte de dois em dois três vezes — 2, 4, 6 — ou use a tabuada do dois para encontrar a resposta.<br /><br />Depois confira: o resultado é o mesmo que com 3 × 2?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aqui está a resposta à nossa reflexão: contar de dois em dois três vezes dá 2, 4, 6, então 2 × 3 = 6. E 3 × 2 = 6 também: contar de três em três duas vezes dá 3, 6. Você pode trocar a ordem dos dois números: a resposta continua a mesma. Que atalho útil!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nAprendemos duas tabuadas amigáveis novas:\n\n- Multiplicar por 2 significa somar o número duas vezes: 2, 4, 6, 8, 10, 12...\n- Multiplicar por 3 significa somar o número três vezes: 3, 6, 9, 12, 15, 18...\n\nTambém vimos que 2 × 3 = 6 e que 3 × 2 = 6. Mudar a ordem dos fatores não muda o produto. (<htcite0>)\n\nContinue praticando com objetos reais — conte meias de dois em dois, conte os lados dos triângulos de três em três — e explore as tabuadas interativas várias vezes. Você verá que essas duas tabuadas funcionam sempre.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc",
+                     "text": "History Tracers Team",
+                     "page": "Inversão",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "2 × 4 é igual a 8?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Dois grupos de quatro são 4 + 4 = 8, então 2 × 4 = 8."
+      },
+      {
+         "question": "Multiplicar um número inteiro por 2 sempre dá um número par?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "O dobro de qualquer número inteiro sempre é par: 2, 4, 6, 8, 10..."
+      },
+      {
+         "question": "3 × 3 é igual a 6?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Não. Três grupos de três são 3 + 3 + 3 = 9, então 3 × 3 = 9. O produto 6 vem de 3 × 2."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
