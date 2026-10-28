@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1793139547"
+      "1793153500"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -355,7 +357,7 @@
          "id": "SECTION_sum_mult",
          "text": [
             {
-               "text": "### Grouping\n\nAfter understanding a bit about comparisons, we proceeded with the study, learning how to navigate between numbers.\n\n#### Adding Quantities\n\nIn this process, we saw that when adding numbers, regardless of the number of places (units, tens, hundreds…), we always perform additions two by two (<htcite0>). In this operation, we always add from the smallest place (unit) up to the largest, never writing a result digit outside the range of 0 to 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) (<htcite1>). Any excess above 9 is carried to the next place.\n\nTo make this clearer, we performed the addition of 654,321 and 543,210 below (**Calculation 1**). Hover (or touch) each place to see how the numbers are added.",
+               "text": "### Grouping\n\nAfter understanding a bit about comparisons, we proceeded with the study, learning how to navigate between numbers.\n\n#### Adding Quantities\n\nIn this process, we saw that when adding numbers, regardless of the number of places (units, tens, hundreds…), we always perform additions two by two (<htcite0>). In this operation, we always add from the smallest place (unit) up to the largest, never writing a result digit outside the range of 0 to 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) (<htcite1>). The tens digit of the sum is carried to the next place.\n\nTo make this clearer, we performed the addition of 654,321 and 543,210 below (**Calculation 1**). Hover (or touch) each place to see how the numbers are added.",
                "source": [
                   {
                      "type": 1,
@@ -713,7 +715,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img  id=\"imgShona\" onclick=\"htImageZoom('imgShona', '0%')\" class=\"imgcenter\"/><b>Figure 6</b>: Photos of a Shona kitchen. In the top left, we see a photo of the kitchen with the door closed. In the top right, we see the back of the kitchen. In the bottom section, there are images of the interior of the structure. These photos were taken by Brian Z. Muratu (<htcite0>) and are being used under the terms defined by the University of Johannesburg, which shared the dissertation under the <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA 4.0)</a> license.</p>",
+               "text": "<p class=\"desc\"><img  id=\"imgShona\" onclick=\"htImageZoom('imgShona', '0%')\" class=\"imgcenter\"/><b>Figure 6</b>: Photos of a Shona kitchen. In the top left, we see a photo of the kitchen with the door closed. In the top right, we see the back of the kitchen. In the bottom section, there are images of the interior of the structure. These photos were taken by Brian Z. Muratu (<htcite0>) and are being used under the terms defined by the University of Johannesburg, which shared the dissertation under the <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA 4.0)</a> license.</p>",
                "source": [
                   {
                      "type": 1,

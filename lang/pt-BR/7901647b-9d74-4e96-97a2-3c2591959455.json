@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1793139586"
+      "1793153542"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -355,7 +357,7 @@
          "id": "SECTION_sum_mult",
          "text": [
             {
-               "text": "### Agrupando\n\nApós entendermos um pouco sobre comparações, prosseguimos com o estudo, compreendendo como caminhar entre os números.\n\n#### Adicionando quantidades\n\nNesse processo, vimos que, ao somarmos números, independentemente do número de ordens (unidades, dezenas, centenas…), sempre realizamos somas de dois em dois números (<htcite0>). Nessa operação, sempre somamos da menor ordem (unidade) até atingir a maior, sem nunca escrever um dígito de resultado fora do intervalo de 0 a 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) (<htcite1>). Todo excedente acima de 9 vai para a ordem seguinte.\n\nPara deixar isso mais claro, realizamos a soma de 654.321 com 543.210 na sequência (**Cálculo 1**). Passe o mouse (ou o dedo) sobre cada ordem para ver como os números são somados.",
+               "text": "### Agrupando\n\nApós entendermos um pouco sobre comparações, prosseguimos com o estudo, compreendendo como caminhar entre os números.\n\n#### Adicionando quantidades\n\nNesse processo, vimos que, ao somarmos números, independentemente do número de ordens (unidades, dezenas, centenas…), sempre realizamos somas de dois em dois números (<htcite0>). Nessa operação, sempre somamos da menor ordem (unidade) até atingir a maior, sem nunca escrever um dígito de resultado fora do intervalo de 0 a 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) (<htcite1>). O dígito das dezenas da soma vai para a ordem seguinte.\n\nPara deixar isso mais claro, realizamos a soma de 654.321 com 543.210 na sequência (**Cálculo 1**). Passe o mouse (ou o dedo) sobre cada ordem para ver como os números são somados.",
                "source": [
                   {
                      "type": 1,
@@ -713,7 +715,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img  id=\"imgShona\" onclick=\"htImageZoom('imgShona', '0%')\" class=\"imgcenter\"/><b>Figura 6</b>: Fotos da cozinha Shona. No topo à esquerda, vemos uma foto da cozinha com a porta fechada. No topo à direita, vemos a parte de trás da cozinha. Na parte inferior, há imagens do interior da construção. Estas fotos foram tiradas por Brian Z. Muratu (<htcite0>) e estão sendo utilizadas nos termos definidos pela Universidade de Joanesburgo, que compartilhou a dissertação sob a licença <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA 4.0)</a>.</p>",
+               "text": "<p class=\"desc\"><img  id=\"imgShona\" onclick=\"htImageZoom('imgShona', '0%')\" class=\"imgcenter\"/><b>Figura 6</b>: Fotos da cozinha Shona. No topo à esquerda, vemos uma foto da cozinha com a porta fechada. No topo à direita, vemos a parte de trás da cozinha. Na parte inferior, há imagens do interior da construção. Estas fotos foram tiradas por Brian Z. Muratu (<htcite0>) e estão sendo utilizadas nos termos definidos pela Universidade de Joanesburgo, que compartilhou a dissertação sob a licença <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA 4.0)</a>.</p>",
                "source": [
                   {
                      "type": 1,

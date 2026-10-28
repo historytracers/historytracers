@@ -181,7 +181,8 @@ function htLongDivisionApply(format) {
     }
 
     $(".htLongDivisionFormatBtn").each(function () {
-        $(this).toggleClass("active", $(this).attr("data-htldformat") === htLongDivisionFormat);
+        var selected = $(this).attr("data-htldformat") === htLongDivisionFormat;
+        $(this).toggleClass("active", selected).attr("aria-pressed", selected ? "true" : "false");
     });
 }
 
