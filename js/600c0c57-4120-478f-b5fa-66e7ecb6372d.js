@@ -5,6 +5,10 @@ var localAnswerVector600c0c57 = undefined;
 function htLoadContent() {
     htWriteNavigation();
 
+    var weekStart = htCalendarWeekStart();
+    htWriteCalendarFigure("#htWeekCalendarFigure", weekStart, 1);
+    htWriteCalendarFigure("#htFourWeekCalendarFigure", weekStart, 4);
+
     htWriteMultiplicationTable("#mParent6", 6);
     htWriteMultiplicationTable("#mParent7", 7);
     return false;
