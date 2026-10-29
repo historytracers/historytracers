@@ -612,8 +612,11 @@ function htCalendarWeekdayNames(locale, calendar, start)
         return overrides;
     }
     var result = [];
+    var baseDate = new Date(start * 1000);
+    baseDate.setHours(0, 0, 0, 0);
     for (var d = 0; d < 7; d++) {
-        var date = new Date((start + d * 86400) * 1000);
+        var date = new Date(baseDate.getTime());
+        date.setDate(date.getDate() + d);
         try {
             result.push(new Intl.DateTimeFormat(locale, { weekday: 'short', calendar: calendar }).format(date));
         } catch (e) {
@@ -649,6 +652,8 @@ function htWriteCalendarFigure(target, startUnix, weeks)
 
     var dayNames = htCalendarWeekdayNames(locale, calendar, start);
     var weekLabel = htCalendarWeekLabel(locale);
+    var baseDate = new Date(start * 1000);
+    baseDate.setHours(0, 0, 0, 0);
     var html = '<table class="htCalendarTable"><thead><tr><th class="htCalendarWeekHeader" scope="col"></th>';
     for (var h = 0; h < dayNames.length; h++) {
         html += '<th scope="col">' + dayNames[h] + '</th>';
@@ -658,7 +663,9 @@ function htWriteCalendarFigure(target, startUnix, weeks)
         html += '<tr><th scope="row" class="htCalendarWeekLabel">' + weekLabel + ' ' + (w + 1) + '</th>';
         for (var day = 0; day < 7; day++) {
             var dayNumber = w * 7 + day + 1;
-            var longDate = htConvertDate(calendar, locale, start + (dayNumber - 1) * 86400, undefined, undefined, 'long');
+            var cellDate = new Date(baseDate.getTime());
+            cellDate.setDate(cellDate.getDate() + dayNumber - 1);
+            var longDate = htConvertDate(calendar, locale, Math.floor(cellDate.getTime() / 1000), undefined, undefined, 'long');
             html += '<td title="' + String(longDate).replace(/"/g, '&quot;') + '">' + dayNumber + '</td>';
         }
         html += '</tr>';
