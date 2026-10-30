@@ -31,13 +31,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791382542"
+      "1792601194"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -47,7 +47,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nThis text introduces an application for the reader to practice division. To better understand it, we recommend studying the previous texts in this chapter (<htcite0>).",
+               "text": "### Prerequisites\n\nThis text presents an application for practicing division. Before using it, we recommend studying the previous texts in this chapter (<htcite0>), which introduce the multiplication tables and other basic ideas you will need here.",
                "source": [
                   {
                      "type": 1,
@@ -74,8 +74,21 @@
          "id": "SECTION_practicing",
          "text": [
             {
-               "text": "### Practice\n\nReading a text may seem sufficient, but practice is essential for complete understanding. In this text, we have an application that, by default, selects numbers randomly in the **Multiplication Tables** field; however, if you wish to study just one, you can select the table from 1 to 9. Through this application, it is possible to practice division using what we know as the **long division algorithm**.\n\nIn the following table, we propose dividing one number by another. Before using the side arrows (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) to check the result, try to calculate it.\n\nUpon completion, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can perform a new calculation by clicking the corresponding button (<i class=\"fa-solid fa-chevron-right\"></i>):",
-               "source": null,
+               "text": "### Practice\n\nReading a text is a good start, but truly understanding division takes practice. In this application, the **Multiplication Tables** menu lets you choose which table to work with. By default it is set to **Randomly**, so a new divisor is chosen each time; if you prefer to focus on a single table, select a number from 1 to 9.\n\nThe exercise uses the **long division algorithm** (<htcite0>), the step-by-step method for dividing numbers by hand. Remember: when one number does not divide another exactly, the amount that is left over is called the **remainder**.\n\nIn the following table, we propose dividing one number by another. Use the side arrows (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) to check each part of the calculation, and try to work out the answer before looking at it.\n\nWhen you finish, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>). Click the right arrow (<i class=\"fa-solid fa-chevron-right\"></i>) to start a new calculation.\n\nThe **Division format** buttons let you choose how the division is written: with the **Result below** the bar (as in many schoolbooks) or with the **Result on top** of it (a format that appears in historical mathematical documents).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4742a2d6-a3c5-4883-beb5-8ed0240fa9a7",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Long Division",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -84,6 +97,15 @@
             },
             {
                "text": "<p><b>Multiplication Tables:</b> <select id=\"mtValues\"><option value=\"-1\">Randomly</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htLongDivisionFormat\"><b>Division format:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Result below</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Result on top</button></p>",
                "source": null,
                "date_time": null,
                "isTable": false,

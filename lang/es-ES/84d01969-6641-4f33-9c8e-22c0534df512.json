@@ -22,7 +22,6 @@
    "index": [
       "first_steps",
       "biology",
-      "chemistry",
       "history"
    ],
    "license": [
@@ -30,13 +29,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791382554"
+      "1792605067"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -62,7 +61,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEn este texto, comenzaremos a estudiar algunos calendarios utilizados por la humanidad a través de la división y la sustracción. Antes de continuar, sugerimos el estudio de los textos anteriores de este capítulo (<htcite0>), así como del texto sobre nuestras semanas (<htcite1>). ",
+               "text": "### Prerrequisitos\n\nEn este texto, comenzaremos a estudiar algunos calendarios utilizados por la humanidad con ayuda de la división y la sustracción. Antes de continuar, recomendamos estudiar los textos anteriores de este capítulo (<htcite0>), así como el texto sobre nuestras semanas (<htcite1>) y el texto sobre la relación entre la multiplicación y la división (<htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -87,6 +86,18 @@
                         "month": "-1",
                         "day": "-1"
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8d6586b8-178b-4806-a050-ef5a8704f5e1",
+                     "text": "History Tracers Team",
+                     "page": "La relación entre la multiplicación y la división",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
                   }
                ],
                "date_time": null,
@@ -101,7 +112,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nEl registro del tiempo está presente en todos los pueblos debido a su importancia para nuestras vidas.\n\nEn este texto, exploraremos dos formas de medir el tiempo que han sido utilizadas por diferentes pueblos a lo largo de la historia: una basada en el Sol y otra basada en la Luna (<htcite0>; <htcite1>).\n\nAntes de explorar estos calendarios, vale la pena una reflexión:",
+               "text": "### Introducción\n\nToda comunidad humana ha registrado el tiempo, porque la medición del tiempo es esencial para nuestras vidas.\n\nEn este texto, exploraremos dos formas de medir el tiempo utilizadas por diferentes pueblos a lo largo de la historia: una basada en el Sol y otra basada en la Luna (<htcite0>; <htcite1>).\n\nAntes de explorar estos calendarios, he aquí una pregunta para la reflexión:",
                "source": [
                   {
                      "type": 1,
@@ -135,7 +146,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Todos correctos</b><br /><br />¿Todos los calendarios utilizados actualmente representan correctamente la vuelta de la Tierra alrededor del Sol?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Son todos correctos?</b><br /><br />¿Todos los calendarios utilizados actualmente representan correctamente la órbita de la Tierra alrededor del Sol?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -149,7 +160,7 @@
          "id": "SECTION_week",
          "text": [
             {
-               "text": "### La semana\n\nEl posible origen de la semana ya fue analizado en un texto anterior (<htcite0>); por lo tanto, no volveremos a hablar de él aquí. Sin embargo, hay un hecho que debemos retomar, pues nos ayudará en nuestros estudios. Cuando hablamos de semana, nos referimos a un período de 7 días; por lo tanto, utilizamos la tabla del siete en secuencia para ayudarnos.",
+               "text": "### La semana\n\nEl posible origen de la semana ya fue analizado en un texto anterior (<htcite0>); por lo tanto, no volveremos a hablar de él aquí. Sin embargo, hay un hecho que vale la pena retomar, porque nos ayudará en lo que sigue. Una semana es un período de 7 días; por lo tanto, usamos la tabla del siete para contar semanas.",
                "source": [
                   {
                      "type": 1,
@@ -185,7 +196,7 @@
          "id": "SECTION_gregorian",
          "text": [
             {
-               "text": "### Calendario Gregoriano\n\nLa humanidad ha creado diferentes calendarios de acuerdo con sus creencias y necesidades. Algunos de ellos están disponibles en History Tracers, en la parte superior derecha, facilitando la lectura de los contenidos según los calendarios a los que estamos acostumbrados en nuestro día a día.\n\nEn esta sección, trataremos el calendario gregoriano.\n\n#### El mes más corto en el calendario Gregoriano\n\nDe acuerdo con el calendario Gregoriano, el mes de febrero tiene 28 días en la mayoría de los años, pero posee 29 días cada cuatro años, en un año conocido como bisiesto (<htcite0>).\n\nAl observar la tabla del 7, podemos notar que 28 es divisible por 7. Es decir, es posible tener un número exacto de semanas en ese mes, como se demuestra en el **Cálculo 1**:",
+               "text": "### Calendario Gregoriano\n\nLa humanidad ha creado diferentes calendarios de acuerdo con sus creencias y necesidades. Algunos de ellos están disponibles en History Tracers, en la parte superior derecha, para que pueda leer los contenidos según los calendarios a los que estamos acostumbrados en la vida cotidiana.\n\nEn esta sección, trataremos el calendario gregoriano.\n\n#### El mes más corto en el calendario Gregoriano\n\nDe acuerdo con el calendario gregoriano, febrero tiene 28 días en la mayoría de los años, pero 29 días en los años bisiestos: un año es bisiesto si es divisible por 4, excepto los años divisibles por 100 que no son divisibles por 400 (<htcite0>).\n\nAl observar la tabla del 7, vemos que 28 es divisible por 7. Es decir, ese mes puede contener un número exacto de semanas, como se demuestra en el **Cálculo 1** (<htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -198,6 +209,18 @@
                         "month": "10",
                         "day": "1"
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4742a2d6-a3c5-4883-beb5-8ed0240fa9a7",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Long Division",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
                   }
                ],
                "date_time": null,
@@ -207,7 +230,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">28</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 7 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">28</span> </td><td>4</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 0 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 1</b>: División de 28 por 7.</p>",
+               "text": "<p class=\"htLongDivisionFormat\"><b>Formato de la división:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Resultado abajo</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Resultado arriba</button></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -216,16 +239,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Los demás meses\n\nComo consecuencia del **Cálculo 1** y, principalmente, de la tabla del 7, cualquier mes que contenga entre 29 y 34 días no tiene condiciones de poseer exactamente 4 semanas completas.\n\nHagamos un ejemplo con un mes de 31 días:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">31</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 7 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">28</span> </td><td>4</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 3 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 2</b>: División de 31 por 7.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">28</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 7 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">28</span> </td><td>4</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 0 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 1</b>: División de 28 por 7.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -234,7 +248,7 @@
                "PostMention": ""
             },
             {
-               "text": "Observe que, al realizar el **Cálculo 2**, confirmamos que hay 3 días más que los 28 días que poseen las 4 semanas.",
+               "text": "#### Los demás meses\n\nComo consecuencia del **Cálculo 1** y, sobre todo, de la tabla del 7, cualquier mes con entre 29 y 31 días contiene cuatro semanas completas más algunos días restantes y, por lo tanto, no puede consistir solo en cuatro semanas.\n\nTomemos como ejemplo un mes de 31 días:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -243,7 +257,25 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgAstro\" onclick=\"htImageZoom('imgAstro', '0%')\"  class=\"imgcenter\"/><b>Figura 1</b>: Astrolabio que muestra un calendario con los meses en latín, conservado en el Museo Británico. © Trustees of the British Museum (<htcite0> ).</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">31</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 7 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">28</span> </td><td>4</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 3 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 2</b>: División de 31 por 7.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observe que el **Cálculo 2** confirma que hay 3 días más allá de los 28 días de 4 semanas completas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgAstro\" onclick=\"htImageZoom('imgAstro', '0%')\"  class=\"imgcenter\"/><b>Figura 1</b>: Astrolabio que muestra un calendario con los meses en latín, conservado en el Museo Británico. © Trustees of the British Museum (<htcite0>).</p>",
                "source": [
                   {
                      "type": 0,
@@ -270,7 +302,7 @@
          "id": "SECTION_arab",
          "text": [
             {
-               "text": "### Calendario Islámico\n\nA diferencia del calendario gregoriano, el calendario islámico es un calendario lunar que no se basa en las estaciones del año (<htcite0>; <htcite1>).\n\nEntre las características relevantes para este estudio, destacan (<htcite2>):\n- Los meses tienen 29 o 30 días;\n- El año tiene 354 o 355 días;\n- Hay cuatro meses consecutivos con 30 días;\n- Hay tres meses consecutivos con 29 días;\n- Un nuevo mes comienza siempre que es visible una nueva luna creciente.\n\n#### Semanas\n\nLos árabes también han utilizado semanas para agrupar los días desde el primer siglo de su calendario (siglo VII del calendario gregoriano) (<htcite3>).\n\nDe esta manera, también podemos verificar la cantidad de semanas existentes en los meses del calendario islámico (**Cálculos 3 y 4**)",
+               "text": "### Calendario Islámico\n\nA diferencia del calendario gregoriano, el calendario islámico es un calendario lunar y no está ligado a las estaciones del año (<htcite0>; <htcite1>).\n\nEntre las características relevantes para este estudio, destacan (<htcite2>):\n- Los meses tienen 29 o 30 días;\n- El año tiene 354 o 355 días;\n- Cuatro meses consecutivos tienen 30 días;\n- Tres meses consecutivos tienen 29 días;\n- Un nuevo mes comienza siempre que se ve una nueva luna creciente.\n\n#### Semanas\n\nLas sociedades árabes también han usado semanas para agrupar los días desde el primer siglo de su calendario (el siglo VII del calendario gregoriano) (<htcite3>).\n\nPor lo tanto, también podemos comprobar cuántas semanas tienen los meses del calendario islámico (**Cálculos 3 y 4**).",
                "source": [
                   {
                      "type": 1,
@@ -328,7 +360,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">29</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 7 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">28</span> </td><td>4</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 1 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 3</b>: División de 29 por 7.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">29</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 7 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">28</span> </td><td>4</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 1 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 3</b>: División de 29 por 7.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -337,7 +369,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">30</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 7 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">28</span> </td><td>4</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 2 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 4</b>: División de 30 por 7.</p>",
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; <span style=\"color: blue;\">30</span> </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 7 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">-  <span style=\"color: blue;\">28</span> </td><td>4</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 2 </td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 4</b>: División de 30 por 7.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -346,7 +378,7 @@
                "PostMention": ""
             },
             {
-               "text": "Debido a que los meses islámicos tienen exactamente la misma duración que algunos meses gregorianos, sería de esperar que los meses islámicos también tuvieran cuatro semanas más algunos días (restos 1 y 2). Sin embargo, hay otro aspecto que debemos explorar mediante una reflexión.",
+               "text": "Como los meses islámicos tienen exactamente la misma duración que algunos meses gregorianos, cabría esperar que los meses islámicos también tuvieran cuatro semanas más algunos días (restos 1 y 2). Sin embargo, hay otro aspecto que debemos explorar mediante una reflexión.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -355,7 +387,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: El siglo...</b><br /><br />Al observar diferentes calendarios alrededor del mundo —a los que se puede acceder en la parte superior derecha de <i>History Tracers</i>—, podemos darnos cuenta de que los siglos no son iguales entre ellos.<br /><br />¿Alguna vez se te ha pasado por la cabeza que mencionar únicamente el siglo, sin informar el calendario utilizado, constituye una información incompleta?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: El siglo...</b><br /><br />Al observar diferentes calendarios del mundo —a los que se puede acceder en la parte superior derecha de <i>History Tracers</i>—, nos damos cuenta de que los siglos no tienen la misma duración en todos ellos.<br /><br />¿Se te había ocurrido que mencionar solo el siglo, sin decir con qué calendario, da información incompleta?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -369,7 +401,7 @@
          "id": "SECTION_simplify",
          "text": [
             {
-               "text": "### Simplificando\n\nDebido a que trabajamos con diferentes calendarios, para que las personas puedan realizar algún tipo de agendamiento, es necesario sincronizar las fechas, de modo que sepamos exactamente de qué estamos hablando.\n\nIncluso cuando no estamos intentando sincronizar calendarios entre sí, también es necesario ajustar cada calendario, precisamente porque un año no resulta en un resto de división igual a cero.\n\nVeamos las soluciones encontradas.\n\n#### Año Bisiesto (Calendario Gregoriano)\n\nCuando trabajamos con días, como hicimos en este y otros textos, estamos manejando una unidad de tiempo relativamente amplia, lo que termina omitiendo algunos detalles. Por ejemplo, la Tierra tiene un año de aproximadamente 365 días y 6 horas, y no exactamente 365 días (<htcite0>). Para corregir este “exceso de horas” y mantener la consistencia en la determinación, entre otras cosas, de las estaciones del año, se utilizan las siguientes reglas para definir si un año es bisiesto (<htcite1>):\n- El año es divisible por 4, pero no es divisible por 100;\n- O el año es divisible por 400.\n\nRecordamos que ser divisible significa ser un múltiplo, es decir, el resto de la división es cero.\n\n#### Conversiones\n\nLas diferencias entre el calendario islámico y el calendario gregoriano llevaron a los islámicos a crear métodos para que su calendario, de menor extensión, pudiera equipararse al calendario solar (<htcite2>). Entre estos métodos, destaca el **Istalahi** en el cual se considera: *\"un ciclo de 30 años lunares, en que los meses alternan entre 29 y 30 días, habiendo 11 años con 355 días y los demás con 354 días\"* (<htcite3>).",
+               "text": "### Simplificando\n\nComo trabajamos con diferentes calendarios, las personas necesitan sincronizar las fechas para saber exactamente de qué se está hablando.\n\nIncluso cuando no intentamos sincronizar calendarios entre sí, también es necesario ajustar cada calendario con cuidado, porque un año solar no es un número entero exacto de días.\n\nVeamos las soluciones que se encontraron.\n\n#### El año bisiesto (Calendario Gregoriano)\n\nCuando trabajamos con días, como hicimos en este y en otros textos, usamos una unidad de tiempo relativamente amplia, que oculta algunos detalles. Por ejemplo, la Tierra tiene un año de unos 365 días y 6 horas, no exactamente 365 días (<htcite0>). Para corregir este “exceso de horas” y mantener coherente la determinación de las estaciones del año, entre otras cosas, se usan las siguientes reglas para decidir si un año es bisiesto (<htcite1>):\n- El año es divisible por 4, pero no por 100; o\n- El año es divisible por 400.\n\nRecordemos que un número es divisible por otro cuando es múltiplo de ese número; es decir, cuando el resto de la división es cero.\n\n#### Conversiones\n\nLas diferencias entre el calendario islámico y el calendario gregoriano llevaron a los estudiosos musulmanes a crear métodos para que su calendario, más corto, pudiera equipararse al calendario solar (<htcite2>). Entre estos métodos, destaca el **Istalahi**, en el cual se considera: *\"un ciclo de 30 años lunares, en que los meses alternan entre 29 y 30 días, habiendo 11 años con 355 días y los demás con 354 días\"* (<htcite3>).",
                "source": [
                   {
                      "type": 1,
@@ -432,7 +464,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, aprendimos que existen diferentes calendarios utilizados por la humanidad y que hay puntos en común y divergentes entre ellos.\n\nTambién aprendimos que, debido a estas diferencias, siempre que mencionamos unidades de tiempo más amplias, como siglos, es necesario informar qué calendario se está utilizando, a fin de evitar confusiones para las personas que no están habituadas a los calendarios que usamos.\n\nAdemás, vimos que la división es una herramienta importante para ajustar nuestros calendarios y para saber, entre otras cosas, la época correcta para la siembra de determinados alimentos. Por último, observamos que, en nuestras vidas, necesitamos realizar divisiones por números mayores, como 100, para poder comprender mejor lo que nos rodea. Estas divisiones serán tratadas en los próximos textos.",
+               "text": "### Conclusión\n\nEn este texto, aprendimos que la humanidad usa diferentes calendarios, y que estos calendarios tienen puntos en común y puntos de diferencia.\n\nTambién aprendimos que, debido a estas diferencias, siempre que mencionamos unidades de tiempo más amplias —como los siglos— debemos indicar qué calendario usamos, para no confundir a las personas que no están habituadas a los calendarios que utilizamos.\n\nTambién vimos que la división es una herramienta importante para ajustar nuestros calendarios y para saber, entre otras cosas, la época correcta para sembrar determinados alimentos. Por último, observamos que, en nuestras vidas, necesitamos dividir entre números mayores, como 100, para comprender mejor el mundo que nos rodea. Estas divisiones se tratarán en los próximos textos.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -446,7 +478,7 @@
          "id": "SECTION_practicing",
          "text": [
             {
-               "text": "### Practicando\n\nAunque el año —el tiempo necesario para que la Tierra vuelva a la misma posición al girar alrededor del Sol (<htcite0>)— sea el mismo para cualquier pueblo, la manera en que las personas organizan la división del tiempo es diferente.\n\nPara ayudar en los siguientes ejercicios, proporcionamos las tablas de multiplicar del 8 y del 9, que serán utilizadas en ellos.",
+               "text": "### Practicando\n\nAunque el año —el tiempo que tarda la Tierra en volver a la misma posición de su órbita alrededor del Sol (<htcite0>)— es el mismo para todos los pueblos, la manera en que las personas organizan la división del tiempo es diferente.\n\nPara ayudarle con los siguientes ejercicios, le proporcionamos las tablas de multiplicar del 8 y del 9, que necesitará en ellos.",
                "source": [
                   {
                      "type": 1,
@@ -492,22 +524,22 @@
       {
          "question": "¿Existe solo un calendario usado en todo el mundo?",
          "yesNoAnswer": "No",
-         "additionalInfo": "En la actualidad, hay diferentes calendarios siendo utilizados alrededor del mundo, con la marcación del tiempo ligada a la Luna o a la rotación de la Tierra alrededor del Sol, como aprendimos."
+         "additionalInfo": "En la actualidad se utilizan diferentes calendarios en el mundo, con la medición del tiempo ligada a la Luna o a la órbita de la Tierra alrededor del Sol, como aprendimos."
       },
       {
          "question": "¿Los meses de los calendarios islámico y gregoriano tienen al menos 4 semanas?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Como los meses tienen entre 28 y 31 días, todos ellos poseen al menos cuatro semanas, pero nunca alcanzan exactamente cinco semanas, pues ninguno tiene 35 días."
+         "additionalInfo": "Como los meses tienen entre 28 y 31 días, todos poseen al menos cuatro semanas, pero nunca alcanzan exactamente cinco semanas, pues ninguno tiene 35 días."
       },
       {
          "question": "Imagine que, en algún lugar del planeta, decidieron que la mejor forma de organizar el mes sería en períodos de 8 días, manteniendo 12 meses con 30 días. ¿También tendremos, como mínimo, 4 períodos de 8 días dentro de un mes?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Como aumentamos el tamaño del período usado para organizar los días dentro del mes, habrá una disminución del número mínimo de períodos. Esto ocurre porque 8 × 3 = 24, y el siguiente múltiplo de 8, que es 32 (8 × 4 = 32), es mayor que el mes de 30 días que definimos.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 30 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 8 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 24 </td><td>3</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 6 </td><td> &nbsp; </td></tr> </table></p>"
+         "additionalInfo": "Como aumentamos la longitud del período usado para organizar los días dentro del mes, disminuye el número mínimo de períodos. Esto ocurre porque 8 × 3 = 24, y el siguiente múltiplo de 8, que es 32 (8 × 4 = 32), es mayor que el mes de 30 días que definimos.<br /><p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 30 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 8 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 24 </td><td>3</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 6 </td><td> &nbsp; </td></tr> </table></p>"
       },
       {
          "question": "Imagine que, en otro lugar del planeta, decidieron organizar el mes en períodos de 9 días, manteniendo 12 meses con 30 días. ¿También tendremos, como mínimo, 3 períodos de 9 días dentro de un mes?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Como aumentamos aún más el tamaño del período utilizado para organizar los días dentro del mes, pero no alteramos la cantidad de días del mes, continuamos teniendo tres períodos, como en el ejercicio anterior. Esto ocurre porque 9 × 3 = 27, y el siguiente múltiplo de 9, que es 36 (9 × 4 = 36), es mayor que el mes de 30 días definido.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 30 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 9 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 27 </td><td>3</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 3 </td><td> &nbsp; </td></tr> </table></p>"
+         "additionalInfo": "Como aumentamos aún más la longitud del período usado para organizar los días dentro del mes, pero no cambiamos el número de días del mes, seguimos teniendo tres períodos, como en el ejercicio anterior. Esto ocurre porque 9 × 3 = 27, y el siguiente múltiplo de 9, que es 36 (9 × 4 = 36), es mayor que el mes de 30 días que definimos.<br /><p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 30 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 9 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 27 </td><td>3</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 3 </td><td> &nbsp; </td></tr> </table></p>"
       }
    ],
    "game_v2": null,

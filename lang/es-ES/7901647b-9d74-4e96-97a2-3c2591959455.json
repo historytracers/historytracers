@@ -30,10 +30,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791382554"
+      "1793153523"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -98,7 +100,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nLa sección *Primeros Pasos* tuvo como objetivo introducir conceptos fundamentales de diferentes ciencias.\n\nSin embargo, como bien señala el doctor Francisco González A. Redondo en diversos trabajos y conferencias, todo lo visto hasta el momento es solo parte de lo que podemos llamar \"pre-matemáticas\" (<htcite0>; <htcite1>; <htcite2>; <htcite3>).\n\nCon todo lo aprendido hasta este punto, reflexione:",
+               "text": "### Introducción\n\nLa sección *Primeros Pasos* tuvo como objetivo introducir conceptos fundamentales de diferentes ciencias.\n\nSin embargo, como bien señala el doctor Francisco González A. Redondo en diversos trabajos y conferencias, todo lo visto hasta el momento es solo parte de lo que podemos llamar \"pre-matemáticas\" (<htcite0>; <htcite1>; <htcite2>; <htcite3>).\n\nCon todo lo que hemos aprendido hasta este punto, reflexione:",
                "source": [
                   {
                      "type": 1,
@@ -156,7 +158,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Es la base para...</b><br /><br />¿Puedes imaginar situaciones en las que podamos usar las cuatro operaciones—suma, multiplicación, división y resta—juntas?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Es la base para...</b><br /><br />¿Puede imaginar situaciones en las que podamos usar las cuatro operaciones—suma, multiplicación, división y resta—juntas?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -204,7 +206,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"img9\" onclick=\"htImageZoom('img9', '0%')\"  class=\"imgcenter\"/><b>Figura 3</b>: Representación de un hueso de babuino con marcas. Esta imagen, realizada por Enrique Silván Pobes, se encuentra en el trabajo de Francisco A. Gonzáles Redondo et al.<br /> El original está disponible en ResearchNet (<htcite0>) y está siendo mostrada acá después del Doctor Francisco A. Gonzales Redondo hacer autorización para su publicación.</p>",
+               "text": "<p class=\"desc\"><img id=\"img9\" onclick=\"htImageZoom('img9', '0%')\"  class=\"imgcenter\"/><b>Figura 1</b>: Representación de un hueso de babuino con marcas. Esta imagen, realizada por Enrique Silván Pobes, se encuentra en el trabajo de Francisco A. González Redondo et al.<br /> El original está disponible en ResearchNet (<htcite0>), y se muestra aquí con la autorización del Doctor Francisco A. González Redondo para su republicación.</p><p>A lo largo de los siglos, se han utilizado diversos sistemas de numeración, algunos de los cuales perduran hasta nuestros días. En las secciones siguientes, presentamos una visión general de los sistemas contemporáneos junto con los que han caído recientemente en desuso.</p>",
                "source": [
                   {
                      "type": 1,
@@ -233,7 +235,7 @@
                "PostMention": ""
             },
             {
-               "text": "El capítulo sobre el conteo (*Un viaje hacia los números*) prosiguió demostrando que los números siempre pueden sumarse a otros números, no existiendo regla alguna que impida este proceso.\n\nAnte este escenario, los matemáticos desarrollaron, a lo largo de los últimos siglos, el concepto de límites, que también fue introducido en el primer capítulo. Utilizando este concepto, aprendimos que, cuando no es posible describir una cantidad mediante un valor específico, podemos decir que estamos tendiendo a ese valor. Aprendimos también que, a medida que los números crecen sin fin, podemos decir que tienden al infinito (∞) (<htcite0>).",
+               "text": "El capítulo sobre el conteo (*Un viaje hacia los números*) prosiguió demostrando que los números siempre pueden sumarse a otros números, sin que exista regla alguna que impida este proceso.\n\nAnte este escenario, los matemáticos desarrollaron, a lo largo de los últimos siglos, el concepto de límites, que ya habíamos visto en ese mismo capítulo. Utilizando este concepto, aprendimos que, cuando no es posible describir una cantidad mediante un valor específico, podemos decir que estamos tendiendo a ese valor. Aprendimos también que, a medida que los números crecen sin fin, podemos decir que tienden al infinito (∞) (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -303,7 +305,7 @@
                "PostMention": ""
             },
             {
-               "text": "A pesar de esta definición, muchas veces el entendimiento flexible de las personas hace que las pirámides sean consideradas aún más diversas.\n\nExisten estructuras que se asemejan a pirámides y que frecuentemente se clasifican de esa manera. Un ejemplo de ello son las montañas sagradas de Mesoamérica, conocidas por los mayas como *Witz* (<htcite0>), pero que actualmente son conocidas por muchos como pirámides.",
+               "text": "A pesar de esta definición, muchas veces el entendimiento flexible de las personas hace que muchas más estructuras sean llamadas pirámides.\n\nExisten estructuras que se asemejan a pirámides y que frecuentemente se clasifican de esa manera. Un ejemplo de ello son las montañas sagradas de Mesoamérica, conocidas por los mayas como *Witz* (<htcite0>), pero que actualmente son conocidas por muchos como pirámides.",
                "source": [
                   {
                      "type": 1,
@@ -355,7 +357,7 @@
          "id": "SECTION_sum_mult",
          "text": [
             {
-               "text": "### Agrupando\n\nDespués de comprender un poco sobre comparaciones, proseguimos con el estudio, entendiendo cómo movernos entre los números.\n\n#### Sumando cantidades\n\nEn este proceso, vimos que al sumar números, independientemente de la cantidad de órdenes (unidades, decenas, centenas…), siempre realizamos sumas de dos en dos números (<htcite0>). En esta operación, siempre sumamos desde el orden menor (unidad) hasta alcanzar el mayor, sin obtener nunca como resultado números fuera del intervalo del 0 al 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) (<htcite1>).\n\nPara dejarlo más claro, realizamos la suma de 654.321 con 543.210 a continuación (**Cálculo 1**). Desplace el cursor (o el dedo) sobre cada orden para ver cómo se suman los números.",
+               "text": "### Agrupando\n\nDespués de comprender un poco sobre comparaciones, proseguimos con el estudio, entendiendo cómo movernos entre los números.\n\n#### Sumando cantidades\n\nEn este proceso, vimos que al sumar números, independientemente de la cantidad de órdenes (unidades, decenas, centenas…), siempre realizamos sumas de dos en dos números (<htcite0>). En esta operación, siempre sumamos desde el orden menor (unidad) hasta alcanzar el mayor, sin nunca escribir un dígito de resultado fuera del intervalo del 0 al 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) (<htcite1>). El dígito de las decenas de la suma se lleva al orden siguiente.\n\nPara dejarlo más claro, realizamos la suma de 654.321 con 543.210 a continuación (**Cálculo 1**). Desplace el cursor (o el dedo) sobre cada orden para ver cómo se suman los números.",
                "source": [
                   {
                      "type": 1,
@@ -398,7 +400,7 @@
                "PostMention": ""
             },
             {
-               "text": "En este proceso, también aprendimos que la suma es conmutativa, es decir, independientemente del orden en que sumemos dos números, el resultado será el mismo (<htcite0>).\n\n#### Multiplicando cantidades\n\nContinuando con el estudio sobre cómo acumular cantidades, aprendimos que la suma de cantidades iguales se conoce como multiplicación (<htcite1>). Esta generalización de la suma permitió grandes avances, como la creación de calendarios, por ejemplo la Piedra del Sol Azteca, en América (*Abya Yala*) (**Figura 4**), cuyos elementos siempre están agrupados en cantidades iguales (<htcite2>).",
+               "text": "En este proceso, también aprendimos que la suma es conmutativa, es decir, independientemente del orden en que sumemos dos números, el resultado será el mismo (<htcite0>).\n\n#### Multiplicando cantidades\n\nContinuando con el estudio sobre cómo acumular cantidades, aprendimos que la suma de cantidades iguales se conoce como multiplicación (<htcite1>). Esta generalización de la suma permitió grandes avances, como la creación de calendarios, por ejemplo, la Piedra del Sol Azteca, en América (*Abya Yala*) (**Figura 4**), cuyos elementos siempre están agrupados en cantidades iguales (<htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -480,7 +482,7 @@
                   }
                ],
                "isTable": false,
-               "imgdesc": "En esta imagen, vemos la representación de una divinidad comúnmente asociada al Sol en el centro. Alrededor de esta divinidad, se observan diferentes círculos y textos que ayudan en la marcación del tiempo.",
+               "imgdesc": "En esta imagen, vemos en el centro la representación de una divinidad comúnmente asociada al Sol. Alrededor de esta divinidad, se observan diferentes círculos y textos que ayudan en la marcación del tiempo.",
                "format": "html",
                "PostMention": ""
             },
@@ -504,7 +506,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
                "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de las tablas del cero al nueve conectados, formando las rectas. Gráfico creado con la biblioteca <htcite0>.</div></p>",
@@ -529,7 +531,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Juntos\n\nTambién exploramos la relación entre la suma y la multiplicación para entender, entre otras cosas, nuestra edad. En el estudio, aprendimos que, mientras el valor constante de la multiplicación en una tabla actúa como algo que mide la apertura de una recta desde la horizontal, al sumar valores los estamos desplazando en la vertical (<htcite0>).",
+               "text": "#### Juntos\n\nTambién exploramos la relación entre la suma y la multiplicación para entender, entre otras cosas, nuestra edad. En el estudio, aprendimos que, mientras el valor constante de la multiplicación en una tabla define cuánto se abre una recta respecto de la horizontal, al sumar valores la desplazamos en la vertical (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -556,7 +558,7 @@
          "id": "SECTION_div_sub",
          "text": [
             {
-               "text": "### Compartiendo\n\nDespués de comprender las agrupaciones mediante sumas y multiplicaciones, pasamos a estudiar el proceso inverso: el compartir, siempre destacando que cuando esto ocurre en la naturaleza, nada se pierde; todo se transforma o se mueve (<htcite0>).\n\n#### División\n\nEl estudio de la división se realizó a partir del análisis de los primeros momentos del universo (**Figura 5**). A través de este estudio, observamos que todo lo que existe se originó en un espacio más pequeño del que tenemos hoy y que, desde entonces, el universo ha estado expandiéndose (<htcite1>).",
+               "text": "### Compartiendo\n\nDespués de comprender las agrupaciones mediante sumas y multiplicaciones, pasamos a estudiar el proceso inverso: el compartir, siempre destacando que cuando esto ocurre en la naturaleza, nada se pierde; todo se transforma o se mueve (<htcite0>).\n\n#### División\n\nEl estudio de la división se realizó a partir del análisis de los primeros momentos del universo (**Figura 5**). A través de este estudio, observamos que todo lo que existe se originó en un espacio más pequeño que el que tenemos hoy y que, desde entonces, el universo ha estado expandiéndose (<htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -621,7 +623,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mi>Numerador</mi></mrow><mrow><mi>Denominador</mi></mrow></mfrac></math></p><p class=\"desc\"><b>Fórmula 3</b>: Elementos de una fracción.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mi>Numerador</mi></mrow><mrow><mi>Denominador</mi></mrow></mfrac></math></p><p class=\"desc\"><b>Fórmula 1</b>: Elementos de una fracción.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -630,7 +632,7 @@
                "PostMention": ""
             },
             {
-               "text": "En el estudio de la división y las fracciones, observamos que en ciertas situaciones, cuando no estamos dividiendo un múltiplo exacto de un número, quedarán restos en esta división (<htcite0>). Este hecho nos condujo a una nueva operación matemática: la resta.\n\n#### Resta\n\nAl estudiar la resta, observamos que esta operación también puede entenderse a través de movimientos presentes en la naturaleza (<htcite1>).",
+               "text": "En el estudio de la división y las fracciones, observamos que en ciertas situaciones, cuando el número que dividimos no es múltiplo exacto del divisor, quedarán restos en esta división (<htcite0>). Este hecho nos condujo a una nueva operación matemática: la resta.\n\n#### Resta\n\nAl estudiar la resta, observamos que esta operación también puede entenderse a través de movimientos presentes en la naturaleza (<htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -713,7 +715,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img  id=\"imgShona\" onclick=\"htImageZoom('imgShona', '0%')\" class=\"imgcenter\"/><b>Figura 6</b>: Fotos de la cocina Shona. En la parte superior izquierda, vemos una foto de la cocina con la puerta cerrada. En la parte superior derecha, vemos la parte trasera de la cocina. En la parte inferior, hay imágenes del interior de la construcción. Estas fotos fueron tomadas por Brian Z. Muratu (<htcite0>) y se están utilizando bajo los términos definidos por la Universidad de Johannesburgo, que compartió la disertación bajo la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike</a>.</p>",
+               "text": "<p class=\"desc\"><img  id=\"imgShona\" onclick=\"htImageZoom('imgShona', '0%')\" class=\"imgcenter\"/><b>Figura 6</b>: Fotos de la cocina Shona. En la parte superior izquierda, vemos una foto de la cocina con la puerta cerrada. En la parte superior derecha, vemos la parte trasera de la cocina. En la parte inferior, hay imágenes del interior de la construcción. Estas fotos fueron tomadas por Brian Z. Muratu (<htcite0>) y se están utilizando bajo los términos definidos por la Universidad de Johannesburgo, que compartió la disertación bajo la licencia <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA 4.0)</a>.</p>",
                "source": [
                   {
                      "type": 1,
@@ -757,7 +759,16 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; <span>20</span> </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp;  <span>20</span></td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>0</span></td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 3</b>: División de 320 entre 5.</p>",
+               "text": "<p class=\"htLongDivisionFormat\"><b>Formato de la división:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Resultado abajo</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Resultado arriba</button></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"htLongDivision\" style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 5 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>64</td></tr><tr><td>&nbsp;&nbsp;&nbsp; <span>20</span> </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp;  <span>20</span></td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>0</span></td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 3</b>: División de 320 entre 5.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -892,7 +903,7 @@
       {
          "question": "¿Las cantidades desaparecen en la resta y la división?",
          "yesNoAnswer": "No",
-         "additionalInfo": "En la naturaleza, cuando la materia se divide o se traslada de un lugar a otro, sigue existiendo. Por lo tanto, estas operaciones matemáticas no destruyen contenidos, solo modifican la cantidad original."
+         "additionalInfo": "En la naturaleza, cuando la materia se divide o se traslada de un lugar a otro, sigue existiendo. Por lo tanto, estas operaciones matemáticas no destruyen la materia, solo modifican la cantidad original."
       }
    ],
    "game_v2": null,

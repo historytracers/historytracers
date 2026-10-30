@@ -1,0 +1,133 @@
+{
+   "title": "Multiplying with Groups (0 to 3)",
+   "header": "Multiplying with Groups (0 to 3)",
+   "sources": [
+      "f641941e-55f0-40dd-a05f-81392b23cacd"
+   ],
+   "scripts": [
+      "f641941e-55f0-40dd-a05f-81392b23cacd"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f641941e-55f0-40dd-a05f-81392b23cacd_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0rZS4PDgsKXLxZifmNfVVA?si=cx0OV3KfQxmXkwgpoq4UqQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792722754"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game practices the multiplication tables of 0, 1, 2 and 3. Before you play, we suggest reviewing:\n\n- **Multiplying with the body (Level 1)**: a game to practice multiplication with the times tables you already know (<htcite0>)\n- **Understanding the Multiplication Table (0 and 1)**: how the multiplication tables of 0 and 1 work (<htcite2>)\n- **Understanding the Multiplication Table (2 and 3)**: how multiplication relates to triangles and to the multiplication table (<htcite1>)\n\nThose activities prepare you to see each multiplication here as a picture of equal groups.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "59648475-3d23-45fe-8d6e-f3def1a2729b",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with the body (Level 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f7f4988d-1427-4e26-a6a8-c375c57924c7",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (2 and 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2acc8c3a-8b10-4b67-8d70-ec1113e691c4",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### General rules\n\nThis game helps you see multiplication as equal groups. On the left, you will see a multiplication; on the right, its result appears together with a picture of groups of characters.\n\nEach rectangle on the right is one group. Every rectangle holds as many characters as the first factor, and the number of rectangles is the second factor. For example, 2 × 4 shows two characters in each of four rectangles — that is four groups of two, and the result is 8. When the first factor is 0, no characters appear, because zero times any number is zero.\n\nThe game has three levels:\n\n- **Level 1**: three multiplications — one from the 0 times table and two from the 1 times table.\n- **Level 2**: two multiplications, both from the 2 times table.\n- **Level 3**: two multiplications, both from the 3 times table.\n\nTo play, select a multiplication on the left and then its result on the right. If the pair is correct, both stay highlighted. When you match every pair, you complete the level and can move on to the next one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The Game\n\nMatch each multiplication on the left with its result on the right. The result also appears as groups of characters, so you can count them to check your answer. If a pair is wrong, a message will ask you to try again.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupLevel\" class=\"level-badge\"></span></p><p><div id=\"multGroupGame\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupLeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupRightCol\"></div></div></p><p id=\"multGroupFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupLevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the pairs in this level!</p><p id=\"multGroupAllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the multiplications!</p><p style=\"text-align: center\"><button id=\"multGroupReset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"multGroupNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupWordLevel\" style=\"display: none\">Level</span><span id=\"multGroupWordNextLevel\" style=\"display: none\">Next level</span><span id=\"multGroupWordPlayAgain\" style=\"display: none\">Play again</span><span id=\"multGroupWordWrongPair\" style=\"display: none\">%RESULT% is not the result of %EXPRESSION%. Count the characters and try again.</span><span id=\"multGroupWordGroups\" style=\"display: none\">Groups: %COUNT%. Characters per group: %SIZE%.</span><span id=\"multGroupWordNoGroups\" style=\"display: none\">No groups.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

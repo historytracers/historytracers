@@ -14,7 +14,7 @@
          "spotify": false
       },
       {
-         "url": "https://open.spotify.com/episode/5tLtBUkhlcz8wOlnVsYGOc?si=VcNslAvuTXeKYtH5uCyPUw",
+         "url": "https://open.spotify.com/episode/65TnrGPUWmT3yNF3t09qo5?si=ubcReQoySoWAe95PpR0npg",
          "external": true,
          "spotify": true
       }
@@ -31,13 +31,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791382572"
+      "1792601238"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -47,7 +47,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Pré-requisitos\n\nEste texto trás um aplicativo para o leitor treinar a divisão. Para melhor compreendê-lo, recomendamos o estudo dos textos anteriores deste capítulo (<htcite0>).",
+               "text": "### Pré-requisitos\n\nEste texto apresenta um aplicativo para praticar a divisão. Antes de usá-lo, recomendamos estudar os textos anteriores deste capítulo (<htcite0>), que introduzem as tabelas de multiplicação e outras ideias básicas de que você precisará aqui.",
                "source": [
                   {
                      "type": 1,
@@ -74,8 +74,21 @@
          "id": "SECTION_practicing",
          "text": [
             {
-               "text": "### Praticando\n\nA leitura de um texto pode parecer suficiente, mas a prática é essencial para a compreensão completa. Neste texto, temos um aplicativo que, por padrão, escolhe números aleatoriamente no campo **Tabuada**; porém, se desejar estudar apenas uma, você poderá selecionar a tabuada de 1 a 9. Por meio desse aplicativo, é possível praticar a divisão utilizando o que conhecemos como **algorítimo de divisão longa**.\n\nNa tabela a seguir, propomos a divisão de um número por outro. Antes de utilizar as setas laterais (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) para conferir o resultado, tente calculá-la.\n\nAo concluir, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) e poderá fazer um novo cálculo clicando no botão correspondente (<i class=\"fa-solid fa-chevron-right\"></i>):",
-               "source": null,
+               "text": "### Praticando\n\nLer um texto é um bom começo, mas compreender de verdade a divisão exige prática. Neste aplicativo, o menu **Tabelas de multiplicação** permite escolher com qual tabela trabalhar. Por padrão, está definido como **Aleatório**, de modo que um novo divisor é escolhido cada vez; se você preferir se concentrar em uma única tabela, selecione um número de 1 a 9.\n\nO exercício usa o **algoritmo da divisão** (<htcite0>), o método passo a passo para dividir números à mão. Lembre-se: quando um número não divide outro exatamente, o que sobra é chamado de **resto**.\n\nNa tabela a seguir, propomos dividir um número por outro. Use as setas laterais (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) para conferir cada parte do cálculo e tente descobrir a resposta antes de olhá-la.\n\nQuando terminar, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>). Clique na seta para a direita (<i class=\"fa-solid fa-chevron-right\"></i>) para iniciar um novo cálculo.\n\nOs botões de **Formato da divisão** permitem escolher como a divisão é escrita: com o **Resultado abaixo** da barra (como em muitos livros escolares) ou com o **Resultado acima** dela (um formato que aparece em documentos matemáticos históricos).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4742a2d6-a3c5-4883-beb5-8ed0240fa9a7",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Divisão longa",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -83,7 +96,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><b>Tabuada:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "text": "<p><b>Tabelas de multiplicação:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select></p><p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -92,7 +105,16 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">Divisão</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\"><b>Tabela 1</b>: Exercício de divisão entre dois números.</p>",
+               "text": "<p class=\"htLongDivisionFormat\"><b>Formato da divisão:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Resultado abaixo</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Resultado acima</button></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">Divisão</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\"><b>Tabela 1</b>: Exercício de divisão com dois números.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
