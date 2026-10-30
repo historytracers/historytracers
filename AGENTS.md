@@ -35,6 +35,31 @@ A "group of files" is identified by a single UUID, e.g. `e0380670-cd02-46e8-abb8
    - `build/historytracers-publisher -checksources` — checks citation year/published consistency.
 8. Regenerate the compiled outputs: `build/historytracers-publisher -minify`. This updates `css/ht_math.css`, `index.html` (cache-busting version stamps), and `www/`. It may also rewrite unrelated files in the `common` submodule — revert those with `git checkout` in `common` if they are unrelated to the change.
 
+## Agent-facing discovery files
+
+The repository root contains static files used by search engines, agents and AI clients. They are **source files**, copied to `www/` by `-minify` (see `htAgentFiles` in `src/publisher/minify.go`). Edit the root copies only; never edit `www/`. Keep them in sync with the site content and with each other.
+
+| File | Update when |
+| --- | --- |
+| `robots.txt` | Crawl policy, `Content-Signal`, domain, or sitemap URL changes. |
+| `sitemap.xml` | **Generated automatically** by `-minify` from `lang/en-US/*.json`; do not hand-edit. New UUID content is picked up automatically. If a new page type or index file is added, update `htSitemapInternalPages` / `htSitemapNonUUIDPages` in `src/publisher/minify.go` and regenerate. |
+| `llms.txt` | Project description, primary navigation, license, contact details, email or social profiles change. |
+| `index.md` | Same facts as `llms.txt`, plus the Markdown representation of the homepage changes. |
+| `index.html` | Meta description, canonical URL, JSON-LD (`Organization`/`WebSite`/`CollectionPage`, `sameAs`, `contactPoint`), Markdown alternate link, the single `<h1>`, footer links or the WebMCP tool registration change. |
+| `.well-known/mcp/server-card.json` | The WebMCP tool name, description, `inputSchema`, transport or endpoint changes. Mirror the same change in the inline WebMCP script in `index.html`. |
+| `.htaccess` | Markdown content negotiation or `Link`/`Vary` headers change. Keep the homepage rewrite restricted to the bare homepage (`RewriteCond %{QUERY_STRING} ^$`) so content pages are not replaced by `index.md`. |
+
+When updating these files:
+
+1. Keep `index.html` JSON-LD, `llms.txt`, `index.md` and `server-card.json` consistent (same description, contact email, license and profile URLs).
+2. Keep exactly one `<h1>` in `index.html`.
+3. Verify LF-only line endings for every file.
+4. Validate JSON with `python3 -c "import json; json.load(open('<file>'))"` and XML with `python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml')"`.
+5. Run `build/historytracers-publisher -globalangtest` and `-checksources`.
+6. Run `build/historytracers-publisher -minify`, then confirm `robots.txt`, `llms.txt`, `index.md`, `.htaccess`, `.well-known/mcp/server-card.json` and `sitemap.xml` match their `www/` copies.
+7. Render the homepage with headless Chromium at ~320px, ~768px and desktop widths and confirm `scrollWidth <= clientWidth`.
+8. Do not commit or push; leave the changes for human review.
+
 ## Converting class files to smartphone files
 
 Class content (`lang/XX-YY/<class-uuid>.json`) has a smartphone counterpart in `common/src/smartphone/XX-YY/<sm-uuid>.json`. The smartphone version is a condensed, screen-by-screen adaptation. Steps to add or update a smartphone file:

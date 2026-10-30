@@ -1,0 +1,37 @@
+{
+  "name": "historytracers",
+  "version": "1.0.0",
+  "description": "In-browser WebMCP tools for the History Tracers educational website.",
+  "endpoint": "https://www.historytracers.org/",
+  "transport": {
+    "type": "webmcp",
+    "url": "https://www.historytracers.org/"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "open_history_tracers_page",
+      "description": "Open a History Tracers page by page name and optional content UUID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Page name, for example class_content, physics, chemistry, atlas, history, literature, families or math_games."
+          },
+          "arg": {
+            "type": "string",
+            "description": "Optional content UUID or page argument, used with class_content and tree pages."
+          }
+        },
+        "required": [
+          "page"
+        ]
+      }
+    }
+  ]
+}
