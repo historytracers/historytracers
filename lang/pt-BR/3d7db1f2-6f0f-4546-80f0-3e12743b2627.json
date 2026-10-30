@@ -1,0 +1,523 @@
+{
+   "title": "Aprendendo as Tabuadas (Resumo)",
+   "header": "Aprendendo as Tabuadas (Resumo)",
+   "sources": [
+      "3d7db1f2-6f0f-4546-80f0-3e12743b2627"
+   ],
+   "scripts": [
+      "3d7db1f2-6f0f-4546-80f0-3e12743b2627"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793329658"
+   ],
+   "authors": null,
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste resumo reúne os cinco textos que apresentam as dez tabuadas de multiplicação. Leia-os em ordem antes de continuar:\n\n- **Aprendendo a Tabuada (0 e 1)**: as regras para multiplicar por zero e por um (<htcite0>)\n- **Aprendendo a Tabuada (2 e 3)**: o dobro, o triplo e as primeiras fórmulas (<htcite1>)\n- **Aprendendo a Tabuada (4 e 5)**: quadrados, retângulos, mãos e contagem de quatro em quatro e de cinco em cinco (<htcite2>)\n- **Aprendendo a Tabuada (6 e 7)**: flores, semanas e contagem de seis em seis e de sete em sete (<htcite3>)\n- **Aprendendo a Tabuada (8 e 9)**: octógonos, eneágonos e contagem de oito em oito e de nove em nove (<htcite4>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "da2e2b37-7b63-4ba8-8ddd-e72535068258",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (2 e 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3bc9800d-aa41-4930-84f4-749eb6e40657",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (4 e 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (6 e 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f15f6887-65b2-4622-a7d7-8d789fc8e2a1",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (8 e 9)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nUma tabuada é um mapa de respostas. Cada linha mostra o que acontece quando somamos o mesmo número repetidamente. O número que somamos é um **fator**, a quantidade de vezes que o somamos é o outro **fator**, e a resposta é o **produto**.\n\nNos cinco textos anteriores, construímos as tabuadas com grupos que podemos ver e tocar: pratos vazios, pares de meias, triângulos, quadrados, dedos, pétalas de flores, dias da semana, octógonos e eneágonos. A ideia foi sempre a mesma: **multiplicar é uma forma rápida de somar o mesmo número várias vezes**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: O mesmo produto, outra ordem</b><br /><br />Pare e pense: por que 4 × 5 e 5 × 4 dão o mesmo produto? Tente explicar usando grupos de objetos.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Esta é a resposta da nossa reflexão: 4 × 5 significa quatro grupos de cinco, e 5 × 4 significa cinco grupos de quatro. As duas organizações contêm vinte objetos, então os dois produtos são 20. Esta é a **propriedade comutativa** da multiplicação: mudar a ordem dos fatores não muda o produto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_special",
+         "text": [
+            {
+               "text": "### As tabuadas especiais: 0 e 1",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Duas tabuadas seguem uma única regra para qualquer número. Multiplicar por zero sempre dá zero, porque zero grupos de qualquer coisa não contêm nada:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabuada do zero:** 0 × N = 0. Por exemplo, 0 × 9 = 0 e 12 × 0 = 0.\n- **Tabuada do um:** 1 × N = N. Por exemplo, 1 × 7 = 7 e 20 × 1 = 20.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Essas duas regras são a base de todas as outras tabuadas. Elas também funcionam quando a ordem muda: 9 × 0 = 0 × 9 = 0, e 7 × 1 = 1 × 7 = 7.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_two_three",
+         "text": [
+            {
+               "text": "### O dobro e o triplo: 2 e 3",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Multiplicar por dois significa somar o número duas vezes, então o produto é o **dobro** do número:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabuada do dois:** 2 × N = N + N. Contar de dois em dois dá 2, 4, 6, 8, 10...\n- **Tabuada do três:** 3 × N = N + N + N. Contar de três em três dá 3, 6, 9, 12, 15...",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Por exemplo, 2 × 6 = 6 + 6 = 12 e 3 × 4 = 4 + 4 + 4 = 12. Observe que 2 × 3 = 3 × 2 = 6: a ordem dos fatores não muda o produto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Um atalho útil: como 2 × N é o dobro de N, todos os produtos da tabuada do dois são **números pares**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_four_five",
+         "text": [
+            {
+               "text": "### Quadrados e mãos: 4 e 5",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Um quadrado tem quatro lados, e uma mão tem cinco dedos. Esses grupos ajudam a construir as duas tabuadas seguintes:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabuada do quatro:** 4 × N = N + N + N + N. Contar de quatro em quatro dá 4, 8, 12, 16, 20...\n- **Tabuada do cinco:** 5 × N = N + N + N + N + N. Contar de cinco em cinco dá 5, 10, 15, 20, 25...",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Por exemplo, 4 × 5 = 5 + 5 + 5 + 5 = 20 e 5 × 4 = 4 + 4 + 4 + 4 + 4 = 20. Mais uma vez, 4 × 5 = 5 × 4.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Dois atalhos ajudam aqui: como 4 = 2 × 2, a tabuada do quatro é a tabuada do dois dobrada; e todos os produtos da tabuada do cinco terminam em 0 ou 5.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_six_seven",
+         "text": [
+            {
+               "text": "### Flores e semanas: 6 e 7",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Uma flor com seis pétalas e uma semana com sete dias nos dão os dois grupos seguintes:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabuada do seis:** 6 × N = N + N + N + N + N + N. Contar de seis em seis dá 6, 12, 18, 24, 30...\n- **Tabuada do sete:** 7 × N = N + N + N + N + N + N + N. Contar de sete em sete dá 7, 14, 21, 28, 35...",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Por exemplo, 6 × 7 = 42 e 7 × 6 = 42. Mudar a ordem dos fatores não muda o produto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Dois atalhos ajudam aqui: como 6 = 3 × 2, a tabuada do seis é a tabuada do três dobrada; e cada produto de sete é o produto correspondente de seis mais N, então 7 × 5 = 30 + 5 = 35.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_eight_nine",
+         "text": [
+            {
+               "text": "### Octógonos e eneágonos: 8 e 9",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Um octógono tem oito lados, e um eneágono (também chamado de nonágono) tem nove lados. Essas figuras nos dão as duas últimas tabuadas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabuada do oito:** 8 × N = N + N + N + N + N + N + N + N. Contar de oito em oito dá 8, 16, 24, 32, 40...\n- **Tabuada do nove:** 9 × N = N + N + N + N + N + N + N + N + N. Contar de nove em nove dá 9, 18, 27, 36, 45...",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Por exemplo, 8 × 9 = 72 e 9 × 8 = 72. A ordem dos fatores continua sem mudar o produto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Um atalho especial para a tabuada do nove: some os dígitos de cada produto de dois algarismos. Para 9 × 8 = 72, 7 + 2 = 9; para 9 × 6 = 54, 5 + 4 = 9. Os dígitos sempre somam 9.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_glance",
+         "text": [
+            {
+               "text": "### As dez tabuadas de relance",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "A tabela abaixo resume as dez tabuadas. Use-a como referência rápida quando precisar conferir um produto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"tableTen\"><tr><th>Tabuada</th><th>O que significa</th></tr><tr><td><b>0</b></td><td>0 × N = 0. Contar de zero em zero sempre dá 0.</td></tr><tr><td><b>1</b></td><td>1 × N = N. Contar de um em um dá 1, 2, 3, 4, 5...</td></tr><tr><td><b>2</b></td><td>2 × N = N + N. Contar de dois em dois dá 2, 4, 6, 8, 10...</td></tr><tr><td><b>3</b></td><td>3 × N = N + N + N. Contar de três em três dá 3, 6, 9, 12, 15...</td></tr><tr><td><b>4</b></td><td>4 × N = N + N + N + N. Contar de quatro em quatro dá 4, 8, 12, 16, 20...</td></tr><tr><td><b>5</b></td><td>5 × N = N + N + N + N + N. Contar de cinco em cinco dá 5, 10, 15, 20, 25...</td></tr><tr><td><b>6</b></td><td>6 × N = N somado seis vezes. Contar de seis em seis dá 6, 12, 18, 24, 30...</td></tr><tr><td><b>7</b></td><td>7 × N = N somado sete vezes. Contar de sete em sete dá 7, 14, 21, 28, 35...</td></tr><tr><td><b>8</b></td><td>8 × N = N somado oito vezes. Contar de oito em oito dá 8, 16, 24, 32, 40...</td></tr><tr><td><b>9</b></td><td>9 × N = N somado nove vezes. Contar de nove em nove dá 9, 18, 27, 36, 45...</td></tr></table></p><p class=\"desc\"><b>Table 1</b>: As dez tabuadas de multiplicação de relance.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_formula",
+         "text": [
+            {
+               "text": "### A fórmula geral",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "As dez tabuadas podem ser escritas com uma única fórmula:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>r</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>a</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi></math></p><p class=\"desc\"><b>Formula 1</b>: A fórmula geral das tabuadas de multiplicação.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nesta fórmula:\n\n- **r** é o **produto**, a resposta da multiplicação.\n- **N** é o número que está sendo contado; pode ser qualquer número.\n- **a** é o fator que dá nome à tabuada: 0, 1, 2, 3, 4, 5, 6, 7, 8 ou 9.\n\nComo a ordem dos fatores não muda o produto, também podemos escrever **a × N = N × a**. Por exemplo, com **a** = 8 e **N** = 9, tanto 8 × 9 quanto 9 × 8 dão 72.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Revisamos as dez tabuadas de multiplicação e vimos que elas não são dez truques separados. Todas vêm da mesma ideia: somar o mesmo número várias vezes.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "- **0 e 1** são especiais: 0 × N = 0 e 1 × N = N.\n- **De 2 a 9** são sequências de contagem: conte de dois em dois, de três em três, de quatro em quatro, de cinco em cinco, de seis em seis, de sete em sete, de oito em oito e de nove em nove.\n- **A fórmula geral** r = a × N resume todas as tabuadas.\n- **A comutatividade** significa que a × N = N × a, então a ordem dos fatores não muda o produto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Continue praticando com objetos e diga as sequências em voz alta. Quando precisar conferir um produto, volte aos cinco textos e use as tabuadas interativas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "0 × 15 é igual a 0?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Zero grupos de quinze não contêm nada, então 0 × 15 = 0."
+      },
+      {
+         "question": "Multiplicar um número por 1 muda o número?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Multiplicar por um mantém o número sem mudanças: 1 × 9 = 9."
+      },
+      {
+         "question": "4 × 6 é igual a 24?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Quatro grupos de seis são 6 + 6 + 6 + 6 = 24."
+      },
+      {
+         "question": "Mudar a ordem dos fatores muda o produto?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "A multiplicação é comutativa: 7 × 9 = 9 × 7 = 63."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
