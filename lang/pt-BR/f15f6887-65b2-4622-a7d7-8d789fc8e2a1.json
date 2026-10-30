@@ -1,0 +1,431 @@
+{
+   "title": "Aprendendo a Tabuada (8 e 9)",
+   "header": "Aprendendo a Tabuada (8 e 9)",
+   "sources": [
+      "f15f6887-65b2-4622-a7d7-8d789fc8e2a1"
+   ],
+   "scripts": [
+      "f15f6887-65b2-4622-a7d7-8d789fc8e2a1"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f15f6887-65b2-4622-a7d7-8d789fc8e2a1_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5158xfViLOc7albRr69hQj?si=t23NUOoyTH2sKct7RNmIPg",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793307846"
+   ],
+   "authors": null,
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nAntes de começar, recomendamos ler *Aprendendo a Tabuada (6 e 7)* (<htcite0>), onde você aprendeu a multiplicar por seis e por sete.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (6 e 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nUma tabuada é como um mapa de respostas: quando conhecemos o mapa, não precisamos mais contar tudo de novo. Lembre-se do texto anterior: multiplicar por seis e por sete significa somar o mesmo número seis ou sete vezes. O resultado de uma multiplicação chama-se **produto**. Hoje vamos aprender mais dois mapas: a tabuada do oito (8) e a tabuada do nove (9).\n\nAntes de contar, vamos observar algumas figuras. Uma figura com lados retos é chamada de **polígono** (<htcite0>). Damos um nome a cada polígono contando seus lados:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b7f0c5a2-3e64-4c1d-9a8b-2f6d5e7c9a10",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Polygon",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "- Um **triângulo** tem 3 lados.\n- Um **quadrilátero** tem 4 lados.\n- Um **pentágono** tem 5 lados.\n- Um **hexágono** tem 6 lados.\n- Um **heptágono** tem 7 lados.\n- Um **octógono** tem 8 lados.\n- Um **eneágono** (também chamado de **nonágono**) tem 9 lados.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Olhe para a **Figura 1**. Conte os lados de cada figura com o dedo. O número embaixo de cada figura mostra quantos lados ela tem.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 330 440\" width=\"100%\" role=\"img\" aria-label=\"Polígonos com 3, 4, 5, 6, 7, 8 e 9 lados\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"60.0,36.0 89.4,87.0 30.6,87.0\" fill=\"#e8f5e9\"/><polygon points=\"165.0,36.0 199.0,70.0 165.0,104.0 131.0,70.0\" fill=\"#e3f2fd\"/><polygon points=\"270.0,36.0 302.3,59.5 290.0,97.5 250.0,97.5 237.7,59.5\" fill=\"#fff3e0\"/><polygon points=\"60.0,176.0 89.4,193.0 89.4,227.0 60.0,244.0 30.6,227.0 30.6,193.0\" fill=\"#f3e5f5\"/><polygon points=\"165.0,176.0 191.6,188.8 198.1,217.6 179.8,240.6 150.2,240.6 131.9,217.6 138.4,188.8\" fill=\"#e0f7fa\"/><polygon points=\"270.0,176.0 294.0,186.0 304.0,210.0 294.0,234.0 270.0,244.0 246.0,234.0 236.0,210.0 246.0,186.0\" fill=\"#fce4ec\"/><polygon points=\"165.0,316.0 186.9,324.0 198.5,344.1 194.4,367.0 176.6,381.9 153.4,381.9 135.6,367.0 131.5,344.1 143.1,324.0\" fill=\"#fff9c4\"/></g><g font-family=\"Arial, Helvetica, sans-serif\" text-anchor=\"middle\" fill=\"#1b5e20\"><text x=\"60\" y=\"122\" font-size=\"13\" font-weight=\"bold\">Triângulo</text><text x=\"60\" y=\"138\" font-size=\"12\">3 lados</text><text x=\"165\" y=\"122\" font-size=\"13\" font-weight=\"bold\">Quadrilátero</text><text x=\"165\" y=\"138\" font-size=\"12\">4 lados</text><text x=\"270\" y=\"122\" font-size=\"13\" font-weight=\"bold\">Pentágono</text><text x=\"270\" y=\"138\" font-size=\"12\">5 lados</text><text x=\"60\" y=\"262\" font-size=\"13\" font-weight=\"bold\">Hexágono</text><text x=\"60\" y=\"278\" font-size=\"12\">6 lados</text><text x=\"165\" y=\"262\" font-size=\"13\" font-weight=\"bold\">Heptágono</text><text x=\"165\" y=\"278\" font-size=\"12\">7 lados</text><text x=\"270\" y=\"262\" font-size=\"13\" font-weight=\"bold\">Octógono</text><text x=\"270\" y=\"278\" font-size=\"12\">8 lados</text><text x=\"165\" y=\"402\" font-size=\"13\" font-weight=\"bold\">Eneágono</text><text x=\"165\" y=\"418\" font-size=\"12\">9 lados</text></g></svg></p><p class=\"desc\"><b>Figura 1</b>: Polígonos com 3, 4, 5, 6, 7, 8 e 9 lados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Sete polígonos, com 3, 4, 5, 6, 7, 8 e 9 lados, etiquetados com o número de lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Uma tabuada para os lados</b><br /><br />Pause e pense: podemos criar uma tabuada para contar os lados de figuras como estas? O que mostraria cada linha da tabuada?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aqui está a resposta da nossa reflexão: sim! Podemos contar cada figura em grupos que combinem com seu número de lados. Um octógono tem 8 lados, então podemos contar de oito em oito: 8, 16, 24... Um eneágono tem 9 lados, então podemos contar de nove em nove: 9, 18, 27... A seguir vamos construir estas duas tabuadas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_eight",
+         "text": [
+            {
+               "text": "### Multiplicar por oito (8)\n\nAgora vamos para a tabuada do oito. Multiplicar por oito significa somar o mesmo número oito vezes.\n\nUm octógono tem oito lados retos (<htcite0>). Um octógono tem 8 lados. Dois octógonos têm 8 + 8 = 16 lados. Estamos contando de oito em oito: 8, 16, 24, 32, 40... Cada passo é uma multiplicação a mais: 8 × 1 = 8, 8 × 2 = 16, 8 × 3 = 24, e assim por diante.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6d2e8f14-9b3a-4c7e-8d51-0a2f4b6c8e31",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Octagon",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 200\" width=\"100%\" role=\"img\" aria-label=\"Um octógono com oito lados\"><polygon points=\"180.0,25.0 233.0,47.0 255.0,100.0 233.0,153.0 180.0,175.0 127.0,153.0 105.0,100.0 127.0,47.0\" fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"4\" stroke-linejoin=\"round\"/><text x=\"180\" y=\"124\" text-anchor=\"middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"38\" font-weight=\"bold\" fill=\"#2e7d32\">8</text></svg></p><p class=\"desc\"><b>Figura 2</b>: Um octógono tem 8 lados. Cada lado é uma unidade do nosso grupo de oito.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Um octógono com oito lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 150\" width=\"100%\" role=\"img\" aria-label=\"Cinco octógonos, cada um com oito lados\"><g stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"64.0,37.0 90.9,48.1 102.0,75.0 90.9,101.9 64.0,113.0 37.1,101.9 26.0,75.0 37.1,48.1\" fill=\"#e8f5e9\" stroke=\"#2e7d32\"/><polygon points=\"192.0,37.0 218.9,48.1 230.0,75.0 218.9,101.9 192.0,113.0 165.1,101.9 154.0,75.0 165.1,48.1\" fill=\"#e3f2fd\" stroke=\"#1565c0\"/><polygon points=\"320.0,37.0 346.9,48.1 358.0,75.0 346.9,101.9 320.0,113.0 293.1,101.9 282.0,75.0 293.1,48.1\" fill=\"#fff3e0\" stroke=\"#ef6c00\"/><polygon points=\"448.0,37.0 474.9,48.1 486.0,75.0 474.9,101.9 448.0,113.0 421.1,101.9 410.0,75.0 421.1,48.1\" fill=\"#f3e5f5\" stroke=\"#6a1b9a\"/><polygon points=\"576.0,37.0 602.9,48.1 614.0,75.0 602.9,101.9 576.0,113.0 549.1,101.9 538.0,75.0 549.1,48.1\" fill=\"#fce4ec\" stroke=\"#ad1457\"/></g></svg></p><p class=\"desc\"><b>Figura 3</b>: Cinco octógonos do mesmo tamanho, cada um com oito lados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Cinco octógonos do mesmo tamanho, cada um com oito lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Lados de octógonos</b><br />Olhe para a Figura 3: ela mostra 5 octógonos e, juntos, eles têm 8 + 8 + 8 + 8 + 8 = 40 lados. Cada octógono tem 8 lados. Vamos supor que queremos contar os lados de vários octógonos. Experimente com diferentes quantidades de octógonos:<br />• 1 octógono: 8 × 1 = 8 lados.<br />• 2 octógonos: 8 × 2 = 16 lados.<br />• 4 octógonos: 8 × 4 = 32 lados.<br />• 5 octógonos: 8 × 5 = 40 lados.<br />Diga a sequência em voz alta: oito, dezesseis, vinte e quatro, trinta e dois, quarenta. Você vê o padrão? Cada octógono novo acrescenta mais 8 lados. Isso é contar de oito em oito: 8, 16, 24, 32, 40!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Uma fórmula para a tabuada do oito\n\nPodemos escrever esta regra como uma fórmula que funciona para qualquer número **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 1</b>: Multiplicar qualquer número por oito é o mesmo que somá-lo oito vezes.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Leia em voz alta: “oito vezes N é igual a N mais N mais N mais N mais N mais N mais N mais N”.\n- O produto é sempre N somado a si mesmo oito vezes.\n- **N** é um espaço para qualquer número que você quiser, então uma só regra cobre todas as multiplicações por oito de uma vez.\n- Por exemplo, se **N** for 3, então 8 × 3 = 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 = 24.\n- Se **N** for 0, o produto é 0; se **N** for 1, o produto é 8 — exatamente o que vimos na tabuada do zero e na tabuada do um.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora é a sua vez: passe o mouse sobre cada multiplicação no quadro da esquerda. Enquanto faz isso, a tabela da direita destaca a linha correspondente, assim você pode ver cada resposta da tabuada do oito aparecer uma a uma.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent8\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Três octógonos</b><br /><br />Pause e pense: se um octógono tem 8 lados, quantos lados têm 3 octógonos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aqui está a resposta da nossa reflexão: três octógonos têm 8 + 8 + 8 = 24 lados, então 8 × 3 = 24. Contar de oito em oito três vezes também dá 8, 16, 24.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_nine",
+         "text": [
+            {
+               "text": "### Multiplicar por nove (9)\n\nAgora vamos para a tabuada do nove. Multiplicar por nove significa somar o mesmo número nove vezes.\n\nUm eneágono, também chamado de nonágono, tem nove lados retos (<htcite0>). Um eneágono tem 9 lados. Dois eneágonos têm 9 + 9 = 18 lados. Estamos contando de nove em nove: 9, 18, 27, 36, 45... Cada passo é uma multiplicação a mais: 9 × 1 = 9, 9 × 2 = 18, 9 × 3 = 27, e assim por diante.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c4a9e7b3-5d1f-4a82-9c6e-7b3d0f2a5c94",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Nonagon",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 210\" width=\"100%\" role=\"img\" aria-label=\"Um eneágono com nove lados\"><polygon points=\"180.0,27.0 230.1,45.2 256.8,91.5 247.5,144.0 206.7,178.3 153.3,178.3 112.5,144.0 103.2,91.5 129.9,45.2\" fill=\"#fff3e0\" stroke=\"#2e7d32\" stroke-width=\"4\" stroke-linejoin=\"round\"/><text x=\"180\" y=\"125\" text-anchor=\"middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"38\" font-weight=\"bold\" fill=\"#2e7d32\">9</text></svg></p><p class=\"desc\"><b>Figura 4</b>: Um eneágono tem 9 lados. Cada lado é uma unidade do nosso grupo de nove.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Um eneágono com nove lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 150\" width=\"100%\" role=\"img\" aria-label=\"Cinco eneágonos, cada um com nove lados\"><g stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"64.0,37.0 88.4,45.9 101.4,68.4 96.9,94.0 77.0,110.7 51.0,110.7 31.1,94.0 26.6,68.4 39.6,45.9\" fill=\"#e8f5e9\" stroke=\"#2e7d32\"/><polygon points=\"192.0,37.0 216.4,45.9 229.4,68.4 224.9,94.0 205.0,110.7 179.0,110.7 159.1,94.0 154.6,68.4 167.6,45.9\" fill=\"#e3f2fd\" stroke=\"#1565c0\"/><polygon points=\"320.0,37.0 344.4,45.9 357.4,68.4 352.9,94.0 333.0,110.7 307.0,110.7 287.1,94.0 282.6,68.4 295.6,45.9\" fill=\"#fff3e0\" stroke=\"#ef6c00\"/><polygon points=\"448.0,37.0 472.4,45.9 485.4,68.4 480.9,94.0 461.0,110.7 435.0,110.7 415.1,94.0 410.6,68.4 423.6,45.9\" fill=\"#f3e5f5\" stroke=\"#6a1b9a\"/><polygon points=\"576.0,37.0 600.4,45.9 613.4,68.4 608.9,94.0 589.0,110.7 563.0,110.7 543.1,94.0 538.6,68.4 551.6,45.9\" fill=\"#fce4ec\" stroke=\"#ad1457\"/></g></svg></p><p class=\"desc\"><b>Figura 5</b>: Cinco eneágonos do mesmo tamanho, cada um com nove lados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Cinco eneágonos do mesmo tamanho, cada um com nove lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Lados de eneágonos</b><br />Olhe para a Figura 5: ela mostra 5 eneágonos e, juntos, eles têm 9 + 9 + 9 + 9 + 9 = 45 lados. Cada eneágono tem 9 lados. Vamos supor que queremos contar os lados de vários eneágonos. Experimente com diferentes quantidades de eneágonos:<br />• 1 eneágono: 9 × 1 = 9 lados.<br />• 2 eneágonos: 9 × 2 = 18 lados.<br />• 4 eneágonos: 9 × 4 = 36 lados.<br />• 5 eneágonos: 9 × 5 = 45 lados.<br />Diga a sequência em voz alta: nove, dezoito, vinte e sete, trinta e seis, quarenta e cinco. Você vê o padrão? Cada eneágono novo acrescenta mais 9 lados. Isso é contar de nove em nove: 9, 18, 27, 36, 45!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Uma fórmula para a tabuada do nove\n\nPodemos escrever esta regra como uma fórmula que funciona para qualquer número **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 2</b>: Multiplicar qualquer número por nove é o mesmo que somá-lo nove vezes.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Leia em voz alta: “nove vezes N é igual a N mais N mais N mais N mais N mais N mais N mais N mais N”.\n- O produto é sempre N somado a si mesmo nove vezes.\n- **N** é um espaço para qualquer número que você quiser, então uma só regra cobre todas as multiplicações por nove de uma vez.\n- Por exemplo, se **N** for 2, então 9 × 2 = 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 18.\n- **Dica**: observe os produtos do nove — 9, 18, 27, 36, 45, 54, 63, 72, 81, 90. Some os algarismos de cada produto de dois algarismos: 1 + 8 = 9, 2 + 7 = 9, 3 + 6 = 9... Os algarismos sempre somam 9!\n- Se **N** for 0, o produto é 0; se **N** for 1, o produto é 9 — exatamente o que vimos na tabuada do zero e na tabuada do um.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora é a sua vez: passe o mouse sobre cada multiplicação no quadro da esquerda. Enquanto faz isso, a tabela da direita destaca a linha correspondente, assim você pode ver cada resposta da tabuada do nove aparecer uma a uma.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent9\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Quanto é 9 × 8?</b><br /><br />Pause e pense: conte de nove em nove oito vezes — 9, 18, 27, 36, 45, 54, 63, 72 — ou use a tabuada do nove para encontrar a resposta.<br /><br />Depois confira: o resultado é o mesmo que 8 × 9?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aqui está a resposta da nossa reflexão: contar de nove em nove oito vezes dá 9, 18, 27, 36, 45, 54, 63, 72, então 9 × 8 = 72. E 8 × 9 = 72 também (<htcite0>): contar de oito em oito nove vezes dá 8, 16, 24, 32, 40, 48, 56, 64, 72. A resposta continua a mesma quando mudamos a ordem dos fatores.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc",
+                     "text": "History Tracers Team",
+                     "page": "Inversion",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nAprendemos duas tabuadas novas e amigáveis:\n\n- Multiplicar por 8 significa somar o número oito vezes, que é o mesmo que contar de oito em oito: 8, 16, 24, 32, 40...\n- Multiplicar por 9 significa somar o número nove vezes, que é o mesmo que contar de nove em nove: 9, 18, 27, 36, 45...\n\nUsamos um octógono de oito lados para a tabuada do oito e um eneágono de nove lados para a tabuada do nove. Também vimos que 8 × 9 = 72 e 9 × 8 = 72. Mudar a ordem dos fatores não muda o produto. (<htcite0>)\n\nContinue praticando com objetos reais — conte os lados dos octógonos de oito em oito, conte os lados dos eneágonos de nove em nove — e explore as tabelas interativas de novo. Você verá que estas duas tabuadas funcionam sempre.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc",
+                     "text": "History Tracers Team",
+                     "page": "Inversion",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Um octógono tem oito lados?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Sim. Um octógono é um polígono com oito lados retos."
+      },
+      {
+         "question": "8 × 9 é igual a 72?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Oito grupos de nove são 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 = 72, então 8 × 9 = 72."
+      },
+      {
+         "question": "Um eneágono tem sete lados?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Não. Um eneágono (também chamado de nonágono) tem nove lados, não sete."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

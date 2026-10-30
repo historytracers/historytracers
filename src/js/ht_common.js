@@ -556,6 +556,136 @@ function htUpdateCurrentDateOnIndex()
     $("#current_day").html(text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
+// Returns the Unix timestamp (seconds) of the Sunday that starts the
+// current local week. Calendar figures use this as their first day.
+function htCalendarWeekStart()
+{
+    var now = new Date();
+    now.setHours(0, 0, 0, 0);
+    now.setDate(now.getDate() - now.getDay());
+    return Math.floor(now.getTime() / 1000);
+}
+
+// Localized row label for multi-week calendar figures.
+function htCalendarWeekLabel(locale)
+{
+    var lang = locale || '';
+    if (lang.indexOf('pt') === 0 || lang.indexOf('es') === 0) {
+        return 'Semana';
+    }
+    return 'Week';
+}
+
+// Weekday names for calendars that use names distinct from the page
+// locale. The arrays start on Sunday, matching the figures in the lessons.
+function htCalendarWeekdayNames(locale, calendar, start)
+{
+    var names = null;
+    switch (calendar) {
+        case 'hebrew':
+            names = ["Yom Rishon", "Yom Sheni", "Yom Shlishi", "Yom Revi'i", "Yom Chamishi", "Yom Shishi", "Shabbat"];
+            break;
+        case 'islamic':
+            names = ISLAMIC_WEEKDAYS;
+            break;
+        case 'persian':
+            names = PERSIAN_WEEKDAYS;
+            break;
+        case 'shaka':
+            names = INDIAN_CIVIL_WEEKDAYS;
+            break;
+        case 'chinese':
+            names = ["Xingqi Ri", "Xingqi Yi", "Xingqi Er", "Xingqi San", "Xingqi Si", "Xingqi Wu", "Xingqi Liu"];
+            break;
+        case 'japanese':
+            names = ["Nichiyobi", "Getsuyobi", "Kayobi", "Suiyobi", "Mokuyobi", "Kinyobi", "Doyobi"];
+            break;
+        default:
+            names = null;
+            break;
+    }
+    if (names && names.length >= 7) {
+        var overrides = [];
+        for (var n = 0; n < 7; n++) {
+            overrides.push(names[n].charAt(0).toUpperCase() + names[n].slice(1));
+        }
+        return overrides;
+    }
+    var result = [];
+    var baseDate = new Date(start * 1000);
+    baseDate.setHours(0, 0, 0, 0);
+    for (var d = 0; d < 7; d++) {
+        var date = new Date(baseDate.getTime());
+        date.setDate(date.getDate() + d);
+        try {
+            result.push(new Intl.DateTimeFormat(locale, { weekday: 'short', calendar: calendar }).format(date));
+        } catch (e) {
+            result.push(new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(date));
+        }
+    }
+    return result;
+}
+
+// Draws a one-week or multi-week calendar into `target`. The cells keep the
+// lesson's counting sequence (1 to 7, or 1 to 28); only the weekday labels
+// follow the calendar selected in #site_calendar. The start date and week
+// count are stored on the container so htRefreshCalendarFigures() can
+// redraw every figure after a calendar change without page-specific code.
+function htWriteCalendarFigure(target, startUnix, weeks)
+{
+    var container = (target && target.jquery) ? target : $(target);
+    if (!container.length) {
+        return;
+    }
+    var locale = $('#site_language').val() || 'en-US';
+    var calendar = $('#site_calendar').val() || 'gregory';
+    var weekCount = parseInt(weeks, 10);
+    if (isNaN(weekCount) || weekCount < 1) {
+        weekCount = 1;
+    }
+    var start = parseInt(startUnix, 10);
+    if (isNaN(start)) {
+        start = htCalendarWeekStart();
+    }
+    container.attr('data-ht-calendar-start', start);
+    container.attr('data-ht-calendar-weeks', weekCount);
+
+    var dayNames = htCalendarWeekdayNames(locale, calendar, start);
+    var weekLabel = htCalendarWeekLabel(locale);
+    var baseDate = new Date(start * 1000);
+    baseDate.setHours(0, 0, 0, 0);
+    var html = '<table class="htCalendarTable"><thead><tr><th class="htCalendarWeekHeader" scope="col"></th>';
+    for (var h = 0; h < dayNames.length; h++) {
+        html += '<th scope="col">' + dayNames[h] + '</th>';
+    }
+    html += '</tr></thead><tbody>';
+    for (var w = 0; w < weekCount; w++) {
+        html += '<tr><th scope="row" class="htCalendarWeekLabel">' + weekLabel + ' ' + (w + 1) + '</th>';
+        for (var day = 0; day < 7; day++) {
+            var dayNumber = w * 7 + day + 1;
+            var cellDate = new Date(baseDate.getTime());
+            cellDate.setDate(cellDate.getDate() + dayNumber - 1);
+            var longDate = htConvertDate(calendar, locale, Math.floor(cellDate.getTime() / 1000), undefined, undefined, 'long');
+            html += '<td title="' + String(longDate).replace(/"/g, '&quot;') + '">' + dayNumber + '</td>';
+        }
+        html += '</tr>';
+    }
+    html += '</tbody></table>';
+    container.html(html);
+}
+
+// Redraws all calendar figures created with htWriteCalendarFigure().
+function htRefreshCalendarFigures()
+{
+    $('.htCalendarFigure').each(function() {
+        var container = $(this);
+        var start = container.attr('data-ht-calendar-start');
+        if (start !== undefined && start !== null && start !== '') {
+            htWriteCalendarFigure(container, start, container.attr('data-ht-calendar-weeks'));
+        }
+    });
+}
+
 function htAdjustGregorianZeroYear(text)
 {
     if (typeof text !== 'string' || !text.trim()) {
@@ -4832,10 +4962,12 @@ if (typeof document !== 'undefined' && document.addEventListener) {
         if (e && e.target && e.target.id === 'site_calendar') {
             htPrefsWrite(htPrefsKeys.calendar, e.target.value);
             htFitCalendarSelect();
+            htRefreshCalendarFigures();
         }
         if (e && e.target && e.target.id === 'site_language') {
             htPrefsWrite(htPrefsKeys.lang, e.target.value);
             htSyncLanguageButton();
+            htRefreshCalendarFigures();
         }
         if (e && e.target && e.target.id === 'site_recreio') {
             htPrefsWrite(htPrefsKeys.recreio, e.target.value);
