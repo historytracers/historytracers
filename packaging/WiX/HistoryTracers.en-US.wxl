@@ -15,4 +15,6 @@ Used with: wix build -loc HistoryTracers.en-US.wxl -culture en-US
   <String Id="PublisherDescription" Overridable="yes" Value="Content publishing tool (for content authors)" />
   <String Id="ShortcutViewerDescription" Value="Launch HistoryTracers Viewer" />
   <String Id="ShortcutUninstallDescription" Value="Uninstall HistoryTracers" />
+  <String Id="DesktopShortcutTitle" Overridable="yes" Value="Desktop Shortcut" />
+  <String Id="DesktopShortcutDescription" Overridable="yes" Value="Create a shortcut on the desktop to launch the HistoryTracers Viewer" />
 </WixLocalization>

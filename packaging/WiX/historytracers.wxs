@@ -42,6 +42,13 @@
          INSTALLIMAGES default. See comment above and contentroot.js. -->
     <Property Id="INSTALLIMAGES" Value="1" />
 
+    <!-- Optional desktop shortcut. The user selects/clears the "Desktop
+         Shortcut" feature with a checkbox on the wizard's Customize screen
+         (WixUI_FeatureTree feature tree). Command-line equivalent: pass
+         INSTALLLEVEL with ADDLOCAL=.../REMOVE=DesktopShortcut, e.g.
+         msiexec /i HistoryTracers.msi REMOVE=DesktopShortcut. Installed by
+         default; disabled in content-only installs (no viewer binary). -->
+
     <!-- Restores the content root remembered at install time when a
          content-only product is repaired/modified without properties. -->
     <Property Id="HTREMEMBEREDCONTENTROOT">
@@ -95,6 +102,17 @@
 
     <StandardDirectory Id="ProgramMenuFolder">
       <Directory Id="PROGRAMMENUDIR" Name="HistoryTracers" />
+    </StandardDirectory>
+
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DESKTOPDIR_comp" Directory="DesktopFolder" Guid="*">
+        <Shortcut Id="S_DesktopViewer" Name="HistoryTracers Viewer"
+                  Description="!(loc.ShortcutViewerDescription)"
+                  Target="[INSTALLDIR]historytracers.exe"
+                  WorkingDirectory="INSTALLDIR" />
+        <RegistryValue Root="HKLM" Key="Software\HistoryTracers"
+                       Name="desktopShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
     </StandardDirectory>
 
     <!-- ============================================================ -->
@@ -155,6 +173,17 @@
       <ComponentGroupRef Id="CG_IMAGES" />
     </Feature>
 
+    <!-- Desktop shortcut: checkbox item in the wizard's Customize screen
+         (WixUI_FeatureTree); installed by default, user can deselect it.
+         Cleared (no shortcut) when INSTALLTYPE=ContentOnly because that
+         mode installs no viewer binary to point at. -->
+    <Feature Id="DesktopShortcut" Title="!(loc.DesktopShortcutTitle)"
+             Description="!(loc.DesktopShortcutDescription)"
+             Level="1" Display="collapse" AllowAdvertise="no">
+      <Level Condition='INSTALLTYPE="ContentOnly"' Value="0" />
+      <ComponentRef Id="DESKTOPDIR_comp" />
+    </Feature>
+
     <!--Feature Id="Editor" Title="HistoryTracers Editor"
              Description="Content editor application (for content authors)"
              Level="3" TypicalDefault="install">
@@ -170,8 +199,8 @@
     <!-- ============================================================ -->
     <!-- UI Configuration (install wizard)                            -->
     <!-- ============================================================ -->
-    <!-- Wizard screens: Welcome -> License -> Customize (option      -->
-    <!-- checkboxes, e.g. Image Files; Browse to pick the install     -->
+    <!-- Wizard screens: Welcome -> License -> Customize (feature       -->
+    <!-- checkboxes, e.g. Image Files and Desktop Shortcut; Browse to    -->
     <!-- path; ConfigurableDirectory="INSTALLDIR" on MainApplication  -->
     <!-- enables the path picker) -> Verify -> Progress -> Done.      -->
     <!-- Linked against WixToolset.UI.wixext (see build_msi.ps1).     -->
