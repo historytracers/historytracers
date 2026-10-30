@@ -9,6 +9,14 @@
 
     <Media Id="1" Cabinet="historytracers.cab" EmbedCab="yes" CompressionLevel="high" />
 
+    <!-- Product icon: the very same icon.ico the viewer embeds and displays
+         in the top-left corner of its window (src/viewer/icon.ico). It is
+         used for the Start Menu/desktop shortcuts and for the Add/Remove
+         Programs (Apps & Features) entry, so the installed product keeps
+         the viewer's identity instead of the generic executable icon. -->
+    <Icon Id="ViewerIcon" SourceFile="$(var.ProjectDir)\src\viewer\icon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="ViewerIcon" />
+
     <!-- License agreement shown by the wizard's License screen. The path
          is provided per language build from both build scripts
          (build_msi.ps1 and historytracers2pkg.sh):
@@ -108,6 +116,7 @@
       <Component Id="DESKTOPDIR_comp" Directory="DesktopFolder" Guid="*">
         <Shortcut Id="S_DesktopViewer" Name="HistoryTracers Viewer"
                   Description="!(loc.ShortcutViewerDescription)"
+                  Icon="ViewerIcon"
                   Target="[INSTALLDIR]historytracers.exe"
                   WorkingDirectory="INSTALLDIR" />
         <RegistryValue Root="HKLM" Key="Software\HistoryTracers"
@@ -121,6 +130,7 @@
     <Component Id="PROGRAMMENUDIR_comp" Directory="PROGRAMMENUDIR" Guid="*">
       <Shortcut Id="S_Viewer" Name="HistoryTracers Viewer"
                 Description="!(loc.ShortcutViewerDescription)"
+                Icon="ViewerIcon"
                 Target="[INSTALLDIR]historytracers.exe"
                 WorkingDirectory="INSTALLDIR" />
       <!--Shortcut Id="S_Editor" Name="HistoryTracers Editor"
