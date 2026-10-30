@@ -16,7 +16,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1793329658"
+      "1793377707"
    ],
    "authors": null,
    "reviewers": [],
@@ -153,7 +153,7 @@
                "PostMention": ""
             },
             {
-               "text": "Dos tablas siguen una sola regla para cualquier número. Multiplicar por cero siempre da cero, porque cero grupos de cualquier cosa no contienen nada:",
+               "text": "Dos tablas siguen una sola regla para cualquier número. Multiplicar por cero siempre da cero, porque cero grupos de cualquier cosa no contienen nada, como muestra el plato vacío de la Figura 1:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -162,12 +162,30 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del cero:** 0 × N = 0. Por ejemplo, 0 × 9 = 0 y 12 × 0 = 0.\n- **Tabla del uno:** 1 × N = N. Por ejemplo, 1 × 7 = 7 y 20 × 1 = 20.",
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 240\" width=\"100%\" style=\"max-width:240px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"Un plato vacío\"><title>Un plato vacío</title><ellipse cx=\"120\" cy=\"222\" rx=\"88\" ry=\"12\" fill=\"#000000\" opacity=\"0.12\"/><circle cx=\"120\" cy=\"116\" r=\"100\" fill=\"#f7f7f7\" stroke=\"#c9c9c9\" stroke-width=\"3\"/><circle cx=\"120\" cy=\"116\" r=\"76\" fill=\"none\" stroke=\"#dcdcdc\" stroke-width=\"2\"/><circle cx=\"120\" cy=\"116\" r=\"60\" fill=\"#fdfdfd\" stroke=\"#e6e6e6\" stroke-width=\"1.5\"/><ellipse cx=\"86\" cy=\"82\" rx=\"26\" ry=\"13\" fill=\"#ffffff\" opacity=\"0.8\" transform=\"rotate(-25 86 82)\"/></svg><b>Figura 1</b>: Un plato vacío.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabla del cero:** 0 × N = 0. Por ejemplo, 0 × 9 = 0 y 12 × 0 = 0.\n- **Tabla del uno:** 1 × N = N. Por ejemplo, 1 × 7 = 7 y 20 × 1 = 20.\n\nLa Figura 2 muestra un dedo levantado en cada mano: así contamos de uno en uno para entender la multiplicación por 1.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Mano izquierda</th><th>Mano derecha</th><th>Flechas</th></tr> <tr id=\"tr0\"><td><img id=\"sumHandOneL\" onclick=\"htImageZoom('sumHandOneL', '0%')\" /></td><td><img id=\"sumHandOneR\" onclick=\"htImageZoom('sumHandOneR', '0%')\" /></td></tr> </table></p><p class=\"desc\"><b>Figura 2</b>: Contar con los dedos para entender la multiplicación por 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             },
             {
@@ -194,7 +212,7 @@
                "PostMention": ""
             },
             {
-               "text": "Multiplicar por dos significa sumar el número dos veces, así que el producto es el **doble** del número:",
+               "text": "Multiplicar por dos significa sumar el número dos veces, así que el producto es el **doble** del número. La Figura 3 muestra dos manos, cada una con cinco dedos: dos grupos de cinco dan 10.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -203,12 +221,30 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del dos:** 2 × N = N + N. Contar de dos en dos da 2, 4, 6, 8, 10...\n- **Tabla del tres:** 3 × N = N + N + N. Contar de tres en tres da 3, 6, 9, 12, 15...",
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"sumHand2L\" onclick=\"htImageZoom('sumHand2L', '0%')\" class=\"imgcenter\"/></td><td><img id=\"sumHand2R\" onclick=\"htImageZoom('sumHand2R', '0%')\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 3</b>: Dos manos, cada una con cinco dedos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Dos manos, cada una con cinco dedos.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabla del dos:** 2 × N = N + N. Contar de dos en dos da 2, 4, 6, 8, 10...\n- **Tabla del tres:** 3 × N = N + N + N. Contar de tres en tres da 3, 6, 9, 12, 15...\n\nLa Figura 4 muestra tres triángulos del mismo tamaño: cada triángulo tiene tres lados, así que tres grupos de tres dan 9.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 440 180\" width=\"100%\" role=\"img\" aria-label=\"Tres triángulos equiláteros del mismo tamaño\"><g fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"20,160 120,160 70,73.4\"/><polygon points=\"170,160 270,160 220,73.4\"/><polygon points=\"320,160 420,160 370,73.4\"/></g><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\"><line x1=\"70.0\" y1=\"156.0\" x2=\"70.0\" y2=\"164.0\"/><line x1=\"91.5\" y1=\"118.7\" x2=\"98.5\" y2=\"114.7\"/><line x1=\"48.5\" y1=\"118.7\" x2=\"41.5\" y2=\"114.7\"/><line x1=\"220.0\" y1=\"156.0\" x2=\"220.0\" y2=\"164.0\"/><line x1=\"241.5\" y1=\"118.7\" x2=\"248.5\" y2=\"114.7\"/><line x1=\"198.5\" y1=\"118.7\" x2=\"191.5\" y2=\"114.7\"/><line x1=\"370.0\" y1=\"156.0\" x2=\"370.0\" y2=\"164.0\"/><line x1=\"391.5\" y1=\"118.7\" x2=\"398.5\" y2=\"114.7\"/><line x1=\"348.5\" y1=\"118.7\" x2=\"341.5\" y2=\"114.7\"/></g></svg></p><p class=\"desc\"><b>Figura 4</b>: Tres triángulos del mismo tamaño, cada uno con tres lados iguales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Tres triángulos del mismo tamaño, cada uno con tres lados iguales.",
+               "format": "html",
                "PostMention": ""
             },
             {
@@ -244,7 +280,7 @@
                "PostMention": ""
             },
             {
-               "text": "Un cuadrado tiene cuatro lados y una mano tiene cinco dedos. Estos grupos nos ayudan a construir las dos tablas siguientes:",
+               "text": "Un cuadrado tiene cuatro lados y una mano tiene cinco dedos. La Figura 5 muestra un cuadrado y un rectángulo, y los dos tienen cuatro lados. Estos grupos nos ayudan a construir las dos tablas siguientes:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -253,12 +289,39 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del cuatro:** 4 × N = N + N + N + N. Contar de cuatro en cuatro da 4, 8, 12, 16, 20...\n- **Tabla del cinco:** 5 × N = N + N + N + N + N. Contar de cinco en cinco da 5, 10, 15, 20, 25...",
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 430 150\" width=\"100%\" role=\"img\" aria-label=\"Un cuadrado y un rectángulo\"><g stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"30\" y=\"20\" width=\"100\" height=\"100\" fill=\"#e8f5e9\" stroke=\"#2e7d32\"/><rect x=\"200\" y=\"20\" width=\"200\" height=\"100\" fill=\"#e3f2fd\" stroke=\"#1565c0\"/></g></svg></p><p class=\"desc\"><b>Figura 5</b>: Un cuadrado (izquierda) y un rectángulo (derecha). Los dos tienen cuatro lados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabla del cuatro:** 4 × N = N + N + N + N. Contar de cuatro en cuatro da 4, 8, 12, 16, 20...\n- **Tabla del cinco:** 5 × N = N + N + N + N + N. Contar de cinco en cinco da 5, 10, 15, 20, 25...\n\nLa Figura 6 muestra cinco cuadrados del mismo tamaño: cinco grupos de cuatro lados dan 20. La Figura 7 muestra dos manos, cada una con cinco dedos: dos grupos de cinco también dan 10.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 550 140\" width=\"100%\" role=\"img\" aria-label=\"Cinco cuadrados del mismo tamaño\"><g fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"10\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"120\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"230\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"340\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"450\" y=\"20\" width=\"100\" height=\"100\"/></g></svg></p><p class=\"desc\"><b>Figura 6</b>: Cinco cuadrados del mismo tamaño, cada uno con cuatro lados iguales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"sumHand5L\" onclick=\"htImageZoom('sumHand5L', '0%')\" class=\"imgcenter\"/></td><td><img id=\"sumHand5R\" onclick=\"htImageZoom('sumHand5R', '0%')\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 7</b>: Dos manos, cada una con cinco dedos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             },
             {
@@ -294,7 +357,7 @@
                "PostMention": ""
             },
             {
-               "text": "Una flor con seis pétalos y una semana con siete días nos dan los dos grupos siguientes:",
+               "text": "Una flor con seis pétalos y una semana con siete días nos dan los dos grupos siguientes. La Figura 8 muestra una flor con seis pétalos alrededor de su centro: cada pétalo es una unidad del grupo de seis.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -303,7 +366,16 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del seis:** 6 × N = N + N + N + N + N + N. Contar de seis en seis da 6, 12, 18, 24, 30...\n- **Tabla del siete:** 7 × N = N + N + N + N + N + N + N. Contar de siete en siete da 7, 14, 21, 28, 35...",
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 230\" width=\"100%\" role=\"img\" aria-label=\"Una flor con seis pétalos alrededor de su centro amarillo\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#f8bbd0\" stroke=\"#ad1457\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></svg></p><p class=\"desc\"><b>Figura 8</b>: Una flor con seis pétalos alrededor de su centro. Cada pétalo es una unidad de nuestro grupo de seis.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabla del seis:** 6 × N = N + N + N + N + N + N. Contar de seis en seis da 6, 12, 18, 24, 30...\n- **Tabla del siete:** 7 × N = N + N + N + N + N + N + N. Contar de siete en siete da 7, 14, 21, 28, 35...\n\nLa Figura 9 muestra cinco flores, cada una con seis pétalos: cinco grupos de seis dan 30. La Figura 10 muestra los siete días de una semana: cada día es una unidad del grupo de siete.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -312,12 +384,39 @@
                "PostMention": ""
             },
             {
-               "text": "Por ejemplo, 6 × 7 = 42 y 7 × 6 = 42. Cambiar el orden de los factores no cambia el producto.",
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 240\" width=\"100%\" role=\"img\" aria-label=\"Cinco flores de diferentes colores, cada una con seis pétalos\"><g><g transform=\"translate(-120 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#f8bbd0\" stroke=\"#ad1457\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(10 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#bbdefb\" stroke=\"#1565c0\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(140 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#ffe0b2\" stroke=\"#ef6c00\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(270 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#e1bee7\" stroke=\"#6a1b9a\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(400 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#c8e6c9\" stroke=\"#2e7d32\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g></g></svg></p><p class=\"desc\"><b>Figura 9</b>: Cinco flores de diferentes colores, cada una con seis pétalos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Cinco flores de diferentes colores, cada una con seis pétalos.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htCalendarFigureWrap\"><div id=\"htSumWeekCalendarFigure\" class=\"htCalendarFigure\" role=\"group\" aria-label=\"Calendario de siete días\"></div></div><p class=\"desc\"><b>Figura 10</b>: Los siete días de una semana, usando los nombres de los días del calendario seleccionado en la parte superior de la página. Cada día es una unidad de nuestro grupo de siete.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Una semana de siete días, usando los nombres de los días del calendario seleccionado en la parte superior de la página.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por ejemplo, 6 × 7 = 42 y 7 × 6 = 42. Cambiar el orden de los factores no cambia el producto. La Figura 11 muestra cuatro semanas: 4 × 7 = 28 días.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htCalendarFigureWrap\"><div id=\"htSumFourWeekCalendarFigure\" class=\"htCalendarFigure\" role=\"group\" aria-label=\"Calendario de cuatro semanas\"></div></div><p class=\"desc\"><b>Figura 11</b>: Un calendario con cuatro semanas, usando los nombres de los días del calendario seleccionado en la parte superior de la página.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Un calendario de cuatro semanas, usando los nombres de los días del calendario seleccionado en la parte superior de la página.",
+               "format": "html",
                "PostMention": ""
             },
             {
@@ -344,7 +443,7 @@
                "PostMention": ""
             },
             {
-               "text": "Un octágono tiene ocho lados y un eneágono (también llamado nonágono) tiene nueve lados. Estas figuras nos dan las dos últimas tablas:",
+               "text": "Un octágono tiene ocho lados y un eneágono (también llamado nonágono) tiene nueve lados. La Figura 12 muestra polígonos de tres a nueve lados para que puedas compararlos. Estas figuras nos dan las dos últimas tablas:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -353,7 +452,16 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del ocho:** 8 × N = N + N + N + N + N + N + N + N. Contar de ocho en ocho da 8, 16, 24, 32, 40...\n- **Tabla del nueve:** 9 × N = N + N + N + N + N + N + N + N + N. Contar de nueve en nueve da 9, 18, 27, 36, 45...",
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 330 440\" width=\"100%\" role=\"img\" aria-label=\"Polígonos con 3, 4, 5, 6, 7, 8 y 9 lados\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"60.0,36.0 89.4,87.0 30.6,87.0\" fill=\"#e8f5e9\"/><polygon points=\"165.0,36.0 199.0,70.0 165.0,104.0 131.0,70.0\" fill=\"#e3f2fd\"/><polygon points=\"270.0,36.0 302.3,59.5 290.0,97.5 250.0,97.5 237.7,59.5\" fill=\"#fff3e0\"/><polygon points=\"60.0,176.0 89.4,193.0 89.4,227.0 60.0,244.0 30.6,227.0 30.6,193.0\" fill=\"#f3e5f5\"/><polygon points=\"165.0,176.0 191.6,188.8 198.1,217.6 179.8,240.6 150.2,240.6 131.9,217.6 138.4,188.8\" fill=\"#e0f7fa\"/><polygon points=\"270.0,176.0 294.0,186.0 304.0,210.0 294.0,234.0 270.0,244.0 246.0,234.0 236.0,210.0 246.0,186.0\" fill=\"#fce4ec\"/><polygon points=\"165.0,316.0 186.9,324.0 198.5,344.1 194.4,367.0 176.6,381.9 153.4,381.9 135.6,367.0 131.5,344.1 143.1,324.0\" fill=\"#fff9c4\"/></g><g font-family=\"Arial, Helvetica, sans-serif\" text-anchor=\"middle\" fill=\"#1b5e20\"><text x=\"60\" y=\"122\" font-size=\"13\" font-weight=\"bold\">Triángulo</text><text x=\"60\" y=\"138\" font-size=\"12\">3 lados</text><text x=\"165\" y=\"122\" font-size=\"13\" font-weight=\"bold\">Cuadrilátero</text><text x=\"165\" y=\"138\" font-size=\"12\">4 lados</text><text x=\"270\" y=\"122\" font-size=\"13\" font-weight=\"bold\">Pentágono</text><text x=\"270\" y=\"138\" font-size=\"12\">5 lados</text><text x=\"60\" y=\"262\" font-size=\"13\" font-weight=\"bold\">Hexágono</text><text x=\"60\" y=\"278\" font-size=\"12\">6 lados</text><text x=\"165\" y=\"262\" font-size=\"13\" font-weight=\"bold\">Heptágono</text><text x=\"165\" y=\"278\" font-size=\"12\">7 lados</text><text x=\"270\" y=\"262\" font-size=\"13\" font-weight=\"bold\">Octágono</text><text x=\"270\" y=\"278\" font-size=\"12\">8 lados</text><text x=\"165\" y=\"402\" font-size=\"13\" font-weight=\"bold\">Eneágono</text><text x=\"165\" y=\"418\" font-size=\"12\">9 lados</text></g></svg></p><p class=\"desc\"><b>Figura 12</b>: Polígonos con 3, 4, 5, 6, 7, 8 y 9 lados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Siete polígonos, con 3, 4, 5, 6, 7, 8 y 9 lados, etiquetados con el número de lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabla del ocho:** 8 × N = N + N + N + N + N + N + N + N. Contar de ocho en ocho da 8, 16, 24, 32, 40...\n- **Tabla del nueve:** 9 × N = N + N + N + N + N + N + N + N + N. Contar de nueve en nueve da 9, 18, 27, 36, 45...\n\nLa Figura 13 muestra un octágono con sus 8 lados, y la Figura 14 muestra cinco octágonos: cinco grupos de ocho dan 40. La Figura 15 muestra un eneágono con sus 9 lados.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -362,12 +470,48 @@
                "PostMention": ""
             },
             {
-               "text": "Por ejemplo, 8 × 9 = 72 y 9 × 8 = 72. El orden de los factores sigue sin cambiar el producto.",
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 200\" width=\"100%\" role=\"img\" aria-label=\"Un octágono con ocho lados\"><polygon points=\"180.0,25.0 233.0,47.0 255.0,100.0 233.0,153.0 180.0,175.0 127.0,153.0 105.0,100.0 127.0,47.0\" fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"4\" stroke-linejoin=\"round\"/><text x=\"180\" y=\"124\" text-anchor=\"middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"38\" font-weight=\"bold\" fill=\"#2e7d32\">8</text></svg></p><p class=\"desc\"><b>Figura 13</b>: Un octágono tiene 8 lados. Cada lado es una unidad de nuestro grupo de ocho.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Un octágono con ocho lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 150\" width=\"100%\" role=\"img\" aria-label=\"Cinco octágonos, cada uno con ocho lados\"><g stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"64.0,37.0 90.9,48.1 102.0,75.0 90.9,101.9 64.0,113.0 37.1,101.9 26.0,75.0 37.1,48.1\" fill=\"#e8f5e9\" stroke=\"#2e7d32\"/><polygon points=\"192.0,37.0 218.9,48.1 230.0,75.0 218.9,101.9 192.0,113.0 165.1,101.9 154.0,75.0 165.1,48.1\" fill=\"#e3f2fd\" stroke=\"#1565c0\"/><polygon points=\"320.0,37.0 346.9,48.1 358.0,75.0 346.9,101.9 320.0,113.0 293.1,101.9 282.0,75.0 293.1,48.1\" fill=\"#fff3e0\" stroke=\"#ef6c00\"/><polygon points=\"448.0,37.0 474.9,48.1 486.0,75.0 474.9,101.9 448.0,113.0 421.1,101.9 410.0,75.0 421.1,48.1\" fill=\"#f3e5f5\" stroke=\"#6a1b9a\"/><polygon points=\"576.0,37.0 602.9,48.1 614.0,75.0 602.9,101.9 576.0,113.0 549.1,101.9 538.0,75.0 549.1,48.1\" fill=\"#fce4ec\" stroke=\"#ad1457\"/></g></svg></p><p class=\"desc\"><b>Figura 14</b>: Cinco octágonos del mismo tamaño, cada uno con ocho lados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Cinco octágonos del mismo tamaño, cada uno con ocho lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 210\" width=\"100%\" role=\"img\" aria-label=\"Un eneágono con nueve lados\"><polygon points=\"180.0,27.0 230.1,45.2 256.8,91.5 247.5,144.0 206.7,178.3 153.3,178.3 112.5,144.0 103.2,91.5 129.9,45.2\" fill=\"#fff3e0\" stroke=\"#2e7d32\" stroke-width=\"4\" stroke-linejoin=\"round\"/><text x=\"180\" y=\"125\" text-anchor=\"middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"38\" font-weight=\"bold\" fill=\"#2e7d32\">9</text></svg></p><p class=\"desc\"><b>Figura 15</b>: Un eneágono tiene 9 lados. Cada lado es una unidad de nuestro grupo de nueve.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Un eneágono con nueve lados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por ejemplo, 8 × 9 = 72 y 9 × 8 = 72. El orden de los factores sigue sin cambiar el producto. La Figura 16 muestra cinco eneágonos del mismo tamaño: cinco grupos de nueve dan 45.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 150\" width=\"100%\" role=\"img\" aria-label=\"Cinco eneágonos, cada uno con nueve lados\"><g stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"64.0,37.0 88.4,45.9 101.4,68.4 96.9,94.0 77.0,110.7 51.0,110.7 31.1,94.0 26.6,68.4 39.6,45.9\" fill=\"#e8f5e9\" stroke=\"#2e7d32\"/><polygon points=\"192.0,37.0 216.4,45.9 229.4,68.4 224.9,94.0 205.0,110.7 179.0,110.7 159.1,94.0 154.6,68.4 167.6,45.9\" fill=\"#e3f2fd\" stroke=\"#1565c0\"/><polygon points=\"320.0,37.0 344.4,45.9 357.4,68.4 352.9,94.0 333.0,110.7 307.0,110.7 287.1,94.0 282.6,68.4 295.6,45.9\" fill=\"#fff3e0\" stroke=\"#ef6c00\"/><polygon points=\"448.0,37.0 472.4,45.9 485.4,68.4 480.9,94.0 461.0,110.7 435.0,110.7 415.1,94.0 410.6,68.4 423.6,45.9\" fill=\"#f3e5f5\" stroke=\"#6a1b9a\"/><polygon points=\"576.0,37.0 600.4,45.9 613.4,68.4 608.9,94.0 589.0,110.7 563.0,110.7 543.1,94.0 538.6,68.4 551.6,45.9\" fill=\"#fce4ec\" stroke=\"#ad1457\"/></g></svg></p><p class=\"desc\"><b>Figura 16</b>: Cinco eneágonos del mismo tamaño, cada uno con nueve lados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Cinco eneágonos del mismo tamaño, cada uno con nueve lados.",
+               "format": "html",
                "PostMention": ""
             },
             {
