@@ -1,0 +1,418 @@
+{
+   "title": "Aprendendo a Tabuada (4 e 5)",
+   "header": "Aprendendo a Tabuada (4 e 5)",
+   "sources": [
+      "3bc9800d-aa41-4930-84f4-749eb6e40657"
+   ],
+   "scripts": [
+      "3bc9800d-aa41-4930-84f4-749eb6e40657"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/3bc9800d-aa41-4930-84f4-749eb6e40657_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/7IHYqh2rFfSqpAPztU5yhK?si=4sgNuUgBQveG8lsjTpzooA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793314116"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nAntes de começar, recomendamos ler *Aprendendo a Tabuada (2 e 3)* (<htcite0>), onde você aprendeu a multiplicar por dois e por três.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (2 e 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nUma tabuada é como um mapa de respostas: quando conhecemos o mapa, já não precisamos contar tudo de novo. Hoje vamos aprender dois mapas a mais — a tabuada do quatro (4) e a tabuada do cinco (5). Lembre-se do texto anterior: multiplicar por dois e por três significa somar o mesmo número duas ou três vezes. O resultado de uma multiplicação é chamado de **produto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Essas duas tabuadas também se constroem aos poucos: contando de quatro em quatro — 4, 8, 12, 16, 20... — e de cinco em cinco — 5, 10, 15, 20, 25... —. Para aprender a tabuada do quatro vamos olhar para quadrados e retângulos, e para aprender a tabuada do cinco vamos usar as nossas mãos. Mantenha esse ritmo de contagem em mente. Vamos começar!",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Quadrados e retângulos</b><br /><br />Faça uma pausa e pense: quantos lados tem um quadrado? E quantos lados tem um retângulo?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_four",
+         "text": [
+            {
+               "text": "### Multiplicando por Quatro (4)\n\nAgora passamos à tabuada do quatro. Multiplicar por quatro significa somar o mesmo número quatro vezes. Um quadrado tem quatro lados iguais (<htcite0>), então os seus lados formam um grupo natural de quatro. Um retângulo também tem quatro lados (<htcite1>). Olhe para a Figura 1: o quadrado e o retângulo parecem diferentes, mas os dois nos dão quatro lados.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0c1967a-f27a-4191-82f1-c5e44c44a297",
+                     "text": "Weisstein, Eric W., Square",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3b7542b4-d24a-4708-a890-e2c57fd0f1ae",
+                     "text": "Weisstein, Eric W., Rectangle",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 430 150\" width=\"100%\" role=\"img\" aria-label=\"Um quadrado e um retângulo\"><g stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"30\" y=\"20\" width=\"100\" height=\"100\" fill=\"#e8f5e9\" stroke=\"#2e7d32\"/><rect x=\"200\" y=\"20\" width=\"200\" height=\"100\" fill=\"#e3f2fd\" stroke=\"#1565c0\"/></g></svg></p><p class=\"desc\"><b>Figura 1</b>: Um quadrado (esquerda) e um retângulo (direita). Os dois têm quatro lados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Contando os Lados dos Quadrados\n\nUm quadrado tem 4 lados. Dois quadrados têm 4 + 4 = 8 lados. Três quadrados têm 4 + 4 + 4 = 12 lados. Estamos contando de quatro em quatro: 4, 8, 12, 16, 20... Cada passo é uma multiplicação a mais: 4 × 1 = 4, 4 × 2 = 8, 4 × 3 = 12, e assim por diante.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 550 140\" width=\"100%\" role=\"img\" aria-label=\"Cinco quadrados do mesmo tamanho\"><g fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"10\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"120\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"230\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"340\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"450\" y=\"20\" width=\"100\" height=\"100\"/></g></svg></p><p class=\"desc\"><b>Figura 2</b>: Cinco quadrados do mesmo tamanho, cada um com quatro lados iguais.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Lados de quadrados</b><br />Olhe para a Figura 2: ela mostra 5 quadrados e, juntos, eles têm 4 + 4 + 4 + 4 + 4 = 20 lados. Cada quadrado tem 4 lados. Suponha que você quer contar todos os lados de um grupo de quadrados. Experimente com diferentes números de quadrados:<br />• 1 quadrado: 4 × 1 = 4 lados.<br />• 2 quadrados: 4 × 2 = 8 lados.<br />• 4 quadrados: 4 × 4 = 16 lados.<br />• 5 quadrados: 4 × 5 = 20 lados.<br />Você percebe o padrão? Cada quadrado novo acrescenta mais 4 lados. Isso é contar de quatro em quatro: 4, 8, 12, 16, 20!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Uma Fórmula para a Tabuada do Quatro\n\nPodemos escrever esta regra como uma fórmula que vale para qualquer número **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 1</b>: Multiplicar qualquer número por quatro é o mesmo que somá-lo quatro vezes.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Leia em voz alta: «quatro vezes N é igual a N mais N mais N mais N».\n- O produto é sempre N somado a si mesmo quatro vezes.\n- **N** é um marcador de posição para qualquer número, então uma única regra cobre todas as multiplicações por quatro de uma vez.\n- Por exemplo, se **N** for 3, então 4 × 3 = 3 + 3 + 3 + 3 = 12.\n- **Dica**: como 4 = 2 × 2, a tabuada do quatro é o dobro da tabuada do dois: 2 × 3 = 6, então 4 × 3 = 12.\n- Se **N** for 0, o produto é 0; se **N** for 1, o produto é 4 — exatamente o que vimos na tabuada do zero e na tabuada do um.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora tente você mesmo: passe o mouse sobre cada multiplicação da caixa à esquerda. Ao fazer isso, a caixa à direita mostra os grupos de estrelas correspondentes, de modo que você pode ver como cada resposta da tabuada do quatro aparece.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent4\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Lados em cinco quadrados</b><br /><br />Faça uma pausa e pense: se você tem 5 quadrados, quantos lados você tem no total?<br /><br />(Dica: conte de quatro em quatro cinco vezes: 4, 8, 12, 16, 20.)</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aqui está a resposta à nossa reflexão: cinco quadrados são cinco grupos de quatro lados, então 5 × 4 = 20 lados. Contar de quatro em quatro nos ajudou a encontrar a resposta rapidamente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_five",
+         "text": [
+            {
+               "text": "### Multiplicando por Cinco (5)\n\nAgora passamos à tabuada do cinco. Multiplicar por cinco significa somar o mesmo número cinco vezes. Olhe para as suas mãos: cada mão tem cinco dedos, então uma mão é um grupo natural de cinco. Uma mão mostra 5 dedos. Duas mãos mostram 5 + 5 = 10 dedos. Estamos contando de cinco em cinco: 5, 10, 15, 20, 25... Cada passo é uma multiplicação a mais: 5 × 1 = 5, 5 × 2 = 10, 5 × 3 = 15, e assim por diante.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 3</b>: Duas mãos, cada uma com cinco dedos. O código-fonte está disponível no GitHub do projeto (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "240800f3-ede4-4deb-9d4e-915a3a03fa68",
+                     "text": "History Tracers Team",
+                     "page": "Source code",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Contando os Dedos\n\nUma mão tem 5 dedos. Duas mãos têm 5 + 5 = 10 dedos. Três mãos têm 5 + 5 + 5 = 15 dedos. Cada mão nova acrescenta mais 5 dedos, então cada passo é uma multiplicação a mais: 5 × 1 = 5, 5 × 2 = 10, 5 × 3 = 15, e assim por diante.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Dedos em um grupo</b><br />Cada mão tem 5 dedos. Suponha que um grupo de amigos levante uma mão cada um. Queremos saber quantos dedos aparecem no total. Experimente com diferentes números de mãos:<br />• 1 mão: 5 × 1 = 5 dedos.<br />• 2 mãos: 5 × 2 = 10 dedos.<br />• 4 mãos: 5 × 4 = 20 dedos.<br />• 5 mãos: 5 × 5 = 25 dedos.<br />Você percebe o padrão? Cada mão nova acrescenta mais 5 dedos. Isso é contar de cinco em cinco: 5, 10, 15, 20, 25!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Uma Fórmula para a Tabuada do Cinco\n\nPodemos escrever esta regra como uma fórmula que vale para qualquer número **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 2</b>: Multiplicar qualquer número por cinco é o mesmo que somá-lo cinco vezes.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Leia em voz alta: «cinco vezes N é igual a N mais N mais N mais N mais N».\n- O produto é sempre N somado a si mesmo cinco vezes.\n- **N** é um marcador de posição para qualquer número, então uma única regra cobre todas as multiplicações por cinco de uma vez.\n- Por exemplo, se **N** for 3, então 5 × 3 = 3 + 3 + 3 + 3 + 3 = 15.\n- **Dica**: todo produto da tabuada do cinco termina em 0 ou 5: 5, 10, 15, 20, 25, 30...\n- Se **N** for 0, o produto é 0; se **N** for 1, o produto é 5 — exatamente o que vimos na tabuada do zero e na tabuada do um.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora tente você mesmo: passe o mouse sobre cada multiplicação da caixa à esquerda. Ao fazer isso, a caixa à direita mostra os grupos de estrelas correspondentes, de modo que você pode ver como cada resposta da tabuada do cinco aparece.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent5\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Quanto é 5 × 4?</b><br /><br />Faça uma pausa e pense: conte de cinco em cinco quatro vezes — 5, 10, 15, 20 — ou use a tabuada do cinco para encontrar a resposta.<br /><br />Depois confira: o resultado é o mesmo que com 4 × 5?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aqui está a resposta à nossa reflexão: contar de cinco em cinco quatro vezes nos dá 5, 10, 15, 20, então 5 × 4 = 20. E 4 × 5 = 20 também (<htcite0>). Contar de quatro em quatro cinco vezes nos dá 4, 8, 12, 16, 20. A resposta continua a mesma quando trocamos a ordem.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc",
+                     "text": "History Tracers Team",
+                     "page": "Inversão",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nAprendemos duas tabuadas amigáveis novas:\n\n- Multiplicar por 4 significa somar o número quatro vezes, o mesmo que contar de quatro em quatro: 4, 8, 12, 16, 20...\n- Multiplicar por 5 significa somar o número cinco vezes, o mesmo que contar de cinco em cinco: 5, 10, 15, 20, 25...\n\nUsamos quadrados e retângulos para a tabuada do quatro, e as nossas mãos para a tabuada do cinco. Também vimos que 4 × 5 = 20 e que 5 × 4 = 20. Mudar a ordem dos fatores não muda o produto. (<htcite0>)\n\nContinue praticando com objetos reais — conte os lados dos quadrados de quatro em quatro, conte os dedos das suas mãos de cinco em cinco — e explore as tabuadas interativas várias vezes. Você verá que essas duas tabuadas funcionam sempre.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc",
+                     "text": "History Tracers Team",
+                     "page": "Inversão",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Um quadrado tem quatro lados?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Sim. Um quadrado tem quatro lados iguais, e um retângulo também tem quatro lados."
+      },
+      {
+         "question": "4 × 5 é igual a 20?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Quatro grupos de cinco são 5 + 5 + 5 + 5 = 20, então 4 × 5 = 20."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
