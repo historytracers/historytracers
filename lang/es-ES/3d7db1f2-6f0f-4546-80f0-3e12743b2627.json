@@ -16,7 +16,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1793377707"
+      "1793378748"
    ],
    "authors": null,
    "reviewers": [],
@@ -112,7 +112,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nUna tabla de multiplicar es un mapa de respuestas. Cada línea muestra lo que sucede cuando sumamos el mismo número una y otra vez. El número que sumamos es un **factor**, la cantidad de veces que lo sumamos es el otro **factor** y la respuesta es el **producto**.\n\nEn los cinco textos anteriores construimos las tablas con grupos que podemos ver y tocar: platos vacíos, pares de calcetines, triángulos, cuadrados, dedos, pétalos de flores, días de la semana, octágonos y eneágonos. La idea fue siempre la misma: **multiplicar es una forma rápida de sumar el mismo número muchas veces**.",
+               "text": "### Introducción\n\nUna tabla de multiplicar es un mapa de respuestas. Cada línea muestra lo que sucede cuando sumamos el mismo número una y otra vez. El número que sumamos es un **factor**, la cantidad de veces que lo sumamos es el otro **factor** y la respuesta es el **producto**.\n\nEn los cinco textos anteriores construimos las diez tablas con grupos que podemos ver y tocar: platos vacíos, dedos, triángulos, cuadrados, pétalos de flores, días de la semana, octágonos y eneágonos. En este resumen recorremos esas tablas **una sección por tabla, de la 0 a la 9**. Cada sección empieza con una invitación a contar y se apoya en las tablas anteriores. La idea fue siempre la misma: **multiplicar es una forma rápida de sumar el mismo número muchas veces**.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -130,7 +130,7 @@
                "PostMention": ""
             },
             {
-               "text": "Esta es la respuesta a nuestra reflexión: 4 × 5 significa cuatro grupos de cinco, y 5 × 4 significa cinco grupos de cuatro. Las dos distribuciones contienen veinte objetos, así que los dos productos son 20. Esta es la **propiedad conmutativa** de la multiplicación: cambiar el orden de los factores no cambia el producto.",
+               "text": "Esta es la respuesta a nuestra reflexión: 4 × 5 significa cuatro grupos de cinco, y 5 × 4 significa cinco grupos de cuatro. Las dos disposiciones contienen veinte objetos, así que los dos productos son 20. Esta es la **propiedad conmutativa** de la multiplicación: cambiar el orden de los factores no cambia el producto. Veremos esta propiedad otra vez en cada par de tablas que repasemos.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -141,19 +141,10 @@
          ]
       },
       {
-         "id": "SECTION_special",
+         "id": "SECTION_table_zero",
          "text": [
             {
-               "text": "### Las tablas especiales: 0 y 1",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "Dos tablas siguen una sola regla para cualquier número. Multiplicar por cero siempre da cero, porque cero grupos de cualquier cosa no contienen nada, como muestra el plato vacío de la Figura 1:",
+               "text": "### La tabla del cero\n\nComenzamos con la tabla más breve de todas: la tabla del cero. Multiplicar por cero siempre da cero, porque cero grupos de cualquier cosa no contienen nada, como muestra el plato vacío de la Figura 1:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -171,25 +162,7 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del cero:** 0 × N = 0. Por ejemplo, 0 × 9 = 0 y 12 × 0 = 0.\n- **Tabla del uno:** 1 × N = N. Por ejemplo, 1 × 7 = 7 y 20 × 1 = 20.\n\nLa Figura 2 muestra un dedo levantado en cada mano: así contamos de uno en uno para entender la multiplicación por 1.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "<p><table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Mano izquierda</th><th>Mano derecha</th><th>Flechas</th></tr> <tr id=\"tr0\"><td><img id=\"sumHandOneL\" onclick=\"htImageZoom('sumHandOneL', '0%')\" /></td><td><img id=\"sumHandOneR\" onclick=\"htImageZoom('sumHandOneR', '0%')\" /></td></tr> </table></p><p class=\"desc\"><b>Figura 2</b>: Contar con los dedos para entender la multiplicación por 1.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Estas dos reglas son la base de todas las demás tablas. También funcionan cuando cambia el orden: 9 × 0 = 0 × 9 = 0, y 7 × 1 = 1 × 7 = 7.",
+               "text": "- **Tabla del cero:** 0 × N = 0. Por ejemplo, 0 × 9 = 0 y 12 × 0 = 0.\n\nEsta regla vale sin importar cuán grande sea N. También funciona cuando cambia el orden: 9 × 0 = 0 × 9 = 0.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -200,10 +173,10 @@
          ]
       },
       {
-         "id": "SECTION_two_three",
+         "id": "SECTION_table_one",
          "text": [
             {
-               "text": "### El doble y el triple: 2 y 3",
+               "text": "### La tabla del uno\n\nAhora, contemos de 1 en 1. Multiplicar por uno deja el número sin cambios: un grupo de N sigue siendo N.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -212,7 +185,39 @@
                "PostMention": ""
             },
             {
-               "text": "Multiplicar por dos significa sumar el número dos veces, así que el producto es el **doble** del número. La Figura 3 muestra dos manos, cada una con cinco dedos: dos grupos de cinco dan 10.",
+               "text": "<p><table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Mano izquierda</th><th>Mano derecha</th></tr> <tr id=\"tr0\"><td><img id=\"sumHandOneL\" onclick=\"htImageZoom('sumHandOneL', '0%')\" /></td><td><img id=\"sumHandOneR\" onclick=\"htImageZoom('sumHandOneR', '0%')\" /></td></tr> </table></p><p class=\"desc\"><b>Figura 2</b>: Contar con los dedos para entender la multiplicación por 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabla del uno:** 1 × N = N. Por ejemplo, 1 × 7 = 7 y 20 × 1 = 20.\n\nLa Figura 2 muestra un dedo levantado en cada mano: así contamos de uno en uno para entender la multiplicación por 1.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Estas dos reglas —el cero y el uno— son la base de todas las demás tablas. También funcionan cuando cambia el orden: 7 × 1 = 1 × 7 = 7. Con esa base lista, podemos contar con números mayores.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_table_two",
+         "text": [
+            {
+               "text": "### La tabla del dos\n\nAhora, contemos de 2 en 2. Multiplicar por dos significa sumar el número dos veces, así que el producto es el **doble** del número. La Figura 3 muestra dos manos, cada una con cinco dedos: dos grupos de cinco dan 10.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -230,7 +235,30 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del dos:** 2 × N = N + N. Contar de dos en dos da 2, 4, 6, 8, 10...\n- **Tabla del tres:** 3 × N = N + N + N. Contar de tres en tres da 3, 6, 9, 12, 15...\n\nLa Figura 4 muestra tres triángulos del mismo tamaño: cada triángulo tiene tres lados, así que tres grupos de tres dan 9.",
+               "text": "- **Tabla del dos:** 2 × N = N + N. Contar de dos en dos da 2, 4, 6, 8, 10...\n\nPor ejemplo, 2 × 6 = 6 + 6 = 12.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Un atajo útil: como 2 × N es el doble de N, todos los productos de la tabla del dos son **números pares**. Añadamos ahora un grupo más.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_table_three",
+         "text": [
+            {
+               "text": "### La tabla del tres\n\nAhora, contemos de 3 en 3. Multiplicar por tres significa sumar el número tres veces. La Figura 4 muestra tres triángulos del mismo tamaño: cada triángulo tiene tres lados, así que tres grupos de tres dan 9.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -248,7 +276,7 @@
                "PostMention": ""
             },
             {
-               "text": "Por ejemplo, 2 × 6 = 6 + 6 = 12 y 3 × 4 = 4 + 4 + 4 = 12. Observa que 2 × 3 = 3 × 2 = 6: el orden de los factores no cambia el producto.",
+               "text": "- **Tabla del tres:** 3 × N = N + N + N. Contar de tres en tres da 3, 6, 9, 12, 15...\n\nPor ejemplo, 3 × 4 = 4 + 4 + 4 = 12. Observa que 2 × 3 = 3 × 2 = 6: el orden de los factores no cambia el producto.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -257,7 +285,7 @@
                "PostMention": ""
             },
             {
-               "text": "Un atajo útil: como 2 × N es el doble de N, todos los productos de la tabla del dos son **números pares**.",
+               "text": "Los dobles y los triples ya están listos. Pasemos a los cuadrados y a las manos.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -268,19 +296,10 @@
          ]
       },
       {
-         "id": "SECTION_four_five",
+         "id": "SECTION_table_four",
          "text": [
             {
-               "text": "### Cuadrados y manos: 4 y 5",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "Un cuadrado tiene cuatro lados y una mano tiene cinco dedos. La Figura 5 muestra un cuadrado y un rectángulo, y los dos tienen cuatro lados. Estos grupos nos ayudan a construir las dos tablas siguientes:",
+               "text": "### La tabla del cuatro\n\nAhora, contemos de 4 en 4. Un cuadrado tiene cuatro lados, y un rectángulo también tiene cuatro lados, como muestra la Figura 5. Estos grupos nos ayudan a construir la tabla del cuatro:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -298,7 +317,16 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del cuatro:** 4 × N = N + N + N + N. Contar de cuatro en cuatro da 4, 8, 12, 16, 20...\n- **Tabla del cinco:** 5 × N = N + N + N + N + N. Contar de cinco en cinco da 5, 10, 15, 20, 25...\n\nLa Figura 6 muestra cinco cuadrados del mismo tamaño: cinco grupos de cuatro lados dan 20. La Figura 7 muestra dos manos, cada una con cinco dedos: dos grupos de cinco también dan 10.",
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 550 140\" width=\"100%\" role=\"img\" aria-label=\"Cinco cuadrados del mismo tamaño\"><g fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"10\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"120\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"230\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"340\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"450\" y=\"20\" width=\"100\" height=\"100\"/></g></svg></p><p class=\"desc\"><b>Figura 6</b>: Cinco cuadrados del mismo tamaño, cada uno con cuatro lados iguales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabla del cuatro:** 4 × N = N + N + N + N. Contar de cuatro en cuatro da 4, 8, 12, 16, 20...\n\nLa Figura 6 muestra cinco cuadrados del mismo tamaño: cinco grupos de cuatro lados dan 20. Por ejemplo, 4 × 5 = 5 + 5 + 5 + 5 = 20.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -307,12 +335,26 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 550 140\" width=\"100%\" role=\"img\" aria-label=\"Cinco cuadrados del mismo tamaño\"><g fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"10\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"120\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"230\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"340\" y=\"20\" width=\"100\" height=\"100\"/><rect x=\"450\" y=\"20\" width=\"100\" height=\"100\"/></g></svg></p><p class=\"desc\"><b>Figura 6</b>: Cinco cuadrados del mismo tamaño, cada uno con cuatro lados iguales.</p>",
+               "text": "Un atajo: como 4 = 2 × 2, la tabla del cuatro es la tabla del dos duplicada. Ahora pasemos a una tabla que mucha gente encuentra muy útil: la tabla del cinco.",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_table_five",
+         "text": [
+            {
+               "text": "### La tabla del cinco\n\nAhora, contemos de 5 en 5. Una mano tiene cinco dedos, y la Figura 7 muestra dos manos: dos grupos de cinco dan 10.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -325,7 +367,7 @@
                "PostMention": ""
             },
             {
-               "text": "Por ejemplo, 4 × 5 = 5 + 5 + 5 + 5 = 20 y 5 × 4 = 4 + 4 + 4 + 4 + 4 = 20. Una vez más, 4 × 5 = 5 × 4.",
+               "text": "- **Tabla del cinco:** 5 × N = N + N + N + N + N. Contar de cinco en cinco da 5, 10, 15, 20, 25...\n\nPor ejemplo, 5 × 4 = 4 + 4 + 4 + 4 + 4 = 20. Una vez más, 4 × 5 = 5 × 4.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -334,7 +376,7 @@
                "PostMention": ""
             },
             {
-               "text": "Dos atajos ayudan aquí: como 4 = 2 × 2, la tabla del cuatro es la tabla del dos duplicada; y todos los productos de la tabla del cinco terminan en 0 o en 5.",
+               "text": "Un atajo: todos los productos de la tabla del cinco terminan en 0 o en 5. De las manos y los cuadrados pasamos ahora a las flores.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -345,19 +387,10 @@
          ]
       },
       {
-         "id": "SECTION_six_seven",
+         "id": "SECTION_table_six",
          "text": [
             {
-               "text": "### Flores y semanas: 6 y 7",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "Una flor con seis pétalos y una semana con siete días nos dan los dos grupos siguientes. La Figura 8 muestra una flor con seis pétalos alrededor de su centro: cada pétalo es una unidad del grupo de seis.",
+               "text": "### La tabla del seis\n\nAhora, contemos de 6 en 6. La Figura 8 muestra una flor con seis pétalos alrededor de su centro: cada pétalo es una unidad del grupo de seis.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -375,7 +408,16 @@
                "PostMention": ""
             },
             {
-               "text": "- **Tabla del seis:** 6 × N = N + N + N + N + N + N. Contar de seis en seis da 6, 12, 18, 24, 30...\n- **Tabla del siete:** 7 × N = N + N + N + N + N + N + N. Contar de siete en siete da 7, 14, 21, 28, 35...\n\nLa Figura 9 muestra cinco flores, cada una con seis pétalos: cinco grupos de seis dan 30. La Figura 10 muestra los siete días de una semana: cada día es una unidad del grupo de siete.",
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 240\" width=\"100%\" role=\"img\" aria-label=\"Cinco flores de diferentes colores, cada una con seis pétalos\"><g><g transform=\"translate(-120 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#f8bbd0\" stroke=\"#ad1457\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(10 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#bbdefb\" stroke=\"#1565c0\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(140 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#ffe0b2\" stroke=\"#ef6c00\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(270 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#e1bee7\" stroke=\"#6a1b9a\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(400 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#c8e6c9\" stroke=\"#2e7d32\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g></g></svg></p><p class=\"desc\"><b>Figura 9</b>: Cinco flores de diferentes colores, cada una con seis pétalos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Cinco flores de diferentes colores, cada una con seis pétalos.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **Tabla del seis:** 6 × N = N + N + N + N + N + N. Contar de seis en seis da 6, 12, 18, 24, 30...\n\nLa Figura 9 muestra cinco flores, cada una con seis pétalos: cinco grupos de seis dan 30. Un atajo: como 6 = 3 × 2, la tabla del seis es la tabla del tres duplicada.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -384,12 +426,26 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 240\" width=\"100%\" role=\"img\" aria-label=\"Cinco flores de diferentes colores, cada una con seis pétalos\"><g><g transform=\"translate(-120 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#f8bbd0\" stroke=\"#ad1457\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(10 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#bbdefb\" stroke=\"#1565c0\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(140 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#ffe0b2\" stroke=\"#ef6c00\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(270 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#e1bee7\" stroke=\"#6a1b9a\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g><g transform=\"translate(400 0)\"><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M180 110 L180 216\"/><path d=\"M180 170 Q148 152 136 168 Q156 188 180 182\" fill=\"#a5d6a7\"/><path d=\"M180 190 Q212 172 224 188 Q204 206 180 202\" fill=\"#a5d6a7\"/></g><g fill=\"#c8e6c9\" stroke=\"#2e7d32\" stroke-width=\"3\"><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(60 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(120 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(180 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(240 180 110)\"/><ellipse cx=\"180\" cy=\"78\" rx=\"22\" ry=\"32\" transform=\"rotate(300 180 110)\"/></g><circle cx=\"180\" cy=\"110\" r=\"20\" fill=\"#ffe082\" stroke=\"#f57f17\" stroke-width=\"3\"/></g></g></svg></p><p class=\"desc\"><b>Figura 9</b>: Cinco flores de diferentes colores, cada una con seis pétalos.</p>",
+               "text": "La siguiente tabla coincide con los días de una semana.",
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc": "Cinco flores de diferentes colores, cada una con seis pétalos.",
-               "format": "html",
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_table_seven",
+         "text": [
+            {
+               "text": "### La tabla del siete\n\nAhora, contemos de 7 en 7. La Figura 10 muestra los siete días de una semana: cada día es una unidad del grupo de siete.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -402,15 +458,6 @@
                "PostMention": ""
             },
             {
-               "text": "Por ejemplo, 6 × 7 = 42 y 7 × 6 = 42. Cambiar el orden de los factores no cambia el producto. La Figura 11 muestra cuatro semanas: 4 × 7 = 28 días.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
                "text": "<div class=\"htCalendarFigureWrap\"><div id=\"htSumFourWeekCalendarFigure\" class=\"htCalendarFigure\" role=\"group\" aria-label=\"Calendario de cuatro semanas\"></div></div><p class=\"desc\"><b>Figura 11</b>: Un calendario con cuatro semanas, usando los nombres de los días del calendario seleccionado en la parte superior de la página.</p>",
                "source": null,
                "date_time": null,
@@ -420,7 +467,16 @@
                "PostMention": ""
             },
             {
-               "text": "Dos atajos ayudan aquí: como 6 = 3 × 2, la tabla del seis es la tabla del tres duplicada; y cada producto de siete es el producto correspondiente de seis más N, así que 7 × 5 = 30 + 5 = 35.",
+               "text": "- **Tabla del siete:** 7 × N = N + N + N + N + N + N + N. Contar de siete en siete da 7, 14, 21, 28, 35...\n\nPor ejemplo, 7 × 6 = 42. Observa que 6 × 7 = 42 también: el orden de los factores no cambia el producto. La Figura 11 muestra cuatro semanas: 4 × 7 = 28 días.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Un atajo: cada producto de la tabla del siete es el producto correspondiente de la tabla del seis más N, así que 7 × 5 = 30 + 5 = 35. Quedan solo dos tablas; los polígonos nos ayudarán con ellas.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -431,19 +487,10 @@
          ]
       },
       {
-         "id": "SECTION_eight_nine",
+         "id": "SECTION_table_eight",
          "text": [
             {
-               "text": "### Octágonos y eneágonos: 8 y 9",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": ""
-            },
-            {
-               "text": "Un octágono tiene ocho lados y un eneágono (también llamado nonágono) tiene nueve lados. La Figura 12 muestra polígonos de tres a nueve lados para que puedas compararlos. Estas figuras nos dan las dos últimas tablas:",
+               "text": "### La tabla del ocho\n\nAhora, contemos de 8 en 8. Un octágono tiene ocho lados. La Figura 12 muestra polígonos de tres a nueve lados para que puedas compararlos; la Figura 13 muestra un octágono con sus 8 lados.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -458,15 +505,6 @@
                "isTable": false,
                "imgdesc": "Siete polígonos, con 3, 4, 5, 6, 7, 8 y 9 lados, etiquetados con el número de lados.",
                "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "- **Tabla del ocho:** 8 × N = N + N + N + N + N + N + N + N. Contar de ocho en ocho da 8, 16, 24, 32, 40...\n- **Tabla del nueve:** 9 × N = N + N + N + N + N + N + N + N + N. Contar de nueve en nueve da 9, 18, 27, 36, 45...\n\nLa Figura 13 muestra un octágono con sus 8 lados, y la Figura 14 muestra cinco octágonos: cinco grupos de ocho dan 40. La Figura 15 muestra un eneágono con sus 9 lados.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -488,21 +526,44 @@
                "PostMention": ""
             },
             {
+               "text": "- **Tabla del ocho:** 8 × N = N + N + N + N + N + N + N + N. Contar de ocho en ocho da 8, 16, 24, 32, 40...\n\nLa Figura 14 muestra cinco octágonos: cinco grupos de ocho dan 40. Por ejemplo, 8 × 9 = 72.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Después de esta queda una sola tabla: la tabla del nueve.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_table_nine",
+         "text": [
+            {
+               "text": "### La tabla del nueve\n\nAhora, contemos de 9 en 9. Un eneágono (también llamado nonágono) tiene nueve lados, como muestra la Figura 15.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
                "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 210\" width=\"100%\" role=\"img\" aria-label=\"Un eneágono con nueve lados\"><polygon points=\"180.0,27.0 230.1,45.2 256.8,91.5 247.5,144.0 206.7,178.3 153.3,178.3 112.5,144.0 103.2,91.5 129.9,45.2\" fill=\"#fff3e0\" stroke=\"#2e7d32\" stroke-width=\"4\" stroke-linejoin=\"round\"/><text x=\"180\" y=\"125\" text-anchor=\"middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"38\" font-weight=\"bold\" fill=\"#2e7d32\">9</text></svg></p><p class=\"desc\"><b>Figura 15</b>: Un eneágono tiene 9 lados. Cada lado es una unidad de nuestro grupo de nueve.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "Un eneágono con nueve lados.",
                "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "Por ejemplo, 8 × 9 = 72 y 9 × 8 = 72. El orden de los factores sigue sin cambiar el producto. La Figura 16 muestra cinco eneágonos del mismo tamaño: cinco grupos de nueve dan 45.",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -515,7 +576,16 @@
                "PostMention": ""
             },
             {
-               "text": "Un atajo especial para la tabla del nueve: suma los dígitos de cada producto de dos cifras. Para 9 × 8 = 72, 7 + 2 = 9; para 9 × 6 = 54, 5 + 4 = 9. Los dígitos siempre suman 9.",
+               "text": "- **Tabla del nueve:** 9 × N = N + N + N + N + N + N + N + N + N. Contar de nueve en nueve da 9, 18, 27, 36, 45...\n\nLa Figura 16 muestra cinco eneágonos del mismo tamaño: cinco grupos de nueve dan 45. Por ejemplo, 9 × 8 = 72. El orden de los factores sigue sin cambiar el producto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Un atajo especial para la tabla del nueve: suma los dígitos de cada producto de dos cifras. Para 9 × 8 = 72, 7 + 2 = 9; para 9 × 6 = 54, 5 + 4 = 9. Los dígitos siempre suman 9. Con esto cerramos el recorrido de la 0 a la 9.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -547,7 +617,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table class=\"tableTen\"><tr><th>Tabla</th><th>Qué significa</th></tr><tr><td><b>0</b></td><td>0 × N = 0. Contar de cero en cero siempre da 0.</td></tr><tr><td><b>1</b></td><td>1 × N = N. Contar de uno en uno da 1, 2, 3, 4, 5...</td></tr><tr><td><b>2</b></td><td>2 × N = N + N. Contar de dos en dos da 2, 4, 6, 8, 10...</td></tr><tr><td><b>3</b></td><td>3 × N = N + N + N. Contar de tres en tres da 3, 6, 9, 12, 15...</td></tr><tr><td><b>4</b></td><td>4 × N = N + N + N + N. Contar de cuatro en cuatro da 4, 8, 12, 16, 20...</td></tr><tr><td><b>5</b></td><td>5 × N = N + N + N + N + N. Contar de cinco en cinco da 5, 10, 15, 20, 25...</td></tr><tr><td><b>6</b></td><td>6 × N = N sumado seis veces. Contar de seis en seis da 6, 12, 18, 24, 30...</td></tr><tr><td><b>7</b></td><td>7 × N = N sumado siete veces. Contar de siete en siete da 7, 14, 21, 28, 35...</td></tr><tr><td><b>8</b></td><td>8 × N = N sumado ocho veces. Contar de ocho en ocho da 8, 16, 24, 32, 40...</td></tr><tr><td><b>9</b></td><td>9 × N = N sumado nueve veces. Contar de nueve en nueve da 9, 18, 27, 36, 45...</td></tr></table></p><p class=\"desc\"><b>Table 1</b>: Las diez tablas de multiplicar de un vistazo.</p>",
+               "text": "<p><table class=\"tableTen\"><tr><th>Tabla</th><th>Qué significa</th></tr><tr><td><b>0</b></td><td>0 × N = 0. Contar de cero en cero siempre da 0.</td></tr><tr><td><b>1</b></td><td>1 × N = N. Contar de uno en uno da 1, 2, 3, 4, 5...</td></tr><tr><td><b>2</b></td><td>2 × N = N + N. Contar de dos en dos da 2, 4, 6, 8, 10...</td></tr><tr><td><b>3</b></td><td>3 × N = N + N + N. Contar de tres en tres da 3, 6, 9, 12, 15...</td></tr><tr><td><b>4</b></td><td>4 × N = N + N + N + N. Contar de cuatro en cuatro da 4, 8, 12, 16, 20...</td></tr><tr><td><b>5</b></td><td>5 × N = N + N + N + N + N. Contar de cinco en cinco da 5, 10, 15, 20, 25...</td></tr><tr><td><b>6</b></td><td>6 × N = N sumado seis veces. Contar de seis en seis da 6, 12, 18, 24, 30...</td></tr><tr><td><b>7</b></td><td>7 × N = N sumado siete veces. Contar de siete en siete da 7, 14, 21, 28, 35...</td></tr><tr><td><b>8</b></td><td>8 × N = N sumado ocho veces. Contar de ocho en ocho da 8, 16, 24, 32, 40...</td></tr><tr><td><b>9</b></td><td>9 × N = N sumado nueve veces. Contar de nueve en nueve da 9, 18, 27, 36, 45...</td></tr></table></p><p class=\"desc\"><b>Tabla 1</b>: Las diez tablas de multiplicar de un vistazo.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -579,7 +649,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>r</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>a</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi></math></p><p class=\"desc\"><b>Formula 1</b>: La fórmula general de las tablas de multiplicar.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>r</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>a</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 1</b>: La fórmula general de las tablas de multiplicar.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -611,7 +681,7 @@
                "PostMention": ""
             },
             {
-               "text": "Repasamos las diez tablas de multiplicar y vimos que no son diez trucos separados. Todas vienen de la misma idea: sumar el mismo número muchas veces.",
+               "text": "Recorrimos las diez tablas de multiplicar sección por sección, de la 0 a la 9, y vimos que no son diez trucos separados. Todas vienen de la misma idea: sumar el mismo número muchas veces.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -629,7 +699,7 @@
                "PostMention": ""
             },
             {
-               "text": "Sigue practicando con objetos y di las secuencias en voz alta. Cuando necesites comprobar un producto, vuelve a los cinco textos y usa sus tablas interactivas.",
+               "text": "Sigue practicando con objetos y di las secuencias en voz alta. Cuando necesites comprobar un producto, vuelve a la sección de esa tabla de arriba, o a los cinco textos y usa sus tablas interactivas.",
                "source": null,
                "date_time": null,
                "isTable": false,
