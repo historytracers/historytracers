@@ -1,0 +1,367 @@
+{
+   "title": "Learning Multiplication Table (2 and 3)",
+   "header": "Learning Multiplication Table (2 and 3)",
+   "sources": [
+      "8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b"
+   ],
+   "scripts": [
+      "8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/8bbd4fa3-d3cf-4ff4-bd96-65dc852e508b_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6DqTiRaFompbCoVSXzH9dd?si=cTvc2kc1RTOs-PCKzr99AA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793295131"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nBefore you start, we recommend reading *Learning Multiplication Table (0 and 1)* (<htcite0>), where you learned what happens when you multiply by zero and by one.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "da2e2b37-7b63-4ba8-8ddd-e72535068258",
+                     "text": "History Tracers Team",
+                     "page": "Learning Multiplication Table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nA multiplication table is like a map of answers: once we know the map, we no longer need to count everything again. Today we will learn two more of these maps — the table of two (2) and the table of three (3). In the previous text we learned how to multiply by zero and by one, and we learned a formula that was used for both. The result of a multiplication is called the **product**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "These two tables are friendly because we can build them with small steps: counting by twos — 2, 4, 6, 8, 10... — and counting by threes — 3, 6, 9, 12, 15... Keep that counting rhythm in mind, and the rules below will feel natural.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Formulas for two and three</b><br /><br />Pause and think: is it possible to also create formulas to multiply by 2 and 3?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_two",
+         "text": [
+            {
+               "text": "### Multiplying by Two (2)\n\nNow we turn to the table of two. Multiplying by two means adding the same number two times, so the product is always the **double** of that number.\n\nA hands-on way to see it is with your own hands. Each hand has five fingers, and you have two hands — that is two groups of five. Count all the fingers together: 5 + 5 = 10, so 5 × 2 = 10 fingers in all.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Left hand</td><td>Right hand</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figure 1</b>: Two hands, each with five fingers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Two hands, each with five fingers.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Pairs of socks</b><br />A pair of socks always has 2 socks. Suppose we put socks into pairs, and we want to know how many socks we have in all. Try different numbers of pairs:<br />• 1 pair: 2 × 1 = 2 socks.<br />• 2 pairs: 2 × 2 = 4 socks.<br />• 4 pairs: 2 × 4 = 8 socks.<br />• 6 pairs: 2 × 6 = 12 socks.<br />Do you see the pattern? Each new pair adds 2 more socks. That is what we call counting by twos: 2, 4, 6, 8, 10, 12!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Why is the product of a whole number always even?\n\nLook at the answers of the table of two: 2, 4, 6, 8, 10, 12... Every one of them is an **even number**, which means it can be divided into two equal parts with nothing left over (<htcite0>). Multiplying by 2 doubles a whole number, and a double can always be split into two equal halves. So the product of any whole number multiplied by 2 is always even!",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "130b6adb-161d-4fec-98e4-eaa384122753",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Even Number",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### A Formula for the Table of Two\n\nWe can write this rule as a formula that works for every number **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Formula 1</b>: Multiplying any number by two is the same as adding it to itself.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Read it aloud: \"two times N equals N plus N.\"\n- The product is always the **double** of N — the number added to itself.\n- **N** is a placeholder for any number you like, so one rule covers every multiplication by two at once.\n- If **N** is 0, the product is 0; if **N** is 1, the product is 2 — exactly what we saw in the table of zero and the table of one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Now try it yourself: hover the mouse over each multiplication in the box on the left. As you do, the table on the right highlights the matching row, so you can watch every answer for the table of two appear.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Pairs of shoes</b><br /><br />Pause and think: if you have 5 pairs of shoes, how many shoes do you have in all?<br /><br />(Hint: count by twos five times: 2, 4, 6, 8, 10.)</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Here is the answer to our reflection: five pairs are five groups of two, so 5 × 2 = 10 shoes. Counting by twos helped us find the answer quickly.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_three",
+         "text": [
+            {
+               "text": "### Multiplying by Three (3)\n\nNow we turn to the table of three. Multiplying by three means adding the same number three times.\n\nA triangle has three sides. In Figure 2, the three triangles have the same size, and each triangle has three equal sides. Let's count all the sides together: 3, 6, 9! So 3 + 3 + 3 = 9, and that means 3 × 3 = 9.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 440 180\" width=\"100%\" role=\"img\" aria-label=\"Three equilateral triangles of the same size\"><g fill=\"#e8f5e9\" stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linejoin=\"round\"><polygon points=\"20,160 120,160 70,73.4\"/><polygon points=\"170,160 270,160 220,73.4\"/><polygon points=\"320,160 420,160 370,73.4\"/></g><g stroke=\"#2e7d32\" stroke-width=\"3\" stroke-linecap=\"round\"><line x1=\"70.0\" y1=\"156.0\" x2=\"70.0\" y2=\"164.0\"/><line x1=\"91.5\" y1=\"118.7\" x2=\"98.5\" y2=\"114.7\"/><line x1=\"48.5\" y1=\"118.7\" x2=\"41.5\" y2=\"114.7\"/><line x1=\"220.0\" y1=\"156.0\" x2=\"220.0\" y2=\"164.0\"/><line x1=\"241.5\" y1=\"118.7\" x2=\"248.5\" y2=\"114.7\"/><line x1=\"198.5\" y1=\"118.7\" x2=\"191.5\" y2=\"114.7\"/><line x1=\"370.0\" y1=\"156.0\" x2=\"370.0\" y2=\"164.0\"/><line x1=\"391.5\" y1=\"118.7\" x2=\"398.5\" y2=\"114.7\"/><line x1=\"348.5\" y1=\"118.7\" x2=\"341.5\" y2=\"114.7\"/></g></svg></p><p class=\"desc\"><b>Figure 2</b>: Three triangles of the same size, each with three equal sides.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Three triangles of the same size, each with three equal sides.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Sides of triangles</b><br />Look at Figure 2: each triangle has 3 sides, and the three triangles together have 3 + 3 + 3 = 9 sides in all. Suppose we want to count all the sides of any group of triangles. Try different numbers of triangles:<br />• 1 triangle: 3 × 1 = 3 sides.<br />• 2 triangles: 3 × 2 = 6 sides.<br />• 4 triangles: 3 × 4 = 12 sides.<br />• 5 triangles: 3 × 5 = 15 sides.<br />Do you see the pattern? Each new triangle adds 3 more sides. That is what we call counting by threes: 3, 6, 9, 12, 15!</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### A Formula for the Table of Three\n\nWe can write this rule as a formula that works for every number **N**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>N</mi></math></p><p class=\"desc\"><b>Formula 2</b>: Multiplying any number by three is the same as adding it three times.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- Read it aloud: \"three times N equals N plus N plus N.\"\n- The product is always N added to itself three times.\n- **N** is a placeholder for any number you like, so one rule covers every multiplication by three at once.\n- If **N** is 0, the product is 0; if **N** is 1, the product is 3 — exactly what we saw in the table of zero and the table of one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Now try it yourself: hover the mouse over each multiplication in the box on the left. As you do, the table on the right highlights the matching row, so you can watch every answer for the table of three appear.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent3\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: How much is 2 × 3?</b><br /><br />Pause and think: count by twos three times — 2, 4, 6 — or use the table of two to find the answer.<br /><br />Then check: is the result the same as 3 × 2?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Here is the answer to our reflection: counting by twos three times gives 2, 4, 6, so 2 × 3 = 6. And 3 × 2 = 6 too: counting by threes twice gives 3, 6. You can swap the two numbers: the answer stays the same.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nWe have learned two friendly new tables:\n\n- Multiplying by 2 means adding the number two times: 2, 4, 6, 8, 10, 12...\n- Multiplying by 3 means adding the number three times: 3, 6, 9, 12, 15, 18...\n\nWe also saw that 2 × 3 = 6 and 3 × 2 = 6. Changing the order of the factors does not change the product. (<htcite0>)\n\nKeep practicing with real objects — count socks by twos, count triangle sides by threes — and try the interactive tables again and again. You will see these two tables work every single time.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc",
+                     "text": "History Tracers Team",
+                     "page": "Inversion",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Is 2 × 4 equal to 8?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Two groups of four are 4 + 4 = 8, so 2 × 4 = 8."
+      },
+      {
+         "question": "Does multiplying a whole number by 2 always give an even number?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Doubling any whole number always gives an even number: 2, 4, 6, 8, 10..."
+      },
+      {
+         "question": "Is 3 × 3 equal to 6?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "No. Three groups of three are 3 + 3 + 3 = 9, so 3 × 3 = 9. The product 6 comes from 3 × 2."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

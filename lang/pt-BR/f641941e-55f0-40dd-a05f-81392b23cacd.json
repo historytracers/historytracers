@@ -1,0 +1,133 @@
+{
+   "title": "Multiplicando com grupos (0 a 3)",
+   "header": "Multiplicando com grupos (0 a 3)",
+   "sources": [
+      "f641941e-55f0-40dd-a05f-81392b23cacd"
+   ],
+   "scripts": [
+      "f641941e-55f0-40dd-a05f-81392b23cacd"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f641941e-55f0-40dd-a05f-81392b23cacd_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0dxytfmgtod7n06KDDd8Ps?si=LALRihuIQDy8IQ8texLSUg",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1792722844"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo pratica as tabuadas do 0 ao 3. Antes de jogar, sugerimos revisar:\n\n- **Multiplicando com o corpo (Fase 1)**: um jogo para praticar a multiplicação com as tabuadas que você já conhece (<htcite0>)\n- **Entendendo a tabuada (0 e 1)**: como funcionam as tabuadas do 0 e do 1 (<htcite2>)\n- **Entendendo a Tabuada (2 e 3)**: como a multiplicação se relaciona com os triângulos e com a tabuada (<htcite1>)\n\nEssas atividades preparam você para ver cada multiplicação deste jogo como um desenho de grupos iguais.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "59648475-3d23-45fe-8d6e-f3def1a2729b",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando com o corpo (Fase 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f7f4988d-1427-4e26-a6a8-c375c57924c7",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a Tabuada (2 e 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2acc8c3a-8b10-4b67-8d70-ec1113e691c4",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Regras gerais\n\nEste jogo ajuda você a ver a multiplicação como grupos iguais. À esquerda aparece uma multiplicação; à direita, o seu resultado é mostrado junto com um desenho de grupos de caracteres.\n\nCada retângulo à direita é um grupo. Todos os retângulos contêm tantos caracteres quanto o primeiro fator, e o número de retângulos é o segundo fator. Por exemplo, 2 × 4 mostra dois caracteres em cada um de quatro retângulos: isso é quatro grupos de dois, e o resultado é 8. Quando o primeiro fator é 0, não aparecem caracteres, porque multiplicar qualquer número por 0 dá 0.\n\nO jogo tem três níveis:\n\n- **Nível 1**: três multiplicações — uma da tabuada do 0 e duas da tabuada do 1.\n- **Nível 2**: duas multiplicações, ambas da tabuada do 2.\n- **Nível 3**: duas multiplicações, ambas da tabuada do 3.\n\nPara jogar, selecione uma multiplicação da esquerda e depois o resultado da direita. Se o par estiver correto, ambos ficam destacados. Quando acertar todos os pares, você terá completado o nível e poderá avançar para o próximo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nUna cada multiplicação da esquerda com o resultado da direita. O resultado também aparece como grupos de caracteres, assim você pode contá-los para conferir a sua resposta. Se um par estiver errado, uma mensagem pedirá que você tente novamente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupLevel\" class=\"level-badge\"></span></p><p><div id=\"multGroupGame\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupLeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupRightCol\"></div></div></p><p id=\"multGroupFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupLevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você acertou todos os pares deste nível!</p><p id=\"multGroupAllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br />Você acertou todas as multiplicações!</p><p style=\"text-align: center\"><button id=\"multGroupReset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button></p><p style=\"text-align: center\"><button id=\"multGroupNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupWordLevel\" style=\"display: none\">Nível</span><span id=\"multGroupWordNextLevel\" style=\"display: none\">Próximo nível</span><span id=\"multGroupWordPlayAgain\" style=\"display: none\">Jogar novamente</span><span id=\"multGroupWordWrongPair\" style=\"display: none\">%RESULT% não é o resultado de %EXPRESSION%. Conte os caracteres e tente novamente.</span><span id=\"multGroupWordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroupWordNoGroups\" style=\"display: none\">Sem grupos.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

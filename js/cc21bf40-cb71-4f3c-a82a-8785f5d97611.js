@@ -40,6 +40,57 @@ function htSubInReplace(template, values) {
     return template;
 }
 
+var HT_SUBIN_INPUTS = "#htSubInTopInput, #htSubInBorrowInput, #htSubInDigitInput";
+
+// The value fields are moved in and out of the board every time it is rebuilt, and
+// moving the field that has the focus blurs it. The field being used is remembered
+// before the rebuild and focused again afterwards, so a wrong value can be deleted
+// and typed again without losing the caret. The focus only moves when the player
+// clicks another box or button.
+function htSubInRememberFocus() {
+    var active = document.activeElement;
+    if (!active || !active.id || !$(active).is(HT_SUBIN_INPUTS)) {
+        return null;
+    }
+    return {
+        id: active.id,
+        start: active.selectionStart,
+        end: active.selectionEnd
+    };
+}
+
+function htSubInRestoreFocus(state) {
+    var field;
+    if (!state) {
+        return;
+    }
+    field = document.getElementById(state.id);
+    // When the field of the step that was just solved is no longer on the board,
+    // continue in the first field that still waits for a value.
+    if (!field || field.disabled || !$(field).is(":visible")) {
+        field = null;
+        $(HT_SUBIN_INPUTS).each(function() {
+            if (!this.disabled && $(this).is(":visible")) {
+                field = this;
+                return false;
+            }
+        });
+        if (!field) {
+            return;
+        }
+        state = null;
+    }
+    try {
+        field.focus({ preventScroll: true });
+    } catch (e) {
+        field.focus();
+    }
+    if (state && typeof state.start === "number" && field.setSelectionRange) {
+        var length = String(field.value).length;
+        field.setSelectionRange(Math.min(state.start, length), Math.min(state.end, length));
+    }
+}
+
 // Draws the vertical subtraction: the top row, the two operands with the - sign,
 // the result line and the result row. The column being solved is highlighted and a
 // column shows its result digit only once it has been solved. The three value
@@ -78,6 +129,7 @@ function htSubInBuildBoard() {
 
     // The value fields are part of the board, so take them out before the table
     // is rebuilt, otherwise the rebuild would destroy them.
+    var focus = htSubInRememberFocus();
     $("#htSubInDigitInput, #htSubInBorrowInput, #htSubInTopInput").appendTo("#htSubInInputHome");
 
     var rows = "";
@@ -160,6 +212,8 @@ function htSubInBuildBoard() {
         }
         $("#htSubInDigitSlot").append($("#htSubInDigitInput"));
     }
+
+    htSubInRestoreFocus(focus);
 }
 
 // Draws the squares of the column. The base squares are light blue from the start

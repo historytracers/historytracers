@@ -1,0 +1,128 @@
+{
+   "title": "Divisions: choosing the dividend and the divisor",
+   "header": "Divisions: choosing the dividend and the divisor",
+   "sources": [
+      "549c8ddf-97e0-4eb4-a4f1-d1d2b5126cab"
+   ],
+   "scripts": [
+      "549c8ddf-97e0-4eb4-a4f1-d1d2b5126cab"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/549c8ddf-97e0-4eb4-a4f1-d1d2b5126cab_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4Pn5cfe9Sf9Lg1XvFk1jjz?si=cjTajgG1SrC-LJaLeOnAqA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793059704"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis text presents an application for practicing division. Before using it, we recommend studying the previous texts in this chapter (<htcite0>), which introduce the multiplication tables and other basic ideas you will need here.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First steps (Volume 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practicing",
+         "text": [
+            {
+               "text": "### Practice\n\nReading a text is a good start, but truly understanding division takes practice. In this application, you choose the numbers yourself: write a **dividend** from 0 to 9999 and select a **divisor** from 1 to 9, then press **Start**. The **multiplication table** of the divisor appears above the exercise to help you at every step.\n\nThe exercise uses the **long division algorithm** (<htcite0>), the step-by-step method for dividing numbers by hand. Remember: when one number does not divide another exactly, the amount that is left over is called the **remainder**.\n\nThe application shows the division and asks for the first quotient digit. Write it in the active box. When the digit is correct, the application shows the product of that step; then write the result of the subtraction in the box that appears. As soon as the subtraction is correct, the application moves to the next quotient digit. If you write a digit that is not correct, the application shows a hint and you can try again.\n\nWhen you finish, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>). Click the right arrow (<i class=\"fa-solid fa-chevron-right\"></i>) to start a new calculation with the numbers in the boxes, or click the redo button (<i class=\"fa-solid fa-rotate-left\"></i>) to redo the last calculation with the same numbers.\n\nThe **Division format** buttons let you choose how the division is written: with the **Result below** the bar (as in many schoolbooks) or with the **Result on top** of it (a format that appears in historical mathematical documents).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4742a2d6-a3c5-4883-beb5-8ed0240fa9a7",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Long Division",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htDivisionTypedUserSetup\"><label for=\"htDivisionTypedUserDividend\">Dividend (0–9999):</label> <input type=\"text\" id=\"htDivisionTypedUserDividend\" class=\"htDivisionTypedUserInput\" maxlength=\"4\" size=\"4\" pattern=\"[0-9]*\" inputmode=\"numeric\" autocomplete=\"off\" value=\"100\" /> <label for=\"mtValues\">Divisor:</label> <select id=\"mtValues\" class=\"htDivisionTypedUserSelect\"></select> <button type=\"button\" id=\"htDivisionTypedUserStart\" class=\"htDivisionTypedUserStart\">Start</button></p><p id=\"htDivisionTypedUserError\" class=\"htDivisionTypedUserError\" role=\"alert\" aria-live=\"polite\"></p><div id=\"mParentN\" style=\"margin: auto; text-align: center;\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htLongDivisionFormat\"><b>Division format:</b> <button type=\"button\" class=\"htLongDivisionFormatBtn active\" data-htldformat=\"below\">Result below</button><button type=\"button\" class=\"htLongDivisionFormatBtn\" data-htldformat=\"top\">Result on top</button></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\"><tr><th colspan=\"2\">Division</th></tr> </table></div><p class=\"desc\"><b>Table 1</b>: Division exercise with quotient boxes and subtraction boxes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
