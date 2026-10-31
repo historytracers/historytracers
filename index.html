@@ -8,6 +8,66 @@
   <meta name="keyword" content="Genealogy; Sciences; Games">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History Tracers</title>
+  <meta name="description" content="History Tracers is a free, open-source educational project teaching mathematics, science, history and genealogy through culture, games and primary sources.">
+  <link rel="canonical" href="https://www.historytracers.org/">
+  <link rel="alternate" type="text/markdown" href="index.md" title="Markdown version">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "EducationalOrganization"],
+        "@id": "https://www.historytracers.org/#organization",
+        "name": "History Tracers",
+        "url": "https://www.historytracers.org/",
+        "logo": "https://www.historytracers.org/images/HistoryTracers/Icon.png",
+        "description": "A free, open-source educational project teaching mathematics, science, history and genealogy through culture, games and primary sources.",
+        "email": "contact@historytracers.org",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact@historytracers.org",
+          "contactType": "customer support"
+        },
+        "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "sameAs": [
+          "https://twitter.com/historytracers",
+          "https://www.facebook.com/groups/1141076993937832",
+          "https://www.instagram.com/historytracers/",
+          "https://www.threads.net/@historytracers",
+          "https://bsky.app/profile/historytracers.bsky.social",
+          "https://www.youtube.com/@HistoryTracers",
+          "https://github.com/historytracers/historytracers",
+          "https://creators.spotify.com/pod/profile/thiago-marques03/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.historytracers.org/#website",
+        "name": "History Tracers",
+        "url": "https://www.historytracers.org/",
+        "description": "Free educational content in mathematics, science, history, literature and genealogy.",
+        "inLanguage": ["en-US", "es-ES", "pt-BR"],
+        "publisher": {
+          "@id": "https://www.historytracers.org/#organization"
+        }
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.historytracers.org/#webpage",
+        "url": "https://www.historytracers.org/",
+        "name": "History Tracers",
+        "description": "Free educational content in mathematics, science, history, literature and genealogy.",
+        "isPartOf": {
+          "@id": "https://www.historytracers.org/#website"
+        },
+        "about": {
+          "@id": "https://www.historytracers.org/#organization"
+        },
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
 
   <meta http-equiv="Cache-Control" content="max-age=0, no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
@@ -158,9 +218,9 @@
         <i class="fas fa-bars"></i>
     </div>
 <div class="top-bar" id="htTopBanner" role="banner" aria-label="History Tracers">
-    <div class="menuht">
+    <h1 class="menuht">
         History Tracers
-    </div>
+    </h1>
     <div class="ht-lang-wrap" id="htLangWrap">
         <button type="button" id="site_language_btn" class="ht-lang-btn" title="Select the language to display the content: Português - BR" aria-label="Select the language to display the content: Português - BR" aria-haspopup="listbox" onclick="return htOpenNativeSelect('site_language');">
             <i class="fa-solid fa-language" aria-hidden="true"></i>
@@ -227,6 +287,14 @@
     <div id="main_page_data">
         <div class="main-data" id="page_data"></div>
     </div>
+    <footer class="ht-footer" aria-label="Site information">
+        <nav class="ht-footer-nav" aria-label="About, contact and legal">
+            <a href="index.html?page=class_content&arg=main" target="_blank" id="sbAbout"></a>
+            <a href="index.html?page=contact" target="_blank" id="sbContact2"></a>
+            <a href="index.html?page=license" target="_blank" id="sbLicense2"></a>
+        </nav>
+        <p class="ht-footer-contact">Email: <a href="mailto:contact@historytracers.org">contact@historytracers.org</a></p>
+    </footer>
 </div>
 </div>
 <div class="right-sources">
@@ -301,6 +369,52 @@
 
 <div id="ht_index_latex" class="ht_description">
 </div>
+
+  <script type="text/javascript">
+      (function () {
+        function htRegisterWebMCPTools() {
+          if (!document.modelContext || typeof document.modelContext.registerTool !== "function") {
+            return;
+          }
+          try {
+            document.modelContext.registerTool({
+              name: "open_history_tracers_page",
+              description: "Open a History Tracers educational page by page name and optional content UUID.",
+              inputSchema: {
+                type: "object",
+                properties: {
+                  page: {
+                    type: "string",
+                    description: "Page name, for example class_content, physics, chemistry, atlas, history, literature, families or math_games."
+                  },
+                  arg: {
+                    type: "string",
+                    description: "Optional content UUID or page argument, used with class_content and tree pages."
+                  }
+                },
+                required: ["page"]
+              },
+              execute: async function (input) {
+                var page = input && input.page ? String(input.page) : "class_content";
+                var arg = input && input.arg ? String(input.arg) : "";
+                if (typeof htLoadPage !== "function") {
+                  return { content: [{ type: "text", text: "History Tracers is still loading. Try again in a moment." }] };
+                }
+                htLoadPage(page, "html", arg, false);
+                return { content: [{ type: "text", text: "Opened " + page + (arg ? " (" + arg + ")" : "") + " on History Tracers." }] };
+              }
+            });
+          } catch (error) {
+            // WebMCP is optional; ignore registration failures.
+          }
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", htRegisterWebMCPTools);
+        } else {
+          htRegisterWebMCPTools();
+        }
+      })();
+  </script>
 
   <script type="text/javascript">
       function htToggleDesign(){

@@ -1,0 +1,10 @@
+# History Tracers - https://www.historytracers.org/
+# Agent guidance: https://www.historytracers.org/llms.txt
+
+User-agent: *
+Allow: /
+
+# Allow search indexing and AI training.
+Content-Signal: search=yes, ai-train=yes
+
+Sitemap: https://www.historytracers.org/sitemap.xml

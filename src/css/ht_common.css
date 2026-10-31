@@ -618,6 +618,9 @@ div.twomenu div {
    bounds follow the step-dependent root size, so no per-breakpoint copy of
    this rule is needed. */
 .menuht {
+  margin: 0;
+  text-align: left;
+  line-height: inherit;
   font-size: clamp(0.9em, 10.25px + 0.86vw, 1.5em);
   font-weight: bold;
   flex-shrink: 0;
@@ -2190,5 +2193,33 @@ html.ht-narrow .ht-layout .top-bar {
 body.ht-print-doc {
     height: auto;
     overflow: auto;
+}
+
+/* Site-wide footer with the about, contact and license links that agents
+   and readers use to identify the project. */
+.ht-footer {
+    clear: both;
+    width: 100%;
+    margin-top: 2em;
+    padding: 1.5em 1em;
+    box-sizing: border-box;
+    border-top: 1px solid #d0d0d0;
+    text-align: center;
+    font-size: 0.85em;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.ht-footer-nav a {
+    display: inline-block;
+    margin: 0.25em 0.75em;
+}
+
+.ht-footer-contact {
+    margin: 0.5em 0 0;
+}
+
+.design-dark .ht-footer {
+    border-top-color: #455a64;
 }
 
