@@ -1918,11 +1918,12 @@ function htFillFamilies(page, table) {
     if (hasPrerequisites) {
         htAddPaperDivs("#paper", "family-prerequisites", "", "", "", paperIdx++);
         var prHtml = "";
+        var localLangPrereq = $("#site_language").val();
+        var localCalPrereq = $("#site_calendar").val();
         for (const i in table.prerequisites) {
             let pr = table.prerequisites[i];
-            prHtml += "<p>"+ pr + "</p>";
+            prHtml += (typeof pr === "string") ? "<p>"+ pr + "</p>" : htParagraphFromObject(pr, localLangPrereq, localCalPrereq);
         }
-        prHtml += "</ul></p>";
         $("#paper-family-prerequisites").html("<div id=\"pre_requisites_inside\">"+prHtml+"</div>");
         var prereqLabel = (function(){
             var lang = $("#site_language").val() || "en-US";

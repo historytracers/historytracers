@@ -1495,7 +1495,9 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	var err error
 
 	text := txt.Text
-	htciteRegex := regexp.MustCompile(`\(<htcite\d+>\)`)
+	htciteGroupRegex := regexp.MustCompile(`\s*\(<htcite\d+>(?:\s*;\s*<htcite\d+>)*\)`)
+	text = htciteGroupRegex.ReplaceAllString(text, "")
+	htciteRegex := regexp.MustCompile(`\s*<htcite\d+>`)
 	text = htciteRegex.ReplaceAllString(text, "")
 
 	if txt.Format == "html" {

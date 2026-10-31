@@ -161,7 +161,8 @@ func htTextFamily(families *Family, lang string) string {
 
 	if families.Prerequisites != nil {
 		for _, pre := range families.Prerequisites {
-			finalText += htLocalHTML2Text(pre, lang)
+			ht := HTText(pre)
+			finalText += htTextToHumanText(&ht, lang, false)
 		}
 	}
 
