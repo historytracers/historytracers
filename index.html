@@ -373,11 +373,11 @@
   <script type="text/javascript">
       (function () {
         function htRegisterWebMCPTools() {
-          if (!navigator.modelContext || typeof navigator.modelContext.registerTool !== "function") {
+          if (!document.modelContext || typeof document.modelContext.registerTool !== "function") {
             return;
           }
           try {
-            navigator.modelContext.registerTool({
+            document.modelContext.registerTool({
               name: "open_history_tracers_page",
               description: "Open a History Tracers educational page by page name and optional content UUID.",
               inputSchema: {
