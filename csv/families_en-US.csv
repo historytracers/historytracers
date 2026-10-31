@@ -8,6 +8,9 @@ place,title,name,type,latitude,longitude,code,enclosed_by,date
 [L1fa313d2-52b2-4260],T,T,State,,,,598,[L4ba64989-bee8-432c]
 [Lc01d1600-e239-4465],Lizhou,Lizhou,State,,,,624,[L4ba64989-bee8-432c]
 [L93817fed-0f02-415c],Mutapa,Mutapa,Country,,,,1624,
+[L4f881183-05a3-47b3],Brazil,Brazil,Country,,,,"Sep 21, 1815",
+[Lc2c97a07-3bb9-4909],Minas Gerais,Minas Gerais,State,,,,"Sep 21, 1815",[L4f881183-05a3-47b3]
+[L835d3554-b1df-4430],Cachoeira do Campo,Cachoeira do Campo,City,,,,"Sep 21, 1815",[Lc2c97a07-3bb9-4909]
 [L05338c17-be7a-47fd],Brasil,Brasil,Country,,,,1560,
 [L566b86ae-b6e0-4b8e],São Paulo,São Paulo,State,,,,1560,[L05338c17-be7a-47fd]
 [Le35b04c3-6cba-4011],León,León,Country,,,,999,
@@ -15,9 +18,6 @@ place,title,name,type,latitude,longitude,code,enclosed_by,date
 [5f164ab9-430e-484f-88a5-ec014b16b515],Copán,Copán,City,,,,437,[L0bb6a72e-871b-4d17]
 [Lbb27b339-a666-4cb3],São Paulo,São Paulo,City,,,,1627,[L05338c17-be7a-47fd]
 [L4b235323-b0a1-440e],Tawantinsuyu,Tawantinsuyu,Country,,,,1529,
-[L4f881183-05a3-47b3],Brazil,Brazil,Country,,,,"Sep 21, 1815",
-[Lc2c97a07-3bb9-4909],Minas Gerais,Minas Gerais,State,,,,"Sep 21, 1815",[L4f881183-05a3-47b3]
-[L835d3554-b1df-4430],Cachoeira do Campo,Cachoeira do Campo,City,,,,"Sep 21, 1815",[Lc2c97a07-3bb9-4909]
 [Lf77ae628-fc20-4f73],Paraiba,Paraiba,State,,,,"Mar 7, 1730",[L05338c17-be7a-47fd]
 [L4af4242b-237b-4636],Rio de Janeiro,Rio de Janeiro,State,,,,"Sep 9, 1705",[L05338c17-be7a-47fd]
 ,,,,,,,,,,,,,,,,,,,,,
@@ -161,7 +161,7 @@ person,firstname,surname,callname,prefix,suffix,title,gender,source,note,birthda
 [Pa69e44c5-6520-4fb4],Unknown,,,,,,masculine,"Frost, Amy, Tatton-Brown, Kate, Simpson, Siobhan (2024). X-linked inheritance. National Genomics Education Programme. NHS, (https://www.genomicseducation.hee.nhs.uk/genotes/knowledge-hub/x-linked-recessive-inheritance/)",According to Primary Sources.,,,,,,,,,,,,
 [P42f8f8ad-a30c-4d03],Unknown,,,,,,feminine,"Frost, Amy, Tatton-Brown, Kate, Simpson, Siobhan (2024). X-linked inheritance. National Genomics Education Programme. NHS, (https://www.genomicseducation.hee.nhs.uk/genotes/knowledge-hub/x-linked-recessive-inheritance/)",According to Primary Sources.,,,,,,,,,,,,
 [P46295432-a924-4c45],Unknown,,,,,,masculine,"Frost, Amy, Tatton-Brown, Kate, Simpson, Siobhan (2024). X-linked inheritance. National Genomics Education Programme. NHS, (https://www.genomicseducation.hee.nhs.uk/genotes/knowledge-hub/x-linked-recessive-inheritance/)",According to Primary Sources.,,,,,,,,,,,,
-[P621a442c-1bf8-4d29],Unknown,,,,,,feminino,"Simpson, Siobhan & Miller, Ed (2025). Mitochondrial inheritance. National Genomics Education Programme. NHS, (https://www.genomicseducation.hee.nhs.uk/genotes/knowledge-hub/mitochondrial-conditions/)",According to Primary Sources.,,,,,,,,,,,,
+[P621a442c-1bf8-4d29],Unknown,,,,,,female,"Simpson, Siobhan & Miller, Ed (2025). Mitochondrial inheritance. National Genomics Education Programme. NHS, (https://www.genomicseducation.hee.nhs.uk/genotes/knowledge-hub/mitochondrial-conditions/)",According to Primary Sources.,,,,,,,,,,,,
 [P53bab3d6-86dc-442a],Unknown,,,,,,,,,,,,,,,,,,,,
 [Pbf0a8897-198f-4a54],Unknown,,,,,,male,"Bahu, Helder (2011). A noção de subalternidade e a distribuição étnica de Angola. Revista Internacional em Língua Portuguesa, (24), 49-61., (https://aulp.org/wp-content/uploads/2019/01/RILP24.pdf#page=344)",According to Primary Sources.,,,,,,,,,,,,
 [P8fc4273e-a3bc-4b37],Unknown,,,,,,,,,,,,,,,,,,,,
@@ -193,6 +193,10 @@ person,firstname,surname,callname,prefix,suffix,title,gender,source,note,birthda
 [Pea22b3ed-1457-4476],Mavura Mhande,,,,,,male,"Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann.",According to Primary Sources.,,,,,,,,,1652,,[L93817fed-0f02-415c],"Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann."
 [Pc305c48e-6e77-4e2c],Unknown,,,,,,,,,,,,,,,,,,,,
 [Pde62a6cf-52ce-4e24],Siti Kazurukamusapa,,,,,,male,"Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann.",According to Primary Sources.,,,,,,,,,1663,,[L93817fed-0f02-415c],"Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann."
+[P3ea21df7-f7c0-4341],"Joaquina ""Cabra""",,,,,,female,"Arquivo Eclesiástico da Arquidiocese de Mariana Dom Oscar de Oliveira (1815). Livro de Batismo, 1822-1834, Cachoeira do Campo. Livro AA 10, p. 7",According to Primary Sources.,,,,,,,,,,,,
+[Pd491cad7-214a-4c0c],Unknown,,,,,,,,,,,,,,,,,,,,
+[Pc7442d8a-e853-4e3f],Anastacia,Maria de Jesus,,,,,female,"Arquivo Eclesiástico da Arquidiocese de Mariana Dom Oscar de Oliveira (1815). Livro de Batismo, 1822-1834, Cachoeira do Campo. Livro AA 10, p. 7",According to Primary Sources.,,,,,"Sep 21, 1815",,[L835d3554-b1df-4430],"Arquivo Eclesiástico da Arquidiocese de Mariana Dom Oscar de Oliveira (1815). Livro de Batismo, 1822-1834, Cachoeira do Campo. Livro AA 10, p. 7","Mar 12, 1876",,[L835d3554-b1df-4430],"<i>Cachoeira do Campo, Ouro Preto, Minas Gerais, Brazil records</i>. images, FamilySearch (https://www.familysearch.org/ark:/61903/3:1:939J-DNSQ-3D?view=explore : Sep 7, 2024), image 55 of 87; Arquivo Arquidiocesano de Mariana,Arquivo Diocesano de Luz (Brasil)., (https://www.familysearch.org/ark:/61903/3:1:939J-DNSQ-3D?view=index&action=view)"
+[P7c09fce0-4d93-466a],Bento Dias,,,,,,,,,,,,,,,,,,,,
 [P2db52a2b-1299-4293],Isabel Dias,Dias,,,,,female,"Viotti, Pe. H. A. (1964). Anchieta e as velhas igrejas de São Paulo. Revista de História, 29(59), 3. https://doi.org/10.11606/issn.2316-9141.rh.1964.122747, (https://doi.org/10.11606/issn.2316-9141.rh.1964.122747)",According to Primary Sources.,,,,,,,,,1560,,[L566b86ae-b6e0-4b8e],"Franco, Antonio (1719). Imagem da virtude em o noviciado da Companhia de Jesus no Real Collegio de Jesus de Coimbra em Portugal : na qual se contem as vidas, & sanctas mortes de muitos homens de grande virtude... Evora, : na officina da universidade., (https://archive.org/details/imagemdavirtudee01fran)"
 [Pc56abc67-4623-4f64],João Ramalho,,,,,,,,,,,,,,,,,,,,
 [Pe35fc638-3d4e-4a67],Beatriz Dias,Dias,,,,,female,"Instituto Historico Geografico São Paulo. Volume 47, (http://ihgsp.org.br/revista-ihgsp-vol-47/)",According to Primary Sources.,,,,,,,,,,,,
@@ -211,8 +215,6 @@ person,firstname,surname,callname,prefix,suffix,title,gender,source,note,birthda
 [Pd02a2863-ad14-425b],Unknown,,,,,,,,,,,,,,,,,,,,
 [Pcc1f0d0f-9f64-49e2],Antonia Gomes,,,,,,,,,,,,,,,,,,,,
 [P630ec64f-bab4-4d40],Jerônimo Dias,Dias,,,,,masculine,"Rangel, Gilber R. (2020). Apontamentos Histórico-Genealógicos extraídos da Devassa da Companhia de Jesus na Capitania do Espírito Santo. Espirito Santo. <i>Genea, VIII, pp. 75-116</i>, (https://clubedeautores.com.br/livro/genea-viii)",According to Primary Sources.,,,,,,,,,,,,
-[P7c09fce0-4d93-466a],Bento Dias (da Silva),Dias,,,,,masculino,"Arquivo Público Mineiro (1824). Mapa de população da Freguesia de Nossa Senhora de Nazareth de Cachoeira do Campo Termo da Comarca de Villa Rica, Bispado de Marianna",According to Primary Sources.,1812,,,"Arquivo Público Mineiro (1824). Mapa de população da Freguesia de Nossa Senhora de Nazareth de Cachoeira do Campo Termo da Comarca de Villa Rica, Bispado de Marianna",,,,,,,,
-[Pc7442d8a-e853-4e3f],Anastacia Maria de Jesus,,,,,,,,,,,,,,,,,,,,
 [Pd345738f-efcb-4ad6],André Ramalho,,,,,,,"W. Luiz (1904). O testamento de João Ramalho, São Paulo, Revista IHGSP, Volume 9, pp. 563 - 569, (http://ihgsp.org.br/revista-ihgsp-vol-9/)",No primary source was found to confirm this.,,,,,,,,,,,,
 [Pc73056d0-576c-4259],Joana Ramalho,,,,,,,"W. Luiz (1904). O testamento de João Ramalho, São Paulo, Revista IHGSP, Volume 9, pp. 563 - 569, (http://ihgsp.org.br/revista-ihgsp-vol-9/)",No primary source was found to confirm this.,,,,,,,,,,,,
 [P0a119517-07f3-46b1],Margarida Ramalho,,,,,,,"W. Luiz (1904). O testamento de João Ramalho, São Paulo, Revista IHGSP, Volume 9, pp. 563 - 569, (http://ihgsp.org.br/revista-ihgsp-vol-9/)",No primary source was found to confirm this.,,,,,,,,,,,,
@@ -428,8 +430,6 @@ person,firstname,surname,callname,prefix,suffix,title,gender,source,note,birthda
 [Pd41f7b0d-6367-42e9],Desconhecido,,,,,,,"Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.,,,,,,,,,,,,
 [P66630873-6893-4488],Unknown,,,,,,,"Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.,,,,,,,,,,,,
 [P1de273a9-dcbe-4a48],Name of the child.,,,,,,,"Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.,,,,,,,,,,,,
-[P3ea21df7-f7c0-4341],"Joaquina ""Cabra""",,,,,,female,"Arquivo Eclesiástico da Arquidiocese de Mariana Dom Oscar de Oliveira (1815). Livro de Batismo, 1822-1834, Cachoeira do Campo. Livro AA 10, p. 7",According to Primary Sources.,,,,,,,,,,,,
-[Pd491cad7-214a-4c0c],Unknown,,,,,,,,,,,,,,,,,,,,
 [P4249dd37-afe0-441f],Willem,Lem,,,,,male,"Clayes, André L. FR (2012). Geschiedenis van de Brugse Lem/Lems (1337-1900). Brugge, (https://genealogiadoslemes.wordpress.com/2023/08/19/historia-dos-lem-lems-de-bruges-1337-1900-por-andre-claeys-2012/)",According to Primary Sources.,,,,,,,,,,,,
 [P22e17233-7bad-4408],Catherine,,,,,,,,,,,,,,,,,,,,
 [Pd922e3f2-d380-41a1],Maertin,Lem,,,,,male,"Het oud archief van de kerkfabriek van Sint-Jacob te Brugge (XIIIde-XIXde eeuw). Deel II: Regesten / W. Rombauts., (https://search.arch.be/fr/rechercher-des-archives/resultats/inventaris/index/eadid/BE-A0513_102804_101166_DUT/open/c%3A0./inventarisnr/I10116600000191/level/file)",According to Primary Sources.,,,,,,,,,,,,
@@ -644,6 +644,8 @@ marriage," parent1"," parent2"," date"," place"," placeID"," source"," note"
 [F7dafe5ab-fce8-4be2]," [Pc2880600-7a91-4447]"," [Pa0e8cd2a-eef6-4b8e]",,,,,No primary source was found to confirm this.
 [F7ff38e81-fc3e-4fe5]," [Pe7a3531d-d38a-444a]"," [P6eb31a0a-433e-4f04]",,,,"Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann.",No primary source was found to confirm this.
 [Fa51c527d-7815-4545]," [Pea22b3ed-1457-4476]"," [Pc305c48e-6e77-4e2c]",,,,"Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann.",No primary source was found to confirm this.
+[Ffd899e97-837f-470b]," [Pd491cad7-214a-4c0c]"," [P3ea21df7-f7c0-4341]",,,,,No primary source was found to confirm this.
+[F36831b13-6560-483c]," [P7c09fce0-4d93-466a]"," [Pc7442d8a-e853-4e3f]",,,,"Paróquia Nossa Senhora de Nazaré (1847). <i>Liv. 09, fl. 17</i>",According to Primary Sources.
 [F9f674482-89a5-4fc0]," [Pc56abc67-4623-4f64]"," [P2db52a2b-1299-4293]",,,,"W. Luiz (1904). O testamento de João Ramalho, São Paulo, Revista IHGSP, Volume 9, pp. 563 - 569, (http://ihgsp.org.br/revista-ihgsp-vol-9/)",No primary source was found to confirm this.
 [F7fa82d86-3871-4e7b]," [Pa559e6f5-66c0-43f4]"," [Pe35fc638-3d4e-4a67]",,,,"Viotti, Hélio A. (1996). Qualificação e Depoimento das Testemunhas Nos Processos Anchietanos Mais Antigos. São Paulo. <i>ASBRAP, nº 3, pp. 9 - 56</i>, (https://www.asbrap.org.br/artigos/rev3_art1.pdf)",According to Primary Sources.
 [F9621f07d-4e18-4bbd]," [P0e6b82e8-64eb-4ac8]"," [P65017981-ce64-45e2]",,,,"Arquivo Público do Estado de São Paulo. <i>Inventários e Testamentos</i>., (https://archive.org/details/inventarios-e-testamentos-vol-01-a-31)",According to Primary Sources.
@@ -735,8 +737,6 @@ marriage," parent1"," parent2"," date"," place"," placeID"," source"," note"
 [F212ea00c-28c4-4ad6]," [P5cd88236-3637-4510]"," [P0bcef77c-be05-4de6]",,,,"Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.
 [Fd607c924-af9e-475d]," [P91af414c-04a2-4b57]"," [P832b4144-77d5-46a1]",,,,"Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.
 [F4f04378d-f56d-4ed9]," [P4a074516-938b-4629]"," [P093f191d-4be2-4775]",,,,"Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.
-[Ffd899e97-837f-470b]," [Pd491cad7-214a-4c0c]"," [P3ea21df7-f7c0-4341]",,,,,No primary source was found to confirm this.
-[F36831b13-6560-483c]," [P7c09fce0-4d93-466a]"," [Pc7442d8a-e853-4e3f]",,,,"Paróquia Nossa Senhora de Nazaré (1847). <i>Liv. 09, fl. 17</i>",According to Primary Sources.
 [Fd7f67e70-92b9-477c]," [P4249dd37-afe0-441f]"," [P22e17233-7bad-4408]",,,,"<i>Lem Family Association</i>, (http://www.lemfamilyassociation.com/)",No primary source was found to confirm this.
 [F2efd38b0-69bd-4c19]," [Pd922e3f2-d380-41a1]"," [P99dac8cb-60a4-496c]",,,,"Gailliard, Jean-Jacques (1857). <i>Bruges et le franc, ou Leur magistrature et leur noblesse avec des données historiques et généalogiques sur chaque famille. Tome Premier</i>. Bruges, (https://books.google.com.uy/books?id=84E8_xnqELUC)",No primary source was found to confirm this.
 [F4e877421-6deb-4211]," [P6938a5f7-6c09-463a]"," [P4d364569-354c-4041]",,,,"Torre do Tombo. Chancelaria Régia, (https://digitarq.arquivos.pt/documentDetails/7336fa1bb997458ea1408e142f93605f)",According to Primary Sources.
@@ -874,6 +874,7 @@ family," child"," source"," note"," gender"
 [F7dafe5ab-fce8-4be2]," [Pea22b3ed-1457-4476]","Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann.",No primary source was found to confirm this.,
 [F7ff38e81-fc3e-4fe5]," [Pfbcc1188-6192-40b5]","Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann.",No primary source was found to confirm this.,
 [Fa51c527d-7815-4545]," [Pde62a6cf-52ce-4e24]","Beach, D. N. (1980). The Shona & Zimbabwe 900-1850: an outline of Shona history. Heinemann.",No primary source was found to confirm this.,
+[Ffd899e97-837f-470b]," [Pc7442d8a-e853-4e3f]","Arquivo Eclesiástico da Arquidiocese de Mariana Dom Oscar de Oliveira (1815). Livro de Batismo, 1822-1834, Cachoeira do Campo. Livro AA 10, p. 7",According to Primary Sources.,
 [F9f674482-89a5-4fc0]," [Pd345738f-efcb-4ad6]","W. Luiz (1904). O testamento de João Ramalho, São Paulo, Revista IHGSP, Volume 9, pp. 563 - 569, (http://ihgsp.org.br/revista-ihgsp-vol-9/)",No primary source was found to confirm this.,
 [F9f674482-89a5-4fc0]," [Pc73056d0-576c-4259]","W. Luiz (1904). O testamento de João Ramalho, São Paulo, Revista IHGSP, Volume 9, pp. 563 - 569, (http://ihgsp.org.br/revista-ihgsp-vol-9/)",No primary source was found to confirm this.,
 [F9f674482-89a5-4fc0]," [P0a119517-07f3-46b1]","W. Luiz (1904). O testamento de João Ramalho, São Paulo, Revista IHGSP, Volume 9, pp. 563 - 569, (http://ihgsp.org.br/revista-ihgsp-vol-9/)",No primary source was found to confirm this.,
@@ -984,7 +985,6 @@ family," child"," source"," note"," gender"
 [F212ea00c-28c4-4ad6]," [Pd41f7b0d-6367-42e9]","Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.,
 [Fd607c924-af9e-475d]," [P66630873-6893-4488]","Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.,
 [F4f04378d-f56d-4ed9]," [P1de273a9-dcbe-4a48]","Yamaguchi, B. (1982). A Review of the Osteological Characteristics of the Jomon Population in Prehistoric Japan. Journal of the Anthropological Society of Nippon, 90(Supplement), 77–90., (https://doi.org/10.1537/ase1911.90.supplement_77)",No primary source was found to confirm this.,
-[Ffd899e97-837f-470b]," [Pc7442d8a-e853-4e3f]","Arquivo Eclesiástico da Arquidiocese de Mariana Dom Oscar de Oliveira (1815). Livro de Batismo, 1822-1834, Cachoeira do Campo. Livro AA 10, p. 7",According to Primary Sources.,
 [Fd7f67e70-92b9-477c]," [Pd922e3f2-d380-41a1]","Het oud archief van de kerkfabriek van Sint-Jacob te Brugge (XIIIde-XIXde eeuw). Deel II: Regesten / W. Rombauts., (https://search.arch.be/fr/rechercher-des-archives/resultats/inventaris/index/eadid/BE-A0513_102804_101166_DUT/open/c%3A0./inventarisnr/I10116600000191/level/file)",According to Primary Sources.,
 [F2efd38b0-69bd-4c19]," [P6938a5f7-6c09-463a]","Gailliard, Jean-Jacques (1857). <i>Bruges et le franc, ou Leur magistrature et leur noblesse avec des données historiques et généalogiques sur chaque famille. Tome Premier</i>. Bruges, (https://books.google.com.uy/books?id=84E8_xnqELUC)",No primary source was found to confirm this.,
 [F4e877421-6deb-4211]," [Pe032fc86-3e28-4b9a]","Torre do Tombo. Chancelaria Régia, (https://digitarq.arquivos.pt/documentDetails/7336fa1bb997458ea1408e142f93605f)",According to Primary Sources.,
