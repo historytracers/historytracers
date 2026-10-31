@@ -1,0 +1,14 @@
+# Agent-friendly discovery headers and Markdown content negotiation.
+AddType text/markdown .md
+
+<IfModule mod_headers.c>
+    Header always set Link '<https://www.historytracers.org/llms.txt>; rel="llms-txt", <https://www.historytracers.org/index.md>; rel="alternate"; type="text/markdown"'
+    Header append Vary Accept
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+    RewriteCond %{QUERY_STRING} ^$
+    RewriteRule ^(index\.html)?$ index.md [L]
+</IfModule>

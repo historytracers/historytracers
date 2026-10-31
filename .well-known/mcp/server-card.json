@@ -1,0 +1,48 @@
+{
+  "name": "historytracers",
+  "version": "1.0.0",
+  "description": "History Tracers is a free, open-source educational project that teaches mathematics, science, history, literature and genealogy through culture, games and primary sources. Content is available in English, Spanish and Brazilian Portuguese.",
+  "contact": {
+    "email": "historytracers@gmail.com",
+    "url": "https://www.historytracers.org/index.html?page=contact"
+  },
+  "license": {
+    "software": "GPL-3.0-or-later",
+    "content": "CC BY-NC 4.0"
+  },
+  "sameAs": [
+    "https://github.com/historytracers/historytracers"
+  ],
+  "endpoint": "https://www.historytracers.org/",
+  "transport": {
+    "type": "webmcp",
+    "url": "https://www.historytracers.org/"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "open_history_tracers_page",
+      "description": "Open a History Tracers page by page name and optional content UUID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Page name, for example class_content, physics, chemistry, atlas, history, literature, families or math_games."
+          },
+          "arg": {
+            "type": "string",
+            "description": "Optional content UUID or page argument, used with class_content and tree pages."
+          }
+        },
+        "required": [
+          "page"
+        ]
+      }
+    }
+  ]
+}
