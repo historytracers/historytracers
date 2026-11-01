@@ -6,9 +6,13 @@
 // squares showing the value available in the column. Everything written on top of
 // the minuend is typed by the player, exactly as it is written by hand. When the
 // previous column borrowed 1, the adjusted digit is written first on the top row;
-// when the column borrows 1 from the next order, the player types 1 in the borrow
-// box above the next order and writes on the top row the value that now stays in
-// the column (the digit plus ten). The digit that the column keeps is typed in the
+// when the column borrows 1 from the next order, the player writes on the top row
+// the value that now stays in the column (the digit plus ten) and types the value
+// of the borrow in the box above the order that lends. When the borrow crosses
+// zero columns, the boxes of the whole chain are typed starting on the order that
+// really lends (the first one above with squares): the first square to rewrite is
+// there, the zero columns between them keep 9 after lending, and the borrowing
+// column keeps the digit plus ten. The digit that the column keeps is typed in the
 // box on the result row. The values are checked as they are typed: a wrong value
 // shows a tip, the right values remove the squares of the bottom digit (they turn
 // light yellow), and the button that moves to the next column appears.
@@ -111,6 +115,14 @@ function htSubChosenBuildBoard() {
     var tDigits = localSubChosen.topDigits;
     var bDigits = localSubChosen.bottomDigits;
     var pending = !localSubChosen.answered;
+    // The borrow box is being typed while the column borrows and the borrow is
+    // not written yet; it sits above the order whose value is being typed. When
+    // the borrow crosses zero columns it starts on the order that really lends
+    // and moves down as each value of the chain is written.
+    var chainTyping = localSubChosen.borrowNeeded && !localSubChosen.borrowTyped &&
+        localSubChosen.chainSource !== null && localSubChosen.chainSource !== undefined;
+    var borrowSlot = (chainTyping && localSubChosen.borrowSlot !== null && localSubChosen.borrowSlot !== undefined) ?
+        localSubChosen.borrowSlot : current + 1;
 
     function opCell(content) {
         return "<td class=\"htAddOp\">" + content + "</td>";
@@ -154,19 +166,22 @@ function htSubChosenBuildBoard() {
             // The 1 taken from this order by the previous column, already typed.
             regroup = "1";
         }
-        // The field for the value the column being solved writes on top.
+        // The field for the value the column being solved writes on top. While
+        // the values of a borrow that crosses zero columns are being typed, the
+        // value on top of this column waits: the boxes of the chain are typed
+        // first, starting on the order that lends.
         if (pending && o === current && localSubChosen.topSlot === "reduce") {
             regroup = "<span id=\"htSubChosenTopSlot\"></span>";
-        } else if (pending && o === current && localSubChosen.topSlot === "final") {
+        } else if (pending && o === current && localSubChosen.topSlot === "final" && !chainTyping) {
             regroup = "";
             if (localSubChosen.reduceValues[o] !== undefined) {
                 regroup += "<span class=\"htAddStruck\">" + localSubChosen.reduceValues[o] + "</span>";
             }
             regroup += "<span id=\"htSubChosenTopSlot\"></span>";
         }
-        // The borrow field sits above the next order, but only while the borrow
-        // has not been typed yet.
-        if (pending && o === current + 1 && localSubChosen.borrowNeeded && !localSubChosen.borrowTyped) {
+        // The borrow field sits above the order whose value is being typed, but
+        // only while the borrow has not been typed yet.
+        if (pending && o === borrowSlot && localSubChosen.borrowNeeded && !localSubChosen.borrowTyped) {
             regroup = "<span id=\"htSubChosenBorrowSlot\"></span>";
         }
         rows += cell(o, regroup);
@@ -325,26 +340,37 @@ function htSubChosenSetupColumn() {
     var topDigit = localSubChosen.topDigits[column];
     var bottomDigit = localSubChosen.bottomDigits[column];
     var afterIncoming = topDigit - localSubChosen.incoming;
-    var available = afterIncoming;
+    var available;
     var borrowOut = 0;
     var borrowed = false;
-    var chained = false;
     // The previous column may have written the adjusted digit of this column
     // already, when the player typed that value in the borrow box instead of
-    // the 1. In that case the value on top is already there.
+    // the 1. The same happens with every column of a borrow that crossed zero
+    // columns: the values of the whole chain are typed on the column that
+    // started it, so the value on top is already there.
     var prewritten = localSubChosen.regroup[column] !== undefined;
-
-    if (available < 0) {
-        // The previous column borrowed from a zero. This column borrows from the
-        // next order and turns the zero into nine.
-        available += 10;
-        borrowOut = 1;
-        chained = true;
+    var chained = localSubChosen.incoming > 0 && topDigit === 0;
+    if (prewritten) {
+        // The value written on top shows what this column keeps after lending.
+        available = localSubChosen.regroup[column];
+    } else {
+        available = afterIncoming;
+        if (available < 0) {
+            // The previous column borrowed from a zero. This column borrows from the
+            // next order and turns the zero into nine.
+            available += 10;
+            borrowOut = 1;
+        }
     }
     if (available < bottomDigit) {
         available += 10;
         borrowOut = 1;
         borrowed = true;
+    }
+    if (chained && prewritten) {
+        // An intermediate zero column of the chain: it already lent the ten
+        // squares to the column below it.
+        borrowOut = 1;
     }
 
     localSubChosen.afterIncoming = afterIncoming;
@@ -355,8 +381,26 @@ function htSubChosenSetupColumn() {
     localSubChosen.bottomDigit = bottomDigit;
     // The borrow field is only added to the board when the column borrows.
     localSubChosen.borrowNeeded = borrowOut === 1;
-    localSubChosen.borrowTyped = false;
+    // The values of a borrow that crossed zero columns were already typed in the
+    // boxes of the column that started the chain.
+    localSubChosen.borrowTyped = localSubChosen.borrowNeeded && localSubChosen.regroup[column + 1] !== undefined;
     localSubChosen.answered = false;
+
+    // When the column borrows and the columns directly above are 0, the borrow
+    // crosses them and comes from the first order above with squares to lend
+    // (the source). The boxes of the whole chain are typed on this column,
+    // starting on the source, so the first square to rewrite is the one that
+    // really lends: it keeps its digit minus 1, each zero column keeps 9 after
+    // lending the ten squares, and this column keeps the digit plus ten.
+    var chainSource = null;
+    if (localSubChosen.borrowNeeded && column + 1 < localSubChosen.columns && localSubChosen.topDigits[column + 1] === 0) {
+        chainSource = column + 2;
+        while (chainSource < localSubChosen.columns && localSubChosen.topDigits[chainSource] === 0) {
+            chainSource += 1;
+        }
+    }
+    localSubChosen.chainSource = chainSource;
+    localSubChosen.borrowSlot = (chainSource !== null) ? chainSource : column + 1;
 
     // Staged entries, all typed by the player. When the previous column borrowed
     // 1 (and the digit still exists after the 1 is removed), the first step is to
@@ -394,6 +438,16 @@ function htSubChosenSetupColumn() {
             top: topDigit,
             first: afterIncoming
         });
+    } else if (localSubChosen.borrowNeeded && chainSource !== null) {
+        note = htSubChosenReplace($("#htSubChosenBorrowChainTemplate").text(), {
+            first: afterIncoming,
+            bottom: bottomDigit,
+            base: available,
+            order: order,
+            sourceorder: htSubChosenOrderName(chainSource),
+            sourcetop: localSubChosen.topDigits[chainSource],
+            sourcevalue: localSubChosen.topDigits[chainSource] - 1
+        });
     } else if (chained) {
         note = $("#htSubChosenChainedTemplate").text();
     } else if (borrowed) {
@@ -415,12 +469,15 @@ function htSubChosenSetupColumn() {
         $("#htSubChosenNote").addClass("htAddHidden");
     }
 
-    // Clear the fields and enable the ones of the current step: during the first
-    // step only the value written on top is asked, so the digit and the borrow
-    // wait until the top value is right.
-    $("#htSubChosenTopInput").val("").prop("disabled", localSubChosen.topSlot === "none");
-    $("#htSubChosenBorrowInput").val("").prop("disabled", !(localSubChosen.stage === "solve" && localSubChosen.borrowNeeded));
-    $("#htSubChosenDigitInput").val("").prop("disabled", localSubChosen.stage !== "solve");
+    // Clear the fields and enable the ones of the current step. When the borrow
+    // crosses zero columns the boxes of the chain are typed first, starting on
+    // the source, so the value on top of this column and the digit that it
+    // keeps wait until the chain is written.
+    $("#htSubChosenTopInput").val("").prop("disabled", localSubChosen.topSlot === "none" ||
+        (chainSource !== null && localSubChosen.topSlot === "final"));
+    $("#htSubChosenBorrowInput").val("").prop("disabled", !(localSubChosen.stage === "solve" && localSubChosen.borrowNeeded && !localSubChosen.borrowTyped));
+    $("#htSubChosenDigitInput").val("").prop("disabled", localSubChosen.stage !== "solve" ||
+        (chainSource !== null && !localSubChosen.borrowTyped));
     $("#htSubChosenFeedback").html("");
     $("#htSubChosenNextBtn").addClass("hidden");
 
@@ -506,9 +563,12 @@ function htSubChosenEvaluate() {
     }
 
     // Step 2: when the column borrows, the value written on top stays crossed
-    // out and the value with ten more squares is written.
+    // out and the value with ten more squares is written. While the boxes of a
+    // borrow that crosses zero columns are being typed, this value waits: the
+    // boxes of the chain are typed first, starting on the order that lends.
+    var chainActive = localSubChosen.chainSource !== null && localSubChosen.borrowNeeded && !localSubChosen.borrowTyped;
     var topWritten = localSubChosen.topSlot !== "final";
-    if (localSubChosen.topSlot === "final") {
+    if (localSubChosen.topSlot === "final" && !chainActive) {
         if (topRaw !== "" && parseInt(topRaw, 10) === localSubChosen.topExpected) {
             localSubChosen.regroup[localSubChosen.column] = localSubChosen.topExpected;
             localSubChosen.topSlot = "none";
@@ -531,36 +591,81 @@ function htSubChosenEvaluate() {
         }
     }
 
-    // The borrow of the column, typed above the next order. The player may also
-    // write there the value that stays in the next order after lending the 1
-    // (for example 8 when 9 lends 1). That value is the adjusted digit of the
-    // next column, so it is written on top of that order and the borrow is
-    // taken at the same time.
-    var next = localSubChosen.column + 1;
-    var nextReduced = localSubChosen.topDigits[next] - 1;
-    var nextTop = (nextReduced < 0) ? 9 : nextReduced;
-    var borrowIsNextTop = localSubChosen.borrowNeeded && next < localSubChosen.columns &&
-        borrowRaw !== "" && nextTop !== 1 && parseInt(borrowRaw, 10) === nextTop;
-    var borrowOk = !localSubChosen.borrowNeeded ||
-        (borrowRaw !== "" && (parseInt(borrowRaw, 10) === 1 || borrowIsNextTop));
-    if (borrowOk && localSubChosen.borrowNeeded) {
-        localSubChosen.borrows[localSubChosen.column] = 1;
-        localSubChosen.borrowTyped = true;
-        if (borrowIsNextTop) {
-            localSubChosen.regroup[next] = nextTop;
+    // The values of a borrow that crosses zero columns are typed in one box
+    // that moves down from the source order: the source (the first one above
+    // with squares to lend) keeps its digit minus 1, and each zero column keeps
+    // 9 after lending the ten squares. Each value must be exact; when it is
+    // written, the box moves down to the next order of the chain.
+    if (chainActive) {
+        var slotOrder = localSubChosen.borrowSlot;
+        var isSource = slotOrder === localSubChosen.chainSource;
+        var expected = isSource ? localSubChosen.topDigits[slotOrder] - 1 : 9;
+        if (borrowRaw !== "") {
+            if (parseInt(borrowRaw, 10) === expected) {
+                localSubChosen.regroup[slotOrder] = expected;
+                $("#htSubChosenFeedback").html("");
+                if (slotOrder > localSubChosen.column + 1) {
+                    localSubChosen.borrowSlot = slotOrder - 1;
+                    $("#htSubChosenBorrowInput").val("");
+                    htSubChosenBuildBoard();
+                } else {
+                    localSubChosen.borrows[localSubChosen.column] = 1;
+                    localSubChosen.borrowTyped = true;
+                    $("#htSubChosenBorrowInput").val("").prop("disabled", true);
+                    $("#htSubChosenTopInput").prop("disabled", localSubChosen.topSlot === "none");
+                    $("#htSubChosenDigitInput").prop("disabled", false);
+                    htSubChosenBuildBoard();
+                }
+                return;
+            }
+            $("#htSubChosenFeedback").html(htSubChosenReplace(
+                isSource ? $("#htSubChosenWrongBorrowSourceTemplate").html() : $("#htSubChosenWrongBorrowChainTemplate").html(),
+                {
+                    first: localSubChosen.afterIncoming,
+                    bottom: bottom,
+                    next: htSubChosenOrderName(slotOrder),
+                    nexttop: localSubChosen.topDigits[slotOrder],
+                    nextvalue: expected
+                }
+            ));
+            return;
         }
-    }
-    if (localSubChosen.borrowNeeded && borrowRaw !== "" && !borrowOk) {
-        $("#htSubChosenFeedback").html(htSubChosenReplace($("#htSubChosenWrongBorrowTemplate").html(), {
-            first: localSubChosen.afterIncoming,
-            bottom: bottom,
-            next: htSubChosenOrderName(next)
-        }));
-        return;
-    }
-    if (borrowOk && localSubChosen.borrowNeeded) {
-        localSubChosen.borrows[localSubChosen.column] = 1;
-        localSubChosen.borrowTyped = true;
+    } else {
+        // The borrow of the column, typed above the next order. The player may also
+        // write there the value that stays in the next order after lending the 1
+        // (for example 8 when 9 lends 1). That value is the adjusted digit of the
+        // next column, so it is written on top of that order and the borrow is
+        // taken at the same time.
+        var next = localSubChosen.column + 1;
+        var nextReduced = localSubChosen.topDigits[next] - 1;
+        var nextTop = (nextReduced < 0) ? 9 : nextReduced;
+        // The next order is 0 and can only lend after borrowing from the order
+        // above it: the borrow box takes the value that stays in it after it lends
+        // (the 9), never the plain 1 taken from a real digit.
+        var nextZero = next < localSubChosen.columns && localSubChosen.topDigits[next] === 0;
+        var borrowIsNextTop = localSubChosen.borrowNeeded && next < localSubChosen.columns &&
+            borrowRaw !== "" && nextTop !== 1 && parseInt(borrowRaw, 10) === nextTop;
+        var borrowOk = !localSubChosen.borrowNeeded ||
+            (borrowRaw !== "" && (nextZero ? borrowIsNextTop : (parseInt(borrowRaw, 10) === 1 || borrowIsNextTop)));
+        if (borrowOk && localSubChosen.borrowNeeded) {
+            localSubChosen.borrows[localSubChosen.column] = 1;
+            localSubChosen.borrowTyped = true;
+            if (borrowIsNextTop) {
+                localSubChosen.regroup[next] = nextTop;
+            }
+        }
+        if (localSubChosen.borrowNeeded && borrowRaw !== "" && !borrowOk) {
+            $("#htSubChosenFeedback").html(htSubChosenReplace(
+                nextZero ? $("#htSubChosenWrongBorrowChainTemplate").html() : $("#htSubChosenWrongBorrowTemplate").html(),
+                {
+                    first: localSubChosen.afterIncoming,
+                    bottom: bottom,
+                    next: htSubChosenOrderName(next),
+                    nextvalue: nextTop
+                }
+            ));
+            return;
+        }
     }
 
     // The digit that the column keeps, typed on the result row.
@@ -574,7 +679,9 @@ function htSubChosenEvaluate() {
         return;
     }
 
-    if (topWritten && borrowOk && digitOk) {
+    // The borrow is written when the column does not borrow, when the values of
+    // the chain were already typed, or when the borrow box was accepted.
+    if (topWritten && (!localSubChosen.borrowNeeded || localSubChosen.borrowTyped) && digitOk) {
         htSubChosenResolve();
     } else {
         $("#htSubChosenFeedback").html("");
@@ -606,12 +713,16 @@ function htSubChosenResolve() {
     // and the light blue squares that remain are the digit that stays.
     htSubChosenDrawSquares(true);
 
-    var template = localSubChosen.borrowOut ? $("#htSubChosenMsgBorrowTemplate").html() : $("#htSubChosenMsgNoBorrowTemplate").html();
+    var chainBorrow = localSubChosen.borrowed && column + 1 < localSubChosen.columns && localSubChosen.topDigits[column + 1] === 0;
+    var template = localSubChosen.borrowOut ?
+        (chainBorrow ? $("#htSubChosenMsgBorrowChainTemplate").html() : $("#htSubChosenMsgBorrowTemplate").html()) :
+        $("#htSubChosenMsgNoBorrowTemplate").html();
     var explanation = htSubChosenReplace(template, {
         base: localSubChosen.base,
         removed: localSubChosen.bottomDigit,
         result: result,
-        order: order
+        order: order,
+        nextorder: chainBorrow ? htSubChosenOrderName(column + 1) : ""
     });
 
     $("#htSubChosenTopInput").prop("disabled", true);
@@ -716,6 +827,8 @@ function htSubChosenStart() {
     localSubChosen.reduceValues = {};
     localSubChosen.answered = false;
     localSubChosen.lastBorrow = 0;
+    localSubChosen.chainSource = null;
+    localSubChosen.borrowSlot = null;
 
     $("#htSubChosenSetup").addClass("htAddHidden");
     $("#htSubChosenGame").removeClass("htAddHidden");
@@ -755,6 +868,8 @@ function htLoadContent() {
         chained: false,
         borrowNeeded: false,
         borrowTyped: false,
+        chainSource: null,
+        borrowSlot: null,
         stage: "solve",
         topSlot: "none",
         topExpected: null,
