@@ -2707,8 +2707,11 @@ function htFillPIXQRCode(id, size) {
 
     if ($element.is(':empty')) {
         $('<img>', {
-            src: htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png',
-            width: size
+            src: htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png'
+        }).css({
+            width: size,
+            maxWidth: '100%',
+            height: 'auto'
         }).appendTo($element);
         htLastImgSrcPrefix = htImgSrcPrefix;
     } else if (htImgSrcPrefix !== htLastImgSrcPrefix) {
@@ -2732,7 +2735,7 @@ function htEnsureContentPIXQRCode() {
         $host = $sn;
     }
     $host.after('<p><center><div id="htPixQRCode"></div></center></p>');
-    htFillPIXQRCode("#htPixQRCode", "10%");
+    htFillPIXQRCode("#htPixQRCode", "200px");
 }
 
 function htFillFamilyCommonSN() {
@@ -3258,7 +3261,7 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
 function htCallFillPIXQRCode() {
     if ($("#htPixQRCode").length > 0 ) {
-        htFillPIXQRCode("#htPixQRCode", "10%");
+        htFillPIXQRCode("#htPixQRCode", "200px");
     }
 
     if ($("#htPixSideQRCode").length > 0 ) {
