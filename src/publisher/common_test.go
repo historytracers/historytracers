@@ -315,10 +315,25 @@ func TestHTChangeTag2Keywords(t *testing.T) {
 		`<span id="htAgeMsg"></span><p id="htChinaZhongguo"></p><p id="htJapanNipponNihonKoku"></p>`
 	got := htChangeTag2Keywords(text)
 
-	for _, want := range []string{"Zoom", "Abya Yala", "Common note", "Chart", "Age", "China", "Japan"} {
+	for _, want := range []string{"Zoom", "Abya Yala", "Common note", "Chart", "Age", "China", "Japan", `id="htPixQRCode"`} {
 		if !strings.Contains(got, want) {
 			t.Errorf("htChangeTag2Keywords output %q missing %q", got, want)
 		}
+	}
+
+	// Bare span: QR is appended right after the note text.
+	if !strings.Contains(got, "Common note<p><center><div id=\"htPixQRCode\">") {
+		t.Errorf("htPixQRCode not placed after bare family note: %q", got)
+	}
+
+	// Typical markup: note sits inside <p><b>…</b></p>. QR must follow the
+	// closed paragraph, not nest inside it.
+	wrapped := htChangeTag2Keywords(`<p><b>Updated. <span id="family_common_sn"></span></b></p>`)
+	if strings.Contains(wrapped, `Updated. <p><center>`) {
+		t.Errorf("htPixQRCode nested inside bold paragraph: %q", wrapped)
+	}
+	if !strings.Contains(wrapped, `Common note</b></p><p><center><div id="htPixQRCode">`) {
+		t.Errorf("htPixQRCode not placed after family note paragraph: %q", wrapped)
 	}
 }
 

@@ -1918,11 +1918,12 @@ function htFillFamilies(page, table) {
     if (hasPrerequisites) {
         htAddPaperDivs("#paper", "family-prerequisites", "", "", "", paperIdx++);
         var prHtml = "";
+        var localLangPrereq = $("#site_language").val();
+        var localCalPrereq = $("#site_calendar").val();
         for (const i in table.prerequisites) {
             let pr = table.prerequisites[i];
-            prHtml += "<p>"+ pr + "</p>";
+            prHtml += (typeof pr === "string") ? "<p>"+ pr + "</p>" : htParagraphFromObject(pr, localLangPrereq, localCalPrereq);
         }
-        prHtml += "</ul></p>";
         $("#paper-family-prerequisites").html("<div id=\"pre_requisites_inside\">"+prHtml+"</div>");
         var prereqLabel = (function(){
             var lang = $("#site_language").val() || "en-US";
@@ -2706,14 +2707,44 @@ function htFillPIXQRCode(id, size) {
 
     if ($element.is(':empty')) {
         $('<img>', {
-            src: htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png',
-            width: size
+            src: htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png'
+        }).css({
+            width: size,
+            maxWidth: '100%',
+            height: 'auto'
         }).appendTo($element);
         htLastImgSrcPrefix = htImgSrcPrefix;
     } else if (htImgSrcPrefix !== htLastImgSrcPrefix) {
         $element.find('img').attr('src', htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png');
         htLastImgSrcPrefix = htImgSrcPrefix;
     }
+}
+
+// keywords[52] ends with "or PIX using the QR code:" — place the same QR
+// image used in the side bar right after that note in the main content.
+function htEnsureContentPIXQRCode() {
+    var $sn = $("#family_common_sn");
+    if ($sn.length === 0) {
+        return;
+    }
+    if ($("#htPixQRCode").length > 0) {
+        return;
+    }
+    var $host = $sn.closest("p");
+    if ($host.length === 0) {
+        $host = $sn;
+    }
+    $host.after('<p><center><div id="htPixQRCode"></div></center></p>');
+    htFillPIXQRCode("#htPixQRCode", "200px");
+}
+
+function htFillFamilyCommonSN() {
+    var $sn = $("#family_common_sn");
+    if ($sn.length === 0 || typeof keywords === 'undefined' || !keywords || keywords.length <= 52) {
+        return;
+    }
+    $sn.html(keywords[52]);
+    htEnsureContentPIXQRCode();
 }
 
 function htFillDivAuthorsContent(target, lastUpdate, authors, reviewers) {
@@ -3158,9 +3189,7 @@ function htProccessData(data, optional) {
         htFillHTDate(data.fill_dates);
     }
 
-    if ($("#family_common_sn").length > 0) {
-        $("#family_common_sn").html(keywords[52]);
-    }
+    htFillFamilyCommonSN();
 
 }
 
@@ -3232,7 +3261,7 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
 function htCallFillPIXQRCode() {
     if ($("#htPixQRCode").length > 0 ) {
-        htFillPIXQRCode("#htPixQRCode", "10%");
+        htFillPIXQRCode("#htPixQRCode", "200px");
     }
 
     if ($("#htPixSideQRCode").length > 0 ) {
@@ -3802,7 +3831,11 @@ function htFillWebPage(page, data)
 
     for (const [selector, code] of Object.entries(reflections)) {
         if ($(selector).length) {
-            htAddTreeReflection(selector, code);
+            if (selector === "#family_common_sn") {
+                htFillFamilyCommonSN();
+            } else {
+                htAddTreeReflection(selector, code);
+            }
         }
     }
 
