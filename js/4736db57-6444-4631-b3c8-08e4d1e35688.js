@@ -402,17 +402,8 @@ function htSubBuildOrders() {
 }
 
 function htSubNewProblem() {
-    if (!localSub.fixedFirstDone) {
-        // The first problem is fixed to 900 - 851, which borrows across the
-        // zero in the tens order: the units column takes its 10 squares from
-        // the hundreds and tens. Later problems stay random.
-        localSub.top = 900;
-        localSub.bottom = 851;
-        localSub.fixedFirstDone = true;
-    } else {
-        localSub.top = htGetRandomArbitrary(100, 1000);
-        localSub.bottom = htGetRandomArbitrary(100, 1000);
-    }
+    localSub.top = htGetRandomArbitrary(100, 1000);
+    localSub.bottom = htGetRandomArbitrary(100, 1000);
     if (localSub.top < localSub.bottom) {
         var change = localSub.bottom;
         localSub.bottom = localSub.top;
@@ -451,7 +442,6 @@ function htLoadContent() {
         answered: false,
         started: false,
         lastBorrow: 0,
-        fixedFirstDone: false,
         regroup: {}
     };
 
