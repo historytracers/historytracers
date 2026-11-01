@@ -227,11 +227,25 @@ function htSubSetupColumn() {
             });
         }
         if (borrowed) {
-            var borrowNote = htSubReplace($("#htSubBorrowTemplate").text(), {
-                first: afterIncoming,
-                bottom: bottomDigit,
-                base: available
-            });
+            var borrowNote;
+            if (column + 1 < HT_SUB_DIGITS && localSub.topDigits[column + 1] === 0) {
+                // The next order is 0 and has nothing to lend: the borrow
+                // crosses it and comes from the order above it, which keeps 9
+                // after lending 10 squares down to this column.
+                borrowNote = htSubReplace($("#htSubBorrowChainTemplate").text(), {
+                    first: afterIncoming,
+                    bottom: bottomDigit,
+                    base: available,
+                    order: order,
+                    nextorder: htSubOrderName(column + 1)
+                });
+            } else {
+                borrowNote = htSubReplace($("#htSubBorrowTemplate").text(), {
+                    first: afterIncoming,
+                    bottom: bottomDigit,
+                    base: available
+                });
+            }
             note += (note.length > 0 ? " " : "") + borrowNote;
         }
     }
@@ -335,12 +349,16 @@ function htSubResolve() {
 
     htSubBuildBoard();
 
-    var template = localSub.borrowOut ? $("#htSubMsgBorrowTemplate").html() : $("#htSubMsgNoBorrowTemplate").html();
+    var chainBorrow = localSub.borrowed && column + 1 < HT_SUB_DIGITS && localSub.topDigits[column + 1] === 0;
+    var template = localSub.borrowOut ?
+        (chainBorrow ? $("#htSubMsgBorrowChainTemplate").html() : $("#htSubMsgBorrowTemplate").html()) :
+        $("#htSubMsgNoBorrowTemplate").html();
     $("#htSubFeedback").html(htSubReplace(template, {
         base: localSub.base,
         removed: localSub.removed,
         result: result,
-        order: order
+        order: order,
+        nextorder: chainBorrow ? htSubOrderName(column + 1) : ""
     }));
 
     $("#htSubUpBtn").prop("disabled", true);
@@ -384,8 +402,17 @@ function htSubBuildOrders() {
 }
 
 function htSubNewProblem() {
-    localSub.top = htGetRandomArbitrary(100, 1000);
-    localSub.bottom = htGetRandomArbitrary(100, 1000);
+    if (!localSub.fixedFirstDone) {
+        // The first problem is fixed to 900 - 851, which borrows across the
+        // zero in the tens order: the units column takes its 10 squares from
+        // the hundreds and tens. Later problems stay random.
+        localSub.top = 900;
+        localSub.bottom = 851;
+        localSub.fixedFirstDone = true;
+    } else {
+        localSub.top = htGetRandomArbitrary(100, 1000);
+        localSub.bottom = htGetRandomArbitrary(100, 1000);
+    }
     if (localSub.top < localSub.bottom) {
         var change = localSub.bottom;
         localSub.bottom = localSub.top;
@@ -424,6 +451,7 @@ function htLoadContent() {
         answered: false,
         started: false,
         lastBorrow: 0,
+        fixedFirstDone: false,
         regroup: {}
     };
 
