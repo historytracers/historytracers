@@ -29,10 +29,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790736313"
+      "1793575408"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -374,7 +376,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\">\n\n**1. Individual syllables: add 1 for each of the 70 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>70</mn></mrow></munderover><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>1 × (70)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n**2. Per strophe: 7 verses × 5 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>35</mi></math>.\n\n*Each strophe gives 7 × 5 = 35 syllables. With two strophes we double that result:* 35 + 35 = 2 × (35) = 70\n\n**3. Across all verses: 14 verses × 5 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>14</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n*All three methods give the same total: 70 syllables. The third method will be explored in detail in another text.*</div></div></center>\n\n#### Verse Chart\n\nBecause every verse contains the same number of metrical syllables (5), all the points of the graph sit at the same height, producing a flat, horizontal line:",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\">\n\n**1. Individual syllables: add 1 for each of the 70 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>70</mn></mrow></munderover><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>1 × (70)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n**2. Per strophe: 7 verses × 5 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>35</mi></math>.\n\n*Each strophe gives 7 × 5 = 35 syllables. With two strophes we double that result:* 35 + 35 = 2 × (35) = 70\n\n**3. Across all verses: 14 verses × 5 syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>14</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n*All three methods give the same total: 70 syllables. The third method will be explored in detail in another text.*</div></div></center>\n\n#### Verse Chart\n\nBecause every verse contains the same number of metrical syllables (5), all the bars of the chart reach the same height:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -467,7 +469,7 @@
                "PostMention": ""
             },
             {
-               "text": "Counting hieroglyphs follows the same logic as counting metrical syllables in verses: each line carries a fixed number of signs. Thus, **Figure 1** shows a total of 18 hieroglyphs (2 columns × 9 lines = 18).\n\n#### Chart of Hieroglyphs\n\nIn **Chart 3** we plot the number of hieroglyphs per line. Compared with **Chart 2**, we again see a constant quantity: every point has the value 2 instead of the value 5 of the previous chart.",
+               "text": "Counting hieroglyphs follows the same logic as counting metrical syllables in verses: each line carries a fixed number of signs. Thus, **Figure 1** shows a total of 18 hieroglyphs (2 columns × 9 lines = 18).\n\n#### Chart of Hieroglyphs\n\nIn **Chart 3** we plot the number of hieroglyphs per line. Compared with **Chart 2**, we again see a constant quantity: every bar has the value 2 instead of the value 5 of the previous chart.",
                "source": null,
                "date_time": null,
                "isTable": false,

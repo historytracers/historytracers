@@ -393,7 +393,7 @@ function htSubChosenSetupColumn() {
     // really lends: it keeps its digit minus 1, each zero column keeps 9 after
     // lending the ten squares, and this column keeps the digit plus ten.
     var chainSource = null;
-    if (localSubChosen.borrowNeeded && column + 1 < localSubChosen.columns && localSubChosen.topDigits[column + 1] === 0) {
+    if (localSubChosen.borrowNeeded && !localSubChosen.borrowTyped && column + 1 < localSubChosen.columns && localSubChosen.topDigits[column + 1] === 0) {
         chainSource = column + 2;
         while (chainSource < localSubChosen.columns && localSubChosen.topDigits[chainSource] === 0) {
             chainSource += 1;

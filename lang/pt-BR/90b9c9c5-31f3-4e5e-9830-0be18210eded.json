@@ -29,10 +29,12 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1790736346"
+      "1793575466"
    ],
    "authors": null,
-   "reviewers": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -374,7 +376,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\">\n\n**1. Sílabas individuais: somar 1 por cada uma das 70 sílabas**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>70</mn></mrow></munderover><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>1 × (70)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n**2. Por estrofe: 7 versos × 5 sílabas**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>35</mi></math>.\n\n*Cada estrofe dá 7 × 5 = 35 sílabas. Com duas estrofes, dobramos esse resultado:* 35 + 35 = 2 × (35) = 70\n\n**3. Em todos os versos: 14 versos × 5 sílabas**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>14</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n*Os três métodos dão o mesmo total: 70 sílabas. O terceiro será estudado com mais detalhe em outro texto.*</div></div></center>\n\n#### Plotando os versos\n\nComo todos os versos têm o mesmo número de sílabas métricas (5), todos os pontos do gráfico ficam na mesma altura e se forma uma linha reta e horizontal:",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\">\n\n**1. Sílabas individuais: somar 1 por cada uma das 70 sílabas**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>70</mn></mrow></munderover><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>1 × (70)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n**2. Por estrofe: 7 versos × 5 sílabas**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>35</mi></math>.\n\n*Cada estrofe dá 7 × 5 = 35 sílabas. Com duas estrofes, dobramos esse resultado:* 35 + 35 = 2 × (35) = 70\n\n**3. Em todos os versos: 14 versos × 5 sílabas**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>14</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n\n*Os três métodos dão o mesmo total: 70 sílabas. O terceiro será estudado com mais detalhe em outro texto.*</div></div></center>\n\n#### Plotando os versos\n\nComo todos os versos têm o mesmo número de sílabas métricas (5), todas as barras do gráfico ficam na mesma altura:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -467,7 +469,7 @@
                "PostMention": ""
             },
             {
-               "text": "Contar os hieróglifos segue a mesma lógica de contar as sílabas métricas dos versos: cada linha traz um número fixo de sinais. Assim, a **Figura 1** mostra um total de 18 hieróglifos (2 colunas × 9 linhas = 18).\n\n#### Plotando hieróglifos\n\nNo **Gráfico 3** plotamos a quantidade de hieróglifos por linha. Em comparação com o **Gráfico 2**, vemos novamente uma quantidade constante: todos os pontos valem 2, em vez do valor 5 do gráfico anterior.",
+               "text": "Contar os hieróglifos segue a mesma lógica de contar as sílabas métricas dos versos: cada linha traz um número fixo de sinais. Assim, a **Figura 1** mostra um total de 18 hieróglifos (2 colunas × 9 linhas = 18).\n\n#### Plotando hieróglifos\n\nNo **Gráfico 3** plotamos a quantidade de hieróglifos por linha. Em comparação com o **Gráfico 2**, vemos novamente uma quantidade constante: todas as barras valem 2, em vez do valor 5 do gráfico anterior.",
                "source": null,
                "date_time": null,
                "isTable": false,
