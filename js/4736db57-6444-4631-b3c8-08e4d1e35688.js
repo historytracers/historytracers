@@ -227,11 +227,25 @@ function htSubSetupColumn() {
             });
         }
         if (borrowed) {
-            var borrowNote = htSubReplace($("#htSubBorrowTemplate").text(), {
-                first: afterIncoming,
-                bottom: bottomDigit,
-                base: available
-            });
+            var borrowNote;
+            if (column + 1 < HT_SUB_DIGITS && localSub.topDigits[column + 1] === 0) {
+                // The next order is 0 and has nothing to lend: the borrow
+                // crosses it and comes from the order above it, which keeps 9
+                // after lending 10 squares down to this column.
+                borrowNote = htSubReplace($("#htSubBorrowChainTemplate").text(), {
+                    first: afterIncoming,
+                    bottom: bottomDigit,
+                    base: available,
+                    order: order,
+                    nextorder: htSubOrderName(column + 1)
+                });
+            } else {
+                borrowNote = htSubReplace($("#htSubBorrowTemplate").text(), {
+                    first: afterIncoming,
+                    bottom: bottomDigit,
+                    base: available
+                });
+            }
             note += (note.length > 0 ? " " : "") + borrowNote;
         }
     }
@@ -335,12 +349,16 @@ function htSubResolve() {
 
     htSubBuildBoard();
 
-    var template = localSub.borrowOut ? $("#htSubMsgBorrowTemplate").html() : $("#htSubMsgNoBorrowTemplate").html();
+    var chainBorrow = localSub.borrowed && column + 1 < HT_SUB_DIGITS && localSub.topDigits[column + 1] === 0;
+    var template = localSub.borrowOut ?
+        (chainBorrow ? $("#htSubMsgBorrowChainTemplate").html() : $("#htSubMsgBorrowTemplate").html()) :
+        $("#htSubMsgNoBorrowTemplate").html();
     $("#htSubFeedback").html(htSubReplace(template, {
         base: localSub.base,
         removed: localSub.removed,
         result: result,
-        order: order
+        order: order,
+        nextorder: chainBorrow ? htSubOrderName(column + 1) : ""
     }));
 
     $("#htSubUpBtn").prop("disabled", true);

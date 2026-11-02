@@ -13,68 +13,179 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
-    var xVector1 = [ 1, 1.5,  2,  2.5, 3,  3.5, 4,  4.5, 5,  5.5, 6,  6.5, 7,  7.5, 8,  8.5, 9,  9.5, 10,  10.5, 11,  11.5, 12];
-    var yVector1 = [ 1, null, 2, null, 3, null, 4, null, 5, null, 6, null, 7, null, 8, null, 9, null, 10,  null, 11,  null, 12];
+    var symbolLabels = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
+    var symbolValues = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
 
-    var chart1Options = {
-        "datasets": [
-                    {
-                        data : yVector1,
-                        label : mathKeywords[19],
-                        fill : false
-                    }],
-        "chartId" : "chart1",
-        "yType" : "linear",
-        "xVector" : xVector1,
-        "xLable": mathKeywords[18],
-        "xType" : "linear",
-        "ymin": 0,
-        "ymax": 12,
-        "useCallBack": false
-    };
-    htPlotConstantContinuousChart(chart1Options);
+    if ($("#chart1").length > 0) {
+        var canvas1 = document.getElementById("chart1");
+        var existingChart1 = Chart.getChart(canvas1);
+        if (existingChart1) {
+            existingChart1.destroy();
+        }
 
-    var xVector2 = [ 1, 1.5,  2,  2.5, 3,  3.5, 4,  4.5, 5,  5.5, 6,  6.5, 7,  7.5, 8,  8.5, 9,  9.5, 10,  10.5, 11,  11.5, 12,  12.5, 13,  13.5, 14];
-    var yVector2 = [ 5, null, 5, null, 5, null, 5, null, 5, null, 5, null, 5, null, 5, null, 5, null,  5,  null,  5,  null,  5,  null,  5,  null,  5];
+        new Chart(canvas1.getContext("2d"), {
+            type : "bar",
+            data : {
+                labels : symbolLabels,
+                datasets : [{
+                    data : symbolValues,
+                    label : mathKeywords[19],
+                    backgroundColor : "#E67E22",
+                    borderColor : "#A85B1E",
+                    borderWidth : 1
+                }]
+            },
+            options : {
+                responsive : true,
+                maintainAspectRatio : true,
+                aspectRatio : 1.5,
+                scales : {
+                    y : {
+                        min : 0,
+                        max : 2,
+                        ticks : {
+                            stepSize : 1
+                        },
+                        title : {
+                            display : true,
+                            text : mathKeywords[19]
+                        }
+                    },
+                    x : {
+                        title : {
+                            display : true,
+                            text : mathKeywords[18]
+                        }
+                    }
+                },
+                plugins : {
+                    legend : {
+                        display : false
+                    }
+                }
+            }
+        });
+    }
 
-    var chart2Options = {
-        "datasets": [
-                    {
-                        data : yVector2,
-                        label : mathKeywords[21],
-                        fill : false
-                    }],
-        "chartId" : "chart2",
-        "yType" : "linear",
-        "xVector" : xVector2,
-        "xLable": mathKeywords[20],
-        "xType" : "linear",
-        "ymin": 0,
-        "ymax": 10,
-        "useCallBack": false
-    };
-    htPlotConstantContinuousChart(chart2Options);
+    var verseLabels = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ];
+    var verseDatasets = [];
+    for (var square = 0; square < 5; square++) {
+        var squareValues = [];
+        for (var verse = 0; verse < verseLabels.length; verse++) {
+            squareValues.push(1);
+        }
+        verseDatasets.push({
+            data : squareValues,
+            label : mathKeywords[21],
+            backgroundColor : (square % 2 == 0) ? "#E67E22" : "#F5B041",
+            borderColor : "#5A2D0C",
+            borderWidth : 1,
+            borderSkipped : false
+        });
+    }
 
-    var xVector3 = [ 1, 1.5,  2,  2.5, 3,  3.5, 4,  4.5, 5,  5.5, 6,  6.5, 7,  7.5, 8,  8.5, 9];
-    var yVector3 = [ 2, null, 2, null, 2, null, 2, null, 2, null, 2, null, 2, null, 2, null, 2];
+    if ($("#chart2").length > 0) {
+        var canvas2 = document.getElementById("chart2");
+        var existingChart2 = Chart.getChart(canvas2);
+        if (existingChart2) {
+            existingChart2.destroy();
+        }
 
-    var chart3Options = {
-        "datasets": [
-                    {
-                        data : yVector3,
-                        label : mathKeywords[22],
-                        fill : false
-                    }],
-        "chartId" : "chart3",
-        "yType" : "linear",
-        "xVector" : xVector3,
-        "xLable": mathKeywords[23],
-        "xType" : "linear",
-        "ymin": 0,
-        "ymax": 10,
-        "useCallBack": false
-    };
-    htPlotConstantContinuousChart(chart3Options);
+        new Chart(canvas2.getContext("2d"), {
+            type : "bar",
+            data : {
+                labels : verseLabels,
+                datasets : verseDatasets
+            },
+            options : {
+                responsive : true,
+                maintainAspectRatio : true,
+                aspectRatio : 1.5,
+                scales : {
+                    y : {
+                        stacked : true,
+                        min : 0,
+                        max : 10,
+                        ticks : {
+                            stepSize : 1
+                        }
+                    },
+                    x : {
+                        stacked : true,
+                        title : {
+                            display : true,
+                            text : mathKeywords[20]
+                        }
+                    }
+                },
+                plugins : {
+                    legend : {
+                        display : false
+                    }
+                }
+            }
+        });
+    }
+
+    var lineLabels = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+    var lineDatasets = [];
+    for (var hieroglyph = 0; hieroglyph < 2; hieroglyph++) {
+        var hieroglyphValues = [];
+        for (var line = 0; line < lineLabels.length; line++) {
+            hieroglyphValues.push(1);
+        }
+        lineDatasets.push({
+            data : hieroglyphValues,
+            label : mathKeywords[22],
+            backgroundColor : (hieroglyph % 2 == 0) ? "#E67E22" : "#F5B041",
+            borderColor : "#5A2D0C",
+            borderWidth : 1,
+            borderSkipped : false
+        });
+    }
+
+    if ($("#chart3").length > 0) {
+        var canvas3 = document.getElementById("chart3");
+        var existingChart3 = Chart.getChart(canvas3);
+        if (existingChart3) {
+            existingChart3.destroy();
+        }
+
+        new Chart(canvas3.getContext("2d"), {
+            type : "bar",
+            data : {
+                labels : lineLabels,
+                datasets : lineDatasets
+            },
+            options : {
+                responsive : true,
+                maintainAspectRatio : true,
+                aspectRatio : 1.5,
+                scales : {
+                    y : {
+                        stacked : true,
+                        min : 0,
+                        max : 10,
+                        ticks : {
+                            stepSize : 1
+                        }
+                    },
+                    x : {
+                        stacked : true,
+                        title : {
+                            display : true,
+                            text : mathKeywords[23]
+                        }
+                    }
+                },
+                plugins : {
+                    legend : {
+                        display : false
+                    }
+                }
+            }
+        });
+    }
 
 
 

@@ -389,11 +389,27 @@ function htSubInSetupColumn() {
     } else if (chained) {
         note = $("#htSubInChainedTemplate").text();
     } else if (borrowed) {
-        note = htSubInReplace($("#htSubInBorrowTemplate").text(), {
-            first: afterIncoming,
-            bottom: bottomDigit,
-            base: available
-        });
+        if (column + 1 < HT_SUBIN_DIGITS && localSubIn.topDigits[column + 1] === 0) {
+            // The next order is 0 and has nothing to lend: the borrow crosses
+            // it and comes from the order above it. The player writes the
+            // values of the borrow: the value with the ten squares on top of
+            // this column and the value that stays in the zero order (9), in
+            // the borrow box above it.
+            note = htSubInReplace($("#htSubInBorrowChainTemplate").text(), {
+                first: afterIncoming,
+                bottom: bottomDigit,
+                base: available,
+                order: order,
+                nextorder: htSubInOrderName(column + 1),
+                nextvalue: (localSubIn.topDigits[column + 1] - 1 < 0) ? 9 : localSubIn.topDigits[column + 1] - 1
+            });
+        } else {
+            note = htSubInReplace($("#htSubInBorrowTemplate").text(), {
+                first: afterIncoming,
+                bottom: bottomDigit,
+                base: available
+            });
+        }
     } else if (localSubIn.incoming > 0) {
         note = htSubInReplace($("#htSubInIncomingTemplate").text(), {
             top: topDigit,
@@ -531,10 +547,14 @@ function htSubInEvaluate() {
     var next = localSubIn.column + 1;
     var nextReduced = localSubIn.topDigits[next] - 1;
     var nextTop = (nextReduced < 0) ? 9 : nextReduced;
+    // The next order is 0 and can only lend after borrowing from the order
+    // above it: the borrow box takes the value that stays in it after it lends
+    // (the 9), never the plain 1 taken from a real digit.
+    var nextZero = localSubIn.topDigits[next] === 0;
     var borrowIsNextTop = localSubIn.borrowNeeded && next < HT_SUBIN_DIGITS &&
         borrowRaw !== "" && nextTop !== 1 && parseInt(borrowRaw, 10) === nextTop;
     var borrowOk = !localSubIn.borrowNeeded ||
-        (borrowRaw !== "" && (parseInt(borrowRaw, 10) === 1 || borrowIsNextTop));
+        (borrowRaw !== "" && (nextZero ? borrowIsNextTop : (parseInt(borrowRaw, 10) === 1 || borrowIsNextTop)));
     if (borrowOk && localSubIn.borrowNeeded) {
         localSubIn.borrows[localSubIn.column] = 1;
         localSubIn.borrowTyped = true;
@@ -543,11 +563,15 @@ function htSubInEvaluate() {
         }
     }
     if (localSubIn.borrowNeeded && borrowRaw !== "" && !borrowOk) {
-        $("#htSubInFeedback").html(htSubInReplace($("#htSubInWrongBorrowTemplate").html(), {
-            first: localSubIn.afterIncoming,
-            bottom: bottom,
-            next: htSubInOrderName(next)
-        }));
+        $("#htSubInFeedback").html(htSubInReplace(
+            nextZero ? $("#htSubInWrongBorrowChainTemplate").html() : $("#htSubInWrongBorrowTemplate").html(),
+            {
+                first: localSubIn.afterIncoming,
+                bottom: bottom,
+                next: htSubInOrderName(next),
+                nextvalue: nextTop
+            }
+        ));
         return;
     }
     if (borrowOk && localSubIn.borrowNeeded) {
@@ -598,12 +622,16 @@ function htSubInResolve() {
     // and the light blue squares that remain are the digit that stays.
     htSubInDrawSquares(true);
 
-    var template = localSubIn.borrowOut ? $("#htSubInMsgBorrowTemplate").html() : $("#htSubInMsgNoBorrowTemplate").html();
+    var chainBorrow = localSubIn.borrowed && column + 1 < HT_SUBIN_DIGITS && localSubIn.topDigits[column + 1] === 0;
+    var template = localSubIn.borrowOut ?
+        (chainBorrow ? $("#htSubInMsgBorrowChainTemplate").html() : $("#htSubInMsgBorrowTemplate").html()) :
+        $("#htSubInMsgNoBorrowTemplate").html();
     var explanation = htSubInReplace(template, {
         base: localSubIn.base,
         removed: localSubIn.bottomDigit,
         result: result,
-        order: order
+        order: order,
+        nextorder: chainBorrow ? htSubInOrderName(column + 1) : ""
     });
 
     $("#htSubInTopInput").prop("disabled", true);
