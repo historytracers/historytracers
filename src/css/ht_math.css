@@ -2875,6 +2875,27 @@ p.desc svg {
   border-color: #90a4ae;
 }
 
+/* Multiplying the Findings with Groups (21f8d529): the same controls as
+   4f0474ba, but the current operation is drawn as groups of the same
+   characters (reusing .htMultGroupBox/.htMultGroupIcon from f641941e)
+   instead of a chart. The first factor is the number of characters inside
+   each rectangle and the second factor is how many times that group is
+   repeated. The groups wrap so the board never overflows small screens. */
+.htMultGroupsBoard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 0.25em;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.htMultGroupsBoard .htMultGroupIcon {
+  font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+}
+
 /* Around the World (6c071696): tour of the first counting tools created by
    humanity, with a "represent the number" practice game for each instrument. */
 .atw-game {
