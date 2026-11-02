@@ -858,12 +858,21 @@
   margin: 0 auto;
 }
 
-/* Memory game (52dc6a73): make table and cards responsive on small screens */
+/* Memory game (52dc6a73): make table and cards responsive on small screens.
+   The auto layout is scoped to tables without a chart canvas: sequence games
+   with a chart (e.g. 4f0474ba "Multiplying the Findings", ad9516ac "Table 4
+   and 5") must keep table-layout: fixed, otherwise the Chart column collapses
+   to a few pixels on small screens and the charts disappear. */
 @media screen and (max-width: 600px) {
   #yupana0.tawapukllay {
     font-size: 0.72em;
-    table-layout: auto;
     width: 100%;
+  }
+  #yupana0.tawapukllay:not(:has(canvas)) {
+    table-layout: auto;
+  }
+  #yupana0.tawapukllay:has(canvas) {
+    table-layout: fixed;
   }
   #yupana0.tawapukllay td:nth-child(-n+4) {
     width: 6em;

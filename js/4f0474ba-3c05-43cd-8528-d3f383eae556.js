@@ -9,6 +9,20 @@ function closeDiv() {
 function htFillImage() {
     var obj = local.gameVector[local.currentLevel];
     var prefix = htGetImgSrcPrefix();
+
+    // Keep the reward popup inside the game table: once the image is loaded,
+    // its height is capped with "table height - popup chrome" (the Close link,
+    // spacing and caption), so the whole popup fits inside the table without
+    // growing the page scrollbar. The popup itself is also capped by CSS to
+    // the table height, so long captions scroll inside it instead of the page.
+    var img = document.getElementById("imgSeqGame");
+    img.onload = function() {
+        var popup = $("#history");
+        var tableH = $("#yupana0").outerHeight();
+        var chrome = Math.max(0, popup.outerHeight() - img.getBoundingClientRect().height);
+        var maxH = Math.max(120, Math.round(Math.min(tableH - chrome, window.innerHeight * 0.4)));
+        img.style.maxHeight = maxH.toString() + "px";
+    };
     $("#imgSeqGame").attr("src", prefix+obj.imagePath);
     $("#desc").html(obj.imageDesc);
     local.currentLevel++;
