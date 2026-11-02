@@ -2667,6 +2667,10 @@ canvas {
 .tawapukllay canvas {
   max-width: 100% !important;
   height: auto !important;
+  /* Do not force an aspect ratio on chart canvases. Chart.js keeps the
+     canvas buffer ratio in sync with its own resizing; a different CSS
+     aspect-ratio makes WebKit shrink the chart to 0x0 after a redraw. */
+  aspect-ratio: auto !important;
 }
 .tawapukllay td img {
   max-width: 100%;

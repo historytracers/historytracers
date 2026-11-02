@@ -267,7 +267,7 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
         datasets.push(obj);
     }
 
-    if (yMax == undefined) { return NULL }
+    if (yMax == undefined) { return; }
 
     let localChartMin = 0;
     let localChartMax = yMax;
@@ -327,7 +327,7 @@ function htPlotLinearFunction(target, tmin, tmax, fillArea, continuous) {
         datasets.push(obj);
     }
 
-    if (yMax == undefined) { return NULL }
+    if (yMax == undefined) { return; }
 
     let localChartMin = -1 * yMax;
     let localChartMax = yMax;
