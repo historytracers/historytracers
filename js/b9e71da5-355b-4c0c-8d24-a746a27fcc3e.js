@@ -51,7 +51,7 @@ function htMultReplace(template, values) {
 // shows the result of the squares painted so far, so its digit and its carry
 // follow the repeated groups instead of jumping to the final answer.
 function htMultBuildBoard() {
-    var d = localMult.digits;
+    var digits = localMult.digits;
     var current = localMult.column;
     var mDigits = localMult.multiplicandDigits;
     var mult = localMult.multiplier;
@@ -60,6 +60,23 @@ function htMultBuildBoard() {
     // repetitions already done. This way the result digit and the previewed
     // carry grow together with the groups that turn light yellow.
     var painted = localMult.incoming + mDigits[current] * localMult.groups;
+
+    // Highest order shown on the board. The extra order on the left is only
+    // added when the last column really carries out, so a result that fits in
+    // the current orders does not show an empty leading column.
+    var d = digits - 1;
+    var top = d;
+    if (current === d) {
+        var carryOut = 0;
+        if (localMult.answered) {
+            carryOut = localMult.carries[d] || 0;
+        } else if (localMult.started) {
+            carryOut = Math.floor(painted / 10);
+        }
+        if (carryOut > 0) {
+            top = d + 1;
+        }
+    }
 
     function opCell(content) {
         return "<td class=\"htAddOp\">" + content + "</td>";
@@ -72,14 +89,14 @@ function htMultBuildBoard() {
     var rows = "";
     // The carry out of column c is written above column c + 1.
     rows += "<tr class=\"htAddCarryRow\">" + opCell("");
-    for (var o = d; o >= 0; o--) {
+    for (var o = top; o >= 0; o--) {
         var carryVal = "";
         if (o >= 1) {
             if (o - 1 === current && !localMult.answered && localMult.started) {
                 // Before the column is solved, preview the carry left by the
                 // painted groups of ten so far.
                 carryVal = painted >= 10 ? String(Math.floor(painted / 10)) : "";
-            } else if (localMult.carries[o - 1] !== undefined) {
+            } else if (localMult.carries[o - 1]) {
                 carryVal = String(localMult.carries[o - 1]);
             }
         }
@@ -88,21 +105,21 @@ function htMultBuildBoard() {
     rows += "</tr>";
     // Number being multiplied, one digit per order.
     rows += "<tr>" + opCell("");
-    for (o = d; o >= 0; o--) {
-        rows += cell(o, o < d ? String(mDigits[o]) : "");
+    for (o = top; o >= 0; o--) {
+        rows += cell(o, o <= d ? String(mDigits[o]) : "");
     }
     rows += "</tr>";
     // One-digit multiplier, with the multiplication sign in its own column.
     rows += "<tr>" + opCell("×");
-    for (o = d; o >= 0; o--) {
+    for (o = top; o >= 0; o--) {
         rows += cell(o, o === 0 ? String(mult) : "");
     }
     rows += "</tr>";
     // Line
-    rows += "<tr class=\"htAddLine\"><td colspan=\"" + (d + 2) + "\"></td></tr>";
+    rows += "<tr class=\"htAddLine\"><td colspan=\"" + (top + 2) + "\"></td></tr>";
     // Result
     rows += "<tr class=\"htAddResultRow\">" + opCell("");
-    for (o = d; o >= 0; o--) {
+    for (o = top; o >= 0; o--) {
         var res;
         if (o === current && !localMult.answered && localMult.started) {
             // Show the digit the column currently keeps as the groups are
