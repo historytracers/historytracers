@@ -47,14 +47,19 @@ function htMultReplace(template, values) {
 
 // Draws the vertical multiplication: the carry row, the number being
 // multiplied, the one-digit multiplier below the multiplication sign, the
-// result line and the result row. The column being solved is highlighted and a
-// column shows its result digit only once it has been solved.
+// result line and the result row. The column being solved is highlighted and
+// shows the result of the squares painted so far, so its digit and its carry
+// follow the repeated groups instead of jumping to the final answer.
 function htMultBuildBoard() {
     var d = localMult.digits;
     var current = localMult.column;
     var mDigits = localMult.multiplicandDigits;
     var mult = localMult.multiplier;
-    var total = mDigits[current] * mult + localMult.incoming;
+    // While the groups are being repeated, the board follows the squares
+    // painted so far: the carry coming from the previous order plus the
+    // repetitions already done. This way the result digit and the previewed
+    // carry grow together with the groups that turn light yellow.
+    var painted = localMult.incoming + mDigits[current] * localMult.groups;
 
     function opCell(content) {
         return "<td class=\"htAddOp\">" + content + "</td>";
@@ -71,9 +76,9 @@ function htMultBuildBoard() {
         var carryVal = "";
         if (o >= 1) {
             if (o - 1 === current && !localMult.answered && localMult.started) {
-                // Before the column is solved, preview the carry the groups
-                // of ten will leave when the column is complete.
-                carryVal = total >= 10 ? String(Math.floor(total / 10)) : "";
+                // Before the column is solved, preview the carry left by the
+                // painted groups of ten so far.
+                carryVal = painted >= 10 ? String(Math.floor(painted / 10)) : "";
             } else if (localMult.carries[o - 1] !== undefined) {
                 carryVal = String(localMult.carries[o - 1]);
             }
@@ -102,7 +107,7 @@ function htMultBuildBoard() {
         if (o === current && !localMult.answered && localMult.started) {
             // Show the digit the column currently keeps as the groups are
             // repeated.
-            res = String(total % 10);
+            res = String(painted % 10);
         } else {
             res = (localMult.results[o] !== undefined) ? String(localMult.results[o]) : "";
         }
