@@ -5,15 +5,16 @@
 // (in successive levels) is multiplied by a one-digit number, column by
 // column, from the units upwards. The multiplication is laid out vertically,
 // the way it is normally written. Below the board, every square of the column
-// is shown from the start: the squares carried from the previous order are
-// light blue and the repeated groups of the top digit are made of neutral
-// squares that turn light yellow as the player clicks the buttons. Each click
+// is shown from the start: the repeated groups of the top digit are made of
+// neutral squares that turn light yellow as the player clicks the buttons and
+// the squares carried from the previous order are light blue at the end, since
+// the carry is added only after all the groups are repeated. Each click
 // repeats the group once, the way multiplication is the repetition of a sum.
-// When every group has been repeated, the complete groups of ten squares
-// become the carry to the next order and the squares left outside the last
-// group of ten are the digit that stays in the column. The localized texts
-// live in the class JSON, so this file only wires the behavior and draws the
-// board.
+// When every group has been repeated, the carry is added, the complete groups
+// of ten squares become the carry to the next order and the squares left
+// outside the last group of ten are the digit that stays in the column. The
+// localized texts live in the class JSON, so this file only wires the behavior
+// and draws the board.
 
 var localMult = {};
 
@@ -55,11 +56,11 @@ function htMultBuildBoard() {
     var current = localMult.column;
     var mDigits = localMult.multiplicandDigits;
     var mult = localMult.multiplier;
-    // While the groups are being repeated, the board follows the squares
-    // painted so far: the carry coming from the previous order plus the
-    // repetitions already done. This way the result digit and the previewed
-    // carry grow together with the groups that turn light yellow.
-    var painted = localMult.incoming + mDigits[current] * localMult.groups;
+    // While the groups are being repeated, the board follows only the
+    // squares painted so far: the repetitions already done. The carry coming
+    // from the previous order is added at the end, when the column is solved,
+    // because that sum is the final step.
+    var painted = mDigits[current] * localMult.groups;
 
     // Highest order shown on the board. The extra order on the left is only
     // added when the last column really carries out, so a result that fits in
@@ -136,13 +137,14 @@ function htMultBuildBoard() {
 }
 
 // Draws the squares of the column. The whole column is shown from the start:
-// the light blue squares at the left are the carry coming from the previous
-// order and the remaining squares stand for the repeated groups of the top
-// digit, one dashed box per repetition. Each click turns one of those groups
-// light yellow, and the groups not repeated yet stay neutral. Once every
-// group has been repeated, the squares are regrouped in complete groups of
-// ten (the carry to the next order) and the squares left outside the last
-// group of ten show the digit that stays in the column.
+// the repeated groups of the top digit, one dashed box per repetition, come
+// first and the light blue squares at the right are the carry coming from the
+// previous order. Each click turns one of the groups light yellow, and the
+// groups not repeated yet stay neutral. The carry is added only after every
+// group has been repeated, because that sum is the final step: then the squares
+// are regrouped in complete groups of ten (the carry to the next order) and the
+// squares left outside the last group of ten show the digit that stays in the
+// column.
 function htMultDrawSquares() {
     var incoming = localMult.incoming;
     var digit = localMult.digit;
@@ -156,30 +158,32 @@ function htMultDrawSquares() {
     }
 
     if (localMult.answered) {
-        var total = digit * mult + incoming;
+        var product = digit * mult;
+        var total = product + incoming;
         var tens = Math.floor(total / 10);
         var order = 0;
         for (var g = 0; g < tens; g++) {
             html += "<span class=\"htAddTenGroup\">";
             for (i = 0; i < 10; i++) {
-                html += square(order < incoming ? "htAddSquareBase" : "htAddSquareAdded");
+                html += square(order >= product ? "htAddSquareBase" : "htAddSquareAdded");
                 order++;
             }
             html += "</span>";
         }
         for (i = order; i < total; i++) {
-            html += square(i < incoming ? "htAddSquareBase" : "htAddSquareAdded");
+            html += square(i >= product ? "htAddSquareBase" : "htAddSquareAdded");
         }
     } else {
-        for (i = 0; i < incoming; i++) {
-            html += square("htAddSquareBase");
-        }
         for (g = 0; g < mult; g++) {
             html += "<span class=\"htMultGroup\">";
             for (i = 0; i < digit; i++) {
                 html += square(g < groups ? "htAddSquareAdded" : "htAddSquarePending");
             }
             html += "</span>";
+        }
+        // The carried squares are added at the end, after the groups.
+        for (i = 0; i < incoming; i++) {
+            html += square("htAddSquareBase");
         }
     }
 
