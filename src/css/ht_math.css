@@ -3881,6 +3881,34 @@ p.desc svg {
 }
 
 /*
+ * Practicing multiplication by one-digit numbers (content
+ * b9e71da5-355b-4c0c-8d24-a746a27fcc3e). It reuses the vertical board and the
+ * squares of the Practicing addition game; the new classes are the level
+ * badge and the dashed box around each repeated group of squares.
+ */
+.htMultLevel {
+  display: inline-block;
+  margin-bottom: 0.5em;
+  padding: 0.2em 0.7em;
+  border: 1px solid #2c5f8a;
+  border-radius: 6px;
+  background-color: #eaf3fb;
+  color: #2c5f8a;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+/* One repeated group of squares: a single repetition of the top digit. */
+.htMultGroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border: 2px dashed #2c5f8a;
+  border-radius: 6px;
+}
+
+/*
  * Practicing addition with typed values (content
  * 18ca9e1f-b936-447a-9bab-798159cefbb9). It reuses the vertical addition board
  * and the squares of the Practicing addition game, but the bottom digit is
