@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"path/filepath"
 	"strings"
 	"sync"
 	"testing"
@@ -210,6 +211,112 @@ func TestBuildPageURLLangAlone(t *testing.T) {
 	got := buildPageURL("127.0.0.1:9999", "", "es-ES", "", "")
 	if !strings.HasSuffix(got, "lang=es-ES") {
 		t.Errorf("expected lang param, got %q", got)
+	}
+}
+
+func TestCacheControlMiddleware(t *testing.T) {
+	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	})
+	tests := []struct {
+		path string
+		want string
+	}{
+		{"/", "no-cache"},
+		{"/index.html", "no-cache"},
+		{"/js/ht_chart.js", "no-cache"},
+		{"/css/ht_math.css", "no-cache"},
+		{"/lang/en-US/abc.json", "no-cache"},
+		{"/index.md", "no-cache"},
+		{"/sitemap.xml", "no-cache"},
+		{"/llms.txt", "no-cache"},
+		{"/images/photo.jpg", ""},
+		{"/audios/track.ogg", ""},
+		{"/webfonts/fa-solid-900.woff2", ""},
+	}
+	for _, tt := range tests {
+		req := httptest.NewRequest("GET", tt.path, nil)
+		rec := httptest.NewRecorder()
+		cacheControlMiddleware(handler).ServeHTTP(rec, req)
+		if got := rec.Header().Get("Cache-Control"); got != tt.want {
+			t.Errorf("%s: Cache-Control = %q, want %q", tt.path, got, tt.want)
+		}
+	}
+}
+
+func TestCacheControlMiddlewareFileServerRoot(t *testing.T) {
+	dir := t.TempDir()
+	if err := os.WriteFile(filepath.Join(dir, "index.html"), []byte("ok"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	srv := httptest.NewServer(cacheControlMiddleware(http.FileServer(http.Dir(dir))))
+	defer srv.Close()
+
+	resp, err := srv.Client().Get(srv.URL + "/index.html")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+
+	if got, want := resp.Request.URL.Path, "/"; got != want {
+		t.Fatalf("final request path = %q, want %q (redirect not followed)", got, want)
+	}
+	if got, want := resp.Header.Get("Cache-Control"), "no-cache"; got != want {
+		t.Errorf("Cache-Control after redirect = %q, want %q", got, want)
+	}
+}
+
+func TestAddContentVersion(t *testing.T) {
+	tests := []struct {
+		name    string
+		pageURL string
+		version string
+		want    string
+	}{
+		{"no query", "http://127.0.0.1:1/index.html", "abc123", "http://127.0.0.1:1/index.html?v=abc123"},
+		{"with query", "http://127.0.0.1:1/index.html?page=class_content", "abc123", "http://127.0.0.1:1/index.html?page=class_content&v=abc123"},
+		{"with existing version", "http://127.0.0.1:1/index.html?v=old&page=class_content", "abc123", "http://127.0.0.1:1/index.html?page=class_content&v=abc123"},
+		{"with fragment", "http://127.0.0.1:1/index.html#section", "abc123", "http://127.0.0.1:1/index.html?v=abc123#section"},
+		{"with query and fragment", "http://127.0.0.1:1/index.html?page=class_content&lang=en#section", "abc123", "http://127.0.0.1:1/index.html?lang=en&page=class_content&v=abc123#section"},
+		{"empty version keeps URL", "http://127.0.0.1:1/index.html", "", "http://127.0.0.1:1/index.html"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := addContentVersion(tt.pageURL, tt.version); got != tt.want {
+				t.Errorf("addContentVersion(%q, %q) = %q, want %q", tt.pageURL, tt.version, got, tt.want)
+			}
+		})
+	}
+}
+
+func TestContentVersionTracksIndex(t *testing.T) {
+	dir := t.TempDir()
+	index := filepath.Join(dir, "index.html")
+
+	if got := contentVersion(dir); got != "" {
+		t.Errorf("contentVersion(missing) = %q, want empty", got)
+	}
+	if got := contentVersion(""); got != "" {
+		t.Errorf("contentVersion(\"\") = %q, want empty", got)
+	}
+
+	if err := os.WriteFile(index, []byte("build one"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	first := contentVersion(dir)
+	if first == "" {
+		t.Fatal("contentVersion returned empty for existing index.html")
+	}
+	if len(first) != 12 {
+		t.Errorf("contentVersion length = %d, want 12", len(first))
+	}
+
+	if err := os.WriteFile(index, []byte("build two"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	second := contentVersion(dir)
+	if second == first {
+		t.Errorf("contentVersion did not change after index.html changed (%q)", first)
 	}
 }
 

@@ -1,0 +1,246 @@
+{
+   "title": "Multiplying the Findings with Groups",
+   "header": "Multiplying the Findings with Groups",
+   "sources": [
+      "21f8d529-1c27-4f02-b880-81954daaf6ac"
+   ],
+   "scripts": [
+      "21f8d529-1c27-4f02-b880-81954daaf6ac"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/21f8d529-1c27-4f02-b880-81954daaf6ac_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5mRHcwAyrLpLftsmyqaNRE?si=4-vv9H5_Q52R_LaLNBarEQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "physics",
+      "math_games",
+      "chemistry"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793672807"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis game aims to reinforce knowledge of the multiplication table and the concept of multiplication as the repetition of sums of the same quantity (<htcite0>). Before playing, we recommend that the reader study the texts in Chapter 4 of the *First Steps* section of **History Tracers** (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First steps (Volume 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Rules\n\nOn the left side, you will find the mathematical operation whose result you need to calculate. By default, the numbers are chosen randomly in the **Multiplication Table** field, but if you wish to study only one table, you can select it from 0 to 9.\n\nTo solve the operation, use the arrows (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) on the right until the correct result appears.\n\nIn addition to the arrows and the operation, the multiplication being solved drawn as groups of the same figure and the number of stars representing the repetition of the sum are also displayed.\n\nWhen you reach the correct result, you will be introduced to archaeological sites and tools used in such contexts.\n\nTo perform a new calculation, click the Next arrow (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><b>Multiplication Table:</b> <select id=\"mtValues\"><option value=\"-1\">Randomly</option></select></p><div class=\"htSequenceGame\" id=\"cmp0\"><div id=\"parent\" style=\"position: relative;\"><div id=\"history\" style=\"visibility: hidden; display: none; border: 3px solid black; position: absolute; z-index: 100; left: 10%; width: 80%; background-color: white; max-height: 100%; box-sizing: border-box; overflow-y: auto;\"><br /><a href=\"#\" onclick=\"htMultGroupsCloseDiv(); return false;\" />Close</a><center><img src=\"\" id=\"imgSeqGame\" onclick=\"htImageZoom('imgSeqGame', '0%')\" style=\"width: auto; max-width: 30%; max-height: 40vh;\" /></center><br /><center><span id=\"desc\"></span></center></div><table id=\"yupana0\" class=\"tawapukllay\"><tr><th>Multiplication</th><th>Stars</th><th colspan=\"2\">Arrows</th><th colspan=\"4\">Groups</th></tr> <tr><td id=\"exercise\"> </td><td rowspan=\"3\" style=\"background-color:lightblue;\" id=\"visual\"></td><td rowspan=\"3\" style=\"background-color:white;\"><button type=\"button\" class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"moveUp\" aria-label=\"Increase the result\" onclick=\"htMultGroupsUpdateValue(1);\" style=\"background:none;border:none;padding:0;cursor:pointer;\"></button></td><td rowspan=\"3\" style=\"background-color:white;\"><button type=\"button\" class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"moveDown\" aria-label=\"Decrease the result\" onclick=\"htMultGroupsUpdateValue(-1);\" style=\"background:none;border:none;padding:0;cursor:pointer;\"></button></td><td colspan=\"4\" rowspan=\"3\"><div aria-label=\"groups\" id=\"groupsBoard\" class=\"htMultGroupsBoard\"></div></td></tr> <tr><td style=\"height: 5px; background-color: white;\" style=\"background-color:white;\"></td> </tr> <tr><td><span id=\"finalResult\" class=\"text_to_paint\"></span></td></tr> </table></div></div><span id=\"htMultGroupsNext\" style=\"display: none;\">Next calculation</span><p class=\"desc\"><b>Table 1</b>: Multiplication exercise.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": [
+      {
+         "imagePath": "images/AntopologyPeru/CeramicaAntropologiaPeru.jpg",
+         "imageDesc": "Figure 1: Andean ceramic from the formative period. Photo taken on <htdate0>, during a visit to the Anthropological Museum in Lima, Peru.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2017",
+               "month": "5",
+               "day": "28"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/CahalPech/ChocolatPot.jpg",
+         "imageDesc": "Figure 2: Mesoamerican ceramic. Photo taken on <htdate0>, during a visit to the Archaeological Site of Cahal Pech, Belize.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "7",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/GuatemalaAntropologia/EstelaAntropologiaGuatemala.jpg",
+         "imageDesc": "Figure 3: Maya stela. Photo taken on <htdate0>, during a visit to the Anthropological Museum of Guatemala City, Guatemala.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2014",
+               "month": "10",
+               "day": "21"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/GuatemalaKaminaljuyu/Kaminaljuyu.jpg",
+         "imageDesc": "Figure 4: Maya stela. Photo taken on <htdate0>, during a visit to the Archaeological Site of Kaminaljuyu, Guatemala.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2014",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/SanJoseCRJade/MayaCRJade.jpg",
+         "imageDesc": "Figure 5: Maya text. Photo taken on <htdate0>, during a visit to the Museum of Jade in San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "2",
+               "day": "6"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/Teotihuacan/MetateTeotihuacan.jpg",
+         "imageDesc": "Figure 6: Metate to grind corn. Photo taken on <htdate0>, during a visit to the Archaeological Site of Teotihuacan, Mexico.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg",
+         "imageDesc": "Figure 7: Metate to grind corn from the Postclassic period. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "10",
+               "day": "17"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg",
+         "imageDesc": "Figure 8: Metate to grind corn from the Postclassic period. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San Salvador, El Salvador.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "7",
+               "day": "25"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/Copan/StelaACopan.jpg",
+         "imageDesc": "Figure 9: Maya Stela 'A'. Photo taken on <htdate0>, during a visit to the Archaeological Site of Copan, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imagePath": "images/SanJoseCRMuseo/MusicCR.jpg",
+         "imageDesc": "Figure 10: Musical instruments. Photo taken on <htdate0>, during a visit to the Anthropological Museum in San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "10",
+               "day": "17"
+            }
+         ]
+      }
+   ],
+   "date_time": null
+}

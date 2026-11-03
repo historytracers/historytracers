@@ -3,6 +3,7 @@ package main
 
 import (
 	"crypto/rand"
+	"crypto/sha256"
 	"encoding/csv"
 	"encoding/gob"
 	"encoding/hex"
@@ -1857,6 +1858,9 @@ func main() {
 		pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 	}
 
+	// Bust the webview cache when the content changes (see addContentVersion).
+	pageURL = addContentVersion(pageURL, contentVersion(contentDir))
+
 	if *lang != "" && !validLangs[*lang] {
 		*lang = ""
 	}
@@ -1930,7 +1934,7 @@ func main() {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		http.ServeFile(w, r, filepath.Join(contentDir, clean))
 	}))
-	mux.Handle("/", metricsMiddleware(logMiddleware(http.FileServer(projectFS{}))))
+	mux.Handle("/", metricsMiddleware(logMiddleware(cacheControlMiddleware(http.FileServer(projectFS{})))))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
 
@@ -1979,6 +1983,43 @@ func buildPageURL(addr, class, lang, cal, font string) string {
 	return u
 }
 
+// contentVersion fingerprints the served content. The generated index.html
+// embeds the cache-busting stamps of every asset (?v=...), so hashing it gives
+// a value that changes whenever the content is rebuilt or updated.
+func contentVersion(dir string) string {
+	if dir == "" {
+		return ""
+	}
+	b, err := os.ReadFile(filepath.Join(dir, "index.html"))
+	if err != nil {
+		return ""
+	}
+	sum := sha256.Sum256(b)
+	return hex.EncodeToString(sum[:])[:12]
+}
+
+// addContentVersion adds or updates v=<version> in the initial page URL. The
+// webview keeps an HTTP cache between runs, and index.html itself is requested
+// without a query string, so without this the cache could keep serving the
+// previous build's HTML (and therefore the previous build's JS) after an
+// update. That leaves bugs fixed in the content still visible only in the
+// viewer, while a normal browser revalidates the website. The parameter is
+// ignored by the page and is removed from the URL by its first
+// history.replaceState call.
+func addContentVersion(pageURL, version string) string {
+	if version == "" {
+		return pageURL
+	}
+	u, err := url.Parse(pageURL)
+	if err != nil {
+		return pageURL
+	}
+	q := u.Query()
+	q.Set("v", version)
+	u.RawQuery = q.Encode()
+	return u.String()
+}
+
 func resolveAddr(port int) string {
 	if port >= 1 && port <= 65535 {
 		l, err := net.Listen("tcp", fmt.Sprintf("127.0.0.1:%d", port))
@@ -2011,6 +2052,28 @@ func (w *statusWriter) WriteHeader(code int) {
 		w.wroteHeader = true
 	}
 	w.ResponseWriter.WriteHeader(code)
+}
+
+// cacheControlMiddleware marks page assets as revalidatable on every use.
+// The viewer ships new content with each release; without an explicit cache
+// directive a webview may keep running a stale index.html / ht_*.js from its
+// previous run (a normal browser accessing the website always revalidates),
+// which makes a fixed bug appear only in the viewer. Images, fonts and audio
+// keep the default caching because their file names change when they change.
+func cacheControlMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		ext := strings.ToLower(path.Ext(r.URL.Path))
+		// http.FileServer serves index.html for the root and redirects
+		// /index.html there, so treat "/" as an HTML response.
+		if r.URL.Path == "/" {
+			ext = ".html"
+		}
+		switch ext {
+		case ".html", ".js", ".css", ".json", ".md", ".xml", ".txt":
+			w.Header().Set("Cache-Control", "no-cache")
+		}
+		next.ServeHTTP(w, r)
+	})
 }
 
 func logMiddleware(next http.Handler) http.Handler {
