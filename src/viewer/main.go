@@ -1998,22 +1998,26 @@ func contentVersion(dir string) string {
 	return hex.EncodeToString(sum[:])[:12]
 }
 
-// addContentVersion appends v=<version> to the initial page URL. The webview
-// keeps an HTTP cache between runs, and index.html itself is requested without
-// a query string, so without this the cache could keep serving the previous
-// build's HTML (and therefore the previous build's JS) after an update. That
-// leaves bugs fixed in the content still visible only in the viewer, while a
-// normal browser revalidates the website. The parameter is ignored by the page
-// and is removed from the URL by its first history.replaceState call.
+// addContentVersion adds or updates v=<version> in the initial page URL. The
+// webview keeps an HTTP cache between runs, and index.html itself is requested
+// without a query string, so without this the cache could keep serving the
+// previous build's HTML (and therefore the previous build's JS) after an
+// update. That leaves bugs fixed in the content still visible only in the
+// viewer, while a normal browser revalidates the website. The parameter is
+// ignored by the page and is removed from the URL by its first
+// history.replaceState call.
 func addContentVersion(pageURL, version string) string {
 	if version == "" {
 		return pageURL
 	}
-	sep := "?"
-	if strings.Contains(pageURL, "?") {
-		sep = "&"
+	u, err := url.Parse(pageURL)
+	if err != nil {
+		return pageURL
 	}
-	return pageURL + sep + "v=" + url.QueryEscape(version)
+	q := u.Query()
+	q.Set("v", version)
+	u.RawQuery = q.Encode()
+	return u.String()
 }
 
 func resolveAddr(port int) string {
@@ -2058,7 +2062,13 @@ func (w *statusWriter) WriteHeader(code int) {
 // keep the default caching because their file names change when they change.
 func cacheControlMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		switch strings.ToLower(path.Ext(r.URL.Path)) {
+		ext := strings.ToLower(path.Ext(r.URL.Path))
+		// http.FileServer serves index.html for the root and redirects
+		// /index.html there, so treat "/" as an HTML response.
+		if r.URL.Path == "/" {
+			ext = ".html"
+		}
+		switch ext {
 		case ".html", ".js", ".css", ".json", ".md", ".xml", ".txt":
 			w.Header().Set("Cache-Control", "no-cache")
 		}

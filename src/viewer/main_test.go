@@ -222,6 +222,7 @@ func TestCacheControlMiddleware(t *testing.T) {
 		path string
 		want string
 	}{
+		{"/", "no-cache"},
 		{"/index.html", "no-cache"},
 		{"/js/ht_chart.js", "no-cache"},
 		{"/css/ht_math.css", "no-cache"},
@@ -243,6 +244,28 @@ func TestCacheControlMiddleware(t *testing.T) {
 	}
 }
 
+func TestCacheControlMiddlewareFileServerRoot(t *testing.T) {
+	dir := t.TempDir()
+	if err := os.WriteFile(filepath.Join(dir, "index.html"), []byte("ok"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	srv := httptest.NewServer(cacheControlMiddleware(http.FileServer(http.Dir(dir))))
+	defer srv.Close()
+
+	resp, err := srv.Client().Get(srv.URL + "/index.html")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+
+	if got, want := resp.Request.URL.Path, "/"; got != want {
+		t.Fatalf("final request path = %q, want %q (redirect not followed)", got, want)
+	}
+	if got, want := resp.Header.Get("Cache-Control"), "no-cache"; got != want {
+		t.Errorf("Cache-Control after redirect = %q, want %q", got, want)
+	}
+}
+
 func TestAddContentVersion(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -252,6 +275,9 @@ func TestAddContentVersion(t *testing.T) {
 	}{
 		{"no query", "http://127.0.0.1:1/index.html", "abc123", "http://127.0.0.1:1/index.html?v=abc123"},
 		{"with query", "http://127.0.0.1:1/index.html?page=class_content", "abc123", "http://127.0.0.1:1/index.html?page=class_content&v=abc123"},
+		{"with existing version", "http://127.0.0.1:1/index.html?v=old&page=class_content", "abc123", "http://127.0.0.1:1/index.html?page=class_content&v=abc123"},
+		{"with fragment", "http://127.0.0.1:1/index.html#section", "abc123", "http://127.0.0.1:1/index.html?v=abc123#section"},
+		{"with query and fragment", "http://127.0.0.1:1/index.html?page=class_content&lang=en#section", "abc123", "http://127.0.0.1:1/index.html?lang=en&page=class_content&v=abc123#section"},
 		{"empty version keeps URL", "http://127.0.0.1:1/index.html", "", "http://127.0.0.1:1/index.html"},
 	}
 	for _, tt := range tests {

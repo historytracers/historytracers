@@ -76,33 +76,52 @@ function htMultGroupsUpdateValue(add) {
     }
 
     const test = (localMultGroups.first == 0 || localMultGroups.second == 0 ) ? 0 : localMultGroups.selector * localMultGroups.first;
-    var result = "";
-    if (test < 10) {
-        result += "&nbsp;";
-    }
-    result += test;
+    var $result = $("#finalResult").empty();
+    $result.text((test < 10 ? "\u00a0" : "") + test);
 
     if (test) {
         htDrawMultiplicationTable("#visual", localMultGroups.first, localMultGroups.selector);
     }
     if (test == localMultGroups.total) {
         htMultGroupsFillImage();
-        let current = $('#mtValues').val();
-        result += "<br /><i class=\"fa-solid fa-chevron-right\" style=\"font-size:1.0em;\" onclick=\"htMultGroupsFillExercise("+current+");\"></i>";
+        var current = parseInt($("#mtValues").val(), 10);
+        if (isNaN(current)) {
+            current = -1;
+        }
+        var nextLabel = $("#htMultGroupsNext").text() || "Next calculation";
+        var $arrow = $("<button>", {
+            "type": "button",
+            "class": "fa-solid fa-chevron-right",
+            "aria-label": nextLabel
+        })
+            .css({
+                "font-size": "1.0em",
+                "background": "none",
+                "border": "none",
+                "padding": "0",
+                "cursor": "pointer"
+            })
+            .on("click", function() {
+                htMultGroupsFillExercise(current);
+            });
+        $result.append("<br />").append($arrow);
         localMultGroups.stopMe = true;
         $("#history").css("display","block").css("visibility","visible");
     }
-    $("#finalResult").html(result);
 
 }
 
 function htMultGroupsFillExercise(test) {
-    localMultGroups.first = htGetRandomArbitrary(0, 9);
-    localMultGroups.second = (test == "-1") ? htGetRandomArbitrary(0, 9) : test;
+    test = parseInt(test, 10);
+    localMultGroups.first = htGetRandomArbitrary(0, 10);
+    localMultGroups.second = (isNaN(test) || test == -1) ? htGetRandomArbitrary(0, 10) : test;
     localMultGroups.total = localMultGroups.first * localMultGroups.second;
     localMultGroups.selector = 0;
 
-    $("#exercise").html("<span class=\"text_to_paint\">&nbsp;&nbsp;&nbsp;"+localMultGroups.first+"</span><br /><span class=\"text_to_paint\">× "+localMultGroups.second+"</span>");
+    $("#exercise").empty()
+        .append($("<span>", { "class": "text_to_paint" }).text("\u00a0\u00a0\u00a0" + localMultGroups.first))
+        .append("<br />")
+        .append($("<span>", { "class": "text_to_paint" }).text("× " + localMultGroups.second));
     htMultGroupsDrawBoard();
     $("#finalResult").html("");
     $("#visual").html("");
