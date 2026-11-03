@@ -21,6 +21,10 @@ function htPlusDivs(n) {
 }
 
 function htLoadExercise() {
+    htSetImageSrc("imgCopan0", "images/Copan/CopanAltarGenealogy0.jpg");
+    htSetImageSrc("imgCopan1", "images/Copan/CopanAltarGenealogy1.jpg");
+    htSetImageSrc("imgCopan2", "images/Copan/CopanAltarGenealogy2.jpg");
+    htSetImageSrc("imgCopan3", "images/Copan/CopanAltarGenealogy3.jpg");
     htSetImageSrc("CEast", "images/Copan/CopanStelaC.jpg");
     htSetImageSrc("CWest", "images/Copan/CopanStelaCBeard.jpg");
     htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
