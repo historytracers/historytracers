@@ -1,0 +1,146 @@
+{
+   "title": "Practicando la multiplicación por números de un dígito",
+   "header": "Practicando la multiplicación por números de un dígito",
+   "sources": [
+      "b9e71da5-355b-4c0c-8d24-a746a27fcc3e"
+   ],
+   "scripts": [
+      "b9e71da5-355b-4c0c-8d24-a746a27fcc3e"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/b9e71da5-355b-4c0c-8d24-a746a27fcc3e_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/3NkG8aQEdMS8rNpv2fAjJc?si=JIX7F6DOQleRCA3I8C6RZQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics",
+      "chemistry"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793724029"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEn este texto, practicaremos la multiplicación de un número por otro número de un dígito. Antes de continuar con estos ejercicios, sugerimos estudiar:\n\n- **Aprendiendo las tablas de multiplicar (Resumen)**: un repaso de las diez tablas de multiplicar, desde los grupos de objetos hasta la fórmula general (<htcite0>)\n- **Sumando los mismos números**: la idea de la multiplicación como la repetición de sumas de la misma cantidad (<htcite1>)\n- **Corriendo entre los números**: cómo funcionan los órdenes con números mayores y un método paso a paso para operar con números de cualquier tamaño (<htcite2>)\n- **El arte de estudiar**: los cinco factores de Sun Tzu y cómo usarlos como estrategia de aprendizaje (<htcite3>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3d7db1f2-6f0f-4546-80f0-3e12743b2627",
+                     "text": "History Tracers Team",
+                     "page": "Aprendiendo las tablas de multiplicar (Resumen)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
+                     "text": "History Tracers Team",
+                     "page": "Corriendo entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "El arte de estudiar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Los 5 factores de Sun Tzu (孙子)\n\nPara hacer los ejercicios, recomendamos usar los 5 factores de Sun Tzu (los mismos de **El arte de estudiar** (<htcite0>)) de la siguiente manera:\n\n- **La ley de la moral**: No te limites a un solo ejercicio. Para reforzar lo que aprendiste, practica hasta sentirte más cómodo y reparte la práctica en más de un día.\n- **El paraíso**: Visualiza los números que estás multiplicando con tu propio cuerpo. Cada vez que se repite un grupo de cuadrados, comprueba si la cuenta todavía cabe en el conteo de tus dedos o si lo supera. Después, intenta recrear en otros escenarios las multiplicaciones que estás haciendo aquí, para que veas que la misma idea aparece en todas partes.\n- **La tierra**: En cada multiplicación, los cuadrados representan los dígitos. Multiplicar una columna por un número de un dígito es repetir el grupo de cuadrados de esa columna tantas veces como el número de un dígito; cada grupo completo de diez cuadrados se convierte en el acarreo al siguiente orden, y los cuadrados que quedan fuera del último grupo de diez son el dígito que se queda en la columna. Así que, antes de multiplicar una columna, pregúntate: al repetir el grupo esa cantidad de veces, ¿cuántos grupos de diez se formarán? La respuesta te dice lo que la columna acarrearía.\n- **El comandante**: Como comandante de tu aprendizaje, debes:\n    - Ser benevolente contigo mismo y con las personas que aún no entienden la multiplicación, y ayudarlas a aprender.\n    - Ser honesto contigo mismo y no permitir que tu confianza subestime o sobreestime el problema que tienes delante.\n    - Respetarte a ti mismo, recordando que hay diferentes maneras de entender las matemáticas. Descubre la manera con la que te sientas cómodo y síguela. En History Tracers haremos todo lo posible para ayudarte a encontrar tu camino.\n    - Usar tu sabiduría para identificar tus debilidades, a fin de entrenarlas y convertirlas en fortalezas.\n    - Usar tu sinceridad para ver dónde tienes que mejorar y no levantar barreras por las dificultades que puedas encontrar.\n- **Método y disciplina**: Reserva un período de tiempo para entrenar todos los días y respeta tu tiempo de descanso.\n\n### Ejercicio de práctica\n\nLeer sobre la multiplicación ayuda, pero la práctica es esencial para una comprensión real. El juego tiene tres niveles: en el nivel 1, un número de un dígito se multiplica por otro número de un dígito; en el nivel 2, un número de dos dígitos se multiplica por un número de un dígito; en el nivel 3, un número de tres dígitos se multiplica por un número de un dígito. La multiplicación se escribe en vertical, columna por columna, desde las unidades, y cada columna se resuelve así:\n\n1. Los cuadrados azul claro muestran los cuadrados acarreados del orden anterior.\n2. Usa el botón hacia arriba (<span class=\"htAddButtonSample\"><i class=\"fa-solid fa-caret-up\"></i></span>) para repetir una vez el grupo de cuadrados de la columna y el botón hacia abajo (<span class=\"htAddButtonSample\"><i class=\"fa-solid fa-caret-down\"></i></span>) para quitar una repetición, hasta que el grupo se haya repetido tantas veces como el número de un dígito.\n3. Cuando la cuenta llegue a un grupo completo de diez cuadrados, ese grupo se convierte en el acarreo al siguiente orden, y los cuadrados que quedan fuera del último grupo de diez son el dígito que se queda en la columna.\n\n**Ejemplo: 3 × 4.** La columna repite el grupo de 3 cuadrados cuatro veces: 3 × 4 = 12. Los cuadrados completan un grupo de diez, que se convierte en el 1 acarreado al siguiente orden, y 2 cuadrados se quedan fuera del grupo: ese es el dígito 2:<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div><span class=\"htAddSquaresCaption\">3 × 4 = 12</span>\n\nAl terminar el cálculo, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás pasar al siguiente problema haciendo clic en el botón de abajo:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "El arte de estudiar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htAddGame\"><div class=\"htMultLevel\" id=\"htMultLevel\"></div><div class=\"htAddOrders\" id=\"htMultOrders\"></div><span class=\"htAddQuestion\" id=\"htMultQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htMultIncomingNote\"></div><table class=\"htAddTable\" id=\"htMultTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htMultSquaresLabel\">Multiplicación en esta columna</span><div class=\"htAddSquares\" id=\"htMultSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htMultSquaresCaption\"></span><span class=\"htAddSquaresNote\" id=\"htMultSquaresNote\"></span></div><div class=\"htAddButtonsRow\"><button type=\"button\" id=\"htMultUpBtn\" class=\"htAddButton\" aria-label=\"Repetir un grupo de cuadrados\"><i class=\"fa-solid fa-caret-up\"></i></button><button type=\"button\" id=\"htMultDownBtn\" class=\"htAddButton\" aria-label=\"Quitar un grupo de cuadrados\"><i class=\"fa-solid fa-caret-down\"></i></button></div><div class=\"htAddFeedback\" id=\"htMultFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htMultNextBtn\" class=\"reset-tutor-btn hidden\">Siguiente columna</button></div><span id=\"htMultLevel0\" class=\"htAddHidden\">Nivel 1: número de un dígito × un dígito</span><span id=\"htMultLevel1\" class=\"htAddHidden\">Nivel 2: número de dos dígitos × un dígito</span><span id=\"htMultLevel2\" class=\"htAddHidden\">Nivel 3: número de tres dígitos × un dígito</span><span id=\"htMultOrder0\" class=\"htAddHidden\">Unidades</span><span id=\"htMultOrder1\" class=\"htAddHidden\">Decenas</span><span id=\"htMultOrder2\" class=\"htAddHidden\">Centenas</span><span id=\"htMultQuestionTemplate\" class=\"htAddHidden\">La columna de las {order}: {digit} × {mult}. Usa los botones para repetir el grupo de {digit}, un grupo por clic, hasta que haya {mult} grupos.</span><span id=\"htMultIncomingTemplate\" class=\"htAddHidden\">El {carry} acarreado de la columna anterior se sumará después de repetir los grupos de esta columna.</span><span id=\"htMultMsgCarryTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Llega a diez o más, así que la columna de las {order} conserva {result} y acarrea {out} al siguiente orden.</span><span id=\"htMultMsgNoCarryTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. No llega a diez, así que la columna de las {order} conserva {result}.</span><span id=\"htMultMsgCarryInTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Sumando el {carry} acarreado del orden anterior llegamos a {total}; llega a diez o más, así que la columna de las {order} conserva {result} y acarrea {out} al siguiente orden.</span><span id=\"htMultMsgNoCarryInTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Sumando el {carry} acarreado del orden anterior llegamos a {total}; no llega a diez, así que la columna de las {order} conserva {result}.</span><span id=\"htMultGroupsTemplate\" class=\"htAddHidden\">Grupos repetidos: {groups} de {mult}.</span><span id=\"htMultTenTemplate\" class=\"htAddHidden\">Grupos completos de diez: {tens}; cuadrados que se quedan en la columna de las {order}: {outside}.</span><span id=\"htMultNextColumnLabel\" class=\"htAddHidden\">Siguiente columna</span><span id=\"htMultNextLevelLabel\" class=\"htAddHidden\">Nuevo problema</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

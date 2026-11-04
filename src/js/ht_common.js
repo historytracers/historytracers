@@ -2188,7 +2188,11 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     }
     htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
 
-    $(".htSlide, .htSlides").remove();
+    // Clear slides from the previous content, but keep the ones rendered on
+    // family book pages. htFillFamilies() loads tree.json through this
+    // function after building the family pages, and removing those slides
+    // would leave their carriers (e.g. Altar Q) empty.
+    $(".htSlide, .htSlides").not("[id^='paper-family-'] .htSlide, [id^='paper-family-'] .htSlides").remove();
 
     var idx = 0;
     var navigationPage = "";
