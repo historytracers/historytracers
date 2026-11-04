@@ -21,6 +21,7 @@ var HT_MULTIN_MAX_LEVEL = 2;
 // Range of random values of the number being multiplied, per level.
 var HT_MULTIN_RANGES = [[0, 10], [10, 100], [100, 1000]];
 
+// Returns the localized name of an order (units, tens, hundreds).
 function htMultInOrderName(order) {
     return $("#htMultInOrder" + order).text();
 }
@@ -36,6 +37,7 @@ function htMultInDigits(value, length) {
     return digits;
 }
 
+// Replaces every {key} placeholder in a localized template.
 function htMultInReplace(template, values) {
     for (var key in values) {
         template = template.replace(new RegExp("\\{" + key + "\\}", "g"), values[key]);
@@ -68,9 +70,11 @@ function htMultInBuildBoard() {
         top = d + 1;
     }
 
+    // Builds an operator column cell.
     function opCell(content) {
         return "<td class=\"htAddOp\">" + content + "</td>";
     }
+    // Builds a value cell for the given order.
     function cell(order, content) {
         var cls = "htAddCell" + (order === current ? " htAddCellActive" : "");
         return "<td class=\"" + cls + "\" data-order=\"" + order + "\">" + content + "</td>";
@@ -85,7 +89,7 @@ function htMultInBuildBoard() {
     rows += "<tr class=\"htAddCarryRow\">" + opCell("");
     for (var o = top; o >= 0; o--) {
         var carryVal = "";
-        if (o >= 1 && localMultIn.carries[o - 1] !== undefined) {
+        if (o >= 1 && localMultIn.carries[o - 1] !== undefined && localMultIn.carries[o - 1] > 0) {
             carryVal = String(localMultIn.carries[o - 1]);
         }
         // The carry of the column being solved is typed above the next order,
@@ -151,6 +155,7 @@ function htMultInDrawSquares(written) {
     var html = "";
     var i;
 
+    // Builds one square of the column, with its current state classes.
     function square(index) {
         var cls = "htAddSquare";
         if (index < incoming) {
@@ -426,6 +431,7 @@ function htMultInNext() {
     htMultInSetupColumn();
 }
 
+// Fill the order labels (units, tens, hundreds) shown above the board.
 function htMultInBuildOrders() {
     var $orders = $("#htMultInOrders");
     $orders.empty();
@@ -439,6 +445,7 @@ function htMultInBuildOrders() {
     $("#htMultInLevel").text($("#htMultInLevel" + localMultIn.level).text());
 }
 
+// Starts a fresh multiplication problem for the current level.
 function htMultInNewProblem() {
     // Levels advance one by one and cycle back to the first after the last.
     localMultIn.level = (localMultIn.level + 1) % (HT_MULTIN_MAX_LEVEL + 1);
@@ -456,6 +463,7 @@ function htMultInNewProblem() {
     htMultInSetupColumn();
 }
 
+// Initializes the game when the class page loads.
 function htLoadContent() {
     htWriteNavigation();
 

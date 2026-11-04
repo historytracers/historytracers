@@ -2851,6 +2851,45 @@ function htGetTextWithDateReplacements(localObj, localLang, localCalendar) {
     return localObj.text || '';
 }
 
+// Replaces <htciteN> placeholders with the corresponding source links.
+function htApplySourceLinks(text, sources, localLang, localCalendar) {
+    if (!sources || sources.length === 0 || typeof text !== 'string') {
+        return text;
+    }
+
+    var citeSources = " (";
+    for (const i in sources) {
+        var searchFor = "<htcite"+i+">";
+        var pos = text.search(searchFor);
+        var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+        var dateText = "";
+        if (sources[i].date != undefined && sources[i].date.year.length > 0) {
+            dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
+        } else if (sources[i].date_time != undefined && sources[i].date_time.year.length > 0) {
+            dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
+        }
+
+        var pageText = "";
+        if (sources[i].page != undefined && sources[i].page.length > 0) {
+            pageText = ", "+sources[i].page;
+        }
+        var appendText = "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+pageText+"</i></a>";
+        if (pos < 0) {
+            if (i != 0 && citeSources.length > 2) {
+                citeSources += " ; ";
+            }
+            citeSources += appendText;
+        } else {
+            text = text.replace(searchFor, appendText);
+        }
+    }
+    if (citeSources.length > 2) {
+        text += citeSources+ ")";
+    }
+    return text;
+}
+
+// Formats a content text object and resolves its date and citation placeholders.
 function htParagraphFromObject(localObj, localLang, localCalendar) {
     if (!localObj || typeof localObj !== 'object') {
         return '<p></p>';
@@ -2864,36 +2903,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
     let text = (format === 'html' ? '<p>' + formattedText : formattedText);
 
     if (localObj.source != undefined && localObj.source != null) {
-        var sources = localObj.source;
-        var citeSources = " (";
-        for (const i in sources) { 
-            var searchFor = "<htcite"+i+">";
-            var pos = text.search(searchFor);
-            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var dateText = "";
-            if (sources[i].date != undefined && sources[i].date.year.length > 0) {
-                dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
-            } else if (sources[i].date_time != undefined && sources[i].date_time.year.length > 0) {
-                dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
-            }
-
-            var pageText = "";
-            if (sources[i].page != undefined && sources[i].page.length > 0) {
-                pageText = ", "+sources[i].page;
-            }
-            var appendText = "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+pageText+"</i></a>";
-            if (pos < 0) {
-                if (i != 0 && citeSources.length > 2) {
-                    citeSources += " ; ";
-                }
-                citeSources += appendText; 
-            } else {
-                text = text.replace(searchFor, appendText);
-            }
-        }
-        if (citeSources.length > 2) {
-            text += citeSources+ ")";
-        }
+        text = htApplySourceLinks(text, localObj.source, localLang, localCalendar);
     }
     text += (localObj.PostMention) ? localObj.PostMention : "";
     text += "</p>";
@@ -3463,6 +3473,7 @@ function htFillHTDate(vector)
     });
 }
 
+// Fills a page element from a class/index content entry, applying citations.
 function htFillStringOnPage(data, idx, page)
 {
     const item = data.content?.[idx];
@@ -3481,34 +3492,7 @@ function htFillStringOnPage(data, idx, page)
         : "";
 
     if (modifiedText && item.source && item.source.length > 0) {
-        var citeSources = " (";
-        for (const i in item.source) {
-            var searchFor = "<htcite" + i + ">";
-            var pos = modifiedText.search(searchFor);
-            var fcnt = htFillHistorySourcesSelectFunction(item.source[i].type);
-            var dateText = "";
-            if (item.source[i].date != undefined && item.source[i].date.year.length > 0) {
-                dateText = ", " + htMountSpecificDate(item.source[i].date, localLang, localCalendar);
-            } else if (item.source[i].date_time != undefined && item.source[i].date_time.year.length > 0) {
-                dateText = ", " + htMountSpecificDate(item.source[i].date_time, localLang, localCalendar);
-            }
-            var pageText = "";
-            if (item.source[i].page != undefined && item.source[i].page.length > 0) {
-                pageText = ", " + item.source[i].page;
-            }
-            var appendText = '<a href="#" onclick="htCleanSources(); ' + fcnt + "('" + item.source[i].uuid + "'); return false;\"><i>" + item.source[i].text + dateText + pageText + "</i></a>";
-            if (pos < 0) {
-                if (i != 0 && citeSources.length > 2) {
-                    citeSources += " ; ";
-                }
-                citeSources += appendText;
-            } else {
-                modifiedText = modifiedText.replace(searchFor, appendText);
-            }
-        }
-        if (citeSources.length > 2) {
-            modifiedText += citeSources + ")";
-        }
+        modifiedText = htApplySourceLinks(modifiedText, item.source, localLang, localCalendar);
     }
 
     // Handle special IDs
@@ -4136,14 +4120,22 @@ function htCheckExerciseAnswer(val0, val1, answer, explanation) {
     return false;
 }
 
+// Renders the yes/no exercise questions and their answer key.
 function htWriteQuestions(table, later, idx)
 {
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
     var questions = "<p><h3>"+keywords[50]+"</h3><ol>";
     var tmpAnswers = "<p class=\"ht_description\"><span id=\"htAnswersToBeUsed\">";
     var total = 0;
     for (const i in table) {
         let item = table[i];
-        questions += "<li>"+item.question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+item.additionalInfo+"</span></li>";
+        var question = htApplySourceLinks(item.question, item.source, localLang, localCalendar);
+        var additionalInfo = item.additionalInfo;
+        if (additionalInfo && additionalInfo.indexOf("<htcite") >= 0) {
+            additionalInfo = htApplySourceLinks(additionalInfo, item.source, localLang, localCalendar);
+        }
+        questions += "<li>"+question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+additionalInfo+"</span></li>";
         tmpAnswers += (item.yesNoAnswer == "Yes") ? 1+";" : 0+";";
         total = i;
     }

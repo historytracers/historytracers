@@ -6,6 +6,8 @@ and writes output files with the .ged extension (e.g. foo.csv -> foo.ged).
 """
 
 from pathlib import Path
+import datetime
+import json
 import subprocess
 import shlex
 import sys
@@ -24,6 +26,60 @@ def run(cmd):
     print("RUN:", cmd)
     p = subprocess.run(shlex.split(cmd), capture_output=True, text=True)
     return p.returncode, p.stdout, p.stderr
+
+def get_last_update(csv_path):
+    """Returns the source JSON last_update timestamp, or None when unknown."""
+    stem = csv_path.stem
+    if "_" not in stem:
+        return None
+    uuid, _, lang = stem.rpartition("_")
+    json_path = Path("lang") / lang / (uuid + ".json")
+    if not json_path.exists():
+        return None
+    try:
+        data = json.loads(json_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    last_update = data.get("last_update")
+    if isinstance(last_update, list):
+        last_update = last_update[0] if last_update else None
+    try:
+        timestamp = int(last_update)
+    except (TypeError, ValueError):
+        return None
+    if timestamp <= 0:
+        return None
+    return datetime.datetime.fromtimestamp(timestamp, tz=datetime.timezone.utc)
+
+def sanitize_chan(ged_file, last_update):
+    """Replaces CHAN DATE/TIME with the record's last-update timestamp.
+
+    The timestamp comes from the source JSON, not from the export run. When the
+    source has no valid timestamp, the CHAN block is omitted because the actual
+    modification time is unknown.
+    """
+    text = ged_file.read_text(encoding="utf-8", errors="ignore")
+    lines = text.splitlines()
+    new_lines = []
+    changed = False
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if line.strip() == "1 CHAN":
+            changed = True
+            i += 1
+            while i < len(lines) and lines[i].startswith(("2 DATE", "3 TIME")):
+                i += 1
+            if last_update is not None:
+                date_text = f"{last_update.day} {last_update.strftime('%b').upper()} {last_update.year}"
+                new_lines.append("1 CHAN")
+                new_lines.append("2 DATE " + date_text)
+                new_lines.append("3 TIME " + last_update.strftime("%H:%M:%S"))
+            continue
+        new_lines.append(line)
+        i += 1
+    if changed:
+        ged_file.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
 
 def convert_file(csv_path):
     """Converts a single CSV file to GEDCOM."""
@@ -52,10 +108,13 @@ def convert_file(csv_path):
             if changed:
                 ged_file.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
                 print(f"  Sanitized FILE path in {ged_path}")
+            sanitize_chan(ged_file, get_last_update(csv_path))
+            print(f"  Sanitized CHAN timestamps in {ged_path}")
     except Exception as e:
         print(f"  Warning: failed to sanitize {ged_path}: {e}")
 
 def main():
+    """Converts every CSV file, or only the requested filename, to GEDCOM."""
     parser = argparse.ArgumentParser(description="Convert CSV files to GEDCOM.")
     parser.add_argument("--filename", help="A specific filename to convert.")
     args = parser.parse_args()
