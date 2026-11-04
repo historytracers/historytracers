@@ -10,6 +10,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"unicode"
 
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
@@ -929,6 +930,35 @@ func htRemoveHTMLTags(text string) string {
 	// everything up to the next '>' in the surrounding plain text.
 	htmlTagRegex := regexp.MustCompile(`</?[a-zA-Z][^>]*>`)
 	return htmlTagRegex.ReplaceAllString(text, "")
+}
+
+// htHasAlphabet reports whether text contains at least one letter. Lines
+// without a single letter are visual artifacts (table borders, bare numbers,
+// slide counters, stray math symbols) that cannot be understood when read
+// aloud on their own.
+func htHasAlphabet(text string) bool {
+	for _, r := range text {
+		if unicode.IsLetter(r) {
+			return true
+		}
+	}
+	return false
+}
+
+// htRemoveLinesWithoutAlphabet drops lines that contain no letters. The audio
+// files are meant to contain only texts a person can read and understand, so
+// values that are just punctuation, digits or symbols are not written to them.
+func htRemoveLinesWithoutAlphabet(text string) string {
+	lines := strings.Split(text, "\n")
+	kept := make([]string, 0, len(lines))
+
+	for _, line := range lines {
+		if strings.TrimSpace(line) == "" || htHasAlphabet(line) {
+			kept = append(kept, line)
+		}
+	}
+
+	return strings.Join(kept, "\n")
 }
 
 func htAdjustTrailingDots(text string) string {
