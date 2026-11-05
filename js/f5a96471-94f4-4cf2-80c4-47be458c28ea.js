@@ -138,14 +138,16 @@ function htMultInBuildBoard() {
 }
 
 // Draws the squares of the column. The whole column is shown from the start:
-// the light blue squares are the carry coming from the previous order, added
-// at the end, and the remaining squares are the product of the column, staying
-// neutral until the column is solved, when they turn light yellow. The squares
-// are drawn flat, in the order they are counted: they are laid out inside
-// complete groups of ten first, and the squares outside the last group of ten
-// are the digit that stays in the column. When the player types a value, that
-// many squares are marked: the first ones of the column when it stays below
-// ten, or the ones outside the complete groups of ten when it carries.
+// the product of the column stays neutral until the column is solved, when it
+// turns light yellow, and the light blue squares at the end of the column are
+// the squares carried from the previous order: the carry is added to the
+// result of the multiplication, so its squares are the last ones of the
+// column, not the first ones. The squares are drawn flat, in the order they
+// are counted: they are laid out inside complete groups of ten first, and the
+// squares outside the last group of ten are the digit that stays in the
+// column. When the player types a value, that many squares are marked: the
+// first ones of the column when it stays below ten, or the ones outside the
+// complete groups of ten when it carries.
 function htMultInDrawSquares(written) {
     var incoming = localMultIn.incoming;
     var digit = localMultIn.digit;
@@ -158,7 +160,10 @@ function htMultInDrawSquares(written) {
     // Builds one square of the column, with its current state classes.
     function square(index) {
         var cls = "htAddSquare";
-        if (index < incoming) {
+        // The squares carried from the previous order are the last ones of
+        // the column, since the incoming carry is added at the end, after
+        // the product.
+        if (index >= product) {
             cls += " htAddSquareBase";
         } else if (localMultIn.answered) {
             cls += " htAddSquareAdded";
@@ -170,7 +175,7 @@ function htMultInDrawSquares(written) {
         if (!localMultIn.answered && written > 0) {
             var start = localMultIn.carryNeeded ? Math.floor(total / 10) * 10 : 0;
             if (index >= start && index < start + written) {
-                if (index < incoming) {
+                if (index >= product) {
                     cls += " htAddSquareBaseWritten";
                 } else {
                     cls += " htAddSquareWritten";
