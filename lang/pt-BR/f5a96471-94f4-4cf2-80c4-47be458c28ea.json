@@ -1,0 +1,172 @@
+{
+   "title": "Praticando a multiplicação digitando os valores",
+   "header": "Praticando a multiplicação digitando os valores",
+   "sources": [
+      "f5a96471-94f4-4cf2-80c4-47be458c28ea"
+   ],
+   "scripts": [
+      "f5a96471-94f4-4cf2-80c4-47be458c28ea"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f5a96471-94f4-4cf2-80c4-47be458c28ea_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1HU65TVxcSuLpcwWigk44a?si=EUG5z2S2Qwm5ZSQS_Tgn7g",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics",
+      "chemistry"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793838081"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nNeste texto, vamos praticar a multiplicação de um número por outro número de um dígito digitando os valores. Antes de prosseguir com este exercício, sugerimos estudar:\n\n- **Aprendendo as Tabuadas (Resumo)**: uma revisão das dez tabuadas, dos grupos de objetos à fórmula geral (<htcite0>)\n- **Somando o mesmo número**: a ideia da multiplicação como a repetição de somas da mesma quantidade (<htcite1>)\n- **Correndo entre os números**: como as ordens funcionam com números maiores e um método passo a passo para operar com números de qualquer tamanho (<htcite2>)\n- **Praticando a multiplicação por números de um dígito**: um exercício para praticar a multiplicação coluna por coluna, em três níveis, repetindo os grupos de quadrados com os botões (<htcite3>)\n- **A arte de estudar**: os cinco fatores de Sun Tzu e como usá-los como estratégia de aprendizagem (<htcite4>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3d7db1f2-6f0f-4546-80f0-3e12743b2627",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo as Tabuadas (Resumo)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Somando o mesmo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
+                     "text": "History Tracers Team",
+                     "page": "Correndo entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9e71da5-355b-4c0c-8d24-a746a27fcc3e",
+                     "text": "History Tracers Team",
+                     "page": "Praticando a multiplicação por números de um dígito",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "A arte de estudar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_suntzu",
+         "text": [
+            {
+               "text": "### Os 5 fatores de Sun Tzu (孙子)\n\nPara fazer os exercícios, recomendamos usar os 5 fatores de Sun Tzu (os mesmos de **A arte de estudar** (<htcite0>)) da seguinte forma:\n\n- **A lei da moral**: Não pare em apenas um exercício. Para reforçar o que você aprendeu, pratique até se sentir mais confortável e espalhe a prática em mais de um dia.\n- **Paraíso**: Visualize os números que você está multiplicando com o seu próprio corpo. Toda vez que um grupo de quadrados é repetido, verifique se a contagem ainda cabe na contagem dos seus dedos ou se vai além dela. Depois, tente recriar em outros cenários as multiplicações que está fazendo aqui, para perceber que a mesma ideia aparece em toda parte.\n- **Terra**: Em toda multiplicação, os quadrados representam os dígitos. Multiplicar uma coluna por um número de um dígito é repetir o grupo de quadrados dessa coluna tantas vezes quanto o número de um dígito; cada grupo completo de dez quadrados se torna o transporte para a próxima ordem, e os quadrados que ficam fora do último grupo de dez são o dígito que permanece na coluna. Então, antes de multiplicar uma coluna, pergunte-se: repetindo o grupo essa quantidade de vezes, quantos grupos de dez serão formados? A resposta diz o que a coluna vai transportar.\n- **O comandante**: Como comandante do seu aprendizado, você deve:\n    - Ser benevolente consigo mesmo e com as pessoas que ainda não entenderam a multiplicação, e ajudá-las a aprender.\n    - Ser honesto consigo mesmo e não permitir que a sua confiança subestime ou superestime o problema à sua frente.\n    - Respeitar-se, lembrando que existem diferentes maneiras de entender a matemática. Descubra a maneira com a qual você se sinta confortável e siga-a. No History Tracers, faremos o nosso melhor para ajudar você a encontrar o seu caminho.\n    - Usar a sua sabedoria para identificar as suas fraquezas, a fim de treiná-las e transformá-las em forças.\n    - Usar a sua sinceridade para ver onde você precisa melhorar e não criar barreiras por causa das dificuldades que você possa encontrar.\n- **Método e disciplina**: Reserve um período de tempo para treinar todos os dias e respeite o seu tempo de descanso.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "A arte de estudar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Exercício de prática\n\nLer sobre a multiplicação ajuda, mas praticar é essencial para compreendê-la de verdade. O jogo tem três níveis: no nível 1, um número de um dígito é multiplicado por outro número de um dígito; no nível 2, um número de dois dígitos é multiplicado por um número de um dígito; no nível 3, um número de três dígitos é multiplicado por um número de um dígito. A multiplicação é escrita na vertical, coluna por coluna, das unidades para cima, e cada coluna é resolvida assim:\n\n1. Os quadrados azul-claro mostram os quadrados transportados da ordem anterior; os quadrados neutros são o produto da coluna, mostrados desde o início.\n2. Digite na caixa da linha do resultado o dígito que fica na coluna.\n3. Quando a coluna chega a dez ou mais, aparece uma caixa de transporte acima da próxima ordem: digite o transporte nela. Na multiplicação, esse transporte é o número de grupos completos de dez quadrados, e pode ser maior que 1. Quando a coluna fica abaixo de dez, não há caixa de transporte.\n\nOs valores são verificados à medida que você digita. Se um dígito estiver incorreto, os quadrados são coloridos de acordo com o número digitado, e uma dica explica os grupos de dez. Quando os valores estão corretos, os quadrados são preenchidos, aparece um parabéns e é mostrado o botão que passa para a próxima coluna.\n\nAntes de digitar, imagine repetir o grupo de quadrados do dígito de cima tantas vezes quanto o número de um dígito, e lembre-se de que os quadrados transportados da ordem anterior são somados no final: cada grupo completo de dez quadrados se torna o transporte para a próxima ordem, e os quadrados que ficam fora do último grupo de dez são o dígito que fica na coluna.\n\n**Exemplo: 7 × 8.** A coluna repete o grupo de 7 quadrados oito vezes: 7 × 8 = 56. Os quadrados formam 5 grupos completos de dez, que se tornam o 5 transportado para a próxima ordem, e 6 quadrados ficam fora do último grupo: esse é o dígito 6. Digite 6 na caixa da linha do resultado e 5 na caixa de transporte acima da próxima ordem:<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div><span class=\"htAddSquaresCaption\">7 × 8 = 56</span>\n\nAo terminar o cálculo, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) e poderá passar para o próximo problema clicando no botão abaixo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htAddGame\"><div class=\"htMultLevel\" id=\"htMultInLevel\"></div><div class=\"htAddOrders\" id=\"htMultInOrders\"></div><span class=\"htAddQuestion\" id=\"htMultInQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htMultInIncomingNote\"></div><table class=\"htAddTable\" id=\"htMultInTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htMultInSquaresLabel\">Multiplicação nesta coluna</span><div class=\"htAddSquares\" id=\"htMultInSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htMultInSquaresCaption\"></span><span class=\"htAddSquaresNote\" id=\"htMultInSquaresNote\"></span></div><span id=\"htMultInInputHome\" class=\"htAddHidden\"><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htMultInDigitInput\" aria-label=\"Dígito que fica na coluna\" /><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htMultInCarryInput\" aria-label=\"Transporte para a próxima ordem\" /></span><div class=\"htAddFeedback\" id=\"htMultInFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htMultInNextBtn\" class=\"reset-tutor-btn hidden\">Próxima coluna</button></div><span id=\"htMultInLevel0\" class=\"htAddHidden\">Nível 1: número de um dígito × um dígito</span><span id=\"htMultInLevel1\" class=\"htAddHidden\">Nível 2: número de dois dígitos × um dígito</span><span id=\"htMultInLevel2\" class=\"htAddHidden\">Nível 3: número de três dígitos × um dígito</span><span id=\"htMultInOrder0\" class=\"htAddHidden\">Unidades</span><span id=\"htMultInOrder1\" class=\"htAddHidden\">Dezenas</span><span id=\"htMultInOrder2\" class=\"htAddHidden\">Centenas</span><span id=\"htMultInQuestionTemplate\" class=\"htAddHidden\">A coluna das {order}: {digit} × {mult}. Digite na linha do resultado o dígito que fica na coluna e, se a coluna chega a dez ou mais, digite o transporte na caixa acima da próxima ordem.</span><span id=\"htMultInIncomingTemplate\" class=\"htAddHidden\">O {carry} transportado da coluna anterior será somado no final, depois de {digit} × {mult}.</span><span id=\"htMultInMsgCarryTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Chega a dez ou mais, então a coluna das {order} mantém {result} e transporta {out} para a próxima ordem.</span><span id=\"htMultInMsgNoCarryTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Fica abaixo de dez, então a coluna das {order} mantém {result}.</span><span id=\"htMultInMsgCarryInTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Somando o {carry} transportado da ordem anterior chegamos a {total}; chega a dez ou mais, então a coluna das {order} mantém {result} e transporta {out} para a próxima ordem.</span><span id=\"htMultInMsgNoCarryInTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Somando o {carry} transportado da ordem anterior chegamos a {total}; fica abaixo de dez, então a coluna das {order} mantém {result}.</span><span id=\"htMultInWrongBelowTemplate\" class=\"htAddHidden\">Esse dígito não está correto. Repetir o grupo de {digit}, {mult} vezes, dá {product} quadrados. Fica abaixo de dez, então o dígito que fica na coluna das {order} é o número de quadrados da coluna.</span><span id=\"htMultInWrongBelowInTemplate\" class=\"htAddHidden\">Esse dígito não está correto. Repetir o grupo de {digit}, {mult} vezes, dá {product} quadrados; somando o {carry} transportado da ordem anterior chegamos a {total} quadrados. Fica abaixo de dez, então o dígito que fica na coluna das {order} é o número de quadrados da coluna.</span><span id=\"htMultInWrongAboveTemplate\" class=\"htAddHidden\">Esse dígito não está correto. Repetir o grupo de {digit}, {mult} vezes, dá {product} quadrados. Chega a dez ou mais, então cada grupo completo de dez quadrados é transportado para a próxima ordem, e os quadrados que ficam fora do último grupo de dez são o dígito que fica na coluna das {order}.</span><span id=\"htMultInWrongAboveInTemplate\" class=\"htAddHidden\">Esse dígito não está correto. Repetir o grupo de {digit}, {mult} vezes, dá {product} quadrados; somando o {carry} transportado da ordem anterior chegamos a {total} quadrados. Chega a dez ou mais, então cada grupo completo de dez quadrados é transportado para a próxima ordem, e os quadrados que ficam fora do último grupo de dez são o dígito que fica na coluna das {order}.</span><span id=\"htMultInWrongCarryTemplate\" class=\"htAddHidden\">O transporte não está correto. Verifique {digit} × {mult} = {product}, mais o {carry} transportado da ordem anterior: {total}. O transporte é o número de grupos completos de dez quadrados.</span><span id=\"htMultInCongratsTemplate\" class=\"htAddHidden\">✅ Correto! Clique em 'Próxima coluna' para continuar.</span><span id=\"htMultInPerfectTemplate\" class=\"htAddHidden\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br>{multiplicand} × {multiplier} = {product}<br>Bom trabalho!</span><span id=\"htMultInNextColumnLabel\" class=\"htAddHidden\">Próxima coluna</span><span id=\"htMultInNewProblemLabel\" class=\"htAddHidden\">Novo problema</span><span id=\"htMultInNoteTemplate\" class=\"htAddHidden\">Repetir o grupo de {digit}, {mult} vezes, dá {product} quadrados.</span><span id=\"htMultInNoteIncomingTemplate\" class=\"htAddHidden\">Repetir o grupo de {digit}, {mult} vezes, dá {product} quadrados; os {incoming} quadrados azul-claro foram transportados da ordem anterior e são somados no final.</span><span id=\"htMultInTenNoteTemplate\" class=\"htAddHidden\">Grupos completos de dez: {tens}; quadrados que ficam na coluna das {order}: {outside}.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

@@ -238,6 +238,54 @@ func TestHTRemoveAsiaticCharacters(t *testing.T) {
 	}
 }
 
+func TestHTHasAlphabet(t *testing.T) {
+	cases := []struct {
+		in   string
+		want bool
+	}{
+		{in: "Hello", want: true},
+		{in: "ação", want: true},
+		{in: "α", want: true},
+		{in: "1 / 1.", want: false},
+		{in: "____________.", want: false},
+		{in: "× 2.", want: false},
+		{in: "  ", want: false},
+	}
+
+	for _, tc := range cases {
+		if got := htHasAlphabet(tc.in); got != tc.want {
+			t.Errorf("htHasAlphabet(%q) = %v, want %v", tc.in, got, tc.want)
+		}
+	}
+}
+
+func TestHTRemoveLinesWithoutAlphabet(t *testing.T) {
+	in := "Hello listeners.\n1 / 1.\n____________.\n\nSegunda linha.\n× 2.\n"
+	want := "Hello listeners.\n\nSegunda linha.\n"
+	if got := htRemoveLinesWithoutAlphabet(in); got != want {
+		t.Errorf("htRemoveLinesWithoutAlphabet(%q) = %q, want %q", in, got, want)
+	}
+}
+
+func TestHTWriteAudioFileDropsLinesWithoutAlphabet(t *testing.T) {
+	dir := useTempSource(t)
+
+	in := "Hello listeners.\n1 / 1.\n____________.\n\nSecond line.\n"
+	if err := htWriteAudioFile("readable", "en-US", in); err != nil {
+		t.Fatal(err)
+	}
+
+	path := filepath.Join(dir, "audios", "readable_en-US.txt")
+	got, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := "Hello listeners.\n\nSecond line.\n"
+	if string(got) != want {
+		t.Errorf("audio content = %q, want %q", string(got), want)
+	}
+}
+
 func TestHTRemoveHTMLTags(t *testing.T) {
 	cases := []struct {
 		name string

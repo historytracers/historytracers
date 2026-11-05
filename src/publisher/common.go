@@ -545,6 +545,7 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = htConvertTemperatures(ret, lang)
 	ret = htRemoveHTMLTags(ret)
 	ret = htReplaceSocialMediaUrls(ret)
+	ret = htRemoveLinesWithoutAlphabet(ret)
 
 	return ret
 }
@@ -603,6 +604,7 @@ func htWriteAudioFile(fileName string, lang string, content string) error {
 		return err
 	}
 
+	content = htRemoveLinesWithoutAlphabet(content)
 	content = htAdjustTrailingDots(content)
 	text := []byte(content)
 
