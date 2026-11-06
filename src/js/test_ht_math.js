@@ -371,17 +371,16 @@ test('the drawing object size fits the box and is clamped', () => {
   const { run, calls } = createSandbox();
   run('$length = 1');
   const cssCalls = () => calls.filter(([type, key]) => type === 'css' && key === '--mt-size');
-  // Cap: with plenty of width a single object never grows beyond 40px.
+  // Cap: with plenty of width a single object never grows beyond 28px.
   run('$width = 2000');
   calls.length = 0;
   run('htDrawMultiplicationObjectSize("#t", 1)');
-  assert.deepEqual(cssCalls(), [['css', '--mt-size', '40px']]);
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '28px']]);
   // Minimum: narrow boxes with wide rows still stay legible and wrap.
   run('$width = 100');
   calls.length = 0;
   run('htDrawMultiplicationObjectSize("#t", 10)');
-  assert.deepEqual(cssCalls(), [['css', '--mt-size', '12px']]);
-  // No measurable width: nothing is published (CSS fallback applies).
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '10px']]);  // No measurable width: nothing is published (CSS fallback applies).
   run('$width = 0');
   calls.length = 0;
   assert.equal(run('htDrawMultiplicationObjectSize("#t", 5)'), false);
@@ -390,13 +389,13 @@ test('the drawing object size fits the box and is clamped', () => {
   run('$width = 63');
   calls.length = 0;
   run('htDrawMultiplicationObjectSize("#t", "banana")');
-  assert.deepEqual(cssCalls(), [['css', '--mt-size', '40px']]);
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '28px']]);
   // Negative counts are absolute values already handled by callers, but
   // zero rows still fit one object.
   run('$width = 270');
   calls.length = 0;
   run('htDrawMultiplicationObjectSize("#t", 0)');
-  assert.deepEqual(cssCalls(), [['css', '--mt-size', '40px']]);
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '28px']]);
 });
 
 test('the built tables start with the fitted object size', () => {

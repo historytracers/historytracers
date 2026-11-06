@@ -401,8 +401,8 @@ function htMultiplicationTableObject(target) {
  * The chosen size is published to the CSS as the "--mt-size" custom property,
  * so .mtDrawRow spans resize without touching the surrounding page text.
  */
-var MT_DRAW_MIN_OBJECT_PX = 12;
-var MT_DRAW_MAX_OBJECT_PX = 40;
+var MT_DRAW_MIN_OBJECT_PX = 10;
+var MT_DRAW_MAX_OBJECT_PX = 28;
 
 // Computes and publishes the drawing-object size (in px) for one drawing
 // area, so the widest row (|angularC| objects) fits the available width.
