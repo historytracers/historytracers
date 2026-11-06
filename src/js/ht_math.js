@@ -347,11 +347,58 @@ function htPlotLinearFunction(target, tmin, tmax, fillArea, continuous) {
     return htPlotConstantContinuousChart(chartOptions);
 }
 
+/*
+ * Objects used to visualize a multiplication in the times-table pages created
+ * by htWriteMultiplicationTable. The first entry is the classic star and stays
+ * the default; the remaining entries are UTF-8 emojis chosen to call the
+ * attention of the children between 6 and 8 years old who use the site. Each
+ * entry also carries the plain label shown in the selector option.
+ */
+var htMultiplicationTableObjects = [
+    { draw: "<i class=\"fa-solid fa-star\" style=\"font-size:0.8em;\"></i>", option: "⭐" },
+    { draw: "<span class=\"mtDrawEmoji\">🐶</span>", option: "🐶" },
+    { draw: "<span class=\"mtDrawEmoji\">🐱</span>", option: "🐱" },
+    { draw: "<span class=\"mtDrawEmoji\">🦄</span>", option: "🦄" },
+    { draw: "<span class=\"mtDrawEmoji\">🐼</span>", option: "🐼" },
+    { draw: "<span class=\"mtDrawEmoji\">🐸</span>", option: "🐸" },
+    { draw: "<span class=\"mtDrawEmoji\">🐢</span>", option: "🐢" },
+    { draw: "<span class=\"mtDrawEmoji\">🐝</span>", option: "🐝" },
+    { draw: "<span class=\"mtDrawEmoji\">🐞</span>", option: "🐞" },
+    { draw: "<span class=\"mtDrawEmoji\">🦕</span>", option: "🦕" },
+    { draw: "<span class=\"mtDrawEmoji\">🐠</span>", option: "🐠" },
+    { draw: "<span class=\"mtDrawEmoji\">🍎</span>", option: "🍎" },
+    { draw: "<span class=\"mtDrawEmoji\">🍓</span>", option: "🍓" },
+    { draw: "<span class=\"mtDrawEmoji\">🍭</span>", option: "🍭" },
+    { draw: "<span class=\"mtDrawEmoji\">🍪</span>", option: "🍪" },
+    { draw: "<span class=\"mtDrawEmoji\">🎈</span>", option: "🎈" },
+    { draw: "<span class=\"mtDrawEmoji\">⚽</span>", option: "⚽" },
+    { draw: "<span class=\"mtDrawEmoji\">🚀</span>", option: "🚀" },
+    { draw: "<span class=\"mtDrawEmoji\">🌈</span>", option: "🌈" },
+    { draw: "<span class=\"mtDrawEmoji\">🎵</span>", option: "🎵" }
+];
+
+// Returns the HTML that draws one unit of the object selected for the table
+// that owns "target". "target" is the inner drawing area ("#mtDraw<tValue>"),
+// so the selector id is derived by swapping the "mtDraw" prefix for
+// "mtSelect". Callers outside the times tables (e.g. "#visual") or selectors
+// holding an invalid value fall back to the default star.
+function htMultiplicationTableObject(target) {
+    var selectObject = $(String(target).replace("mtDraw", "mtSelect"));
+    if (selectObject.length > 0) {
+        var idx = parseInt(selectObject.val());
+        if (!isNaN(idx) && idx >= 0 && idx < htMultiplicationTableObjects.length) {
+            return htMultiplicationTableObjects[idx].draw;
+        }
+    }
+    return htMultiplicationTableObjects[0].draw;
+}
+
 function htDrawMultiplicationTable(target, angularC, repeat) {
     var angulartext = "";
     let angVal = (angularC >= 0 ) ? angularC : -1*parseInt(angularC);
+    var drawing = htMultiplicationTableObject(target);
     for (let i = 0; i < angVal; i++) {
-        angulartext += "<i class=\"fa-solid fa-star\" style=\"font-size:0.8em;\"></i>";
+        angulartext += drawing;
     }
 
     var additionalSpace = (12 - repeat)/2;
@@ -379,18 +426,31 @@ function htResetMultiplicationTable(target) {
         $(target).html(mathKeywords[17]+"<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />");
 }
 
+// Builds the object selector shown at the top of a times-table drawing area.
+// The options are emoji (see htMultiplicationTableObjects), so the selector is
+// language independent; "mathKeywords[78]" only labels it for aria/title.
+function htMultiplicationObjectSelector(tValue) {
+    var label = (typeof mathKeywords !== "undefined" && mathKeywords.length > 78) ? mathKeywords[78] : "";
+    var text = "<span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select class=\"mtDrawSelect\" id=\"mtSelect"+tValue+"\" aria-label=\""+label+"\" title=\""+label+"\">";
+    for (let i = 0; i < htMultiplicationTableObjects.length; i++) {
+        text += "<option value=\""+i+"\">"+htMultiplicationTableObjects[i].option+"</option>";
+    }
+    return text+"</select></span>";
+}
+
 
 function htWriteMultiplicationTable(target, tValue) {
     var localTarget0 = "#mt"+tValue;
     var localTarget1 = "#mtTable"+tValue;
-    $(target).append("<div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 40%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\"></div>");
+    var localTarget2 = "#mtDraw"+tValue;
+    $(target).append("<div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 40%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\">"+htMultiplicationObjectSelector(tValue)+"<div id=\"mtDraw"+tValue+"\"></div></div>");
     $(localTarget0).append("<b style=\"font-size: 0.9em;\">"+mathKeywords[16]+tValue+"</b><br />");
-    htResetMultiplicationTable(localTarget1);
+    htResetMultiplicationTable(localTarget2);
 
     var angularCoef = parseInt(tValue);
     for (let i = 0; i < 11; i++) {
         var product =  angularCoef * i;
-        $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget1+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget1+"');\" style=\"font-size: 0.9em;\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
+        $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget2+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget2+"');\" style=\"font-size: 0.9em;\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
     }
 }
 

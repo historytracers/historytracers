@@ -5221,3 +5221,46 @@ p.desc svg {
     padding: 0.4em 1em;
   }
 }
+
+/*
+ * Multiplication visualization (times tables drawn by
+ * htWriteMultiplicationTable in src/js/ht_math.js). The drawing area of each
+ * table gains a selector so children can switch the default star for other
+ * fun UTF-8 objects. The boxes already keep their lightblue background from
+ * the inline styles, so the select itself stays white in both themes.
+ */
+.mtDrawHeader {
+  display: block;
+  margin-bottom: 0.4em;
+  line-height: 1;
+}
+
+.mtDrawLabel {
+  font-size: 1.1em;
+}
+
+.mtDrawSelect {
+  box-sizing: border-box;
+  width: 3.2em;
+  max-width: 90%;
+  padding: 0.25em 0.4em;
+  background-color: #ffffff;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+
+.mtDrawSelect:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+/*
+ * The drawn objects are rendered on top of each other ("times" rows), so
+ * emojis are slightly reduced to match the size of the default star icon.
+ */
+.mtDrawEmoji {
+  font-size: 0.8em;
+}

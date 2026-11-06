@@ -264,6 +264,49 @@ test('htResetMultiplicationTable writes the reset message', () => {
   assert.equal(html, 'kw17' + '<br />'.repeat(10));
 });
 
+test('htWriteMultiplicationTable builds the table with an object selector', () => {
+  const { run, calls } = createSandbox();
+  calls.length = 0;
+  run('htWriteMultiplicationTable("#p", 2)');
+  const appended = calls.filter(([type]) => type === 'append').map(([, v]) => v).join('\n');
+  assert.ok(appended.includes('id="mtSelect2"'), 'expected a drawing object selector');
+  assert.ok(appended.includes('id="mtDraw2"'), 'expected an inner drawing area');
+  assert.equal((appended.match(/<option value=/g) || []).length, 20, 'expected 20 drawing objects');
+  assert.ok(appended.includes('<option value="0">⭐</option>'), 'expected the star as the default object');
+  // The hover handlers must draw and reset the inner area so changing the
+  // selection does not wipe the selector itself.
+  assert.ok(appended.includes("htDrawMultiplicationTable('#mtDraw2'"), 'expected hover to draw in the inner area');
+  assert.ok(appended.includes("htResetMultiplicationTable('#mtDraw2'"), 'expected hover-out to reset the inner area');
+});
+
+test('htMultiplicationTableObject follows the selected object and falls back to the star', () => {
+  const { run, calls, plain } = createSandbox();
+  // Simulate a table selector holding object index 3. The recording array
+  // lives in the sandbox realm, so the injected $ can only reach it there.
+  run('htTestRecord = [];');
+  run(`$ = function (selector) {
+    return {
+      length: (selector === '#mtSelect2') ? 1 : 0,
+      val: function () { return 3; },
+      html: function (v) { htTestRecord.push([selector, v]); return this; }
+    };
+  }`);
+  const expected = plain('htMultiplicationTableObjects[3].draw');
+  run('htDrawMultiplicationTable("#mtDraw2", 3, 2)');
+  const html = plain('htTestRecord.find(function (e) { return String(e[0]) === "#mtDraw2"; })[1]');
+  assert.equal((html.split(expected).length - 1), 6, 'expected 6 copies of the selected object');
+
+  // Out-of-range and invalid selector values fall back to the star.
+  run('$ = function (selector) { return selector === "#mtSelect2" ? { length: 1, val: function () { return 99; } } : { length: 0 }; }');
+  assert.equal(run('htMultiplicationTableObject("#mtDraw2")'), run('htMultiplicationTableObjects[0].draw'));
+  run('$ = function (selector) { return selector === "#mtSelect2" ? { length: 1, val: function () { return undefined; } } : { length: 0 }; }');
+  assert.equal(run('htMultiplicationTableObject("#mtDraw2")'), run('htMultiplicationTableObjects[0].draw'));
+
+  // Targets without a selector (other pages reusing the drawing function) keep
+  // the default star.
+  assert.equal(run('htMultiplicationTableObject("#visual")'), run('htMultiplicationTableObjects[0].draw'));
+});
+
 test('htMultMakeMultiplicationTableText builds step-by-step addition text', () => {
   const { run, calls } = createSandbox();
 
