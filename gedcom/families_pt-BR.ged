@@ -2,8 +2,8 @@
 1 SOUR Gramps
 2 VERS 5.2.4
 2 NAME Gramps
-1 DATE 4 NOV 2026
-2 TIME 23:03:53
+1 DATE 5 NOV 2026
+2 TIME 23:26:44
 1 SUBM @SUBM@
 1 FILE /gedcom/families_pt-BR.ged
 1 COPR Copyright (c) 2026 .
@@ -2760,6 +2760,19 @@
 1 CHAN
 2 DATE 15 MAY 2026
 3 TIME 01:29:33
+0 @P6b1d4e93-8a52-47cf@ INDI
+1 NAME Zamug //
+2 TYPE birth
+2 GIVN Zamug
+1 SEX M
+1 FAMC @F6599e372-66a1-4c3d@
+2 PEDI birth
+1 FAMS @F040aa8df-a1c2-4d6f@
+1 SOUR @S0126@
+1 NOTE @N0309@
+1 CHAN
+2 DATE 15 MAY 2026
+3 TIME 01:29:33
 0 @P6b5d9281-28fa-4428@ INDI
 1 NAME Desconhecido //
 2 TYPE birth
@@ -3028,19 +3041,6 @@
 2 PEDI birth
 1 SOUR @S0069@
 1 NOTE @N0160@
-1 CHAN
-2 DATE 15 MAY 2026
-3 TIME 01:29:33
-0 @P791c9290-25f3-4be9@ INDI
-1 NAME Zamug //
-2 TYPE birth
-2 GIVN Zamug
-1 SEX M
-1 FAMC @F6599e372-66a1-4c3d@
-2 PEDI birth
-1 FAMS @F040aa8df-a1c2-4d6f@
-1 SOUR @S0126@
-1 NOTE @N0309@
 1 CHAN
 2 DATE 15 MAY 2026
 3 TIME 01:29:33
@@ -6444,7 +6444,7 @@
 2 DATE 15 MAY 2026
 3 TIME 01:29:33
 0 @F040aa8df-a1c2-4d6f@ FAM
-1 HUSB @P791c9290-25f3-4be9@
+1 HUSB @P6b1d4e93-8a52-47cf@
 1 WIFE @Pf57c8c29-096c-413e@
 1 CHIL @Pc16d5529-fc99-40cc@
 1 CHAN
@@ -7051,7 +7051,7 @@
 0 @F6599e372-66a1-4c3d@ FAM
 1 HUSB @P7db9e90b-a3a6-43d1@
 1 WIFE @Pe3fbcc88-9039-481a@
-1 CHIL @P791c9290-25f3-4be9@
+1 CHIL @P6b1d4e93-8a52-47cf@
 1 CHAN
 2 DATE 15 MAY 2026
 3 TIME 01:29:33
@@ -9811,7 +9811,6 @@
 0 @N0312@ NOTE Não foram encontradas fontes primárias.
 0 @N0313@ NOTE Confirmado por fontes primárias.
 0 @N0314@ NOTE Confirmado por fontes primárias.
-1 CONT Não foram encontradas fontes primárias.
 0 @N0315@ NOTE Não foram encontradas fontes primárias.
 0 @N0316@ NOTE Não foram encontradas fontes primárias.
 0 @N0317@ NOTE Não foram encontradas fontes primárias.
