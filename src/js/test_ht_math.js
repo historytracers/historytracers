@@ -35,18 +35,25 @@ function createSandbox() {
       after(value) { calls.push(['after', value]); return obj; },
       text(value) { calls.push(['text', value]); return obj; },
       val() { return obj; },
+      // Read the drawable width set by the test ($width, 0/undefined keeps
+      // the object-size fitting disabled) and the fake element count
+      // ($length, 0 = selector matches nothing).
+      width() { calls.push(['width', sandbox.$width]); return sandbox.$width; },
       on() { return obj; },
       prop() { return obj; },
       each() { return obj; },
       hide() { return obj; },
       show() { return obj; }
     };
+    obj.length = sandbox.$length;
     return obj;
   };
   $.calls = calls;
 
   const sandbox = {
     $,
+    $width: undefined,
+    $length: 0,
     console,
     Math,
     JSON,
@@ -255,7 +262,20 @@ test('htDrawMultiplicationTable renders the default star for every row', () => {
   const negHtml = calls.find(([type]) => type === 'html')[1];
   assert.equal((negHtml.split(star).length - 1), 2);
   assert.equal((negHtml.match(/<br \/>/g) || []).length, 12);
-  assert.ok(negHtml.startsWith('<br />'.repeat(6) + '-'), 'expected leading blank rows then a minus sign');
+  assert.ok(negHtml.startsWith('<br />'.repeat(6) + '<span class="mtDrawRow">-'), 'expected leading blank rows then a minus sign inside the wrapping row');
+  assert.equal((negHtml.match(/<span class="mtDrawRow">/g) || []).length, 1);
+});
+
+test('htDrawMultiplicationTable publishes the fitted object size without storage', () => {
+  const { run, calls } = createSandbox();
+  run('$length = 1; $width = 270');
+  calls.length = 0;
+  // Widest row of 10 objects: emoji are ~1.25em wide, so ~19px fits.
+  run('htDrawMultiplicationTable("#t", 10, 2)');
+  const fit = calls.find(([type, key]) => type === 'css' && key === '--mt-size');
+  assert.deepEqual(fit, ['css', '--mt-size', '19px'], 'expected the fitted size published as --mt-size');
+  const htmlCall = calls.find(([type]) => type === 'html');
+  assert.ok(htmlCall[1].includes('class="mtDrawRow"'), 'expected rows wrapped for graceful overflow');
 });
 
 test('htResetMultiplicationTable writes the reset message', () => {
@@ -345,6 +365,51 @@ test('the stored drawing object preselects every later table', () => {
   assert.ok(appended.includes('<option value="2" selected>'), 'expected the stored object preselected');
   assert.ok(!appended.includes('<option value="0" selected>'), 'expected only the stored object preselected');
   assert.equal((appended.match(/ selected/g) || []).length, 1);
+});
+
+test('the drawing object size fits the box and is clamped', () => {
+  const { run, calls } = createSandbox();
+  run('$length = 1');
+  const cssCalls = () => calls.filter(([type, key]) => type === 'css' && key === '--mt-size');
+  // Cap: with plenty of width a single object never grows beyond 40px.
+  run('$width = 2000');
+  calls.length = 0;
+  run('htDrawMultiplicationObjectSize("#t", 1)');
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '40px']]);
+  // Minimum: narrow boxes with wide rows still stay legible and wrap.
+  run('$width = 100');
+  calls.length = 0;
+  run('htDrawMultiplicationObjectSize("#t", 10)');
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '12px']]);
+  // No measurable width: nothing is published (CSS fallback applies).
+  run('$width = 0');
+  calls.length = 0;
+  assert.equal(run('htDrawMultiplicationObjectSize("#t", 5)'), false);
+  assert.deepEqual(cssCalls(), []);
+  // Fractional/non-numeric counts are treated as a single object.
+  run('$width = 63');
+  calls.length = 0;
+  run('htDrawMultiplicationObjectSize("#t", "banana")');
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '40px']]);
+  // Negative counts are absolute values already handled by callers, but
+  // zero rows still fit one object.
+  run('$width = 270');
+  calls.length = 0;
+  run('htDrawMultiplicationObjectSize("#t", 0)');
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '40px']]);
+});
+
+test('the built tables start with the fitted object size', () => {
+  const { run, calls } = createSandbox();
+  run('$length = 1; $width = 270');
+  calls.length = 0;
+  run('htWriteMultiplicationTable("#p", 9)');
+  const fit = calls.filter(([type, key]) => type === 'css' && key === '--mt-size').map(([, , v]) => v);
+  assert.deepEqual(fit, ['21px'], 'expected one build-time fit of the empty drawing area');
+  const appended = calls.filter(([type]) => type === 'append').map(([, v]) => v).join('\n');
+  assert.ok(appended.includes('class="mtDraw"'), 'expected the drawing area class');
+  assert.ok(appended.includes('class="mtLeftBox"'), 'expected the values box class');
+  assert.ok(appended.includes('class="mtDrawBox"'), 'expected the drawing box class');
 });
 
 test('htMultiplicationObjectChanged stores the choice and syncs the page', () => {

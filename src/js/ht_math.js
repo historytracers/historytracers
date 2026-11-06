@@ -394,9 +394,55 @@ function htMultiplicationTableObject(target) {
     return htMultiplicationTableObjects[0].draw;
 }
 
+/*
+ * Object-size limits for the times-table drawing area. htDrawMultiplicationObjectSize
+ * picks the largest size that fits the widest row (angularC objects) inside the
+ * drawing box, clamped between MT_DRAW_MIN_OBJECT_PX and MT_DRAW_MAX_OBJECT_PX.
+ * The chosen size is published to the CSS as the "--mt-size" custom property,
+ * so .mtDrawRow spans resize without touching the surrounding page text.
+ */
+var MT_DRAW_MIN_OBJECT_PX = 12;
+var MT_DRAW_MAX_OBJECT_PX = 40;
+
+// Computes and publishes the drawing-object size (in px) for one drawing
+// area, so the widest row (|angularC| objects) fits the available width.
+// Rows that still do not fit wrap inside .mtDrawRow (inline-flex), so the
+// box never overflows horizontally. External callers (e.g. "#visual") and
+// sandboxed $ objects without width()/css() simply keep the CSS fallback.
+function htDrawMultiplicationObjectSize(target, angularC) {
+    try {
+        var $area = $(String(target));
+        if (!$area || $area.length === 0 || typeof $area.width !== "function" || typeof $area.css !== "function") {
+            return false;
+        }
+        var avail = parseInt($area.width(), 10);
+        if (isNaN(avail) || avail <= 0) {
+            return false;
+        }
+        var objects = parseInt(angularC, 10);
+        if (isNaN(objects) || objects < 1) {
+            objects = 1;
+        }
+        // Emoji advances are up to ~1.25em wide, so the 1.3 ratio makes the
+        // computed size fit the widest row without needing the flex wrap.
+        var size = Math.floor((avail - (objects - 1) * 2) / (objects * 1.3));
+        if (size > MT_DRAW_MAX_OBJECT_PX) {
+            size = MT_DRAW_MAX_OBJECT_PX;
+        }
+        if (size < MT_DRAW_MIN_OBJECT_PX) {
+            size = MT_DRAW_MIN_OBJECT_PX;
+        }
+        $area.css("--mt-size", size + "px");
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
 function htDrawMultiplicationTable(target, angularC, repeat) {
     var angulartext = "";
     let angVal = (angularC >= 0 ) ? angularC : -1*parseInt(angularC);
+    htDrawMultiplicationObjectSize(target, angVal);
     var drawing = htMultiplicationTableObject(target);
     for (let i = 0; i < angVal; i++) {
         angulartext += drawing;
@@ -411,7 +457,7 @@ function htDrawMultiplicationTable(target, angularC, repeat) {
     
     let prefix = (angularC >= 0) ? "" : "-";
     for (let i = 0; i < repeat; i++) {
-        text += prefix+angulartext+"<br />";
+        text += "<span class=\"mtDrawRow\">"+prefix+angulartext+"</span><br />";
     }
 
     if (repeat % 2 == 1) {
@@ -558,11 +604,15 @@ function htWriteMultiplicationTable(target, tValue) {
     var localTarget0 = "#mt"+tValue;
     var localTarget1 = "#mtTable"+tValue;
     var localTarget2 = "#mtDraw"+tValue;
-    $(target).append("<div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 40%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\">"+htMultiplicationObjectSelector(tValue)+"<div id=\"mtDraw"+tValue+"\"></div></div>");
+    $(target).append("<div class=\"mtLeftBox\" style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div class=\"mtDrawBox\" style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 40%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\">"+htMultiplicationObjectSelector(tValue)+"<div id=\"mtDraw"+tValue+"\" class=\"mtDraw\"></div></div>");
     $(localTarget0).append("<b style=\"font-size: 0.9em;\">"+mathKeywords[16]+tValue+"</b><br />");
     htResetMultiplicationTable(localTarget2);
 
     var angularCoef = parseInt(tValue);
+    // The drawing area starts with the object size fitted to its widest
+    // possible row, so the empty state already reserves the right height
+    // and the first hover shows large objects without a jump.
+    htDrawMultiplicationObjectSize(localTarget2, Math.abs(angularCoef));
     for (let i = 0; i < 11; i++) {
         var product =  angularCoef * i;
         $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget2+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget2+"');\" style=\"font-size: 0.9em;\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
