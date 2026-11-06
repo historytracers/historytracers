@@ -349,13 +349,14 @@ function htPlotLinearFunction(target, tmin, tmax, fillArea, continuous) {
 
 /*
  * Objects used to visualize a multiplication in the times-table pages created
- * by htWriteMultiplicationTable. The first entry is the classic star and stays
- * the default; the remaining entries are UTF-8 emojis chosen to call the
- * attention of the children between 6 and 8 years old who use the site. Each
- * entry also carries the plain label shown in the selector option.
+ * by htWriteMultiplicationTable. The first entry is the default and shows the
+ * same star that can be selected in the drawing-object selector; the remaining
+ * entries are UTF-8 emojis chosen to call the attention of the children
+ * between 6 and 8 years old who use the site. Each entry also carries the
+ * plain label shown in the selector option.
  */
 var htMultiplicationTableObjects = [
-    { draw: "<i class=\"fa-solid fa-star\" style=\"font-size:0.8em;\"></i>", option: "⭐" },
+    { draw: "<span class=\"mtDrawEmoji\">⭐</span>", option: "⭐" },
     { draw: "<span class=\"mtDrawEmoji\">🐶</span>", option: "🐶" },
     { draw: "<span class=\"mtDrawEmoji\">🐱</span>", option: "🐱" },
     { draw: "<span class=\"mtDrawEmoji\">🦄</span>", option: "🦄" },

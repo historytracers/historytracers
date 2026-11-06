@@ -240,18 +240,20 @@ test('htInverseValues returns the 1/x curve', () => {
   assert.equal(inv.y[1], 255 / 2);
 });
 
-test('htDrawMultiplicationTable renders the expected star matrix', () => {
-  const { run, calls } = createSandbox();
+test('htDrawMultiplicationTable renders the default star for every row', () => {
+  const { run, calls, plain } = createSandbox();
+  const star = plain('htMultiplicationTableObjects[0].draw');
   calls.length = 0;
   run('htDrawMultiplicationTable("#t", 3, 2)');
   const html = calls.find(([type]) => type === 'html')[1];
-  assert.equal((html.match(/fa-solid fa-star/g) || []).length, 6);
+  assert.equal((html.split(star).length - 1), 6);
   assert.equal((html.match(/<br \/>/g) || []).length, 12);
+  assert.equal((html.match(/fa-solid fa-star/g) || []).length, 0, 'the black Font Awesome star is no longer the default');
 
   calls.length = 0;
   run('htDrawMultiplicationTable("#t", -2, 1)');
   const negHtml = calls.find(([type]) => type === 'html')[1];
-  assert.equal((negHtml.match(/fa-solid fa-star/g) || []).length, 2);
+  assert.equal((negHtml.split(star).length - 1), 2);
   assert.equal((negHtml.match(/<br \/>/g) || []).length, 12);
   assert.ok(negHtml.startsWith('<br />'.repeat(6) + '-'), 'expected leading blank rows then a minus sign');
 });
