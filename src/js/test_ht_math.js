@@ -275,10 +275,57 @@ test('htWriteMultiplicationTable builds the table with an object selector', () =
   assert.ok(appended.includes('id="mtDraw2"'), 'expected an inner drawing area');
   assert.equal((appended.match(/<option value=/g) || []).length, 20, 'expected 20 drawing objects');
   assert.ok(appended.includes('<option value="0">⭐</option>'), 'expected the star as the default object');
+  assert.ok(appended.includes('htMultiplicationObjectChanged(this)'), 'expected changes to be persisted');
+  assert.ok(!appended.includes(' selected'), 'no storage means no preselected option');
   // The hover handlers must draw and reset the inner area so changing the
   // selection does not wipe the selector itself.
   assert.ok(appended.includes("htDrawMultiplicationTable('#mtDraw2'"), 'expected hover to draw in the inner area');
   assert.ok(appended.includes("htResetMultiplicationTable('#mtDraw2'"), 'expected hover-out to reset the inner area');
+});
+
+test('htSavedMultiplicationObjectIndex restores the latest stored choice', () => {
+  const { run } = createSandbox();
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), -1, 'no htPrefsRead means no stored choice');
+  run('htPrefsRead = function () { return ""; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), -1);
+  run('htPrefsRead = function () { return "99"; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), -1, 'out-of-range values are ignored');
+  run('htPrefsRead = function () { return "3"; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 3);
+});
+
+test('the stored drawing object preselects every later table', () => {
+  const { run, calls } = createSandbox();
+  run('htPrefsRead = function () { return "2"; };');
+  calls.length = 0;
+  run('htWriteMultiplicationTable("#p", 5)');
+  const appended = calls.filter(([type]) => type === 'append').map(([, v]) => v).join('\n');
+  assert.ok(appended.includes('<option value="2" selected>'), 'expected the stored object preselected');
+  assert.ok(!appended.includes('<option value="0" selected>'), 'expected only the stored object preselected');
+  assert.equal((appended.match(/ selected/g) || []).length, 1);
+});
+
+test('htMultiplicationObjectChanged stores the choice and syncs the page', () => {
+  const { run } = createSandbox();
+  run(`htPrefsWriteLog = [];
+    htPrefsWrite = function (key, value) { htPrefsWriteLog.push([key, value]); return true; };
+    htFakeSelects = [
+      { value: "0" },
+      { value: "4" }
+    ];
+    document = { querySelectorAll: function () { return htFakeSelects; } };`);
+  // The user changes the second selector; the other one must follow.
+  run('htMultiplicationObjectChanged(htFakeSelects[1])');
+  assert.deepEqual(
+    run('JSON.parse(JSON.stringify(htPrefsWriteLog))'),
+    [['ht_multiplication_object', '4']],
+    'expected the latest choice stored under ht_multiplication_object'
+  );
+  assert.equal(run('htFakeSelects[0].value'), '4', 'expected the other table synced to the latest choice');
+  // Invalid selections are ignored.
+  run('htPrefsWriteLog = [];');
+  run('htMultiplicationObjectChanged({ value: "99" })');
+  assert.equal(run('htPrefsWriteLog.length'), 0);
 });
 
 test('htMultiplicationTableObject follows the selected object and falls back to the star', () => {

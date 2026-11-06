@@ -427,14 +427,66 @@ function htResetMultiplicationTable(target) {
         $(target).html(mathKeywords[17]+"<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />");
 }
 
+// localStorage key that always holds the latest drawing object chosen by the
+// user. It goes through the guarded htPrefsRead/htPrefsWrite helpers in
+// ht_common.js (which wrap localStorage), so the choice persists in the
+// browsers and in the viewer engine. When no choice was ever stored, the
+// selector falls back to the default star.
+var htMultiplicationObjectPrefKey = "ht_multiplication_object";
+
+// Returns the index of the latest object the user selected, or -1 when
+// nothing valid was stored (e.g. first visit or privacy mode). The helpers
+// live in ht_common.js, so their availability is verified to keep this file
+// usable standalone (unit tests).
+function htSavedMultiplicationObjectIndex() {
+    try {
+        if (typeof htPrefsRead === "function") {
+            var idx = parseInt(htPrefsRead(htMultiplicationObjectPrefKey));
+            if (!isNaN(idx) && idx >= 0 && idx < htMultiplicationTableObjects.length) {
+                return idx;
+            }
+        }
+    } catch (e) {
+    }
+    return -1;
+}
+
+// Called when the user picks another object in one of the selectors. Stores
+// the latest choice and syncs every other times table already rendered on the
+// screen, so all of them keep showing the user's current choice.
+function htMultiplicationObjectChanged(selectObject) {
+    try {
+        var idx = parseInt(selectObject.value);
+        if (isNaN(idx) || idx < 0 || idx >= htMultiplicationTableObjects.length) {
+            return;
+        }
+        if (typeof htPrefsWrite === "function") {
+            htPrefsWrite(htMultiplicationObjectPrefKey, String(idx));
+        }
+        if (typeof document !== "undefined" && document.querySelectorAll) {
+            var allSelects = document.querySelectorAll("select.mtDrawSelect");
+            for (var i = 0; i < allSelects.length; i++) {
+                if (allSelects[i] !== selectObject) {
+                    allSelects[i].value = String(idx);
+                }
+            }
+        }
+    } catch (e) {
+    }
+}
+
 // Builds the object selector shown at the top of a times-table drawing area.
 // The options are emoji (see htMultiplicationTableObjects), so the selector is
 // language independent; "mathKeywords[78]" only labels it for aria/title.
+// Changing a selector stores the choice (htMultiplicationObjectChanged) and
+// every new table opens with the latest stored choice preselected, so the
+// user sees the last used object as the default on all later screens.
 function htMultiplicationObjectSelector(tValue) {
     var label = (typeof mathKeywords !== "undefined" && mathKeywords.length > 78) ? mathKeywords[78] : "";
-    var text = "<span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select class=\"mtDrawSelect\" id=\"mtSelect"+tValue+"\" aria-label=\""+label+"\" title=\""+label+"\">";
+    var savedIdx = htSavedMultiplicationObjectIndex();
+    var text = "<span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select class=\"mtDrawSelect\" id=\"mtSelect"+tValue+"\" aria-label=\""+label+"\" title=\""+label+"\" onchange=\"htMultiplicationObjectChanged(this);\">";
     for (let i = 0; i < htMultiplicationTableObjects.length; i++) {
-        text += "<option value=\""+i+"\">"+htMultiplicationTableObjects[i].option+"</option>";
+        text += "<option value=\""+i+"\""+((i == savedIdx) ? " selected" : "")+">"+htMultiplicationTableObjects[i].option+"</option>";
     }
     return text+"</select></span>";
 }
