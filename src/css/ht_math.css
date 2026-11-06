@@ -5241,9 +5241,12 @@ p.desc svg {
 
 .mtDrawSelect {
   box-sizing: border-box;
-  width: 3.2em;
+  /* Wide enough for the option emoji plus the native dropdown arrow:
+     the right padding reserves the arrow area so the drawn object is
+     never partially covered. */
+  width: 5em;
   max-width: 90%;
-  padding: 0.25em 0.4em;
+  padding: 0.25em 1.6em 0.25em 0.5em;
   background-color: #ffffff;
   border: 2px solid #2c5f8a;
   border-radius: 6px;
