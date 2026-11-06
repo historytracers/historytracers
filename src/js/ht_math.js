@@ -434,11 +434,48 @@ function htResetMultiplicationTable(target) {
 // selector falls back to the default star.
 var htMultiplicationObjectPrefKey = "ht_multiplication_object";
 
+// Returns the drawing-object index passed via the "mtobj" URL query
+// parameter, or -1 when absent/invalid. Like language and calendar, an
+// explicit URL parameter comes from a shared link, so it wins over the
+// stored choice while present.
+function htMultiplicationObjectURLIndex() {
+    try {
+        if (typeof window !== "undefined" && typeof window.location === "object" && typeof URLSearchParams === "function") {
+            var raw = new URLSearchParams(window.location.search).get("mtobj");
+            if (typeof raw === "string" && raw.length > 0) {
+                var idx = parseInt(raw);
+                if (!isNaN(idx) && idx >= 0 && idx < htMultiplicationTableObjects.length) {
+                    return idx;
+                }
+            }
+        }
+    } catch (e) {
+    }
+    return -1;
+}
+
 // Returns the index of the latest object the user selected, or -1 when
-// nothing valid was stored (e.g. first visit or privacy mode). The helpers
-// live in ht_common.js, so their availability is verified to keep this file
-// usable standalone (unit tests).
+// nothing valid was stored (e.g. first visit or privacy mode). Sources are
+// checked in order: "mtobj" URL parameter (shared links), the viewer
+// injection "window.__ht_mtobj" (src/viewer serves the choice stored in the
+// browser-independent viewer options, exactly like language and calendar),
+// and finally the local storage value. The helpers live in ht_common.js, so
+// their availability is verified to keep this file usable standalone (unit
+// tests).
 function htSavedMultiplicationObjectIndex() {
+    var fromURL = htMultiplicationObjectURLIndex();
+    if (fromURL >= 0) {
+        return fromURL;
+    }
+    try {
+        if (typeof window !== "undefined" && window.__ht_mtobj !== undefined && window.__ht_mtobj !== null && window.__ht_mtobj !== "") {
+            var viewerIdx = parseInt(window.__ht_mtobj);
+            if (!isNaN(viewerIdx) && viewerIdx >= 0 && viewerIdx < htMultiplicationTableObjects.length) {
+                return viewerIdx;
+            }
+        }
+    } catch (eViewer) {
+    }
     try {
         if (typeof htPrefsRead === "function") {
             var idx = parseInt(htPrefsRead(htMultiplicationObjectPrefKey));
@@ -453,7 +490,10 @@ function htSavedMultiplicationObjectIndex() {
 
 // Called when the user picks another object in one of the selectors. Stores
 // the latest choice and syncs every other times table already rendered on the
-// screen, so all of them keep showing the user's current choice.
+// screen, so all of them keep showing the user's current choice. In the
+// viewer (src/viewer) the choice is additionally POSTed to /api/options with
+// a partial update, so the server stores it like the language and the
+// calendar and reinjects it ("window.__ht_mtobj") on the next runs.
 function htMultiplicationObjectChanged(selectObject) {
     try {
         var idx = parseInt(selectObject.value);
@@ -462,6 +502,28 @@ function htMultiplicationObjectChanged(selectObject) {
         }
         if (typeof htPrefsWrite === "function") {
             htPrefsWrite(htMultiplicationObjectPrefKey, String(idx));
+        }
+        // Viewer storage: the token is injected only inside the viewer
+        // (window.__ht_token, mirrored in sessionStorage); when it is absent
+        // we are in a normal browser and no /api/options endpoint exists.
+        try {
+            var viewerToken = "";
+            if (typeof window !== "undefined" && window.__ht_token) {
+                viewerToken = window.__ht_token;
+            } else if (typeof sessionStorage === "object" && typeof sessionStorage.getItem === "function") {
+                viewerToken = sessionStorage.getItem("__ht_token") || "";
+            }
+            if (viewerToken && typeof window !== "undefined" && typeof window.fetch === "function") {
+                window.fetch("/api/options", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "X-HT-Token": viewerToken
+                    },
+                    body: "mtobj=" + encodeURIComponent(String(idx))
+                }).catch(function(){});
+            }
+        } catch (eViewer) {
         }
         if (typeof document !== "undefined" && document.querySelectorAll) {
             var allSelects = document.querySelectorAll("select.mtDrawSelect");

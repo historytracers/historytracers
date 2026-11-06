@@ -75,10 +75,16 @@ var (
 )
 
 type optionsData struct {
-	Lang            string `json:"lang"`
-	Cal             string `json:"cal"`
-	Recreio         string `json:"recreio"`
-	Font            string `json:"font"`
+	Lang    string `json:"lang"`
+	Cal     string `json:"cal"`
+	Recreio string `json:"recreio"`
+	Font    string `json:"font"`
+	// MtObj is the index of the latest drawing object (see
+	// htMultiplicationTableObjects in src/js/ht_math.js) chosen in a
+	// times-table page. It is stored server-side, like language and
+	// calendar, because browser storage does not necessarily survive a
+	// viewer restart.
+	MtObj           string `json:"mtobj"`
 	Port            string `json:"port"`
 	Home            string `json:"home"`
 	TLSCert         string `json:"tls_cert"`
@@ -128,6 +134,15 @@ var validFonts = map[string]bool{
 	"small":   true,
 	"default": true,
 	"large":   true,
+}
+
+// validMtObjs mirrors the size of htMultiplicationTableObjects in
+// src/js/ht_math.js: one entry per drawing-object selector option.
+var validMtObjs = map[string]bool{
+	"0": true, "1": true, "2": true, "3": true, "4": true,
+	"5": true, "6": true, "7": true, "8": true, "9": true,
+	"10": true, "11": true, "12": true, "13": true, "14": true,
+	"15": true, "16": true, "17": true, "18": true, "19": true,
 }
 
 // jsString encodes s as a JSON double-quoted string literal safe for
@@ -678,6 +693,9 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		if v := r.FormValue("font"); v != "" && validFonts[v] {
 			data.Font = v
 		}
+		if v := r.FormValue("mtobj"); v != "" && validMtObjs[v] {
+			data.MtObj = v
+		}
 		if v := r.FormValue("port"); v != "" {
 			if p, err := strconv.Atoi(v); err == nil && p >= 1 && p <= 65535 {
 				data.Port = v
@@ -938,6 +956,9 @@ func validateOptions(data *optionsData) {
 	}
 	if !validFonts[data.Font] {
 		data.Font = ""
+	}
+	if !validMtObjs[data.MtObj] {
+		data.MtObj = ""
 	}
 	if data.Port != "" {
 		if p, err := strconv.Atoi(data.Port); err != nil || p < 1 || p > 65535 {
@@ -1881,6 +1902,11 @@ func main() {
 		fontJS := "window.__ht_font=" + jsString(*font) + ";"
 		welcomePage = fontJS + welcomePage
 		addressBarJS = fontJS + addressBarJS
+	}
+	if savedOptions.MtObj != "" && validMtObjs[savedOptions.MtObj] {
+		mtobjJS := "window.__ht_mtobj=" + jsString(savedOptions.MtObj) + ";"
+		welcomePage = mtobjJS + welcomePage
+		addressBarJS = mtobjJS + addressBarJS
 	}
 	if savedOptions.Home != "" {
 		safeHome := sanitizeLabelPath(savedOptions.Home)

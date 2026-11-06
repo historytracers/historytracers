@@ -294,6 +294,48 @@ test('htSavedMultiplicationObjectIndex restores the latest stored choice', () =>
   assert.equal(run('htSavedMultiplicationObjectIndex()'), 3);
 });
 
+// Small URLSearchParams stand-in for the sandbox (no real URL parsing).
+const htFakeSearchParamsSetup = `
+  window = { location: { search: $search } };
+  URLSearchParams = function (s) {
+    var q = String(s).replace(/^\\?/, "");
+    var map = {};
+    q.split("&").forEach(function (pair) {
+      var kv = pair.split("=");
+      if (kv[0]) map[kv[0]] = kv[1] || "";
+    });
+    map.get = function get(k) {
+      return Object.prototype.hasOwnProperty.call(map, k) ? map[k] : null;
+    };
+    map.has = function has(k) {
+      return k in map ? (typeof map[k] === "string") : false;
+    };
+    return map;
+  };
+`;
+test('the mtobj URL parameter preselects the drawing object', () => {
+  const { run } = createSandbox();
+  run(htFakeSearchParamsSetup.replace('$search', '"?mtobj=5&x=1"'));
+  run('htPrefsRead = function () { return "2"; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 5, 'URL parameter wins over storage');
+  run(htFakeSearchParamsSetup.replace('$search', '"?mtobj=banana"'));
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 2, 'invalid URL parameter falls back to storage');
+  run(htFakeSearchParamsSetup.replace('$search', '"?x=1"'));
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 2, 'no URL parameter falls back to storage');
+});
+
+test('the viewer injection preselects the drawing object', () => {
+  const { run } = createSandbox();
+  // window.__ht_mtobj is baked by the viewer at startup.
+  run('window = { __ht_mtobj: "7" };');
+  run('htPrefsRead = function () { return "2"; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 7, 'viewer stored choice wins over storage');
+  run('window = { __ht_mtobj: "" };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 2, 'empty viewer injection falls back to storage');
+  run('window = { __ht_mtobj: "banana" };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 2, 'invalid viewer injection falls back to storage');
+});
+
 test('the stored drawing object preselects every later table', () => {
   const { run, calls } = createSandbox();
   run('htPrefsRead = function () { return "2"; };');
@@ -326,6 +368,33 @@ test('htMultiplicationObjectChanged stores the choice and syncs the page', () =>
   run('htPrefsWriteLog = [];');
   run('htMultiplicationObjectChanged({ value: "99" })');
   assert.equal(run('htPrefsWriteLog.length'), 0);
+});
+
+test('htMultiplicationObjectChanged posts to the viewer only in viewer mode', () => {
+  const { run } = createSandbox();
+  // Viewer mode: the token is injected at startup; the change is POSTed
+  // as a partial /api/options update (see src/viewer/main.go).
+  run(`htPrefsWrite = function () { return true; };
+    window = {
+      __ht_token: "tok",
+      fetchLog: [],
+      fetch: function (url, opts) {
+        window.fetchLog.push([url, opts.method, String(opts.body)]);
+        return { catch: function () {} };
+      }
+    };
+    document = { querySelectorAll: function () { return []; } };`);
+  run('htMultiplicationObjectChanged({ value: "4" })');
+  assert.deepEqual(
+    run('JSON.parse(JSON.stringify(window.fetchLog))'),
+    [['/api/options', 'POST', 'mtobj=4']],
+    'expected a partial mtobj update POSTed to the viewer options'
+  );
+  assert.equal(run('window.fetchLog[0][2]'), 'mtobj=4');
+  // Browser mode: no token, so no POST (there is no /api/options there).
+  run('window.__ht_token = undefined; window.fetchLog = [];');
+  run('htMultiplicationObjectChanged({ value: "5" })');
+  assert.equal(run('window.fetchLog.length'), 0, 'no POST outside the viewer');
 });
 
 test('htMultiplicationTableObject follows the selected object and falls back to the star', () => {
