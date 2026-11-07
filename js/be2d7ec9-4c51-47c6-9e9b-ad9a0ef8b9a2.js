@@ -414,5 +414,6 @@ function htLoadContent() {
 
     htSetImageSrc("leftHandImg3", "images/HistoryTracers/5Left_Hand_Small.png");
     htSetImageSrc("rightHandImg3", "images/HistoryTracers/5Right_Hand_Small.png");
+    htSetImageSrc("imgPoma", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_0362.jpg");
     return false;
 }
