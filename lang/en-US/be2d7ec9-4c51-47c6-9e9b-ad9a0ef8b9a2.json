@@ -1,6 +1,6 @@
 {
    "title": "Who ... ?",
-   "header": "Who did say indigenous never have mathematical tools? ",
+   "header": "Who said that Indigenous peoples never had mathematical tools?",
    "sources": [
       "be2d7ec9-4c51-47c6-9e9b-ad9a0ef8b9a2"
    ],
@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1788576534"
+      "1794070821"
    ],
    "authors": null,
    "reviewers": null,
@@ -70,7 +70,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nBefore using the mathematical tools presented in these texts, we recommend studying the first five chapters of the *First Steps* section, which explain the mathematical operations of these tools (<htcite0>):",
+               "text": "### Prerequisites\n\nBefore using the mathematical tools presented in this text, we recommend studying the first five chapters of the *First Steps* section, which explain the mathematical operations these tools use (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -97,7 +97,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nJust as in the American continent (*Abya Yala*) great constructions were erected that required logic and organizational skills, it is reasonable to assume that Indigenous peoples possessed knowledge in areas that we now call sciences. With this in mind, we invite the reader to reflect:",
+               "text": "### Introduction\n\nGreat constructions were erected on the American continent (*Abya Yala*) that required logic and organizational skills, so it is reasonable to assume that Indigenous peoples possessed knowledge in areas that we now call sciences. In this text, we will explore two of their mathematical tools: the Inca *Yupana* from the Andes and the grids of Mesoamerica. With this in mind, we invite the reader to reflect:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -115,7 +115,7 @@
                "PostMention": ""
             },
             {
-               "text": "This text brings together some of the tools presented in other chapters, helping to answer this question.",
+               "text": "The answer is yes. This text brings together some of the tools presented in other chapters to show how Indigenous peoples performed mathematical operations with them.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -129,7 +129,7 @@
          "id": "SECTION_andes",
          "text": [
             {
-               "text": "### Mathematics in the Andes\n\nOur studies on the use of mathematics in the Andes have been based on the *Yupana Inka Tawa Pukllay* method, developed and published by Dhavit Prem (<htcite0>; <htcite1>) of the Yupanki Association.\n\n#### The Yupana\n\nThe *Yupana* is an instrument used by the Incas to perform calculations, functioning in a way similar to a calculator. Its name was deduced, as explained in a conversation with Professor Dhavit Prem:",
+               "text": "### Mathematics in the Andes\n\nOur studies on the use of mathematics in the Andes have been based on the *Yupana Inka Tawa Pukllay* method, developed and published by Dhavit Prem (<htcite0>; <htcite1>) of the Yupanki Association.\n\n#### The Yupana\n\nThe *Yupana* is an instrument used by the Incas to perform calculations, functioning in a way similar to a calculator. Its name was deduced, as Professor Dhavit Prem explained in a conversation:",
                "source": [
                   {
                      "type": 1,
@@ -172,7 +172,7 @@
                "PostMention": ""
             },
             {
-               "text": "The *Yupana* was depicted by Felipe Guaman Poma de Ayala in his 16th-century work, according to Gregorian calendar, alongside quipus, which in addition to accounting information, may also have contained written records that have not yet been deciphered (<htcite0>; <htcite1>):",
+               "text": "The *Yupana* was depicted by Felipe Guaman Poma de Ayala in his 16th-century work (by the Gregorian calendar), alongside quipus, which, in addition to accounting information, may also have contained written records that have not yet been deciphered (<htcite0>; <htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -222,7 +222,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Operations with the *Yupana*\n\nThe operations with the *Yupana* are explained in the *Primeros pasos* (<htcite0>; <htcite1>).\n\nBelow, select the movement you wish to perform on the *yupana* then use the arrow <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> to move the circles, update the fingers on the hands, and the arrow <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> to return to the original position:",
+               "text": "#### Operations with the *Yupana*\n\nThe operations with the *Yupana* are explained in the *First Steps* section (<htcite0>; <htcite1>).\n\nThe five movements have Quechua names: *ISKAY* (two), *KIMSA* (three), *PISQA* (five), *PICHANA* (broom), and *KINKIN* (equivalence).\n\nBelow, select the movement you wish to perform on the *yupana*, then use the arrow <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> to move the circles and update the fingers on the hands, and the arrow <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> to return to the original position:",
                "source": [
                   {
                      "type": 1,
@@ -278,7 +278,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>Next, we present a version of the Yupana with the teachings of Dhavit Prem. In this version, the values accepted in the <b>Value 1</b> and <b>Value 2</b> fields vary depending on the desired operation. In general, the minimum value accepted is <b>0</b>. For the maximum value, <b>99.999</b> is considered for addition, while <b>9</b> is the maximum for multiplication: <span id=\"mathmessage\" class=\"matherr\"> </span><br /> <b>Value 1 </b> <input type=\"number\" value=\"0\" id=\"ia2yupana0\" /> <b>Value 2</b> <input type=\"number\" value=\"0\" id=\"ia2yupana1\" /> | <input type=\"radio\" value=\"sum\" name=\"yupanaradio\" /> <b>Somar</b> <input type=\"radio\" value=\"mult\" name=\"yupanaradio\" /> <b>Multiplicar</b></p>",
+               "text": "<p>Next, we present a version of the Yupana with the teachings of Dhavit Prem. In this version, the values accepted in the <b>Value 1</b> and <b>Value 2</b> fields vary depending on the desired operation. In general, the smallest value you can enter is <b>0</b>. The largest depends on the operation (<b>99.999</b> for addition, <b>9</b> for multiplication): <span id=\"mathmessage\" class=\"matherr\"> </span><br /> <b>Value 1 </b> <input type=\"number\" value=\"0\" id=\"ia2yupana0\" /> <b>Value 2</b> <input type=\"number\" value=\"0\" id=\"ia2yupana1\" /> | <input type=\"radio\" value=\"sum\" name=\"yupanaradio\" /> <b>Add</b> <input type=\"radio\" value=\"mult\" name=\"yupanaradio\" /> <b>Multiply</b></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -287,7 +287,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Values</th><th>Resultado</th><th>Movements</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> <span id=\"op1\"></span> <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> <span id=\"op2\"></span> <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> <span id=\"op3\"></span> <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> <span id=\"op4\"></span> <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> <span id=\"op5\"></span> <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table></p><p class=\"desc\"><b>Table 2</b>: <i>Yupana</i>. CSS inspired in <htcite0> code.</p>",
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Values</th><th>Result</th><th>Movements</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> <span id=\"op1\"></span> <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> <span id=\"op2\"></span> <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> <span id=\"op3\"></span> <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> <span id=\"op4\"></span> <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> <span id=\"op5\"></span> <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table></p><p class=\"desc\"><b>Table 2</b>: <i>Yupana</i>. CSS inspired in <htcite0> code.</p>",
                "source": [
                   {
                      "type": 1,
@@ -314,7 +314,7 @@
          "id": "SECTION_mesoamerica",
          "text": [
             {
-               "text": "### Mathematics in Mesoamerica\n\nThere is no doubt that the Mesoamerican peoples had a robust and highly advanced calendrical system. We also know that although they used a vigesimal numerical system, it was mainly the calendar that was used to measure time (<htcite0>; <htcite1>; <htcite2>). Despite the lack of direct evidence of the use of the vigesimal system, there are indications that they employed a grid system that could have been associated with it, as pointed out by Drs. Ruy D. Díaz and Ximena Catepillán (<htcite3>; <htcite4>).\n\nThis understanding was presented in detail in the *First Steps* section (<htcite5>).",
+               "text": "### Mathematics in Mesoamerica\n\nThere is no doubt that the Mesoamerican peoples had a robust and highly advanced calendrical system. We also know that, although they used a vigesimal (base-20) numerical system, it was mainly the calendar that was used to measure time (<htcite0>; <htcite1>; <htcite2>). Despite the lack of direct evidence of the use of the vigesimal system, there are indications that they employed a grid system that could have been associated with it, as pointed out by Drs. Ruy D. Díaz and Ximena Catepillán (<htcite3>; <htcite4>).\n\nThis understanding was presented in detail in the *First Steps* section (<htcite5>).",
                "source": [
                   {
                      "type": 1,
@@ -396,7 +396,7 @@
                "PostMention": ""
             },
             {
-               "text": "### The Grid\n\nBelow, we present a version of the grid that performs multiplication using Mesoamerican grids. In the value fields, you can enter any number between 0 and 999. After entering the values, click on the equal sign ( <i class=\"fa-solid fa-equals\"></i> ) to view the result.\n\nRegarding the results, when the product of the multiplication in the grid is greater than 19, instead of showing the number directly, the operation being performed will be indicated. To view the final result displayed in the calculation area, you need to click on the advance (<i class=\"fa-solid fa-arrow-right\" style=\"color:#0f0; font-size: 1.2em;\"></i>) button. At that point, the simplification steps explained by Ruy D. Díaz and applied in the previous text (<htcite0>; <htcite1>) will be shown:",
+               "text": "### The Grid\n\nBelow, we present an interactive grid that multiplies numbers using the Mesoamerican method. In the value fields, you can enter any number between 0 and 999. After entering the values, click the equal sign ( <i class=\"fa-solid fa-equals\"></i> ) to see the result.\n\nA note on the results: when the product in the grid is greater than 19, the grid does not show the number directly — it shows the operation being performed instead. To see the final result in the calculation area, click the advance (<i class=\"fa-solid fa-arrow-right\" style=\"color:#0f0; font-size: 1.2em;\"></i>) button. The steps that then appear are the simplification steps explained by Ruy D. Díaz and applied in the previous text (<htcite0>; <htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -430,7 +430,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align=center\"><center>Valores: <input type=\"number\" id=\"firstV\" min=\"0\" max=\"999\" value=\"0\" /> ×  <input type=\"number\" id=\"secondV\" min=\"0\" max=\"999\" value=\"0\" /> <i class=\"fa-solid fa-equals\" style=\"font-size:1.8em\" id=\"equalCalc\" /></i> <i class=\"fa-solid fa-arrow-right\" style=\"color:#0f0; font-size:1.8em;\" id=\"changeResult\"></i> <input type=\"number\" id=\"thirdV\" value=\"0\" readonly /> </center></p><p><table id=\"calcGrid\" class=\"tableTen\">   </table></p><p><table id=\"calcGrid\" class=\"tableTen\">   </table></p><p class=\"desc\"><b>Table 3</b>: Multiplication grid.</p>",
+               "text": "<p style=\"text-align=center\"><center>Values: <input type=\"number\" id=\"firstV\" min=\"0\" max=\"999\" value=\"0\" /> ×  <input type=\"number\" id=\"secondV\" min=\"0\" max=\"999\" value=\"0\" /> <i class=\"fa-solid fa-equals\" style=\"font-size:1.8em\" id=\"equalCalc\"></i> <i class=\"fa-solid fa-arrow-right\" style=\"color:#0f0; font-size:1.8em;\" id=\"changeResult\"></i> <input type=\"number\" id=\"thirdV\" value=\"0\" readonly /> </center></p><p><table id=\"calcGrid\" class=\"tableTen\">   </table></p><p class=\"desc\"><b>Table 3</b>: Multiplication grid.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -444,7 +444,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nThis text brings together different multiplication tools developed by the Indigenous peoples of the American continent (*Abya Yala*). Although no manual has been found explaining how they were used, thanks to the work of various researchers mentioned throughout the text, today we can recreate and apply them to facilitate both learning and the execution of calculations.",
+               "text": "### Conclusion\n\nThis text brings together different multiplication tools developed by the Indigenous peoples of the American continent (*Abya Yala*). Although no manual has been found explaining exactly how they were used, thanks to the work of the various researchers mentioned throughout this text, we can today recreate and apply them to make both learning and the performance of calculations easier.",
                "source": null,
                "date_time": null,
                "isTable": false,
