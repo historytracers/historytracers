@@ -405,6 +405,11 @@ function fmt(n) {
 
 function tm(id) { var el = document.getElementById('add_' + id); return el ? el.innerHTML : id; }
 
+/**
+ * Counts the evaluation steps for the current addition exercise, including
+ * columns that only resolve a pending carry.
+ * @returns {number} Number of evaluation steps.
+ */
 function countEvaluationSteps() {
     var a = controller.currentExercise.a;
     var b = controller.currentExercise.b;
@@ -413,7 +418,7 @@ function countEvaluationSteps() {
         var dA = getDigit(a, p);
         var dB = getDigit(b, p);
         var total = dA + dB + carry;
-        if (dA > 0 || dB > 0) {
+        if (dA > 0 || dB > 0 || carry > 0) {
             count++;
         }
         if (total >= 10) {
@@ -598,6 +603,10 @@ function showMovementsMessage(placeName) {
     setVis('nextStepBtn', true);
 }
 
+/**
+ * Processes the next addition column and shows the guidance for it.
+ * Zero-digit columns are skipped only when there is no pending carry.
+ */
 function processNextColumn() {
     var s = controller.state;
     var col = controller.evalCol;
@@ -613,7 +622,7 @@ function processNextColumn() {
     var dB = getDigit(controller.currentExercise.b, col);
     var total = dA + dB + carry;
 
-    if (dA === 0 && dB === 0 && col < maxC) {
+    if (dA === 0 && dB === 0 && carry === 0 && col < maxC) {
         controller.evalCol = col + 1;
         controller.evalCarry = 0;
         processNextColumn();
@@ -1010,13 +1019,20 @@ function countDigitSteps(n) {
     return getDigitPositions(n).length;
 }
 
+/**
+ * Counts the evaluation steps for adding two numbers, including columns that
+ * only resolve a pending carry.
+ * @param {number} a First addend.
+ * @param {number} b Second addend.
+ * @returns {number} Number of evaluation steps.
+ */
 function countEvaluationSteps(a, b) {
     var count = 0, carry = 0;
     for (var p = 0; p < controller.ROWS; p++) {
         var dA = getDigit(a, p);
         var dB = getDigit(b, p);
         var total = dA + dB + carry;
-        if (dA > 0 || dB > 0) {
+        if (dA > 0 || dB > 0 || carry > 0) {
             count++;
         }
         if (total >= 10) {

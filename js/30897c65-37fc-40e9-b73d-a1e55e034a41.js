@@ -83,6 +83,12 @@ function htLongDivisionQuotientStart(dividendDigits, divisor) {
     return Math.max(0, dividendDigits.length - 1);
 }
 
+/**
+ * Builds the "top" long-division layout from the "below" table markup.
+ * @param {string} belowHtml Markup for the "below" layout.
+ * @param {boolean} isParts Whether the table uses the four-part layout.
+ * @returns {string} Markup for the requested layout, or belowHtml when invalid.
+ */
 function htLongDivisionBuildTop(belowHtml, isParts) {
     var container = document.createElement("div");
     container.innerHTML = belowHtml;
@@ -107,12 +113,20 @@ function htLongDivisionBuildTop(belowHtml, isParts) {
             "</table>";
     }
 
+    if (!table.rows[0].cells || table.rows[0].cells.length < 2) {
+        return belowHtml;
+    }
+
     var dividend = htLongDivisionParseCell(table.rows[0].cells[0].innerHTML);
     var divisor = htLongDivisionParseCell(table.rows[0].cells[1].innerHTML);
     var quotient = [];
     var steps = [];
 
     for (var i = 1; i < table.rows.length; i++) {
+        if (!table.rows[i].cells || table.rows[i].cells.length < 2) {
+            return belowHtml;
+        }
+
         var right = htLongDivisionParseCell(table.rows[i].cells[1].innerHTML);
         if (right.tokens.length > 0) {
             quotient = quotient.concat(right.tokens);
