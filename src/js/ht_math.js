@@ -601,6 +601,10 @@ function htMultiplicationObjectSelector(tValue) {
 
 
 function htWriteMultiplicationTable(target, tValue) {
+    // tValue is the multiplication table coefficient. Coerce it to an integer
+    // before building the element ids and the inline hover handlers below, so
+    // a value that came from the DOM (e.g. a select) can never inject markup.
+    tValue = parseInt(tValue, 10);
     var localTarget0 = "#mt"+tValue;
     var localTarget1 = "#mtTable"+tValue;
     var localTarget2 = "#mtDraw"+tValue;

@@ -303,6 +303,18 @@ test('htWriteMultiplicationTable builds the table with an object selector', () =
   assert.ok(appended.includes("htResetMultiplicationTable('#mtDraw2'"), 'expected hover-out to reset the inner area');
 });
 
+test('htWriteMultiplicationTable coerces the table value before building HTML', () => {
+  const { run, calls } = createSandbox();
+  calls.length = 0;
+  // The coefficient can come from a DOM select, so a markup payload must not
+  // reach the generated ids or the inline hover handlers.
+  run('htWriteMultiplicationTable("#p", "2\\"><img src=x onerror=alert(1)>")');
+  const appended = calls.filter(([type]) => type === 'append').map(([, v]) => v).join('\n');
+  assert.ok(!appended.includes('<img'), 'expected the DOM-sourced coefficient to be coerced to an integer');
+  assert.ok(appended.includes('id="mt2"'), 'expected the numeric coefficient in the element id');
+  assert.ok(appended.includes("htDrawMultiplicationTable('#mtDraw2'"), 'expected the numeric coefficient in the hover handler');
+});
+
 test('htSavedMultiplicationObjectIndex restores the latest stored choice', () => {
   const { run } = createSandbox();
   assert.equal(run('htSavedMultiplicationObjectIndex()'), -1, 'no htPrefsRead means no stored choice');
