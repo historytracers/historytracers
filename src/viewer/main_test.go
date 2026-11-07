@@ -628,3 +628,78 @@ func TestMetricsNegativeSizesClamped(t *testing.T) {
 		t.Fatalf("negative sizes changed counters by req=%d res=%d, want 0,0", dReq, dRes)
 	}
 }
+
+func TestValidateOptionsMtObj(t *testing.T) {
+	d := optionsData{MtObj: "19"}
+	validateOptions(&d)
+	if d.MtObj != "19" {
+		t.Fatalf("valid mtobj %q was rejected", d.MtObj)
+	}
+	for _, invalid := range []string{"20", "99", "-1", "abc", "01"} {
+		d = optionsData{MtObj: invalid}
+		validateOptions(&d)
+		if d.MtObj != "" {
+			t.Fatalf("invalid mtobj %q was accepted", invalid)
+		}
+	}
+}
+
+func TestOptionsHandlerMtObjPartialUpdate(t *testing.T) {
+	dir := t.TempDir()
+	oldOptionsFile := optionsFile
+	optionsFile = filepath.Join(dir, "options.gob")
+	defer func() { optionsFile = oldOptionsFile }()
+
+	if err := writeOptionsLocked(optionsData{Lang: "pt-BR", Cal: "gregory", MtObj: "1"}); err != nil {
+		t.Fatalf("cannot seed options: %v", err)
+	}
+	rotateToken()
+
+	req := httptest.NewRequest(http.MethodPost, "/api/options", strings.NewReader("mtobj=3"))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("X-HT-Token", currentToken())
+	rec := httptest.NewRecorder()
+	optionsHandler(rec, req)
+	if rec.Code != http.StatusNoContent {
+		t.Fatalf("options POST failed: status=%d body=%s", rec.Code, rec.Body.String())
+	}
+	next := rec.Header().Get("X-HT-Next-Token")
+	if next == "" {
+		t.Fatal("expected a rotated token in X-HT-Next-Token")
+	}
+	data, err := readOptions()
+	if err != nil {
+		t.Fatalf("cannot read options: %v", err)
+	}
+	if data.MtObj != "3" {
+		t.Fatalf("mtobj=%q, want 3", data.MtObj)
+	}
+	if data.Lang != "pt-BR" || data.Cal != "gregory" {
+		t.Fatalf("partial update dropped other fields: %+v", data)
+	}
+	if savedOptions.MtObj != "3" {
+		t.Fatalf("savedOptions not updated: %+v", savedOptions)
+	}
+
+	// Invalid values are ignored (the stored one survives).
+	req = httptest.NewRequest(http.MethodPost, "/api/options", strings.NewReader("mtobj=banana"))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("X-HT-Token", next)
+	rec = httptest.NewRecorder()
+	optionsHandler(rec, req)
+	if rec.Code != http.StatusNoContent {
+		t.Fatalf("options POST failed: status=%d", rec.Code)
+	}
+	data, _ = readOptions()
+	if data.MtObj != "3" {
+		t.Fatalf("invalid mtobj replaced the stored one: %q", data.MtObj)
+	}
+
+	// Requests without the current token are refused.
+	req = httptest.NewRequest(http.MethodPost, "/api/options", strings.NewReader("mtobj=4"))
+	rec = httptest.NewRecorder()
+	optionsHandler(rec, req)
+	if rec.Code != http.StatusForbidden {
+		t.Fatalf("expected 403 for missing token, got %d", rec.Code)
+	}
+}

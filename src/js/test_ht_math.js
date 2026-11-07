@@ -35,18 +35,25 @@ function createSandbox() {
       after(value) { calls.push(['after', value]); return obj; },
       text(value) { calls.push(['text', value]); return obj; },
       val() { return obj; },
+      // Read the drawable width set by the test ($width, 0/undefined keeps
+      // the object-size fitting disabled) and the fake element count
+      // ($length, 0 = selector matches nothing).
+      width() { calls.push(['width', sandbox.$width]); return sandbox.$width; },
       on() { return obj; },
       prop() { return obj; },
       each() { return obj; },
       hide() { return obj; },
       show() { return obj; }
     };
+    obj.length = sandbox.$length;
     return obj;
   };
   $.calls = calls;
 
   const sandbox = {
     $,
+    $width: undefined,
+    $length: 0,
     console,
     Math,
     JSON,
@@ -240,20 +247,35 @@ test('htInverseValues returns the 1/x curve', () => {
   assert.equal(inv.y[1], 255 / 2);
 });
 
-test('htDrawMultiplicationTable renders the expected star matrix', () => {
-  const { run, calls } = createSandbox();
+test('htDrawMultiplicationTable renders the default star for every row', () => {
+  const { run, calls, plain } = createSandbox();
+  const star = plain('htMultiplicationTableObjects[0].draw');
   calls.length = 0;
   run('htDrawMultiplicationTable("#t", 3, 2)');
   const html = calls.find(([type]) => type === 'html')[1];
-  assert.equal((html.match(/fa-solid fa-star/g) || []).length, 6);
+  assert.equal((html.split(star).length - 1), 6);
   assert.equal((html.match(/<br \/>/g) || []).length, 12);
+  assert.equal((html.match(/fa-solid fa-star/g) || []).length, 0, 'the black Font Awesome star is no longer the default');
 
   calls.length = 0;
   run('htDrawMultiplicationTable("#t", -2, 1)');
   const negHtml = calls.find(([type]) => type === 'html')[1];
-  assert.equal((negHtml.match(/fa-solid fa-star/g) || []).length, 2);
+  assert.equal((negHtml.split(star).length - 1), 2);
   assert.equal((negHtml.match(/<br \/>/g) || []).length, 12);
-  assert.ok(negHtml.startsWith('<br />'.repeat(6) + '-'), 'expected leading blank rows then a minus sign');
+  assert.ok(negHtml.startsWith('<br />'.repeat(6) + '<span class="mtDrawRow">-'), 'expected leading blank rows then a minus sign inside the wrapping row');
+  assert.equal((negHtml.match(/<span class="mtDrawRow">/g) || []).length, 1);
+});
+
+test('htDrawMultiplicationTable publishes the fitted object size without storage', () => {
+  const { run, calls } = createSandbox();
+  run('$length = 1; $width = 270');
+  calls.length = 0;
+  // Widest row of 10 objects: emoji are ~1.25em wide, so ~19px fits.
+  run('htDrawMultiplicationTable("#t", 10, 2)');
+  const fit = calls.find(([type, key]) => type === 'css' && key === '--mt-size');
+  assert.deepEqual(fit, ['css', '--mt-size', '19px'], 'expected the fitted size published as --mt-size');
+  const htmlCall = calls.find(([type]) => type === 'html');
+  assert.ok(htmlCall[1].includes('class="mtDrawRow"'), 'expected rows wrapped for graceful overflow');
 });
 
 test('htResetMultiplicationTable writes the reset message', () => {
@@ -262,6 +284,221 @@ test('htResetMultiplicationTable writes the reset message', () => {
   run('htResetMultiplicationTable("#t")');
   const html = calls.find(([type]) => type === 'html')[1];
   assert.equal(html, 'kw17' + '<br />'.repeat(10));
+});
+
+test('htWriteMultiplicationTable builds the table with an object selector', () => {
+  const { run, calls } = createSandbox();
+  calls.length = 0;
+  run('htWriteMultiplicationTable("#p", 2)');
+  const appended = calls.filter(([type]) => type === 'append').map(([, v]) => v).join('\n');
+  assert.ok(appended.includes('id="mtSelect2"'), 'expected a drawing object selector');
+  assert.ok(appended.includes('id="mtDraw2"'), 'expected an inner drawing area');
+  assert.equal((appended.match(/<option value=/g) || []).length, 20, 'expected 20 drawing objects');
+  assert.ok(appended.includes('<option value="0">⭐</option>'), 'expected the star as the default object');
+  assert.ok(appended.includes('htMultiplicationObjectChanged(this)'), 'expected changes to be persisted');
+  assert.ok(!appended.includes(' selected'), 'no storage means no preselected option');
+  // The hover handlers must draw and reset the inner area so changing the
+  // selection does not wipe the selector itself.
+  assert.ok(appended.includes("htDrawMultiplicationTable('#mtDraw2'"), 'expected hover to draw in the inner area');
+  assert.ok(appended.includes("htResetMultiplicationTable('#mtDraw2'"), 'expected hover-out to reset the inner area');
+});
+
+test('htWriteMultiplicationTable coerces the table value before building HTML', () => {
+  const { run, calls } = createSandbox();
+  calls.length = 0;
+  // The coefficient can come from a DOM select, so a markup payload must not
+  // reach the generated ids or the inline hover handlers.
+  run('htWriteMultiplicationTable("#p", "2\\"><img src=x onerror=alert(1)>")');
+  const appended = calls.filter(([type]) => type === 'append').map(([, v]) => v).join('\n');
+  assert.ok(!appended.includes('<img'), 'expected the DOM-sourced coefficient to be coerced to an integer');
+  assert.ok(appended.includes('id="mt2"'), 'expected the numeric coefficient in the element id');
+  assert.ok(appended.includes("htDrawMultiplicationTable('#mtDraw2'"), 'expected the numeric coefficient in the hover handler');
+});
+
+test('htSavedMultiplicationObjectIndex restores the latest stored choice', () => {
+  const { run } = createSandbox();
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), -1, 'no htPrefsRead means no stored choice');
+  run('htPrefsRead = function () { return ""; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), -1);
+  run('htPrefsRead = function () { return "99"; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), -1, 'out-of-range values are ignored');
+  run('htPrefsRead = function () { return "3"; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 3);
+});
+
+// Small URLSearchParams stand-in for the sandbox (no real URL parsing).
+const htFakeSearchParamsSetup = `
+  window = { location: { search: $search } };
+  URLSearchParams = function (s) {
+    var q = String(s).replace(/^\\?/, "");
+    var map = {};
+    q.split("&").forEach(function (pair) {
+      var kv = pair.split("=");
+      if (kv[0]) map[kv[0]] = kv[1] || "";
+    });
+    map.get = function get(k) {
+      return Object.prototype.hasOwnProperty.call(map, k) ? map[k] : null;
+    };
+    map.has = function has(k) {
+      return k in map ? (typeof map[k] === "string") : false;
+    };
+    return map;
+  };
+`;
+test('the mtobj URL parameter preselects the drawing object', () => {
+  const { run } = createSandbox();
+  run(htFakeSearchParamsSetup.replace('$search', '"?mtobj=5&x=1"'));
+  run('htPrefsRead = function () { return "2"; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 5, 'URL parameter wins over storage');
+  run(htFakeSearchParamsSetup.replace('$search', '"?mtobj=banana"'));
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 2, 'invalid URL parameter falls back to storage');
+  run(htFakeSearchParamsSetup.replace('$search', '"?x=1"'));
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 2, 'no URL parameter falls back to storage');
+});
+
+test('the viewer injection preselects the drawing object', () => {
+  const { run } = createSandbox();
+  // window.__ht_mtobj is baked by the viewer at startup.
+  run('window = { __ht_mtobj: "7" };');
+  run('htPrefsRead = function () { return "2"; };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 7, 'viewer stored choice wins over storage');
+  run('window = { __ht_mtobj: "" };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 2, 'empty viewer injection falls back to storage');
+  run('window = { __ht_mtobj: "banana" };');
+  assert.equal(run('htSavedMultiplicationObjectIndex()'), 2, 'invalid viewer injection falls back to storage');
+});
+
+test('the stored drawing object preselects every later table', () => {
+  const { run, calls } = createSandbox();
+  run('htPrefsRead = function () { return "2"; };');
+  calls.length = 0;
+  run('htWriteMultiplicationTable("#p", 5)');
+  const appended = calls.filter(([type]) => type === 'append').map(([, v]) => v).join('\n');
+  assert.ok(appended.includes('<option value="2" selected>'), 'expected the stored object preselected');
+  assert.ok(!appended.includes('<option value="0" selected>'), 'expected only the stored object preselected');
+  assert.equal((appended.match(/ selected/g) || []).length, 1);
+});
+
+test('the drawing object size fits the box and is clamped', () => {
+  const { run, calls } = createSandbox();
+  run('$length = 1');
+  const cssCalls = () => calls.filter(([type, key]) => type === 'css' && key === '--mt-size');
+  // Cap: with plenty of width a single object never grows beyond 28px.
+  run('$width = 2000');
+  calls.length = 0;
+  run('htDrawMultiplicationObjectSize("#t", 1)');
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '28px']]);
+  // Minimum: narrow boxes with wide rows still stay legible and wrap.
+  run('$width = 100');
+  calls.length = 0;
+  run('htDrawMultiplicationObjectSize("#t", 10)');
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '10px']]);  // No measurable width: nothing is published (CSS fallback applies).
+  run('$width = 0');
+  calls.length = 0;
+  assert.equal(run('htDrawMultiplicationObjectSize("#t", 5)'), false);
+  assert.deepEqual(cssCalls(), []);
+  // Fractional/non-numeric counts are treated as a single object.
+  run('$width = 63');
+  calls.length = 0;
+  run('htDrawMultiplicationObjectSize("#t", "banana")');
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '28px']]);
+  // Negative counts are absolute values already handled by callers, but
+  // zero rows still fit one object.
+  run('$width = 270');
+  calls.length = 0;
+  run('htDrawMultiplicationObjectSize("#t", 0)');
+  assert.deepEqual(cssCalls(), [['css', '--mt-size', '28px']]);
+});
+
+test('the built tables start with the fitted object size', () => {
+  const { run, calls } = createSandbox();
+  run('$length = 1; $width = 270');
+  calls.length = 0;
+  run('htWriteMultiplicationTable("#p", 9)');
+  const fit = calls.filter(([type, key]) => type === 'css' && key === '--mt-size').map(([, , v]) => v);
+  assert.deepEqual(fit, ['21px'], 'expected one build-time fit of the empty drawing area');
+  const appended = calls.filter(([type]) => type === 'append').map(([, v]) => v).join('\n');
+  assert.ok(appended.includes('class="mtDraw"'), 'expected the drawing area class');
+  assert.ok(appended.includes('class="mtLeftBox"'), 'expected the values box class');
+  assert.ok(appended.includes('class="mtDrawBox"'), 'expected the drawing box class');
+});
+
+test('htMultiplicationObjectChanged stores the choice and syncs the page', () => {
+  const { run } = createSandbox();
+  run(`htPrefsWriteLog = [];
+    htPrefsWrite = function (key, value) { htPrefsWriteLog.push([key, value]); return true; };
+    htFakeSelects = [
+      { value: "0" },
+      { value: "4" }
+    ];
+    document = { querySelectorAll: function () { return htFakeSelects; } };`);
+  // The user changes the second selector; the other one must follow.
+  run('htMultiplicationObjectChanged(htFakeSelects[1])');
+  assert.deepEqual(
+    run('JSON.parse(JSON.stringify(htPrefsWriteLog))'),
+    [['ht_multiplication_object', '4']],
+    'expected the latest choice stored under ht_multiplication_object'
+  );
+  assert.equal(run('htFakeSelects[0].value'), '4', 'expected the other table synced to the latest choice');
+  // Invalid selections are ignored.
+  run('htPrefsWriteLog = [];');
+  run('htMultiplicationObjectChanged({ value: "99" })');
+  assert.equal(run('htPrefsWriteLog.length'), 0);
+});
+
+test('htMultiplicationObjectChanged posts to the viewer only in viewer mode', () => {
+  const { run } = createSandbox();
+  // Viewer mode: the token is injected at startup; the change is POSTed
+  // as a partial /api/options update (see src/viewer/main.go).
+  run(`htPrefsWrite = function () { return true; };
+    window = {
+      __ht_token: "tok",
+      fetchLog: [],
+      fetch: function (url, opts) {
+        window.fetchLog.push([url, opts.method, String(opts.body)]);
+        return { catch: function () {} };
+      }
+    };
+    document = { querySelectorAll: function () { return []; } };`);
+  run('htMultiplicationObjectChanged({ value: "4" })');
+  assert.deepEqual(
+    run('JSON.parse(JSON.stringify(window.fetchLog))'),
+    [['/api/options', 'POST', 'mtobj=4']],
+    'expected a partial mtobj update POSTed to the viewer options'
+  );
+  assert.equal(run('window.fetchLog[0][2]'), 'mtobj=4');
+  // Browser mode: no token, so no POST (there is no /api/options there).
+  run('window.__ht_token = undefined; window.fetchLog = [];');
+  run('htMultiplicationObjectChanged({ value: "5" })');
+  assert.equal(run('window.fetchLog.length'), 0, 'no POST outside the viewer');
+});
+
+test('htMultiplicationTableObject follows the selected object and falls back to the star', () => {
+  const { run, calls, plain } = createSandbox();
+  // Simulate a table selector holding object index 3. The recording array
+  // lives in the sandbox realm, so the injected $ can only reach it there.
+  run('htTestRecord = [];');
+  run(`$ = function (selector) {
+    return {
+      length: (selector === '#mtSelect2') ? 1 : 0,
+      val: function () { return 3; },
+      html: function (v) { htTestRecord.push([selector, v]); return this; }
+    };
+  }`);
+  const expected = plain('htMultiplicationTableObjects[3].draw');
+  run('htDrawMultiplicationTable("#mtDraw2", 3, 2)');
+  const html = plain('htTestRecord.find(function (e) { return String(e[0]) === "#mtDraw2"; })[1]');
+  assert.equal((html.split(expected).length - 1), 6, 'expected 6 copies of the selected object');
+
+  // Out-of-range and invalid selector values fall back to the star.
+  run('$ = function (selector) { return selector === "#mtSelect2" ? { length: 1, val: function () { return 99; } } : { length: 0 }; }');
+  assert.equal(run('htMultiplicationTableObject("#mtDraw2")'), run('htMultiplicationTableObjects[0].draw'));
+  run('$ = function (selector) { return selector === "#mtSelect2" ? { length: 1, val: function () { return undefined; } } : { length: 0 }; }');
+  assert.equal(run('htMultiplicationTableObject("#mtDraw2")'), run('htMultiplicationTableObjects[0].draw'));
+
+  // Targets without a selector (other pages reusing the drawing function) keep
+  // the default star.
+  assert.equal(run('htMultiplicationTableObject("#visual")'), run('htMultiplicationTableObjects[0].draw'));
 });
 
 test('htMultMakeMultiplicationTableText builds step-by-step addition text', () => {

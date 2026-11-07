@@ -5221,3 +5221,89 @@ p.desc svg {
     padding: 0.4em 1em;
   }
 }
+
+/*
+ * Multiplication visualization (times tables drawn by
+ * htWriteMultiplicationTable in src/js/ht_math.js). The drawing area of each
+ * table gains a selector so children can switch the default star for other
+ * fun UTF-8 objects. The boxes already keep their lightblue background from
+ * the inline styles, so the select itself stays white in both themes.
+ */
+.mtDrawHeader {
+  display: block;
+  margin-bottom: 0.4em;
+  line-height: 1;
+}
+
+.mtDrawLabel {
+  font-size: 1.1em;
+}
+
+.mtDrawSelect {
+  box-sizing: border-box;
+  /* Wide enough for the option emoji plus the native dropdown arrow:
+     the right padding reserves the arrow area so the drawn object is
+     never partially covered. */
+  width: 5em;
+  max-width: 90%;
+  padding: 0.25em 1.6em 0.25em 0.5em;
+  background-color: #ffffff;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+
+.mtDrawSelect:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+/*
+ * The drawn objects are rendered in rows on top of each other. The visible
+ * size comes from the "--mt-size" custom property, computed per drawing area
+ * by htDrawMultiplicationObjectSize (src/js/ht_math.js) so the widest row
+ * fits the box; the clamp below only serves as the fallback when the JS
+ * sizing could not run.
+ */
+.mtDraw {
+  --mt-size: clamp(1em, 2.2vw, 1.6em);
+}
+
+/*
+ * Each "times" row is an inline-flex line so rows that would not fit the
+ * box wrap their objects instead of overflowing horizontally. Rows keep the
+ * vertical centering created by the <br /> elements around them.
+ */
+.mtDrawRow {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  line-height: 1.15;
+  font-size: var(--mt-size, 1em);
+}
+
+/*
+ * The objects fill their row; .mtDrawBox gets as much width as the layout
+ * allows on wide screens.
+ */
+.mtDrawEmoji {
+  font-size: 1em;
+  line-height: 1.15;
+}
+
+/* On narrow screens the two boxes stack vertically, so the drawing area
+   uses almost the full width and the objects stay large on phones. */
+@media (max-width: 600px) {
+  .mtLeftBox,
+  .mtDrawBox {
+    display: block !important;
+    width: 96% !important;
+  }
+
+  .mtDrawBox {
+    margin-top: 0.6em;
+  }
+}

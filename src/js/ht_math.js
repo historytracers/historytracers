@@ -347,11 +347,105 @@ function htPlotLinearFunction(target, tmin, tmax, fillArea, continuous) {
     return htPlotConstantContinuousChart(chartOptions);
 }
 
+/*
+ * Objects used to visualize a multiplication in the times-table pages created
+ * by htWriteMultiplicationTable. The first entry is the default and shows the
+ * same star that can be selected in the drawing-object selector; the remaining
+ * entries are UTF-8 emojis chosen to call the attention of the children
+ * between 6 and 8 years old who use the site. Each entry also carries the
+ * plain label shown in the selector option.
+ */
+var htMultiplicationTableObjects = [
+    { draw: "<span class=\"mtDrawEmoji\">⭐</span>", option: "⭐" },
+    { draw: "<span class=\"mtDrawEmoji\">🐶</span>", option: "🐶" },
+    { draw: "<span class=\"mtDrawEmoji\">🐱</span>", option: "🐱" },
+    { draw: "<span class=\"mtDrawEmoji\">🦄</span>", option: "🦄" },
+    { draw: "<span class=\"mtDrawEmoji\">🐼</span>", option: "🐼" },
+    { draw: "<span class=\"mtDrawEmoji\">🐸</span>", option: "🐸" },
+    { draw: "<span class=\"mtDrawEmoji\">🐢</span>", option: "🐢" },
+    { draw: "<span class=\"mtDrawEmoji\">🐝</span>", option: "🐝" },
+    { draw: "<span class=\"mtDrawEmoji\">🐞</span>", option: "🐞" },
+    { draw: "<span class=\"mtDrawEmoji\">🦕</span>", option: "🦕" },
+    { draw: "<span class=\"mtDrawEmoji\">🐠</span>", option: "🐠" },
+    { draw: "<span class=\"mtDrawEmoji\">🍎</span>", option: "🍎" },
+    { draw: "<span class=\"mtDrawEmoji\">🍓</span>", option: "🍓" },
+    { draw: "<span class=\"mtDrawEmoji\">🍭</span>", option: "🍭" },
+    { draw: "<span class=\"mtDrawEmoji\">🍪</span>", option: "🍪" },
+    { draw: "<span class=\"mtDrawEmoji\">🎈</span>", option: "🎈" },
+    { draw: "<span class=\"mtDrawEmoji\">⚽</span>", option: "⚽" },
+    { draw: "<span class=\"mtDrawEmoji\">🚀</span>", option: "🚀" },
+    { draw: "<span class=\"mtDrawEmoji\">🌈</span>", option: "🌈" },
+    { draw: "<span class=\"mtDrawEmoji\">🎵</span>", option: "🎵" }
+];
+
+// Returns the HTML that draws one unit of the object selected for the table
+// that owns "target". "target" is the inner drawing area ("#mtDraw<tValue>"),
+// so the selector id is derived by swapping the "mtDraw" prefix for
+// "mtSelect". Callers outside the times tables (e.g. "#visual") or selectors
+// holding an invalid value fall back to the default star.
+function htMultiplicationTableObject(target) {
+    var selectObject = $(String(target).replace("mtDraw", "mtSelect"));
+    if (selectObject.length > 0) {
+        var idx = parseInt(selectObject.val());
+        if (!isNaN(idx) && idx >= 0 && idx < htMultiplicationTableObjects.length) {
+            return htMultiplicationTableObjects[idx].draw;
+        }
+    }
+    return htMultiplicationTableObjects[0].draw;
+}
+
+/*
+ * Object-size limits for the times-table drawing area. htDrawMultiplicationObjectSize
+ * picks the largest size that fits the widest row (angularC objects) inside the
+ * drawing box, clamped between MT_DRAW_MIN_OBJECT_PX and MT_DRAW_MAX_OBJECT_PX.
+ * The chosen size is published to the CSS as the "--mt-size" custom property,
+ * so .mtDrawRow spans resize without touching the surrounding page text.
+ */
+var MT_DRAW_MIN_OBJECT_PX = 10;
+var MT_DRAW_MAX_OBJECT_PX = 28;
+
+// Computes and publishes the drawing-object size (in px) for one drawing
+// area, so the widest row (|angularC| objects) fits the available width.
+// Rows that still do not fit wrap inside .mtDrawRow (inline-flex), so the
+// box never overflows horizontally. External callers (e.g. "#visual") and
+// sandboxed $ objects without width()/css() simply keep the CSS fallback.
+function htDrawMultiplicationObjectSize(target, angularC) {
+    try {
+        var $area = $(String(target));
+        if (!$area || $area.length === 0 || typeof $area.width !== "function" || typeof $area.css !== "function") {
+            return false;
+        }
+        var avail = parseInt($area.width(), 10);
+        if (isNaN(avail) || avail <= 0) {
+            return false;
+        }
+        var objects = parseInt(angularC, 10);
+        if (isNaN(objects) || objects < 1) {
+            objects = 1;
+        }
+        // Emoji advances are up to ~1.25em wide, so the 1.3 ratio makes the
+        // computed size fit the widest row without needing the flex wrap.
+        var size = Math.floor((avail - (objects - 1) * 2) / (objects * 1.3));
+        if (size > MT_DRAW_MAX_OBJECT_PX) {
+            size = MT_DRAW_MAX_OBJECT_PX;
+        }
+        if (size < MT_DRAW_MIN_OBJECT_PX) {
+            size = MT_DRAW_MIN_OBJECT_PX;
+        }
+        $area.css("--mt-size", size + "px");
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
 function htDrawMultiplicationTable(target, angularC, repeat) {
     var angulartext = "";
     let angVal = (angularC >= 0 ) ? angularC : -1*parseInt(angularC);
+    htDrawMultiplicationObjectSize(target, angVal);
+    var drawing = htMultiplicationTableObject(target);
     for (let i = 0; i < angVal; i++) {
-        angulartext += "<i class=\"fa-solid fa-star\" style=\"font-size:0.8em;\"></i>";
+        angulartext += drawing;
     }
 
     var additionalSpace = (12 - repeat)/2;
@@ -363,7 +457,7 @@ function htDrawMultiplicationTable(target, angularC, repeat) {
     
     let prefix = (angularC >= 0) ? "" : "-";
     for (let i = 0; i < repeat; i++) {
-        text += prefix+angulartext+"<br />";
+        text += "<span class=\"mtDrawRow\">"+prefix+angulartext+"</span><br />";
     }
 
     if (repeat % 2 == 1) {
@@ -379,18 +473,153 @@ function htResetMultiplicationTable(target) {
         $(target).html(mathKeywords[17]+"<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />");
 }
 
+// localStorage key that always holds the latest drawing object chosen by the
+// user. It goes through the guarded htPrefsRead/htPrefsWrite helpers in
+// ht_common.js (which wrap localStorage), so the choice persists in the
+// browsers and in the viewer engine. When no choice was ever stored, the
+// selector falls back to the default star.
+var htMultiplicationObjectPrefKey = "ht_multiplication_object";
+
+// Returns the drawing-object index passed via the "mtobj" URL query
+// parameter, or -1 when absent/invalid. Like language and calendar, an
+// explicit URL parameter comes from a shared link, so it wins over the
+// stored choice while present.
+function htMultiplicationObjectURLIndex() {
+    try {
+        if (typeof window !== "undefined" && typeof window.location === "object" && typeof URLSearchParams === "function") {
+            var raw = new URLSearchParams(window.location.search).get("mtobj");
+            if (typeof raw === "string" && raw.length > 0) {
+                var idx = parseInt(raw);
+                if (!isNaN(idx) && idx >= 0 && idx < htMultiplicationTableObjects.length) {
+                    return idx;
+                }
+            }
+        }
+    } catch (e) {
+    }
+    return -1;
+}
+
+// Returns the index of the latest object the user selected, or -1 when
+// nothing valid was stored (e.g. first visit or privacy mode). Sources are
+// checked in order: "mtobj" URL parameter (shared links), the viewer
+// injection "window.__ht_mtobj" (src/viewer serves the choice stored in the
+// browser-independent viewer options, exactly like language and calendar),
+// and finally the local storage value. The helpers live in ht_common.js, so
+// their availability is verified to keep this file usable standalone (unit
+// tests).
+function htSavedMultiplicationObjectIndex() {
+    var fromURL = htMultiplicationObjectURLIndex();
+    if (fromURL >= 0) {
+        return fromURL;
+    }
+    try {
+        if (typeof window !== "undefined" && window.__ht_mtobj !== undefined && window.__ht_mtobj !== null && window.__ht_mtobj !== "") {
+            var viewerIdx = parseInt(window.__ht_mtobj);
+            if (!isNaN(viewerIdx) && viewerIdx >= 0 && viewerIdx < htMultiplicationTableObjects.length) {
+                return viewerIdx;
+            }
+        }
+    } catch (eViewer) {
+    }
+    try {
+        if (typeof htPrefsRead === "function") {
+            var idx = parseInt(htPrefsRead(htMultiplicationObjectPrefKey));
+            if (!isNaN(idx) && idx >= 0 && idx < htMultiplicationTableObjects.length) {
+                return idx;
+            }
+        }
+    } catch (e) {
+    }
+    return -1;
+}
+
+// Called when the user picks another object in one of the selectors. Stores
+// the latest choice and syncs every other times table already rendered on the
+// screen, so all of them keep showing the user's current choice. In the
+// viewer (src/viewer) the choice is additionally POSTed to /api/options with
+// a partial update, so the server stores it like the language and the
+// calendar and reinjects it ("window.__ht_mtobj") on the next runs.
+function htMultiplicationObjectChanged(selectObject) {
+    try {
+        var idx = parseInt(selectObject.value);
+        if (isNaN(idx) || idx < 0 || idx >= htMultiplicationTableObjects.length) {
+            return;
+        }
+        if (typeof htPrefsWrite === "function") {
+            htPrefsWrite(htMultiplicationObjectPrefKey, String(idx));
+        }
+        // Viewer storage: the token is injected only inside the viewer
+        // (window.__ht_token, mirrored in sessionStorage); when it is absent
+        // we are in a normal browser and no /api/options endpoint exists.
+        try {
+            var viewerToken = "";
+            if (typeof window !== "undefined" && window.__ht_token) {
+                viewerToken = window.__ht_token;
+            } else if (typeof sessionStorage === "object" && typeof sessionStorage.getItem === "function") {
+                viewerToken = sessionStorage.getItem("__ht_token") || "";
+            }
+            if (viewerToken && typeof window !== "undefined" && typeof window.fetch === "function") {
+                window.fetch("/api/options", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "X-HT-Token": viewerToken
+                    },
+                    body: "mtobj=" + encodeURIComponent(String(idx))
+                }).catch(function(){});
+            }
+        } catch (eViewer) {
+        }
+        if (typeof document !== "undefined" && document.querySelectorAll) {
+            var allSelects = document.querySelectorAll("select.mtDrawSelect");
+            for (var i = 0; i < allSelects.length; i++) {
+                if (allSelects[i] !== selectObject) {
+                    allSelects[i].value = String(idx);
+                }
+            }
+        }
+    } catch (e) {
+    }
+}
+
+// Builds the object selector shown at the top of a times-table drawing area.
+// The options are emoji (see htMultiplicationTableObjects), so the selector is
+// language independent; "mathKeywords[78]" only labels it for aria/title.
+// Changing a selector stores the choice (htMultiplicationObjectChanged) and
+// every new table opens with the latest stored choice preselected, so the
+// user sees the last used object as the default on all later screens.
+function htMultiplicationObjectSelector(tValue) {
+    var label = (typeof mathKeywords !== "undefined" && mathKeywords.length > 78) ? mathKeywords[78] : "";
+    var savedIdx = htSavedMultiplicationObjectIndex();
+    var text = "<span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select class=\"mtDrawSelect\" id=\"mtSelect"+tValue+"\" aria-label=\""+label+"\" title=\""+label+"\" onchange=\"htMultiplicationObjectChanged(this);\">";
+    for (let i = 0; i < htMultiplicationTableObjects.length; i++) {
+        text += "<option value=\""+i+"\""+((i == savedIdx) ? " selected" : "")+">"+htMultiplicationTableObjects[i].option+"</option>";
+    }
+    return text+"</select></span>";
+}
+
 
 function htWriteMultiplicationTable(target, tValue) {
+    // tValue is the multiplication table coefficient. Coerce it to an integer
+    // before building the element ids and the inline hover handlers below, so
+    // a value that came from the DOM (e.g. a select) can never inject markup.
+    tValue = parseInt(tValue, 10);
     var localTarget0 = "#mt"+tValue;
     var localTarget1 = "#mtTable"+tValue;
-    $(target).append("<div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 40%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\"></div>");
+    var localTarget2 = "#mtDraw"+tValue;
+    $(target).append("<div class=\"mtLeftBox\" style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div class=\"mtDrawBox\" style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 40%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\">"+htMultiplicationObjectSelector(tValue)+"<div id=\"mtDraw"+tValue+"\" class=\"mtDraw\"></div></div>");
     $(localTarget0).append("<b style=\"font-size: 0.9em;\">"+mathKeywords[16]+tValue+"</b><br />");
-    htResetMultiplicationTable(localTarget1);
+    htResetMultiplicationTable(localTarget2);
 
     var angularCoef = parseInt(tValue);
+    // The drawing area starts with the object size fitted to its widest
+    // possible row, so the empty state already reserves the right height
+    // and the first hover shows large objects without a jump.
+    htDrawMultiplicationObjectSize(localTarget2, Math.abs(angularCoef));
     for (let i = 0; i < 11; i++) {
         var product =  angularCoef * i;
-        $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget1+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget1+"');\" style=\"font-size: 0.9em;\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
+        $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget2+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget2+"');\" style=\"font-size: 0.9em;\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
     }
 }
 
