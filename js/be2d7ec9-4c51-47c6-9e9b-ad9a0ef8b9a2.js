@@ -8,6 +8,7 @@ var lValues2 = [];
 
 var leftbe2d7ec9 = 0;
 var rightbe2d7ec9 = 0;
+var inverseSelectedbe2d7ec9 = "0";
 
 var mayaProductVector = [];
 var firstVector = [];
@@ -281,6 +282,67 @@ function htChangeCalcTable6481070f0 (tableId) {
 }
 
 
+function htUpdateInverseHandsbe2d7ec9(left, right) {
+    $("#rightHandImg4").attr("src", "images/HistoryTracers/"+right+"Right_Hand_Small.png");
+    $("#leftHandImg4").attr("src", "images/HistoryTracers/"+left+"Left_Hand_Small.png");
+}
+
+function htResetInverseValuesbe2d7ec9() {
+    htCleanYupanaDecimalValues('#yupana2');
+
+    if (inverseSelectedbe2d7ec9 == "0") {
+        // Inverse ISKAY: 3 - 1 = 2
+        htUpdateInverseHandsbe2d7ec9(3, 1);
+        htFillYupanaDecimalValues('#yupana2', 3, 2, 'red_dot_right_up');
+        htFillYupanaDecimalValues('#yupana2', 1, 2, 'blue_dot_right_bottom');
+    } else if (inverseSelectedbe2d7ec9 == "1") {
+        // Inverse KIMSA: 5 - 1 = 4
+        htUpdateInverseHandsbe2d7ec9(5, 1);
+        htFillYupanaDecimalValues('#yupana2', 5, 2, 'red_dot_right_up');
+        htFillYupanaDecimalValues('#yupana2', 1, 2, 'blue_dot_right_bottom');
+    } else if (inverseSelectedbe2d7ec9 == "2") {
+        // Inverse PISQA: 10 - 5 = 5
+        htUpdateInverseHandsbe2d7ec9(1, 5);
+        htFillYupanaDecimalValues('#yupana2', 10, 2, 'red_dot_right_up');
+        htFillYupanaDecimalValues('#yupana2', 5, 2, 'blue_dot_right_bottom');
+    } else if (inverseSelectedbe2d7ec9 == "3") {
+        // Inverse PICHANA: 3 - 2 = 1
+        htUpdateInverseHandsbe2d7ec9(3, 2);
+        htFillYupanaDecimalValues('#yupana2', 3, 2, 'red_dot_right_up');
+        htFillYupanaDecimalValues('#yupana2', 2, 2, 'blue_dot_right_bottom');
+    } else if (inverseSelectedbe2d7ec9 == "4") {
+        // Inverse KINKIN: two unit markers (1 + 1), one red and one blue
+        htUpdateInverseHandsbe2d7ec9(1, 1);
+        htFillYupanaDecimalValues('#yupana2', 1, 2, 'red_dot_right_up');
+        htFillYupanaDecimalValues('#yupana2', 1, 2, 'blue_dot_right_bottom');
+    }
+}
+
+function htSetInverseValuesbe2d7ec9() {
+    htCleanYupanaDecimalValues('#yupana2');
+
+    if (inverseSelectedbe2d7ec9 == "0") {
+        // Inverse ISKAY: 3 - 1 = 2
+        htUpdateInverseHandsbe2d7ec9(2, 0);
+        htFillYupanaDecimalValues('#yupana2', 2, 2, 'red_dot_right_up');
+    } else if (inverseSelectedbe2d7ec9 == "1") {
+        // Inverse KIMSA: 5 - 1 = 4
+        htUpdateInverseHandsbe2d7ec9(4, 0);
+        htFillYupanaDecimalValues('#yupana2', 4, 2, 'red_dot_right_up');
+    } else if (inverseSelectedbe2d7ec9 == "2") {
+        // Inverse PISQA: 10 - 5 = 5
+        htUpdateInverseHandsbe2d7ec9(5, 0);
+        htFillYupanaDecimalValues('#yupana2', 5, 2, 'red_dot_right_up');
+    } else if (inverseSelectedbe2d7ec9 == "3") {
+        // Inverse PICHANA: 3 - 2 = 1
+        htUpdateInverseHandsbe2d7ec9(1, 0);
+        htFillYupanaDecimalValues('#yupana2', 1, 2, 'red_dot_right_up');
+    } else if (inverseSelectedbe2d7ec9 == "4") {
+        // Inverse KINKIN: the two unit markers cancel out (1 + 1 -> 0, no markers)
+        htUpdateInverseHandsbe2d7ec9(0, 0);
+    }
+}
+
 function htLoadContent() {
     $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
         $("input[name='yupanaradio']").prop("checked", false);
@@ -362,11 +424,24 @@ function htLoadContent() {
         $("#mathmessage").html(errmsg);
     });
 
-    $( "input[name='yupanaradio2']" ).on( "change", function() {
+    $("input[name='yupanaradio2']" ).on( "change", function() {
         yupanaSelected = $(this).val();
         htResetValuesbe2d7ec9();
 
         htUpdateYupanabe2d7ec9(leftbe2d7ec9, rightbe2d7ec9);
+    });
+
+    $( "input[name='yupanaradio3']" ).on( "change", function() {
+        inverseSelectedbe2d7ec9 = $(this).val();
+        htResetInverseValuesbe2d7ec9();
+    });
+
+    $("#traineeUp4").on("click", function() {
+        htSetInverseValuesbe2d7ec9();
+    });
+
+    $("#traineeDown4").on("click", function() {
+        htResetInverseValuesbe2d7ec9();
     });
 
     $("#traineeUp3").on("click", function() {
@@ -414,6 +489,10 @@ function htLoadContent() {
 
     htSetImageSrc("leftHandImg3", "images/HistoryTracers/5Left_Hand_Small.png");
     htSetImageSrc("rightHandImg3", "images/HistoryTracers/5Right_Hand_Small.png");
+    htSetImageSrc("leftHandImg4", "images/HistoryTracers/3Left_Hand_Small.png");
+    htSetImageSrc("rightHandImg4", "images/HistoryTracers/1Right_Hand_Small.png");
     htSetImageSrc("imgPoma", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_0362.jpg");
+
+    htResetInverseValuesbe2d7ec9();
     return false;
 }
