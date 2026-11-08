@@ -5,6 +5,8 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+    htSetImageSrc("imgKhaldunBook1", "images/Archive/16173_0242.jpg");
+
     return false;
 }
 
