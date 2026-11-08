@@ -21,6 +21,7 @@ function htLoadContent() {
     htSetImageSrc("imgPomaCalendar", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_1140.jpg");
     htSetImageSrc("imgMundus", "images/Archive/mundusnovuslette00vesp_0011.jpg");
     htSetImageSrc("imgDalton73", "images/Archive/newsystemofchemi01daltuoft_0087.jpg");
+    htSetImageSrc("imgKhaldunBook1", "images/Archive/16173_0242.jpg");
     htPlusDivs(0);
 
     return false;
