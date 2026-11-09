@@ -2,6 +2,10 @@
 
 var slideIndexea34a7b6 = 0;
 
+/**
+ * Moves the image gallery forward or backward.
+ * @param {number} n - 1 for the next slide, -1 for the previous one.
+ */
 function htPlusDivs(n) {
     var x = document.getElementsByClassName("htSlide");
 
@@ -11,6 +15,10 @@ function htPlusDivs(n) {
     htShowSlideDivs(x, slideIndexea34a7b6);
 }
 
+/**
+ * Initializes the gallery page when the content is loaded.
+ * @returns {boolean} Always false to stop the default content handler.
+ */
 function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc("imgBRES140", "images/Archive/BRes140146_0206.jpg");
@@ -21,6 +29,7 @@ function htLoadContent() {
     htSetImageSrc("imgPomaCalendar", "images/Archive/PrimerNuevaCoronicayBuenoGobiernoManuscrito_1140.jpg");
     htSetImageSrc("imgMundus", "images/Archive/mundusnovuslette00vesp_0011.jpg");
     htSetImageSrc("imgDalton73", "images/Archive/newsystemofchemi01daltuoft_0087.jpg");
+    htSetImageSrc("imgKhaldunBook1", "images/Archive/16173_0242.jpg");
     htPlusDivs(0);
 
     return false;
