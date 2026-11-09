@@ -16,11 +16,21 @@ var localNeg = {};
 
 var HT_NEG_DIGITS = 3;
 
+/**
+ * Returns the localized name of an order (units, tens, hundreds).
+ * @param {number} order - The order index, starting at 0 for units.
+ * @returns {string} The localized order name.
+ */
 function htNegOrderName(order) {
     return $("#htNegOrder" + order).text();
 }
 
-// Returns the digits of value from the units order upwards (index 0 = units).
+/**
+ * Returns the digits of value from the units order upwards (index 0 = units).
+ * @param {number} value - The value whose digits are extracted.
+ * @param {number} length - The number of digits to return.
+ * @returns {number[]} The digits, from units to the highest order.
+ */
 function htNegDigits(value, length) {
     var digits = [];
     var v = value;
@@ -31,6 +41,12 @@ function htNegDigits(value, length) {
     return digits;
 }
 
+/**
+ * Replaces {placeholders} in a localized template with the given values.
+ * @param {string} template - The localized template text.
+ * @param {Object<string, string|number>} values - The values for each placeholder.
+ * @returns {string} The template with all placeholders replaced.
+ */
 function htNegReplace(template, values) {
     for (var key in values) {
         template = template.replace(new RegExp("\\{" + key + "\\}", "g"), values[key]);
@@ -38,14 +54,16 @@ function htNegReplace(template, values) {
     return template;
 }
 
-// Draws the vertical addition of the magnitudes. The minus sign of the two
-// operands and of the result sits in its own column on the left, where the ten
-// thousands place would be, so it never shares a column with a digit. That way
-// a carry out of the last order is written in the thousands column and does not
-// land on top of the minus signs. The carry row, the two operands with the +
-// sign, the result line and the result row keep the same layout as the
-// "Practicing addition" game. The column being solved is highlighted and a
-// column shows its result digit only once it has been solved.
+/**
+ * Draws the vertical addition of the magnitudes. The minus sign of the two
+ * operands and of the result sits in its own column on the left, where the ten
+ * thousands place would be, so it never shares a column with a digit. That way
+ * a carry out of the last order is written in the thousands column and does not
+ * land on top of the minus signs. The carry row, the two operands with the +
+ * sign, the result line and the result row keep the same layout as the
+ * "Practicing addition" game. The column being solved is highlighted and a
+ * column shows its result digit only once it has been solved.
+ */
 function htNegBuildBoard() {
     var d = HT_NEG_DIGITS;
     var current = localNeg.column;
@@ -53,14 +71,28 @@ function htNegBuildBoard() {
     var aDigits = localNeg.addendDigits;
     var total = localNeg.base + localNeg.added;
 
+    /**
+     * Builds a cell for the operator/sign column.
+     * @param {string} content - The HTML content of the cell.
+     * @returns {string} The cell markup.
+     */
     function opCell(content) {
         return "<td class=\"htAddOp\">" + content + "</td>";
     }
-    // The minus sign is kept in its own column, to the left of the thousands,
-    // where the ten thousands place would be.
+    /**
+     * Builds the sign cell where the minus sign is kept.
+     * @param {string} content - The HTML content of the cell.
+     * @returns {string} The cell markup.
+     */
     function signCell(content) {
         return "<td class=\"htAddOp\">" + content + "</td>";
     }
+    /**
+     * Builds a digit cell, highlighting the column being solved.
+     * @param {number} order - The order index of the cell.
+     * @param {string} content - The HTML content of the cell.
+     * @returns {string} The cell markup.
+     */
     function cell(order, content) {
         var cls = "htAddCell" + (order === current ? " htAddCellActive" : "");
         return "<td class=\"" + cls + "\" data-order=\"" + order + "\">" + content + "</td>";
@@ -116,17 +148,19 @@ function htNegBuildBoard() {
     $("#htNegTable").html(rows);
 }
 
-// Draws the squares of the column. The whole column is shown from the start:
-// the "base" light blue squares are the digit of the magnitude already in the
-// column and the remaining squares stand for the bottom digit to be added. Each
-// click turns one of those squares light yellow, and the ones not filled yet
-// stay neutral. Once the count reaches ten, those ten squares are grouped,
-// showing the 1 that goes to the next order, and the squares left outside the
-// group show the digit that stays in the column.
-// The squares sitting between the value already in the column and the ten are
-// its complement: they are the ones that close the group of ten. They are
-// marked so the learner can see the complement and how those squares were used
-// during the addition.
+/**
+ * Draws the squares of the column. The whole column is shown from the start:
+ * the "base" light blue squares are the digit of the magnitude already in the
+ * column and the remaining squares stand for the bottom digit to be added. Each
+ * click turns one of those squares light yellow, and the ones not filled yet
+ * stay neutral. Once the count reaches ten, those ten squares are grouped,
+ * showing the 1 that goes to the next order, and the squares left outside the
+ * group show the digit that stays in the column.
+ * The squares sitting between the value already in the column and the ten are
+ * its complement: they are the ones that close the group of ten. They are
+ * marked so the learner can see the complement and how those squares were used
+ * during the addition.
+ */
 function htNegDrawSquares() {
     var base = localNeg.base;
     var addend = localNeg.addendDigit;
@@ -136,6 +170,12 @@ function htNegDrawSquares() {
     var html = "";
     var i;
 
+    /**
+     * Builds one square of the column, marking base, added and complement
+     * squares.
+     * @param {number} index - The position of the square in the column.
+     * @returns {string} The square markup.
+     */
     function square(index) {
         var cls = "htAddSquare";
         if (index < base) {
@@ -175,10 +215,14 @@ function htNegDrawSquares() {
     htNegUpdateSquaresNote(added, complement);
 }
 
-// Spells out, for the column being solved, the complement and how the squares
-// were used: how many have been added, how many completed the ten and how many
-// stayed outside the group. It is refreshed on every click, so the highlight
-// follows the addition step by step.
+/**
+ * Spells out, for the column being solved, the complement and how the squares
+ * were used: how many have been added, how many completed the ten and how many
+ * stayed outside the group. It is refreshed on every click, so the highlight
+ * follows the addition step by step.
+ * @param {number} added - The number of squares added so far.
+ * @param {number} complement - The number of squares needed to complete ten.
+ */
 function htNegUpdateSquaresNote(added, complement) {
     var note = htNegReplace($("#htNegSquaresUsedTemplate").text(), {
         used: added
@@ -203,7 +247,9 @@ function htNegUpdateSquaresNote(added, complement) {
     $("#htNegSquaresNote").text(note);
 }
 
-// Prepares the column that must be solved next.
+/**
+ * Prepares the column that must be solved next.
+ */
 function htNegSetupColumn() {
     var column = localNeg.column;
     var firstDigit = localNeg.firstDigits[column];
@@ -246,22 +292,13 @@ function htNegSetupColumn() {
     htNegDrawSquares();
 }
 
-// The buttons add or remove one yellow square at a time. The column is solved
-// as soon as the squares added match the bottom digit of the second number.
+/**
+ * The buttons add or remove one yellow square at a time. The column is solved
+ * as soon as the squares added match the bottom digit of the second number.
+ * @param {number} delta - 1 to add a square, -1 to remove one.
+ */
 function htNegChange(delta) {
     if (localNeg.answered) {
-        return;
-    }
-
-    // The first click only reveals the value already in the column. The
-    // following clicks add or remove squares.
-    if (!localNeg.started) {
-        localNeg.started = true;
-        htNegDrawSquares();
-        htNegBuildBoard();
-        if (localNeg.added === localNeg.addendDigit) {
-            htNegResolve();
-        }
         return;
     }
 
@@ -282,7 +319,9 @@ function htNegChange(delta) {
     }
 }
 
-// Records the result digit of the column and the 1 it carries, if any.
+/**
+ * Records the result digit of the column and the 1 it carries, if any.
+ */
 function htNegResolve() {
     if (localNeg.answered) {
         return;
@@ -326,8 +365,10 @@ function htNegResolve() {
     }
 }
 
-// Moves to the next column of the same addition, bringing the carry along, or
-// starts a new addition once the last column is done.
+/**
+ * Moves to the next column of the same addition, bringing the carry along, or
+ * starts a new addition once the last column is done.
+ */
 function htNegNext() {
     if (!localNeg.answered) {
         return;
@@ -343,6 +384,9 @@ function htNegNext() {
     htNegSetupColumn();
 }
 
+/**
+ * Builds the order tabs (units, tens, hundreds) shown above the board.
+ */
 function htNegBuildOrders() {
     var $orders = $("#htNegOrders");
     $orders.empty();
@@ -355,6 +399,9 @@ function htNegBuildOrders() {
     }
 }
 
+/**
+ * Draws a new addition problem with two random three-digit magnitudes.
+ */
 function htNegNewProblem() {
     localNeg.first = htGetRandomArbitrary(100, 1000);
     localNeg.addend = htGetRandomArbitrary(100, 1000);
@@ -368,6 +415,10 @@ function htNegNewProblem() {
     htNegSetupColumn();
 }
 
+/**
+ * Initializes the exercise when the page content is loaded.
+ * @returns {boolean} Always false to stop the default content handler.
+ */
 function htLoadContent() {
     htWriteNavigation();
 

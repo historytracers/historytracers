@@ -2,6 +2,10 @@
 
 var slideIndexea34a7b6 = 0;
 
+/**
+ * Moves the image gallery forward or backward.
+ * @param {number} n - 1 for the next slide, -1 for the previous one.
+ */
 function htPlusDivs(n) {
     var x = document.getElementsByClassName("htSlide");
 
@@ -11,6 +15,10 @@ function htPlusDivs(n) {
     htShowSlideDivs(x, slideIndexea34a7b6);
 }
 
+/**
+ * Initializes the gallery page when the content is loaded.
+ * @returns {boolean} Always false to stop the default content handler.
+ */
 function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc("imgBRES140", "images/Archive/BRes140146_0206.jpg");
