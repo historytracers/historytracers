@@ -14,6 +14,10 @@
 
 var localRealCompare = {};
 
+/**
+ * Returns the active site language code, defaulting to "en-US".
+ * @returns {string} Language code used for number formatting.
+ */
 function htRealCompareLocale() {
     var lang = "en-US";
     try {
@@ -24,6 +28,11 @@ function htRealCompareLocale() {
     return lang;
 }
 
+/**
+ * Formats an integer with the locale grouping separator.
+ * @param {number} intPart Integer part of the number.
+ * @returns {string} Localized integer, or the plain string on failure.
+ */
 function htRealCompareGrouped(intPart) {
     var out = String(intPart);
     try {
@@ -35,6 +44,10 @@ function htRealCompareGrouped(intPart) {
     return out;
 }
 
+/**
+ * Returns the decimal separator used by the active locale.
+ * @returns {string} Decimal separator character.
+ */
 function htRealCompareDecSep() {
     var sample = "1.1";
     try {
@@ -45,6 +58,12 @@ function htRealCompareDecSep() {
     return sample.charAt(1);
 }
 
+/**
+ * Converts a value stored in tenths to its display string.
+ * @param {number} tenths Number of tenths to format.
+ * @param {boolean} withDecimal Whether to append the decimal part.
+ * @returns {string} Localized number, with or without one decimal place.
+ */
 function htRealCompareFormat(tenths, withDecimal) {
     var intPart = Math.floor(tenths / 10);
     var grouped = htRealCompareGrouped(intPart);
@@ -54,6 +73,11 @@ function htRealCompareFormat(tenths, withDecimal) {
     return grouped + htRealCompareDecSep() + (tenths % 10);
 }
 
+/**
+ * Builds an ordered pair of distinct values for the given level.
+ * @param {number} level Zero-based level index (0 to 3).
+ * @returns {number[]} Two distinct values stored in tenths.
+ */
 function htRealComparePair(level) {
     var a = 0;
     var b = 1;
@@ -92,10 +116,23 @@ function htRealComparePair(level) {
     return [a, b];
 }
 
+/**
+ * Replaces the {big} and {small} placeholders in a template.
+ * @param {string} template Message template.
+ * @param {string} big Formatted larger value.
+ * @param {string} small Formatted smaller value.
+ * @returns {string} Template with all placeholders replaced.
+ */
 function htRealCompareFill(template, big, small) {
     return template.replace(/\{big\}/g, big).replace(/\{small\}/g, small);
 }
 
+/**
+ * Shows a feedback message with the matching correct/wrong style.
+ * @param {boolean} correct Whether the answer was correct.
+ * @param {string} message Feedback markup to display.
+ * @returns {void}
+ */
 function htRealCompareShowFeedback(correct, message) {
     var feedback = $("#htRealCompareFeedback");
     feedback.removeClass("htGreaterSmallerCorrect htGreaterSmallerWrong");
@@ -103,6 +140,10 @@ function htRealCompareShowFeedback(correct, message) {
     feedback.html(message);
 }
 
+/**
+ * Renders the current pair, operator and level indicator.
+ * @returns {void}
+ */
 function htRealCompareRender() {
     $("#htRealCompareLeft").text(htRealCompareFormat(localRealCompare.left, localRealCompare.level !== 0));
     $("#htRealCompareRight").text(htRealCompareFormat(localRealCompare.right, localRealCompare.level !== 0));
@@ -110,6 +151,11 @@ function htRealCompareRender() {
     $("#htRealCompareLevel").text($("#htRealCompareLevelTemplate").text().replace("{n}", localRealCompare.level + 1));
 }
 
+/**
+ * Starts a new round, optionally changing the level.
+ * @param {number} [newLevel] Level to switch to; keeps the current one when omitted.
+ * @returns {void}
+ */
 function htRealCompareSetup(newLevel) {
     if (newLevel !== undefined) {
         localRealCompare.level = newLevel;
@@ -128,6 +174,11 @@ function htRealCompareSetup(newLevel) {
     $("#htRealCompareNextBtn").text($("#htRealCompareNextLabel").text());
 }
 
+/**
+ * Checks the answer for the current pair and shows the feedback.
+ * @param {boolean} userSaysInOrder Whether the player said the numbers are in order.
+ * @returns {void}
+ */
 function htRealCompareAnswer(userSaysInOrder) {
     if (localRealCompare.answered) {
         return;
@@ -146,7 +197,8 @@ function htRealCompareAnswer(userSaysInOrder) {
     localRealCompare.wasCorrect = correct;
 
     if (correct && localRealCompare.level === 3) {
-        message = $("#htRealCompareMsgFinal").html();
+        message = htRealCompareFill($("#htRealCompareMsgCorrectMuch").html(), big, small) +
+            " " + $("#htRealCompareMsgFinal").html();
         htRealCompareShowFeedback(true, message);
         $("#htRealCompareNextBtn").text($("#htRealComparePlayAgain").text()).removeClass("hidden");
     } else {
@@ -166,6 +218,10 @@ function htRealCompareAnswer(userSaysInOrder) {
     $("#htRealCompareNotBtn").prop("disabled", true);
 }
 
+/**
+ * Advances to the next level, or restarts after the last one.
+ * @returns {void}
+ */
 function htRealCompareNext() {
     if (!localRealCompare.answered || !localRealCompare.wasCorrect) {
         return;
@@ -177,6 +233,10 @@ function htRealCompareNext() {
     }
 }
 
+/**
+ * Initializes the game after the content page loads.
+ * @returns {boolean} Always false to signal handled content loading.
+ */
 function htLoadContent() {
     htWriteNavigation();
 
