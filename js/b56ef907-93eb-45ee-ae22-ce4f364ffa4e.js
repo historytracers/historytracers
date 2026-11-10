@@ -34,10 +34,19 @@ function htCubeStringFillTemplate(template, value) {
     return template.replace(/\{la\}/g, value);
 }
 
+function htCubeStringSyncButtons() {
+    $("#htStringsApp .htStringsPlus").prop("disabled",
+        localCubeStringLength >= htCubeStringMax());
+    $("#htStringsApp .htStringsMinus").prop("disabled",
+        localCubeStringLength <= 1);
+}
+
 function htCubeStringRender() {
     htCubeStringBuildTrack();
     $("#htStringsComparisons").html("<p class=\"htStringsComparison\">" +
         htCubeStringFillTemplate($("#htStringsMsgLength").html(), localCubeStringLength) + "</p>");
+    $("#htStringsApp .htStringsValue").text(localCubeStringLength);
+    htCubeStringSyncButtons();
 }
 
 function htCubeStringChange(delta) {
@@ -117,6 +126,17 @@ function htCubeRectFillTemplate(template, l1, h1) {
         .replace(/\{h1\}/g, h1);
 }
 
+function htCubeRectSyncButtons() {
+    $("#htRectApp .htRectPlus").each(function() {
+        $(this).prop("disabled",
+            localCubeRect[$(this).data("dim")] >= htCubeRectMax());
+    });
+    $("#htRectApp .htRectMinus").each(function() {
+        $(this).prop("disabled",
+            localCubeRect[$(this).data("dim")] <= 1);
+    });
+}
+
 function htCubeRectRender() {
     htCubeRectBuildGrid("htRectGrid1", localCubeRect.len, localCubeRect.hei);
 
@@ -130,6 +150,10 @@ function htCubeRectRender() {
     if (equal) {
         feedback.addClass("htRectFeedbackEqual");
     }
+    $("#htRectApp .htRectVal").each(function() {
+        $(this).text(localCubeRect[$(this).data("dim")]);
+    });
+    htCubeRectSyncButtons();
 }
 
 function htCubeRectChange(dim, delta) {
@@ -166,6 +190,7 @@ function htCubeRectInit() {
 // Three-dimensional cubes: figure and practice.
 //
 var localCubes = {};
+var localCubeAxisLabels = {};
 
 function htCubeMax() {
     return 5;
@@ -229,10 +254,14 @@ function htCubeSvgRuler(from, to, count, normal, color, label, rotate) {
     return out;
 }
 
-function htCubeSvg(dims, withRulers, labels) {
+function htCubeSvg(dims, withRulers, labels, rulerMax) {
     var length = dims.len;
     var width = dims.wid;
     var height = dims.hei;
+    var maxRuler = rulerMax || 0;
+    var layoutLength = Math.max(length, maxRuler);
+    var layoutWidth = Math.max(width, maxRuler);
+    var layoutHeight = Math.max(height, maxRuler);
     var unit = 19;
     var canvasWidth = 300;
     var canvasHeight = 300;
@@ -242,12 +271,12 @@ function htCubeSvg(dims, withRulers, labels) {
     var padBottom = 45;
     var cos30 = 0.8660254;
     var sin30 = 0.5;
-    var boxWidth = cos30 * (length + width) * unit;
-    var boxHeight = (height + sin30 * (length + width)) * unit;
+    var boxWidth = cos30 * (layoutLength + layoutWidth) * unit;
+    var boxHeight = (layoutHeight + sin30 * (layoutLength + layoutWidth)) * unit;
     var extraX = Math.max(0, (canvasWidth - padLeft - padRight - boxWidth) / 2);
     var extraY = Math.max(0, (canvasHeight - padTop - padBottom - boxHeight) / 2);
-    var originX = padLeft + cos30 * width * unit + extraX;
-    var originY = padTop + height * unit + extraY;
+    var originX = padLeft + cos30 * layoutWidth * unit + extraX;
+    var originY = padTop + layoutHeight * unit + extraY;
 
     function project(x, y, z) {
         return [
@@ -283,15 +312,34 @@ function htCubeSvg(dims, withRulers, labels) {
     svg += htCubeSvgPolygon(top, "#7fb3e0");
 
     if (withRulers) {
+        var rulerLength = (maxRuler > 0) ? maxRuler : length;
+        var rulerWidth = (maxRuler > 0) ? maxRuler : width;
+        var rulerHeight = (maxRuler > 0) ? maxRuler : height;
+
+        // Height: straight vertical ruler on the right side of the cube,
+        // with 0 at the bottom edge of the cube.
         svg += htCubeSvgRuler(
-            project(0, width, 0), project(0, width, height), height,
-            [-1, 0], "#2e7d32", labels.hei, true);
+            project(length, 0, 0), project(length, 0, rulerHeight), rulerHeight,
+            [1, 0], "#2e7d32", labels.hei, true);
+
+        // Length: straight horizontal ruler below the cube,
+        // with 0 at the cube's left edge.
+        var leftX = project(0, width, 0)[0];
+        var bottomY = project(length, width, 0)[1];
         svg += htCubeSvgRuler(
-            project(0, width, 0), project(length, width, 0), length,
-            [-0.5, 0.8660254], "#2f6fb3", labels.len, false);
+            [leftX, bottomY], [leftX + rulerLength * unit, bottomY], rulerLength,
+            [0, 1], "#2f6fb3", labels.len, false);
+
+        // Width: ruler along the top face's left edge, from the front edge
+        // (0) towards the back, aligned with the cube's width direction.
+        var widthFrom = project(0, width, height);
+        var widthTo = [
+            widthFrom[0] + cos30 * rulerWidth * unit,
+            widthFrom[1] - sin30 * rulerWidth * unit
+        ];
         svg += htCubeSvgRuler(
-            project(length, 0, 0), project(length, width, 0), width,
-            [0.5, 0.8660254], "#e07b39", labels.wid, false);
+            widthFrom, widthTo, rulerWidth,
+            [-sin30, -cos30], "#e07b39", labels.wid, false);
     } else {
         var lengthMid = [
             (project(0, width, 0)[0] + project(length, width, 0)[0]) / 2 - 12,
@@ -332,9 +380,26 @@ function htCubeFillTemplate(template, l1, l2, w1, w2, h1, h2) {
         .replace(/\{h2\}/g, h2);
 }
 
+function htCubeSyncButtons() {
+    $("#htCubeApp .htCubePlus").each(function() {
+        $(this).prop("disabled",
+            localCubes[$(this).data("htcube")][$(this).data("dim")] >= htCubeMax());
+    });
+    $("#htCubeApp .htCubeMinus").each(function() {
+        $(this).prop("disabled",
+            localCubes[$(this).data("htcube")][$(this).data("dim")] <= 1);
+    });
+}
+
 function htCubeRender() {
-    $("#htCubeCanvas1").html(htCubeSvg(localCubes["1"], false, null));
-    $("#htCubeCanvas2").html(htCubeSvg(localCubes["2"], false, null));
+    $("#htCubeCanvas1").html(htCubeSvg(
+        localCubes["1"], true, localCubeAxisLabels, htCubeMax()));
+    $("#htCubeCanvas2").html(htCubeSvg(
+        localCubes["2"], true, localCubeAxisLabels, htCubeMax()));
+    htCubeSyncButtons();
+    $("#htCubeApp .htCubeVal").each(function() {
+        $(this).text(localCubes[$(this).data("htcube")][$(this).data("dim")]);
+    });
 
     var c1 = localCubes["1"];
     var c2 = localCubes["2"];
@@ -369,14 +434,14 @@ function htCubeInit() {
         "2": { "len": 4, "wid": 4, "hei": 4 }
     };
 
-    var labels = {
+    localCubeAxisLabels = {
         "len": $("#htCubeLabelLength").text(),
         "wid": $("#htCubeLabelWidth").text(),
         "hei": $("#htCubeLabelHeight").text()
     };
 
     $("#htCubeFigure").html(htCubeSvg(
-        { "len": 4, "wid": 4, "hei": 4 }, true, labels));
+        { "len": 4, "wid": 4, "hei": 4 }, true, localCubeAxisLabels));
 
     htCubeRender();
 

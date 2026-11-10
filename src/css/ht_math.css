@@ -3181,13 +3181,19 @@ p.desc svg {
 
 .htStringsGrid {
   display: grid;
-  grid-template-columns: 1.2em 2.2em minmax(0, 1fr) 2.2em;
+  grid-template-columns: 1.2em 2.2em minmax(0, 1fr) 2.2em 1.8em;
   align-items: center;
   justify-items: stretch;
   column-gap: 0.3em;
   row-gap: 0.3em;
   max-width: 32em;
   margin: 0 auto;
+}
+
+.htStringsValue {
+  justify-self: start;
+  font-weight: bold;
+  color: #2f6fb3;
 }
 
 .htStringsLabel {
@@ -3272,7 +3278,7 @@ p.desc svg {
 
 @media screen and (max-width: 400px) {
   .htStringsGrid {
-    grid-template-columns: 1.1em 1.9em minmax(0, 1fr) 1.9em;
+    grid-template-columns: 1.1em 1.9em minmax(0, 1fr) 1.9em 1.6em;
     column-gap: 0.25em;
   }
 
@@ -4278,7 +4284,7 @@ p.desc svg {
 
 .htCubeCanvas {
   width: 100%;
-  max-width: 15em;
+  max-width: 18em;
 }
 
 .htCubeControls {
@@ -4321,6 +4327,27 @@ p.desc svg {
   gap: 0.15em;
 }
 
+.htCubeVal,
+.htRectVal {
+  font-weight: bold;
+  align-self: center;
+  margin-left: 0.25em;
+  min-width: 1.1em;
+  text-align: center;
+}
+
+.htCubeVal[data-dim="len"] {
+  color: #2f6fb3;
+}
+
+.htCubeVal[data-dim="wid"] {
+  color: #e07b39;
+}
+
+.htCubeVal[data-dim="hei"] {
+  color: #2e7d32;
+}
+
 .htCubeBtn {
   width: 1.6em;
   height: 1.6em;
@@ -4337,6 +4364,19 @@ p.desc svg {
 
 .htCubeBtn:hover {
   background: #e0e0e0;
+}
+
+.htStringsBtn:disabled,
+.htRectBtn:disabled,
+.htCubeBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.htStringsBtn:disabled:hover,
+.htRectBtn:disabled:hover,
+.htCubeBtn:disabled:hover {
+  background: #f0f0f0;
 }
 
 .htCubeFeedback {
