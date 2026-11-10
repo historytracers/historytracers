@@ -1,0 +1,118 @@
+{
+   "title": "¿Mayor o Menor? (Números reales)",
+   "header": "¿Mayor o Menor? (Números reales)",
+   "sources": [
+      "c13b96c3-525c-42ac-8958-4c1bca1d40c1"
+   ],
+   "scripts": [
+      "c13b96c3-525c-42ac-8958-4c1bca1d40c1"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/c13b96c3-525c-42ac-8958-4c1bca1d40c1_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/3jg65CZSYil6zIoqZJvq9U?si=XtfodmBMSwaMBlPdwtD_gQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps_volume2",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794232810"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisitos\n\nEste juego practica las ideas del texto *Realidad* (<htcite0>). Antes de jugar, lee ese texto para ver cómo los números decimales llenan el espacio entre los enteros que usamos para contar, y recuerda la regla que dice cuál de dos números es mayor o menor: el lado abierto del símbolo siempre mira al número mayor.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3c038244-e808-4ad2-bc2a-4663cbfeae3d",
+                     "text": "History Tracers Team",
+                     "page": "Realidad",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Juego\n\nAparecen dos números: **A** a la izquierda y **B** a la derecha. Pregúntate: ¿es B mayor que A? Es decir, ¿están los números en orden (A < B)? (<htcite0>; <htcite1>).\n\nElige **En orden** cuando el número de la derecha sea mayor que el de la izquierda, o **Fuera de orden** cuando sea menor. El lado abierto del símbolo siempre mira al número mayor. Esta vez los números pueden tener una posición decimal. Hay cuatro niveles: el primero compara solo enteros del 0 al 9; el segundo compara números con la misma parte entera pero decimales diferentes; el tercero compara números entre 0 y 100, cada uno con una posición decimal, sin necesidad de la misma parte entera; y el último compara un número pequeño entre 0 y 9 con uno entre 1 millón y 10 millones, ambos con una posición decimal, así que escribimos mucho mayor (≫) y mucho menor (≪). El juego explica cada respuesta. Para probar otro par, haz clic en el botón **Nuevo ejercicio**, y después de una respuesta correcta puedes pasar al **Siguiente nivel**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htGreaterSmallerGame\"><span class=\"htGreaterSmallerLevel\" id=\"htRealCompareLevel\"></span><span class=\"htGreaterSmallerQuestion\" id=\"htRealCompareQuestion\">¿Están los números en orden? ¿Es B mayor que A?</span><div class=\"htGreaterSmallerCards\"><div class=\"htGreaterSmallerCard\"><span class=\"htGreaterSmallerLabel\">A</span><span class=\"htGreaterSmallerValue text_to_paint\" id=\"htRealCompareLeft\">0</span></div><span class=\"htGreaterSmallerOp\" id=\"htRealCompareOp\">&lt;</span><div class=\"htGreaterSmallerCard\"><span class=\"htGreaterSmallerLabel\">B</span><span class=\"htGreaterSmallerValue text_to_paint\" id=\"htRealCompareRight\">1</span></div></div><div class=\"htGreaterSmallerButtonsRow\"><button type=\"button\" id=\"htRealCompareInBtn\" class=\"htGreaterSmallerButton\">En orden</button><button type=\"button\" id=\"htRealCompareNotBtn\" class=\"htGreaterSmallerButton\">Fuera de orden</button></div><div class=\"htGreaterSmallerFeedback\" id=\"htRealCompareFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htGreaterSmallerNextContainer\"><button type=\"button\" id=\"htRealCompareNewBtn\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button><button type=\"button\" id=\"htRealCompareNextBtn\" class=\"reset-tutor-btn hidden\">Siguiente nivel</button></div><span id=\"htRealCompareLevelTemplate\" class=\"htGreaterSmallerHidden\">Nivel {n} de 4</span><span id=\"htRealCompareMsgCorrect\" class=\"htGreaterSmallerHidden\">🎉 ¡Felicitaciones! El número {big} es mayor que {small} ({small} < {big}).</span><span id=\"htRealCompareMsgCorrectMuch\" class=\"htGreaterSmallerHidden\">🎉 ¡Felicitaciones! El número {big} es mucho mayor que {small} ({big} ≫ {small}).</span><span id=\"htRealCompareMsgWrong\" class=\"htGreaterSmallerHidden\">Vamos a recordar: El número {small} es menor que el número {big}. ({small} < {big}).</span><span id=\"htRealCompareMsgWrongMuch\" class=\"htGreaterSmallerHidden\">Vamos a recordar: El número {small} es mucho menor que el número {big}. ({small} ≪ {big}).</span><span id=\"htRealCompareMsgFinal\" class=\"htGreaterSmallerHidden\">🎉🎉🎉 ¡Felicitaciones! ¡Completaste todos los niveles! 🎉🎉🎉</span><span id=\"htRealComparePlayAgain\" class=\"htGreaterSmallerHidden\">Jugar de nuevo</span><span id=\"htRealCompareNextLabel\" class=\"htGreaterSmallerHidden\">Siguiente nivel</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
