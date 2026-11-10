@@ -322,13 +322,16 @@ function htCubeSvg(dims, withRulers, labels, rulerMax) {
             project(length, 0, 0), project(length, 0, rulerHeight), rulerHeight,
             [1, 0], "#2e7d32", labels.hei, true);
 
-        // Length: straight horizontal ruler below the cube,
-        // with 0 at the cube's left edge.
-        var leftX = project(0, width, 0)[0];
-        var bottomY = project(length, width, 0)[1];
+        // Length: ruler along the front-left bottom edge, from the left
+        // corner (0) towards the front, aligned with the cube's length.
+        var lengthFrom = project(0, width, 0);
+        var lengthTo = [
+            lengthFrom[0] + cos30 * rulerLength * unit,
+            lengthFrom[1] + sin30 * rulerLength * unit
+        ];
         svg += htCubeSvgRuler(
-            [leftX, bottomY], [leftX + rulerLength * unit, bottomY], rulerLength,
-            [0, 1], "#2f6fb3", labels.len, false);
+            lengthFrom, lengthTo, rulerLength,
+            [-sin30, cos30], "#2f6fb3", labels.len, false);
 
         // Width: ruler along the top face's left edge, from the front edge
         // (0) towards the back, aligned with the cube's width direction.
