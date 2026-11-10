@@ -1,0 +1,301 @@
+{
+   "title": "Medir en tres dimensiones",
+   "header": "Medir en tres dimensiones",
+   "sources": [
+      "b56ef907-93eb-45ee-ae22-ce4f364ffa4e"
+   ],
+   "scripts": [
+      "b56ef907-93eb-45ee-ae22-ce4f364ffa4e"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/b56ef907-93eb-45ee-ae22-ce4f364ffa4e_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794324587"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisito\n\nAntes de continuar, lee los dos textos en los que se apoya esta lección: **Cuando el tamaño importa** (<htcite0>), donde aprendimos a medir un objeto en una dirección con una regla, y **Comparar en más de una dirección** (<htcite1>), donde repetimos esa medición en una segunda dirección. Esta lección añade la tercera dirección.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "87f5f133-067e-439f-ab1d-eaf45e304079",
+                     "text": "History Tracers Team",
+                     "page": "When size matters",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "03bb4b8e-6187-4572-8f00-ea3892df51a4",
+                     "text": "History Tracers Team",
+                     "page": "Comparing in more than one direction",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nYa aprendimos a medir en dos direcciones diferentes. En **Cuando el tamaño importa** medimos la longitud de un objeto a lo largo de una línea (<htcite0>), y en **Comparar en más de una dirección** medimos la longitud y la altura y comparamos ambos resultados (<htcite1>). Pero medir en dos direcciones es todavía solo una parte de la comparación: un objeto puede coincidir con otro en longitud y altura y seguir siendo diferente en la dirección que aún no hemos medido.\n\nAntes de continuar, mira a tu alrededor. Elige un objeto cercano —una caja, un libro, un ladrillo o un mueble— y obsérvalo con atención.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "87f5f133-067e-439f-ab1d-eaf45e304079",
+                     "text": "History Tracers Team",
+                     "page": "When size matters",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "03bb4b8e-6187-4572-8f00-ea3892df51a4",
+                     "text": "History Tracers Team",
+                     "page": "Comparing in more than one direction",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Cuántas direcciones?</b><br /><br />Ya aprendimos a medir en dos direcciones diferentes. ¿Es suficiente para describir el tamaño del objeto que acabas de observar? ¿Conoces algo que tenga menos de tres dimensiones?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Todos los objetos sólidos que nos rodean se extienden en tres direcciones: longitud, ancho y altura. Estas tres direcciones se llaman las **tres dimensiones**. La tercera dirección es la que todavía no hemos medido, y es el tema de este texto.\n\nAntes de continuar, intenta encontrar un ejemplo. Una sombra en la pared, un dibujo en una hoja de papel o un punto en un mapa pueden ayudarte a pensar en objetos que tienen solo una o dos dimensiones.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_one_direction",
+         "text": [
+            {
+               "text": "### Recordar una dirección\n\nEn **Cuando el tamaño importa** (<htcite0>) medimos un objeto en una sola dirección. Colocamos el objeto sobre la regla de modo que un extremo coincidiera con la marca **0**, lo mantuvimos recto y leímos el número donde se detenía el otro extremo. Ese número era la medida del objeto en esa dirección. Dos objetos que se detienen en la misma marca son **iguales en una dirección**.\n\nEl método no cambia cuando medimos una cinta. Una cinta es larga en una sola dirección, así que una sola regla es suficiente. Repitamos la medición y leamos el resultado.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "87f5f133-067e-439f-ab1d-eaf45e304079",
+                     "text": "History Tracers Team",
+                     "page": "When size matters",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Práctica\n\nAbajo hay una cinta azul. Usa los botones **+** y **−** para alargarla o acortarla y observa la regla que está debajo. La frase debajo de la cinta te dice su longitud en la dirección de la regla.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htStringsApp\" id=\"htStringsApp\"><div class=\"htStringsGrid\"><span class=\"htStringsLabel\">1</span><button type=\"button\" class=\"htStringsBtn htStringsMinus\" data-htstring=\"1\" aria-label=\"Cinta más corta\">−</button><div class=\"htStringsTrack\" id=\"htStringsTrack1\"></div><button type=\"button\" class=\"htStringsBtn htStringsPlus\" data-htstring=\"1\" aria-label=\"Cinta más larga\">+</button><span class=\"htStringsLabel\"></span><span class=\"htStringsSpacer\"></span><div class=\"htStringsRuler\" id=\"htStringsRuler\"></div><span class=\"htStringsSpacer\"></span></div><div class=\"htStringsComparisons\" id=\"htStringsComparisons\"></div><span id=\"htStringsMsgLength\" class=\"htStringsHidden\">La cinta azul mide {la} en la dirección de la regla.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_two_directions",
+         "text": [
+            {
+               "text": "### Recordar dos direcciones\n\nEn **Comparar en más de una dirección** (<htcite0>) repetimos el mismo método en una segunda dirección. Para medir la **longitud**, colocamos el objeto sobre una regla horizontal; para medir la **altura**, lo colocamos sobre una regla vertical. Luego comparamos las dos medidas. También vimos que un cuadrado es la figura cuya longitud y altura son iguales.\n\nLos pasos son los mismos que antes: elegir la dirección, empezar en **0**, mantener el objeto recto y leer la marca donde termina. Practiquemos con un cuadrado.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "03bb4b8e-6187-4572-8f00-ea3892df51a4",
+                     "text": "History Tracers Team",
+                     "page": "Comparing in more than one direction",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Práctica\n\nAbajo hay una figura azul. Usa los botones **+** y **−** para cambiar su longitud y su altura. Las reglas muestran las dos medidas. Haz que la figura sea un cuadrado: la longitud y la altura deben ser iguales. Lee la frase que aparece abajo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htRectApp\" id=\"htRectApp\"><div class=\"htRectBoard\"><div class=\"htRectHRuler\" id=\"htRectHRulerTop\"></div><div class=\"htRectControls\" data-htrect=\"1\"><span class=\"htRectLabel\">1</span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Longitud</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"1\" data-dim=\"len\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"1\" data-dim=\"len\">+</button></span></span><span class=\"htRectCtrl\"><span class=\"htRectCtrlName\">Altura</span><span class=\"htRectCtrlBtns\"><button type=\"button\" class=\"htRectBtn htRectMinus\" data-htrect=\"1\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htRectBtn htRectPlus\" data-htrect=\"1\" data-dim=\"hei\">+</button></span></span></div><div class=\"htRectGrid\" id=\"htRectGrid1\"></div><div class=\"htRectVRuler\" id=\"htRectVRuler1\"></div><div class=\"htRectHRuler\" id=\"htRectHRuler\"></div></div><div class=\"htRectFeedback\" id=\"htRectFeedback\"></div><span id=\"htRectMsgSquare\" class=\"htRectHidden\">El cuadrado azul tiene longitud {l1} y altura {h1}. Es un cuadrado porque las dos medidas son iguales.</span><span id=\"htRectMsgNotSquare\" class=\"htRectHidden\">La figura azul tiene longitud {l1} y altura {h1}. Todavía no es un cuadrado porque las dos medidas son diferentes.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_three_dimensions",
+         "text": [
+            {
+               "text": "### Medir en tres direcciones\n\nAhora añadimos la tercera dirección. Longitud, ancho y altura son las tres dimensiones de un objeto sólido. Un **cubo** es un objeto sólido cuyas medidas de longitud, ancho y altura son todas iguales.\n\nPara medir un cubo no necesitamos un método nuevo. Elegimos una dirección, colocamos una arista del cubo sobre la regla de modo que empiece en **0**, mantenemos esa arista recta y leemos la marca donde termina. Después repetimos el mismo paso en las otras dos direcciones:\n\n1. **Longitud**: mide la arista frontal, de izquierda a derecha.\n2. **Ancho**: mide la arista lateral, de delante hacia atrás.\n3. **Altura**: mide la arista vertical, de abajo hacia arriba.\n\nLas tres medidas son las tres dimensiones del cubo. Dos cubos son **totalmente iguales** solo cuando coinciden las tres medidas. Si solo coinciden una o dos, los cubos son iguales en esas direcciones pero diferentes en las demás.\n\n**La Figura 1** muestra un cubo y tres reglas, una para cada dirección. Cada regla empieza en 0 y termina en la medida de su arista.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htCubeFigure\" id=\"htCubeFigure\"></div><span id=\"htCubeLabelLength\" class=\"htCubeHidden\">Longitud</span><span id=\"htCubeLabelWidth\" class=\"htCubeHidden\">Ancho</span><span id=\"htCubeLabelHeight\" class=\"htCubeHidden\">Altura</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Figura 1</b>: Un cubo medido en las tres direcciones: longitud, ancho y altura.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Práctica\n\nAbajo hay dos cubos de tamaños diferentes. Usa los botones **+** y **−** para cambiar la longitud, el ancho y la altura de cada cubo. Los números junto a las aristas muestran las tres medidas.\n\nHaz que los dos cubos sean **totalmente iguales**: las tres medidas deben coincidir. Lee la frase que aparece abajo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htCubeApp\" id=\"htCubeApp\"><div class=\"htCubeGrid\"><div class=\"htCubeCard\"><div class=\"htCubeCanvas\" id=\"htCubeCanvas1\"></div><div class=\"htCubeControls\" data-htcube=\"1\"><span class=\"htCubeLabel\">Cubo 1</span><span class=\"htCubeCtrl\"><span class=\"htCubeCtrlName htCubeLen\">Longitud</span><span class=\"htCubeCtrlBtns\"><button type=\"button\" class=\"htCubeBtn htCubeMinus\" data-htcube=\"1\" data-dim=\"len\">−</button><button type=\"button\" class=\"htCubeBtn htCubePlus\" data-htcube=\"1\" data-dim=\"len\">+</button></span></span><span class=\"htCubeCtrl\"><span class=\"htCubeCtrlName htCubeWid\">Ancho</span><span class=\"htCubeCtrlBtns\"><button type=\"button\" class=\"htCubeBtn htCubeMinus\" data-htcube=\"1\" data-dim=\"wid\">−</button><button type=\"button\" class=\"htCubeBtn htCubePlus\" data-htcube=\"1\" data-dim=\"wid\">+</button></span></span><span class=\"htCubeCtrl\"><span class=\"htCubeCtrlName htCubeHei\">Altura</span><span class=\"htCubeCtrlBtns\"><button type=\"button\" class=\"htCubeBtn htCubeMinus\" data-htcube=\"1\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htCubeBtn htCubePlus\" data-htcube=\"1\" data-dim=\"hei\">+</button></span></span></div></div><div class=\"htCubeCard\"><div class=\"htCubeCanvas\" id=\"htCubeCanvas2\"></div><div class=\"htCubeControls\" data-htcube=\"2\"><span class=\"htCubeLabel\">Cubo 2</span><span class=\"htCubeCtrl\"><span class=\"htCubeCtrlName htCubeLen\">Longitud</span><span class=\"htCubeCtrlBtns\"><button type=\"button\" class=\"htCubeBtn htCubeMinus\" data-htcube=\"2\" data-dim=\"len\">−</button><button type=\"button\" class=\"htCubeBtn htCubePlus\" data-htcube=\"2\" data-dim=\"len\">+</button></span></span><span class=\"htCubeCtrl\"><span class=\"htCubeCtrlName htCubeWid\">Ancho</span><span class=\"htCubeCtrlBtns\"><button type=\"button\" class=\"htCubeBtn htCubeMinus\" data-htcube=\"2\" data-dim=\"wid\">−</button><button type=\"button\" class=\"htCubeBtn htCubePlus\" data-htcube=\"2\" data-dim=\"wid\">+</button></span></span><span class=\"htCubeCtrl\"><span class=\"htCubeCtrlName htCubeHei\">Altura</span><span class=\"htCubeCtrlBtns\"><button type=\"button\" class=\"htCubeBtn htCubeMinus\" data-htcube=\"2\" data-dim=\"hei\">−</button><button type=\"button\" class=\"htCubeBtn htCubePlus\" data-htcube=\"2\" data-dim=\"hei\">+</button></span></span></div></div></div><div class=\"htCubeFeedback\" id=\"htCubeFeedback\"></div><span id=\"htCubeMsgEqual\" class=\"htCubeHidden\">El cubo 1 y el cubo 2 son totalmente iguales: tienen la misma longitud ({l1}), el mismo ancho ({w1}) y la misma altura ({h1}).</span><span id=\"htCubeMsgDiff\" class=\"htCubeHidden\">El cubo 1 y el cubo 2 todavía no son totalmente iguales: las longitudes son {l1} y {l2}, los anchos son {w1} y {w2}, y las alturas son {h1} y {h2}. Haz que coincidan las tres medidas.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto completamos la comparación de objetos sólidos. Empezamos recordando cómo medir **una dirección** con una regla. Después recordamos cómo medir **dos direcciones**, longitud y altura, y cómo comparar ambas medidas. Finalmente añadimos la **tercera dirección**: longitud, ancho y altura son las tres dimensiones de un objeto sólido, y un cubo es el objeto cuyas tres medidas son iguales.\n\nPara medir un cubo seguimos los mismos pasos de siempre: elegir una dirección, empezar en 0, mantener la arista recta y leer la marca donde termina. Repetimos esto en las tres direcciones. La práctica mostró que dos cubos son totalmente iguales solo cuando coinciden las tres medidas.\n\nAhora también puedes responder la pregunta de la introducción: una sombra, un dibujo o un punto tienen menos de tres dimensiones, pero los objetos que nos rodean tienen tres. Medir en las tres direcciones nos da una descripción completa de su tamaño.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
