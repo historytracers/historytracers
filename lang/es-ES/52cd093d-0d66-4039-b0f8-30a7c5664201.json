@@ -1,0 +1,369 @@
+{
+   "title": "Decimales con Soroban y Suanpan (算盤)",
+   "header": "Decimales con Soroban y Suanpan (算盤)",
+   "sources": [
+      "52cd093d-0d66-4039-b0f8-30a7c5664201"
+   ],
+   "scripts": [
+      "52cd093d-0d66-4039-b0f8-30a7c5664201",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/52cd093d-0d66-4039-b0f8-30a7c5664201_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps_volume2"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794399210"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEn textos anteriores, aprendimos a representar números en el Soroban (算盤) y el Suanpan (算盤) (<htcite0>; <htcite1>), a avanzar hacia órdenes (familias) numéricas mayores manteniendo el marcador decimal (⚫) en la posición más a la derecha (<htcite2>) y a llenar los espacios entre los enteros con valores decimales (<htcite3>). En este texto, uniremos esos dos caminos: deslizaremos el marcador decimal (⚫) por la pista horizontal del ábaco para representar valores decimales en el Soroban (算盤) y el Suanpan (算盤).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Building to count (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Building to count (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4dc32200-392c-4d20-ae2d-0089b3c288bb",
+                     "text": "History Tracers Team",
+                     "page": "Higher orders with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3c038244-e808-4ad2-bc2a-4663cbfeae3d",
+                     "text": "History Tracers Team",
+                     "page": "Reality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nEn todos los textos sobre ábacos hasta ahora, el marcador decimal (⚫) se quedó en el mismo lugar: la posición más a la derecha (<htcite0>; <htcite1>; <htcite2>). Con el marcador allí, las nueve columnas de nuestro ábaco representan familias enteras: la columna más a la derecha es la de las unidades, y las familias crecen hacia la izquierda, hasta las centenas de millón.\n\nSin embargo, el ábaco de la versión de *History Tracers* esconde un detalle que todavía no hemos explorado: el marcador decimal (⚫) no está fijado al marco. Se desliza por una pista horizontal en el medio de las columnas. En este texto, por fin lo moveremos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Building to count (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Building to count (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4dc32200-392c-4d20-ae2d-0089b3c288bb",
+                     "text": "History Tracers Team",
+                     "page": "Higher orders with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Deslizando...</b><br /><br />Sin mover un solo marcador, ¿qué crees que ocurre con el valor mostrado en el ábaco cuando deslizamos el marcador decimal (⚫) hacia la izquierda?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_marker",
+         "text": [
+            {
+               "text": "### Moviendo el marcador\n\nPara mover el marcador decimal (⚫), coloca el puntero (o el dedo, en pantallas táctiles) sobre él, púlsalo y arrástralo por la pista horizontal que cruza el ábaco en el medio. Al soltarlo, el marcador se asienta en el espacio entre dos columnas.\n\nLa regla es simple: las columnas a la izquierda del marcador forman la parte entera, y las columnas a su derecha forman la parte fraccionaria (<htcite0>). Con el marcador en la posición más a la derecha, ninguna columna queda a su derecha: todas las columnas son enteras, y el valor mostrado termina en “.0”. Cuando deslizamos el marcador una columna a la izquierda, la columna más a la derecha deja de contar unidades y pasa a contar décimos. Al deslizarlo de nuevo, se crea una columna de centésimos, y así sucesivamente.\n\nVeamos qué representan las columnas de nuestro ábaco cuando el marcador está una columna a la izquierda de la posición más a la derecha.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Hoult",
+                     "page": "07:00 - 07:40",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<table class=\"tableTen tableTenBgBlue\"><tr><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>0.1</th> </tr> <tr><td>C. M.</td> <td>D. M.</td> <td>Millón</td> <td>C. Mi.</td> <td>D. Mi.</td> <td>Millar</td> <td>C.</td> <td>D.</td> <td>Décimo</td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabla 1</b>: Órdenes (familias) numéricas representadas en el Soroban cuando el marcador decimal (⚫) está una columna a la izquierda de la posición más a la derecha.<br />Donde: C. M. significa centena de millón; D. M., decena de millón; C. Mi., centena de millar; D. Mi., decena de millar; C., centena; D., decena.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "De la **Tabla 1**, podemos concluir que la posición del marcador decimal (⚫) sigue indicando dónde están las unidades (<htcite0>). Cada columna a su izquierda mantiene las familias enteras, que crecen hacia la izquierda, exactamente como antes; cada columna a su derecha ahora representa familias fraccionarias, que crecen hacia la derecha: décimos, centésimos, milésimos...\n\nObserva también el campo “Valor” del ábaco: ahora muestra un punto. Los dígitos a la izquierda del punto pertenecen a las familias enteras, y los dígitos a la derecha del punto pertenecen a las familias fraccionarias.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Hoult",
+                     "page": "04:38 - 07:00",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Practicando con decimales\n\n¡Hora de practicar! El ábaco de abajo es el mismo que usamos en los textos anteriores (<htcite0>), pero ahora podemos arrastrar su marcador decimal (⚫). Sigue los pasos y mantén la vista en el campo “Valor”.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4dc32200-392c-4d20-ae2d-0089b3c288bb",
+                     "text": "History Tracers Team",
+                     "page": "Higher orders with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: clamp(1.5rem, 5vw, 3.5rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: clamp(0.8rem, 3vw, 1.8rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 1100px; transition: all 0.2s ease; } .soroban-frame { background: #e9ddb0; border-radius: clamp(1rem, 3vw, 1.8rem); padding: clamp(8px, 2vw, 16px); box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; width: 100%; height: auto; aspect-ratio: 860 / 400; } .value-panel { margin-top: clamp(0.8rem, 4vw, 1.8rem); background: #2e241f; border-radius: 60px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);  display: flex; justify-content: space-between;  align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center;  gap: clamp(8px, 2vw, 18px); flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 0.4rem 1rem; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.9rem); letter-spacing: 1px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: clamp(0.7rem, 3.5vw, 1.2rem); font-weight: normal; background: #4a3929; color: #ffecb3; padding: 0.2rem 0.7rem; border-radius: 30px; margin-left: 8px;  white-space: nowrap; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.2rem); font-family: inherit; padding: 0.5rem 1.2rem; border-radius: 60px; cursor: pointer;  transition: 0.08s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; min-width: 100px; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822;  } .legend {  font-size: clamp(0.6rem, 2.8vw, 0.75rem); margin-top: 0; text-align: center;  color: #302419;  background: #ebdfbe; display: inline-block; width: auto;  padding: 0.3rem 0.9rem; border-radius: 60px; backdrop-filter: blur(2px); white-space: nowrap; } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 12px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 0.3rem 1rem; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; color: #302419; white-space: nowrap; } .mode-selector { background: #ebdfbe; border-radius: 60px;  padding: 0.3rem 1rem; display: flex;  gap: 12px; align-items: center; flex-wrap: wrap; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 3vw, 0.85rem); font-family: inherit; padding: 0.4rem 1rem; border-radius: 40px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; white-space: nowrap; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: clamp(0.65rem, 2.8vw, 0.75rem); } .warning-message { background: #ff9800; color: #2e241f; padding: 0.3rem 1rem; border-radius: 40px; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: normal; word-break: keep-all; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; } @media (max-width: 720px) { .value-panel { flex-direction: column; align-items: stretch; border-radius: 32px; } .value-panel-left { justify-content: center; } .readout { text-align: center; white-space: normal; word-break: break-word; } .footer { flex-direction: column; align-items: stretch; } .mode-selector, .info-area, .decimal-control { justify-content: center; } .legend { white-space: normal; text-align: center; } .reset-btn { text-align: center; width: 100%; } } @media (max-width: 480px) { .readout span { margin-left: 4px; } .mode-selector { justify-content: center; gap: 8px; } }.soroban-container,.soroban-frame{box-sizing:border-box}</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">¡Hay columna(s) con valores mayores que 9! Cada dígito debe mantenerse entre 0 y 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Deslizando hacia los décimos...</b><br />En esta práctica, deslizaremos el marcador decimal (⚫) y observaremos cómo los mismos marcadores cambian de familia.<br /><br />1. Haz clic en el botón <b>“Soroban (1x4)”</b>.<br />2. Con el marcador decimal (⚫) en la posición más a la derecha, mueve el marcador superior de la columna más a la derecha. El valor mostrado será 5.0.<br />3. Ahora arrastra el marcador decimal (⚫) una columna a la izquierda, sin tocar ningún marcador. El valor pasa a ser 0.5: los mismos marcadores ahora representan cinco décimos.<br />4. Añade dos marcadores inferiores a la misma columna más a la derecha. El valor pasa a ser 0.7 — cinco décimos más dos décimos.<br />5. Haz clic en <b>“⟳ Reiniciar”</b> y construye el valor 12.3: con el marcador una columna a la izquierda de la posición más a la derecha, mueve un marcador inferior en la tercera columna desde la derecha (las decenas), dos marcadores inferiores en la segunda columna desde la derecha (las unidades) y tres marcadores inferiores en la columna más a la derecha (los décimos).</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Centésimos en el Suanpan...</b><br />Ahora crearemos dos columnas fraccionarias a la vez.<br /><br />1. Haz clic en el botón <b>“Suanpan (2x5)”</b>.<br />2. Arrastra el marcador decimal (⚫) dos columnas a la izquierda de la posición más a la derecha. Las dos columnas más a la derecha ahora representan los décimos y los centésimos.<br />3. En la columna más a la derecha, mueve el marcador superior y dos marcadores inferiores. El valor muestra 0.07: siete centésimos. Observa el cero justo después del punto: la columna de los décimos está vacía, y su dígito aun así debe mostrarse.<br />4. En la columna de los décimos, mueve tres marcadores inferiores. El valor pasa a ser 0.37.<br />5. En la columna de las unidades, mueve un marcador inferior. El valor pasa a ser 1.37.<br />6. Para terminar, arrastra el marcador decimal (⚫) de vuelta a la posición más a la derecha, sin mover ningún marcador. ¡El valor salta a 137.0! Los mismos marcadores ahora representan ciento treinta y siete unidades: solo el marcador decide a qué familia pertenece cada columna.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En estas prácticas, observamos que los marcadores nunca cambiaron de columna: fue el marcador decimal (⚫) el que cambió la familia de cada columna. Por eso, la misma disposición mostró 1.37 con el marcador a la izquierda, y 137.0 con el marcador en la posición más a la derecha.\n\nEn el Suanpan (算盤), la alerta sobre valores mayores que 9 sigue funcionando de la misma manera (<htcite0>): cada columna, sea entera o fraccionaria, debe mantener su dígito entre 0 y 9.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4dc32200-392c-4d20-ae2d-0089b3c288bb",
+                     "text": "History Tracers Team",
+                     "page": "Higher orders with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, aprendimos que el marcador decimal (⚫) del Soroban (算盤) y del Suanpan (算盤) no está fijo: al deslizarlo por la pista horizontal, elegimos qué columnas representan familias enteras y cuáles representan familias fraccionarias, como los décimos y los centésimos.\n\nCon esto, el ábaco deja de ser una herramienta solo para contar y se convierte en una herramienta para medir: ahora podemos representar en él valores decimales de hasta nueve dígitos, exactamente como hacemos con los numerales indoarábigos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Cuando deslizamos el marcador decimal (⚫) hacia la izquierda, ¿las columnas a su derecha pasan a representar familias fraccionarias, como los décimos y los centésimos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "El marcador separa la parte entera, a su izquierda, de la parte fraccionaria, a su derecha: la primera columna a la derecha del marcador representa los décimos, la siguiente los centésimos, y así sucesivamente."
+      },
+      {
+         "question": "Cuando deslizamos el marcador decimal (⚫), ¿los marcadores también necesitan cambiar de columna?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Los marcadores se quedan donde están: solo cambia la familia de cada columna. Los mismos marcadores que mostraban 1.37 muestran 137.0 cuando el marcador vuelve a la posición más a la derecha."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
