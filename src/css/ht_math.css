@@ -3181,13 +3181,19 @@ p.desc svg {
 
 .htStringsGrid {
   display: grid;
-  grid-template-columns: 1.2em 2.2em minmax(0, 1fr) 2.2em;
+  grid-template-columns: 1.2em 2.2em minmax(0, 1fr) 2.2em 1.8em;
   align-items: center;
   justify-items: stretch;
   column-gap: 0.3em;
   row-gap: 0.3em;
   max-width: 32em;
   margin: 0 auto;
+}
+
+.htStringsValue {
+  justify-self: start;
+  font-weight: bold;
+  color: #2f6fb3;
 }
 
 .htStringsLabel {
@@ -3272,7 +3278,7 @@ p.desc svg {
 
 @media screen and (max-width: 400px) {
   .htStringsGrid {
-    grid-template-columns: 1.1em 1.9em minmax(0, 1fr) 1.9em;
+    grid-template-columns: 1.1em 1.9em minmax(0, 1fr) 1.9em 1.6em;
     column-gap: 0.25em;
   }
 
@@ -4233,6 +4239,172 @@ p.desc svg {
   .htRectVTick,
   .htRectHTick {
     font-size: 0.55em;
+  }
+}
+
+/*
+ * Cubes comparison practice (content b56ef907-93eb-45ee-ae22-ce4f364ffa4e).
+ */
+.htCubeFigure {
+  margin: 1em auto;
+  max-width: 22em;
+  box-sizing: border-box;
+}
+
+.htCubeFigure svg,
+.htCubeCanvas svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.htCubeApp {
+  margin: 1em auto;
+  max-width: 40em;
+  padding: 0.75em;
+  background-color: lightyellow;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.htCubeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75em;
+}
+
+.htCubeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
+  min-width: 0;
+}
+
+.htCubeCanvas {
+  width: 100%;
+  max-width: 18em;
+}
+
+.htCubeControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 0.85em;
+}
+
+.htCubeLabel {
+  font-weight: bold;
+}
+
+.htCubeCtrl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+}
+
+.htCubeCtrlName {
+  line-height: 1.1;
+}
+
+.htCubeLen {
+  color: #2f6fb3;
+}
+
+.htCubeWid {
+  color: #e07b39;
+}
+
+.htCubeHei {
+  color: #2e7d32;
+}
+
+.htCubeCtrlBtns {
+  display: inline-flex;
+  gap: 0.15em;
+}
+
+.htCubeVal,
+.htRectVal {
+  font-weight: bold;
+  align-self: center;
+  margin-left: 0.25em;
+  min-width: 1.1em;
+  text-align: center;
+}
+
+.htCubeVal[data-dim="len"] {
+  color: #2f6fb3;
+}
+
+.htCubeVal[data-dim="wid"] {
+  color: #e07b39;
+}
+
+.htCubeVal[data-dim="hei"] {
+  color: #2e7d32;
+}
+
+.htCubeBtn {
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #222;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.htCubeBtn:hover {
+  background: #e0e0e0;
+}
+
+.htStringsBtn:disabled,
+.htRectBtn:disabled,
+.htCubeBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.htStringsBtn:disabled:hover,
+.htRectBtn:disabled:hover,
+.htCubeBtn:disabled:hover {
+  background: #f0f0f0;
+}
+
+.htCubeFeedback {
+  margin-top: 0.75em;
+  text-align: left;
+}
+
+.htCubeFeedbackEqual {
+  font-weight: bold;
+}
+
+.htCubeHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .htCubeGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .htCubeControls {
+    font-size: 0.8em;
+  }
+
+  .htCubeBtn {
+    width: 1.5em;
+    height: 1.5em;
   }
 }
 
