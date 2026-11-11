@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794399210"
+      "1794423123"
    ],
    "authors": [
       ""
@@ -66,7 +66,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nEm textos anteriores, aprendemos a representar números no Soroban (算盤) e no Suanpan (算盤) (<htcite0>; <htcite1>), a avançar para ordens (famílias) numéricas maiores mantendo o marcador decimal (⚫) na posição mais à direita (<htcite2>) e a preencher os espaços entre os inteiros com valores decimais (<htcite3>). Neste texto, uniremos esses dois caminhos: deslizaremos o marcador decimal (⚫) pela pista horizontal do ábaco para representar valores decimais no Soroban (算盤) e no Suanpan (算盤).",
+               "text": "### Pré-requisitos\n\nEm textos anteriores, aprendemos a representar números no Soroban (算盤) e no Suanpan (算盤) (<htcite0>; <htcite1>), a avançar para ordens (famílias) numéricas maiores mantendo o marcador decimal (⚫) na posição mais à direita (<htcite2>) e a preencher os espaços entre os inteiros com valores decimais (<htcite3>). Recomendamos estudá-los antes de continuar.",
                "source": [
                   {
                      "type": 1,
@@ -211,7 +211,7 @@
                "PostMention": ""
             },
             {
-               "text": "<table class=\"tableTen tableTenBgBlue\"><tr><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>0.1</th> </tr> <tr><td>C. M.</td> <td>D. M.</td> <td>Milhão</td> <td>C. Mi.</td> <td>D. Mi.</td> <td>Milhar</td> <td>C.</td> <td>D.</td> <td>Décimo</td></tr></table>",
+               "text": "<table class=\"tableTen tableTenBgBlue\"><tr><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th> </tr> <tr><td>D. M.</td> <td>Milhão</td> <td>C. Mi.</td> <td>D. Mi.</td> <td>Milhar</td> <td>C.</td> <td>D.</td> <td>Unidade</td> <td>Décimo</td></tr></table>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -220,7 +220,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><b>Tabela 1</b>: Ordens (famílias) numéricas representadas no Soroban quando o marcador decimal (⚫) está uma coluna à esquerda da posição mais à direita.<br />Onde: C. M. significa centena de milhão; D. M., dezena de milhão; C. Mi., centena de milhar; D. Mi., dezena de milhar; C., centena; D., dezena.</p>",
+               "text": "<p class=\"desc\"><b>Tabela 1</b>: Ordens (famílias) numéricas representadas no Soroban quando o marcador decimal (⚫) está uma coluna à esquerda da posição mais à direita.<br />Onde: D. M. significa dezena de milhão; C. Mi., centena de milhar; D. Mi., dezena de milhar; C., centena; D., dezena.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -229,7 +229,7 @@
                "PostMention": ""
             },
             {
-               "text": "Da **Tabela 1**, podemos concluir que a posição do marcador decimal (⚫) continua indicando onde estão as unidades (<htcite0>). Cada coluna à sua esquerda mantém as famílias inteiras, que crescem para a esquerda, exatamente como antes; cada coluna à sua direita agora representa famílias fracionárias, que crescem para a direita: décimos, centésimos, milésimos...\n\nObserve também o campo “Valor” do ábaco: ele agora mostra um ponto. Os dígitos à esquerda do ponto pertencem às famílias inteiras, e os dígitos à direita do ponto pertencem às famílias fracionárias.",
+               "text": "Da **Tabela 1**, podemos concluir que a posição do marcador decimal (⚫) continua indicando onde estão as unidades (<htcite0>). Cada coluna à sua esquerda permanece nas famílias inteiras, que crescem para a esquerda, exatamente como antes; cada coluna à sua direita agora representa famílias fracionárias, que crescem para a direita: décimos, centésimos, milésimos...\n\nNa verdade, cada coluna mudou de família: a coluna que continha as centenas agora contém as dezenas, a coluna que continha as dezenas é agora a das unidades, e a antiga coluna das unidades agora conta décimos.\n\nObserve também o campo “Valor” do ábaco: ele agora mostra um ponto. Os dígitos à esquerda do ponto pertencem às famílias inteiras, e os dígitos à direita do ponto pertencem às famílias fracionárias.",
                "source": [
                   {
                      "type": 1,
@@ -305,7 +305,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Centésimos no Suanpan...</b><br />Agora criaremos duas colunas fracionárias de uma vez.<br /><br />1. Clique no botão <b>“Suanpan (2x5)”</b>.<br />2. Arraste o marcador decimal (⚫) duas colunas à esquerda da posição mais à direita. As duas colunas mais à direita agora representam os décimos e os centésimos.<br />3. Na coluna mais à direita, mova o marcador superior e dois marcadores inferiores. O valor mostra 0.07: sete centésimos. Observe o zero logo depois do ponto: a coluna dos décimos está vazia, e o seu dígito ainda assim deve ser mostrado.<br />4. Na coluna dos décimos, mova três marcadores inferiores. O valor passa a ser 0.37.<br />5. Na coluna das unidades, mova um marcador inferior. O valor passa a ser 1.37.<br />6. Para terminar, arraste o marcador decimal (⚫) de volta para a posição mais à direita, sem mover nenhum marcador. O valor salta para 137.0! Os mesmos marcadores agora representam cento e trinta e sete unidades: só o marcador decide a qual família cada coluna pertence.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Centésimos no Suanpan...</b><br />Agora criaremos duas colunas fracionárias de uma vez.<br /><br />1. Clique no botão <b>“Suanpan (2x5)”</b>.<br />2. Arraste o marcador decimal (⚫) duas colunas à esquerda da posição mais à direita. As duas colunas mais à direita agora representam os décimos e os centésimos.<br />3. Na coluna mais à direita, mova o marcador superior e dois marcadores inferiores. O valor mostra 0.07: sete centésimos. Observe o zero logo depois do ponto: a coluna dos décimos está vazia, e o seu dígito ainda assim deve ser mostrado.<br />4. Na coluna dos décimos, mova três marcadores inferiores. O valor passa a ser 0.37.<br />5. Na coluna das unidades, mova um marcador inferior. O valor passa a ser 1.37.<br />6. Para terminar, arraste o marcador decimal (⚫) de volta para a posição mais à direita, sem mover nenhum marcador. O valor salta para 137.0! Os mesmos marcadores agora representam cento e trinta e sete unidades: só o marcador decimal decide a qual família cada coluna pertence.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -361,7 +361,7 @@
       {
          "question": "Quando deslizamos o marcador decimal (⚫), os marcadores também precisam mudar de coluna?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Os marcadores ficam onde estão: apenas a família de cada coluna muda. Os mesmos marcadores que mostravam 1.37 mostram 137.0 quando o marcador volta para a posição mais à direita."
+         "additionalInfo": "Os marcadores ficam onde estão: apenas a família de cada coluna muda. Os mesmos marcadores que mostravam 1.37 mostram 137.0 quando o marcador decimal volta para a posição mais à direita."
       }
    ],
    "game_v2": null,

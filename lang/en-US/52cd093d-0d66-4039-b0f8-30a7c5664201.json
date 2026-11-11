@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794399210"
+      "1794423064"
    ],
    "authors": [
       ""
@@ -66,7 +66,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nIn previous texts, we learned how to represent numbers on the Soroban (算盤) and the Suanpan (算盤) (<htcite0>; <htcite1>), how to advance to higher numerical orders (families) while keeping the decimal marker (⚫) in the rightmost position (<htcite2>), and how to fill the spaces between the integers with decimal values (<htcite3>). In this text, we will join these two paths: we will slide the decimal marker (⚫) along the horizontal track of the abacus to represent decimal values on the Soroban (算盤) and the Suanpan (算盤).",
+               "text": "### Prerequisites\n\nIn previous texts, we learned how to represent numbers on the Soroban (算盤) and the Suanpan (算盤) (<htcite0>; <htcite1>), how to advance to higher numerical orders (families) while keeping the decimal marker (⚫) in the rightmost position (<htcite2>), and how to fill the spaces between the integers with decimal values (<htcite3>). We recommend studying them before you continue.",
                "source": [
                   {
                      "type": 1,
@@ -189,7 +189,7 @@
          "id": "SECTION_marker",
          "text": [
             {
-               "text": "### Moving the marker\n\nTo move the decimal marker (⚫), place the pointer (or the finger, on touch screens) over it, press it, and drag it along the horizontal track that crosses the abacus in the middle. When you release it, the marker settles in the space between two columns.\n\nThe rule is simple: the columns to the left of the marker form the integer part, and the columns to the right form the fractional part (<htcite0>). With the marker in the rightmost position, no column remains on its right: all columns are integer, and the value shown ends in “.0”. When we slide the marker one column to the left, the rightmost column stops counting units and starts counting tenths. Sliding it again creates a column of hundredths, and so on.\n\nLet's see what the columns of our abacus represent when the marker is one column to the left of the rightmost position.",
+               "text": "### Moving the marker\n\nTo move the decimal marker (⚫), place the pointer (or the finger, on touch screens) over it, press it, and drag it along the horizontal track that crosses the abacus in the middle. When you release it, the marker settles in the space between two columns.\n\nThe rule is simple: the columns to the left of the marker form the integer part, and the columns to the right form the fractional part (<htcite0>). With the marker in the rightmost position, no column remains to its right: every column is an integer column, and the value shown ends in “.0”. When we slide the marker one column to the left, the rightmost column stops counting units and starts counting tenths. Sliding it again creates a column of hundredths, and so on.\n\nLet's see what the columns of our abacus represent when the marker is one column to the left of the rightmost position.",
                "source": [
                   {
                      "type": 1,
@@ -211,7 +211,7 @@
                "PostMention": ""
             },
             {
-               "text": "<table class=\"tableTen tableTenBgBlue\"><tr><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>0.1</th> </tr> <tr><td>H. M.</td> <td>T. M.</td> <td>Million</td> <td>H. Th.</td> <td>T. Th.</td> <td>Thousand</td> <td>H.</td> <td>T.</td> <td>Tenth</td></tr></table>",
+               "text": "<table class=\"tableTen tableTenBgBlue\"><tr><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th> </tr> <tr><td>T. M.</td> <td>Million</td> <td>H. Th.</td> <td>T. Th.</td> <td>Thousand</td> <td>H.</td> <td>T.</td> <td>Unit</td> <td>Tenth</td></tr></table>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -220,7 +220,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><b>Table 1</b>: Numerical orders (families) represented on the Soroban when the decimal marker (⚫) is one column to the left of the rightmost position.<br />Where: H. M. means hundred million; T. M., ten million; H. Th., hundred thousand; T. Th., ten thousand; H., hundred; T., ten.</p>",
+               "text": "<p class=\"desc\"><b>Table 1</b>: Numerical orders (families) represented on the Soroban when the decimal marker (⚫) is one column to the left of the rightmost position.<br />Where: T. M. means ten million; H. Th., hundred thousand; T. Th., ten thousand; H., hundred; T., ten.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -229,7 +229,7 @@
                "PostMention": ""
             },
             {
-               "text": "From **Table 1**, we can conclude that the position of the decimal marker (⚫) continues to indicate where the units are (<htcite0>). Every column to its left keeps the integer families, growing to the left, exactly as before; every column to its right now represents fractional families, growing to the right: tenths, hundredths, thousandths...\n\nNotice also the “Value” field of the abacus: it now shows a point. The digits to the left of the point belong to the integer families, and the digits to the right of the point belong to the fractional families.",
+               "text": "From **Table 1**, we can conclude that the position of the decimal marker (⚫) continues to indicate where the units are (<htcite0>). Every column to its left remains in the integer families, growing to the left exactly as before; every column to its right now represents fractional families, growing to the right: tenths, hundredths, thousandths...\n\nIn fact, every column changed family: the column that held the hundreds now holds the tens, the column that held the tens is now the units, and the former units column now counts tenths.\n\nNotice also the “Value” field of the abacus: it now shows a point. The digits to the left of the point belong to the integer families, and the digits to the right of the point belong to the fractional families.",
                "source": [
                   {
                      "type": 1,
