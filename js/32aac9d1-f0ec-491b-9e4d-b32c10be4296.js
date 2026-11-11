@@ -28,6 +28,12 @@ var htOrderFamGameBases = [
     0.000000000001
 ];
 
+/**
+ * Shuffles an array in place with the Fisher-Yates algorithm.
+ *
+ * @param {Array} items Array to shuffle.
+ * @returns {Array} The same array, shuffled.
+ */
 function htOrderFamGameShuffle(items) {
     for (let i = items.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -38,6 +44,12 @@ function htOrderFamGameShuffle(items) {
     return items;
 }
 
+/**
+ * Draws the family indexes used in a round for the given level.
+ *
+ * @param {number} level Level index (0, 1 or 2).
+ * @returns {Array<number>} Selected family indexes.
+ */
 function htOrderFamGameDraw(level) {
     let over = [0, 1, 2, 3, 4, 5, 6];
     let under = [7, 8, 9, 10, 11, 12];
@@ -73,6 +85,13 @@ function htOrderFamGameRandomValue(orderIndex) {
     return { "value": digits * step, "decimals": 0 };
 }
 
+/**
+ * Formats a number with the active site language.
+ *
+ * @param {number} value Value to format.
+ * @param {number} decimals Number of fraction digits.
+ * @returns {string} Localized number, or the plain string on failure.
+ */
 function htOrderFamGameFormat(value, decimals) {
     let localLang = $("#site_language").val();
     try {
@@ -85,6 +104,13 @@ function htOrderFamGameFormat(value, decimals) {
     }
 }
 
+/**
+ * Renders one column of number or family buttons.
+ *
+ * @param {string} target Selector of the column container.
+ * @param {Array<Object>} items Items with an id and display text.
+ * @param {string} side Column side ('Left' or 'Right').
+ */
 function htOrderFamGameRenderColumn(target, items, side) {
     let column = $(target).empty();
     for (let i = 0; i < items.length; i++) {
@@ -101,14 +127,25 @@ function htOrderFamGameRenderColumn(target, items, side) {
     }
 }
 
+/**
+ * Shows a feedback message below the game.
+ *
+ * @param {string} message Text to display.
+ */
 function htOrderFamGameShowFeedback(message) {
     $("#orderFamFeedback").text(message).show();
 }
 
+/**
+ * Hides and clears the feedback message.
+ */
 function htOrderFamGameClearFeedback() {
     $("#orderFamFeedback").hide().text("");
 }
 
+/**
+ * Builds a new round for the current level and renders both columns.
+ */
 function htOrderFamGameBuild() {
     $("#orderFamCongrats").html(localOrderFamGame.congratsHtml).hide();
     $("#orderFamNextBtn").addClass("hidden").text($("#orderFamNextLabel").text());
@@ -141,6 +178,13 @@ function htOrderFamGameBuild() {
     htOrderFamGameRenderColumn("#orderFamRightCol", rightItems, "Right");
 }
 
+/**
+ * Handles a click on a number or family button.
+ *
+ * @param {string} side Column side ('Left' or 'Right').
+ * @param {number} orderId Family index of the clicked item.
+ * @returns {boolean} Always false to prevent the default action.
+ */
 function htOrderFamGameSelect(side, orderId) {
     if (localOrderFamGame.matched[orderId]) {
         return false;
@@ -169,6 +213,9 @@ function htOrderFamGameSelect(side, orderId) {
     return false;
 }
 
+/**
+ * Checks the selected pair, marking a match or showing a hint.
+ */
 function htOrderFamGameEvaluatePair() {
     let leftId = localOrderFamGame.selectedLeft;
     let rightId = localOrderFamGame.selectedRight;
@@ -201,6 +248,9 @@ function htOrderFamGameEvaluatePair() {
     }
 }
 
+/**
+ * Shows the congratulations message and next button when a level is complete.
+ */
 function htOrderFamGameCheckComplete() {
     if (Object.keys(localOrderFamGame.matched).length != localOrderFamGame.orderIds.length) {
         return;
@@ -217,6 +267,9 @@ function htOrderFamGameCheckComplete() {
     $("#orderFamNextBtn").text($("#orderFamPlayAgain").text()).removeClass("hidden");
 }
 
+/**
+ * Advances to the next level, or restarts at level one after the last level.
+ */
 function htOrderFamGameNext() {
     if (localOrderFamGame.level < 2) {
         localOrderFamGame.level = localOrderFamGame.level + 1;
@@ -226,6 +279,11 @@ function htOrderFamGameNext() {
     htOrderFamGameBuild();
 }
 
+/**
+ * Initializes the three measuring practices.
+ *
+ * @returns {boolean} Always false.
+ */
 function htLoadContent() {
     htWriteNavigation();
 

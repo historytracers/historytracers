@@ -5,10 +5,18 @@
 //
 var localCubeStringLength = 4;
 
+/**
+ * Returns the maximum length of the string practice.
+ *
+ * @returns {number} Maximum number of unit cells.
+ */
 function htCubeStringMax() {
     return 10;
 }
 
+/**
+ * Renders the numbered ruler used in the string practice.
+ */
 function htCubeStringBuildRuler() {
     var cells = "";
 
@@ -19,6 +27,9 @@ function htCubeStringBuildRuler() {
     $("#htStringsRuler").html(cells);
 }
 
+/**
+ * Renders the string track for the current length.
+ */
 function htCubeStringBuildTrack() {
     var cells = "";
 
@@ -30,10 +41,20 @@ function htCubeStringBuildTrack() {
     $("#htStringsTrack1").html(cells);
 }
 
+/**
+ * Replaces the {la} placeholder in a feedback template.
+ *
+ * @param {string} template Template containing the placeholder.
+ * @param {number} value Value to insert.
+ * @returns {string} Filled template.
+ */
 function htCubeStringFillTemplate(template, value) {
     return template.replace(/\{la\}/g, value);
 }
 
+/**
+ * Enables or disables the string plus and minus buttons.
+ */
 function htCubeStringSyncButtons() {
     $("#htStringsApp .htStringsPlus").prop("disabled",
         localCubeStringLength >= htCubeStringMax());
@@ -41,6 +62,9 @@ function htCubeStringSyncButtons() {
         localCubeStringLength <= 1);
 }
 
+/**
+ * Re-renders the string practice for the current length.
+ */
 function htCubeStringRender() {
     htCubeStringBuildTrack();
     $("#htStringsComparisons").html("<p class=\"htStringsComparison\">" +
@@ -49,6 +73,11 @@ function htCubeStringRender() {
     htCubeStringSyncButtons();
 }
 
+/**
+ * Changes the string length, keeping it within the allowed range.
+ *
+ * @param {number} delta Amount to add to the length.
+ */
 function htCubeStringChange(delta) {
     var value = localCubeStringLength + delta;
 
@@ -62,6 +91,9 @@ function htCubeStringChange(delta) {
     htCubeStringRender();
 }
 
+/**
+ * Initializes the string practice and binds its buttons.
+ */
 function htCubeStringInit() {
     localCubeStringLength = 4;
 
@@ -82,10 +114,22 @@ function htCubeStringInit() {
 //
 var localCubeRect = {};
 
+/**
+ * Returns the maximum side length of the rectangle practice.
+ *
+ * @returns {number} Maximum number of cells per side.
+ */
 function htCubeRectMax() {
     return 5;
 }
 
+/**
+ * Renders the rectangle grid used in the two-dimensional practice.
+ *
+ * @param {string} id Element id of the grid.
+ * @param {number} length Number of filled columns.
+ * @param {number} height Number of filled rows.
+ */
 function htCubeRectBuildGrid(id, length, height) {
     var max = htCubeRectMax();
     var cells = "";
@@ -100,6 +144,11 @@ function htCubeRectBuildGrid(id, length, height) {
     $("#" + id).html(cells);
 }
 
+/**
+ * Renders the vertical ruler for the rectangle grid.
+ *
+ * @param {string} id Element id of the ruler.
+ */
 function htCubeRectBuildVerticalRuler(id) {
     var cells = "";
 
@@ -110,6 +159,11 @@ function htCubeRectBuildVerticalRuler(id) {
     $("#" + id).html(cells);
 }
 
+/**
+ * Renders the horizontal ruler for the rectangle grid.
+ *
+ * @param {string} id Element id of the ruler.
+ */
 function htCubeRectBuildHorizontalRuler(id) {
     var cells = "";
 
@@ -120,12 +174,23 @@ function htCubeRectBuildHorizontalRuler(id) {
     $("#" + id).html(cells);
 }
 
+/**
+ * Replaces the {l1} and {h1} placeholders in a feedback template.
+ *
+ * @param {string} template Template containing the placeholders.
+ * @param {number} l1 Length value.
+ * @param {number} h1 Height value.
+ * @returns {string} Filled template.
+ */
 function htCubeRectFillTemplate(template, l1, h1) {
     return template
         .replace(/\{l1\}/g, l1)
         .replace(/\{h1\}/g, h1);
 }
 
+/**
+ * Enables or disables the rectangle plus and minus buttons.
+ */
 function htCubeRectSyncButtons() {
     $("#htRectApp .htRectPlus").each(function() {
         $(this).prop("disabled",
@@ -137,6 +202,9 @@ function htCubeRectSyncButtons() {
     });
 }
 
+/**
+ * Re-renders the rectangle practice and its feedback.
+ */
 function htCubeRectRender() {
     htCubeRectBuildGrid("htRectGrid1", localCubeRect.len, localCubeRect.hei);
 
@@ -156,6 +224,12 @@ function htCubeRectRender() {
     htCubeRectSyncButtons();
 }
 
+/**
+ * Changes one side of the rectangle, keeping it within the allowed range.
+ *
+ * @param {string} dim Dimension to change ('len' or 'hei').
+ * @param {number} delta Amount to add.
+ */
 function htCubeRectChange(dim, delta) {
     var value = localCubeRect[dim] + delta;
 
@@ -169,6 +243,9 @@ function htCubeRectChange(dim, delta) {
     htCubeRectRender();
 }
 
+/**
+ * Initializes the rectangle practice and binds its buttons.
+ */
 function htCubeRectInit() {
     localCubeRect = { "len": 3, "hei": 4 };
 
@@ -192,20 +269,47 @@ function htCubeRectInit() {
 var localCubes = {};
 var localCubeAxisLabels = {};
 
+/**
+ * Returns the maximum side length of the cube practice.
+ *
+ * @returns {number} Maximum number of units per side.
+ */
 function htCubeMax() {
     return 5;
 }
 
+/**
+ * Returns an SVG line element.
+ *
+ * @param {Array<number>} from Start point.
+ * @param {Array<number>} to End point.
+ * @param {string} color Stroke color.
+ * @param {number} width Stroke width.
+ * @returns {string} SVG markup.
+ */
 function htCubeSvgLine(from, to, color, width) {
     return "<line x1=\"" + from[0].toFixed(1) + "\" y1=\"" + from[1].toFixed(1) +
         "\" x2=\"" + to[0].toFixed(1) + "\" y2=\"" + to[1].toFixed(1) +
         "\" stroke=\"" + color + "\" stroke-width=\"" + width + "\"/>";
 }
 
+/**
+ * Returns an SVG point string.
+ *
+ * @param {Array<number>} point Coordinates.
+ * @returns {string} Comma-separated coordinate pair.
+ */
 function htCubeSvgPoint(point) {
     return point[0].toFixed(1) + "," + point[1].toFixed(1);
 }
 
+/**
+ * Returns an SVG polygon element.
+ *
+ * @param {Array<Array<number>>} points Polygon vertices.
+ * @param {string} fill Fill color.
+ * @returns {string} SVG markup.
+ */
 function htCubeSvgPolygon(points, fill) {
     var value = [];
 
@@ -217,6 +321,18 @@ function htCubeSvgPolygon(points, fill) {
         "\" stroke=\"#1f3f60\" stroke-width=\"1\"/>";
 }
 
+/**
+ * Returns an SVG ruler with ticks and an empty axis label.
+ *
+ * @param {Array<number>} from Start point.
+ * @param {Array<number>} to End point.
+ * @param {number} count Number of ruler divisions.
+ * @param {Array<number>} normal Direction of the tick marks.
+ * @param {string} color Color of the ruler label.
+ * @param {string} axis Axis key used to fill the label later.
+ * @param {boolean} rotate Whether to rotate the label.
+ * @returns {string} SVG markup.
+ */
 function htCubeSvgRuler(from, to, count, normal, color, axis, rotate) {
     var out = "";
     var offset = 13;
@@ -255,6 +371,14 @@ function htCubeSvgRuler(from, to, count, normal, color, axis, rotate) {
     return out;
 }
 
+/**
+ * Returns the SVG markup for a three-dimensional cube.
+ *
+ * @param {Object} dims Cube dimensions (len, wid and hei).
+ * @param {boolean} withRulers Whether to draw the axis rulers.
+ * @param {number} [rulerMax] Ruler length; defaults to the cube side.
+ * @returns {string} SVG markup.
+ */
 function htCubeSvg(dims, withRulers, rulerMax) {
     var length = dims.len;
     var width = dims.wid;
@@ -374,12 +498,29 @@ function htCubeSvg(dims, withRulers, rulerMax) {
     return svg;
 }
 
+/**
+ * Fills the axis labels of a rendered cube SVG with the localized names.
+ *
+ * @param {string} target Selector of the cube container.
+ */
 function htCubeApplyAxisLabels(target) {
     $(target).find("text.htCubeAxisLabel").each(function() {
         this.textContent = localCubeAxisLabels[$(this).attr("data-axis")];
     });
 }
 
+/**
+ * Replaces the dimension placeholders in a cube feedback template.
+ *
+ * @param {string} template Template containing the placeholders.
+ * @param {number} l1 First length value.
+ * @param {number} l2 Second length value.
+ * @param {number} w1 First width value.
+ * @param {number} w2 Second width value.
+ * @param {number} h1 First height value.
+ * @param {number} h2 Second height value.
+ * @returns {string} Filled template.
+ */
 function htCubeFillTemplate(template, l1, l2, w1, w2, h1, h2) {
     return template
         .replace(/\{l1\}/g, l1)
@@ -390,6 +531,9 @@ function htCubeFillTemplate(template, l1, l2, w1, w2, h1, h2) {
         .replace(/\{h2\}/g, h2);
 }
 
+/**
+ * Enables or disables the cube plus and minus buttons.
+ */
 function htCubeSyncButtons() {
     $("#htCubeApp .htCubePlus").each(function() {
         $(this).prop("disabled",
@@ -401,6 +545,9 @@ function htCubeSyncButtons() {
     });
 }
 
+/**
+ * Re-renders both cubes and their feedback.
+ */
 function htCubeRender() {
     $("#htCubeCanvas1").html(htCubeSvg(
         localCubes["1"], true, htCubeMax()));
@@ -427,6 +574,13 @@ function htCubeRender() {
     }
 }
 
+/**
+ * Changes one dimension of a cube, keeping it within the allowed range.
+ *
+ * @param {string} id Cube id ('1' or '2').
+ * @param {string} dim Dimension to change.
+ * @param {number} delta Amount to add.
+ */
 function htCubeChange(id, dim, delta) {
     var value = localCubes[id][dim] + delta;
 
@@ -440,6 +594,9 @@ function htCubeChange(id, dim, delta) {
     htCubeRender();
 }
 
+/**
+ * Initializes the cube practice and binds its buttons.
+ */
 function htCubeInit() {
     localCubes = {
         "1": { "len": 2, "wid": 2, "hei": 2 },
@@ -467,6 +624,11 @@ function htCubeInit() {
     });
 }
 
+/**
+ * Initializes the three measuring practices.
+ *
+ * @returns {boolean} Always false.
+ */
 function htLoadContent() {
     htWriteNavigation();
 
