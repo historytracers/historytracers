@@ -217,7 +217,7 @@ function htCubeSvgPolygon(points, fill) {
         "\" stroke=\"#1f3f60\" stroke-width=\"1\"/>";
 }
 
-function htCubeSvgRuler(from, to, count, normal, color, label, rotate) {
+function htCubeSvgRuler(from, to, count, normal, color, axis, rotate) {
     var out = "";
     var offset = 13;
     var dx = (to[0] - from[0]) / count;
@@ -248,13 +248,14 @@ function htCubeSvgRuler(from, to, count, normal, color, label, rotate) {
     }
 
     out += "<text x=\"" + mx.toFixed(1) + "\" y=\"" + my.toFixed(1) +
-        "\" font-size=\"12\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"" +
-        color + "\"" + transform + ">" + label + "</text>";
+        "\" class=\"htCubeAxisLabel\" data-axis=\"" + axis + "\" font-size=\"12\"" +
+        " font-weight=\"bold\" text-anchor=\"middle\" fill=\"" +
+        color + "\"" + transform + "></text>";
 
     return out;
 }
 
-function htCubeSvg(dims, withRulers, labels, rulerMax) {
+function htCubeSvg(dims, withRulers, rulerMax) {
     var length = dims.len;
     var width = dims.wid;
     var height = dims.hei;
@@ -320,7 +321,7 @@ function htCubeSvg(dims, withRulers, labels, rulerMax) {
         // at the bottom corner of the cube.
         svg += htCubeSvgRuler(
             project(length, 0, 0), project(length, 0, rulerHeight), rulerHeight,
-            [1, 0], "#2e7d32", labels.hei, true);
+            [1, 0], "#2e7d32", "hei", true);
 
         // Length: ruler along the front-left bottom edge of the cube, from
         // the left corner (0) towards the front, aligned with the cube.
@@ -331,7 +332,7 @@ function htCubeSvg(dims, withRulers, labels, rulerMax) {
         ];
         svg += htCubeSvgRuler(
             lengthFrom, lengthTo, rulerLength,
-            [-sin30, cos30], "#2f6fb3", labels.len, false);
+            [-sin30, cos30], "#2f6fb3", "len", false);
 
         // Width: ruler along the top face's left edge of the cube, from the
         // front edge (0) towards the back, aligned with the cube.
@@ -342,7 +343,7 @@ function htCubeSvg(dims, withRulers, labels, rulerMax) {
         ];
         svg += htCubeSvgRuler(
             widthFrom, widthTo, rulerWidth,
-            [-sin30, -cos30], "#e07b39", labels.wid, false);
+            [-sin30, -cos30], "#e07b39", "wid", false);
     } else {
         var lengthMid = [
             (project(0, width, 0)[0] + project(length, width, 0)[0]) / 2 - 12,
@@ -373,6 +374,12 @@ function htCubeSvg(dims, withRulers, labels, rulerMax) {
     return svg;
 }
 
+function htCubeApplyAxisLabels(target) {
+    $(target).find("text.htCubeAxisLabel").each(function() {
+        this.textContent = localCubeAxisLabels[$(this).attr("data-axis")];
+    });
+}
+
 function htCubeFillTemplate(template, l1, l2, w1, w2, h1, h2) {
     return template
         .replace(/\{l1\}/g, l1)
@@ -396,9 +403,11 @@ function htCubeSyncButtons() {
 
 function htCubeRender() {
     $("#htCubeCanvas1").html(htCubeSvg(
-        localCubes["1"], true, localCubeAxisLabels, htCubeMax()));
+        localCubes["1"], true, htCubeMax()));
+    htCubeApplyAxisLabels("#htCubeCanvas1");
     $("#htCubeCanvas2").html(htCubeSvg(
-        localCubes["2"], true, localCubeAxisLabels, htCubeMax()));
+        localCubes["2"], true, htCubeMax()));
+    htCubeApplyAxisLabels("#htCubeCanvas2");
     htCubeSyncButtons();
     $("#htCubeApp .htCubeVal").each(function() {
         $(this).text(localCubes[$(this).data("htcube")][$(this).data("dim")]);
@@ -444,7 +453,8 @@ function htCubeInit() {
     };
 
     $("#htCubeFigure").html(htCubeSvg(
-        { "len": 4, "wid": 4, "hei": 4 }, true, localCubeAxisLabels));
+        { "len": 4, "wid": 4, "hei": 4 }, true));
+    htCubeApplyAxisLabels("#htCubeFigure");
 
     htCubeRender();
 

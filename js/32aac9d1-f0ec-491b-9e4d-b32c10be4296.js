@@ -86,12 +86,19 @@ function htOrderFamGameFormat(value, decimals) {
 }
 
 function htOrderFamGameRenderColumn(target, items, side) {
-    let html = "";
+    let column = $(target).empty();
     for (let i = 0; i < items.length; i++) {
         let item = items[i];
-        html += "<button type=\"button\" class=\"orderGameBtn\" id=\"orderFam" + side + item.id + "\" data-order=\"" + item.id + "\" onclick=\"htOrderFamGameSelect('" + side + "', " + item.id + ");\">" + item.text + "</button>";
+        let button = $("<button type=\"button\" class=\"orderGameBtn\"></button>");
+        button.attr("id", "orderFam" + side + item.id);
+        button.attr("data-order", item.id);
+        button.text(item.text);
+        button.on("click", function() {
+            htOrderFamGameSelect(side, item.id);
+            return false;
+        });
+        column.append(button);
     }
-    $(target).html(html);
 }
 
 function htOrderFamGameShowFeedback(message) {
@@ -203,7 +210,10 @@ function htOrderFamGameCheckComplete() {
         $("#orderFamNextBtn").removeClass("hidden");
         return;
     }
-    $("#orderFamCongrats").html("<i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> " + $("#orderFamMsgFinal").text()).show();
+    let congrats = $("#orderFamCongrats").empty();
+    congrats.append($("<i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i>"));
+    congrats.append(document.createTextNode(" " + $("#orderFamMsgFinal").text()));
+    congrats.show();
     $("#orderFamNextBtn").text($("#orderFamPlayAgain").text()).removeClass("hidden");
 }
 
