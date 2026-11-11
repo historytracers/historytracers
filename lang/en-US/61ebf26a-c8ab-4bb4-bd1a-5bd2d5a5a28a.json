@@ -33,7 +33,7 @@
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -326,7 +326,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Studying the graph\n\nTo better understand what happens to the values as we multiply by a certain value — that is, as we repeatedly add the same amount — let us list some characteristics of the graphs. To visualize them better, click the names of the multiplication tables to hide them:\n- Moving from left to right, the values always increase; moving from right to left, they always decrease.\n- All multiplication tables converge at one point: the number zero. This happens because any number multiplied by zero equals zero (<htcite0>).\n- Another way to say the same thing: as we approach the center, the values approach zero. Mathematically, we say that, in the limit as the values approach the center from either side, the result of the multiplication tends to zero (<htcite1>).\n- The larger the multiplication table — that is, the constant by which we always multiply — the faster the values move away from the horizontal line. The smaller the constant, the closer the values stay to that line. Because this moving line forms an angle with the horizontal line, we also call the multiplying constant the **slope** (<htcite2>).",
+               "text": "#### Studying the graph\n\nTo better understand what happens to the values as we multiply by a certain value — that is, as we repeatedly add the same amount — let us list some characteristics of the graphs. To visualize them better, click the names of the multiplication tables to hide them:\n- In multiplication tables with positive constants, moving from left to right, the values always increase; moving from right to left, they always decrease.\n- All multiplication tables converge at one point: the number zero. This happens because any number multiplied by zero equals zero (<htcite0>).\n- Another way to say the same thing: as we approach the center, the values approach zero. Mathematically, we say that, in the limit as the values approach the center from either side, the result of the multiplication tends to zero (<htcite1>).\n- The larger the multiplication table — that is, the constant by which we always multiply — the faster the values move away from the horizontal line. The smaller the constant, the closer the values stay to that line. Because this moving line forms an angle with the horizontal line, we also call the multiplying constant the **slope** (<htcite2>).",
                "source": [
                   {
                      "type": 1,
