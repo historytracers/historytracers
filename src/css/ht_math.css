@@ -2909,6 +2909,13 @@ p.desc svg {
   font-size: clamp(0.6rem, 1.8vw, 0.8rem);
 }
 
+/* The "Stars" column was removed from 21f8d529, so the groups cell is now the
+   fourth cell of the row. Keep it white like the former chart column instead
+   of falling back to the table background. */
+.tawapukllay.htMultGroupsTable td:nth-child(4) {
+  background: white;
+}
+
 /* The table uses table-layout: fixed, so the columns are sized from the
    header row: the first column only got an even share of the width, which is
    too narrow for the "Multiplication" header and the 4em factors. They
