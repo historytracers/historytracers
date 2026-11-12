@@ -11,7 +11,13 @@
 
 var localMultGroups = {};
 
-var HT_MULT_GROUPS_ICONS = [ "🐶", "🐱", "🍎", "⭐", "🔺" ];
+// The group images are exactly the ones used by the multiplication tables
+// (see htMultiplicationTableObjects in ht_math.js), so the "Group image"
+// selector offers the same set as the times-table pages (8bbd4fa3 and the
+// other multiplication contents) instead of a short local list.
+var HT_MULT_GROUPS_ICONS = htMultiplicationTableObjects.map(function(obj) {
+    return obj.option;
+});
 var HT_MULT_GROUPS_MAX = 10;
 
 function htMultGroupsCloseDiv() {
@@ -41,6 +47,16 @@ function htMultGroupsFillImage() {
     if (localMultGroups.currentLevel == localMultGroups.gameVector.length) {
         localMultGroups.currentLevel = 0;
     }
+}
+
+// The icon shown inside every group. It is either a random one (when the
+// "Group image" selector is left on Randomly) or the one chosen by the user.
+function htMultGroupsPickIcon() {
+    var choice = localMultGroups.imageChoice;
+    if (isNaN(choice) || choice < 0 || choice >= HT_MULT_GROUPS_ICONS.length) {
+        choice = htGetRandomArbitrary(0, HT_MULT_GROUPS_ICONS.length);
+    }
+    return HT_MULT_GROUPS_ICONS[choice];
 }
 
 // The current operation is drawn as groups of the same UTF-8 character, like
@@ -119,7 +135,7 @@ function htMultGroupsFillExercise(test) {
     localMultGroups.second = (isNaN(test) || test == -1) ? htGetRandomArbitrary(0, 10) : test;
     localMultGroups.total = localMultGroups.first * localMultGroups.second;
     localMultGroups.selector = 0;
-    localMultGroups.icon = HT_MULT_GROUPS_ICONS[htGetRandomArbitrary(0, HT_MULT_GROUPS_ICONS.length)];
+    localMultGroups.icon = htMultGroupsPickIcon();
 
     $("#exercise").empty()
         .append($("<span>", { "class": "text_to_paint" }).text("\u00a0\u00a0\u00a0" + localMultGroups.first))
@@ -132,7 +148,7 @@ function htMultGroupsFillExercise(test) {
 }
 
 function htLoadContent() {
-    localMultGroups = { "gameVector": [], "currentLevel": 0, "first": 0, "second": 0, "total": 0, "selector": 0, "icon": HT_MULT_GROUPS_ICONS[0], "stopMe": false, "answerVector": undefined };
+    localMultGroups = { "gameVector": [], "currentLevel": 0, "first": 0, "second": 0, "total": 0, "selector": 0, "icon": HT_MULT_GROUPS_ICONS[0], "imageChoice": -1, "stopMe": false, "answerVector": undefined };
 
     htWriteNavigation();
 
@@ -163,6 +179,24 @@ function htLoadContent() {
         $("#mtValues").on( "change", function() {
             var opt = $(this).val();
             htMultGroupsFillExercise(opt);
+        });
+    }
+
+    if ($("#groupValues").length > 0) {
+        $.each(HT_MULT_GROUPS_ICONS, function(index, icon) {
+            $('#groupValues').append($('<option>', {
+                value: index,
+                text: icon
+            }));
+        });
+
+        $("#groupValues").on( "change", function() {
+            localMultGroups.imageChoice = parseInt($(this).val(), 10);
+            if (isNaN(localMultGroups.imageChoice)) {
+                localMultGroups.imageChoice = -1;
+            }
+            localMultGroups.icon = htMultGroupsPickIcon();
+            htMultGroupsDrawBoard();
         });
     }
     return false;
