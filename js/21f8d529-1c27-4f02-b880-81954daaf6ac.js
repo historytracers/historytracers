@@ -5,12 +5,19 @@
 // with the same controls (times-table selector, operation and arrows). Instead of the
 // chart of the selected multiplication table, the groups of the same UTF-8 characters
 // shown in f641941e-55f0-40dd-a05f-81392b23cacd are displayed: the first factor is the
-// number of characters inside each rectangle and the second factor is how many times
-// that group is repeated, so 6 x 3 is drawn as six characters repeated three times.
+// number of characters inside each rectangle. The groups are not shown at once; each
+// arrow press adds one group, so 6 x 3 is drawn as six characters per group, revealed
+// one group at a time until the three groups are counted.
 
 var localMultGroups = {};
 
-var HT_MULT_GROUPS_ICONS = [ "🐶", "🐱", "🍎", "⭐", "🔺" ];
+// The group images are exactly the ones used by the multiplication tables
+// (see htMultiplicationTableObjects in ht_math.js), so the "Group image"
+// selector offers the same set as the times-table pages (8bbd4fa3 and the
+// other multiplication contents) instead of a short local list.
+var HT_MULT_GROUPS_ICONS = htMultiplicationTableObjects.map(function(obj) {
+    return obj.option;
+});
 var HT_MULT_GROUPS_MAX = 10;
 
 function htMultGroupsCloseDiv() {
@@ -42,20 +49,33 @@ function htMultGroupsFillImage() {
     }
 }
 
+// The icon shown inside every group. It is either a random one (when the
+// "Group image" selector is left on Randomly) or the one chosen by the user.
+function htMultGroupsPickIcon() {
+    var choice = localMultGroups.imageChoice;
+    if (isNaN(choice) || choice < 0 || choice >= HT_MULT_GROUPS_ICONS.length) {
+        choice = htGetRandomArbitrary(0, HT_MULT_GROUPS_ICONS.length);
+    }
+    return HT_MULT_GROUPS_ICONS[choice];
+}
+
 // The current operation is drawn as groups of the same UTF-8 character, like
-// in "Multiplying with Groups" (f641941e-55f0-40dd-a05f-81392b23cacd): the
-// first factor is the number of characters inside each rectangle and the
-// second factor is how many times that group is repeated, so 6 x 3 is drawn
-// as six characters repeated three times.
+// in "Multiplying with Groups" (f641941e-55f0-40dd-a05f-81392b23cacd): each
+// group holds as many characters as the first factor. The board starts empty
+// and the groups are added one by one as the user presses the arrows, so the
+// result is found by counting the groups instead of having them shown at once.
 function htMultGroupsDrawBoard() {
-    var icon = HT_MULT_GROUPS_ICONS[htGetRandomArbitrary(0, HT_MULT_GROUPS_ICONS.length)];
+    // A multiplication by zero has no group to repeat, so nothing is drawn even
+    // if the arrow counter was pressed: the number of groups can never exceed
+    // the second factor (5 x 0 keeps the board empty).
+    var groups = Math.min(localMultGroups.selector, localMultGroups.second);
 
     var board = "";
-    if (localMultGroups.first > 0 && localMultGroups.second > 0) {
-        for (let g = 0; g < localMultGroups.second; g++) {
+    if (localMultGroups.first > 0) {
+        for (let g = 0; g < groups; g++) {
             var content = "";
             for (let i = 0; i < localMultGroups.first; i++) {
-                content += "<span class=\"htMultGroupIcon\">" + icon + "</span>";
+                content += "<span class=\"htMultGroupIcon\">" + localMultGroups.icon + "</span>";
             }
             board += "<span class=\"htMultGroupBox\" aria-hidden=\"true\">" + content + "</span>";
         }
@@ -79,9 +99,7 @@ function htMultGroupsUpdateValue(add) {
     var $result = $("#finalResult").empty();
     $result.text((test < 10 ? "\u00a0" : "") + test);
 
-    if (test) {
-        htDrawMultiplicationTable("#visual", localMultGroups.first, localMultGroups.selector);
-    }
+    htMultGroupsDrawBoard();
     if (test == localMultGroups.total) {
         htMultGroupsFillImage();
         var current = parseInt($("#mtValues").val(), 10);
@@ -117,6 +135,7 @@ function htMultGroupsFillExercise(test) {
     localMultGroups.second = (isNaN(test) || test == -1) ? htGetRandomArbitrary(0, 10) : test;
     localMultGroups.total = localMultGroups.first * localMultGroups.second;
     localMultGroups.selector = 0;
+    localMultGroups.icon = htMultGroupsPickIcon();
 
     $("#exercise").empty()
         .append($("<span>", { "class": "text_to_paint" }).text("\u00a0\u00a0\u00a0" + localMultGroups.first))
@@ -124,13 +143,12 @@ function htMultGroupsFillExercise(test) {
         .append($("<span>", { "class": "text_to_paint" }).text("× " + localMultGroups.second));
     htMultGroupsDrawBoard();
     $("#finalResult").html("");
-    $("#visual").html("");
     localMultGroups.stopMe = false;
     htMultGroupsCloseDiv();
 }
 
 function htLoadContent() {
-    localMultGroups = { "gameVector": [], "currentLevel": 0, "first": 0, "second": 0, "total": 0, "selector": 0, "stopMe": false, "answerVector": undefined };
+    localMultGroups = { "gameVector": [], "currentLevel": 0, "first": 0, "second": 0, "total": 0, "selector": 0, "icon": HT_MULT_GROUPS_ICONS[0], "imageChoice": -1, "stopMe": false, "answerVector": undefined };
 
     htWriteNavigation();
 
@@ -161,6 +179,24 @@ function htLoadContent() {
         $("#mtValues").on( "change", function() {
             var opt = $(this).val();
             htMultGroupsFillExercise(opt);
+        });
+    }
+
+    if ($("#groupValues").length > 0) {
+        $.each(HT_MULT_GROUPS_ICONS, function(index, icon) {
+            $('#groupValues').append($('<option>', {
+                value: index,
+                text: icon
+            }));
+        });
+
+        $("#groupValues").on( "change", function() {
+            localMultGroups.imageChoice = parseInt($(this).val(), 10);
+            if (isNaN(localMultGroups.imageChoice)) {
+                localMultGroups.imageChoice = -1;
+            }
+            localMultGroups.icon = htMultGroupsPickIcon();
+            htMultGroupsDrawBoard();
         });
     }
     return false;

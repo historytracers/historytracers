@@ -31,7 +31,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492885"
+      "1794526271"
    ],
    "authors": [
       ""
@@ -63,7 +63,7 @@
                      "type": 1,
                      "uuid": "01ac24aa-ab5e-4cfc-83a3-0d04ae2810ac",
                      "text": "History Tracers Atlas",
-                     "page": "Practicing with the theorem",
+                     "page": "Practicing with the Theorem",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -93,7 +93,7 @@
                "PostMention": ""
             },
             {
-               "text": "### The Theorem and the Circle\n\nCircles and lines have some common elements, but these can often go unnoticed. Something similar happens when we compare a plane and space. So, before we continue, let's reflect:",
+               "text": "### The Theorem and the Circle\n\nCircles and straight lines have elements in common, but we rarely notice them. Something similar happens when we compare a plane with space. So, before we continue, let's reflect:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -102,7 +102,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Pythagoras in an Atlas?</b><br /><br />A right triangle is a flat, two-dimensional figure, while an atlas shows images of an ellipsoidal planet—a sphere with flattened extremes (<htcite0>; <htcite1>).<br /><br />How is it possible to use the Pythagorean theorem on our planet to locate ourselves?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Pythagoras in an Atlas?</b><br /><br />A right triangle is a flat, two-dimensional figure, while an atlas shows images of an ellipsoidal planet—a sphere flattened at its poles (<htcite0>; <htcite1>).<br /><br />How is it possible to use the Pythagorean Theorem on our planet to locate ourselves?</div></div></center></p>",
                "source": [
                   {
                      "type": 1,
@@ -136,7 +136,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Drawing a Circle\n\nToday, there are tools that allow us to draw circles, but we will use a method that makes explicit everything we need to understand it:",
+               "text": "#### Drawing a Circle\n\nToday, there are tools that can draw circles for us, but we will build one by hand so that every element becomes clear:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -145,7 +145,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: My Circle</b><br /><br />Take a piece of string, a pencil, or any object that can stay straight. In this exercise, we will assume you selected a string.<br /><br />1. Hold one end of the string firmly with one hand and stretch the rest of it with the other, keeping it stretched horizontally.<br />2. Now, rotate the stretched string counterclockwise around your fixed hand.</div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: My Circle</b><br /><br />Take a piece of string, a pencil, or any long, thin object. In this exercise, we will assume you selected a string.<br /><br />1. Hold one end of the string firmly with one hand and stretch the rest of it with the other, keeping it stretched horizontally.<br />2. Now, rotate the stretched string counterclockwise around your fixed hand.<br /><br />The steps are illustrated in <b>Figure 1</b>, right after this practice.</div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -154,7 +154,16 @@
                "PostMention": ""
             },
             {
-               "text": "The string (or extended object) you used to make the circle, always kept at the same distance from the origin (called **O** in **Graph 1**), is known as the **radius** (<htcite0>). In the same **Graph 1**, we have highlighted only two lines towards the origin **O** and named them **c**.\n\n#### The Triangle in the Circle\n\nWhen we draw two lines **c** from the origin **O**, we create an angle between them, which we call **theta (θ)**.\n\nNow, to form a triangle, we draw a vertical line from the end of the slanted line (point **P**) which we call **b**.",
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 330\" width=\"100%\" style=\"max-width:400px; display:block; margin:0 auto;\" role=\"img\" aria-label=\"A hand holds one end of a string at point O while the other end, holding a pencil, rotates counterclockwise and draws a circle\"><title>Practice 1: a string fixed at O with a pencil at the other end drawing a circle counterclockwise</title><defs><marker id=\"practice1Arrow\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto\"><path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#71a6d2\"/></marker></defs><circle cx=\"150\" cy=\"180\" r=\"110\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\" stroke-dasharray=\"8 7\"/><path d=\"M 260 180 A 110 110 0 0 0 95 85\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\" marker-end=\"url(#practice1Arrow)\"/><line x1=\"150\" y1=\"180\" x2=\"95\" y2=\"85\" stroke=\"#71a6d2\" stroke-width=\"4\" stroke-linecap=\"round\" opacity=\"0.35\"/><line x1=\"150\" y1=\"180\" x2=\"95\" y2=\"275\" stroke=\"#71a6d2\" stroke-width=\"4\" stroke-linecap=\"round\" opacity=\"0.35\"/><circle cx=\"95\" cy=\"85\" r=\"6\" fill=\"#71a6d2\" opacity=\"0.45\"/><circle cx=\"95\" cy=\"275\" r=\"6\" fill=\"#71a6d2\" opacity=\"0.45\"/><line x1=\"150\" y1=\"180\" x2=\"234\" y2=\"180\" stroke=\"#333333\" stroke-width=\"4\" stroke-linecap=\"round\"/><circle cx=\"150\" cy=\"180\" r=\"13\" fill=\"#ffffff\" stroke=\"#333333\" stroke-width=\"2\"/><circle cx=\"150\" cy=\"180\" r=\"3\" fill=\"#333333\"/><rect x=\"234\" y=\"171\" width=\"18\" height=\"18\" rx=\"2\" fill=\"#f4b400\" stroke=\"#333333\" stroke-width=\"2\"/><path d=\"M 252 173 L 260 180 L 252 187 Z\" fill=\"#333333\"/><text x=\"168\" y=\"202\" font-size=\"16\" font-weight=\"bold\" fill=\"#333333\">O</text><text x=\"150\" y=\"216\" font-size=\"14\" fill=\"#555555\" text-anchor=\"middle\">fixed hand</text><text x=\"190\" y=\"170\" font-size=\"15\" fill=\"#333333\">string</text><text x=\"230\" y=\"216\" font-size=\"15\" fill=\"#333333\">pencil</text><text x=\"170\" y=\"42\" font-size=\"15\" font-weight=\"bold\" fill=\"#71a6d2\">counterclockwise</text></svg></p><p class=\"desc\"><b>Figure 1</b>: In Practice 1, one end of the string stays fixed at the origin <b>O</b> while the other end, holding the pencil, rotates counterclockwise. The dashed line shows the circle traced by the pencil and the faded lines show other positions of the string.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The string (or extended object) you used to make the circle, always kept at the same distance from the origin (called **O** in **Graph 1**), is known as the **radius** (<htcite0>). In the same **Graph 1**, we have highlighted only two lines from the origin **O** and labeled both **c**.\n\n#### The Triangle in the Circle\n\nWhen we draw two lines **c** from the origin **O**, we create an angle between them, which we call **theta (θ)**.\n\nNow, to form a triangle, we draw a vertical line from the end of the slanted line (point **P**), which we call **b**.",
                "source": [
                   {
                      "type": 1,
@@ -176,7 +185,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: I've Seen This Before</b><br /><br />The radius <b>c</b> of the circle is a constant. And, looking back at the previous topic in the <i>Atlas</i>, we can associate it with the hypotenuse of the right triangle.<br /><br />As a consequence of this association, the sides <b>a</b> and <b>b</b> of the triangle are the <b>legs</b> (or catheti).<br /><br />After finding the triangle inside the circle, does this change in the legs remind you of anything else?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: I've Seen This Before</b><br /><br />The radius <b>c</b> of the circle is a constant. Looking back at the previous topic in the <i>Atlas</i>, we can associate it with the hypotenuse of the right triangle.<br /><br />As a consequence of this association, the sides <b>a</b> and <b>b</b> of the triangle are the <b>legs</b> (or catheti).<br /><br />After finding the triangle inside the circle, do these legs remind you of anything you have seen before?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -185,7 +194,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Angles and Multiplication\n\nMoving away from the origin is something we study from our earliest years, but it is introduced gradually.\n\nLook at the multiplication tables from 0 to 9 plotted with their results connected in **Chart 2**:",
+               "text": "#### Angles and Multiplication\n\nMoving away from the origin is something we study from our earliest years, but it is introduced gradually.\n\nLook at **Chart 2**, which plots the multiplication tables from 0 to 9 with their results connected:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -194,7 +203,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Points from the zero to nine multiplication tables connected, forming lines. Chart created with the <htcite0> library.</div></p><script> htFillMultiplicationTable(\"chart1\", 0, 9, false, true);</script>",
+               "text": "<style>#chart1 { width: 100% !important; max-width: 30em !important; height: auto !important; aspect-ratio: 3 / 2; }</style><p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em; height:20em;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Points of the multiplication tables from 0 to 9, connected to form lines. Chart created with the <htcite0> library.</div></p><script> htFillMultiplicationTable(\"chart1\", 0, 9, false, true);</script>",
                "source": [
                   {
                      "type": 1,
@@ -216,7 +225,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Rotating</b><br /><br />Let's perform the same rotation we did with the string, but using <b>Chart 2</b><br /><br />1. Click on the line names at the top of <b>Chart 2</b>; they are called <i>legends</i>. This will cause the lines to be hidden.<br />2. Now, starting from the <b>Table of 0</b> up to the <b>Table of 9</b>, click on each legend again, observing what happens.</div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Rotating</b><br /><br />Let's perform the same rotation we did with the string, but using <b>Chart 2</b>:<br /><br />1. Click on the line names at the top of <b>Chart 2</b>; they are called <i>legends</i>. This will cause the lines to be hidden.<br />2. Now, starting from the <b>Table of 0</b> up to the <b>Table of 9</b>, click on each legend again, observing what happens.</div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -225,7 +234,7 @@
                "PostMention": ""
             },
             {
-               "text": "As we can see, as we multiply the same number by larger numbers, we are moving away from the horizontal. Since the radius was moved away from the horizontal in different practices, in all of them we were implicitly multiplying (<htcite0>).\n\n#### Locating Ourselves\n\nFinally, we can begin to locate ourselves on a circle, or on the surface of a planet, using the right triangle.\n\nNote that in **Graph 1**, we have point **P**, which is the meeting point between the radius **c** (the hypotenuse) and the vertical line **b** (the leg opposite angle θ). Furthermore, at the other end of the vertical line, we also have point **Q**, which is the meeting point between legs **a** and **b**.\n\nWe can conclude, therefore, that all the elements (legs, angle, and hypotenuse) of the right triangle are directly linked to positions on the surface of a circle or a sphere.\n\nIn the next texts of the *Atlas*, we will explore this connection in more detail.",
+               "text": "As we can see, when we multiply the same number by larger numbers, we move away from the horizontal. Since we moved the radius away from the horizontal in each practice, we were implicitly multiplying every time (<htcite0>).\n\n#### Locating Ourselves\n\nFinally, we can begin to locate ourselves on a circle, or on the surface of a planet, using the right triangle.\n\nNote that in **Graph 1**, we have point **P**, which is the meeting point between the radius **c** (the hypotenuse) and the vertical line **b** (the leg opposite angle θ). Furthermore, at the other end of the vertical line, we also have point **Q**, which is the meeting point between legs **a** and **b**.\n\nWe can conclude, therefore, that all the elements (legs, angle, and hypotenuse) of the right triangle are directly linked to positions on the surface of a circle or a sphere.\n\nIn the next texts of the *Atlas*, we will explore this connection in more detail.",
                "source": [
                   {
                      "type": 1,
