@@ -51,6 +51,33 @@ function htMultFillPickIcon() {
     return HT_MULT_FILL_ICONS[choice];
 }
 
+// Like in "Learning Multiplication Table (6 and 7)" (600c0c57-4120-478f-b5fa-
+// 66e7ecb6372d), the chosen drawing object is remembered in the same local
+// storage key used by every times table (htMultiplicationObjectPrefKey in
+// ht_math.js), so the last image chosen anywhere becomes the default here as
+// well. htSavedMultiplicationObjectIndex also honors shared links ("mtobj"
+// URL parameter) and the viewer injection, exactly like in the times tables.
+function htMultFillSavedIconIndex() {
+    if (typeof htSavedMultiplicationObjectIndex === "function") {
+        var idx = parseInt(htSavedMultiplicationObjectIndex(), 10);
+        if (!isNaN(idx) && idx >= 0 && idx < HT_MULT_FILL_ICONS.length) {
+            return idx;
+        }
+    }
+    return HT_MULT_FILL_RANDOM;
+}
+
+// Stores the newly chosen image. Choosing "Randomly" does not erase the
+// stored image, so it remains the default of the next visits.
+function htMultFillStoreIconIndex(choice) {
+    if (isNaN(choice) || choice < 0 || choice >= HT_MULT_FILL_ICONS.length) {
+        return;
+    }
+    if (typeof htPrefsWrite === "function") {
+        htPrefsWrite(htMultiplicationObjectPrefKey, String(choice));
+    }
+}
+
 // The groups of the multiplication table x row: `row` rectangles, each one
 // holding `table` characters — the first factor inside the rectangles, the
 // second factor counting how many rectangles are drawn, as in the other
@@ -220,8 +247,10 @@ function htLoadContent() {
     }
 
     // The "Group image" selector offers the same images as the times-table
-    // pages, with "Randomly" as the default value. Changing it redraws the
-    // groups that are already on the board with the newly chosen image.
+    // pages. The default value is the image saved in the local storage (the
+    // same key used by the times tables), falling back to "Randomly" on the
+    // first visit. Changing it redraws the groups already on the board and
+    // stores the newly chosen image.
     if ($("#multFillGroupValues").length > 0) {
         $.each(HT_MULT_FILL_ICONS, function(index, icon) {
             $('#multFillGroupValues').append($('<option>', {
@@ -229,11 +258,14 @@ function htLoadContent() {
                 text: icon
             }));
         });
+        localMultFill.imageChoice = htMultFillSavedIconIndex();
+        $("#multFillGroupValues").val(String(localMultFill.imageChoice));
         $("#multFillGroupValues").on("change", function() {
             localMultFill.imageChoice = parseInt($(this).val(), 10);
             if (isNaN(localMultFill.imageChoice)) {
                 localMultFill.imageChoice = HT_MULT_FILL_RANDOM;
             }
+            htMultFillStoreIconIndex(localMultFill.imageChoice);
             localMultFill.icon = htMultFillPickIcon();
             if (localMultFill.shownRow !== null) {
                 htMultFillShowGroups(localMultFill.table, localMultFill.shownRow);
