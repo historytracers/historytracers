@@ -105,14 +105,16 @@ function htMultFillAriaLabel(table, row) {
 }
 
 // The right side shows the clicked (or just answered) multiplication as
-// groups of characters, with its expression and result above them. The last
+// groups of characters, with its expression and result above them. The groups
+// are stacked vertically (one group per line), which keeps the column narrow
+// so the whole game stays centered and uses less room on the screen. The last
 // shown row is remembered, so changing the "Group image" selector redraws the
 // groups with the newly chosen image.
 function htMultFillShowGroups(table, row) {
     localMultFill.shownRow = row;
     $("#multFillRightCol").html(
         "<span class=\"htMultFillExpr htMultFillBoardExpr\">" + table + " × " + row + " = " + (table * row) + "</span>" +
-        "<span class=\"htMultGroupsWrap\">" + htMultFillDrawGroups(table, row, localMultFill.icon) + "</span>"
+        "<span class=\"htMultGroupsWrap htMultFillGroups\">" + htMultFillDrawGroups(table, row, localMultFill.icon) + "</span>"
     );
 }
 

@@ -2930,8 +2930,10 @@ p.desc svg {
    chosen number on the left, almost fully complete with three products left
    blank for the reader to type, and the groups of the selected multiplication
    on the right (reusing .htMultGroupBox/.htMultGroupIcon/.htMultGroupsWrap
-   from f641941e). The columns wrap so the game never overflows small
-   screens. */
+   from f641941e). The groups are stacked vertically, so the right column
+   stays narrow and both columns fit side by side even on phones; the whole
+   game is centered and the columns wrap only when there is no other option,
+   so it never overflows small screens. */
 .htMultFillGame {
   display: flex;
   flex-wrap: wrap;
@@ -2939,6 +2941,7 @@ p.desc svg {
   align-items: flex-start;
   gap: 0.6em;
   width: 100%;
+  margin: 0 auto;
 }
 
 .htMultFillLeft {
@@ -2947,7 +2950,7 @@ p.desc svg {
 }
 
 .htMultFillRight {
-  flex: 1 1 14em;
+  flex: 0 0 auto;
   min-width: 0;
   max-width: 100%;
   display: flex;
@@ -2957,6 +2960,15 @@ p.desc svg {
   gap: 0.4em;
   padding: 0.4em;
   box-sizing: border-box;
+}
+
+/* One group per line: vertical stacking keeps this column as narrow as a
+   single rectangle of characters, which is what lets the table and the groups
+   share a row and the whole game stay centered instead of stretched. */
+.htMultFillGroups {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.2em;
 }
 
 .htMultFillHint {
