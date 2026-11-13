@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492936"
+      "1794606656"
    ],
    "authors": [
       ""
@@ -46,13 +46,13 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Pré-requisitos\n\nEste texto possui um aplicativo para praticar a identidade trigonométrica fundamental sen²(θ) + cos²(θ) = 1. Antes de utilizá-lo, recomendamos estudar as funções seno e cosseno (<htcite0>; <htcite1>) e como caminhamos sobre o círculo para descobrir sua relação (<htcite2>).",
+               "text": "### Pré-requisitos\n\nEste texto inclui um aplicativo para praticar a identidade trigonométrica fundamental sen²(θ) + cos²(θ) = 1. Antes de usá-lo, recomendamos estudar:\n\n- **Trigonometria (Seno)**: como o seno conecta o ângulo teta (θ) ao cateto oposto (<htcite0>)\n- **Trigonometria (Cosseno)**: como o cosseno conecta esse mesmo ângulo ao cateto adjacente (<htcite1>)\n- **Caminhando sobre o disco**: como caminhar sobre o círculo mostrou que os quadrados do seno e do cosseno sempre somam o quadrado do raio (<htcite2>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
                      "text": "History Tracers Team",
-                     "page": "Trigonometria (Cosseno)",
+                     "page": "Trigonometria (Seno)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -62,9 +62,9 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
                      "text": "History Tracers Team",
-                     "page": "Trigonometria (Seno)",
+                     "page": "Trigonometria (Cosseno)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -101,9 +101,9 @@
                "source": [
                   {
                      "type": 1,
-                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
                      "text": "History Tracers Team",
-                     "page": "Trigonometria (Cosseno)",
+                     "page": "Trigonometria (Seno)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -113,9 +113,9 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
                      "text": "History Tracers Team",
-                     "page": "Trigonometria (Seno)",
+                     "page": "Trigonometria (Cosseno)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -152,7 +152,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ou seja, não importa o valor do ângulo teta (θ), a soma dos quadrados do seno e do cosseno é sempre igual a 1. Para reforçar essa ideia, convidamos você a usar o aplicativo abaixo: mova o ângulo teta (θ) e observe que os valores de sen²(θ) e cos²(θ) mudam, mas sua soma permanece sempre 1.",
+               "text": "Ou seja, não importa o valor do ângulo teta (θ), a soma dos quadrados do seno e do cosseno é sempre igual a 1. Para reforçar essa ideia, experimente o aplicativo abaixo: mova o ângulo teta (θ) e veja os valores de sen²(θ) e cos²(θ) mudarem, enquanto sua soma permanece exatamente 1.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -166,7 +166,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Prática\n\nPara compreender melhor a relação entre o seno e o cosseno, sugerimos que você movimente o ângulo teta (θ) na seguinte ordem:",
+               "text": "### Prática\n\nPara compreender melhor a relação entre o seno e o cosseno, mova o ângulo teta (θ) até as seguintes posições no aplicativo abaixo:\n- **30°** (onde o aplicativo começa): sen²(θ) = 0.25 e cos²(θ) = 0.75\n- **45°**: os dois quadrados dividem a soma igualmente — 0.5 + 0.5\n- **90°**: o seno leva tudo — 1 + 0\n- **5°**: o cosseno leva quase tudo — cerca de 0.008 + 0.992",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -193,7 +193,7 @@
                "PostMention": ""
             },
             {
-               "text": "Conforme podemos ver, a alteração no ângulo teta (θ) modifica o valor do seno e do cosseno, mas a relação sen²(θ) + cos²(θ) = 1 sempre permanece verdadeira. Ou seja, não importa o ângulo teta (θ), a soma dos quadrados do seno e do cosseno é sempre 1.",
+               "text": "Ao mover o ângulo, perceba a troca: sen²(θ) ganha exatamente o que cos²(θ) perde. Um quadrado cresce enquanto o outro encolhe, mas a soma nunca sai de 1. É exatamente isso que a identidade sen²(θ) + cos²(θ) = 1 diz: onde quer que você mova o ângulo, o total fica fixo.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -207,7 +207,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, praticamos a identidade trigonométrica fundamental sen²(θ) + cos²(θ) = 1. Com o aplicativo, vimos que, à medida que o ângulo teta (θ) muda, os valores do seno e do cosseno também mudam, mas a soma de seus quadrados permanece sempre igual a 1.",
+               "text": "### Conclusão\n\nNeste texto praticamos, com uma ferramenta interativa, a identidade trigonométrica fundamental sen²(θ) + cos²(θ) = 1. Vimos o seno e o cosseno trocarem de tamanho à medida que o ângulo teta (θ) muda, enquanto seus quadrados somam exatamente 1. Como esse total fica fixo, conhecer um dos dois valores permite encontrar o outro: é por isso que a identidade é útil.",
                "source": null,
                "date_time": null,
                "isTable": false,

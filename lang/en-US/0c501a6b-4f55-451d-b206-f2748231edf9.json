@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492885"
+      "1794606609"
    ],
    "authors": [
       ""
@@ -46,13 +46,13 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nThis text has an application to practice the fundamental trigonometric identity sin²(θ) + cos²(θ) = 1. Before using it, we recommend studying the sine and cosine functions (<htcite0>; <htcite1>) and how we walked on the circle to discover their relationship (<htcite2>).",
+               "text": "### Prerequisites\n\nThis text includes an interactive tool for practicing the fundamental trigonometric identity sin²(θ) + cos²(θ) = 1. Before using it, we recommend studying:\n\n- **Trigonometry (Sine)**: how the sine connects the angle theta (θ) to the opposite leg (<htcite0>)\n- **Trigonometry (Cosine)**: how the cosine connects that same angle to the adjacent leg (<htcite1>)\n- **Walking on the Circle**: how walking around the circle showed that the squares of the sine and cosine always add up to the square of the radius (<htcite2>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
                      "text": "History Tracers Team",
-                     "page": "Trigonometry (Cosine)",
+                     "page": "Trigonometry (Sine)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -62,9 +62,9 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
                      "text": "History Tracers Team",
-                     "page": "Trigonometry (Sine)",
+                     "page": "Trigonometry (Cosine)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -97,13 +97,13 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nWhen we studied the sine and the cosine, we learned that each one relates an angle theta (θ) to one leg of the right triangle: the sine relates it to the opposite leg, and the cosine to the adjacent leg (<htcite0>; <htcite1>). When we walked on the circle, we also learned that the sum of the squares of these two functions is always equal to the square of the radius, which for the unit circle is 1 (<htcite2>):",
+               "text": "### Introduction\n\nWhen we studied the sine and the cosine, we learned that each one relates an angle theta (θ) to one leg of the right triangle: the sine relates it to the opposite leg, and the cosine to the adjacent leg (<htcite0>; <htcite1>). When we walked on the circle, we also learned that the sum of the squares of these two functions always equals the square of the radius — 1 for the unit circle (<htcite2>):",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
                      "text": "History Tracers Team",
-                     "page": "Trigonometry (Cosine)",
+                     "page": "Trigonometry (Sine)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -113,9 +113,9 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
                      "text": "History Tracers Team",
-                     "page": "Trigonometry (Sine)",
+                     "page": "Trigonometry (Cosine)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -152,7 +152,7 @@
                "PostMention": ""
             },
             {
-               "text": "In other words, no matter the value of the angle theta (θ), the sum of the squares of the sine and the cosine is always equal to 1. To reinforce this idea, we invite you to use the application below: move the angle theta (θ) and see that the values of sin²(θ) and cos²(θ) change, but their sum always stays 1.",
+               "text": "In other words, no matter the value of the angle theta (θ), the sum of the squares of the sine and the cosine always equals 1. To reinforce this idea, try the application below: move the angle theta (θ) and watch sin²(θ) and cos²(θ) change while their sum stays exactly 1.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -166,7 +166,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Practice\n\nTo better understand the relationship between the sine and the cosine, we suggest that you move the angle theta (θ) in the following order:",
+               "text": "### Practice\n\nTo better understand how the sine and the cosine relate, move the angle theta (θ) through these positions in the application below:\n- **30°** (where the application starts): sin²(θ) = 0.25 and cos²(θ) = 0.75\n- **45°**: the two squares share the sum equally — 0.5 + 0.5\n- **90°**: the sine takes it all — 1 + 0\n- **5°**: the cosine takes almost all of it — about 0.008 + 0.992",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -193,7 +193,7 @@
                "PostMention": ""
             },
             {
-               "text": "As we can see, changing the angle theta (θ) changes the value of the sine and the cosine, but the relationship sin²(θ) + cos²(θ) = 1 always stays true. That is, no matter the angle theta (θ), the sum of the squares of the sine and the cosine is always 1.",
+               "text": "As you move the angle, notice the trade-off: sin²(θ) gains exactly what cos²(θ) loses. One square grows while the other shrinks, yet their sum never leaves 1. That is exactly what the identity sin²(θ) + cos²(θ) = 1 says: wherever you move the angle, the total stays fixed.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -207,7 +207,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we practiced the fundamental trigonometric identity sin²(θ) + cos²(θ) = 1. With the application, we saw that when the angle theta (θ) changes, the values of the sine and the cosine also change, but the sum of their squares always stays equal to 1.",
+               "text": "### Conclusion\n\nIn this text, we practiced the fundamental trigonometric identity sin²(θ) + cos²(θ) = 1 with an interactive tool. We watched the sine and the cosine trade size as the angle theta (θ) changed, while their squares always added up to exactly 1. Because that total is fixed, knowing one of the two values lets you find the other — which is what makes the identity useful.",
                "source": null,
                "date_time": null,
                "isTable": false,
