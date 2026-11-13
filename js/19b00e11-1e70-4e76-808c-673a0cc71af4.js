@@ -16,10 +16,21 @@
 
 var localMultFill = {};
 
+var HT_MULT_FILL_RANDOM = -1;
 var HT_MULT_FILL_MIN_TABLE = 2;
 var HT_MULT_FILL_MAX_TABLE = 9;
 var HT_MULT_FILL_MAX_ROW = 10;
 var HT_MULT_FILL_BLANKS = 3;
+
+// "Randomly" picks a table between 2 and 9, so the game keeps its counting
+// rhythm; the selector still offers every table from 0 to 9 explicitly.
+function htMultFillPickTable(choice) {
+    choice = parseInt(choice, 10);
+    if (!isNaN(choice) && choice >= 0 && choice <= HT_MULT_FILL_MAX_TABLE) {
+        return choice;
+    }
+    return htGetRandomArbitrary(HT_MULT_FILL_MIN_TABLE, HT_MULT_FILL_MAX_TABLE + 1);
+}
 
 function htMultFillIcons() {
     return [ "🐶", "🐱", "🍎", "⭐", "🔺" ];
@@ -111,13 +122,14 @@ function htMultFillCheck(row) {
     $input.addClass("htMultFillInputWrong");
 }
 
-// Builds a new table: a random number between 2 and 9, three distinct rows
-// left blank, and every other product already filled and clickable.
-function htMultFillBuild() {
+// Builds a new table: the table chosen in the selector (or a random number
+// between 2 and 9), three distinct rows left blank, and every other product
+// already filled and clickable.
+function htMultFillBuild(chosenTable) {
     $("#multFillDone").hide();
     $("#multFillFeedback").hide().html("");
 
-    localMultFill.table = htGetRandomArbitrary(HT_MULT_FILL_MIN_TABLE, HT_MULT_FILL_MAX_TABLE + 1);
+    localMultFill.table = htMultFillPickTable(chosenTable);
     localMultFill.icon = htMultFillIcons()[htGetRandomArbitrary(0, htMultFillIcons().length)];
 
     localMultFill.blanks = {};
@@ -162,13 +174,33 @@ function htMultFillBuild() {
 }
 
 function htLoadContent() {
-    localMultFill = { "table": HT_MULT_FILL_MIN_TABLE, "icon": "", "blanks": {} };
+    localMultFill = { "table": HT_MULT_FILL_MIN_TABLE, "tableChoice": HT_MULT_FILL_RANDOM, "icon": "", "blanks": {} };
 
     $("#multFillReset").off("click").on("click", function() {
-        htMultFillBuild();
+        htMultFillBuild(localMultFill.tableChoice);
     });
 
-    htMultFillBuild();
+    // The "Multiplication Table" selector offers the tables from 0 to 9, with
+    // "Randomly" (a table between 2 and 9) as the default value.
+    if ($("#multFillValues").length > 0) {
+        var data = [];
+        for (let t = 0; t <= HT_MULT_FILL_MAX_TABLE; t++) {
+            data.push({ text: String(t), value: String(t) });
+        }
+        $.each(data, function(index, item) {
+            $('#multFillValues').append($('<option>', {
+                value: item.value,
+                text: item.text
+            }));
+        });
+        $("#multFillValues").on("change", function() {
+            var opt = parseInt($(this).val(), 10);
+            localMultFill.tableChoice = isNaN(opt) ? HT_MULT_FILL_RANDOM : opt;
+            htMultFillBuild(localMultFill.tableChoice);
+        });
+    }
+
+    htMultFillBuild(localMultFill.tableChoice);
 
     htWriteNavigation();
 
