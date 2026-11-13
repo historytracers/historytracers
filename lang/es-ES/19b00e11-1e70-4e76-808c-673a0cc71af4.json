@@ -1,0 +1,135 @@
+{
+   "title": "Completa la tabla de multiplicar",
+   "header": "Completa la tabla de multiplicar",
+   "sources": [
+      "19b00e11-1e70-4e76-808c-673a0cc71af4"
+   ],
+   "scripts": [
+      "19b00e11-1e70-4e76-808c-673a0cc71af4"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794576244"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEste juego muestra una tabla de multiplicar completa de una vez, con tres resultados en blanco para que los escribas. Antes de jugar, te sugerimos repasar:\n\n- **Multiplicando con grupos (0 a 3)**: un juego en el que se unen multiplicaciones con resultados dibujados como grupos de caracteres (<htcite0>)\n- **Multiplicando los hallazgos con grupos**: los mismos grupos de caracteres, dibujados mientras se exploran sitios arqueológicos (<htcite1>)\n- **Aprendiendo la tabla de multiplicar (6 y 7)**: cómo crece una tabla de multiplicar con pasos pequeños (<htcite2>)\n\nEsas actividades te preparan para ver cada producto de una tabla como grupos iguales.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f641941e-55f0-40dd-a05f-81392b23cacd",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando con grupos (0 a 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "21f8d529-1c27-4f02-b880-81954daaf6ac",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando los hallazgos con grupos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Aprendiendo la tabla de multiplicar (6 y 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Reglas generales\n\nA la izquierda verás la tabla de multiplicar de un número elegido al azar entre 2 y 9. La tabla está casi completa: faltan tres resultados, y cada uno tiene un campo de texto donde puedes escribir tu respuesta. Todos los demás resultados ya están completos.\n\n- **Haz clic en un resultado completo**: el lado derecho muestra esa multiplicación dibujada como grupos de caracteres, igual que en *Multiplicando los hallazgos con grupos* (<htcite0>). Cada rectángulo contiene tantos caracteres como el número de la tabla, y el número de rectángulos es la fila de la tabla.\n- **Escribe una respuesta**: haz clic en un resultado que falte, escribe el producto y pulsa Enter (o toca fuera del campo). Si la respuesta es correcta, el resultado se revela y sus grupos aparecen a la derecha. Si es incorrecta, recibes una pista: *esperamos un número entre X e Y, y está a Z posiciones de cada uno de estos valores*, donde X e Y son el resultado anterior y el siguiente de la tabla, y Z es el número de la tabla en sí.\n\nCuando las tres respuestas sean correctas, la tabla entera estará completa. El botón de **nuevo ejercicio** elige otra tabla y otros resultados que faltan.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "21f8d529-1c27-4f02-b880-81954daaf6ac",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando los hallazgos con grupos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### El juego\n\nCompleta los tres resultados que faltan. Haz clic en cualquier resultado completo para ver sus grupos a la derecha, y usa las pistas para encontrar los números que te faltan.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"multFillGame\" class=\"htMultFillGame\"><div class=\"htMultFillLeft\" id=\"multFillLeftCol\"></div><div class=\"htMultFillRight\" id=\"multFillRightCol\"></div></div></p><p id=\"multFillFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multFillDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡CORRECTO! 🎉🎉🎉<br />¡Completaste toda la tabla!</p><p style=\"text-align: center\"><button id=\"multFillReset\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button></p><span id=\"multFillWordTable\" style=\"display: none\">Tabla del</span><span id=\"multFillWordClick\" style=\"display: none\">Haz clic en un resultado ya completado de la izquierda para ver sus grupos aquí.</span><span id=\"multFillWordNotNumber\" style=\"display: none\">Escribe un número, por favor.</span><span id=\"multFillWordTip\" style=\"display: none\">Esperamos un número entre %X% y %Y%, y está a %Z% posiciones de cada uno de estos valores.</span><span id=\"multFillWordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

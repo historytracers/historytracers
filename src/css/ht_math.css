@@ -2926,6 +2926,112 @@ p.desc svg {
   width: 7em;
 }
 
+/* Complete the Multiplication Table (19b00e11): the times table of a randomly
+   chosen number on the left, almost fully complete with three products left
+   blank for the reader to type, and the groups of the selected multiplication
+   on the right (reusing .htMultGroupBox/.htMultGroupIcon/.htMultGroupsWrap
+   from f641941e). The columns wrap so the game never overflows small
+   screens. */
+.htMultFillGame {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.6em;
+  width: 100%;
+}
+
+.htMultFillLeft {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.htMultFillRight {
+  flex: 1 1 14em;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4em;
+  padding: 0.4em;
+  box-sizing: border-box;
+}
+
+.htMultFillHint {
+  color: #5a3f2c;
+  font-weight: bold;
+}
+
+.design-dark .htMultFillHint {
+  color: #eceff1;
+}
+
+.htMultFillTable {
+  border-collapse: collapse;
+  margin: auto;
+  max-width: 100%;
+}
+
+.htMultFillTable th,
+.htMultFillTable td {
+  border: 1px solid #2c5f8a;
+  padding: 0.15em 0.45em;
+  text-align: center;
+}
+
+.design-dark .htMultFillTable th,
+.design-dark .htMultFillTable td {
+  border-color: #90a4ae;
+}
+
+.htMultFillExpr {
+  white-space: nowrap;
+}
+
+.htMultFillBoardExpr {
+  font-weight: bold;
+}
+
+.htMultFillValue {
+  min-width: 2.5em;
+  padding: 0.25em 0.6em;
+  border: 2px solid #5a3f2c;
+  border-radius: 10px;
+  background: #fff8e7;
+  color: #2e241f;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+}
+
+.htMultFillValue:hover {
+  background: #ffe9b8;
+}
+
+.design-dark .htMultFillValue {
+  background: #37474f;
+  color: #eceff1;
+  border-color: #90a4ae;
+}
+
+.design-dark .htMultFillValue:hover {
+  background: #455a64;
+}
+
+.htMultFillInput {
+  width: 4em;
+  max-width: 100%;
+  text-align: center;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.htMultFillInputWrong {
+  border: 2px solid #b3261e;
+}
+
 /* Around the World (6c071696): tour of the first counting tools created by
    humanity, with a "represent the number" practice game for each instrument. */
 .atw-game {
