@@ -59,6 +59,34 @@ function htMultGroupsPickIcon() {
     return HT_MULT_GROUPS_ICONS[choice];
 }
 
+// Like in "Learning Multiplication Table (6 and 7)" (600c0c57-4120-478f-b5fa-
+// 66e7ecb6372d) and in "Complete the Multiplication Table" (19b00e11-1e70-
+// 4e76-808c-673a0cc71af4), the chosen group image is remembered in the same
+// local storage key used by every times table (htMultiplicationObjectPrefKey
+// in ht_math.js), so the last image chosen anywhere becomes the default here
+// as well. htSavedMultiplicationObjectIndex also honors shared links ("mtobj"
+// URL parameter) and the viewer injection, exactly like in the times tables.
+function htMultGroupsSavedIconIndex() {
+    if (typeof htSavedMultiplicationObjectIndex === "function") {
+        var idx = parseInt(htSavedMultiplicationObjectIndex(), 10);
+        if (!isNaN(idx) && idx >= 0 && idx < HT_MULT_GROUPS_ICONS.length) {
+            return idx;
+        }
+    }
+    return -1;
+}
+
+// Stores the newly chosen image. Choosing "Randomly" does not erase the
+// stored image, so it remains the default of the next visits.
+function htMultGroupsStoreIconIndex(choice) {
+    if (isNaN(choice) || choice < 0 || choice >= HT_MULT_GROUPS_ICONS.length) {
+        return;
+    }
+    if (typeof htPrefsWrite === "function") {
+        htPrefsWrite(htMultiplicationObjectPrefKey, String(choice));
+    }
+}
+
 // The current operation is drawn as groups of the same UTF-8 character, like
 // in "Multiplying with Groups" (f641941e-55f0-40dd-a05f-81392b23cacd): each
 // group holds as many characters as the first factor. The board starts empty
@@ -150,6 +178,11 @@ function htMultGroupsFillExercise(test) {
 function htLoadContent() {
     localMultGroups = { "gameVector": [], "currentLevel": 0, "first": 0, "second": 0, "total": 0, "selector": 0, "icon": HT_MULT_GROUPS_ICONS[0], "imageChoice": -1, "stopMe": false, "answerVector": undefined };
 
+    // The default group image is the one saved in the local storage, falling
+    // back to "Randomly" on the first visit. It must be resolved before the
+    // first exercise is drawn.
+    localMultGroups.imageChoice = htMultGroupsSavedIconIndex();
+
     htWriteNavigation();
 
     htMultGroupsFillExercise(-1);
@@ -190,11 +223,16 @@ function htLoadContent() {
             }));
         });
 
+        // The selector starts on the saved image, so the default shown here
+        // matches the image already used to draw the groups.
+        $("#groupValues").val(String(localMultGroups.imageChoice));
+
         $("#groupValues").on( "change", function() {
             localMultGroups.imageChoice = parseInt($(this).val(), 10);
             if (isNaN(localMultGroups.imageChoice)) {
                 localMultGroups.imageChoice = -1;
             }
+            htMultGroupsStoreIconIndex(localMultGroups.imageChoice);
             localMultGroups.icon = htMultGroupsPickIcon();
             htMultGroupsDrawBoard();
         });
