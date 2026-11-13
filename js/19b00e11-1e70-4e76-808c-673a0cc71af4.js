@@ -32,8 +32,23 @@ function htMultFillPickTable(choice) {
     return htGetRandomArbitrary(HT_MULT_FILL_MIN_TABLE, HT_MULT_FILL_MAX_TABLE + 1);
 }
 
-function htMultFillIcons() {
-    return [ "🐶", "🐱", "🍎", "⭐", "🔺" ];
+// The group images are exactly the ones used by the multiplication tables
+// (see htMultiplicationTableObjects in ht_math.js), so the "Group image"
+// selector offers the same set as the times-table pages, like in
+// "Multiplying the Findings with Groups" (21f8d529-1c27-4f02-b880-
+// 81954daaf6ac).
+var HT_MULT_FILL_ICONS = htMultiplicationTableObjects.map(function(obj) {
+    return obj.option;
+});
+
+// The icon shown inside every group. It is either a random one (when the
+// "Group image" selector is left on Randomly) or the one chosen by the user.
+function htMultFillPickIcon() {
+    var choice = localMultFill.imageChoice;
+    if (isNaN(choice) || choice < 0 || choice >= HT_MULT_FILL_ICONS.length) {
+        choice = htGetRandomArbitrary(0, HT_MULT_FILL_ICONS.length);
+    }
+    return HT_MULT_FILL_ICONS[choice];
 }
 
 // The groups of the multiplication table x row: `row` rectangles, each one
@@ -63,8 +78,11 @@ function htMultFillAriaLabel(table, row) {
 }
 
 // The right side shows the clicked (or just answered) multiplication as
-// groups of characters, with its expression and result above them.
+// groups of characters, with its expression and result above them. The last
+// shown row is remembered, so changing the "Group image" selector redraws the
+// groups with the newly chosen image.
 function htMultFillShowGroups(table, row) {
+    localMultFill.shownRow = row;
     $("#multFillRightCol").html(
         "<span class=\"htMultFillExpr htMultFillBoardExpr\">" + table + " × " + row + " = " + (table * row) + "</span>" +
         "<span class=\"htMultGroupsWrap\">" + htMultFillDrawGroups(table, row, localMultFill.icon) + "</span>"
@@ -130,7 +148,8 @@ function htMultFillBuild(chosenTable) {
     $("#multFillFeedback").hide().html("");
 
     localMultFill.table = htMultFillPickTable(chosenTable);
-    localMultFill.icon = htMultFillIcons()[htGetRandomArbitrary(0, htMultFillIcons().length)];
+    localMultFill.icon = htMultFillPickIcon();
+    localMultFill.shownRow = null;
 
     localMultFill.blanks = {};
     while (Object.keys(localMultFill.blanks).length < HT_MULT_FILL_BLANKS) {
@@ -174,7 +193,7 @@ function htMultFillBuild(chosenTable) {
 }
 
 function htLoadContent() {
-    localMultFill = { "table": HT_MULT_FILL_MIN_TABLE, "tableChoice": HT_MULT_FILL_RANDOM, "icon": "", "blanks": {} };
+    localMultFill = { "table": HT_MULT_FILL_MIN_TABLE, "tableChoice": HT_MULT_FILL_RANDOM, "imageChoice": HT_MULT_FILL_RANDOM, "icon": HT_MULT_FILL_ICONS[0], "shownRow": null, "blanks": {} };
 
     $("#multFillReset").off("click").on("click", function() {
         htMultFillBuild(localMultFill.tableChoice);
@@ -197,6 +216,28 @@ function htLoadContent() {
             var opt = parseInt($(this).val(), 10);
             localMultFill.tableChoice = isNaN(opt) ? HT_MULT_FILL_RANDOM : opt;
             htMultFillBuild(localMultFill.tableChoice);
+        });
+    }
+
+    // The "Group image" selector offers the same images as the times-table
+    // pages, with "Randomly" as the default value. Changing it redraws the
+    // groups that are already on the board with the newly chosen image.
+    if ($("#multFillGroupValues").length > 0) {
+        $.each(HT_MULT_FILL_ICONS, function(index, icon) {
+            $('#multFillGroupValues').append($('<option>', {
+                value: index,
+                text: icon
+            }));
+        });
+        $("#multFillGroupValues").on("change", function() {
+            localMultFill.imageChoice = parseInt($(this).val(), 10);
+            if (isNaN(localMultFill.imageChoice)) {
+                localMultFill.imageChoice = HT_MULT_FILL_RANDOM;
+            }
+            localMultFill.icon = htMultFillPickIcon();
+            if (localMultFill.shownRow !== null) {
+                htMultFillShowGroups(localMultFill.table, localMultFill.shownRow);
+            }
         });
     }
 
