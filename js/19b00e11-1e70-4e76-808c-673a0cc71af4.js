@@ -105,6 +105,22 @@ function htMultFillAriaLabel(table, row) {
     return table + " × " + row + " = " + (table * row) + ". " + groupWord;
 }
 
+// Builds the clickable product button of a row. Attributes and text are set
+// through jQuery instead of an HTML string, so nothing read from the page is
+// reinterpreted as HTML.
+function htMultFillValueButton(table, row) {
+    return $("<button>", {
+        type: "button",
+        "class": "htMultFillValue",
+        id: "multFillValue" + row
+    })
+        .attr("aria-label", htMultFillAriaLabel(table, row))
+        .text(table * row)
+        .on("click", function() {
+            htMultFillClick(row);
+        });
+}
+
 // The right side shows the clicked (or just answered) multiplication as
 // groups of characters, with its expression and result above them. The groups
 // are stacked vertically (one group per line), which keeps the column narrow
@@ -149,7 +165,7 @@ function htMultFillCheck(row) {
         // The typed product becomes a filled result, so the reader can click
         // it afterwards to see the groups again, exactly like the results
         // that were already filled.
-        $("#multFillCell" + row).html("<button type=\"button\" class=\"htMultFillValue\" id=\"multFillValue" + row + "\" aria-label=\"" + htMultFillAriaLabel(localMultFill.table, row) + "\" onclick=\"htMultFillClick(" + row + ");\">" + expected + "</button>");
+        $("#multFillCell" + row).empty().append(htMultFillValueButton(localMultFill.table, row));
         delete localMultFill.blanks[row];
         $("#multFillFeedback").hide().html("");
         htMultFillShowGroups(localMultFill.table, row);
@@ -207,19 +223,29 @@ function htMultFillBuild(chosenTable) {
     }
 
     var tableWord = $("#multFillWordTable").text();
-    var html = "<table class=\"htMultFillTable\"><tr><th colspan=\"2\">" + tableWord + " " + localMultFill.table + "</th></tr>";
+    var $table = $("<table>", { "class": "htMultFillTable" });
+    $table.append($("<tr>").append(
+        $("<th>", { colspan: 2 }).text(tableWord + " " + localMultFill.table)
+    ));
     for (let k = 1; k <= HT_MULT_FILL_MAX_ROW; k++) {
-        var cell = "";
+        var $cell;
         if (localMultFill.blanks[k]) {
-            cell = "<input type=\"text\" class=\"htMultFillInput\" id=\"multFillInput" + k + "\" inputmode=\"numeric\" autocomplete=\"off\" maxlength=\"4\" aria-label=\"" + tableWord + " " + localMultFill.table + ": " + localMultFill.table + " × " + k + "\" />";
+            $cell = $("<input>", {
+                type: "text",
+                "class": "htMultFillInput",
+                id: "multFillInput" + k,
+                inputmode: "numeric",
+                autocomplete: "off",
+                maxlength: "4"
+            }).attr("aria-label", tableWord + " " + localMultFill.table + ": " + localMultFill.table + " × " + k);
         } else {
-            var product = localMultFill.table * k;
-            cell = "<button type=\"button\" class=\"htMultFillValue\" id=\"multFillValue" + k + "\" aria-label=\"" + htMultFillAriaLabel(localMultFill.table, k) + "\" onclick=\"htMultFillClick(" + k + ");\">" + product + "</button>";
+            $cell = htMultFillValueButton(localMultFill.table, k);
         }
-        html += "<tr><td class=\"htMultFillExpr\">" + localMultFill.table + " × " + k + "</td><td id=\"multFillCell" + k + "\">" + cell + "</td></tr>";
+        $table.append($("<tr>")
+            .append($("<td>", { "class": "htMultFillExpr" }).text(localMultFill.table + " × " + k))
+            .append($("<td>", { id: "multFillCell" + k }).append($cell)));
     }
-    html += "</table>";
-    $("#multFillLeftCol").html(html);
+    $("#multFillLeftCol").empty().append($table);
 
     for (let k = 1; k <= HT_MULT_FILL_MAX_ROW; k++) {
         if (!localMultFill.blanks[k]) {
@@ -242,7 +268,9 @@ function htMultFillBuild(chosenTable) {
         })(k);
     }
 
-    $("#multFillRightCol").html("<span class=\"htMultFillHint\">" + $("#multFillWordClick").text() + "</span>");
+    $("#multFillRightCol").empty().append(
+        $("<span>", { "class": "htMultFillHint" }).text($("#multFillWordClick").text())
+    );
 }
 
 function htLoadContent() {
