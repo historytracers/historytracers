@@ -8,10 +8,11 @@
 // like in "Multiplying the Findings with Groups" (21f8d529-1c27-4f02-b880-
 // 81954daaf6ac): each rectangle holds as many characters as the table number
 // (the first factor) and the number of rectangles is the row of the table
-// (the second factor). A typed answer reveals the product and its groups when
-// it is right; when it is wrong, a tip gives the range of the expected number
-// (the previous and the next products of the table) and how far it is from
-// each of them (the table number itself).
+// (the second factor). A typed answer is checked as soon as it is complete
+// (one digit for one-digit products, two for two-digit ones): when it is right
+// the product is revealed with its groups; when it is wrong, a tip gives the
+// range of the expected number (the previous and the next products of the
+// table) and how far it is from each of them (the table number itself).
 // Localized texts live in the class JSON, so this file only wires the behavior.
 
 var localMultFill = {};
@@ -169,6 +170,26 @@ function htMultFillCheck(row) {
     $input.addClass("htMultFillInputWrong");
 }
 
+// The answer is verified while the reader types, as soon as it is complete:
+// a one-digit product is checked with its only digit, while a two-digit
+// product waits for the second one. Nothing is checked before the expected
+// number of digits is reached, so the wrong message never interrupts the first
+// digit of a two-digit product. Any previous wrong mark and message are
+// cleared on every keystroke, so a new attempt starts from a clean state.
+function htMultFillAutoCheck(row) {
+    var $input = $("#multFillInput" + row);
+    if ($input.length === 0 || $input.prop("disabled")) {
+        return;
+    }
+    $input.removeClass("htMultFillInputWrong");
+    $("#multFillFeedback").hide().html("");
+
+    var expectedDigits = String(localMultFill.table * row).length;
+    if ($input.val().trim().length >= expectedDigits) {
+        htMultFillCheck(row);
+    }
+}
+
 // Builds a new table: the table chosen in the selector (or a random number
 // between 2 and 9), three distinct rows left blank, and every other product
 // already filled and clickable.
@@ -212,8 +233,11 @@ function htMultFillBuild(chosenTable) {
                         htMultFillCheck(row);
                     }
                 })
+                .on("input", function() {
+                    htMultFillAutoCheck(row);
+                })
                 .on("change", function() {
-                    htMultFillCheck(row);
+                    htMultFillAutoCheck(row);
                 });
         })(k);
     }
