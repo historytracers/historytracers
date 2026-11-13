@@ -2893,13 +2893,15 @@ p.desc svg {
    characters (reusing .htMultGroupBox/.htMultGroupIcon from f641941e)
    instead of a chart. The first factor is the number of characters inside
    each rectangle and the second factor is how many times that group is
-   repeated. The groups wrap so the board never overflows small screens. */
+   repeated. As in 19b00e11, the groups are stacked vertically (one group per
+   line), which keeps the board narrow, so the whole game stays compact and
+   centered instead of being stretched. */
 .htMultGroupsBoard {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  align-content: center;
   gap: 0.25em;
   max-width: 100%;
   box-sizing: border-box;
@@ -2916,14 +2918,25 @@ p.desc svg {
   background: white;
 }
 
-/* The table uses table-layout: fixed, so the columns are sized from the
-   header row: the first column only got an even share of the width, which is
-   too narrow for the "Multiplication" header and the 4em factors. They
-   overflowed and were clipped (the first factor was hidden) between 601px and
-   desktop widths. Keep the header row in charge but give the multiplication
-   column room for its content; the other columns share the rest. */
-.tawapukllay.htMultGroupsTable th:first-child {
-  width: 7em;
+/* The shared tawa table stretches to 90% of the page and sizes its cells with
+   fixed measures, which left this game wide and pushed the groups to the
+   right edge. Here the table is sized by its own content and stays centered,
+   so the compact board sits in the middle of the page. The id selector is
+   needed to override the responsive #yupana0 rules shared by the other
+   yupana games. */
+#yupana0.htMultGroupsTable {
+  width: auto;
+  max-width: 100%;
+  table-layout: auto;
+}
+
+#yupana0.htMultGroupsTable td:nth-child(-n+4) {
+  width: auto;
+  height: auto;
+}
+
+#yupana0.htMultGroupsTable th:first-child {
+  width: auto;
 }
 
 /* Complete the Multiplication Table (19b00e11): the times table of a randomly
