@@ -31,13 +31,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794519501"
+      "1794527986"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -56,7 +56,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nRecomendamos estudar el texto anterior, *Historia de un Teorema* (<htcite0>), además de *Primeros Pasos* de History Tracers (<htcite1>), para mejorar la comprensión.",
+               "text": "### Prerrequisitos\n\nRecomendamos estudiar el texto anterior, *Historia de un Teorema* (<htcite0>), además de *Primeros Pasos* de History Tracers (<htcite1>), para mejorar la comprensión.",
                "source": [
                   {
                      "type": 1,
@@ -492,7 +492,7 @@
                "PostMention": ""
             },
             {
-               "text": "En el **Cálculo 3**, realizamos los siguientes pasos para expresar el cateto **a** en función de la hipotenusa y del otro cateto:\n- **Línea 1**: Reescribimos la diagonal triple babilónica (Teorema de Pitágoras) para poder trabajar con ella.\n- **Línea 2**: Restamos la misma cantidad (**b<sup>2</sup>**) en ambos lados, manteniendo así la igualdad, y escribimos el lado izquierdo entre paréntesis.\n- **Línea 3**: Como una magnitud restada de sí misma es igual a cero (<htcite0>), reemplazamos (**b<sup>2</sup>** - **b<sup>2</sup>**) en el lado izquierdo por 0.\n- **Línea 4**: Finalmente, como al sumar cero a una magnitud esta permanece inalterada (<htcite1>), eliminamos el 0 y expresamos el cateto **a** en función del otro cateto (**b**) y de la hipotenusa (**c**).\n\nDespués de reorganizar el teorema, podemos comprobar que sigue siendo válido sustituyendo los valores de los catetos y de la hipotenusa:",
+               "text": "En el **Cálculo 3**, realizamos los siguientes pasos para expresar el cuadrado del cateto **a** (**a<sup>2</sup>**) en función de la hipotenusa y del otro cateto:\n- **Línea 1**: Reescribimos la diagonal triple babilónica (Teorema de Pitágoras) para poder trabajar con ella.\n- **Línea 2**: Restamos la misma cantidad (**b<sup>2</sup>**) en ambos lados, manteniendo así la igualdad, y escribimos el lado izquierdo entre paréntesis.\n- **Línea 3**: Como una magnitud restada de sí misma es igual a cero (<htcite0>), reemplazamos (**b<sup>2</sup>** - **b<sup>2</sup>**) en el lado izquierdo por 0.\n- **Línea 4**: Finalmente, como al sumar cero a una magnitud esta permanece inalterada (<htcite1>), eliminamos el 0 y expresamos el cuadrado del cateto **a** (**a<sup>2</sup>**) en función del otro cateto (**b**) y de la hipotenusa (**c**), es decir, **a<sup>2</sup>** = **c<sup>2</sup>** - **b<sup>2</sup>**, que es igual a 16 cuando b = 3 y c = 5.\n\nDespués de reorganizar el teorema, podemos comprobar que sigue siendo válido sustituyendo los valores de los catetos y de la hipotenusa:",
                "source": [
                   {
                      "type": 1,

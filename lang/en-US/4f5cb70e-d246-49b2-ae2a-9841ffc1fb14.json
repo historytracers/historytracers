@@ -31,13 +31,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794519478"
+      "1794527956"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -492,7 +492,7 @@
                "PostMention": ""
             },
             {
-               "text": "In **Calculation 3**, we performed the following steps to express leg **a** in terms of the hypotenuse and the other leg:\n- **Line 1**: We rewrote the Babylonian Diagonal Triple (Pythagorean Theorem) so we could work with it.\n- **Line 2**: We subtracted the same quantity (**b<sup>2</sup>**) from both sides, thus keeping the equality, and wrote the left side with parentheses.\n- **Line 3**: Since a quantity subtracted from itself equals zero (<htcite0>), we replaced (**b<sup>2</sup>** - **b<sup>2</sup>**) on the left side with 0.\n- **Line 4**: Finally, since adding zero leaves a quantity unchanged (<htcite1>), we dropped the 0 and expressed leg **a** in terms of the other leg (**b**) and the hypotenuse (**c**).\n\nAfter rearranging the theorem, we can check that it still holds by substituting the values of the legs and the hypotenuse:",
+               "text": "In **Calculation 3**, we performed the following steps to express the square of leg **a** (**a<sup>2</sup>**) in terms of the hypotenuse and the other leg:\n- **Line 1**: We rewrote the Babylonian Diagonal Triple (Pythagorean Theorem) so we could work with it.\n- **Line 2**: We subtracted the same quantity (**b<sup>2</sup>**) from both sides, thus keeping the equality, and wrote the left side with parentheses.\n- **Line 3**: Since a quantity subtracted from itself equals zero (<htcite0>), we replaced (**b<sup>2</sup>** - **b<sup>2</sup>**) on the left side with 0.\n- **Line 4**: Finally, since adding zero leaves a quantity unchanged (<htcite1>), we dropped the 0 and expressed the square of leg **a** (**a<sup>2</sup>**) in terms of the other leg (**b**) and the hypotenuse (**c**), that is, **a<sup>2</sup>** = **c<sup>2</sup>** - **b<sup>2</sup>**, which equals 16 when b = 3 and c = 5.\n\nAfter rearranging the theorem, we can check that it still holds by substituting the values of the legs and the hypotenuse:",
                "source": [
                   {
                      "type": 1,

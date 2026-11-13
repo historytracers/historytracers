@@ -31,13 +31,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794519524"
+      "1794528009"
    ],
    "authors": [
       ""
    ],
    "reviewers": [
-      ""
+      "CodeRabbit"
    ],
    "type": "class",
    "version": 2,
@@ -492,7 +492,7 @@
                "PostMention": ""
             },
             {
-               "text": "No **Cálculo 3**, realizamos as seguintes etapas para expressar o cateto **a** em função da hipotenusa e do outro cateto:\n- **Linha 1**: Reescrevemos a diagonal tripla babilônica (Teorema de Pitágoras) para podermos trabalhar com ela.\n- **Linha 2**: Subtraímos a mesma quantidade (**b<sup>2</sup>**) dos dois lados, mantendo assim a igualdade, e escrevemos o lado esquerdo entre parênteses.\n- **Linha 3**: Como uma grandeza subtraída dela mesma é igual a zero (<htcite0>), substituímos (**b<sup>2</sup>** - **b<sup>2</sup>**) no lado esquerdo por 0.\n- **Linha 4**: Finalmente, como ao adicionar zero a uma grandeza ela permanece inalterada (<htcite1>), retiramos o 0 e expressamos o cateto **a** em função do outro cateto (**b**) e da hipotenusa (**c**).\n\nDepois de reorganizarmos o teorema, podemos verificar se ele continua válido substituindo os valores dos catetos e da hipotenusa:",
+               "text": "No **Cálculo 3**, realizamos as seguintes etapas para expressar o quadrado do cateto **a** (**a<sup>2</sup>**) em função da hipotenusa e do outro cateto:\n- **Linha 1**: Reescrevemos a diagonal tripla babilônica (Teorema de Pitágoras) para podermos trabalhar com ela.\n- **Linha 2**: Subtraímos a mesma quantidade (**b<sup>2</sup>**) dos dois lados, mantendo assim a igualdade, e escrevemos o lado esquerdo entre parênteses.\n- **Linha 3**: Como uma grandeza subtraída dela mesma é igual a zero (<htcite0>), substituímos (**b<sup>2</sup>** - **b<sup>2</sup>**) no lado esquerdo por 0.\n- **Linha 4**: Finalmente, como ao adicionar zero a uma grandeza ela permanece inalterada (<htcite1>), retiramos o 0 e expressamos o quadrado do cateto **a** (**a<sup>2</sup>**) em função do outro cateto (**b**) e da hipotenusa (**c**), ou seja, **a<sup>2</sup>** = **c<sup>2</sup>** - **b<sup>2</sup>**, que é igual a 16 quando b = 3 e c = 5.\n\nDepois de reorganizarmos o teorema, podemos verificar se ele continua válido substituindo os valores dos catetos e da hipotenusa:",
                "source": [
                   {
                      "type": 1,
