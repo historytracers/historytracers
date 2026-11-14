@@ -4,10 +4,10 @@ Para actualizar los archivos con el prefijo `ht_`, primero debes modificar los a
 
 ## Verificación de confiabilidad del código
 
-Antes de enviar cualquier cambio a los archivos JavaScript, ejecuta [Semgrep](https://semgrep.dev/) desde este directorio para comprobar problemas de seguridad y confiabilidad:
+Antes de enviar cualquier cambio a los archivos JavaScript, ejecuta [Semgrep](https://semgrep.dev/) desde la raíz del repositorio para que la comprobación cubra tanto los archivos generados en `js/` como los archivos fuente en `src/js/`:
 
 ```sh
-semgrep --config auto .
+semgrep --config auto js src/js
 ```
 
 Corrige todos los hallazgos bloqueantes antes de abrir un pull request. No construyas expresiones regulares a partir de variables: `new RegExp(...)` con un patrón dinámico se reporta como `detect-non-literal-regexp`; usa `split()`/`join()` o una expresión regular literal. Las bibliotecas minificadas de terceros están excluidas mediante el archivo `.semgrepignore` de la raíz del repositorio.
@@ -23,7 +23,7 @@ go install -v github.com/cc1a2b/jshunter/cmd/jshunter@latest
 Desde la raíz del repositorio, crea la lista de archivos que se van a analizar:
 
 ```sh
-for i in `ls js/*.js`; do echo $i >> list.txt; done
+for i in `ls js/*.js src/js/*.js`; do echo $i >> list.txt; done
 ```
 
 Luego ejecuta el análisis y guarda el informe en `out`:

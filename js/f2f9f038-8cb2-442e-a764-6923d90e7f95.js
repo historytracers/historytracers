@@ -6,8 +6,8 @@
 // like 2 x 6 = 4 x 3 and the right column shows its result together with
 // groups of characters drawn as rectangles with four characters each, so the
 // picture matches the 4 x Z side of the equality. Multiplying by 4 is the same
-// as multiplying by 2 twice, so every result of the table of 4 is also a
-// result of the table of 2 with the double of the multiplier.
+// as multiplying by 2 twice (4 x n = 2 x (2 x n)), so every result of the
+// table of 4 is also a result of the table of 2, but not vice versa.
 // Localized texts live in the class JSON, so this file only wires the behavior.
 // The groups are drawn with the same objects used by the multiplication tables
 // (htMultiplicationTableObjects in ht_math.js): a selector above the game lets
@@ -31,9 +31,10 @@ function htMultGroupEqObjectDraw() {
 }
 
 // Level 1 covers the first half of the table of 4 (results 4 to 12), level 2
-// the second half (results 16 to 24) and level 3 mixes both halves. Each entry
-// is the multiplier Z of the 4 x Z side of the equality; the 2 x N side uses
-// N = 2 x Z, so the two products are always equal.
+// the second half (results 16 to 24) and level 3 mixes both halves by taking
+// one multiplier from each half. Each entry is the multiplier Z of the 4 x Z
+// side of the equality; the 2 x N side uses N = 2 x Z, so the two products are
+// always equal.
 function htMultGroupEqZPool(level) {
     if (level === 1) {
         return [ 1, 2, 3 ];
@@ -41,7 +42,10 @@ function htMultGroupEqZPool(level) {
     if (level === 2) {
         return [ 4, 5, 6 ];
     }
-    return [ 2, 3, 4, 5, 6 ];
+    return [
+        htGetRandomArbitrary(1, 4),
+        htGetRandomArbitrary(4, 7)
+    ];
 }
 
 function htMultGroupEqShuffle(items) {

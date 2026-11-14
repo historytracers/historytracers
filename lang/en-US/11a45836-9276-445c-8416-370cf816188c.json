@@ -31,7 +31,9 @@
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -467,7 +469,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: And finally...</b><br /><br /><b>Calculation 1</b> started from a trigonometric identity that comes from the Pythagorean theorem.<br /><br /><b>Calculation 2</b> updated that identity. From it, we can see that 1 and tan&sup2; (θ) act like the two legs of a right triangle.<br /><br />With that in mind, can we determine the last element of <b>Calculation 2</b> — the hypotenuse?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: And finally...</b><br /><br /><b>Calculation 1</b> started from a trigonometric identity that comes from the Pythagorean theorem.<br /><br /><b>Calculation 2</b> updated that identity. From it, we can see that 1 and tan&sup2; (θ) are the squares of the lengths of the two legs of a right triangle — the legs themselves have lengths 1 and tan (θ).<br /><br />With that in mind, can we determine the last element of <b>Calculation 2</b> — the hypotenuse?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,

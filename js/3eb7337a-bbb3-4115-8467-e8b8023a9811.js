@@ -3,8 +3,9 @@
 // "Matching the Tables of 2, 3 and 6" (content 3eb7337a-bbb3-4115-8467-e8b8023a9811).
 // Two-column matching game that makes the relationships between the
 // multiplication tables of 2, 3 and 6 visible: the left column shows an
-// equality like 2 x 6 = 6 x 2 (multiplying by 6 is multiplying by 2 three
-// times) or 3 x 4 = 6 x 2 (multiplying by 6 is also multiplying by 3 twice),
+// equality like 2 x 6 = 6 x 2 (multiplying by 6 is adding three copies of the
+// product obtained by multiplying by 2) or 3 x 4 = 6 x 2 (it is also adding
+// two copies of the product obtained by multiplying by 3),
 // and the right column shows its result together with groups of characters
 // drawn as rectangles with six characters each, so the picture matches the
 // 6 x Z side of the equality. Levels 1 and 2 practice the table of 2 against

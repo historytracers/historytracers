@@ -4,10 +4,10 @@ To update files with the prefix `ht_`, you must first modify the files inside `s
 
 ## Code reliability check
 
-Before submitting any change to the JavaScript files, run [Semgrep](https://semgrep.dev/) from this directory to check for security and reliability issues:
+Before submitting any change to the JavaScript files, run [Semgrep](https://semgrep.dev/) from the repository root so the check covers both the generated files in `js/` and the source files in `src/js/`:
 
 ```sh
-semgrep --config auto .
+semgrep --config auto js src/js
 ```
 
 Fix every blocking finding before opening a pull request. Do not build regular expressions from variables: `new RegExp(...)` with a dynamic pattern is reported as `detect-non-literal-regexp`; use `split()`/`join()` or a literal regular expression instead. Vendored minified libraries are excluded through the `.semgrepignore` file in the repository root.
@@ -23,7 +23,7 @@ go install -v github.com/cc1a2b/jshunter/cmd/jshunter@latest
 From the repository root, create the list of files to analyze:
 
 ```sh
-for i in `ls js/*.js`; do echo $i >> list.txt; done
+for i in `ls js/*.js src/js/*.js`; do echo $i >> list.txt; done
 ```
 
 Then run the analysis and save the report to `out`:
