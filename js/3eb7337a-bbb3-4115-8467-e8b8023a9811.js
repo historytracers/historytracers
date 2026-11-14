@@ -168,11 +168,13 @@ function htMultGroupEq6Render() {
 // ht_math.js), preselecting the current choice.
 function htMultGroupEq6FillObjectSelector() {
     var label = (typeof mathKeywords !== "undefined" && mathKeywords.length > 78) ? mathKeywords[78] : "";
-    var text = "<option value=\"" + HT_MULT_GROUP_EQ6_RANDOM_OBJECT + "\"" + (localMultGroupEq6.objectIndex === HT_MULT_GROUP_EQ6_RANDOM_OBJECT ? " selected" : "") + ">" + $("#multGroupEq6WordRandom").text() + "</option>";
+    var select = $("#multGroupEq6Select");
+    select.empty();
+    select.append($("<option>").val(HT_MULT_GROUP_EQ6_RANDOM_OBJECT).prop("selected", localMultGroupEq6.objectIndex === HT_MULT_GROUP_EQ6_RANDOM_OBJECT).text($("#multGroupEq6WordRandom").text()));
     for (let i = 0; i < htMultiplicationTableObjects.length; i++) {
-        text += "<option value=\"" + i + "\"" + (localMultGroupEq6.objectIndex === i ? " selected" : "") + ">" + htMultiplicationTableObjects[i].option + "</option>";
+        select.append($("<option>").val(i).prop("selected", localMultGroupEq6.objectIndex === i).text(htMultiplicationTableObjects[i].option));
     }
-    $("#multGroupEq6Select").html(text).attr("aria-label", label).attr("title", label);
+    select.attr("aria-label", label).attr("title", label);
 }
 
 function htMultGroupEq6Select(side, id) {

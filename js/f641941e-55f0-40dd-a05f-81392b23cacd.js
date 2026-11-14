@@ -169,11 +169,13 @@ function htMultGroupRender() {
 // ht_math.js), preselecting the current choice.
 function htMultGroupFillObjectSelector() {
     var label = (typeof mathKeywords !== "undefined" && mathKeywords.length > 78) ? mathKeywords[78] : "";
-    var text = "<option value=\"" + HT_MULT_GROUP_RANDOM_OBJECT + "\"" + (localMultGroup.objectIndex === HT_MULT_GROUP_RANDOM_OBJECT ? " selected" : "") + ">" + $("#multGroupWordRandom").text() + "</option>";
+    var select = $("#multGroupSelect");
+    select.empty();
+    select.append($("<option>").val(HT_MULT_GROUP_RANDOM_OBJECT).prop("selected", localMultGroup.objectIndex === HT_MULT_GROUP_RANDOM_OBJECT).text($("#multGroupWordRandom").text()));
     for (let i = 0; i < htMultiplicationTableObjects.length; i++) {
-        text += "<option value=\"" + i + "\"" + (localMultGroup.objectIndex === i ? " selected" : "") + ">" + htMultiplicationTableObjects[i].option + "</option>";
+        select.append($("<option>").val(i).prop("selected", localMultGroup.objectIndex === i).text(htMultiplicationTableObjects[i].option));
     }
-    $("#multGroupSelect").html(text).attr("aria-label", label).attr("title", label);
+    select.attr("aria-label", label).attr("title", label);
 }
 
 function htMultGroupSelect(side, id) {
