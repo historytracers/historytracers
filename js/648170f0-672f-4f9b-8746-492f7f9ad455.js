@@ -144,7 +144,7 @@ function updateStepStatus() {
 function showPhase(p) {
     setVis('resetTutorBtn', true);
     localYupanaController.phase = p;
-    var t = localYupanaController.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
+    var t = localYupanaController.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.split('{'+k+'}').join(d[k]); return t; } };
     var value = localYupanaController.currentExercise.value;
     if (p === 1) {
         localYupanaController.digitPositions = getDigitPositions(value);
@@ -203,7 +203,7 @@ function startEvaluation() {
 }
 
 function showDigitInstruction(phase) {
-    var t = localYupanaController.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
+    var t = localYupanaController.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.split('{'+k+'}').join(d[k]); return t; } };
     var pos = localYupanaController.digitPositions[localYupanaController.digitIdx];
     var n = localYupanaController.currentExercise.value;
     var key = (phase === 1 || phase === 5) ? 'txt_step1DigitInstruction' : 'txt_step2DigitInstruction';
@@ -761,7 +761,7 @@ function htLoadContent() {
     localYupanaController.TextManager = {
         get: tm,
         format: function(t, d) {
-            for (var k in d) { if(d.hasOwnProperty(k)) { var v=d[k]; if(v===undefined||v===null)v=''; t=t.replace(new RegExp('\\{'+k+'\\}','g'),v); } }
+            for (var k in d) { if(d.hasOwnProperty(k)) { var v=d[k]; if(v===undefined||v===null)v=''; t=t.split('{'+k+'}').join(v); } }
             return t;
         },
         getPerfectMessage: function(v,t,r) { return this.format(tm('txt_perfectMessage'),{value:v,times:t,result:r}); }

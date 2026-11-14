@@ -35,7 +35,7 @@ function htSubInDigits(value, length) {
 
 function htSubInReplace(template, values) {
     for (var key in values) {
-        template = template.replace(new RegExp("\\{" + key + "\\}", "g"), values[key]);
+        template = template.split("{" + key + "}").join(values[key]);
     }
     return template;
 }
