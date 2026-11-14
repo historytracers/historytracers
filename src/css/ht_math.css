@@ -2888,6 +2888,16 @@ p.desc svg {
   border-color: #90a4ae;
 }
 
+/* Both group-matching games (f641941e and 0f7102a6) reuse the times-table
+   drawing-object selector (htMultiplicationTableObjects in src/js/ht_math.js),
+   but their random option carries a localized word, so the select grows to
+   fit it instead of the fixed 5em width of .mtDrawSelect. */
+.htMultGroupSelect {
+  width: auto;
+  min-width: 5em;
+  max-width: 90%;
+}
+
 /* Multiplying the Findings with Groups (21f8d529): the same controls as
    4f0474ba, but the current operation is drawn as groups of the same
    characters (reusing .htMultGroupBox/.htMultGroupIcon from f641941e)

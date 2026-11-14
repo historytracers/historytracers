@@ -6,14 +6,26 @@
 // the number of characters inside each rectangle and the second factor is the
 // number of rectangles, so 4 x 6 is drawn as six rectangles with four characters.
 // Localized texts live in the class JSON, so this file only wires the behavior.
+// The groups are drawn with the same objects used by the multiplication tables
+// (htMultiplicationTableObjects in ht_math.js): a selector above the game lets
+// the user pick one of them or keep the default random choice.
 
 var localMultGroup47 = {};
 
 var HT_MULT_GROUP47_MAX_LEVEL = 4;
 var HT_MULT_GROUP47_MAX_MULTIPLIER = 10;
+// Selector value for the default behavior: a random object from
+// htMultiplicationTableObjects in every new exercise.
+var HT_MULT_GROUP47_RANDOM_OBJECT = -1;
 
-function htMultGroup47Icons() {
-    return [ "🐶", "🐱", "🍎", "⭐", "🔺" ];
+// Returns the draw HTML of the drawing object for the groups: the one chosen
+// in the selector, or a random one from the same set used by the
+// multiplication tables when the user keeps the random option.
+function htMultGroup47ObjectDraw() {
+    if (localMultGroup47.objectIndex >= 0 && localMultGroup47.objectIndex < htMultiplicationTableObjects.length) {
+        return htMultiplicationTableObjects[localMultGroup47.objectIndex].draw;
+    }
+    return htMultiplicationTableObjects[htGetRandomArbitrary(0, htMultiplicationTableObjects.length)].draw;
 }
 
 // Each level practices one times table: level 1 has two multiplications by 4,
@@ -90,7 +102,23 @@ function htMultGroup47Build() {
         });
     }
 
-    var icon = htMultGroup47Icons()[htGetRandomArbitrary(0, htMultGroup47Icons().length)];
+    localMultGroup47.icon = htMultGroup47ObjectDraw();
+
+    var levelWord = $("#multGroup47WordLevel").text();
+    $("#multGroup47Level").text(levelWord + " " + localMultGroup47.level + "/" + HT_MULT_GROUP47_MAX_LEVEL);
+
+    htMultGroup47Render();
+}
+
+// Draws the two columns for the current pairs. Called by htMultGroup47Build and
+// again when the user picks another drawing object, so switching the image
+// keeps the pairs and the already matched buttons of the level.
+function htMultGroup47Render() {
+    $("#multGroup47Feedback").hide().html("");
+    localMultGroup47.selectedLeft = null;
+    localMultGroup47.selectedRight = null;
+
+    var icon = localMultGroup47.icon;
 
     var leftItems = [];
     var rightItems = [];
@@ -103,13 +131,17 @@ function htMultGroup47Build() {
 
     var leftHtml = "";
     for (let i = 0; i < leftItems.length; i++) {
-        leftHtml += "<button type=\"button\" class=\"orderGameBtn htMultGroupExprBtn\" id=\"multGroup47Left" + leftItems[i].id + "\" data-id=\"" + leftItems[i].id + "\" onclick=\"htMultGroup47Select('Left', " + leftItems[i].id + ");\">" + leftItems[i].html + "</button>";
+        var matchedClass = localMultGroup47.matched[leftItems[i].id] ? " orderGameBtnMatched" : "";
+        var matchedAttr = localMultGroup47.matched[leftItems[i].id] ? " disabled" : "";
+        leftHtml += "<button type=\"button\" class=\"orderGameBtn htMultGroupExprBtn" + matchedClass + "\" id=\"multGroup47Left" + leftItems[i].id + "\" data-id=\"" + leftItems[i].id + "\"" + matchedAttr + " onclick=\"htMultGroup47Select('Left', " + leftItems[i].id + ");\">" + leftItems[i].html + "</button>";
     }
     var rightHtml = "";
     for (let i = 0; i < rightItems.length; i++) {
         var pair = localMultGroup47.pairs[rightItems[i].id];
+        var matchedClass = localMultGroup47.matched[rightItems[i].id] ? " orderGameBtnMatched" : "";
+        var matchedAttr = localMultGroup47.matched[rightItems[i].id] ? " disabled" : "";
         var groups = rightItems[i].html === "" ? "" : "<span class=\"htMultGroupsWrap\">" + rightItems[i].html + "</span>";
-        rightHtml += "<button type=\"button\" class=\"orderGameBtn htMultGroupResultBtn\" id=\"multGroup47Right" + rightItems[i].id + "\" data-id=\"" + rightItems[i].id + "\" onclick=\"htMultGroup47Select('Right', " + rightItems[i].id + ");\"><span class=\"htMultGroupValue\">" + pair.result + "</span>" + groups + "</button>";
+        rightHtml += "<button type=\"button\" class=\"orderGameBtn htMultGroupResultBtn" + matchedClass + "\" id=\"multGroup47Right" + rightItems[i].id + "\" data-id=\"" + rightItems[i].id + "\"" + matchedAttr + " onclick=\"htMultGroup47Select('Right', " + rightItems[i].id + ");\"><span class=\"htMultGroupValue\">" + pair.result + "</span>" + groups + "</button>";
     }
     $("#multGroup47LeftCol").html(leftHtml);
     $("#multGroup47RightCol").html(rightHtml);
@@ -124,9 +156,18 @@ function htMultGroup47Build() {
             .split("%SIZE%").join(labelPair.first);
         $("#multGroup47Right" + rightItems[i].id).attr("aria-label", labelPair.result + ". " + groupDescription);
     }
+}
 
-    var levelWord = $("#multGroup47WordLevel").text();
-    $("#multGroup47Level").text(levelWord + " " + localMultGroup47.level + "/" + HT_MULT_GROUP47_MAX_LEVEL);
+// Fills the drawing-object selector with the random option followed by every
+// object used by the multiplication tables (htMultiplicationTableObjects in
+// ht_math.js), preselecting the current choice.
+function htMultGroup47FillObjectSelector() {
+    var label = (typeof mathKeywords !== "undefined" && mathKeywords.length > 78) ? mathKeywords[78] : "";
+    var text = "<option value=\"" + HT_MULT_GROUP47_RANDOM_OBJECT + "\"" + (localMultGroup47.objectIndex === HT_MULT_GROUP47_RANDOM_OBJECT ? " selected" : "") + ">" + $("#multGroup47WordRandom").text() + "</option>";
+    for (let i = 0; i < htMultiplicationTableObjects.length; i++) {
+        text += "<option value=\"" + i + "\"" + (localMultGroup47.objectIndex === i ? " selected" : "") + ">" + htMultiplicationTableObjects[i].option + "</option>";
+    }
+    $("#multGroup47Select").html(text).attr("aria-label", label).attr("title", label);
 }
 
 function htMultGroup47Select(side, id) {
@@ -197,7 +238,24 @@ function htMultGroup47CheckComplete() {
 }
 
 function htLoadContent() {
-    localMultGroup47 = { "level": 1, "pairs": [], "matched": {}, "selectedLeft": null, "selectedRight": null };
+    localMultGroup47 = { "level": 1, "pairs": [], "matched": {}, "selectedLeft": null, "selectedRight": null, "objectIndex": HT_MULT_GROUP47_RANDOM_OBJECT, "icon": "" };
+
+    htMultGroup47FillObjectSelector();
+    $("#multGroup47Select").off("change").on("change", function() {
+        var idx = parseInt($(this).val(), 10);
+        if (isNaN(idx) || idx < 0 || idx >= htMultiplicationTableObjects.length) {
+            idx = HT_MULT_GROUP47_RANDOM_OBJECT;
+        }
+        localMultGroup47.objectIndex = idx;
+        // A specific object redraws the groups right away, keeping the pairs
+        // and the matched buttons; the random option keeps the current drawing
+        // until the next exercise is built.
+        if (idx !== HT_MULT_GROUP47_RANDOM_OBJECT) {
+            localMultGroup47.icon = htMultGroup47ObjectDraw();
+            htMultGroup47Render();
+        }
+        return false;
+    });
 
     $("#multGroup47Reset").off("click").on("click", function() {
         htMultGroup47Build();
