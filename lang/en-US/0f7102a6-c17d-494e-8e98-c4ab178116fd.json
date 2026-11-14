@@ -1,0 +1,122 @@
+{
+   "title": "Multiplying with Groups (4 to 7)",
+   "header": "Multiplying with Groups (4 to 7)",
+   "sources": [
+      "0f7102a6-c17d-494e-8e98-c4ab178116fd"
+   ],
+   "scripts": [
+      "0f7102a6-c17d-494e-8e98-c4ab178116fd"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794691556"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game practices the multiplication tables of 4, 5, 6 and 7. Before you play, we suggest reviewing:\n\n- **Multiplying with the body (Level 2)**: a game to practice multiplication with the times tables you already know (<htcite0>)\n- **Understanding the Multiplication Table (4 and 5)**: how the multiplication tables of 4 and 5 work (<htcite1>)\n- **Understanding the Multiplication Table (6 and 7)**: how the multiplication tables of 6 and 7 work (<htcite2>)\n\nThose activities prepare you to see each multiplication here as a picture of equal groups.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c4b96e7c-627b-46d0-820c-409a1e9f47b8",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with the body (Level 2)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad9516ac-2893-4649-8d62-7f9cfe69cc64",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (4 and 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "833029d7-d81e-477a-9008-102d52d61983",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (6 and 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### General rules\n\nThis game helps you see multiplication as equal groups. On the left, you will see a multiplication; on the right, its result appears together with a picture of groups of characters.\n\nEach rectangle on the right is one group. Every rectangle holds as many characters as the first factor, and the number of rectangles is the second factor. For example, 4 × 6 shows four characters in each of six rectangles — that is six groups of four, and the result is 24.\n\nThe game has four levels:\n\n- **Level 1**: two multiplications from the 4 times table.\n- **Level 2**: two multiplications from the 5 times table.\n- **Level 3**: two multiplications from the 6 times table.\n- **Level 4**: two multiplications from the 7 times table.\n\nTo play, select a multiplication on the left and then its result on the right. If the pair is correct, both stay highlighted. When you match every pair, you complete the level and can move on to the next one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The Game\n\nMatch each multiplication on the left with its result on the right. The result also appears as groups of characters, so you can count them to check your answer. If a pair is wrong, a message will ask you to try again.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroup47Level\" class=\"level-badge\"></span></p><p><div id=\"multGroup47Game\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroup47LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroup47RightCol\"></div></div></p><p id=\"multGroup47Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroup47LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the pairs in this level!</p><p id=\"multGroup47AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the multiplications!</p><p style=\"text-align: center\"><button id=\"multGroup47Reset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"multGroup47NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroup47WordLevel\" style=\"display: none\">Level</span><span id=\"multGroup47WordNextLevel\" style=\"display: none\">Next level</span><span id=\"multGroup47WordPlayAgain\" style=\"display: none\">Play again</span><span id=\"multGroup47WordWrongPair\" style=\"display: none\">%RESULT% is not the result of %EXPRESSION%. Count the characters and try again.</span><span id=\"multGroup47WordGroups\" style=\"display: none\">Groups: %COUNT%. Characters per group: %SIZE%.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
