@@ -1,0 +1,147 @@
+{
+   "title": "Complete the Multiplication Table",
+   "header": "Complete the Multiplication Table",
+   "sources": [
+      "19b00e11-1e70-4e76-808c-673a0cc71af4"
+   ],
+   "scripts": [
+      "19b00e11-1e70-4e76-808c-673a0cc71af4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/19b00e11-1e70-4e76-808c-673a0cc71af4_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/223VmOFeOnMVomPiLm6Y2X?si=qFbjIv1vRvK62Zq0VI5bFQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "first_steps_volume2",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794621614"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game shows a whole multiplication table at once, with three results left blank for you to type. Before you play, we suggest reviewing:\n\n- **Multiplying with Groups (0 to 3)**: a game in which multiplications are matched with results drawn as groups of characters (<htcite0>)\n- **Multiplying the Findings with Groups**: the same groups of characters, drawn while exploring archaeological sites (<htcite1>)\n- **Learning Multiplication Table (6 and 7)**: how a times table grows with small steps (<htcite2>)\n\nThose activities prepare you to see every product of a table as equal groups.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f641941e-55f0-40dd-a05f-81392b23cacd",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying with Groups (0 to 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "21f8d529-1c27-4f02-b880-81954daaf6ac",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying the Findings with Groups",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Learning Multiplication Table (6 and 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### General rules\n\nOn the left, you will see the multiplication table of a number chosen in the **Multiplication Table** field: by default it is chosen randomly between 2 and 9, but you can also select a table from 0 to 9. The table is almost fully complete: three results are missing, and each one has a text input where you can type your answer. All the other results are already filled.\n\n- **Click a filled result**: the right side shows that multiplication drawn as groups of characters, exactly like in *Multiplying the Findings with Groups* (<htcite0>). Each rectangle holds as many characters as the table number, and the number of rectangles is the row of the table.\n- **Type an answer**: click a missing result and type the product: a one-digit result is checked with its only digit and a two-digit result once both digits are typed (Enter also submits it). If the answer is right, the result is revealed and its groups appear on the right. If it is wrong, you receive a tip: *we are expecting a number between X and Y, and it is Z positions from each one of these values*, where X and Y are the previous and the next results of the table, and Z is the table number itself.\n- **Choose the image**: in the **Group image** field, keep a random image or choose the one used to draw the groups. The chosen image is saved and used again as the default in your next visits, like in the times tables.\n\nWhen the three answers are correct, the whole table is complete. The **New exercise** button picks another table and other missing results.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "21f8d529-1c27-4f02-b880-81954daaf6ac",
+                     "text": "History Tracers Team",
+                     "page": "Multiplying the Findings with Groups",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The Game\n\nComplete the three missing results. Click any filled result to see its groups on the right, and use the tips to find the numbers you are missing.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><b>Multiplication Table:</b> <select id=\"multFillValues\"><option value=\"-1\">Randomly</option></select></p><p style=\"text-align: center\"><label for=\"multFillGroupValues\"><b>Group image:</b></label> <select id=\"multFillGroupValues\"><option value=\"-1\">Randomly</option></select></p><p><div id=\"multFillGame\" class=\"htMultFillGame\"><div class=\"htMultFillLeft\" id=\"multFillLeftCol\"></div><div class=\"htMultFillRight\" id=\"multFillRightCol\"></div></div></p><p id=\"multFillFeedback\" class=\"orderFeedback\" style=\"text-align: center; display: none;\"></p><p id=\"multFillDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You completed the whole table!</p><p style=\"text-align: center\"><button id=\"multFillReset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><span id=\"multFillWordTable\" style=\"display: none\">Table of</span><span id=\"multFillWordClick\" style=\"display: none\">Click a filled result on the left to see its groups here.</span><span id=\"multFillWordNotNumber\" style=\"display: none\">Please type a number.</span><span id=\"multFillWordTip\" style=\"display: none\">We are expecting a number between %X% and %Y%, and it is %Z% positions from each one of these values.</span><span id=\"multFillWordGroups\" style=\"display: none\">Groups: %COUNT%. Characters per group: %SIZE%.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

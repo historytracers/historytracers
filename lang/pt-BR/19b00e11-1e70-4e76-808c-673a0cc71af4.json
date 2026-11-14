@@ -1,0 +1,147 @@
+{
+   "title": "Complete a tabela de multiplicação",
+   "header": "Complete a tabela de multiplicação",
+   "sources": [
+      "19b00e11-1e70-4e76-808c-673a0cc71af4"
+   ],
+   "scripts": [
+      "19b00e11-1e70-4e76-808c-673a0cc71af4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/19b00e11-1e70-4e76-808c-673a0cc71af4_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/7sC0OfhHzW5cJWs6NWGFN5?si=H7V2daM1SGq1pHnAIFw4nQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "first_steps_volume2",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794621681"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo mostra uma tabela de multiplicação inteira de uma vez, com três resultados em branco para você digitar. Antes de jogar, sugerimos revisar:\n\n- **Multiplicando com grupos (0 a 3)**: um jogo em que multiplicações são unidas a resultados desenhados como grupos de caracteres (<htcite0>)\n- **Multiplicando os achados com grupos**: os mesmos grupos de caracteres, desenhados enquanto se exploram sítios arqueológicos (<htcite1>)\n- **Aprendendo a Tabuada (6 e 7)**: como uma tabuada cresce com passos pequenos (<htcite2>)\n\nEssas atividades preparam você para ver cada produto de uma tabuada como grupos iguais.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f641941e-55f0-40dd-a05f-81392b23cacd",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando com grupos (0 a 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "21f8d529-1c27-4f02-b880-81954daaf6ac",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando os achados com grupos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (6 e 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Regras gerais\n\nÀ esquerda, você verá a tabela de multiplicação de um número escolhido no campo de **tabuada**: por padrão ela é escolhida aleatoriamente entre 2 e 9, mas você também pode selecionar uma tabuada de 0 a 9. A tabela está quase completa: faltam três resultados, e cada um tem um campo de texto onde você pode digitar sua resposta. Todos os outros resultados já estão completos.\n\n- **Clique em um resultado completo**: o lado direito mostra essa multiplicação desenhada como grupos de caracteres, exatamente como em *Multiplicando os achados com grupos* (<htcite0>). Cada retângulo contém tantos caracteres quanto o número da tabuada, e o número de retângulos é a linha da tabuada.\n- **Digite uma resposta**: clique em um resultado que falta e digite o produto: um resultado de um dígito é verificado com esse dígito e um de dois dígitos quando você digita os dois (Enter também envia). Se a resposta estiver certa, o resultado é revelado e os grupos dele aparecem à direita. Se estiver errada, você recebe uma dica: *estamos esperando um número entre X e Y, e ele está a Z posições de cada um desses valores*, onde X e Y são o resultado anterior e o próximo da tabuada, e Z é o número da tabuada em si.\n- **Escolher a imagem**: no campo de **imagem do grupo**, você pode deixar uma imagem aleatória ou escolher a usada para desenhar os grupos. A imagem escolhida é salva e usada novamente como padrão nas suas próximas visitas, como nas tabuadas.\n\nQuando as três respostas estiverem certas, a tabuada inteira estará completa. O botão de **novo exercício** escolhe outra tabuada e outros resultados que faltam.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "21f8d529-1c27-4f02-b880-81954daaf6ac",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando os achados com grupos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nComplete os três resultados que faltam. Clique em qualquer resultado completo para ver os grupos dele à direita, e use as dicas para encontrar os números que estão faltando.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><b>Tabuada:</b> <select id=\"multFillValues\"><option value=\"-1\">Aleatório</option></select></p><p style=\"text-align: center\"><b>Imagem do grupo:</b> <select id=\"multFillGroupValues\"><option value=\"-1\">Aleatório</option></select></p><p><div id=\"multFillGame\" class=\"htMultFillGame\"><div class=\"htMultFillLeft\" id=\"multFillLeftCol\"></div><div class=\"htMultFillRight\" id=\"multFillRightCol\"></div></div></p><p id=\"multFillFeedback\" class=\"orderFeedback\" style=\"text-align: center; display: none;\"></p><p id=\"multFillDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você completou a tabela toda!</p><p style=\"text-align: center\"><button id=\"multFillReset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button></p><span id=\"multFillWordTable\" style=\"display: none\">Tabela do</span><span id=\"multFillWordClick\" style=\"display: none\">Clique em um resultado já completo à esquerda para ver os grupos dele aqui.</span><span id=\"multFillWordNotNumber\" style=\"display: none\">Digite um número, por favor.</span><span id=\"multFillWordTip\" style=\"display: none\">Estamos esperando um número entre %X% e %Y%, e ele está a %Z% posições de cada um desses valores.</span><span id=\"multFillWordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

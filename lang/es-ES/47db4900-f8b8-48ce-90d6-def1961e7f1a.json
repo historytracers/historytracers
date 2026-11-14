@@ -31,7 +31,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492910"
+      "1794607907"
    ],
    "authors": [
       ""
@@ -81,7 +81,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Caminando sobre el círculo\n\nDespués de estudiar cómo localizarnos por medio de un punto en el círculo (<htcite0>), en este texto comenzaremos a observar lo que ocurre con las funciones trigonométricas al caminar sobre el círculo.\n\nDel texto anterior, sabemos que el coseno al cuadrado y el seno al cuadrado, cuando se suman, siempre resultan en 1 (<htcite1>), lo que nos lleva a una reflexión:",
+               "text": "### Caminando sobre el círculo\n\nDespués de estudiar cómo localizarnos por medio de un punto en el círculo (<htcite0>), en este texto comenzaremos a observar lo que ocurre con las funciones trigonométricas al caminar sobre el círculo.\n\nEl texto anterior también mostró que el cuadrado del coseno más el cuadrado del seno siempre suma 1 (<htcite1>), lo que nos lleva a una reflexión:",
                "source": [
                   {
                      "type": 1,
@@ -115,7 +115,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: sobre los datos</b><br /><br />¿Cómo serían las gráficas de las funciones coseno y seno en el primer cuadrante de un círculo?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Antes de trazar</b><br /><br />¿Cómo serían los gráficos de las funciones coseno y seno en el primer cuadrante de un círculo?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -124,7 +124,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Valores del coseno\n\nPara un mejor entendimiento de la función coseno, lea el texto dedicado a ella (<htcite0>). De ese texto, extraemos que la función se define como:",
+               "text": "#### Valores del coseno\n\nPara entender mejor la función coseno, lea el texto dedicado a ella (<htcite0>). Ese texto define la función así:",
                "source": [
                   {
                      "type": 1,
@@ -155,7 +155,7 @@
                "PostMention": ""
             },
             {
-               "text": "A partir de la **Fórmula 1**, podemos observar que, a medida que la hipotenusa se aleja del eje horizontal — es decir, a medida que la levantamos —, la proyección en el eje horizontal se va reduciendo hasta alcanzar el valor cero, cuando la hipotenusa está totalmente en vertical. Esto significa que el coseno comienza con un valor máximo (1) y disminuye hasta alcanzar el valor mínimo (0), como se demuestra en la **Gráfica 2**.",
+               "text": "A partir de la **Fórmula 1**, podemos observar que, a medida que la hipotenusa se aleja del eje horizontal — es decir, a medida que la levantamos —, la proyección en el eje horizontal se va reduciendo hasta cero, cuando la hipotenusa está totalmente en vertical. Esto significa que el coseno comienza en su valor máximo (1) y disminuye hasta su valor mínimo (0), como se muestra en el **Gráfico 2**.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -164,7 +164,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcos0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfica 2</b>: Gráfica de la función coseno para el primer cuadrante del círculo. Gráfica creada con la biblioteca <htcite0>.</div></p><script> htPlotSineCosine('chartcos0', true, false, 1);</script>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcos0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Gráfico de la función coseno para el primer cuadrante del círculo. Gráfico creado con la biblioteca <htcite0>.</div></p><script> htPlotSineCosine('chartcos0', true, false, 1);</script>",
                "source": [
                   {
                      "type": 1,
@@ -186,7 +186,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Valores del seno\n\nAl igual que para la función coseno, sugerimos la lectura del texto dedicado a la función seno (<htcite0>) antes de continuar. De dicho texto, extraemos que la función se define como:",
+               "text": "#### Valores del seno\n\nAl igual que con la función coseno, recomendamos leer el texto dedicado a la función seno (<htcite0>) antes de continuar. Ese texto define la función así:",
                "source": [
                   {
                      "type": 1,
@@ -217,7 +217,7 @@
                "PostMention": ""
             },
             {
-               "text": "La **Fórmula 2** nos informa que, a medida que la hipotenusa se aproxima al eje vertical — es decir, a medida que la levantamos —, la proyección en el eje vertical va aumentando hasta alcanzar el valor uno, cuando la hipotenusa está totalmente en vertical. Esto significa que el seno comienza con un valor mínimo (0) y aumenta hasta alcanzar el valor máximo (1), como se demuestra en el **Gráfico 3**.",
+               "text": "La **Fórmula 2** nos informa que, a medida que la hipotenusa se aproxima al eje vertical — es decir, a medida que la levantamos —, la proyección en el eje vertical va aumentando hasta 1, cuando la hipotenusa está totalmente en vertical. Esto significa que el seno comienza en su valor mínimo (0) y aumenta hasta su valor máximo (1), como se muestra en el **Gráfico 3**.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -248,7 +248,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Suma de valores\n\nComparando los **Gráficos 2 y 3**, es posible observar que, a medida que los valores del coseno disminuyen, el valor del seno del ángulo va aumentando. Del texto anterior (<htcite0>) sabemos que la relación entre los cuadrados está dada de acuerdo con la siguiente **Fórmula 3**:",
+               "text": "#### Suma de valores\n\nComparando los **Gráficos 2 y 3**, vemos que, a medida que los valores del coseno disminuyen, el seno del ángulo aumenta. El texto anterior (<htcite0>) mostró que los cuadrados de las dos funciones cumplen la siguiente **Fórmula 3**:",
                "source": [
                   {
                      "type": 1,
@@ -279,7 +279,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para visualizar mejor la relación entre las magnitudes, reunimos los resultados de las tres fórmulas en el **Gráfico 4**.",
+               "text": "Para ver mejor la relación entre las magnitudes, reunimos en el **Gráfico 4** los resultados de las tres fórmulas:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -310,7 +310,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿y el resto del círculo?</b><br /><br />Todos los gráficos se hicieron utilizando solo un cuarto del círculo. ¿Estas fórmulas también funcionan para el resto del círculo?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Y el resto del círculo?</b><br /><br />Todos los gráficos se hicieron utilizando solo un cuarto del círculo. ¿Estas fórmulas también funcionan para el resto del círculo?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -319,7 +319,7 @@
                "PostMention": ""
             },
             {
-               "text": "Es tentador querer confirmar que todo lo estudiado también funciona en el resto del círculo. Sin embargo, en este momento, lo más importante es comprender cómo funciona todo antes de generalizar. Por este motivo, afirmamos solo que todo lo presentado es válido para los demás cuadrantes del círculo y que estos serán abordados en el momento adecuado.",
+               "text": "Puede ser tentador querer confirmar ahora que todo lo estudiado también funciona en el resto del círculo. Pero, por el momento, lo importante es comprender cómo funciona todo antes de generalizar. Por eso solo afirmamos que todo lo presentado aquí también vale para los otros tres cuadrantes, y que volveremos a ellos cuando toque el momento.",
                "source": [],
                "date_time": null,
                "isTable": false,

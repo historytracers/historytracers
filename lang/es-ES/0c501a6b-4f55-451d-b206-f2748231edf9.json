@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492910"
+      "1794606631"
    ],
    "authors": [
       ""
@@ -46,13 +46,13 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerrequisitos\n\nEste texto posee una aplicación para practicar la identidad trigonométrica fundamental sen²(θ) + cos²(θ) = 1. Antes de utilizarla, recomendamos estudiar las funciones seno y coseno (<htcite0>; <htcite1>) y cómo caminamos sobre el círculo para descubrir su relación (<htcite2>).",
+               "text": "### Prerrequisitos\n\nEste texto incluye una aplicación para practicar la identidad trigonométrica fundamental sen²(θ) + cos²(θ) = 1. Antes de usarla, recomendamos estudar:\n\n- **Trigonometría (Seno)**: cómo el seno conecta el ángulo theta (θ) con el cateto opuesto (<htcite0>)\n- **Trigonometría (Coseno)**: cómo el coseno conecta ese mismo ángulo con el cateto adyacente (<htcite1>)\n- **Caminando sobre el círculo**: cómo caminar sobre el círculo mostró que los cuadrados del seno y del coseno siempre suman el cuadrado del radio (<htcite2>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
                      "text": "History Tracers Team",
-                     "page": "Trigonometría (Coseno)",
+                     "page": "Trigonometría (Seno)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -62,9 +62,9 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
                      "text": "History Tracers Team",
-                     "page": "Trigonometría (Seno)",
+                     "page": "Trigonometría (Coseno)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -101,9 +101,9 @@
                "source": [
                   {
                      "type": 1,
-                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
                      "text": "History Tracers Team",
-                     "page": "Trigonometría (Coseno)",
+                     "page": "Trigonometría (Seno)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -113,9 +113,9 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
                      "text": "History Tracers Team",
-                     "page": "Trigonometría (Seno)",
+                     "page": "Trigonometría (Coseno)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -152,7 +152,7 @@
                "PostMention": ""
             },
             {
-               "text": "Es decir, sin importar el valor del ángulo theta (θ), la suma de los cuadrados del seno y del coseno es siempre igual a 1. Para reforzar esta idea, lo invitamos a usar la aplicación de abajo: mueva el ángulo theta (θ) y observe que los valores de sen²(θ) y cos²(θ) cambian, pero su suma permanece siempre 1.",
+               "text": "Es decir, sin importar el valor del ángulo theta (θ), la suma de los cuadrados del seno y del coseno siempre es igual a 1. Para reforzar esta idea, pruebe la aplicación de abajo: mueva el ángulo theta (θ) y observe cómo cambian los valores de sen²(θ) y cos²(θ), mientras su suma sigue siendo exactamente 1.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -166,7 +166,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Práctica\n\nPara comprender mejor la relación entre el seno y el coseno, le sugerimos que mueva el ángulo theta (θ) en el siguiente orden:",
+               "text": "### Práctica\n\nPara comprender mejor la relación entre el seno y el coseno, mueva el ángulo theta (θ) hasta las siguientes posiciones en la aplicación de abajo:\n- **30°** (donde empieza la aplicación): sen²(θ) = 0.25 y cos²(θ) = 0.75\n- **45°**: los dos cuadrados se reparten la suma por igual — 0.5 + 0.5\n- **90°**: el seno se lleva todo — 1 + 0\n- **5°**: el coseno se lleva casi todo — cerca de 0.008 + 0.992",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -193,7 +193,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como podemos ver, el cambio en el ángulo theta (θ) modifica el valor del seno y del coseno, pero la relación sen²(θ) + cos²(θ) = 1 siempre se mantiene. Es decir, sin importar el ángulo theta (θ), la suma de los cuadrados del seno y del coseno es siempre 1.",
+               "text": "Al mover el ángulo, observe el intercambio: sen²(θ) gana exactamente lo que cos²(θ) pierde. Un cuadrado crece mientras el otro se encoge, pero su suma nunca sale de 1. Eso es exactamente lo que dice la identidad sen²(θ) + cos²(θ) = 1: donde mueva el ángulo, el total queda fijo.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -207,7 +207,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, practicamos la identidad trigonométrica fundamental sen²(θ) + cos²(θ) = 1. Con la aplicación, vimos que, a medida que el ángulo theta (θ) cambia, los valores del seno y del coseno también cambian, pero la suma de sus cuadrados permanece siempre igual a 1.",
+               "text": "### Conclusión\n\nEn este texto practicamos, con una herramienta interactiva, la identidad trigonométrica fundamental sen²(θ) + cos²(θ) = 1. Vimos cómo el seno y el coseno intercambian tamaño a medida que cambia el ángulo theta (θ), mientras sus cuadrados siempre suman exactamente 1. Como ese total queda fijo, conocer uno de los dos valores permite encontrar el otro: por eso la identidad es útil.",
                "source": null,
                "date_time": null,
                "isTable": false,
