@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492910"
+      "1794680378"
    ],
    "authors": [
       ""
@@ -46,7 +46,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerrequisitos\n\nEste texto contiene una aplicación para practicar la relación entre la cotangente y la cosecante. Antes de utilizarla, recomendamos estudiar qué es la tangente y cómo caminamos sobre el círculo en los textos anteriores (<htcite0>; <htcite1>).",
+               "text": "### Prerrequisitos\n\nEste texto incluye una aplicación interactiva para practicar la relación entre la cotangente y la cosecante. Antes de usarla, recomendamos estudiar qué es la tangente y cómo se camina sobre el círculo en los textos anteriores (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -85,7 +85,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nCuando caminamos sobre el círculo, aprendimos que la relación entre el seno y el coseno de un ángulo viene dada por la suma de sus cuadrados (<htcite0>):",
+               "text": "### Introducción\n\nCuando caminamos sobre el círculo, aprendimos que la suma de los cuadrados del seno y del coseno de un ángulo es igual a 1 (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -116,7 +116,7 @@
                "PostMention": ""
             },
             {
-               "text": "También aprendimos que la cotangente de un ángulo viene dada por la división del coseno entre el seno (<htcite0>):",
+               "text": "También aprendimos que la cotangente de un ángulo es igual al coseno dividido entre el seno (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -138,7 +138,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>cot (θ)</mi><mo>=</mo><mfrac><mi>cos(θ)</mi><mi>sen (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definición de la cotangente según las funciones trigonométricas.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>cot (θ)</mi><mo>=</mo><mfrac><mi>cos(θ)</mi><mi>sen (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definición de la cotangente en términos del coseno y del seno.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -147,7 +147,7 @@
                "PostMention": ""
             },
             {
-               "text": "Con estas dos fórmulas, podemos descubrir ahora una nueva relación. Si dividimos cada término de la **Fórmula 1** entre el cuadrado del seno, obtenemos:",
+               "text": "Con estas dos fórmulas podemos descubrir ahora una nueva relación. Dividamos cada término de la **Fórmula 1** entre el cuadrado del seno:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -156,7 +156,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>+</mo><mfrac><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac></math></p><p class=\"desc\"><b>Fórmula 3</b>: Dividiendo cada término de la Fórmula 1 entre el cuadrado del seno.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>+</mo><mfrac><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac></math></p><p class=\"desc\"><b>Fórmula 3</b>: Cada término de la Fórmula 1 dividido entre el cuadrado del seno.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -165,7 +165,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para identificar el tercer término, recordamos la definición de la cosecante: el recíproco del seno. Por lo tanto, su cuadrado es (**Fórmula 4**):",
+               "text": "Para identificar el tercer término, recordemos la definición de la cosecante: es el recíproco del seno. Así, el cuadrado de ese recíproco es (**Fórmula 4**):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -174,7 +174,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><msup><mi>csc</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 4</b>: El recíproco del cuadrado del seno es el cuadrado de la cosecante.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><msup><mi>csc</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 4</b>: El recíproco del cuadrado del seno es igual al cuadrado de la cosecante.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -183,7 +183,7 @@
                "PostMention": ""
             },
             {
-               "text": "El primer término es el cuadrado de la cotangente (**Fórmula 2**). El segundo término es igual a 1. El tercer término es el cuadrado del recíproco del seno, es decir, el cuadrado de la cosecante (**Fórmula 4**). Por lo tanto, obtenemos la relación (**Fórmula 5**):",
+               "text": "Identifiquemos cada término de la **Fórmula 3**:\n- El primer término es cos²(θ) / sin²(θ). Si elevamos la **Fórmula 2** al cuadrado, obtenemos exactamente cot²(θ).\n- El segundo término es sen²(θ) / sen²(θ), que es igual a **1**.\n- El tercer término es 1 / sen²(θ), es decir, csc²(θ) (**Fórmula 4**).\n\nAl juntarlos, obtenemos (**Fórmula 5**):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -192,7 +192,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>cot</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>csc</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 5</b>: Relación entre la cotangente y la cosecante.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>cot</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>csc</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Fórmula 5</b>: Identidad que vincula la cotangente y la cosecante.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -201,7 +201,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Dividir entre cero?</b><br /><br />Para llegar a la <b>Fórmula 5</b>, dividimos entre el cuadrado del seno.<br /><br />¿Para qué ángulos de theta (θ) no sería posible esta división?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Dividir entre cero?</b><br /><br />Para llegar a la <b>Fórmula 5</b>, dividimos cada término entre sen²(θ).<br /><br />¿Para qué valores de θ no sería posible esta división?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -215,7 +215,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Práctica\n\nPara comprender mejor la relación entre la cotangente y la cosecante, sugerimos que mueva la flecha del ángulo theta (θ) en el siguiente orden:",
+               "text": "### Práctica\n\nPara comprender mejor la relación entre la cotangente y la cosecante, mueva la flecha del ángulo θ con el control de abajo. Pruebe varios valores y observe qué cambia — y qué se mantiene:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -242,7 +242,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como podemos ver, el cambio en el ángulo theta (θ) modifica el valor de la cotangente y de la cosecante, pero la relación 1 + cot² (θ) = csc² (θ) siempre se mantiene. Es decir, sin importar el ángulo theta (θ), la suma de 1 y el cuadrado de la cotangente es siempre el cuadrado de la cosecante.",
+               "text": "Al cambiar el ángulo θ, cambian los valores de la cotangente y de la cosecante, pero la identidad 1 + cot²(θ) = csc²(θ) siempre se cumple. Es decir, para cada ángulo permitido, 1 más el cuadrado de la cotangente es exactamente el cuadrado de la cosecante.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -256,7 +256,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nEn este texto, derivamos la relación entre la cotangente y la cosecante a partir de la relación que aprendimos al caminar sobre el círculo. También repasamos la imposibilidad de dividir entre cero y comprendimos, con la aplicación, que 1 + cot² (θ) = csc² (θ) es siempre válido para los ángulos en los que el seno no es cero.",
+               "text": "### Conclusión\n\nEn este texto dedujimos la identidad 1 + cot²(θ) = csc²(θ) a partir de la relación que aprendimos al caminar sobre el círculo. La reflexión sobre dividir entre cero nos recuerda que sen²(θ) no puede ser cero: θ no puede ser 0°, 180°, 360°, etc. (ningún ángulo cuyo seno sea 0). Con la aplicación vimos que 1 + cot²(θ) = csc²(θ) se cumple en todo ángulo cuyo seno no es cero.",
                "source": null,
                "date_time": null,
                "isTable": false,
