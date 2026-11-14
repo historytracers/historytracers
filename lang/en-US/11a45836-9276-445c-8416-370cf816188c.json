@@ -1,6 +1,6 @@
 {
-   "title": "Do we tangent the planet?",
-   "header": "Do we tangent the planet?",
+   "title": "Are we tangent to the planet?",
+   "header": "Are we tangent to the planet?",
    "sources": [
       "11a45836-9276-445c-8416-370cf816188c"
    ],
@@ -26,7 +26,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492885"
+      "1794678253"
    ],
    "authors": [
       ""
@@ -40,7 +40,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nWe recommend reading the previous text first, so you can follow this lesson more easily (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -76,7 +76,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Do we tangent the planet?\n\n#### A review\n\nSo far, we have studied the trigonometric functions sine and cosine (<htcite0>; <htcite1>), and we have seen that there is a relationship between them and the right triangle (**Formula 1**):",
+               "text": "### Are we tangent to the planet?\n\n#### A review\n\nSo far, we have studied the sine and cosine functions (<htcite0>; <htcite1>). We saw that they connect to the right triangle through **Formula 1**:",
                "source": [
                   {
                      "type": 1,
@@ -119,7 +119,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Here as well?</b><br /><br />We arrived at <b>Formula 1</b> when we started from the Pythagorean triangle (<htcite0>).<br /><br/>Would it be possible to start from <b>Formula 1</b> and arrive at some other relationship?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Does this apply here too?</b><br /><br />We obtained <b>Formula 1</b> from the Pythagorean triangle (<htcite0>).<br /><br/>Could we start from <b>Formula 1</b> and derive another useful relationship?</div></div></center></p>",
                "source": [
                   {
                      "type": 1,
@@ -141,7 +141,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Rearranging the Formula\n\n**Formula 1** was deduced by performing a division (<htcite0>). By observing its result — the right side of the formula — we see the number 1, indicating that everything to its left also corresponds to this value. Therefore, we can divide the formula by any of the values that compose it.\n\nIf we divide everything by 1, nothing will change, because, as we have already seen, dividing by 1 is like concentrating the whole in a single place; with this, the values do not change (<htcite1>). Therefore, we will choose another number to perform the division. Let's start with the first value on the left, cos&sup2; (θ) (**Calculation 1**).",
+               "text": "#### Rearranging the Formula\n\n**Formula 1** was obtained by a division (<htcite0>). Look at its right-hand side: the number 1 tells us that everything on the left must equal 1 as well. Because of that, we may divide the whole formula by any of the values that appear in it.\n\nDividing by 1 would change nothing — as we have already seen, dividing by 1 keeps the whole in a single place, so the values stay the same (<htcite1>). Let us choose a different divisor instead. We begin with the first value on the left, cos&sup2; (θ) (**Calculation 1**).",
                "source": [
                   {
                      "type": 1,
@@ -184,7 +184,7 @@
                "PostMention": ""
             },
             {
-               "text": "**Calculation 1** is not yet the result we want, but we pause here to make the steps clear:\n- **Line 1**: It is the original **Formula 1**, repeated without any kind of transformation.\n- **Line 2**: We divided all the elements of **Line 1** by the same value, cos&sup2; (θ); otherwise, the equality would cease to make sense. That is, when we have an equality, any modification must preserve this condition.\n- **Line 3**: The first element of the calculation divides a value by itself; therefore, we replace it with 1.\n\nRegarding the other elements, we need to reflect.",
+               "text": "**Calculation 1** is not yet the final result we want. Let us pause here and review each line:\n- **Line 1**: The original **Formula 1**, repeated with no change.\n- **Line 2**: Every element of **Line 1** is divided by the same value, cos&sup2; (θ). If we divided by different values, the equality would break — any change to an equality must keep both sides balanced.\n- **Line 3**: The first element divides a value by itself, so we replace it with 1.\n\nWhat about the other two elements? Let us reflect on them.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -193,7 +193,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Who are you?</b><br /><br />Can you identify the other two elements in <b>Graph 1</b>?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Who are they?</b><br /><br />Look at <b>Graph 1</b> again. Can you identify what the other two elements of the calculation represent?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -202,7 +202,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Redesigning\n\nLet's redesign **Graph 1** and make some changes to aid identification. First, we will replace the letters corresponding to legs **a** and **b** with the respective cosine and sine functions (<htcite0>; <htcite1>):",
+               "text": "#### Redesigning\n\nLet us redesign **Graph 1** to make identification easier. First, we replace the letters of legs **a** and **b** with the cosine and sine functions (<htcite0>; <htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -245,7 +245,7 @@
                "PostMention": ""
             },
             {
-               "text": "After renaming the legs in **Graph 2**, we can observe that the triangle formed by points OPQ is similar to triangle RPQ. To make this even more evident, we will move cos θ from its internal position within triangle OPQ.",
+               "text": "After renaming the legs in **Graph 2**, we can see that triangle OPQ is similar to triangle RPQ. To make this even clearer, we move cos θ out of triangle OPQ so that it appears as its own side.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -263,7 +263,7 @@
                "PostMention": ""
             },
             {
-               "text": "Now that we have isolated cos θ, making it explicit that it is one of the sides, we can write the ratio between the sides — a comparison showing sizes and relationships — in order to understand what **c** would be, which has not yet been expressed in terms of theta (θ):",
+               "text": "Now that cos θ stands alone as one of the sides, we can write a ratio between the sides — a comparison of their sizes and relationships — to find out what **c** is, since **c** is still not written in terms of θ:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -281,7 +281,7 @@
                "PostMention": ""
             },
             {
-               "text": "**Formula 2** shows us that **c** is the ratio between sin θ and cos θ, which, from this moment on, we call the tangent. Thus, we can rewrite **Formula 2** as (<htcite0>):",
+               "text": "**Formula 2** shows that **c** equals sin θ divided by cos θ. From now on, we call that ratio the tangent. So we can rewrite **Formula 2** as (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -312,7 +312,7 @@
                "PostMention": ""
             },
             {
-               "text": "With **Formula 3**, we can update **Graph 3** by making one more side explicit in terms of theta (θ):",
+               "text": "With **Formula 3**, we can update **Graph 3** and write one more side in terms of θ:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -330,7 +330,7 @@
                "PostMention": ""
             },
             {
-               "text": "The derivation of **Formula 3** also helps us simplify the last step of **Calculation 1**. For example, let's square both sides of **Formula 3**:",
+               "text": "**Formula 3** also helps us finish **Calculation 1**. For example, square both sides of **Formula 3**:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -339,7 +339,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>tan&sup2; (θ)</mi><mn>=</mn><mfrac><mi>sin&sup2; (θ)</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Formula 4</b>: Tangent squared.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>tan&sup2; (θ)</mi><mn>=</mn><mfrac><mi>sin&sup2; (θ)</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Formula 4</b>: The square of the tangent.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -348,7 +348,7 @@
                "PostMention": ""
             },
             {
-               "text": "Now, substituting **Formula 4** into **Calculation 1**, we can write:",
+               "text": "Now substitute **Formula 4** into **Calculation 1**:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -357,7 +357,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>1</mi><mn>+</mn><mfrac><mi>sin&sup2; (θ)</mi><mi>cos&sup2; (θ)</mi></mfrac><mn>=</mn><mfrac><mi>1</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>1</mi><mn>+</mn><mi>tan&sup2; (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Calculation 2</b>: Trigonometric relationship showing that the sum of 1 and the square of the tangent is equal to the inverse of the square of the cosine.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>1</mi><mn>+</mn><mfrac><mi>sin&sup2; (θ)</mi><mi>cos&sup2; (θ)</mi></mfrac><mn>=</mn><mfrac><mi>1</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>1</mi><mn>+</mn><mi>tan&sup2; (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Calculation 2</b>: 1 plus the square of the tangent equals the reciprocal of the square of the cosine.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -366,13 +366,13 @@
                "PostMention": ""
             },
             {
-               "text": "In **Calculation 2**, we can observe the following steps:\n- **Line 1**: **Line 3** from **Calculation 1** was repeated, to make it clearer what we are doing;\n- **Line 2**: We substitute the second element with the value from **Formula 4**.\n\nIn addition to simplifying **Calculation 1**, the **Formula 3** also leads us to an important conclusion about the definition of the tangent using the right triangle demonstrated in **Graph 1**, based on the definitions of cosine and sine (<htcite0>; <htcite1>; <htcite2>):",
+               "text": "In **Calculation 2**, the steps are:\n- **Line 1**: We repeat **Line 3** of **Calculation 1**, so the change is easy to follow.\n- **Line 2**: We replace the second element with the value from **Formula 4**.\n\nBesides simplifying **Calculation 1**, **Formula 3** also leads to an important conclusion: the definition of the tangent in the right triangle of **Graph 1**, using the definitions of cosine and sine (<htcite0>; <htcite1>; <htcite2>):",
                "source": [
                   {
                      "type": 1,
                      "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
                      "text": "History Tracers Team",
-                     "page": "Trigonometry (Cossine)",
+                     "page": "Trigonometry (Cosine)",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -421,7 +421,7 @@
                "PostMention": ""
             },
             {
-               "text": "Now, let's analyze the steps of **Calculation 3**:\n- **Line 1**: We repeat **Formula 3** as the starting point of the calculation.\n- **Line 2**: We substitute the definitions of sine (opposite leg **b** divided by the hypotenuse **c** (<htcite0>)) and cosine (adjacent leg **a** divided by the hypotenuse **c** (<htcite1>)), according to the Pythagorean triangle presented in **Graph 1**;\n- **Line 3**: We apply the algorithm described by Eric W. Weisstein for division of fractions (<htcite2>). Note that, at this stage, the fraction initially in the upper part (the sine) is kept in the same format, with the numerator — which represents the part of the whole — on top, while the denominator — which represents the whole — is kept on the bottom. On the other hand, the second fraction is inverted, with its denominator **c** becoming the numerator, while its numerator **a** becomes the denominator. As a consequence of this inversion, the whole of one fraction is multiplied by the part of the other, and vice versa.\n- **Line 4**: When the whole of both fractions is equal, as in **Calculation 3**, the final result makes it explicit that we are looking for the ratio between the parts, since the division of the whole by itself equals 1.",
+               "text": "Now let us analyze **Calculation 3** step by step:\n- **Line 1**: We start again from **Formula 3**.\n- **Line 2**: We substitute the definitions of sine (opposite leg **b** divided by the hypotenuse **c** (<htcite0>)) and cosine (adjacent leg **a** divided by the hypotenuse **c** (<htcite1>)), as shown in the right triangle of **Graph 1**.\n- **Line 3**: We divide the two fractions, following the algorithm described by Eric W. Weisstein (<htcite2>). Keep the first fraction (the sine) as it is: the numerator (the part) stays on top and the denominator (the whole) stays on the bottom. Invert the second fraction: its denominator **c** moves to the top and its numerator **a** moves to the bottom. In other words, the whole of one fraction multiplies the part of the other, and the other way around.\n- **Line 4**: Because both fractions share the same whole (**c**), that whole cancels out (anything divided by itself is 1). What remains is the ratio between the parts: **b** divided by **a**.",
                "source": [
                   {
                      "type": 1,
@@ -467,7 +467,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: And finally...</b><br /><br /><b>Calculation 1</b> began with a trigonometric relationship that we deduced from the Pythagorean theorem.<br /><br /><b>Calculation 2</b> performed an update, from which we can conclude that 1 and tangent squared (tan&sup2; (θ)) are the legs of the triangle.<br /><br />With this information, can we conclude the last element of <b>Calcultion 2</b>?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: And finally...</b><br /><br /><b>Calculation 1</b> started from a trigonometric identity that comes from the Pythagorean theorem.<br /><br /><b>Calculation 2</b> updated that identity. From it, we can see that 1 and tan&sup2; (θ) act like the two legs of a right triangle.<br /><br />With that in mind, can we determine the last element of <b>Calculation 2</b> — the hypotenuse?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -476,7 +476,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### The other hypotenuse\n\nObserve **Graph 5**, which contains the triangles separated from **Graph 4**.",
+               "text": "#### The other hypotenuse\n\nObserve **Graph 5**: it shows the triangles taken out of **Graph 4**.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -485,7 +485,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 200\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker></defs>  <line class=\"radius-line\" x1=\"5\" y1=\"169\" x2=\"111\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"5\" y1=\"169\" x2=\"111\" y2=\"66\"></line> <line class=\"vertical45\" x1=\"111\" y1=\"169\" x2=\"111\" y2=\"66\"></line> <text class=\"atlasTextRadius\" x=\"2\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"109\" y=\"62\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"111\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"40\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">cos θ</text> <text class=\"atlasTextRadius\" x=\"124\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" transform=\"rotate(90, 124, 128)\">sin θ</text> <text class=\"atlasTextRadius\" x=\"30\" y=\"118\" font-size=\"1.3em\" font-weight=\"bold\">1</text>     <line class=\"radius-line\" x1=\"145\" y1=\"169\" x2=\"251\" y2=\"169\"></line>  <line class=\"radius-45\" x1=\"145\" y1=\"66\" x2=\"251\" y2=\"169\"></line> <line class=\"vertical45\" x1=\"145\" y1=\"169\" x2=\"145\" y2=\"66\"></line> <text class=\"atlasTextRadius\" x=\"143\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"245\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">R</text> <text class=\"atlasTextRadius\" x=\"143\" y=\"62\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"210\" y=\"118\" font-size=\"1.3em\" font-weight=\"bold\">tan θ</text>     <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line> <line class=\"vertical45\" x1=\"448\" y1=\"169\" x2=\"506\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <line class=\"vertical45\" x1=\"407\" y1=\"65\" x2=\"508\" y2=\"168\"></line> <text class=\"atlasTextRadius\" x=\"330\" y=\"118\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"470\" y=\"118\" font-size=\"1.3em\" font-weight=\"bold\">tan θ</text> <text class=\"atlasTextRadius\" x=\"420\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" transform=\"rotate(90, 420, 128)\">sin θ</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"62\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"405\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"500\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">R</text> </svg></div></p><p class=\"desc\"><b>Graph 5</b>: Triangles from <b>Graph 1</b> isolated.</p>",
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 200\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker></defs>  <line class=\"radius-line\" x1=\"5\" y1=\"169\" x2=\"111\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"5\" y1=\"169\" x2=\"111\" y2=\"66\"></line> <line class=\"vertical45\" x1=\"111\" y1=\"169\" x2=\"111\" y2=\"66\"></line> <text class=\"atlasTextRadius\" x=\"2\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"109\" y=\"62\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"111\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"40\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">cos θ</text> <text class=\"atlasTextRadius\" x=\"124\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" transform=\"rotate(90, 124, 128)\">sin θ</text> <text class=\"atlasTextRadius\" x=\"30\" y=\"118\" font-size=\"1.3em\" font-weight=\"bold\">1</text>     <line class=\"radius-line\" x1=\"145\" y1=\"169\" x2=\"251\" y2=\"169\"></line>  <line class=\"radius-45\" x1=\"145\" y1=\"66\" x2=\"251\" y2=\"169\"></line> <line class=\"vertical45\" x1=\"145\" y1=\"169\" x2=\"145\" y2=\"66\"></line> <text class=\"atlasTextRadius\" x=\"143\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"245\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">R</text> <text class=\"atlasTextRadius\" x=\"143\" y=\"62\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"210\" y=\"118\" font-size=\"1.3em\" font-weight=\"bold\">tan θ</text>     <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line> <line class=\"vertical45\" x1=\"448\" y1=\"169\" x2=\"506\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <line class=\"vertical45\" x1=\"407\" y1=\"65\" x2=\"508\" y2=\"168\"></line> <text class=\"atlasTextRadius\" x=\"330\" y=\"118\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"470\" y=\"118\" font-size=\"1.3em\" font-weight=\"bold\">tan θ</text> <text class=\"atlasTextRadius\" x=\"420\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" transform=\"rotate(90, 420, 128)\">sin θ</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"62\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"405\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"500\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">R</text> </svg></div></p><p class=\"desc\"><b>Graph 5</b>: Triangles from <b>Graph 4</b> isolated.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -494,7 +494,7 @@
                "PostMention": ""
             },
             {
-               "text": "Note that triangles OPQ and RPQ, when joined, form another larger triangle, OPR. From this, we can conclude, so far:\n- **Side OP**: it is a leg of length 1;\n- **Side PR**: it is a leg of length tan θ.\n\nFrom **Calculation 2** we also know what the value of side OR will be (1/cos²(θ)). However, in the same way that, through **Formula 3**, we defined a new trigonometric function from others, we will also do that for the hypotenuse (side OR).\n\nWe define the secant of angle θ as (<htcite0>):",
+               "text": "When we join triangles OPQ and RPQ, they form a larger triangle, OPR. So far we know:\n- **Side OP**: a leg of length 1;\n- **Side PR**: a leg of length tan θ.\n\n**Calculation 2** also tells us about the third side. By the Pythagorean theorem, OR² equals 1 + tan²(θ), and **Calculation 2** shows that this sum equals 1/cos²(θ). Just as **Formula 3** defined a new function from sine and cosine, we can now define a new function for the hypotenuse OR.\n\nWe define the secant of angle θ as (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -516,7 +516,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>sec (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Formula 4</b>: Definition of the secant.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>sec (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Formula 5</b>: Definition of the secant.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -525,7 +525,7 @@
                "PostMention": ""
             },
             {
-               "text": "Since **Calculation 2** works with squared values, we need to square **Formula 4** before finally arriving at the desired result:",
+               "text": "Because **Calculation 2** uses squared values, we square **Formula 5** to reach the desired result:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -534,7 +534,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>sec&sup2; (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Formula 5</b>: Definition of the secant squared.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>sec&sup2; (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Formula 6</b>: Definition of the secant squared.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -543,7 +543,7 @@
                "PostMention": ""
             },
             {
-               "text": "Substituting **Formula 5** into **Calculation 2**, we arrive at a second trigonometric relation:",
+               "text": "Substituting **Formula 6** into **Calculation 2**, we obtain a second trigonometric identity:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -552,7 +552,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>1</mi><mn>+</mn><mi>tan&sup2; (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>1</mi><mn>+</mn><mi>tan&sup2; (θ)</mi><mn>=</mn><mi>sec&sup2; (θ)</mi></math></p> <p class=\"desc\"><b>Calculation 4</b>: Trigonometric relation between tangent and secant.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>1</mi><mn>+</mn><mi>tan&sup2; (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos&sup2; (θ)</mi></mfrac></math></p> <p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>1</mi><mn>+</mn><mi>tan&sup2; (θ)</mi><mn>=</mn><mi>sec&sup2; (θ)</mi></math></p> <p class=\"desc\"><b>Calculation 4</b>: Identity linking the tangent and the secant.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -561,7 +561,7 @@
                "PostMention": ""
             },
             {
-               "text": "With the result of **Calculation 4**, we can also update **Graph 4**, expressing it only with trigonometric functions:",
+               "text": "With **Calculation 4**, we can update **Graph 4**. The result is **Graph 6**, where every side is written with trigonometric functions:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -579,7 +579,7 @@
                "PostMention": ""
             },
             {
-               "text": "Similarly, we can also update the triangles in **Graph 5**:",
+               "text": "In the same way, we update the triangles of **Graph 5**. The result is **Graph 7**:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -597,7 +597,7 @@
                "PostMention": ""
             },
             {
-               "text": "Although we have removed some elements from **Graph 7**, in order to facilitate the visualization and interpretation of what we wrote, they remain hidden in triangle OPR.\n\nFinally, answering the section question: because we are on the planet and are small when compared to it, we can approximate by saying we are “tangent” to the planet when we are standing; however, we effectively do not do so, as we are not just a point on the planet's surface.",
+               "text": "Some labels were removed from **Graph 7** to make the figure easier to read, but those elements are still part of triangle OPR.\n\nFinally, to answer the question of this section: compared with the planet, we are very small, so when we stand upright we can say — as an approximation — that we are “tangent” to the planet. In reality, however, we are not exactly tangent, because we are not a single point on the planet’s surface.",
                "source": [],
                "date_time": null,
                "isTable": false,
