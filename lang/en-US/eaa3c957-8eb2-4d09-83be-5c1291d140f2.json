@@ -1,0 +1,102 @@
+{
+   "title": "Matching the Tables of 6 and 7",
+   "header": "Matching the Tables of 6 and 7",
+   "sources": [
+      "eaa3c957-8eb2-4d09-83be-5c1291d140f2"
+   ],
+   "scripts": [
+      "eaa3c957-8eb2-4d09-83be-5c1291d140f2"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/eaa3c957-8eb2-4d09-83be-5c1291d140f2_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794753552"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game shows how the multiplication tables of 6 and 7 are related: multiplying by 7 is the same as multiplying by 6 and then adding one more copy of the multiplier, that is, 7 × N = 6 × N + N. Before you play, we suggest reviewing:\n\n- **Learning Multiplication Table (6 and 7)**: a simple introduction to multiplying by six and by seven with a six-petal flower and the days of the week (<htcite0>)\n\nWith the table of 7 fresh in your memory, you are ready to see how each of its results is also a result of the table of 6 plus one more group.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Learning Multiplication Table (6 and 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### General rules\n\nThe tables of 6 and 7 are next-door neighbors, and the table of 7 grows exactly one group faster: multiplying by 7 is the same as multiplying by 6 and then adding one more copy of the multiplier, 7 × N = 6 × N + N. For example, 7 × 3 = 21 is the same as 6 × 3 + 3 = 21: three groups of seven is exactly the same quantity as six groups of three plus one more group of three.\n\nThis game makes that relationship visible. On the left, you will see an equality like 6 × 3 + 3 = 7 × 3; on the right, its result appears together with a picture of groups of characters, drawn as rectangles with seven characters each — the picture of the 7 × N side of the equality.\n\nThe game has three levels:\n\n- **Level 1**: two equalities from the first half of the table of 7 (results 7 to 28).\n- **Level 2**: two equalities from the second half of the table of 7 (results 35 to 49).\n- **Level 3**: two equalities mixing both halves of the table.\n\nAbove the game, a selector chooses the image used in the groups: **🎲 Random** draws a random object from the multiplication tables in every new exercise, or you can select one specific image — the same ones used in the multiplication tables — and every group uses it while you play.\n\nTo play, select an equality on the left and then its result on the right. If the pair is correct, both stay highlighted. When you match every pair, you complete the level and can move on to the next one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The Game\n\nMatch each equality on the left with its result on the right. The result also appears as groups of characters, so you can count them to check your answer — every rectangle holds seven characters, exactly like the 7 × N side of the equality. If a pair is wrong, a message will ask you to try again.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroup67Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroup67Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroup67Game\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroup67LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroup67RightCol\"></div></div></p><p id=\"multGroup67Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroup67LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the pairs in this level!</p><p id=\"multGroup67AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the equalities!</p><p style=\"text-align: center\"><button id=\"multGroup67Reset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"multGroup67NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroup67WordLevel\" style=\"display: none\">Level</span><span id=\"multGroup67WordNextLevel\" style=\"display: none\">Next level</span><span id=\"multGroup67WordPlayAgain\" style=\"display: none\">Play again</span><span id=\"multGroup67WordWrongPair\" style=\"display: none\">%RESULT% is not the result of %EXPRESSION%. Count the characters and try again.</span><span id=\"multGroup67WordGroups\" style=\"display: none\">Groups: %COUNT%. Characters per group: %SIZE%.</span><span id=\"multGroup67WordRandom\" style=\"display: none\">🎲 Random</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
