@@ -222,28 +222,35 @@ function htMeasureGamePolygonPoints(cx, baseY, side, n) {
 function htMeasureGameSvg1D(question) {
     var unit = 26;
     var x0 = 30;
-    var count = 10;
+    var count = (question.kind === "polygon") ? 6 : 10;
     var baseY = 150;
+    var canvasWidth = 320;
     var body = "";
     var i;
     var x;
 
     if (question.kind === "polygon") {
         var side = question.value * unit;
-        var rawPoints = htMeasureGamePolygonPoints(
-            x0 + side / 2, 0, side, question.shape + 3);
+        var rawPoints = htMeasureGamePolygonPoints(side / 2, 0, side, question.shape + 3);
+        var minX = 0;
+        var maxX = 0;
         var minY = 0;
 
         for (i = 0; i < rawPoints.length; i++) {
+            minX = Math.min(minX, rawPoints[i][0]);
+            maxX = Math.max(maxX, rawPoints[i][0]);
             minY = Math.min(minY, rawPoints[i][1]);
         }
 
-        // The canvas follows the height of the polygon, so small shapes do not
-        // leave a large empty area above the ruler.
+        // Odd-sided polygons and hexagons are wider than the side that rests
+        // on the ruler. Move the origin right so the left edge stays visible
+        // and widen the canvas when the right edge needs it.
+        x0 += Math.max(0, -minX);
         baseY = (-minY) + 30;
+        canvasWidth = Math.ceil(Math.max(320, x0 + Math.max(maxX, count * unit) + 12));
     }
 
-    var svg = "<svg viewBox=\"0 0 320 " + (baseY + 50) + "\" role=\"img\" " +
+    var svg = "<svg viewBox=\"0 0 " + canvasWidth + " " + (baseY + 50) + "\" role=\"img\" " +
         "preserveAspectRatio=\"xMidYMid meet\">";
 
     for (i = 0; i <= count; i++) {
@@ -269,7 +276,7 @@ function htMeasureGameSvg1D(question) {
         var points = [];
 
         for (i = 0; i < rawPoints.length; i++) {
-            points.push([rawPoints[i][0], rawPoints[i][1] + baseY]);
+            points.push([rawPoints[i][0] + x0, rawPoints[i][1] + baseY]);
         }
 
         body += htMeasureGameSvgPolygon(points, "#4c8fca");
