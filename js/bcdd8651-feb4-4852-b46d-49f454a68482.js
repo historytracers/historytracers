@@ -250,7 +250,7 @@ function htMeasureGameSvg1D(question) {
         canvasWidth = Math.ceil(Math.max(320, x0 + Math.max(maxX, count * unit) + 12));
     }
 
-    var svg = "<svg viewBox=\"0 0 " + canvasWidth + " " + (baseY + 50) + "\" role=\"img\" " +
+    var svg = "<svg viewBox=\"0 0 " + canvasWidth + " " + (baseY + 64) + "\" role=\"img\" " +
         "preserveAspectRatio=\"xMidYMid meet\">";
 
     for (i = 0; i <= count; i++) {
@@ -261,6 +261,10 @@ function htMeasureGameSvg1D(question) {
     }
 
     svg += htMeasureGameSvgLine([x0, baseY], [x0 + count * unit, baseY], "#555", 2);
+    svg += "<text x=\"" + ((x0 * 2 + count * unit) / 2).toFixed(1) +
+        "\" y=\"" + (baseY + 48) +
+        "\" class=\"htMeasureGameAxisLabel\" data-axis=\"len\" font-size=\"12\"" +
+        " font-weight=\"bold\" text-anchor=\"middle\" fill=\"#2f6fb3\"></text>";
 
     if (question.kind === "string") {
         var end = x0 + question.value * unit;
@@ -298,7 +302,8 @@ function htMeasureGameSvg2D(question) {
     var baseY = 274;
     var topY = baseY - max * unit;
     var rightX = x0 + max * unit;
-    var svg = "<svg viewBox=\"0 0 340 340\" role=\"img\" " +
+    var midY = (topY + baseY) / 2;
+    var svg = "<svg viewBox=\"0 0 340 360\" role=\"img\" " +
         "preserveAspectRatio=\"xMidYMid meet\">";
 
     for (var i = 0; i <= max; i++) {
@@ -332,6 +337,15 @@ function htMeasureGameSvg2D(question) {
         svg += "<text x=\"" + (x0 - 28) + "\" y=\"" + (vy + 4) +
             "\" font-size=\"12\" text-anchor=\"end\" fill=\"#333\">" + i + "</text>";
     }
+
+    // Names of the directions measured by each ruler.
+    svg += "<text x=\"" + ((x0 + rightX) / 2).toFixed(1) + "\" y=\"" + (baseY + 60) +
+        "\" class=\"htMeasureGameAxisLabel\" data-axis=\"len\" font-size=\"12\"" +
+        " font-weight=\"bold\" text-anchor=\"middle\" fill=\"#2f6fb3\"></text>";
+    svg += "<text x=\"24\" y=\"" + midY.toFixed(1) +
+        "\" class=\"htMeasureGameAxisLabel\" data-axis=\"hei\" font-size=\"12\"" +
+        " font-weight=\"bold\" text-anchor=\"middle\" fill=\"#2e7d32\"" +
+        " transform=\"rotate(-90 24 " + midY.toFixed(1) + ")\"></text>";
 
     return svg + "</svg>";
 }
@@ -615,8 +629,9 @@ function htMeasureGameRenderCanvas(question) {
         $("#htMeasureCanvas").html(htMeasureGameSvg2D(question));
     } else {
         $("#htMeasureCanvas").html(htMeasureGameSvg3D(question));
-        htMeasureGameApplyAxisLabels("#htMeasureCanvas");
     }
+
+    htMeasureGameApplyAxisLabels("#htMeasureCanvas");
 }
 
 /**
