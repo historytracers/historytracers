@@ -5637,3 +5637,155 @@ p.desc svg {
     margin-top: 0.6em;
   }
 }
+
+/*
+ * Measuring Practice game
+ * (content bcdd8651-feb4-4852-b46d-49f454a68482): one ruler with a string and a
+ * polygon, two rulers with a square and a rectangle, three rulers with a cube
+ * and another solid.
+ */
+.htMeasureGame {
+  margin: 1em auto;
+  max-width: 42em;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.htMeasureHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.35em 1em;
+  margin-bottom: 0.5em;
+}
+
+.htMeasureLevel,
+.htMeasureScore {
+  font-weight: bold;
+  color: #2c5f8a;
+}
+
+.htMeasureQuestion {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.htMeasurePrompt {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  overflow-wrap: break-word;
+}
+
+.htMeasureCanvas {
+  margin: 0 auto;
+  max-width: 24em;
+  width: 100%;
+}
+
+.htMeasureCanvas svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.htMeasureChoices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htMeasureChoice {
+  padding: 0.5em 1.1em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htMeasureChoice:hover {
+  background-color: #d3e8f8;
+}
+
+.htMeasureChoice:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.htMeasureChoiceCorrect {
+  background-color: #b9f6ca;
+  border-color: #2e7d32;
+  color: #1b5e20;
+  opacity: 1 !important;
+}
+
+.htMeasureChoiceWrong {
+  background-color: #ffcdd2;
+  border-color: #c62828;
+  color: #8e2020;
+  opacity: 1 !important;
+}
+
+.htMeasureFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+.htMeasureFeedback.htMeasureCorrect {
+  color: #2e7d32;
+}
+
+.htMeasureFeedback.htMeasureWrong {
+  color: #c62828;
+}
+
+.htMeasureButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htMeasureButton {
+  padding: 0.5em 1.2em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htMeasureButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htMeasureHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htMeasureChoices {
+    gap: 0.35em;
+  }
+
+  .htMeasureChoice {
+    padding: 0.45em 0.8em;
+    font-size: 0.95em;
+  }
+}

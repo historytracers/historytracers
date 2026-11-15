@@ -1,0 +1,119 @@
+{
+   "title": "Praticando a medição (Jogo)",
+   "header": "Praticando a medição (Jogo)",
+   "sources": [
+      "bcdd8651-feb4-4852-b46d-49f454a68482"
+   ],
+   "scripts": [
+      "bcdd8651-feb4-4852-b46d-49f454a68482"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/bcdd8651-feb4-4852-b46d-49f454a68482_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/SK99yqe2rWb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "shapes",
+      "math_games",
+      "physics",
+      "chemistry",
+      "biology"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794776933"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste jogo pratica as medidas estudadas em **Medir em três dimensões** (<htcite0>). Antes de jogar, leia esse texto: nele medimos uma fita com uma régua, um quadrado e um retângulo com duas réguas, e um cubo com três réguas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b56ef907-93eb-45ee-ae22-ce4f364ffa4e",
+                     "text": "History Tracers Team",
+                     "page": "Medir em três dimensões",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Jogo\n\nEste jogo transforma as práticas de **Medir em três dimensões** (<htcite0>) em três níveis. Cada nível tem dois exercícios:\n\n1. **Uma direção (1D):** meça a fita azul com a régua e depois meça o lado de um polígono que está sobre a régua.\n2. **Duas direções (2D):** leia as duas réguas de um quadrado e depois as duas réguas de um retângulo, e escolha o par correto de medidas.\n3. **Três direções (3D):** leia as três réguas de um cubo e depois as três réguas de outro sólido com dimensões diferentes, e escolha o trio correto de medidas.\n\nEscolha a resposta que coincide com as réguas. Uma resposta errada fica marcada, então você pode tentar de novo, e a explicação aparece quando encontra a medida correta. A regra é sempre a mesma: comece em **0**, mantenha o objeto reto sobre a régua e leia a marca onde ele termina.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b56ef907-93eb-45ee-ae22-ce4f364ffa4e",
+                     "text": "History Tracers Team",
+                     "page": "Medir em três dimensões",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htMeasureGame\" id=\"htMeasureGame\"><div class=\"htMeasureHeader\"><span class=\"htMeasureLevel\" id=\"htMeasureLevel\"></span><span class=\"htMeasureQuestion\" id=\"htMeasureQuestion\"></span><span class=\"htMeasureScore\" id=\"htMeasureScore\"></span></div><div class=\"htMeasurePrompt\" id=\"htMeasurePrompt\"></div><div class=\"htMeasureCanvas\" id=\"htMeasureCanvas\"></div><div class=\"htMeasureChoices\" id=\"htMeasureChoices\"></div><div class=\"htMeasureFeedback\" id=\"htMeasureFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htMeasureButtons\"><button type=\"button\" id=\"htMeasureNext\" class=\"htMeasureButton htMeasureHidden\"></button><button type=\"button\" id=\"htMeasureRestart\" class=\"htMeasureButton\"></button></div><div class=\"htMeasureHidden\"><span id=\"htMeasureLevelTemplate\">Nível {n} de {total}: {desc}</span><span id=\"htMeasureLevel1\">uma régua, uma direção</span><span id=\"htMeasureLevel2\">duas réguas, duas direções</span><span id=\"htMeasureLevel3\">três réguas, três direções</span><span id=\"htMeasureQuestionTemplate\">Pergunta {q} de {total}</span><span id=\"htMeasureScoreTemplate\">Pontuação: {score} de {total}</span><span id=\"htMeasurePromptString\">Qual é o comprimento da fita azul?</span><span id=\"htMeasurePromptSide\">O {shape} está sobre a régua. Qual é a medida do lado que está sobre a régua?</span><span id=\"htMeasurePromptPair\">Qual par de medidas as duas réguas mostram? (comprimento × altura)</span><span id=\"htMeasurePromptTriple\">Qual trio de medidas as três réguas mostram? (comprimento × largura × altura)</span><span id=\"htMeasureShape0\">triângulo</span><span id=\"htMeasureShape1\">quadrado</span><span id=\"htMeasureShape2\">pentágono</span><span id=\"htMeasureShape3\">hexágono</span><span id=\"htMeasureFactString\">A fita termina em {v} na régua, então seu comprimento é {v}.</span><span id=\"htMeasureFactSide\">O lado do {shape} que está sobre a régua termina em {v}, então ele mede {v}.</span><span id=\"htMeasureFactPair\">A régua horizontal mostra {a} e a régua vertical mostra {b}, então o par é {a} × {b}.</span><span id=\"htMeasureFactTriple\">As réguas mostram comprimento {a}, largura {b} e altura {c}, então o trio é {a} × {b} × {c}.</span><span id=\"htMeasureCorrect\">Correto!</span><span id=\"htMeasureWrong\">Não exatamente, tente de novo.</span><span id=\"htMeasureHint\">Lembre-se: comece em 0, mantenha o objeto reto e leia a marca onde ele termina.</span><span id=\"htMeasureLevelComplete\">Nível concluído!</span><span id=\"htMeasureGameComplete\">Jogo concluído! Parabéns!</span><span id=\"htMeasureWordNext\">Próxima pergunta</span><span id=\"htMeasureWordNextLevel\">Próximo nível</span><span id=\"htMeasureWordRestart\">Reiniciar</span><span id=\"htMeasureWordPlayAgain\">Jogar de novo</span><span id=\"htMeasureWordLength\">Comprimento</span><span id=\"htMeasureWordWidth\">Largura</span><span id=\"htMeasureWordHeight\">Altura</span></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
