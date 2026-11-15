@@ -443,7 +443,7 @@ function showPhase(p) {
     setVis('nextLevelBtn', true);
     setVis('resetTutorBtn', true);
     controller.phase = p;
-    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
+    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.split('{'+k+'}').join(d[k]); return t; } };
     var a = controller.currentExercise.a;
     var b = controller.currentExercise.b;
     if (p === 1) {
@@ -513,7 +513,7 @@ function countDigitSteps(n) {
 }
 
 function showDigitInstruction(phase) {
-    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
+    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.split('{'+k+'}').join(d[k]); return t; } };
     var pos = controller.digitPositions[controller.digitIdx];
     var n = (phase === 1) ? controller.currentExercise.a : controller.currentExercise.b;
     var key = (phase === 1) ? 'txt_step1DigitInstruction' : 'txt_step2DigitInstruction';
@@ -843,7 +843,7 @@ function init() {
     controller.TextManager = {
         get: tm,
         format: function(t, d) {
-            for (var k in d) { if(d.hasOwnProperty(k)) { var v=d[k]; if(v===undefined||v===null)v=''; t=t.replace(new RegExp('\\{'+k+'\\}','g'),v); } }
+            for (var k in d) { if(d.hasOwnProperty(k)) { var v=d[k]; if(v===undefined||v===null)v=''; t=t.split('{'+k+'}').join(v); } }
             return t;
         },
         getPerfectMessage: function(a,b,r) { return this.format(tm('txt_perfectMessage'),{a:a,b:b,result:r}); }
@@ -1071,7 +1071,7 @@ function showPhase(p) {
     setVis('nextLevelBtn', true);
     setVis('resetTutorBtn', true);
     controller.phase = p;
-    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
+    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.split('{'+k+'}').join(d[k]); return t; } };
     var value = controller.currentExercise.value;
     if (p === 1) {
         controller.digitPositions = getDigitPositions(value);
@@ -1130,7 +1130,7 @@ function startEvaluation() {
 }
 
 function showDigitInstruction(phase) {
-    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
+    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.split('{'+k+'}').join(d[k]); return t; } };
     var pos = controller.digitPositions[controller.digitIdx];
     var n = controller.currentExercise.value;
     var key = (phase === 1 || phase === 5) ? 'txt_step1DigitInstruction' : 'txt_step2DigitInstruction';
@@ -1514,7 +1514,7 @@ function init() {
     controller.TextManager = {
         get: tm,
         format: function(t, d) {
-            for (var k in d) { if(d.hasOwnProperty(k)) { var v=d[k]; if(v===undefined||v===null)v=''; t=t.replace(new RegExp('\\{'+k+'\\}','g'),v); } }
+            for (var k in d) { if(d.hasOwnProperty(k)) { var v=d[k]; if(v===undefined||v===null)v=''; t=t.split('{'+k+'}').join(v); } }
             return t;
         },
         getPerfectMessage: function(v,t,r) { return this.format(tm('txt_perfectMessage'),{value:v,times:t,result:r}); }
@@ -1717,7 +1717,7 @@ function showPhase(p) {
     setVis('nextLevelBtn', true);
     setVis('resetTutorBtn', true);
     controller.phase = p;
-    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
+    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.split('{'+k+'}').join(d[k]); return t; } };
     var a = controller.currentExercise.a;
     var b = controller.currentExercise.b;
     if (p === 1) {
@@ -1786,7 +1786,7 @@ function countDigitSteps(n) {
 }
 
 function showDigitInstruction(phase) {
-    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.replace(new RegExp('\\{'+k+'\\}','g'),d[k]); return t; } };
+    var t = controller.TextManager || { get: tm, format: function(t,d) { for (var k in d) if(d.hasOwnProperty(k)) t=t.split('{'+k+'}').join(d[k]); return t; } };
     var pos = controller.digitPositions[controller.digitIdx];
     var n = (phase === 1) ? controller.currentExercise.a : controller.currentExercise.b;
     var key = (phase === 1) ? 'txt_step1DigitInstruction' : 'txt_step2DigitInstruction';
@@ -2159,7 +2159,7 @@ function init() {
     controller.TextManager = {
         get: tm,
         format: function(t, d) {
-            for (var k in d) { if(d.hasOwnProperty(k)) { var v=d[k]; if(v===undefined||v===null)v=''; t=t.replace(new RegExp('\\{'+k+'\\}','g'),v); } }
+            for (var k in d) { if(d.hasOwnProperty(k)) { var v=d[k]; if(v===undefined||v===null)v=''; t=t.split('{'+k+'}').join(v); } }
             return t;
         },
         getPerfectMessage: function(a,b,r) { return this.format(tm('txt_perfectMessage'),{a:a,b:b,result:r}); }

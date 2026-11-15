@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492885"
+      "1794679832"
    ],
    "authors": [
       ""
@@ -46,13 +46,13 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nThis text has an application to practice the relationship between the tangent and the secant. Before using it, we recommend studying what the tangent is and how we walked on the circle in the previous texts (<htcite0>; <htcite1>).",
+               "text": "### Prerequisites\n\nThis text includes an interactive app to practice the relationship between the tangent and the secant. Before using it, we recommend studying what the tangent is and how we walked on the circle in the previous texts (<htcite0>; <htcite1>).",
                "source": [
                   {
                      "type": 1,
                      "uuid": "213a8932-84c2-4f72-9852-38368994d9a5",
                      "text": "History Tracers Atlas",
-                     "page": "Do we tangent the planet?",
+                     "page": "Are we tangent to the planet?",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -85,7 +85,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nWhen we walked on the circle, we learned that the relationship between the sine and the cosine of an angle is given by the sum of their squares (<htcite0>):",
+               "text": "### Introduction\n\nWhen we walked on the circle, we learned that the sum of the squares of the sine and the cosine of an angle equals 1 (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -116,13 +116,13 @@
                "PostMention": ""
             },
             {
-               "text": "We also learned that the tangent of an angle is given by the division of the sine by the cosine (<htcite0>):",
+               "text": "We also learned that the tangent of an angle equals the sine divided by the cosine (<htcite0>):",
                "source": [
                   {
                      "type": 1,
                      "uuid": "213a8932-84c2-4f72-9852-38368994d9a5",
                      "text": "History Tracers Atlas",
-                     "page": "Do we tangent the planet?",
+                     "page": "Are we tangent to the planet?",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -138,7 +138,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>tan (θ)</mi><mo>=</mo><mfrac><mi>sin(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Formula 2</b>: Definition of the tangent according to trigonometric functions.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>tan (θ)</mi><mo>=</mo><mfrac><mi>sin(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Formula 2</b>: Definition of the tangent in terms of the sine and the cosine.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -147,7 +147,7 @@
                "PostMention": ""
             },
             {
-               "text": "With these two formulas, we can now discover a new relationship. If we divide every term of **Formula 1** by the square of the cosine, we obtain:",
+               "text": "With these two formulas, we can now discover a new relationship. Divide every term of **Formula 1** by the square of the cosine:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -156,7 +156,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>+</mo><mfrac><mrow><msup><mi>sin</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac></math></p><p class=\"desc\"><b>Formula 3</b>: Dividing every term of Formula 1 by the square of the cosine.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>+</mo><mfrac><mrow><msup><mi>sin</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac></math></p><p class=\"desc\"><b>Formula 3</b>: Each term of Formula 1 divided by the square of the cosine.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -165,7 +165,7 @@
                "PostMention": ""
             },
             {
-               "text": "To identify the third term, we remember the definition of the secant: the reciprocal of the cosine. Therefore, its square is (**Formula 4**):",
+               "text": "To identify the third term, recall the definition of the secant: it is the reciprocal of the cosine. So the square of that reciprocal is (**Formula 4**):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -174,7 +174,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Formula 4</b>: The reciprocal of the square of the cosine is the square of the secant.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mfrac><mrow><mn>1</mn></mrow><mrow><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Formula 4</b>: The reciprocal of the square of the cosine equals the square of the secant.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -183,7 +183,7 @@
                "PostMention": ""
             },
             {
-               "text": "The first term is equal to 1. The second term is the square of the tangent (**Formula 2**). The third term is the square of the reciprocal of the cosine, that is, the square of the secant (**Formula 4**). Therefore, we obtain the relationship (**Formula 5**):",
+               "text": "Let us identify each term of **Formula 3**:\n- The first term is cos²(θ) / cos²(θ), which equals **1**.\n- The second term is sin²(θ) / cos²(θ). If we square **Formula 2**, we get exactly tan²(θ).\n- The third term is 1 / cos²(θ), that is, sec²(θ) (**Formula 4**).\n\nPutting these together, we obtain (**Formula 5**):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -192,7 +192,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>tan</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Formula 5</b>: Relationship between the tangent and the secant.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mn>1</mn><mo>+</mo><msup><mi>tan</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>sec</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></math></p><p class=\"desc\"><b>Formula 5</b>: Identity linking the tangent and the secant.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -201,7 +201,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Dividing by zero?</b><br /><br />To reach <b>Formula 5</b>, we divided by the square of the cosine.<br /><br />For which angles of theta (θ) would this division not be possible?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Dividing by zero?</b><br /><br />To reach <b>Formula 5</b>, we divided every term by cos²(θ).<br /><br />For which values of θ would this division be impossible?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -215,7 +215,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Practice\n\nTo better understand the relationship between the tangent and the secant, we suggest that you move the arrow of the angle theta (θ) in the following order:",
+               "text": "### Practice\n\nTo better understand the relationship between the tangent and the secant, move the arrow of the angle θ with the control below. Try several values and watch what changes — and what stays the same:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -242,7 +242,7 @@
                "PostMention": ""
             },
             {
-               "text": "As we can see, changing the angle theta (θ) changes the value of the tangent and the secant, but the relationship 1 + tan² (θ) = sec² (θ) always stays true. That is, no matter the angle theta (θ), the sum of 1 and the square of the tangent is always the square of the secant.",
+               "text": "As you change the angle θ, the values of the tangent and the secant change — but the identity 1 + tan²(θ) = sec²(θ) always holds. In other words, for every allowed angle, 1 plus the square of the tangent is exactly the square of the secant.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -256,7 +256,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we derived the relationship between the tangent and the secant from the relationship we learned when walking on the circle. We also reviewed the impossibility of dividing by zero and understood, with the app, that 1 + tan² (θ) = sec² (θ) is always valid for the angles in which the cosine is not zero.",
+               "text": "### Conclusion\n\nIn this text, we derived the identity 1 + tan²(θ) = sec²(θ) from the relationship we learned when walking on the circle. The reflection on dividing by zero reminds us that cos²(θ) must not be zero — that is, θ cannot be 90°, 270°, and so on (any angle where cos θ = 0). With the app, we saw that 1 + tan²(θ) = sec²(θ) holds for every angle in which the cosine is not zero.",
                "source": null,
                "date_time": null,
                "isTable": false,
