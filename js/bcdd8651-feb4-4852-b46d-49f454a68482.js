@@ -250,8 +250,11 @@ function htMeasureGameSvg1D(question) {
         canvasWidth = Math.ceil(Math.max(320, x0 + Math.max(maxX, count * unit) + 12));
     }
 
-    var svg = "<svg viewBox=\"0 0 " + canvasWidth + " " + (baseY + 64) + "\" role=\"img\" " +
-        "preserveAspectRatio=\"xMidYMid meet\">";
+    var aria = htMeasureGameAria(question);
+    var svg = "<svg viewBox=\"0 0 " + canvasWidth + " " + (baseY + 64) +
+        "\" role=\"img\" aria-label=\"" + htMeasureGameEscape(aria.name) +
+        "\" preserveAspectRatio=\"xMidYMid meet\"><desc>" +
+        htMeasureGameEscape(aria.desc) + "</desc>";
 
     for (i = 0; i <= count; i++) {
         x = x0 + i * unit;
@@ -303,8 +306,11 @@ function htMeasureGameSvg2D(question) {
     var topY = baseY - max * unit;
     var rightX = x0 + max * unit;
     var midY = (topY + baseY) / 2;
-    var svg = "<svg viewBox=\"0 0 340 360\" role=\"img\" " +
-        "preserveAspectRatio=\"xMidYMid meet\">";
+    var aria = htMeasureGameAria(question);
+    var svg = "<svg viewBox=\"0 0 340 360\" role=\"img\" aria-label=\"" +
+        htMeasureGameEscape(aria.name) +
+        "\" preserveAspectRatio=\"xMidYMid meet\"><desc>" +
+        htMeasureGameEscape(aria.desc) + "</desc>";
 
     for (var i = 0; i <= max; i++) {
         var gx = x0 + i * unit;
@@ -403,13 +409,13 @@ function htMeasureGameSvgRuler(from, to, count, normal, color, axis, rotate) {
 /**
  * Returns the SVG markup for a solid measured in the three directions.
  *
- * @param {Object} dims Dimensions (len, wid and hei).
+ * @param {Object} question Question data (len, wid and hei).
  * @returns {string} SVG markup.
  */
-function htMeasureGameSvg3D(dims) {
-    var length = dims.len;
-    var width = dims.wid;
-    var height = dims.hei;
+function htMeasureGameSvg3D(question) {
+    var length = question.len;
+    var width = question.wid;
+    var height = question.hei;
     var maxRuler = 5;
     var unit = 19;
     var canvasWidth = 300;
@@ -456,8 +462,11 @@ function htMeasureGameSvg3D(dims) {
         project(0, width, height)
     ];
 
+    var aria = htMeasureGameAria(question);
     var svg = "<svg viewBox=\"0 0 " + canvasWidth + " " + canvasHeight +
-        "\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\">";
+        "\" role=\"img\" aria-label=\"" + htMeasureGameEscape(aria.name) +
+        "\" preserveAspectRatio=\"xMidYMid meet\"><desc>" +
+        htMeasureGameEscape(aria.desc) + "</desc>";
 
     svg += htMeasureGameSvgPolygon(rightFace, "#2f6fb3");
     svg += htMeasureGameSvgPolygon(leftFace, "#4c8fca");
@@ -516,6 +525,66 @@ function htMeasureGameFill(template, values) {
     }
 
     return out;
+}
+
+/**
+ * Escapes text for an SVG attribute or description.
+ *
+ * @param {string} text Text to escape.
+ * @returns {string} Escaped text.
+ */
+function htMeasureGameEscape(text) {
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
+/**
+ * Returns the localized accessible name and description of a figure.
+ *
+ * @param {Object} question Question data.
+ * @returns {Object} Accessible name and description.
+ */
+function htMeasureGameAria(question) {
+    var nameKey = "";
+    var descKey = "";
+    var values = {};
+
+    if (question.kind === "string") {
+        nameKey = "htMeasureAriaNameString";
+        descKey = "htMeasureAriaDescString";
+        values = { "v": question.value };
+    } else if (question.kind === "polygon") {
+        nameKey = "htMeasureAriaNamePolygon";
+        descKey = "htMeasureAriaDescPolygon";
+        values = {
+            "shape": $("#htMeasureShape" + question.shape).text(),
+            "v": question.value
+        };
+    } else if (question.kind === "square") {
+        nameKey = "htMeasureAriaNameSquare";
+        descKey = "htMeasureAriaDescSquare";
+        values = { "a": question.len, "b": question.hei };
+    } else if (question.kind === "rectangle") {
+        nameKey = "htMeasureAriaNameRectangle";
+        descKey = "htMeasureAriaDescRectangle";
+        values = { "a": question.len, "b": question.hei };
+    } else if (question.kind === "cube") {
+        nameKey = "htMeasureAriaNameCube";
+        descKey = "htMeasureAriaDescCube";
+        values = { "a": question.len, "b": question.wid, "c": question.hei };
+    } else {
+        nameKey = "htMeasureAriaNameBox";
+        descKey = "htMeasureAriaDescBox";
+        values = { "a": question.len, "b": question.wid, "c": question.hei };
+    }
+
+    return {
+        "name": htMeasureGameFill($("#" + nameKey).text(), values),
+        "desc": htMeasureGameFill($("#" + descKey).text(), values)
+    };
 }
 
 /**
