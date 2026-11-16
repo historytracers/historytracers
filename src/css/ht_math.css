@@ -2911,6 +2911,19 @@ p.desc svg {
   white-space: nowrap;
 }
 
+/* The matching games (eaa3c957, 3eb7337a, f2f9f038 and 5a2eb2fa) reuse the
+   .orderGame two-column layout, whose result column grows to fill the page
+   (flex: 1 1 16em in .htMultGroupRightCol), so on wide screens the game spread
+   over the whole screen. Here the result column stops growing: it follows the
+   width of its own groups, capped so the rectangles keep wrapping instead of
+   pushing the page wide, and it still shrinks on narrow screens exactly like
+   before. .orderGame already centers the columns, so the game now shows as a
+   compact block in the middle of the page. */
+.htMultGroupCenterGame .htMultGroupRightCol {
+  flex: 0 1 auto;
+  max-width: 20em;
+}
+
 /* Multiplying the Findings with Groups (21f8d529): the same controls as
    4f0474ba, but the current operation is drawn as groups of the same
    characters (reusing .htMultGroupBox/.htMultGroupIcon from f641941e)
