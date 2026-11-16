@@ -32,12 +32,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492936"
+      "1794787466"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -46,7 +48,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Pré-requisitos\n\nEste texto possui um aplicativo para praticar, em um único lugar, as funções trigonométricas e as relações que derivamos do círculo. Antes de utilizá-lo, recomendamos estudar as funções seno e cosseno (<htcite0>; <htcite1>) e como caminhamos sobre o círculo para descobrir sua relação (<htcite2>).",
+               "text": "### Pré-requisitos\n\nEste texto reúne um único aplicativo para praticar as funções trigonométricas e as relações que derivamos do círculo. Antes de utilizá-lo, recomendamos estudar as funções seno e cosseno (<htcite0>; <htcite1>) e como caminhamos sobre o círculo para descobrir a relação entre elas (<htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -97,7 +99,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nAo estudarmos as funções trigonométricas, aprendemos que cada uma delas relaciona um ângulo teta (θ) a um dos catetos do triângulo retângulo: o seno o relaciona ao cateto oposto, e o cosseno, ao cateto adjacente (<htcite0>; <htcite1>). Ao caminharmos sobre o círculo, também aprendemos que a soma dos quadrados dessas duas funções é sempre igual ao quadrado do raio, que, para o círculo unitário, é 1 (<htcite2>):",
+               "text": "### Introdução\n\nAo estudar as funções trigonométricas, aprendemos que cada uma relaciona um ângulo θ a um cateto do triângulo retângulo: o seno ao cateto oposto e o cosseno ao cateto adjacente (<htcite0>; <htcite1>). Ao caminhar sobre o círculo, aprendemos ainda que a soma dos quadrados do seno e do cosseno sempre vale 1, para qualquer ângulo (<htcite2>):",
                "source": [
                   {
                      "type": 1,
@@ -143,7 +145,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Fórmula 1</b>: Identidade trigonométrica fundamental.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sen</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Fórmula 1</b>: Identidade trigonométrica fundamental — vale para qualquer ângulo θ.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -152,7 +154,7 @@
                "PostMention": ""
             },
             {
-               "text": "Nos textos anteriores, cada relação foi praticada com seu próprio aplicativo. Aqui, ao contrário, reunimos tudo: você pode escolher entre as funções trigonométricas e as relações trigonométricas e, em seguida, iterar com o aplicativo, movendo o ângulo teta (θ) e observando como o triângulo dentro do círculo muda junto com a posição do ponto no gráfico da função.",
+               "text": "Nos textos anteriores, cada função e cada relação tiveram seu próprio aplicativo. Aqui reunimos tudo: escolha entre as funções trigonométricas e as relações trigonométricas e trabalhe com o aplicativo — mova o ângulo θ e observe como o triângulo dentro do círculo muda junto com o ponto no gráfico.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -166,7 +168,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Prática\n\nPara compreender melhor a conexão entre o triângulo, o círculo e as funções, sugerimos que você movimente o ângulo teta (θ) na seguinte ordem:",
+               "text": "### Prática\n\nPara compreender melhor como o triângulo, o círculo e as funções se conectam, sugerimos movimentar o ângulo θ nesta ordem:\n1. Em **Funções**, percorra sen(θ) → cos(θ) → tan(θ): o triângulo dentro do círculo e o ponto no gráfico mudam a cada passo;\n2. Mude para **Relações trigonométricas** e experimente as três identidades em ordem: sen²(θ) + cos²(θ) = 1, depois 1 + tan²(θ) = sec²(θ) e por fim 1 + cot²(θ) = csc²(θ);\n3. Volte para qualquer aba e arraste θ por todo o seu intervalo enquanto observa a comprovação numérica abaixo da equação: até 90°, embora o controle pare em 78° quando a tangente entra em jogo e em 88° com 1 + cot²(θ) = csc²(θ).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -193,7 +195,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como podemos ver, o triângulo dentro do círculo e o gráfico sempre caminham juntos: quando o ângulo teta (θ) muda, o valor da função escolhida muda, e o ponto no gráfico se move ao longo do primeiro quadrante. Qualquer que seja o modo escolhido — uma única função ou uma relação — a soma dos quadrados do seno e do cosseno permanece sempre 1 no círculo unitário.",
+               "text": "Como podemos ver, o triângulo dentro do círculo e o gráfico se movem juntos: quando o ângulo θ muda, o valor da função escolhida muda e o ponto no gráfico se desloca pelo primeiro quadrante. Qualquer que seja o modo escolhido — uma única função ou uma relação — a soma dos quadrados do seno e do cosseno sempre continua valendo 1 no círculo unitário: a Fórmula 1 vale em qualquer ângulo.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -207,7 +209,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, praticamos as funções trigonométricas e as relações trigonométricas em um único aplicativo. Ao selecionar entre funções e relações e movimentar o ângulo teta (θ), vimos como o triângulo retângulo dentro do círculo está conectado ao valor das funções e à posição do ponto no gráfico da função no primeiro quadrante.",
+               "text": "### Conclusão\n\nNeste texto praticamos as funções trigonométricas e as relações trigonométricas em um único aplicativo. Ao alternar entre os dois modos e movimentar o ângulo θ, vimos como o triângulo retângulo dentro do círculo se conecta com o valor da função escolhida e com o ponto no gráfico no primeiro quadrante. Confirmamos que sen²(θ) + cos²(θ) = 1 vale em qualquer ângulo, enquanto 1 + tan²(θ) = sec²(θ) e 1 + cot²(θ) = csc²(θ) valem apenas onde ambos os lados de cada relação estão definidos.",
                "source": null,
                "date_time": null,
                "isTable": false,

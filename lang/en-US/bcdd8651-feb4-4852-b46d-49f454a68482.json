@@ -1,0 +1,121 @@
+{
+   "title": "Measuring Practice (Game)",
+   "header": "Measuring Practice (Game)",
+   "sources": [
+      "bcdd8651-feb4-4852-b46d-49f454a68482"
+   ],
+   "scripts": [
+      "bcdd8651-feb4-4852-b46d-49f454a68482"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/bcdd8651-feb4-4852-b46d-49f454a68482_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0wHl2oBFhTOOwjUARYst5X?si=60EjOo4YTFa_H-bJ-Tg8eA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "shapes",
+      "math_games",
+      "physics",
+      "chemistry",
+      "biology"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794787401"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis game practices the measures studied in **Measuring in three dimensions** (<htcite0>). Before playing, read that text: there we measured a string with one ruler, a square and a rectangle with two rulers, and a cube with three rulers.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b56ef907-93eb-45ee-ae22-ce4f364ffa4e",
+                     "text": "History Tracers Team",
+                     "page": "Measuring in three dimensions",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Game\n\nThis game turns the practices of **Measuring in three dimensions** (<htcite0>) into three levels. Each level has two exercises:\n\n1. **One direction (1D):** measure the blue string with the ruler, then measure the side of a polygon that rests on the ruler.\n2. **Two directions (2D):** read the two rulers of a square, then the two rulers of a rectangle, and choose the correct pair of measures.\n3. **Three directions (3D):** read the three rulers of a cube, then the three rulers of another solid with different dimensions, and choose the correct triple of measures.\n\nThe name beside each ruler tells you which direction it measures: **length** (blue), **width** (orange) and **height** (green). Choose the answer that matches the rulers. A wrong answer stays marked, so you can try again, and the explanation appears when you find the correct measure. The rule is always the same: start at **0**, keep the object straight along the ruler and read the mark where it ends.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b56ef907-93eb-45ee-ae22-ce4f364ffa4e",
+                     "text": "History Tracers Team",
+                     "page": "Measuring in three dimensions",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htMeasureGame\" id=\"htMeasureGame\"><div class=\"htMeasureHeader\"><span class=\"htMeasureLevel\" id=\"htMeasureLevel\"></span><span class=\"htMeasureQuestion\" id=\"htMeasureQuestion\"></span><span class=\"htMeasureScore\" id=\"htMeasureScore\"></span></div><div class=\"htMeasurePrompt\" id=\"htMeasurePrompt\"></div><div class=\"htMeasureCanvas\" id=\"htMeasureCanvas\"></div><div class=\"htMeasureChoices\" id=\"htMeasureChoices\"></div><div class=\"htMeasureFeedback\" id=\"htMeasureFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htMeasureButtons\"><button type=\"button\" id=\"htMeasureNext\" class=\"htMeasureButton htMeasureHidden\"></button><button type=\"button\" id=\"htMeasureRestart\" class=\"htMeasureButton\"></button></div><div class=\"htMeasureHidden\"><span id=\"htMeasureLevelTemplate\">Level {n} of {total}: {desc}</span><span id=\"htMeasureLevel1\">one ruler, one direction</span><span id=\"htMeasureLevel2\">two rulers, two directions</span><span id=\"htMeasureLevel3\">three rulers, three directions</span><span id=\"htMeasureQuestionTemplate\">Question {q} of {total}</span><span id=\"htMeasureScoreTemplate\">Score: {score} of {total}</span><span id=\"htMeasurePromptString\">What is the length of the blue string?</span><span id=\"htMeasurePromptSide\">The {shape} rests on the ruler. What is the measure of the side that lies on the ruler?</span><span id=\"htMeasurePromptPair\">Which pair of measures do the two rulers show? (length × height)</span><span id=\"htMeasurePromptTriple\">Which triple of measures do the three rulers show? (length × width × height)</span><span id=\"htMeasureShape0\">triangle</span><span id=\"htMeasureShape1\">square</span><span id=\"htMeasureShape2\">pentagon</span><span id=\"htMeasureShape3\">hexagon</span><span id=\"htMeasureFactString\">The string ends at {v} on the ruler, so its length is {v}.</span><span id=\"htMeasureFactSide\">The side of the {shape} that lies on the ruler ends at {v}, so it measures {v}.</span><span id=\"htMeasureFactPair\">The horizontal ruler shows {a} and the vertical ruler shows {b}, so the pair is {a} × {b}.</span><span id=\"htMeasureFactTriple\">The rulers show length {a}, width {b} and height {c}, so the triple is {a} × {b} × {c}.</span><span id=\"htMeasureCorrect\">Correct!</span><span id=\"htMeasureWrong\">Not quite, try again.</span><span id=\"htMeasureHint\">Remember: start at 0, keep the object straight and read the mark where it ends.</span><span id=\"htMeasureLevelComplete\">Level complete!</span><span id=\"htMeasureGameComplete\">Game complete! Congratulations!</span><span id=\"htMeasureWordNext\">Next question</span><span id=\"htMeasureWordNextLevel\">Next level</span><span id=\"htMeasureWordRestart\">Restart</span><span id=\"htMeasureWordPlayAgain\">Play again</span><span id=\"htMeasureWordLength\">Length</span><span id=\"htMeasureWordWidth\">Width</span><span id=\"htMeasureWordHeight\">Height</span><span id=\"htMeasureAriaNameString\">Ruler measuring a blue string</span><span id=\"htMeasureAriaDescString\">The blue string starts at 0 and ends at {v} on the ruler, so its length is {v} units.</span><span id=\"htMeasureAriaNamePolygon\">Ruler measuring the side of a {shape}</span><span id=\"htMeasureAriaDescPolygon\">The {shape} rests on the ruler. The side on the ruler goes from 0 to {v}, so it measures {v} units.</span><span id=\"htMeasureAriaNameSquare\">Square measured with two rulers</span><span id=\"htMeasureAriaDescSquare\">The square has length {a} and height {b}. The horizontal ruler goes from 0 to {a} and the vertical ruler goes from 0 to {b}.</span><span id=\"htMeasureAriaNameRectangle\">Rectangle measured with two rulers</span><span id=\"htMeasureAriaDescRectangle\">The rectangle has length {a} and height {b}. The horizontal ruler goes from 0 to {a} and the vertical ruler goes from 0 to {b}.</span><span id=\"htMeasureAriaNameCube\">Cube measured with three rulers</span><span id=\"htMeasureAriaDescCube\">The cube has length {a}, width {b} and height {c}. The three rulers go from 0 to each of these measures.</span><span id=\"htMeasureAriaNameBox\">Rectangular solid measured with three rulers</span><span id=\"htMeasureAriaDescBox\">The solid has length {a}, width {b} and height {c}. The three rulers go from 0 to each of these measures.</span></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

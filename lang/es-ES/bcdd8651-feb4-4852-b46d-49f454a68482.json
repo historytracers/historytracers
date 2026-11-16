@@ -1,0 +1,121 @@
+{
+   "title": "Practicando la medición (Juego)",
+   "header": "Practicando la medición (Juego)",
+   "sources": [
+      "bcdd8651-feb4-4852-b46d-49f454a68482"
+   ],
+   "scripts": [
+      "bcdd8651-feb4-4852-b46d-49f454a68482"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/bcdd8651-feb4-4852-b46d-49f454a68482_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/2A2g1idmzEVsazE3eHvXZE?si=EJwJHb9tSF6JKqQEQgSe_g",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "shapes",
+      "math_games",
+      "physics",
+      "chemistry",
+      "biology"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794787431"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Requisitos previos\n\nEste juego practica las medidas estudiadas en **Medir en tres dimensiones** (<htcite0>). Antes de jugar, lee ese texto: allí medimos una cinta con una regla, un cuadrado y un rectángulo con dos reglas, y un cubo con tres reglas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b56ef907-93eb-45ee-ae22-ce4f364ffa4e",
+                     "text": "History Tracers Team",
+                     "page": "Medir en tres dimensiones",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Juego\n\nEste juego convierte las prácticas de **Medir en tres dimensiones** (<htcite0>) en tres niveles. Cada nivel tiene dos ejercicios:\n\n1. **Una dirección (1D):** mide la cinta azul con la regla y después mide el lado de un polígono que está sobre la regla.\n2. **Dos direcciones (2D):** lee las dos reglas de un cuadrado y luego las dos reglas de un rectángulo, y elige el par correcto de medidas.\n3. **Tres direcciones (3D):** lee las tres reglas de un cubo y luego las tres reglas de otro sólido con dimensiones diferentes, y elige la terna correcta de medidas.\n\nEl nombre junto a cada regla indica qué dirección mide: **longitud** (azul), **ancho** (naranja) y **altura** (verde). Elige la respuesta que coincide con las reglas. Una respuesta incorrecta queda marcada, así que puedes intentarlo de nuevo, y la explicación aparece cuando encuentras la medida correcta. La regla es siempre la misma: empieza en **0**, mantén el objeto recto sobre la regla y lee la marca donde termina.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b56ef907-93eb-45ee-ae22-ce4f364ffa4e",
+                     "text": "History Tracers Team",
+                     "page": "Medir en tres dimensiones",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htMeasureGame\" id=\"htMeasureGame\"><div class=\"htMeasureHeader\"><span class=\"htMeasureLevel\" id=\"htMeasureLevel\"></span><span class=\"htMeasureQuestion\" id=\"htMeasureQuestion\"></span><span class=\"htMeasureScore\" id=\"htMeasureScore\"></span></div><div class=\"htMeasurePrompt\" id=\"htMeasurePrompt\"></div><div class=\"htMeasureCanvas\" id=\"htMeasureCanvas\"></div><div class=\"htMeasureChoices\" id=\"htMeasureChoices\"></div><div class=\"htMeasureFeedback\" id=\"htMeasureFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htMeasureButtons\"><button type=\"button\" id=\"htMeasureNext\" class=\"htMeasureButton htMeasureHidden\"></button><button type=\"button\" id=\"htMeasureRestart\" class=\"htMeasureButton\"></button></div><div class=\"htMeasureHidden\"><span id=\"htMeasureLevelTemplate\">Nivel {n} de {total}: {desc}</span><span id=\"htMeasureLevel1\">una regla, una dirección</span><span id=\"htMeasureLevel2\">dos reglas, dos direcciones</span><span id=\"htMeasureLevel3\">tres reglas, tres direcciones</span><span id=\"htMeasureQuestionTemplate\">Pregunta {q} de {total}</span><span id=\"htMeasureScoreTemplate\">Puntuación: {score} de {total}</span><span id=\"htMeasurePromptString\">¿Cuál es la longitud de la cinta azul?</span><span id=\"htMeasurePromptSide\">El {shape} está sobre la regla. ¿Cuál es la medida del lado que está sobre la regla?</span><span id=\"htMeasurePromptPair\">¿Qué par de medidas muestran las dos reglas? (longitud × altura)</span><span id=\"htMeasurePromptTriple\">¿Qué terna de medidas muestran las tres reglas? (longitud × ancho × altura)</span><span id=\"htMeasureShape0\">triángulo</span><span id=\"htMeasureShape1\">cuadrado</span><span id=\"htMeasureShape2\">pentágono</span><span id=\"htMeasureShape3\">hexágono</span><span id=\"htMeasureFactString\">La cinta termina en {v} en la regla, así que su longitud es {v}.</span><span id=\"htMeasureFactSide\">El lado del {shape} que está sobre la regla termina en {v}, así que mide {v}.</span><span id=\"htMeasureFactPair\">La regla horizontal muestra {a} y la regla vertical muestra {b}, así que el par es {a} × {b}.</span><span id=\"htMeasureFactTriple\">Las reglas muestran longitud {a}, ancho {b} y altura {c}, así que la terna es {a} × {b} × {c}.</span><span id=\"htMeasureCorrect\">¡Correcto!</span><span id=\"htMeasureWrong\">No exactamente, inténtalo de nuevo.</span><span id=\"htMeasureHint\">Recuerda: empieza en 0, mantén el objeto recto y lee la marca donde termina.</span><span id=\"htMeasureLevelComplete\">¡Nivel completado!</span><span id=\"htMeasureGameComplete\">¡Juego completado! ¡Felicidades!</span><span id=\"htMeasureWordNext\">Siguiente pregunta</span><span id=\"htMeasureWordNextLevel\">Siguiente nivel</span><span id=\"htMeasureWordRestart\">Reiniciar</span><span id=\"htMeasureWordPlayAgain\">Jugar de nuevo</span><span id=\"htMeasureWordLength\">Longitud</span><span id=\"htMeasureWordWidth\">Ancho</span><span id=\"htMeasureWordHeight\">Altura</span><span id=\"htMeasureAriaNameString\">Regla que mide una cinta azul</span><span id=\"htMeasureAriaDescString\">La cinta azul empieza en 0 y termina en {v} en la regla, así que su longitud es {v} unidades.</span><span id=\"htMeasureAriaNamePolygon\">Regla que mide el lado de un {shape}</span><span id=\"htMeasureAriaDescPolygon\">El {shape} está sobre la regla. El lado que está sobre la regla va de 0 a {v}, así que mide {v} unidades.</span><span id=\"htMeasureAriaNameSquare\">Cuadrado medido con dos reglas</span><span id=\"htMeasureAriaDescSquare\">El cuadrado tiene longitud {a} y altura {b}. La regla horizontal va de 0 a {a} y la regla vertical va de 0 a {b}.</span><span id=\"htMeasureAriaNameRectangle\">Rectángulo medido con dos reglas</span><span id=\"htMeasureAriaDescRectangle\">El rectángulo tiene longitud {a} y altura {b}. La regla horizontal va de 0 a {a} y la regla vertical va de 0 a {b}.</span><span id=\"htMeasureAriaNameCube\">Cubo medido con tres reglas</span><span id=\"htMeasureAriaDescCube\">El cubo tiene longitud {a}, ancho {b} y altura {c}. Las tres reglas van de 0 a cada una de estas medidas.</span><span id=\"htMeasureAriaNameBox\">Sólido rectangular medido con tres reglas</span><span id=\"htMeasureAriaDescBox\">El sólido tiene longitud {a}, ancho {b} y altura {c}. Las tres reglas van de 0 a cada una de estas medidas.</span></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

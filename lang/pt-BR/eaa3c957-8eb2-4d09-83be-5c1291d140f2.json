@@ -1,0 +1,107 @@
+{
+   "title": "Unindo as tabuadas do 6 e do 7",
+   "header": "Unindo as tabuadas do 6 e do 7",
+   "sources": [
+      "eaa3c957-8eb2-4d09-83be-5c1291d140f2"
+   ],
+   "scripts": [
+      "eaa3c957-8eb2-4d09-83be-5c1291d140f2"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/eaa3c957-8eb2-4d09-83be-5c1291d140f2_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/11HcS4ho6A2Ugp4ev6PC3f?si=jj5n_IlEQ0apUOBXUo5g5A",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794753552"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo mostra como as tabuadas de multiplicação do 6 e do 7 se relacionam: multiplicar por 7 é o mesmo que multiplicar por 6 e depois somar uma cópia a mais do multiplicador, ou seja, 7 × N = 6 × N + N. Antes de jogar, sugerimos revisar:\n\n- **Aprendendo a Tabuada (6 e 7)**: uma introdução simples à multiplicação por seis e por sete com uma flor de seis pétalas e os dias da semana (<htcite0>)\n\nCom a tabuada do 7 fresca na memória, você está pronto para ver como cada um dos seus resultados também é um resultado da tabuada do 6 mais um grupo a mais.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (6 e 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Regras gerais\n\nAs tabuadas do 6 e do 7 são vizinhas, e a tabuada do 7 cresce exatamente um grupo mais rápido: multiplicar por 7 é o mesmo que multiplicar por 6 e depois somar uma cópia a mais do multiplicador, 7 × N = 6 × N + N. Por exemplo, 7 × 3 = 21 é o mesmo que 6 × 3 + 3 = 21: três grupos de sete é exatamente a mesma quantidade que seis grupos de três mais um grupo a mais de três.\n\nEste jogo torna essa relação visível. À esquerda aparece uma igualdade como 6 × 3 + 3 = 7 × 3; à direita, o seu resultado é mostrado junto com um desenho de grupos de caracteres, desenhados como retângulos com sete caracteres cada — o desenho do lado 7 × N da igualdade.\n\nO jogo tem três níveis:\n\n- **Nível 1**: duas igualdades da primeira metade da tabuada do 7 (resultados de 7 a 28).\n- **Nível 2**: duas igualdades da segunda metade da tabuada do 7 (resultados de 35 a 49).\n- **Nível 3**: duas igualdades misturando as duas metades da tabuada.\n\nAcima do jogo, um seletor escolhe a imagem usada nos grupos: **🎲 Aleatório** desenha um objeto aleatório das tabuadas de multiplicação em cada novo exercício, ou você pode selecionar uma imagem específica — as mesmas usadas nas tabuadas de multiplicação — e todos os grupos a usam enquanto você joga.\n\nPara jogar, selecione uma igualdade da esquerda e depois o resultado da direita. Se o par estiver correto, ambos ficam destacados. Quando acertar todos os pares, você terá completado o nível e poderá avançar para o próximo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nUna cada igualdade da esquerda com o resultado da direita. O resultado também aparece como grupos de caracteres, assim você pode contá-los para conferir a sua resposta — cada retângulo contém sete caracteres, exatamente como o lado 7 × N da igualdade. Se um par estiver errado, uma mensagem pedirá que você tente novamente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroup67Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroup67Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroup67Game\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroup67LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroup67RightCol\"></div></div></p><p id=\"multGroup67Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroup67LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você acertou todos os pares deste nível!</p><p id=\"multGroup67AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br />Você acertou todas as igualdades!</p><p style=\"text-align: center\"><button id=\"multGroup67Reset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button></p><p style=\"text-align: center\"><button id=\"multGroup67NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroup67WordLevel\" style=\"display: none\">Nível</span><span id=\"multGroup67WordNextLevel\" style=\"display: none\">Próximo nível</span><span id=\"multGroup67WordPlayAgain\" style=\"display: none\">Jogar novamente</span><span id=\"multGroup67WordWrongPair\" style=\"display: none\">%RESULT% não é o resultado de %EXPRESSION%. Conte os caracteres e tente novamente.</span><span id=\"multGroup67WordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroup67WordRandom\" style=\"display: none\">🎲 Aleatório</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
