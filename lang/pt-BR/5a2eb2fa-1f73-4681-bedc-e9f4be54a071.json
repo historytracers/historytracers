@@ -1,0 +1,111 @@
+{
+   "title": "Unindo as tabuadas do 2, do 4 e do 8",
+   "header": "Unindo as tabuadas do 2, do 4 e do 8",
+   "sources": [
+      "5a2eb2fa-1f73-4681-bedc-e9f4be54a071"
+   ],
+   "scripts": [
+      "5a2eb2fa-1f73-4681-bedc-e9f4be54a071"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794835443"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo mostra como as tabuadas de multiplicação do 2, do 4 e do 8 se relacionam: 8 × n = 2 × 2 × 2 × n, então a tabuada do 8 é a tabuada do 2 dobrada três vezes, e 8 × n = 4 × 2 × n, então ela também é a tabuada do 4 dobrada. Antes de jogar, sugerimos revisar:\n\n- **Aprendendo a Tabuada (8 e 9)**: uma introdução simples à multiplicação por oito e por nove com um octógono e um eneágono (<htcite0>)\n\nCom a tabuada do 8 fresca na memória, você está pronto para ver como cada um dos seus resultados também é um resultado das tabuadas do 4 e do 2.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f15f6887-65b2-4622-a7d7-8d789fc8e2a1",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (8 e 9)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nA tabuada do 8 é construída com tabuadas que já conhecemos. Oito é 2 × 2 × 2, então chegamos a um múltiplo de 8 começando na tabuada do 2 e dobrando três vezes: para 8 × 3, pegue 3 × 2 = 6, depois 6 × 2 = 12 e 12 × 2 = 24. Oito também é 2 × 4, então esse mesmo múltiplo de 8 é a tabuada do 4 dobrada: 4 × 3 = 12 e 12 × 2 = 24. Os dois caminhos terminam no mesmo produto, 24.\n\nNeste jogo, a coluna da esquerda mostra esses dois caminhos e a coluna da direita mostra o produto a que os dois chegam, desenhado como grupos de oito caracteres. Quando você souber percorrer os dois caminhos, a tabuada do 8 deixa de ser uma tabuada nova: ela é só a tabuada do 2 e a tabuada do 4, a um dobro de distância.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Regras gerais\n\nA tabuada do 8 é o ponto de encontro das tabuadas do 2 e do 4. Multiplicar por 8 é o mesmo que multiplicar por 2 três vezes seguidas — 8 × n = 2 × 2 × 2 × n — e também é o mesmo que dobrar um resultado da tabuada do 4 — 8 × n = 4 × 2 × n. Por isso os dois caminhos da coluna da esquerda sempre se encontram no mesmo produto: para n = 6, 2 × 2 × 2 × 6 = 48 e 4 × 2 × 6 = 48.\n\nEste jogo torna essas relações visíveis. À esquerda aparece uma igualdade como 2 × 2 × 2 × 6 = 8 × 6 ou 4 × 2 × 6 = 8 × 6; à direita, o seu resultado é mostrado junto com um desenho de grupos de caracteres, desenhados como retângulos com oito caracteres cada — o desenho do lado 8 × n da igualdade.\n\nO jogo tem quatro níveis:\n\n- **Nível 1**: duas igualdades escritas como 2 × 2 × 2 × n = 8 × n, da primeira metade da tabuada do 8 (resultados de 8 a 24).\n- **Nível 2**: duas igualdades escritas como 2 × 2 × 2 × n = 8 × n, da segunda metade da tabuada do 8 (resultados de 32 a 48).\n- **Nível 3**: duas igualdades escritas como 4 × 2 × n = 8 × n, da primeira metade da tabuada do 8 (resultados de 8 a 24).\n- **Nível 4**: duas igualdades escritas como 4 × 2 × n = 8 × n, da segunda metade da tabuada do 8 (resultados de 32 a 48).\n\nAcima do jogo, um seletor escolhe a imagem usada nos grupos: **🎲 Aleatório** desenha um objeto aleatório das tabuadas de multiplicação em cada novo exercício, ou você pode selecionar uma imagem específica — as mesmas usadas nas tabuadas de multiplicação — e todos os grupos a usam enquanto você joga.\n\nPara jogar, selecione uma igualdade da esquerda e depois o resultado da direita. Se o par estiver correto, ambos ficam destacados. Quando acertar todos os pares, você terá completado o nível e poderá avançar para o próximo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nUna cada igualdade da esquerda com o resultado da direita. O resultado também aparece como grupos de caracteres, assim você pode contá-los para conferir a sua resposta — cada retângulo contém oito caracteres, exatamente como o lado 8 × n da igualdade. Se um par estiver errado, uma mensagem pedirá que você tente novamente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEq8Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEq8Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEq8Game\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEq8LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEq8RightCol\"></div></div></p><p id=\"multGroupEq8Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupEq8LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você acertou todos os pares deste nível!</p><p id=\"multGroupEq8AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br />Você acertou todas as igualdades!</p><p style=\"text-align: center\"><button id=\"multGroupEq8Reset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button></p><p style=\"text-align: center\"><button id=\"multGroupEq8NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEq8WordLevel\" style=\"display: none\">Nível</span><span id=\"multGroupEq8WordNextLevel\" style=\"display: none\">Próximo nível</span><span id=\"multGroupEq8WordPlayAgain\" style=\"display: none\">Jogar novamente</span><span id=\"multGroupEq8WordWrongPair\" style=\"display: none\">%RESULT% não é o resultado de %EXPRESSION%. Conte os caracteres e tente novamente.</span><span id=\"multGroupEq8WordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroupEq8WordRandom\" style=\"display: none\">🎲 Aleatório</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

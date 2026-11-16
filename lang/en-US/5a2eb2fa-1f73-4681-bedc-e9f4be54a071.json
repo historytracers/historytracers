@@ -1,0 +1,111 @@
+{
+   "title": "Matching the Tables of 2, 4 and 8",
+   "header": "Matching the Tables of 2, 4 and 8",
+   "sources": [
+      "5a2eb2fa-1f73-4681-bedc-e9f4be54a071"
+   ],
+   "scripts": [
+      "5a2eb2fa-1f73-4681-bedc-e9f4be54a071"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794835443"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game shows how the multiplication tables of 2, 4 and 8 are related: 8 × n = 2 × 2 × 2 × n, so the table of 8 is the table of 2 doubled three times, and 8 × n = 4 × 2 × n, so it is also the table of 4 doubled. Before you play, we suggest reviewing:\n\n- **Learning the Multiplication Table (8 and 9)**: a simple introduction to multiplying by eight and by nine with an octagon and an enneagon (<htcite0>)\n\nWith the table of 8 fresh in your memory, you are ready to see how each of its results is also a result of the tables of 4 and 2.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f15f6887-65b2-4622-a7d7-8d789fc8e2a1",
+                     "text": "History Tracers Team",
+                     "page": "Learning the Multiplication Table (8 and 9)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nThe table of 8 is built from tables we already know. Eight is 2 × 2 × 2, so we reach a multiple of 8 by starting in the table of 2 and doubling three times: for 8 × 3, take 3 × 2 = 6, then 6 × 2 = 12, and 12 × 2 = 24. Eight is also 2 × 4, so that same multiple of 8 is the table of 4 doubled: 4 × 3 = 12, and 12 × 2 = 24. Both roads end at the same product, 24.\n\nIn this game, the left column shows those two roads and the right column shows the product they both reach, drawn as groups of eight characters. Once you can walk both roads, the table of 8 stops being a new table: it is only the table of 2 and the table of 4, one more doubling away.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### General rules\n\nThe table of 8 is the meeting point of the tables of 2 and of 4. Multiplying by 8 is the same as multiplying by 2 three times in a row — 8 × n = 2 × 2 × 2 × n — and it is also the same as doubling a result of the table of 4 — 8 × n = 4 × 2 × n. That is why both roads of the left column always meet at the same product: for n = 6, 2 × 2 × 2 × 6 = 48 and 4 × 2 × 6 = 48.\n\nThis game makes those relationships visible. On the left, you will see an equality like 2 × 2 × 2 × 6 = 8 × 6 or 4 × 2 × 6 = 8 × 6; on the right, its result appears together with a picture of groups of characters, drawn as rectangles with eight characters each — the picture of the 8 × n side of the equality.\n\nThe game has four levels:\n\n- **Level 1**: two equalities written as 2 × 2 × 2 × n = 8 × n, from the first half of the table of 8 (results 8 to 24).\n- **Level 2**: two equalities written as 2 × 2 × 2 × n = 8 × n, from the second half of the table of 8 (results 32 to 48).\n- **Level 3**: two equalities written as 4 × 2 × n = 8 × n, from the first half of the table of 8 (results 8 to 24).\n- **Level 4**: two equalities written as 4 × 2 × n = 8 × n, from the second half of the table of 8 (results 32 to 48).\n\nAbove the game, a selector chooses the image used in the groups: **🎲 Random** draws a random object from the multiplication tables in every new exercise, or you can select one specific image — the same ones used in the multiplication tables — and every group uses it while you play.\n\nTo play, select an equality on the left and then its result on the right. If the pair is correct, both stay highlighted. When you match every pair, you complete the level and can move on to the next one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The Game\n\nMatch each equality on the left with its result on the right. The result also appears as groups of characters, so you can count them to check your answer — every rectangle holds eight characters, exactly like the 8 × n side of the equality. If a pair is wrong, a message will ask you to try again.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEq8Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEq8Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEq8Game\" class=\"orderGame htMultGroupGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEq8LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEq8RightCol\"></div></div></p><p id=\"multGroupEq8Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupEq8LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the pairs in this level!</p><p id=\"multGroupEq8AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the equalities!</p><p style=\"text-align: center\"><button id=\"multGroupEq8Reset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"multGroupEq8NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEq8WordLevel\" style=\"display: none\">Level</span><span id=\"multGroupEq8WordNextLevel\" style=\"display: none\">Next level</span><span id=\"multGroupEq8WordPlayAgain\" style=\"display: none\">Play again</span><span id=\"multGroupEq8WordWrongPair\" style=\"display: none\">%RESULT% is not the result of %EXPRESSION%. Count the characters and try again.</span><span id=\"multGroupEq8WordGroups\" style=\"display: none\">Groups: %COUNT%. Characters per group: %SIZE%.</span><span id=\"multGroupEq8WordRandom\" style=\"display: none\">🎲 Random</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

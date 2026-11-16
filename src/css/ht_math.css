@@ -2898,6 +2898,19 @@ p.desc svg {
   max-width: 90%;
 }
 
+/* Matching the Tables of 2, 4 and 8 (5a2eb2fa): the left column shows longer
+   equalities than the other group games (2 × 2 × 2 × N = 8 × N), so the
+   button may break between the two sides of the equality on narrow screens
+   instead of overflowing the column, while each side stays together. */
+.htMultGroupEq8ExprBtn {
+  white-space: normal;
+  font-size: 1.05em;
+}
+
+.htMultGroupEq8Side {
+  white-space: nowrap;
+}
+
 /* Multiplying the Findings with Groups (21f8d529): the same controls as
    4f0474ba, but the current operation is drawn as groups of the same
    characters (reusing .htMultGroupBox/.htMultGroupIcon from f641941e)
