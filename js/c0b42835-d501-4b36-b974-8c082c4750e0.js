@@ -7,8 +7,9 @@
 //
 // Like in the integer practices, the decimal point (⚫) starts at the rightmost
 // column: the column where it sits is the units. When the game reaches the
-// decimal levels, the first step asks the user to drag the decimal point to the
-// left, so that the decimal families (tenths, hundredths, ...) come into play.
+// decimal levels, the first step asks the user to move the decimal point to
+// the left one place for each decimal order of the number (two places for two
+// decimals, three for three, and so on), so the decimal families come into play.
 //
 // Levels (8):
 //   1) UNITS        -> "x.0"        (marker at the right; 1 integer column used)
@@ -63,13 +64,14 @@ function htWriterStartMarkerCol() {
 
 // The column where the decimal point must sit for the level's number:
 // at the integer levels it never moves (rightmost); at the decimal levels it
-// is dragged to the left, resting on the units column of the thousands.
+// moves one place to the left for each decimal order of the number (e.g. two
+// places for two decimals), leaving exactly one column per decimal on its right.
 function htWriterLevelMarkerCol() {
     const level = htWriterLevel();
     if (localNumberWriterController.levelIdx < HT_WRITER_INTEGER_LEVELS) {
         return htWriterStartMarkerCol();
     }
-    return level.intDigits - 1;
+    return htWriterStartMarkerCol() - level.decDigits;
 }
 
 // The marker position expected by the current step (used by "⟳ Reset abacus").
@@ -158,14 +160,16 @@ function htWriterBuildSteps() {
     const steps = [];
     const current = [];
     for (let i = 0; i < columns; i++) current.push(0);
+    const markerCol = htWriterLevelMarkerCol();
 
-    // At the decimal levels, the first step is to drag the decimal point (⚫)
-    // from the rightmost column to the units column of the thousands.
+    // At the decimal levels, the first step is to move the decimal point (⚫)
+    // to the left: one place for each decimal order of the number (two places
+    // for two decimals, three for three, and so on).
     if (localNumberWriterController.levelIdx >= HT_WRITER_INTEGER_LEVELS) {
         steps.push({
             "type": "marker",
-            "instruction": TM.getMoveMarkerInstruction(TM.getPlace('units')),
-            "targetMarker": level.intDigits - 1
+            "instruction": TM.getMoveMarkerInstruction(level.decDigits),
+            "targetMarker": markerCol
         });
     }
 
@@ -173,13 +177,11 @@ function htWriterBuildSteps() {
     // exactly in the order the number is written. The number is right-aligned
     // against the decimal point: its last digit always lands on the column
     // where the point sits.
-    const firstIntCol = columns - level.intDigits;
+    const firstIntCol = markerCol - level.intDigits + 1;
     for (let i = 0; i < level.intDigits; i++) {
         const digit = number.intDigits[i];
         const power = level.intDigits - 1 - i;
-        const col = localNumberWriterController.levelIdx < HT_WRITER_INTEGER_LEVELS
-            ? firstIntCol + i
-            : i;
+        const col = firstIntCol + i;
         current[col] = digit;
         const placeName = TM.getPlace(HT_WRITER_INT_PLACE_KEYS[power]);
         const hint = power === 0 ? TM.get('txt_hintMarker') : TM.get('txt_hintLeft');
@@ -196,7 +198,7 @@ function htWriterBuildSteps() {
     // up to the last decimal order of the level.
     for (let j = 0; j < level.decDigits; j++) {
         const digit = number.decDigits[j];
-        current[level.intDigits + j] = digit;
+        current[markerCol + 1 + j] = digit;
         const placeName = TM.getPlace(HT_WRITER_DEC_PLACE_KEYS[j]);
         steps.push({
             "type": "digit",
@@ -378,8 +380,9 @@ function htLoadContent() {
             return this.format(this.get('txt_congratsMessage'), { "number": number });
         },
 
-        "getMoveMarkerInstruction": function(placeName) {
-            return this.format(this.get('txt_moveMarker'), { "placeName": placeName });
+        "getMoveMarkerInstruction": function(count) {
+            if (count === 1) return this.get('txt_moveMarkerOne');
+            return this.format(this.get('txt_moveMarker'), { "count": count });
         },
 
         "getWriteDigitInstruction": function(digit, placeName, hint) {
