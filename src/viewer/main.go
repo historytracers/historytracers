@@ -1053,7 +1053,7 @@ func allowedPage(name string) bool {
 		"license", "contact", "physics", "philosophy", "historical_events",
 		"biology", "chemistry", "history", "families", "myths_believes",
 		"first_steps_menu", "first_steps", "first_steps_volume2", "shapes",
-		"indigenous_who", "indigenous_time", "math_games", "release",
+		"indigenous_who", "indigenous_time", "math_games", "board_game", "release",
 		"literature", "atlas", "gallery", "tree", "class_content":
 		return true
 	}
