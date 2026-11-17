@@ -116,7 +116,7 @@ function htMultGroupEq8Build() {
     $("#multGroupEq8LevelDone").hide();
     $("#multGroupEq8AllDone").hide();
     $("#multGroupEq8NextLevel").hide();
-    $("#multGroupEq8Feedback").hide().html("");
+    $("#multGroupEq8Feedback").text("");
 
     localMultGroupEq8.matched = {};
     localMultGroupEq8.selectedLeft = null;
@@ -136,7 +136,7 @@ function htMultGroupEq8Build() {
 // and again when the user picks another drawing object, so switching the image
 // keeps the pairs and the already matched buttons of the level.
 function htMultGroupEq8Render() {
-    $("#multGroupEq8Feedback").hide().html("");
+    $("#multGroupEq8Feedback").text("");
     localMultGroupEq8.selectedLeft = null;
     localMultGroupEq8.selectedRight = null;
 
@@ -199,7 +199,7 @@ function htMultGroupEq8Select(side, id) {
         return false;
     }
 
-    $("#multGroupEq8Feedback").hide().html("");
+    $("#multGroupEq8Feedback").text("");
 
     if (side == "Left") {
         if (localMultGroupEq8.selectedLeft != null) {
@@ -237,7 +237,7 @@ function htMultGroupEq8EvaluatePair() {
         var message = $("#multGroupEq8WordWrongPair").text()
             .split("%RESULT%").join(localMultGroupEq8.pairs[rightId].result)
             .split("%EXPRESSION%").join(htMultGroupEq8Expression(localMultGroupEq8.pairs[leftId]));
-        $("#multGroupEq8Feedback").text(message).show();
+        $("#multGroupEq8Feedback").text(message);
         $("#multGroupEq8Left" + leftId).removeClass("orderGameBtnSelected");
         $("#multGroupEq8Right" + rightId).removeClass("orderGameBtnSelected");
         localMultGroupEq8.selectedLeft = null;
