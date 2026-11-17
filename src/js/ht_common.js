@@ -358,6 +358,7 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
     let fh=htFixImagesForPrint(header);
     let fb=htFixImagesForPrint(body);
     let fs=htFixImagesForPrint(sources);
+    let printBoardPage = fb.indexOf('htBoardSheet') >= 0 ? '@page { size: A4 landscape; margin: 10mm; }' : '';
     let headerHtml = headerStyle ? `<div class="print-header" style="${escapeHtmlAttr(headerStyle)}text-align:center;margin-bottom:20px;">${fh}</div>` : `<h1>${fh}</h1>`;
     return `<!DOCTYPE html>
 <html>
@@ -369,11 +370,13 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
     <link rel="stylesheet" href="${window.location.origin}/css/ht_math.css">
     <link rel="stylesheet" href="${window.location.origin}/css/fa_6_5_2.min.css">
     <style>
+        ${printBoardPage}
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
         }
+        ${printBoardPage ? 'body { font-size: 11pt; line-height: 1.4; }' : ''}
         .print-header {
             text-align: center;
             margin-bottom: 20px;
@@ -3527,7 +3530,7 @@ function htFillStringOnPage(data, idx, page)
     const allowedPages = [
         "families", "history", "literature", "first_steps",
         "first_steps_menu", "first_steps_volume2", "sun_tzu_chess",
-        "indigenous_who", "myths_believes", "math_games",
+        "indigenous_who", "myths_believes", "math_games", "board_game",
         "historical_events", "biology", "physics", "chemistry",
         "philosophy", "atlas", "gallery", "shapes"
     ];

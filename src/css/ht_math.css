@@ -5828,3 +5828,250 @@ p.desc svg {
     font-size: 0.95em;
   }
 }
+
+/*
+ * Print-and-play board game: Counting with the bone
+ * (content 0ee3ca6e-0c14-479d-9a93-de8383211f18).
+ */
+
+.htBoardSheet {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #d8cdbd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #2b2b2b;
+  margin: 1.2em auto;
+  max-width: 210mm;
+  padding: 1em;
+  width: 100%;
+}
+
+.htBoardSheetTitle {
+  color: #3b2a1d;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 0.6em;
+  text-align: center;
+}
+
+.htBoardSheetNote {
+  color: #5a4a3a;
+  font-size: 0.9em;
+  margin-top: 0.6em;
+  text-align: center;
+}
+
+.htBoardSheetIntro {
+  color: #4a3a2a;
+  margin: 0 0 0.75em;
+  text-align: center;
+}
+
+.htBoardPrintBar {
+  margin: 0 0 0.75em;
+  text-align: center;
+}
+
+.htBoardPrintButton {
+  background: #f4ead7;
+  border: 2px solid #6b4f35;
+  border-radius: 6px;
+  color: #3b2a1d;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+  max-width: 100%;
+  padding: 0.45em 1em;
+}
+
+.htBoardPrintButton:hover {
+  background: #e8d8b8;
+}
+
+.htBoardPartsNote {
+  color: #5a4a3a;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.htBoardBoneSvg {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.htBoardBoneShape {
+  fill: #f4ead7;
+  stroke: #6b4f35;
+  stroke-width: 4;
+}
+
+.htBoardBoneSlots rect {
+  fill: none;
+  stroke: #8a6a4a;
+  stroke-dasharray: 6 5;
+  stroke-width: 2.5;
+}
+
+.htBoardMarkGrid {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 150mm;
+}
+
+.htBoardMarkToken {
+  align-items: center;
+  aspect-ratio: 2 / 3;
+  background: #fffdf8;
+  border: 2px dashed #8a6a4a;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.htBoardMarkGlyph {
+  background: #3b2a1d;
+  display: block;
+  height: 62%;
+  width: 28%;
+}
+
+.htBoardDeck + .htBoardDeck {
+  margin-top: 1em;
+}
+
+.htBoardDeck {
+  break-inside: avoid;
+}
+
+.htBoardDeckTitle {
+  color: #3b2a1d;
+  font-weight: bold;
+  margin-bottom: 0.35em;
+  text-align: center;
+}
+
+.htBoardCardGrid {
+  display: grid;
+  gap: 0.4em;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.htBoardCard {
+  align-items: center;
+  aspect-ratio: 3 / 4;
+  background: #fffdf8;
+  border: 2px dashed #8a6a4a;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  position: relative;
+}
+
+.htBoardCardLabel {
+  color: #8a6a4a;
+  font-size: 0.75em;
+  font-weight: bold;
+  left: 0.4em;
+  position: absolute;
+  top: 0.3em;
+}
+
+.htBoardCardNumber {
+  color: #3b2a1d;
+  font-size: clamp(1.4rem, 5vw, 2.4rem);
+  font-weight: bold;
+  line-height: 1;
+}
+
+@page htBoardSheetPage {
+  size: A4 landscape;
+  margin: 10mm;
+}
+
+@media print {
+  .htBoardSheet {
+    -webkit-print-color-adjust: exact;
+    break-after: page;
+    break-inside: avoid;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 auto;
+    max-width: 277mm;
+    min-height: 190mm;
+    padding: 0;
+    page: htBoardSheetPage;
+    print-color-adjust: exact;
+    width: 277mm;
+  }
+
+  .htBoardSheetTitle {
+    font-size: 14pt;
+  }
+
+  .htBoardSheetNote {
+    font-size: 10pt;
+  }
+
+  .htBoardBoneSheet {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .htBoardBoneSheet .htBoardSheetTitle,
+  .htBoardBoneSheet .htBoardSheetIntro,
+  .htBoardBoneSheet .htBoardSheetNote,
+  .htBoardBoneSheet .htBoardPrintBar {
+    display: none !important;
+  }
+
+  .htBoardBoneSheet .htBoardBoneSvg {
+    max-width: 277mm;
+    width: 277mm;
+  }
+
+  .htBoardMarkGrid {
+    gap: 4mm;
+    grid-template-columns: repeat(10, 14mm);
+    justify-content: center;
+    max-width: none;
+  }
+
+  .htBoardMarkToken {
+    aspect-ratio: auto;
+    height: 21mm;
+    width: 14mm;
+  }
+
+  .htBoardPrintBar {
+    display: none !important;
+  }
+
+  .htBoardPartsActions {
+    display: none !important;
+  }
+
+  .htBoardDeck + .htBoardDeck {
+    margin-top: 4mm;
+  }
+
+  .htBoardCardGrid {
+    gap: 2mm;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .htBoardCard {
+    aspect-ratio: auto;
+    height: 35mm;
+  }
+}
