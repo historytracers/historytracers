@@ -25,7 +25,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492910"
+      "1794955862"
    ],
    "authors": [
       ""
@@ -48,13 +48,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
+               "text": "### Prerrequisitos\n\nAntes de continuar, te recomendamos leer primero el texto anterior: te ayudará a entender mejor este (<htcite0>).",
                "source": [
                   {
                      "type": 1,
                      "uuid": "6a8d5fd8-12a4-447d-a4d4-c35a2ef6ebc6",
                      "text": "History Tracers Atlas",
-                     "page": "The Big Bang",
+                     "page": "El Big Bang",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -75,7 +75,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgUniverseTimeInflation\" onclick=\"htImageZoom('imgUniverseTimeInflation', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: El universo a través del espacio-tiempo (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgUniverseTimeInflation\" onclick=\"htImageZoom('imgUniverseTimeInflation', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: El universo a través del espacio-tiempo, desde el Big Bang hasta hoy (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -97,7 +97,7 @@
                "PostMention": ""
             },
             {
-               "text": "### La Inflación Cósmica\n\nLa imagen de esta sección representa nuestra comprensión de la historia del universo según el modelo Lambda-CDM. Como puede observarse, justo después del Big Bang aparece una especie de cono: este período se conoce como la **Inflación Cósmica** (<htcite0>).\n\n#### ¿Cómo era el comienzo?\n\nGracias a Edwin Hubble, sabemos que el universo se está expandiendo (<htcite1>). Como consecuencia directa de este descubrimiento, podemos concluir que en el pasado el universo era mucho más pequeño, como muestra la **Figura 2**, parte de la **Prática 1**.",
+               "text": "### La Inflación Cósmica\n\nLa imagen de arriba muestra la historia del universo —desde el Big Bang hasta hoy—. Los científicos la describen con un modelo llamado Lambda-CDM. Justo después del Big Bang, el universo empezó a crecer y crecer, de forma muy rápida. En la imagen, esa ráfaga forma una especie de cono. A este período tan corto se le llama **Inflación Cósmica** (<htcite0>).\n\n#### ¿Cómo era el comienzo?\n\nGracias a Edwin Hubble, sabemos que el universo se está expandiendo (<htcite1>). Eso significa que, en el pasado, era mucho más pequeño —como muestra la **Figura 2**, parte de la **Práctica 1**—.",
                "source": [
                   {
                      "type": 1,
@@ -131,7 +131,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: compactando</b><br /><br /><i>Experimento con algodón</i><br /><br />1. Toma un pedazo de algodón más pequeño que tu mano.<br />2. Aplástalo con tus manos.<br /><br /><i>Experimento con la figura</i><br />1. Pasa el mouse o el dedo sobre la Figura 2.</div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: compactando</b><br /><br /><i>Experimento con algodón</i><br /><br />1. Toma un pedazo de algodón más pequeño que tu mano.<br />2. Aplástalo con fuerza.<br />¿Qué notas? El algodón se vuelve mucho más pequeño, ¡como el universo en el pasado!<br /><br /><i>Experimento con la figura</i><br />1. Pasa el mouse o el dedo sobre la Figura 2.</div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -140,16 +140,16 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"htCircle\" style=\"height: 40vh; width: 40vh; background-color: white; border:1px solid black;\" name=\"fig2\"></div></center><p class=\"desc\"><b>Figura 2</b>: Círculo que representa la contracción del universo.</p><script>var divRadius = parseInt($(\".htCircle[name='fig2']\").width()); $(\".htCircle\").mouseenter(function(){ $(this).animate({ width: divRadius/4, height: divRadius/4 }, 'slow'); }).mouseleave(function(){ $(this).animate({ width: divRadius, height: divRadius }, 'slow'); });</script>",
+               "text": "<center><div class=\"htCircle\" style=\"height: 40vh; width: 40vh; background-color: white; border:1px solid black; box-sizing: border-box;\" name=\"fig2\"></div></center><p class=\"desc\"><b>Figura 2</b>: El círculo se encoge para mostrar cómo se contrajo el universo en el pasado.</p><script>var divRadius = parseInt($(\".htCircle[name='fig2']\").width()); $(\".htCircle\").mouseenter(function(){ $(this).animate({ width: divRadius/4, height: divRadius/4 }, 'slow'); }).mouseleave(function(){ $(this).animate({ width: divRadius, height: divRadius }, 'slow'); });</script>",
                "source": [],
                "date_time": null,
                "isTable": false,
-               "imgdesc": "En esta figura, hay un círculo que disminuí de tamaño al pasar el mouse o colocar el dedo sobre él.",
+               "imgdesc": "En esta figura, hay un círculo que se encoge al pasar el cursor del mouse o el dedo sobre él.",
                "format": "html",
                "PostMention": ""
             },
             {
-               "text": "Sin embargo, saber que el universo era más pequeño no explica exactamente cómo se expandió. Esto nos lleva a una reflexión:",
+               "text": "Sin embargo, saber que el universo era más pequeño no explica cómo creció. Esto nos lleva a una reflexión:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -158,7 +158,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Cómo fue?</b><br /><br />¿Cómo crees que el universo se expandió a lo largo del tiempo?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Cómo ocurrió?</b><br /><br />¿Cómo crees que el universo se expandió con el tiempo: despacio y de forma constante, o muy rápido y de repente?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -167,7 +167,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### La propuesta\n\nNuestro conocimiento sobre las dimensiones del universo ha evolucionado a lo largo de los siglos. Pasamos de una estimación inicial de 300.000 años luz en <htdate0> a alrededor de 94 mil millones de años luz en <htdate1> (<htcite0>; <htcite1>).\n\nNo solo las dimensiones del universo llaman la atención. Otro hecho relevante en esta historia cósmica es que, al observar en diferentes direcciones, notamos que el universo es uniforme (<htcite2>).\n\nEste hermoso panorama, sin embargo, plantea un problema descrito y explicado por Alan H. Guth (<htcite3>; <htcite4>), que nos invita a reflexionar:",
+               "text": "#### La propuesta\n\nNuestra idea sobre el tamaño del universo ha cambiado mucho a lo largo de los siglos. En <htdate0>, los científicos lo estimaron en 300.000 años luz: esa es la distancia que recorre la luz en un año. En <htdate1>, la estimación había crecido hasta unos 94 mil millones de años luz (<htcite0>; <htcite1>).\n\nEl tamaño no es la única sorpresa. Cuando miramos en todas direcciones, el universo se ve casi igual en todas partes: es uniforme (<htcite2>).\n\nEste hermoso panorama, sin embargo, esconde un problema que Alan H. Guth describió y explicó (<htcite3>; <htcite4>). Piensa en esto:",
                "source": [
                   {
                      "type": 1,
@@ -250,7 +250,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Por qué son iguales?</b><br /><br />Supongamos que una señal se emite desde dos extremos opuestos del universo justo al inicio de su expansión. Recibiríamos esas señales de ambos extremos antes de que uno pudiera alcanzar al otro. En otras palabras, los extremos no se conocen.<br /><br />Si, después de 14 mil millones de años, esos extremos aún no pueden intercambiar información, ¿cómo pueden ser tan parecidos?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Por qué son iguales?</b><br /><br />Imagina que se envía una señal al mismo tiempo desde dos extremos opuestos del universo, justo cuando empezó a expandirse. Recibiríamos ambas señales mucho antes de que una pudiera llegar al otro extremo. En otras palabras, esos extremos nunca se han hablado.<br /><br />Si, después de 14 mil millones de años, los extremos opuestos aún no pueden intercambiar información, ¿cómo pueden parecerse tanto?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -259,7 +259,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### La solución de Guth\n\nEl Doctor Alan Guth propuso una solución a este problema. Al comienzo del universo, cuando la materia y la energía aún estaban unidas, ocurrió una expansión monumental en un período extremadamente corto de tiempo: el universo aumentaba de tamaño de manera extremadamente rápido (exponencial).\n\nAsí, aunque los extremos no hayan estado en contacto durante miles de millones de años, hubo un tiempo en que el universo era homogéneo, y esa homogeneidad se mantuvo después de su expansión exponencial (<htcite0>; <htcite1>).\n\n#### ¿Hay pruebas?\n\nLa ciencia no se compone solo de teorías; muchas ideas se perfeccionan para lograr una comprensión más profunda. Lo mismo ocurre con la teoría de la Inflación, como reconoció el propio Doctor Guth y explicó el Doctor Lincoln en su video (<htcite2>; <htcite3>).\n\nAlgunos experimentos indican que la inflación realmente ocurrió, mientras que otros señalan la necesidad de más evidencias y nuevos estudios.",
+               "text": "#### La solución de Guth\n\nEl Doctor Alan Guth propuso una solución a este problema. Al comienzo del universo, cuando la materia y la energía aún estaban unidas, ocurrió una expansión monumental en un período extremadamente corto. El universo crecía cada vez más rápido, duplicándose una y otra vez: 2, 4, 8, 16.\n\nAsí, aunque los extremos opuestos no hayan estado en contacto durante miles de millones de años, hubo un tiempo en que el universo era homogéneo, igual en todas partes, y esa igualdad se mantuvo después de la enorme expansión (<htcite0>; <htcite1>).\n\n#### ¿Hay pruebas?\n\nLa ciencia nunca está hecha solo de teorías: los científicos prueban las ideas y las perfeccionan todo el tiempo. Lo mismo ocurre con la teoría de la Inflación: el propio Doctor Guth lo reconoció, y el Doctor Lincoln lo explicó en su video (<htcite2>; <htcite3>).\n\nAlgunos experimentos indican que la inflación realmente ocurrió, mientras que otros muestran que todavía hace falta más evidencia y más investigación.",
                "source": [
                   {
                      "type": 1,
