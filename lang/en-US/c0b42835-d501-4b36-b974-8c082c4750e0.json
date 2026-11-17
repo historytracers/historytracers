@@ -1,0 +1,112 @@
+{
+   "title": "Writing numbers with Soroban and Suanpan (算盤)",
+   "header": "Writing numbers with Soroban and Suanpan (算盤)",
+   "sources": [
+      "c0b42835-d501-4b36-b974-8c082c4750e0"
+   ],
+   "scripts": [
+      "c0b42835-d501-4b36-b974-8c082c4750e0",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/c0b42835-d501-4b36-b974-8c082c4750e0_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps_volume2"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794924028"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis game is a practice of the content taught in the previous text (<htcite0>), where we learned to move the decimal marker (⚫) along the track and to represent tenths, hundredths and other fractional families on the Soroban (算盤) and the Suanpan (算盤). We recommend studying that text before proceeding.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "52cd093d-0d66-4039-b0f8-30a7c5664201",
+                     "text": "History Tracers Team",
+                     "page": "Decimals with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Writing numbers on the abacus\n\nRecognizing the importance of practice exercises as a way to reinforce knowledge (<htcite0>), we present below a game that uses the same abacus board as the previous practices. The game draws a random number, and the task is to represent it on the abacus bead by bead — while the game teaches, step by step, how the number is written.\n\n#### How the game works\n\nWhen the page loads, the abacus is initialized with the first level and a random number is drawn. The decimal point (⚫) is fixed at the units column: the columns to its left are the integer families (units, tens, hundreds, thousands), and the columns to its right are the decimal families (tenths, hundredths, thousandths and so on).\n\nFollow the instructions between the level badge and the \"➡️ Next step\" button: each one asks you to write a single digit in one column. When you complete the step correctly, the message \"✅ Correct! Click 'Next step' to continue.\" appears at the bottom of the abacus. After the last digit, a final step asks you to check the whole number.\n\nWhen you complete the calculation, you receive: \"🎉🎉🎉 PERFECT! 🎉🎉🎉\". You can repeat as many numbers as you want at the same level with \"🎲 New number\", and you can advance to the next level with \"⭐ Next level\".\n\n#### The eight levels\n\nThe game starts with numbers like **x.0**: one digit in the units column and a zero in the tenths column. Then a level is added for each integer family up to the thousands, always keeping one decimal: **xx.0**, **xxx.0** and **xxxx.0**. From the fifth level on, the thousands stay and the decimal orders grow: two decimals (**xxxx.dd**), three (**xxxx.ddd**), four (**xxxx.dddd**) and five (**xxxx.ddddd**), until all nine columns of the abacus are used.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_correctMessage\">✅ Correct! Click 'Next step' to continue.</span> <span id=\"txt_perfectMessage\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br>You wrote {number} on the abacus!<br>Great job writing numbers!</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You wrote {number} on the abacus!<br>Click 'New number' to practice more!</span> <span id=\"txt_finalLevelMessage\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉<br>You mastered writing numbers on the abacus — from x.0 to all decimal families! Click \"New number\" to start again at level 1.</span> <span id=\"txt_writeDigit\">✍️ Write the digit <strong>{digit}</strong> in the <strong>{placeName}</strong> column.</span> <span id=\"txt_writeZero\">✍️ The <strong>{placeName}</strong> digit is <strong>0</strong>: leave the column empty (no beads activated).</span> <span id=\"txt_hintLeft\">(to the left of the decimal point ⚫)</span> <span id=\"txt_hintRight\">(to the right of the decimal point ⚫)</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> the abacus should show <strong>{number}</strong>. Check every column, then click 'Next step'!</span><span id=\"txt_stepStatus\">📖 Step {current}/{total}</span><span id=\"txt_welcomeMessage\">Click 'New number' to start. Write the number shown above on the abacus, column by column.</span> <span id=\"txt_problemPrefix\">🎯 Represent on the abacus:</span> <span id=\"txt_units\">UNITS</span> <span id=\"txt_tens\">TENS</span> <span id=\"txt_hundreds\">HUNDREDS</span> <span id=\"txt_thousands\">THOUSANDS</span> <span id=\"txt_tenths\">TENTHS</span> <span id=\"txt_hundredths\">HUNDREDTHS</span> <span id=\"txt_thousandths\">THOUSANDTHS</span> <span id=\"txt_tenthousandths\">TEN-THOUSANDTHS</span> <span id=\"txt_hundredthousandths\">HUNDRED-THOUSANDTHS</span> <span id=\"txt_lvl0\">🔢 UNITS · x.0</span> <span id=\"txt_lvl1\">🔟 TENS · xx.0</span> <span id=\"txt_lvl2\">🏆 HUNDREDS · xxx.0</span> <span id=\"txt_lvl3\">🔥 THOUSANDS · xxxx.0</span> <span id=\"txt_lvl4\">💎 THOUSANDS · xxxx.dd</span> <span id=\"txt_lvl5\">🌟 THOUSANDS · xxxx.ddd</span> <span id=\"txt_lvl6\">💰 THOUSANDS · xxxx.dddd</span> <span id=\"txt_lvl7\">👑 THOUSANDS · xxxx.ddddd</span></div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; aspect-ratio:860/400; max-width:688px; margin:0 auto; display:block;\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div> <div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠</span><span id=\"warningText\">Number greater than 9</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset abacus</button></div><div class=\"tutor-panel\" id=\"tutorPanel\"> <div class=\"tutor-header\"> <div class=\"problem-box\" id=\"problemDisplay\">🎯 --</div><div style=\"display: flex; align-items: center; gap: 8px;\"> <span class=\"status-badge\" id=\"stepStatus\">🎲</span> <span id=\"levelBadge\" class=\"level-badge\">🔢 UNITS · x.0</span></div> <div style=\"display: flex; gap: 8px;\"> <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🎲 New number</button> <button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button> </div></div> <div class=\"step-message\" id=\"stepMessage\">🧮 Click 'New number' to start. Write the number shown above on the abacus, column by column.</div><div class=\"step-buttons\"> <button id=\"nextStepBtn\" class=\"step-btn primary\">➡ Next step</button>  </div> <div id=\"feedbackArea\" style=\"min-height: 70px;\"></div> </div><div class=\"footer\"> <div class=\"mode-selector\"> <span class=\"mode-label\">🧮 Abacus:</span> <button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban</button> <button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan</button> </div>  <div class=\"info-area\"> </div> <div class=\"decimal-control\">⚫ Decimal point · marks the units column</div> </div> </div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
