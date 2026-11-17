@@ -1,0 +1,124 @@
+{
+   "title": "Uniendo las tablas del 3 y del 9",
+   "header": "Uniendo las tablas del 3 y del 9",
+   "sources": [
+      "76994fc2-71a9-42c4-8951-7ba01d30bf94"
+   ],
+   "scripts": [
+      "76994fc2-71a9-42c4-8951-7ba01d30bf94"
+   ],
+   "audio": [
+
+      {
+         "url": "https://www.historytracers.org/audios/76994fc2-71a9-42c4-8951-7ba01d30bf94_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1G1rNOMs3c8b2ewR5EWyhw?si=ckD4UBCDSQysygrA75877A",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794846552"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEste juego muestra cómo se relacionan las tablas de multiplicar del 3 y del 9: 9 × n = 3 × 3 × n, así que la tabla del 9 es la tabla del 3 multiplicada por 3 — cada resultado de la tabla del 9 es un resultado de la tabla del 3 con el multiplicador triplicado. Antes de jugar, te sugerimos repasar:\n\n- **Aprendiendo la tabla de multiplicar (8 y 9)**: una introducción sencilla a multiplicar por ocho y por nueve con un octógono y un eneágono (<htcite0>)\n\nCon la tabla del 9 fresca en tu memoria, estás listo para ver cómo cada uno de sus resultados también es un resultado de la tabla del 3.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f15f6887-65b2-4622-a7d7-8d789fc8e2a1",
+                     "text": "History Tracers Team",
+                     "page": "Aprendiendo la tabla de multiplicar (8 y 9)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nLa tabla del 9 se construye con la tabla del 3. Nueve es 3 × 3, así que llegamos a un múltiplo de 9 multiplicando por 3 dos veces: para 9 × 4, toma 3 × 4 = 12 y luego 12 × 3 = 36. En este juego, la columna de la izquierda muestra ese camino — 3 × 3 × n = 9 × n — y la columna de la derecha muestra el producto al que llega, dibujado como grupos de nueve caracteres. Cuando sepas recorrer este camino, la tabla del 9 dejará de ser una tabla nueva: es solo la tabla del 3 a una multiplicación por 3 de distancia.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Reglas generales\n\nLa tabla del 9 es la tabla del 3 multiplicada por 3. Multiplicar por 9 es lo mismo que multiplicar por 3 dos veces seguidas — 9 × n = 3 × 3 × n. Por eso cada resultado de la tabla del 9 también es un resultado de la tabla del 3: para n = 4, 3 × 3 × 4 = 36 y 9 × 4 = 36; tres grupos de tres grupos de cuatro son nueve grupos de cuatro.\n\nEste juego hace visible esa relación. A la izquierda aparece una igualdad como 3 × 3 × 4 = 9 × 4; a la derecha, su resultado se muestra junto con un dibujo de grupos de caracteres, dibujados como rectángulos con nueve caracteres cada uno — el dibujo del lado 9 × n de la igualdad.\n\nEl juego tiene tres niveles:\n\n- **Nivel 1**: tres igualdades escritas como 3 × 3 × n = 9 × n, del primer tercio de la tabla del 9 (resultados del 9 al 27).\n- **Nivel 2**: tres igualdades escritas como 3 × 3 × n = 9 × n, del segundo tercio de la tabla del 9 (resultados del 36 al 54).\n- **Nivel 3**: tres igualdades escritas como 3 × 3 × n = 9 × n, del último tercio de la tabla del 9 (resultados del 63 al 81).\n\nSobre el juego, un selector elige la imagen que se usa en los grupos: **🎲 Aleatorio** dibuja un objeto al azar de las tablas de multiplicar en cada nuevo ejercicio, o puedes seleccionar una imagen concreta — las mismas que se usan en las tablas de multiplicar — y todos los grupos la usan mientras juegas.\n\nPara jugar, selecciona una igualdad de la izquierda y después su resultado de la derecha. Si la pareja es correcta, ambos quedan resaltados. Cuando aciertes todas las parejas, habrás completado el nivel y podrás pasar al siguiente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### El juego\n\nUne cada igualdad de la izquierda con su resultado de la derecha. El resultado también se muestra como grupos de caracteres, así puedes contarlos para comprobar tu respuesta — cada rectángulo contiene nueve caracteres, exactamente como el lado 9 × n de la igualdad. Si una pareja es incorrecta, un mensaje te pedirá que lo intentes de nuevo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEq9Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEq9Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEq9Game\" class=\"orderGame htMultGroupGame htMultGroupCenterGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEq9LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEq9RightCol\"></div></div></p><p id=\"multGroupEq9Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupEq9LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡CORRECTO! 🎉🎉🎉<br />¡Acertaste todas las parejas de este nivel!</p><p id=\"multGroupEq9AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br />¡Acertaste todas las igualdades!</p><p style=\"text-align: center\"><button id=\"multGroupEq9Reset\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button></p><p style=\"text-align: center\"><button id=\"multGroupEq9NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEq9WordLevel\" style=\"display: none\">Nivel</span><span id=\"multGroupEq9WordNextLevel\" style=\"display: none\">Siguiente nivel</span><span id=\"multGroupEq9WordPlayAgain\" style=\"display: none\">Jugar de nuevo</span><span id=\"multGroupEq9WordWrongPair\" style=\"display: none\">%RESULT% no es el resultado de %EXPRESSION%. Cuenta los caracteres e inténtalo de nuevo.</span><span id=\"multGroupEq9WordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroupEq9WordRandom\" style=\"display: none\">🎲 Aleatorio</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

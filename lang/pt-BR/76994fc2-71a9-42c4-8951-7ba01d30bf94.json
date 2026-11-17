@@ -1,0 +1,123 @@
+{
+   "title": "Unindo as tabuadas do 3 e do 9",
+   "header": "Unindo as tabuadas do 3 e do 9",
+   "sources": [
+      "76994fc2-71a9-42c4-8951-7ba01d30bf94"
+   ],
+   "scripts": [
+      "76994fc2-71a9-42c4-8951-7ba01d30bf94"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/76994fc2-71a9-42c4-8951-7ba01d30bf94_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6ora5Nr0k4EVDaMX5FWv0a?si=9inqg1WJQViJGcXJ9PZAWw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794846552"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo mostra como as tabuadas de multiplicação do 3 e do 9 se relacionam: 9 × n = 3 × 3 × n, então a tabuada do 9 é a tabuada do 3 multiplicada por 3 — cada resultado da tabuada do 9 é um resultado da tabuada do 3 com o multiplicador triplicado. Antes de jogar, sugerimos revisar:\n\n- **Aprendendo a Tabuada (8 e 9)**: uma introdução simples à multiplicação por oito e por nove com um octógono e um eneágono (<htcite0>)\n\nCom a tabuada do 9 fresca na memória, você está pronto para ver como cada um dos seus resultados também é um resultado da tabuada do 3.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f15f6887-65b2-4622-a7d7-8d789fc8e2a1",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (8 e 9)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nA tabuada do 9 é construída com a tabuada do 3. Nove é 3 × 3, então chegamos a um múltiplo de 9 multiplicando por 3 duas vezes: para 9 × 4, pegue 3 × 4 = 12 e depois 12 × 3 = 36. Neste jogo, a coluna da esquerda mostra esse caminho — 3 × 3 × n = 9 × n — e a coluna da direita mostra o produto a que ele chega, desenhado como grupos de nove caracteres. Quando você souber percorrer esse caminho, a tabuada do 9 deixa de ser uma tabuada nova: ela é só a tabuada do 3 a uma multiplicação por 3 de distância.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Regras gerais\n\nA tabuada do 9 é a tabuada do 3 multiplicada por 3. Multiplicar por 9 é o mesmo que multiplicar por 3 duas vezes seguidas — 9 × n = 3 × 3 × n. Por isso cada resultado da tabuada do 9 também é um resultado da tabuada do 3: para n = 4, 3 × 3 × 4 = 36 e 9 × 4 = 36; três grupos de três grupos de quatro são nove grupos de quatro.\n\nEste jogo torna essa relação visível. À esquerda aparece uma igualdade como 3 × 3 × 4 = 9 × 4; à direita, o seu resultado é mostrado junto com um desenho de grupos de caracteres, desenhados como retângulos com nove caracteres cada — o desenho do lado 9 × n da igualdade.\n\nO jogo tem três níveis:\n\n- **Nível 1**: três igualdades escritas como 3 × 3 × n = 9 × n, do primeiro terço da tabuada do 9 (resultados de 9 a 27).\n- **Nível 2**: três igualdades escritas como 3 × 3 × n = 9 × n, do segundo terço da tabuada do 9 (resultados de 36 a 54).\n- **Nível 3**: três igualdades escritas como 3 × 3 × n = 9 × n, do último terço da tabuada do 9 (resultados de 63 a 81).\n\nAcima do jogo, um seletor escolhe a imagem usada nos grupos: **🎲 Aleatório** desenha um objeto aleatório das tabuadas de multiplicação em cada novo exercício, ou você pode selecionar uma imagem específica — as mesmas usadas nas tabuadas de multiplicação — e todos os grupos a usam enquanto você joga.\n\nPara jogar, selecione uma igualdade da esquerda e depois o resultado da direita. Se o par estiver correto, ambos ficam destacados. Quando acertar todos os pares, você terá completado o nível e poderá avançar para o próximo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nUna cada igualdade da esquerda com o resultado da direita. O resultado também aparece como grupos de caracteres, assim você pode contá-los para conferir a sua resposta — cada retângulo contém nove caracteres, exatamente como o lado 9 × n da igualdade. Se um par estiver errado, uma mensagem pedirá que você tente novamente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEq9Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEq9Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEq9Game\" class=\"orderGame htMultGroupGame htMultGroupCenterGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEq9LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEq9RightCol\"></div></div></p><p id=\"multGroupEq9Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupEq9LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você acertou todos os pares deste nível!</p><p id=\"multGroupEq9AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br />Você acertou todas as igualdades!</p><p style=\"text-align: center\"><button id=\"multGroupEq9Reset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button></p><p style=\"text-align: center\"><button id=\"multGroupEq9NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEq9WordLevel\" style=\"display: none\">Nível</span><span id=\"multGroupEq9WordNextLevel\" style=\"display: none\">Próximo nível</span><span id=\"multGroupEq9WordPlayAgain\" style=\"display: none\">Jogar novamente</span><span id=\"multGroupEq9WordWrongPair\" style=\"display: none\">%RESULT% não é o resultado de %EXPRESSION%. Conte os caracteres e tente novamente.</span><span id=\"multGroupEq9WordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroupEq9WordRandom\" style=\"display: none\">🎲 Aleatório</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

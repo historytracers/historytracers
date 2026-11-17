@@ -2898,6 +2898,45 @@ p.desc svg {
   max-width: 90%;
 }
 
+/* Matching the Tables of 2, 4 and 8 (5a2eb2fa): the left column shows longer
+   equalities than the other group games (2 × 2 × 2 × N = 8 × N), so the
+   button may break between the two sides of the equality on narrow screens
+   instead of overflowing the column, while each side stays together. */
+.htMultGroupEq8ExprBtn {
+  white-space: normal;
+  font-size: 1.05em;
+}
+
+.htMultGroupEq8Side {
+  white-space: nowrap;
+}
+
+/* Matching the Tables of 3 and 9 (76994fc2): the left column shows the
+   equality 3 × 3 × N = 9 × N, so the button may break between the two sides of
+   the equality on narrow screens instead of overflowing the column, while each
+   side stays together. */
+.htMultGroupEq9ExprBtn {
+  white-space: normal;
+  font-size: 1.05em;
+}
+
+.htMultGroupEq9Side {
+  white-space: nowrap;
+}
+
+/* The matching games (eaa3c957, 3eb7337a, f2f9f038, 5a2eb2fa and 76994fc2)
+   reuse the .orderGame two-column layout, whose result column grows to fill
+   the page (flex: 1 1 16em in .htMultGroupRightCol), so on wide screens the
+   game spread over the whole screen. Here the result column stops growing: it
+   follows the width of its own groups, capped so the rectangles keep wrapping
+   instead of pushing the page wide, and it still shrinks on narrow screens
+   exactly like before. .orderGame already centers the columns, so the game now
+   shows as a compact block in the middle of the page. */
+.htMultGroupCenterGame .htMultGroupRightCol {
+  flex: 0 1 auto;
+  max-width: 20em;
+}
+
 /* Multiplying the Findings with Groups (21f8d529): the same controls as
    4f0474ba, but the current operation is drawn as groups of the same
    characters (reusing .htMultGroupBox/.htMultGroupIcon from f641941e)
