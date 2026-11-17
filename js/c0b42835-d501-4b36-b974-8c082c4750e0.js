@@ -5,14 +5,19 @@
 // logic on top of it: a random number is drawn and the user has to represent it
 // bead by bead, guided step by step, while learning how numbers are written.
 //
-// Levels (8, one decimal point position each):
-//   1) UNITS        -> "x.0"        (1 integer column  + 1 decimal column)
-//   2) TENS         -> "xx.0"       (2 integer columns + 1 decimal column)
-//   3) HUNDREDS     -> "xxx.0"      (3 integer columns + 1 decimal column)
-//   4) THOUSANDS    -> "xxxx.0"     (4 integer columns + 1 decimal column)
-//   5) THOUSANDS    -> "xxxx.dd"    (4 integer columns + 2 decimal columns)
-//   6) THOUSANDS    -> "xxxx.ddd"   (4 integer columns + 3 decimal columns)
-//   7) THOUSANDS    -> "xxxx.dddd"  (4 integer columns + 4 decimal columns)
+// Like in the integer practices, the decimal point (⚫) starts at the rightmost
+// column: the column where it sits is the units. When the game reaches the
+// decimal levels, the first step asks the user to drag the decimal point to the
+// left, so that the decimal families (tenths, hundredths, ...) come into play.
+//
+// Levels (8):
+//   1) UNITS        -> "x.0"        (marker at the right; 1 integer column used)
+//   2) TENS         -> "xx.0"       (marker at the right; 2 integer columns)
+//   3) HUNDREDS     -> "xxx.0"      (marker at the right; 3 integer columns)
+//   4) THOUSANDS    -> "xxxx.0"     (marker at the right; 4 integer columns)
+//   5) THOUSANDS    -> "xxxx.dd"    (marker dragged left; 2 decimal columns)
+//   6) THOUSANDS    -> "xxxx.ddd"   (marker dragged left; 3 decimal columns)
+//   7) THOUSANDS    -> "xxxx.dddd"  (marker dragged left; 4 decimal columns)
 //   8) THOUSANDS    -> "xxxx.ddddd" (all 9 columns of the abacus are used)
 
 var localNumberWriterController = {
@@ -43,12 +48,35 @@ var HT_WRITER_BADGE_COLORS = ["#ffb347", "#4caf50", "#ff7043", "#9c27b0", "#e91e
 var HT_WRITER_INT_PLACE_KEYS = ["units", "tens", "hundreds", "thousands"];
 var HT_WRITER_DEC_PLACE_KEYS = ["tenths", "hundredths", "thousandths", "tenthousandths", "hundredthousandths"];
 
+// Number of integer families taught before the decimal levels begin.
+var HT_WRITER_INTEGER_LEVELS = 4;
+
 function htWriterLevel() {
     return HT_WRITER_LEVELS[localNumberWriterController.levelIdx];
 }
 
-function htWriterMarkerCol() {
-    return htWriterLevel().intDigits - 1;
+// The decimal point always starts at the rightmost column, keeping the pattern
+// used with integer numbers (the column of the point is the units).
+function htWriterStartMarkerCol() {
+    return localSorobanController.COLUMNS - 1;
+}
+
+// The column where the decimal point must sit for the level's number:
+// at the integer levels it never moves (rightmost); at the decimal levels it
+// is dragged to the left, resting on the units column of the thousands.
+function htWriterLevelMarkerCol() {
+    const level = htWriterLevel();
+    if (localNumberWriterController.levelIdx < HT_WRITER_INTEGER_LEVELS) {
+        return htWriterStartMarkerCol();
+    }
+    return level.intDigits - 1;
+}
+
+// The marker position expected by the current step (used by "⟳ Reset abacus").
+function htWriterResetMarkerCol() {
+    const step = localNumberWriterController.steps[localNumberWriterController.currentStepIdx];
+    if (step && step.type === 'marker') return htWriterStartMarkerCol();
+    return htWriterLevelMarkerCol();
 }
 
 function htWriterGetAbacusDigits(raw) {
@@ -75,11 +103,12 @@ function htWriterUpdateDisplay() {
     if (numSpan && localSorobanController.state && localSorobanController.state.length > 0) {
         const level = htWriterLevel();
         const digits = htWriterGetAbacusDigits(false);
-        const markerCol = htWriterMarkerCol();
+        const markerCol = localSorobanController.decimalMarkerCol;
         let intStr = digits.slice(0, markerCol + 1).join('');
         intStr = intStr.replace(/^0+/, '');
         if (intStr === '') intStr = '0';
-        const fracStr = digits.slice(markerCol + 1, markerCol + 1 + level.decDigits).join('');
+        let fracStr = digits.slice(markerCol + 1, markerCol + 1 + level.decDigits).join('');
+        if (fracStr === '') fracStr = '0';
         numSpan.innerText = intStr + '.' + fracStr;
     }
     if (typeof htSorobanCheckOverflow === 'function') htSorobanCheckOverflow();
@@ -112,7 +141,7 @@ function htWriterGenerateNumber() {
     for (let i = 0; i < level.decDigits; i++) {
         // Levels 1-4 teach the ".0" pattern: the tenths digit is always 0.
         // From level 5 on, every decimal order of the level is drawn at random.
-        decDigits.push(localNumberWriterController.levelIdx < 4 ? 0 : Math.floor(Math.random() * 10));
+        decDigits.push(localNumberWriterController.levelIdx < HT_WRITER_INTEGER_LEVELS ? 0 : Math.floor(Math.random() * 10));
     }
     return { "intDigits": intDigits, "decDigits": decDigits };
 }
@@ -125,21 +154,40 @@ function htWriterBuildSteps() {
     const TM = localNumberWriterController.TextManager;
     const number = localNumberWriterController.number;
     const level = htWriterLevel();
+    const columns = localSorobanController.COLUMNS;
     const steps = [];
     const current = [];
-    for (let i = 0; i < localSorobanController.COLUMNS; i++) current.push(0);
+    for (let i = 0; i < columns; i++) current.push(0);
 
-    // Integer digits, from the most significant column (left of the point)
-    // down to the units column, exactly in the order the number is written.
+    // At the decimal levels, the first step is to drag the decimal point (⚫)
+    // from the rightmost column to the units column of the thousands.
+    if (localNumberWriterController.levelIdx >= HT_WRITER_INTEGER_LEVELS) {
+        steps.push({
+            "type": "marker",
+            "instruction": TM.getMoveMarkerInstruction(TM.getPlace('units')),
+            "targetMarker": level.intDigits - 1
+        });
+    }
+
+    // Integer digits, from the most significant column down to the units,
+    // exactly in the order the number is written. The number is right-aligned
+    // against the decimal point: its last digit always lands on the column
+    // where the point sits.
+    const firstIntCol = columns - level.intDigits;
     for (let i = 0; i < level.intDigits; i++) {
         const digit = number.intDigits[i];
         const power = level.intDigits - 1 - i;
-        current[i] = digit;
+        const col = localNumberWriterController.levelIdx < HT_WRITER_INTEGER_LEVELS
+            ? firstIntCol + i
+            : i;
+        current[col] = digit;
         const placeName = TM.getPlace(HT_WRITER_INT_PLACE_KEYS[power]);
+        const hint = power === 0 ? TM.get('txt_hintMarker') : TM.get('txt_hintLeft');
         steps.push({
+            "type": "digit",
             "instruction": digit === 0
-                ? TM.getWriteZeroInstruction(placeName, TM.get('txt_hintLeft'))
-                : TM.getWriteDigitInstruction(digit, placeName, TM.get('txt_hintLeft')),
+                ? TM.getWriteZeroInstruction(placeName, hint)
+                : TM.getWriteDigitInstruction(digit, placeName, hint),
             "target": current.slice()
         });
     }
@@ -151,6 +199,7 @@ function htWriterBuildSteps() {
         current[level.intDigits + j] = digit;
         const placeName = TM.getPlace(HT_WRITER_DEC_PLACE_KEYS[j]);
         steps.push({
+            "type": "digit",
             "instruction": digit === 0
                 ? TM.getWriteZeroInstruction(placeName, TM.get('txt_hintRight'))
                 : TM.getWriteDigitInstruction(digit, placeName, TM.get('txt_hintRight')),
@@ -160,6 +209,7 @@ function htWriterBuildSteps() {
 
     // Final verification step.
     steps.push({
+        "type": "digit",
         "instruction": TM.getFinalInstruction(htWriterNumberString(number)),
         "target": current.slice()
     });
@@ -202,7 +252,7 @@ function htWriterStartNewExercise() {
     ctl.finalCongratsShown = false;
     ctl.exerciseStarted = false;
     ctl.number = htWriterGenerateNumber();
-    localSorobanController.decimalMarkerCol = htWriterMarkerCol();
+    localSorobanController.decimalMarkerCol = htWriterStartMarkerCol();
     htWriterClearAbacus();
     ctl.steps = htWriterBuildSteps();
     ctl.currentStepIdx = 0;
@@ -217,12 +267,19 @@ function htWriterStartNewExercise() {
     htWriterSetStepVisibility(true);
 }
 
+function htWriterStepMatches(step) {
+    if (step.type === 'marker') {
+        return localSorobanController.decimalMarkerCol === step.targetMarker;
+    }
+    return htWriterDigitsMatch(step.target);
+}
+
 function htWriterNextStep() {
     const ctl = localNumberWriterController;
     if (!ctl.steps.length || ctl.currentStepIdx >= ctl.steps.length) return;
-    if (!htWriterDigitsMatch(ctl.steps[ctl.currentStepIdx].target)) return;
+    if (!htWriterStepMatches(ctl.steps[ctl.currentStepIdx])) return;
 
-    if (!ctl.exerciseStarted && ctl.currentStepIdx === 0) {
+    if (!ctl.exerciseStarted) {
         ctl.exerciseStarted = true;
         htWriterSetControlButtonsVisibility(false);
     }
@@ -262,7 +319,7 @@ function htWriterNextLevel() {
 window.checkCurrentStepPositive = function() {
     const ctl = localNumberWriterController;
     if (!ctl.steps.length || ctl.currentStepIdx >= ctl.steps.length) return;
-    if (!htWriterDigitsMatch(ctl.steps[ctl.currentStepIdx].target)) {
+    if (!htWriterStepMatches(ctl.steps[ctl.currentStepIdx])) {
         ctl.stepCompleted = false;
         const feedback = document.getElementById('feedbackArea');
         if (feedback && feedback.innerHTML && !feedback.innerHTML.includes('congrats')) {
@@ -321,6 +378,10 @@ function htLoadContent() {
             return this.format(this.get('txt_congratsMessage'), { "number": number });
         },
 
+        "getMoveMarkerInstruction": function(placeName) {
+            return this.format(this.get('txt_moveMarker'), { "placeName": placeName });
+        },
+
         "getWriteDigitInstruction": function(digit, placeName, hint) {
             return this.format(this.get('txt_writeDigit'), { "digit": digit, "placeName": placeName }) + ' ' + hint;
         },
@@ -350,21 +411,25 @@ function htLoadContent() {
 
     // --- Board adjustments over the shared abacus (ht_abacus.js) ---
 
-    // The "Value" readout shows the number exactly as it is written at the
-    // current level: the integer families left of the decimal point and only
-    // the decimal orders of the level to its right.
+    // The "Value" readout shows the number exactly as it is written: the
+    // integer families left of the decimal point and the decimal orders of the
+    // level to its right. With the point at the rightmost column the readout
+    // keeps the integer pattern "N.0".
     htSorobanUpdateDisplay = htWriterUpdateDisplay;
 
-    // The decimal point (⚫) is fixed by level: it always marks the units
-    // column, so dragging it along the track is disabled.
+    // The decimal point (⚫) can only be dragged while the game asks for it
+    // (the first step of the decimal levels): dragging is enabled exactly on
+    // the marker step and disabled everywhere else.
     const htWriterOrigGetHitRegion = htSorobanGetHitRegion;
     htSorobanGetHitRegion = function(mouseX, mouseY) {
+        const step = localNumberWriterController.steps[localNumberWriterController.currentStepIdx];
         const hit = htWriterOrigGetHitRegion(mouseX, mouseY);
-        if (hit && hit.type === 'decimal_marker') return null;
+        if (hit && hit.type === 'decimal_marker' && !(step && step.type === 'marker')) return null;
         return hit;
     };
 
-    // Every bead movement is checked against the current step target.
+    // Every bead movement and every decimal-point movement is checked against
+    // the current step target.
     const htWriterOrigToggleUpper = htSorobanToggleUpper;
     htSorobanToggleUpper = function(col, beadIdx) {
         htWriterOrigToggleUpper(col, beadIdx);
@@ -373,6 +438,11 @@ function htLoadContent() {
     const htWriterOrigHandleLowerClick = htSorobanHandleLowerClick;
     htSorobanHandleLowerClick = function(col, beadIdx) {
         htWriterOrigHandleLowerClick(col, beadIdx);
+        if (window.checkCurrentStepPositive) window.checkCurrentStepPositive();
+    };
+    const htWriterOrigMoveDecimalMarker = htSorobanMoveDecimalMarkerToColumn;
+    htSorobanMoveDecimalMarkerToColumn = function(targetCol) {
+        htWriterOrigMoveDecimalMarker(targetCol);
         if (window.checkCurrentStepPositive) window.checkCurrentStepPositive();
     };
 
@@ -384,14 +454,14 @@ function htLoadContent() {
         if (window.checkCurrentStepPositive) window.checkCurrentStepPositive();
     };
 
-    // "⟳ Reset abacus" clears every column and restores the decimal point of
-    // the current level (the user then repeats the current step).
+    // "⟳ Reset abacus" clears every column and restores the decimal point
+    // expected by the current step (the user then repeats the step).
     htSorobanResetSoroban = function() {
         if (localSorobanController._multTimer) {
             clearInterval(localSorobanController._multTimer);
             localSorobanController._multTimer = null;
         }
-        localSorobanController.decimalMarkerCol = htWriterMarkerCol();
+        localSorobanController.decimalMarkerCol = htWriterResetMarkerCol();
         htWriterClearAbacus();
     };
 
