@@ -9,8 +9,8 @@ function htBoardPrintHTML(html) {
     iframe.style.position = "fixed";
     iframe.style.left = "-10000px";
     iframe.style.top = "0";
-    iframe.style.width = "1px";
-    iframe.style.height = "1px";
+    iframe.style.width = "1123px";
+    iframe.style.height = "794px";
     iframe.style.border = "0";
     document.body.appendChild(iframe);
 
@@ -43,32 +43,6 @@ function htBoardPrintHTML(html) {
     return false;
 }
 
-function htBoardPrintBone() {
-    var svg = document.querySelector(".htBoardBoneSvg");
-
-    if (!svg) {
-        return false;
-    }
-
-    var css =
-        '<style>' +
-        '@page { size: A4 landscape; margin: 10mm; }' +
-        'html, body { margin: 0; padding: 0; }' +
-        'body { box-sizing: border-box; height: 190mm; display: flex; ' +
-        'align-items: center; justify-content: center; ' +
-        '-webkit-print-color-adjust: exact; print-color-adjust: exact; }' +
-        'svg { display: block; width: 277mm; height: auto; max-width: 100%; }' +
-        '.htBoardBoneShape { fill: #f4ead7; stroke: #6b4f35; stroke-width: 4; }' +
-        '.htBoardBoneSlots rect { fill: none; stroke: #8a6a4a; ' +
-        'stroke-dasharray: 6 5; stroke-width: 2.5; }' +
-        '</style>';
-
-    var html = '<!DOCTYPE html><html><head><meta charset="utf-8">' + css +
-        '</head><body>' + svg.outerHTML + '</body></html>';
-
-    return htBoardPrintHTML(html);
-}
-
 function htBoardPrintParts() {
     var bone = document.querySelector(".htBoardBoneSheet");
     var marks = document.querySelector(".htBoardMarksSheet");
@@ -99,13 +73,13 @@ function htBoardPrintParts() {
         '@page { size: A4 landscape; margin: 10mm; }' +
         'html, body { margin: 0; padding: 0; }' +
         'body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }' +
-        '.htBoardSheet { box-sizing: border-box; width: 277mm; height: 190mm; ' +
+        '.htBoardSheet { box-sizing: border-box; width: 277mm; height: 185mm; ' +
         'margin: 0 auto; padding: 0; border: 0; box-shadow: none; ' +
         'break-after: page; break-inside: avoid; display: flex; ' +
         'flex-direction: column; }' +
         '.htBoardSheet:last-child { break-after: auto; }' +
         '.htBoardBoneSheet { align-items: center; justify-content: center; }' +
-        '.htBoardBoneSvg { display: block; width: 277mm; height: auto; max-width: 100%; }' +
+        '.htBoardBoneSvg { display: block; width: 265mm; height: auto; max-width: 100%; }' +
         '.htBoardBoneShape { fill: #f4ead7; stroke: #6b4f35; stroke-width: 4; }' +
         '.htBoardBoneSlots rect { fill: none; stroke: #8a6a4a; ' +
         'stroke-dasharray: 6 5; stroke-width: 2.5; }' +
