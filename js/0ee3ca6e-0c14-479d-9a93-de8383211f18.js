@@ -62,6 +62,25 @@ function htBoardPrintParts() {
     var marksClone = marks.cloneNode(true);
     var cardsClone = cards.cloneNode(true);
 
+    // The second printed page also carries the game rules: copy the rules
+    // section ("How to count", "How to add" and the example) into the free
+    // space below the mark grid. The sheet keeps its fixed A4 size, so the
+    // printout still has exactly three pages.
+    var rules = document.getElementById("paper-SECTION_rules_0");
+    if (rules) {
+        var rulesBlock = document.createElement("div");
+        rulesBlock.className = "htBoardRules";
+        Array.prototype.forEach.call(rules.children, function (child) {
+            var isText = child.tagName === "P" && child.textContent.trim().length > 0;
+            if (child.tagName === "H3" || child.tagName === "OL" || isText) {
+                rulesBlock.appendChild(child.cloneNode(true));
+            }
+        });
+        if (rulesBlock.children.length > 0) {
+            marksClone.appendChild(rulesBlock);
+        }
+    }
+
     [boneClone, marksClone, cardsClone].forEach(function (sheet) {
         sheet.querySelectorAll(".htBoardPrintBar").forEach(function (element) {
             element.remove();
@@ -111,6 +130,13 @@ function htBoardPrintParts() {
         'color: #8a6a4a; }' +
         '.htBoardCardNumber { font-family: Arial, sans-serif; font-size: 20pt; ' +
         'font-weight: bold; color: #3b2a1d; line-height: 1; }' +
+        '.htBoardRules { box-sizing: border-box; margin: 4mm auto 0; max-width: 250mm; ' +
+        'font-family: Arial, sans-serif; font-size: 9pt; line-height: 1.35; ' +
+        'color: #3b2a1d; column-count: 2; column-gap: 10mm; text-align: left; }' +
+        '.htBoardRules h3 { font-size: 10.5pt; margin: 0 0 1.5mm; break-after: avoid; }' +
+        '.htBoardRules ol { margin: 0 0 3mm; padding-left: 5mm; }' +
+        '.htBoardRules li { margin: 0 0 1mm; }' +
+        '.htBoardRules p { margin: 0; break-inside: avoid; }' +
         '</style>';
 
     var html = '<!DOCTYPE html><html><head><meta charset="utf-8">' + css +
