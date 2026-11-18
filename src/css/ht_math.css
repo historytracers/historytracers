@@ -3012,7 +3012,13 @@ p.desc svg {
 }
 
 .htMultFillRight {
-  flex: 0 0 auto;
+  /* A stable width keeps the table in the same place whether the column shows
+     the initial hint or the groups of a multiplication; with `auto` the wide
+     hint pushed the table to the left and it moved back to the center as soon
+     as groups (narrower) replaced the hint. The width fits the widest group
+     (nine characters) and the short hint lines written in the class JSON. */
+  flex: 0 0 11em;
+  width: 11em;
   min-width: 0;
   max-width: 100%;
   display: flex;
@@ -3033,9 +3039,15 @@ p.desc svg {
   gap: 0.2em;
 }
 
+/* The initial hint is written in short lines in the class JSON (separated by
+   newlines) so this column stays as narrow as the groups column and the table
+   does not jump to the side while the hint is shown. `pre-line` renders those
+   newlines as line breaks without reinterpreting the text as HTML (the game
+   copies it with jQuery `.text()`). */
 .htMultFillHint {
   color: #5a3f2c;
   font-weight: bold;
+  white-space: pre-line;
 }
 
 .design-dark .htMultFillHint {
