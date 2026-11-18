@@ -1,0 +1,244 @@
+{
+   "title": "Contando com o osso — Imprimir e jogar",
+   "header": "Contando com o osso — Imprimir e jogar",
+   "sources": [
+      "0ee3ca6e-0c14-479d-9a93-de8383211f18"
+   ],
+   "scripts": [
+      "0ee3ca6e-0c14-479d-9a93-de8383211f18"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/0ee3ca6e-0c14-479d-9a93-de8383211f18_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6FHm2E14wmxZBKeQLQ8TRP?si=AqgKU735RPGNYyEGZ69CEA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "board_game"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794970194"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Por que jogar?</h3>Durante muito tempo, as pessoas contaram fazendo marcas. Ossos com marcas encontrados por pesquisadores mostram que essa prática é mais antiga que as cidades e a escrita (<htcite0> ; <htcite1>). Este jogo imprimível transforma essa ideia em uma atividade física: um osso grande, vinte marcas soltas e dois baralhos de cartas.</p><p class=\"desc\"><img id=\"imgBoardBoneFigure\" onclick=\"htImageZoom('imgBoardBoneFigure', '0%')\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();htImageZoom('imgBoardBoneFigure', '0%');}\" role=\"button\" tabindex=\"0\" aria-label=\"Ampliar imagem: Representação de um osso de babuíno com marcas\" class=\"imgcenter\" /><b>Figura 1</b>: Representação de um osso de babuíno com marcas. Imagem de Enrique Silván Pobes, do trabalho de Francisco A. González Redondo et al.<br />O original está disponível no ResearchGate, incluído aqui com a autorização do Doutor Francisco A. González Redondo.</p><p>Esta versão de imprimir e jogar foi inspirada na lição on-line <b>Contando com o osso</b> (<htcite2>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "adaed4fb-9c50-4ef9-ab79-c65f3c0629b8",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "02",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7d2fd4de-5c10-4811-957c-8233bc8d21de",
+                     "text": "History Tracers Team",
+                     "page": "Counting with the bone",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_materials",
+         "text": [
+            {
+               "text": "<p><h3>O que você precisa</h3><ul><li>Papel A4 e uma impressora.</li><li>Tesoura.</li><li>Opcional: um lápis e cola ou fita adesiva.</li></ul><p>Imprima as três folhas a seguir em papel A4 na orientação horizontal. Mantenha a folha do osso inteira. Recorte somente as marcas e as cartas seguindo as bordas pontilhadas.</p></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_bone",
+         "text": [
+            {
+               "text": "<div class=\"htBoardSheet htBoardBoneSheet\"><div class=\"htBoardSheetTitle\">O osso</div><p class=\"htBoardSheetIntro\">Esta folha representa o osso grande. Ele foi desenhado para ocupar toda a página A4 na orientação horizontal. Os vinte retângulos pontilhados mostram onde as marcas podem ser colocadas, em duas fileiras de dez.</p><svg class=\"htBoardBoneSvg\" viewBox=\"0 0 800 520\" role=\"img\" aria-label=\"Large bone with twenty rectangular positions in two rows for placing marks\"><path class=\"htBoardBoneShape\" d=\"M 100 260 C 65 220 70 170 110 180 C 125 135 185 145 195 195 L 605 195 C 615 145 675 135 690 180 C 730 170 735 220 700 260 C 735 300 730 350 690 340 C 675 385 615 395 605 345 L 195 345 C 185 395 125 405 110 360 C 70 370 65 320 100 260 Z\"/><g class=\"htBoardBoneSlots\"><rect x=\"150.0\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"205.6\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"261.1\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"316.7\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"372.2\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"427.8\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"483.3\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"538.9\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"594.4\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"650.0\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"150.0\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"205.6\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"261.1\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"316.7\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"372.2\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"427.8\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"483.3\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"538.9\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"594.4\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"650.0\" y=\"275\" width=\"46.6\" height=\"67.7\"/></g></svg><p class=\"htBoardSheetNote\">Coloque as marcas retangulares recortadas da esquerda para a direita: primeiro na fileira superior e depois na inferior.</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_marks",
+         "text": [
+            {
+               "text": "<div class=\"htBoardSheet htBoardMarksSheet\"><div class=\"htBoardSheetTitle\">Vinte marcas retangulares para recortar</div><p class=\"htBoardSheetIntro\">Recorte as vinte marcas retangulares seguindo as bordas pontilhadas. Cada marca cabe em um retângulo pontilhado do osso.</p><div class=\"htBoardMarkGrid\" aria-label=\"Vinte marcas retangulares para recortar\"><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div></div><p class=\"htBoardSheetNote\">Recorte seguindo as linhas pontilhadas.</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_cards",
+         "text": [
+            {
+               "text": "<div class=\"htBoardSheet htBoardCardsSheet\"><div class=\"htBoardSheetTitle\">Cartas de soma para recortar</div><p class=\"htBoardSheetIntro\">Recorte os dois baralhos seguindo as bordas pontilhadas. Mantenha o baralho A e o baralho B separados e depois vire cada baralho para baixo.</p><div class=\"htBoardDeck\"><div class=\"htBoardDeckTitle\">Baralho A — primeiro número</div><div class=\"htBoardCardGrid\"><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">1</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">2</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">3</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">4</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">5</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">6</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">7</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">8</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">9</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">10</span></div></div></div><div class=\"htBoardDeck\"><div class=\"htBoardDeckTitle\">Baralho B — segundo número</div><div class=\"htBoardCardGrid\"><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">1</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">2</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">3</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">4</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">5</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">6</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">7</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">8</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">9</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">10</span></div></div></div><p class=\"htBoardSheetNote\">Recorte seguindo as linhas pontilhadas e mantenha os dois baralhos separados.</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Como contar</h3><ol><li>Coloque a folha do osso à sua frente e mantenha as vinte marcas por perto.</li><li>Escolha quantas marcas você quer contar. Coloque-as uma a uma sobre os retângulos pontilhados, da esquerda para a direita: primeiro a fileira superior e depois a inferior.</li><li>Diga o número em voz alta cada vez que colocar uma marca: um, dois, três...</li><li>O último número que você disser é a quantidade que colocou.</li></ol></p><p><h3>Como somar</h3><ol><li>Misture cada baralho separadamente e vire os dois baralhos para baixo.</li><li>Tire uma carta do baralho A e uma do baralho B e depois vire-as para cima.</li><li>Coloque no osso a quantidade de marcas mostrada na carta A, contando em voz alta a partir de um.</li><li>Continue com a quantidade de marcas mostrada na carta B sem começar de novo: depois de três marcas, mais quatro marcas são contadas como quatro, cinco, seis, sete.</li><li>O último número que você disser é a soma. Devolva todas as marcas para o espaço ao lado do osso, vire as cartas para baixo, misture os baralhos e jogue novamente.</li></ol></p><p><b>Exemplo:</b> se o baralho A mostrar 3 e o baralho B mostrar 4, coloque três marcas dizendo 1, 2, 3, e depois mais quatro dizendo 4, 5, 6, 7. A soma é 7.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_credits",
+         "text": [
+            {
+               "text": "<p><h3>Créditos</h3><p>Figura 1: representação de um osso de babuíno com marcas, de Enrique Silván Pobes, do trabalho de Francisco A. González Redondo et al. (<htcite0> ; <htcite1>), incluída com a autorização do Doutor Francisco A. González Redondo. Esta versão imprimível faz parte da seção Jogos de Tabuleiro do History Tracers e foi inspirada na lição on-line <b>Contando com o osso</b> (<htcite2>).</p></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "adaed4fb-9c50-4ef9-ab79-c65f3c0629b8",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "02",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7d2fd4de-5c10-4811-957c-8233bc8d21de",
+                     "text": "History Tracers Team",
+                     "page": "Counting with the bone",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_print_parts",
+         "text": [
+            {
+               "text": "<div class=\"htBoardPartsActions\"><p class=\"htBoardPrintBar\"><button type=\"button\" class=\"htBoardPrintButton\" onclick=\"htBoardPrintParts(); return false;\">Imprimir as peças do jogo (3 páginas)</button></p><p class=\"htBoardPartsNote\">A primeira página é o osso, a segunda página são as vinte marcas e a terceira página são os dois baralhos de cartas.</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

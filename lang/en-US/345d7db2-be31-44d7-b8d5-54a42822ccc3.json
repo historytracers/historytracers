@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -25,12 +30,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1794492885"
+      "1794970155"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -48,7 +55,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nBefore you continue, we recommend reading the previous text first — it will help you understand this one better (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -75,7 +82,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgUniverseTimeInflation\" onclick=\"htImageZoom('imgUniverseTimeInflation', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: The universe across space and time (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgUniverseTimeInflation\" onclick=\"htImageZoom('imgUniverseTimeInflation', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: The universe across space and time, from the Big Bang to today (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -97,7 +104,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Cosmic Inflation\n\nThe image in this section represents our understanding of the history of the universe according to the Lambda-CDM model. As can be observed, right after the Big Bang there appears a sort of cone — this period is known as **Cosmic Inflation** (<htcite0>).\n\n#### What was the beginning like?\n\nThanks to Edwin Hubble, we know that the universe is expanding (<htcite1>). As a direct consequence of this discovery, we can conclude that in the past, the universe was much smaller — as shown in **Figure 2**, part of **Practice 1**.",
+               "text": "### Cosmic Inflation\n\nThe picture above shows the history of the universe — from the Big Bang to today. Scientists describe it with a model called Lambda-CDM. Right after the Big Bang, the universe began to grow bigger and bigger, extremely fast. In the picture, that burst forms a kind of cone. This short period is called **Cosmic Inflation** (<htcite0>).\n\n#### What was the beginning like?\n\nThanks to Edwin Hubble, we know that the universe is expanding (<htcite1>). That means that in the past it was much smaller — as shown in **Figure 2**, part of **Practice 1**.",
                "source": [
                   {
                      "type": 1,
@@ -131,7 +138,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Compacting</b><br /><br /><i>Experiment with cotton</i><br /><br />1. Take a piece of cotton smaller than your hand.<br />2. Squeeze it in your hands.<br /><br /><i>Experiment with the figure</i><br />1. Move the mouse or your finger over Figure 2.</div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Compacting</b><br /><br /><i>Experiment with cotton</i><br /><br />1. Take a piece of cotton smaller than your hand.<br />2. Squeeze it tight in your hands.<br />What do you notice? The cotton becomes much smaller — just like the universe once was!<br /><br /><i>Experiment with the figure</i><br />1. Move the mouse or your finger over Figure 2.</div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -140,16 +147,16 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"htCircle\" style=\"height: 40vh; width: 40vh; background-color: white; border:1px solid black;\" name=\"fig2\"></div></center><p class=\"desc\"><b>Figure 2</b>: Circle representing the contraction of the universe.</p><script>var divRadius = parseInt($(\".htCircle[name='fig2']\").width()); $(\".htCircle\").mouseenter(function(){ $(this).animate({ width: divRadius/4, height: divRadius/4 }, 'slow'); }).mouseleave(function(){ $(this).animate({ width: divRadius, height: divRadius }, 'slow'); });</script>",
+               "text": "<center><div class=\"htCircle\" style=\"height: 40vh; width: 40vh; background-color: white; border:1px solid black; box-sizing: border-box;\" name=\"fig2\"></div></center><p class=\"desc\"><b>Figure 2</b>: The circle shrinks to show how the universe once contracted.</p><script>var divRadius = parseInt($(\".htCircle[name='fig2']\").width()); $(\".htCircle\").mouseenter(function(){ $(this).animate({ width: divRadius/4, height: divRadius/4 }, 'slow'); }).mouseleave(function(){ $(this).animate({ width: divRadius, height: divRadius }, 'slow'); });</script>",
                "source": [],
                "date_time": null,
                "isTable": false,
-               "imgdesc": "In this figure, a circle contracts in size when the mouse cursor or a finger hovers over it.",
+               "imgdesc": "In this figure, a circle shrinks when the mouse cursor or a finger hovers over it.",
                "format": "html",
                "PostMention": ""
             },
             {
-               "text": "However, knowing that the universe was smaller doesn’t explain exactly how it expanded. This leads us to a reflection:",
+               "text": "But knowing that the universe was smaller does not tell us how it grew. That leads us to a reflection:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -158,7 +165,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: How did it happen?</b><br /><br />How do you think the universe expanded over time?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: How did it happen?</b><br /><br />How do you think the universe expanded over time — slowly and steadily, or very fast and sudden?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -167,7 +174,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### The proposal\n\nOur knowledge of the universe’s size has evolved over the past centuries. We went from an initial estimate of 300,000 light-years in <htdate0> to about 94 billion light-years in <htdate1> (<htcite0>; <htcite1>).\n\nIt’s not only the universe’s size that draws attention. Another remarkable fact in this cosmic story is that, when we look in different directions, we find that the universe is uniform (<htcite2>).\n\nThis beautiful scenario, however, presents a problem described and explained by Alan H. Guth (<htcite3>; <htcite4>), which leads us to reflect further:",
+               "text": "#### The proposal\n\nOur idea of the universe’s size has changed a lot over the centuries. In <htdate0>, scientists estimated it at 300,000 light-years. A light-year is the distance light travels in one year. By <htdate1>, the estimate had grown to about 94 billion light-years (<htcite0>; <htcite1>).\n\nSize is not the only surprise. When we look in every direction, the universe looks almost the same everywhere — it is uniform (<htcite2>).\n\nThis beautiful picture, however, hides a puzzle that Alan H. Guth described and explained (<htcite3>; <htcite4>). Think about it:",
                "source": [
                   {
                      "type": 1,
@@ -250,7 +257,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Why are they the same?</b><br /><br />Suppose a signal were sent from two opposite ends of the universe just as it began expanding. We would receive those signals from both ends before one could reach the other. In other words, the ends don’t know each other.<br /><br />If, after 14 billion years, those opposite ends still cannot exchange information, how can they be so similar?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Why are they the same?</b><br /><br />Imagine sending a signal at the same moment from two opposite ends of the universe, just as it began to expand. We would receive both signals long before either one could travel to the other end. In other words, those ends have never talked to each other.<br /><br />If, after 14 billion years, opposite ends still cannot exchange information, how can they look so alike?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -259,7 +266,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Guth’s solution\n\nDoctor Alan Guth proposed a solution to this problem. At the beginning of the universe, when matter and energy were still unified, there was a monumental expansion in an extremely short period of time — the universe grew in size extremely fast (exponential).\n\nThus, although the opposite ends have not been in contact for billions of years, there was a time when the universe was homogeneous, and that homogeneity remained after its exponential expansion (<htcite0>; <htcite1>).\n\n#### Is there proof?\n\nScience is not made up solely of theories; many ideas are refined to reach a deeper understanding. The same applies to the Inflation Theory, as Doctor Guth himself acknowledged and Doctor Lincoln explained in his video (<htcite2>; <htcite3>).\n\nSome experiments suggest that inflation did in fact occur, while others highlight the need for more evidence and further research.",
+               "text": "#### Guth’s solution\n\nDoctor Alan Guth proposed a solution to this problem. At the beginning of the universe, when matter and energy were still unified, there was a monumental expansion in an extremely short time. The universe grew faster and faster, doubling again and again: 2, 4, 8, 16.\n\nSo even though the opposite ends have not been in contact for billions of years, there was a time when the universe was homogeneous — the same everywhere — and that sameness stayed after the giant expansion (<htcite0>; <htcite1>).\n\n#### Is there proof?\n\nScience is never only about theories: scientists test ideas and improve them all the time. The same is true for the Inflation Theory: Doctor Guth himself admitted this, and Doctor Lincoln explained it in his video (<htcite2>; <htcite3>).\n\nSome experiments suggest that inflation did in fact occur, while others show that we still need more evidence and more research.",
                "source": [
                   {
                      "type": 1,

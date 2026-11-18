@@ -212,6 +212,7 @@ function htParseIndexRequest() {
                 case 'indigenous_who':
                 case 'indigenous_time':
                 case 'math_games':
+                case 'board_game':
                 case 'release':
                 case 'literature':
                 case 'atlas':
