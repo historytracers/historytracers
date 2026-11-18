@@ -43,6 +43,7 @@ var htFirstStepsVolume2Idx = new Map();
 var htSunTzuChessIdx = new Map();
 var htShapesIdx = new Map();
 var htMathGamesIdx = new Map();
+var htBoardGameIdx = new Map();
 var htIndigenousWhoIdx = new Map();
 var htMythsBelievesIdx = new Map();
 var htHistoricalEventsIdx = new Map();
@@ -189,6 +190,7 @@ function htResetAllIndexes()
         htSunTzuChessIdx,
         htShapesIdx,
         htMathGamesIdx,
+        htBoardGameIdx,
         htFamilyIdx,
         htIndigenousWhoIdx,
         htMythsBelievesIdx,
@@ -2414,6 +2416,7 @@ function htSelectIndexMap(index)
         sun_tzu_chess: htSunTzuChessIdx,
         shapes: htShapesIdx,
         math_games: htMathGamesIdx,
+        board_game: htBoardGameIdx,
         families: htFamilyIdx,
         indigenous_who: htIndigenousWhoIdx,
         myths_believes: htMythsBelievesIdx,
@@ -3999,6 +4002,7 @@ function htLoadIndex(data, arg, page)
         indigenous_who: htIndigenousWhoIdx,
         literature: htLiteratureIdx,
         math_games: htMathGamesIdx,
+        board_game: htBoardGameIdx,
         myths_believes: htMythsBelievesIdx,
         physics: htPhysicsIdx,
         philosophy: htPhilosophyIdx,

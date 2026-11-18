@@ -74,13 +74,6 @@ function htWriterLevelMarkerCol() {
     return htWriterStartMarkerCol() - level.decDigits;
 }
 
-// The marker position expected by the current step (used by "⟳ Reset abacus").
-function htWriterResetMarkerCol() {
-    const step = localNumberWriterController.steps[localNumberWriterController.currentStepIdx];
-    if (step && step.type === 'marker') return htWriterStartMarkerCol();
-    return htWriterLevelMarkerCol();
-}
-
 function htWriterGetAbacusDigits(raw) {
     const digits = [];
     for (let i = 0; i < localSorobanController.COLUMNS; i++) {
@@ -195,8 +188,12 @@ function htWriterBuildSteps() {
     }
 
     // Decimal digits, from the tenths (first column to the right of the point)
-    // up to the last decimal order of the level.
-    for (let j = 0; j < level.decDigits; j++) {
+    // up to the last decimal order of the level. The point only moves left at
+    // the decimal levels: at the integer levels it sits on the rightmost
+    // column, so there is no fractional column on the board and no target may
+    // reference one. The ".0" readout is still produced by the value display.
+    const fracColumns = Math.min(level.decDigits, columns - 1 - markerCol);
+    for (let j = 0; j < fracColumns; j++) {
         const digit = number.decDigits[j];
         current[markerCol + 1 + j] = digit;
         const placeName = TM.getPlace(HT_WRITER_DEC_PLACE_KEYS[j]);
@@ -324,7 +321,13 @@ window.checkCurrentStepPositive = function() {
     if (!htWriterStepMatches(ctl.steps[ctl.currentStepIdx])) {
         ctl.stepCompleted = false;
         const feedback = document.getElementById('feedbackArea');
-        if (feedback && feedback.innerHTML && !feedback.innerHTML.includes('congrats')) {
+        if (ctl.finalCongratsShown) {
+            // The final target was changed after completion: undo the final
+            // state so the number can be rebuilt and validated again.
+            ctl.finalCongratsShown = false;
+            if (feedback) feedback.innerHTML = '';
+            htWriterSetStepVisibility(true);
+        } else if (feedback && feedback.innerHTML && !feedback.innerHTML.includes('congrats')) {
             feedback.innerHTML = '';
         }
         return;
@@ -457,15 +460,27 @@ function htLoadContent() {
         if (window.checkCurrentStepPositive) window.checkCurrentStepPositive();
     };
 
-    // "⟳ Reset abacus" clears every column and restores the decimal point
-    // expected by the current step (the user then repeats the step).
+    // "⟳ Reset abacus" clears every column and restores the decimal point to
+    // its starting position. The step targets are cumulative, so after
+    // clearing, the step sequence of the current number restarts from the
+    // beginning and the feedback is reset for that number.
     htSorobanResetSoroban = function() {
         if (localSorobanController._multTimer) {
             clearInterval(localSorobanController._multTimer);
             localSorobanController._multTimer = null;
         }
-        localSorobanController.decimalMarkerCol = htWriterResetMarkerCol();
+        localSorobanController.decimalMarkerCol = htWriterStartMarkerCol();
         htWriterClearAbacus();
+        const ctl = localNumberWriterController;
+        if (!ctl.steps.length) return;
+        ctl.currentStepIdx = 0;
+        ctl.stepCompleted = false;
+        ctl.finalCongratsShown = false;
+        const TM = ctl.TextManager;
+        document.getElementById('stepMessage').innerHTML = TM.getStepPrefix() + ' ' + ctl.steps[0].instruction;
+        document.getElementById('stepStatus').innerHTML = TM.getStepStatus(1, ctl.steps.length);
+        document.getElementById('feedbackArea').innerHTML = '';
+        htWriterSetStepVisibility(true);
     };
 
     // --- Buttons ---
