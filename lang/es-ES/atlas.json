@@ -14,7 +14,7 @@
       }
    ],
    "last_update": [
-      "1794854711"
+      "1795044027"
    ],
    "sources": [
       "atlas"
@@ -56,7 +56,7 @@
          "value_type": "",
          "html_value": [
             {
-               "text": "Física",
+               "text": "Capítulo 1: El universo",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -140,30 +140,6 @@
                "name": "¿Cómo se forma un planeta?",
                "desc": "Explicamos la formación de un planeta.",
                "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "ce44a687-7935-42f7-88a3-2a8df489ed63",
-               "name": "¿Qué es la Gravedad?",
-               "desc": "Una visión inicial sobre la gravedad.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "930497dd-6b5d-48f2-92b5-c1aad181e947",
-               "name": "¿Es la Gravedad Realmente una Fuerza?",
-               "desc": "El modelo de Isaac Newton para la gravedad.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "795aad2d-0867-4aa6-b41b-deaf1c1ab5a6",
-               "name": "Gravedad: Una Fuerza Central",
-               "desc": "La gravedad no tira “hacia abajo”; es una fuerza central.",
-               "date_time": null
             }
          ],
          "date_time": null
@@ -175,7 +151,7 @@
          "value_type": "",
          "html_value": [
             {
-               "text": "Matemáticas",
+               "text": "Capítulo 2: Geometría y trigonometría",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -344,13 +320,68 @@
          "date_time": null
       },
       {
+         "id": "gravity_header",
+         "target": "class-gravity",
+         "page": "",
+         "value_type": "",
+         "html_value": [
+            {
+               "text": "Capítulo 3: La naturaleza de la gravedad",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ],
+         "source": null,
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "groups_gravity",
+         "target": "class-gravity",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": null,
+         "source": null,
+         "value": [
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "ce44a687-7935-42f7-88a3-2a8df489ed63",
+               "name": "¿Qué es la Gravedad?",
+               "desc": "Una visión inicial sobre la gravedad.",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "930497dd-6b5d-48f2-92b5-c1aad181e947",
+               "name": "¿Es la Gravedad Realmente una Fuerza?",
+               "desc": "El modelo de Isaac Newton para la gravedad.",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "795aad2d-0867-4aa6-b41b-deaf1c1ab5a6",
+               "name": "Gravedad: Una Fuerza Central",
+               "desc": "La gravedad no tira “hacia abajo”; es una fuerza central.",
+               "date_time": null
+            }
+         ],
+         "date_time": null
+      },
+      {
          "id": "tri_header",
          "target": "class-math3",
          "page": "",
          "value_type": "",
          "html_value": [
             {
-               "text": "Mundo Tridimensional",
+               "text": "Capítulo 4: Coordenadas sobre una esfera",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -365,7 +396,7 @@
       },
       {
          "id": "groups_tri",
-         "target": "class-math",
+         "target": "class-math3",
          "page": "class_content",
          "value_type": "group-list",
          "html_value": null,
@@ -405,7 +436,7 @@
          "value_type": "",
          "html_value": [
             {
-               "text": "Geografía",
+               "text": "Capítulo 5: La Tierra y sus mapas",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -524,7 +555,7 @@
          "value_type": "",
          "html_value": [
             {
-               "text": "Historia",
+               "text": "Capítulo 6: Pueblos y civilizaciones",
                "source": null,
                "date_time": null,
                "isTable": false,
