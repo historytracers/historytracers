@@ -3293,6 +3293,37 @@ window.addEventListener('load', function() {
     htCallFillPIXQRCode();
 });
 
+// Keep the canonical link in sync with the page rendered by the SPA. Only the
+// page and arg parameters identify content; presentation preferences (lang,
+// cal, font, rec) and tree selection (person_id) are dropped so every variant
+// points to the same canonical URL listed in sitemap.xml.
+function htUpdateCanonical() {
+    var canonical = document.getElementById("htCanonical");
+    if (!canonical) {
+        return;
+    }
+    var base = "https://www.historytracers.org/";
+    var url = base;
+    try {
+        var params = new URLSearchParams(window.location.search);
+        var page = params.get("page");
+        var arg = params.get("arg");
+        // The homepage renders the "main" content and rewrites its URL to
+        // ?page=class_content&arg=main. Keep the homepage canonical on "/".
+        if (page === "class_content" && arg === "main" && window.htInitialPage === null) {
+            url = base;
+        } else if (page) {
+            url = base + "index.html?page=" + encodeURIComponent(page);
+            if (arg && (page === "class_content" || page === "tree")) {
+                url += "&arg=" + encodeURIComponent(arg);
+            }
+        }
+    } catch (error) {
+        return;
+    }
+    canonical.setAttribute("href", url);
+}
+
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;").hide();
     $("#ht_index_latex").append("");
@@ -3327,6 +3358,8 @@ function htLoadPage(page, ext, arg, reload) {
                 window.history.replaceState(null, null, 'index.html?page='+page);
                 break;
         }
+
+        htUpdateCanonical();
 
         $("#tree-source").html("");
         $("#tree-ref").html("");
