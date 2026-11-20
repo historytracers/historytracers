@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5sKZkGzXFTyoXUxEHYPye7?si=K2t_PK-CQBKjXZ7PnV1x9Q",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -23,12 +28,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791384272"
+      "1795145159"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -73,7 +80,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgPlanetSpaceTime\" onclick=\"htImageZoom('imgPlanetSpaceTime', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: Illustration of gravity as the curvature of spacetime (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgPlanetSpaceTime\" onclick=\"htImageZoom('imgPlanetSpaceTime', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: Illustration of gravity as the curvature of space-time (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -95,7 +102,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Understanding Gravity</h3>In the previous text, we mentioned gravity when defining a planet, but we didn’t explain the concept in detail. This section expands on that idea.</p>",
+               "text": "<p><h3>Understanding Gravity</h3>In the previous text, we mentioned gravity when defining a planet, but we didn’t explain the concept in detail. This section expands on that idea: you will learn how Isaac Newton and Albert Einstein explained gravity, and why both explanations still matter today.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -104,7 +111,36 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>The Space-time</h4>For a long time, we understood space, where we move, and time, which records the sequence of events, as absolute and separate dimensions. As a result, we believed that time was the same for everyone, whether it was a person reading this text, someone traveling in a car, or even an astronaut on a journey to the Moon",
+               "text": "<h4>Newton's Law of Gravitation</h4><p>Long before Einstein, in <htdate0>, Isaac Newton asked a simple question: why do things fall? His answer was that gravity is a force: an invisible pull that every object with mass exerts on every other object with mass (<htcite0>). It is this pull that makes an apple fall from a tree.</p><p>Newton found two important rules about this pull:</p><ul><li><b>It depends on mass:</b> the more mass an object has, the stronger its pull. A big planet pulls much harder than a small rock.</li><li><b>It depends on distance:</b> the farther apart two objects are, the weaker the pull. If the distance doubles, the pull becomes four times weaker. Scientists call this the inverse-square law.</li></ul><p>Gravity is also a very small force. If you stand next to another person, the gravity between the two of you is tiny, and you cannot feel it. But the Earth is enormously massive, so the gravity between you and the Earth is strong enough to keep your feet on the ground. That same pull makes the Moon go around the Earth and the planets go around the Sun.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "412d92f9-93f1-4967-9e28-ce7689f60e8d",
+                     "text": "Britannica Editors",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "09",
+                        "day": "26"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1687",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>The space-time</h4>Newton’s pull explained a lot, but it could not explain everything: even the orbit of Mercury, the planet closest to the Sun, did not follow his predictions exactly. To solve mysteries like this one, scientists had to change the way they thought about space and time. For a long time, we understood space, where we move, and time, which records the sequence of events, as absolute and separate dimensions. As a result, we believed that time was the same for everyone, whether it was a person reading this text, someone traveling in a car, or even an astronaut on a journey to the Moon",
                "source": [
                   {
                      "type": 1,
@@ -126,7 +162,7 @@
                "PostMention": "."
             },
             {
-               "text": "This understanding began to change in <htdate0>, when Albert Einstein proposed that space and time are relative, depending on the observer's motion. Although this idea may seem strange at first, it is not noticeable in our daily lives because we move at relatively slow speeds. However, numerous experiments have confirmed the accuracy of this theory, allowing us to explain phenomena like Mercury's orbit",
+               "text": "This understanding began to change in <htdate0>, when Albert Einstein proposed that space and time are relative, depending on the observer's motion. Although this idea may seem strange at first, it is not noticeable in our daily lives because we move at relatively slow speeds. However, numerous experiments have confirmed the accuracy of this theory, allowing us to explain phenomena that once seemed mysterious",
                "source": [
                   {
                      "type": 1,
@@ -241,7 +277,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>The planet and space-time</h4>When a planet forms, it tends to acquire a spherical or near-spherical shape, like an ellipsoid. In doing so, it curves the space-time, as illustrated in this section’s figure. The effect of moving within this curved space-time is what we call gravity. John Wheeler famously explained it this way: \"Matter tells space-time how to curve, and space-time tells matter how to move\". A clear example of this phenomenon is our planet’s orbit around the Sun, caused by the curvature that the Sun’s mass creates in space-time",
+               "text": "<h4>The planet and space-time</h4>When a planet forms, it becomes almost round, like a ball, though slightly flattened — a shape called an ellipsoid. In doing so, it curves space-time, as illustrated in this section’s figure. In Einstein’s model, the effect of moving within this curved space-time is what we call gravity. John Wheeler famously explained it this way: \"Matter tells space-time how to curve, and space-time tells matter how to move.\" A clear example of this phenomenon is our planet’s orbit around the Sun, caused by the curvature that the Sun’s mass creates in space-time",
                "source": [
                   {
                      "type": 1,
@@ -321,6 +357,15 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<h4>Conclusion</h4><p>Newton and Einstein gave us two different pictures of gravity. For Newton, gravity is a force of attraction between objects with mass. For Einstein, gravity is the effect of space-time curving around those objects. Both models describe the same universe, but each one is useful in its own way.</p><p>Einstein's theory does not discard Newton's. When gravity is not extremely strong and speeds are much lower than the speed of light, the two models give almost the same answers. Newton's law is much simpler, so we still use it every day: to predict where a ball will land, to plan satellite orbits, to study the tides, and to send spacecraft to other planets. Einstein's model is also needed when we want extreme precision, when gravity is enormous, such as near black holes, or when we describe light propagation and motion close to the speed of light.</p><p>So the next time an apple falls, you can thank Newton: the small force he described still explains our everyday world.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       }

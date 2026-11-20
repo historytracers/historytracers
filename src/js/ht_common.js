@@ -3060,14 +3060,19 @@ function htFillSMGameData(data) {
 //    Atlas Section
 //
 
-function htModifyAtlasIndexMap(id) {
+function htModifyAtlasIndexMap(id, updateURL) {
     if (!id) {
         return;
     }
     $("#atlasindex option[value="+id+"]").prop('selected', true);
 
-    var myURL = 'index.html?page=atlas&atlas_page='+id;
-    window.history.replaceState(null, null, myURL);
+    // The initial atlas fill must not rewrite the address: changing the URL
+    // while the page renders makes search engines treat the requested URL as
+    // a redirect. User navigation (previous/next map) still updates it.
+    if (updateURL !== false) {
+        var myURL = 'index.html?page=atlas&atlas_page='+id;
+        window.history.replaceState(null, null, myURL);
+    }
     $("#atlas").val(id);
     $("#atlasindex").val(id);
 }
@@ -3188,7 +3193,15 @@ function htFillAtlas(data) {
         prevIdx = item.uuid;
     }
 
-    htModifyAtlasIndexMap(idx);
+    // The first fill happens while the page is being rendered, so the address
+    // must stay exactly as requested. Later fills (language/calendar reloads
+    // and in-app navigation) keep the URL in sync with the selected map.
+    if (window.htAtlasURLInitialized) {
+        htModifyAtlasIndexMap(idx);
+    } else {
+        window.htAtlasURLInitialized = true;
+        htModifyAtlasIndexMap(idx, false);
+    }
     htSelectAtlasMap(idx);
 }
 
@@ -3293,11 +3306,75 @@ window.addEventListener('load', function() {
     htCallFillPIXQRCode();
 });
 
+// Keep the canonical link in sync with the page rendered by the SPA. Only the
+// page and arg parameters identify content; presentation preferences (lang,
+// cal, font, rec) and tree selection (person_id) are dropped so every variant
+// points to the same canonical URL listed in sitemap.xml.
+function htUpdateCanonical() {
+    var canonical = document.getElementById("htCanonical");
+    if (!canonical) {
+        return;
+    }
+    var base = "https://www.historytracers.org/";
+    var url = base;
+    try {
+        var params = new URLSearchParams(window.location.search);
+        var page = params.get("page");
+        var arg = params.get("arg");
+        // The homepage renders the "main" content and is also reachable as
+        // index.html?page=class_content&arg=main. Keep its canonical on "/".
+        if (page === "class_content" && arg === "main") {
+            url = base;
+        } else if (page) {
+            url = base + "index.html?page=" + encodeURIComponent(page);
+            if (arg && (page === "class_content" || page === "tree")) {
+                url += "&arg=" + encodeURIComponent(arg);
+            }
+        }
+    } catch (error) {
+        return;
+    }
+    canonical.setAttribute("href", url);
+}
+
+// Whether the current address already identifies the requested page. When it
+// does, the SPA must leave the URL untouched: changing the URL while the page
+// is being rendered makes search engines treat the requested URL as a
+// redirect. Presentation parameters (lang, cal, font, rec) are ignored on
+// purpose, so they survive the initial render.
+function htURLMatchesPage(page, arg) {
+    var params;
+    try {
+        params = new URLSearchParams(window.location.search);
+    } catch (error) {
+        return false;
+    }
+    if (params.get("page") !== page) {
+        return false;
+    }
+    var parts = (arg || "").split("&person_id=");
+    if (parts.length === 2) {
+        return (params.get("arg") || "") === parts[0] &&
+            (params.get("person_id") || "") === parts[1];
+    }
+    return (params.get("arg") || "") === (arg || "") && !params.has("person_id");
+}
+
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;").hide();
     $("#ht_index_latex").append("");
     extLatexIdx = 0;
     if (ext == "html") {
+        // Keep the address bar as requested while the page is rendered. A
+        // reload caused by a preference change still normalizes the URL.
+        var isBareHome = false;
+        try {
+            isBareHome = !new URLSearchParams(window.location.search).has("page");
+        } catch (e) {
+        }
+        var preserveURL = (reload !== true) &&
+            (htURLMatchesPage(page, arg) ||
+             (isBareHome && page === "class_content" && arg === "main"));
         switch(page) {
             case "tree":
             case "genealogical_map_list":
@@ -3316,7 +3393,9 @@ function htLoadPage(page, ext, arg, reload) {
                 }
                 genealogicalStats = htResetGenealogicalStats();
 
-                window.history.replaceState(null, null, myURL);
+                if (!preserveURL) {
+                    window.history.replaceState(null, null, myURL);
+                }
                 break;
             case "families":
                 lastTreeLoaded.page = null;
@@ -3324,9 +3403,13 @@ function htLoadPage(page, ext, arg, reload) {
                 $("#loading").val("");
                 $("#selector").val("");
             default:
-                window.history.replaceState(null, null, 'index.html?page='+page);
+                if (!preserveURL) {
+                    window.history.replaceState(null, null, 'index.html?page='+page);
+                }
                 break;
         }
+
+        htUpdateCanonical();
 
         $("#tree-source").html("");
         $("#tree-ref").html("");

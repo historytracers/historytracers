@@ -9,7 +9,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History Tracers</title>
   <meta name="description" content="History Tracers is a free, open-source educational project teaching mathematics, science, history and genealogy through culture, games and primary sources.">
-  <link rel="canonical" href="https://www.historytracers.org/">
+  <script type="text/javascript">
+    // The site is a single-page application, so every content page is served
+    // by index.html with query parameters. Create a self-referencing canonical
+    // for the requested content page; otherwise every page would inherit the
+    // homepage canonical and be reported as an alternate of the homepage.
+    (function () {
+      var head = document.head || document.getElementsByTagName("head")[0];
+      if (!head) {
+        return;
+      }
+      var canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      canonical.setAttribute("id", "htCanonical");
+      canonical.setAttribute("href", "https://www.historytracers.org/");
+      head.appendChild(canonical);
+      var page = null;
+      var arg = null;
+      try {
+        var params = new URLSearchParams(window.location.search);
+        page = params.get("page");
+        arg = params.get("arg");
+      } catch (error) {
+        return;
+      }
+      window.htInitialPage = page;
+      // The homepage is also reachable as index.html?page=class_content&arg=main.
+      // Keep its canonical on "/" so the menu link does not create a duplicate.
+      if (!page || (page === "class_content" && arg === "main")) {
+        return;
+      }
+      var url = "https://www.historytracers.org/index.html?page=" + encodeURIComponent(page);
+      if (arg && (page === "class_content" || page === "tree")) {
+        url += "&arg=" + encodeURIComponent(arg);
+      }
+      canonical.setAttribute("href", url);
+    })();
+  </script>
   <link rel="alternate" type="text/markdown" href="index.md" title="Markdown version">
   <script type="application/ld+json">
   {
@@ -73,24 +109,24 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <link rel="stylesheet" href="css/ht_common.css?v=1795026542">
-  <link rel="stylesheet" href="css/ht_math.css?v=1795026542">
+  <link rel="stylesheet" href="css/ht_common.css?v=1795140908">
+  <link rel="stylesheet" href="css/ht_math.css?v=1795140908">
   <!-- https://docs.fontawesome.com/v5/web/setup/host-font-awesome-yourself -->
   <link rel="stylesheet" href="css/fa_6_5_2.min.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b">
 
-  <script type="text/javascript" src="js/calendar.js?v=1795026542"></script>
-  <script type="text/javascript" src="js/jquery-3.7.1.min.js?v=1795026542b7bec4-3106-48f7-b44c-7907ec7b6d48"></script>
+  <script type="text/javascript" src="js/calendar.js?v=1795140908"></script>
+  <script type="text/javascript" src="js/jquery-3.7.1.min.js?v=1795140908b7bec4-3106-48f7-b44c-7907ec7b6d48"></script>
   <script type="text/javascript" async src="js/showdown.210.min.js?v=da938423-af12-4b7a-ac3f-9d203eedd62d"></script>
   <script type="text/javascript" async src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
 
-  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=1795026542dd2-52a2-423d-884f-4cefa04090ec"></script -->
+  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=1795140908dd2-52a2-423d-884f-4cefa04090ec"></script -->
 
   <script type="text/javascript" src="js/chart_4_6_1.js?v=cbd7ed7c-6618-47b1-9f23-fc0dc15cc952"></script>
-  <script type="text/javascript" src="js/ht_common.js?v=1795026542"></script>
-  <script type="text/javascript" src="js/ht_math.js?v=1795026542"></script>
-  <script type="text/javascript" src="js/ht_chart.js?v=1795026542"></script>
-  <script type="text/javascript" src="js/ht_update.js?v=1795026542"></script>
-  <script type="text/javascript" src="js/index.js?v=1795026542fe5ae3-d2ce-459c-83a7-3fe372bb3a2e"></script>
+  <script type="text/javascript" src="js/ht_common.js?v=1795140908"></script>
+  <script type="text/javascript" src="js/ht_math.js?v=1795140908"></script>
+  <script type="text/javascript" src="js/ht_chart.js?v=1795140908"></script>
+  <script type="text/javascript" src="js/ht_update.js?v=1795140908"></script>
+  <script type="text/javascript" src="js/index.js?v=1795140908fe5ae3-d2ce-459c-83a7-3fe372bb3a2e"></script>
 </head>
 
 <body>

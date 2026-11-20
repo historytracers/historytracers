@@ -64,7 +64,32 @@
         return 0;
     }
 
+    // The version endpoints exist only in the desktop viewer (src/viewer) and
+    // editor (src/editor). A normal web server has no /api routes, so probing
+    // them there only logs 404s in the browser console. The desktop apps are
+    // identified by the markers their injected script and webview bindings
+    // provide (the same detection used by ht_common.js).
+    function isDesktopApp() {
+        function hasMarker(scope) {
+            try {
+                if (typeof scope.__ht_dev !== "undefined") return true;
+                if (typeof scope.__ht_token !== "undefined" && scope.__ht_token) return true;
+                if (typeof scope.closeWindow === "function") return true;
+                if (scope.external && typeof scope.external.invoke === "function") return true;
+            } catch (e) {}
+            return false;
+        }
+        if (hasMarker(window)) return true;
+        try {
+            if (window.parent && window.parent !== window) return hasMarker(window.parent);
+        } catch (e) {}
+        return false;
+    }
+
     async function getLocalVersion() {
+        if (!isDesktopApp()) {
+            return CURRENT_FALLBACK;
+        }
         var endpoints = ["/api/version", "/api/editor/version"];
         for (var i = 0; i < endpoints.length; i++) {
             try {

@@ -691,6 +691,16 @@ func TestHTHTML2Text(t *testing.T) {
 			t.Errorf("got %q", got)
 		}
 	})
+
+	t.Run("html superscript", func(t *testing.T) {
+		got, err := htHTML2Text("<p>E = mc<sup>2</sup></p>", "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(got, "mc 2") {
+			t.Errorf("got %q", got)
+		}
+	})
 }
 
 func TestHTIsInternalContentLink(t *testing.T) {
@@ -754,6 +764,18 @@ func TestHTTextToHumanText(t *testing.T) {
 	if !strings.Contains(got, "Physics") {
 		t.Errorf("markdown link text missing: %q", got)
 	}
+
+	dated := &HTText{Text: "Year <htdate0>", Format: "markdown", FillDates: []HTDate{{DateType: "gregory", Year: "2024", Month: "2", Day: "29"}}, PostMention: " END"}
+	got = htTextToHumanText(dated, "en-US", false)
+	if strings.Count(got, "END") != 1 {
+		t.Errorf("post mention repeated: %q", got)
+	}
+
+	plain := &HTText{Text: "Plain text", Format: "markdown", PostMention: " END"}
+	got = htTextToHumanText(plain, "en-US", false)
+	if !strings.HasSuffix(got, "END") {
+		t.Errorf("post mention missing without dates: %q", got)
+	}
 }
 
 func TestHTOverwriteDates(t *testing.T) {
@@ -774,17 +796,82 @@ func TestHTOverwriteDates(t *testing.T) {
 }
 
 func TestHTBuildSMGameAudioText(t *testing.T) {
-	blocks := []HTText{
-		{Text: ""},
-		{Text: "<p>Hello <b>world</b></p>"},
-		{Text: "中文 text"},
+	tests := []struct {
+		name      string
+		lang      string
+		blocks    []HTText
+		want      []string
+		wantEmpty bool
+		absent    []string
+	}{
+		{
+			name:      "empty block",
+			lang:      "en-US",
+			blocks:    []HTText{{Text: ""}},
+			want:      nil,
+			wantEmpty: true,
+		},
+		{
+			name:   "html tags and entities",
+			lang:   "en-US",
+			blocks: []HTText{{Text: "<p>Hello <b>world</b></p><p>tom &amp; jerry</p>", Format: "html"}},
+			want:   []string{"Hello world", "tom & jerry"},
+			absent: []string{"<", ">"},
+		},
+		{
+			name:   "markdown heading and emphasis",
+			lang:   "en-US",
+			blocks: []HTText{{Text: "#### Philosophizing\n\nA **bold** and *italic* text.", Format: "markdown"}},
+			want:   []string{"Philosophizing", "A bold and italic text."},
+			absent: []string{"#", "*"},
+		},
+		{
+			name:   "markdown highlight",
+			lang:   "en-US",
+			blocks: []HTText{{Text: "He said that ===he did not know===", Format: "markdown"}},
+			want:   []string{"He said that he did not know"},
+			absent: []string{"="},
+		},
+		{
+			name:   "markdown links and lists",
+			lang:   "en-US",
+			blocks: []HTText{{Text: "- see [Physics](https://www.historytracers.org/index.html?page=physics)\n- next", Format: "markdown"}},
+			want:   []string{"see Physics", "next"},
+			absent: []string{"[", "]", "index.html", "http"},
+		},
+		{
+			name:   "dates and citations",
+			lang:   "en-US",
+			blocks: []HTText{{Text: "Year <htdate0> (<htcite0>)", Format: "markdown", FillDates: []HTDate{{DateType: "gregory", Year: "2024", Month: "2", Day: "29"}}}},
+			want:   []string{"Year February 29, 2024"},
+			absent: []string{"htdate", "htcite"},
+		},
+		{
+			name:      "interactive app",
+			lang:      "en-US",
+			blocks:    []HTText{{Text: `<div class="yupana-panel">Interactive content</div>`, Format: "html"}},
+			want:      nil,
+			wantEmpty: true,
+		},
 	}
-	got := htBuildSMGameAudioText(blocks)
-	if !strings.Contains(got, "Hello world") {
-		t.Errorf("missing text: %q", got)
-	}
-	if strings.Contains(got, "中文") || strings.Contains(got, "<") {
-		t.Errorf("unexpected content: %q", got)
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			got := htBuildSMGameAudioText(tc.blocks, tc.lang)
+			if tc.wantEmpty && got != "" {
+				t.Errorf("expected no audio output, got %q", got)
+			}
+			for _, want := range tc.want {
+				if !strings.Contains(got, want) {
+					t.Errorf("missing %q in %q", want, got)
+				}
+			}
+			for _, absent := range tc.absent {
+				if strings.Contains(got, absent) {
+					t.Errorf("unexpected %q in %q", absent, got)
+				}
+			}
+		})
 	}
 }
 

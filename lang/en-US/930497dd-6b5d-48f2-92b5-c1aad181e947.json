@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1P0ofRtNXQuBOUwJS7UE9g?si=8-OgOmmeTwWJfgc5WZXVkg",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -23,12 +28,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791384272"
+      "1795145159"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -37,7 +44,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nBefore reading this text, we recommend the previous one. It will make this page easier to understand (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -64,7 +71,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<h3>Is Gravity Really a Force?</h3>We began by describing gravity based on our current understanding, but this has not always been the case. In the past, gravity was seen as a force, and using this perspective helps explain certain phenomena on Earth, as we will explore",
+               "text": "<h3>Is Gravity Really a Force?</h3>In the previous text we described gravity the way we understand it today. But people did not always think this way. For a long time, gravity was seen as a force, and that way of looking at it still helps us explain many things that happen on Earth, as we will explore below",
                "source": [
                   {
                      "type": 1,
@@ -86,7 +93,7 @@
                "PostMention": "."
             },
             {
-               "text": "Konstantino Adamopoulos <i>et al.</i> highlight that various systems in our bodies can be affected by the strength of the gravitational field. Additionally, they discuss how gravity has influenced species evolution, using as an example the arrangement of internal organs in aquatic snakes versus tree-climbing snakes",
+               "text": "Konstantino Adamopoulos <i>et al.</i> show that the strength of the gravitational field can affect many systems in our bodies. They also explain how gravity has influenced the evolution of species. For example, the internal organs of a snake that swims are placed differently from those of a snake that climbs trees",
                "source": [
                   {
                      "type": 1,
@@ -108,7 +115,7 @@
                "PostMention": "."
             },
             {
-               "text": "On the other hand, it’s also possible to consider that there is no \"gravity force\" per se, and that other forces might produce similar effects. For instance, the acceleration measured on the Earth’s surface is not constant and partly results from internal Earth pressure, leading us to observe an acceleration that could be associated with a force stemming from this internal pressure",
+               "text": "On the other hand, some scientists think that maybe there is no \"gravity force\" at all, and that other forces could produce the same effects. For example, the acceleration we measure on Earth's surface is not the same everywhere; it changes with the distribution of mass inside the planet. The weight of the overlying material produces enormous pressure inside the Earth, but that pressure does not create the acceleration we measure at the surface",
                "source": [
                   {
                      "type": 1,
@@ -140,6 +147,108 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<h4>The Gravitational Field</h4><p>A gravitational field is an invisible map of gravity around an object. It shows how strongly the object would pull on something placed at each point. You cannot see or touch the field, just as you cannot see the wind, but you can notice what it does. Around Earth, the field points toward the center of the planet. That is why a dropped ball always falls downward, whether you are in Brazil, Egypt, or Japan.</p><p class=\"imgcenterresponsive\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 360\" width=\"100%\" role=\"img\" aria-label=\"A blue ball representing Earth surrounded by orange arrows pointing inward, showing the direction of its gravitational field.\"><defs><marker id=\"htGravityFieldArrow\" viewBox=\"0 0 10 10\" refX=\"10\" refY=\"5\" markerWidth=\"4\" markerHeight=\"4\" orient=\"auto\"><path d=\"M0,0 L10,5 L0,10 Z\" fill=\"#ef6c00\"/></marker></defs><rect x=\"10\" y=\"10\" width=\"580\" height=\"340\" rx=\"20\" fill=\"#f2f9ff\" stroke=\"#cfe8f7\" stroke-width=\"2\"/><g fill=\"none\" stroke=\"#90caf9\" stroke-width=\"2\" stroke-dasharray=\"7 7\" opacity=\"0.8\"><circle cx=\"300\" cy=\"180\" r=\"105\"/><circle cx=\"300\" cy=\"180\" r=\"138\"/></g><g stroke=\"#ef6c00\" stroke-width=\"4\" stroke-linecap=\"round\" marker-end=\"url(#htGravityFieldArrow)\"><line x1=\"455\" y1=\"180\" x2=\"382\" y2=\"180\"/><line x1=\"409.6\" y1=\"289.6\" x2=\"358\" y2=\"238\"/><line x1=\"300\" y1=\"335\" x2=\"300\" y2=\"262\"/><line x1=\"190.4\" y1=\"289.6\" x2=\"242\" y2=\"238\"/><line x1=\"145\" y1=\"180\" x2=\"218\" y2=\"180\"/><line x1=\"190.4\" y1=\"70.4\" x2=\"242\" y2=\"122\"/><line x1=\"300\" y1=\"25\" x2=\"300\" y2=\"98\"/><line x1=\"409.6\" y1=\"70.4\" x2=\"358\" y2=\"122\"/></g><circle cx=\"300\" cy=\"180\" r=\"58\" fill=\"#1e88e5\" stroke=\"#0d47a1\" stroke-width=\"4\"/><path d=\"M264 148 q22 -18 44 -2 q-10 16 -30 14 q-10 -4 -14 -12z\" fill=\"#66bb6a\" opacity=\"0.95\"/><path d=\"M321 199 q18 -6 24 9 q-16 13 -31 5 q-1 -8 7 -14z\" fill=\"#66bb6a\" opacity=\"0.95\"/><text x=\"300\" y=\"188\" text-anchor=\"middle\" font-family=\"Arial, sans-serif\" font-size=\"18\" font-weight=\"bold\" fill=\"#ffffff\">Earth</text></svg></p><p class=\"desc\"><b>Figure 1</b>: The gravitational field around Earth. The arrows show that the field pulls objects toward the center of the planet.</p><p>Every object with mass has its own gravitational field. A bowling ball has a stronger field than a tennis ball, but both are extremely weak compared with Earth's field. Earth's field reaches far into space and keeps the Moon in orbit. The Moon's field also pulls on Earth, and together with the Sun it helps produce the ocean tides (<htcite0>).</p><p>Fields are not only for gravity. Think about the air around us: we cannot see it, but we can feel the wind. A weather report may show high humidity in one place, while the wind blows at a different speed somewhere else. Because these values change from place to place, scientists can describe the whole atmosphere as one big connected field (<htcite1>). The idea can go even further: a field can be imagined as a kind of invisible material that fills space (<htcite2>; <htcite3>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "525bdeaa-ea8e-42cd-b568-33ed8383b44e",
+                     "text": "Cook, A.H., Faller, J.E., Nordtvedt, K.L.",
+                     "page": "gravity",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "11",
+                        "day": "15"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0402a255-b72b-4c7c-b12a-09c040343ed6",
+                     "text": "National Weather Service",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "15779436-6cf9-40fa-8670-eb8927e2d432",
+                     "text": "Strassler, Matt",
+                     "page": "What are Fields?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "3",
+                        "day": "21"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "985c8aa3-2680-49bb-be25-505d786b1030",
+                     "text": "Strassler, Matt",
+                     "page": "Ch. 13, 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "3",
+                        "day": "5"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Gravity Inside the Earth</h4><p>Gravity does not only act on things that stand on the surface. Every piece of Earth pulls on every other piece, so gravity also works inside the planet. Long ago, this pull helped squeeze the young Earth into a round ball. Today it holds the planet together.</p><p>Imagine a giant ball of clay. Each part pulls on the other parts, and over time the whole ball becomes round and tightly packed. You can try this at home with playdough, but it is your hands that shape the clay into a ball; this only shows the final round shape. Earth works in a similar way with rock and metal. The upper layers press down on the layers below, creating enormous pressure deep inside. That pressure is not gravity itself, but it is caused by the weight of everything above (<htcite0>). If a tunnel could cross Earth, a stone dropped into it would be pulled toward the center; after passing the center, it would slow down and then be pulled back.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "525bdeaa-ea8e-42cd-b568-33ed8383b44e",
+                     "text": "Cook, A.H., Faller, J.E., Nordtvedt, K.L.",
+                     "page": "gravity",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "11",
+                        "day": "15"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>What Does \"g\" Mean?</h4><p>Scientists use the letter <i>g</i> to mean the acceleration that gravity gives to a falling object near Earth's surface. It is about 9.8 meters per second per second. This means that, without air resistance, a falling object speeds up by about 9.8 meters per second every second. After one second, it is moving at about 9.8 meters per second; after two seconds, about 19.6 meters per second.</p><p>But <i>g</i> is not a constant value. It is slightly different from place to place: about 9.78 at the Equator and about 9.83 near the poles. On a high mountain, gravity is a little weaker because you are farther from Earth's center. Changes in the density of the rock underground can also make small differences. Even the Sun and the Moon cause tiny changes during the day. On the Moon, the same kind of acceleration is only about 1.6 meters per second per second. So when we say \"g is 9.8,\" we are giving an average for Earth's surface, not a number that is exactly the same everywhere (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "525bdeaa-ea8e-42cd-b568-33ed8383b44e",
+                     "text": "Cook, A.H., Faller, J.E., Nordtvedt, K.L.",
+                     "page": "gravity",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "11",
+                        "day": "15"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       }

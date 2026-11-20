@@ -999,15 +999,37 @@ func htConvertTextsToAudio() {
 	htConvertSMGameToAudio()
 }
 
-func htBuildSMGameAudioText(textBlocks []HTText) string {
+// htRemoveMarkdownHighlightMarkers removes the "==" / "===" delimiters used by
+// markdown highlight extensions. They are emphasis markers on the website and
+// a text-to-speech engine would otherwise read them as "equals equals".
+func htRemoveMarkdownHighlightMarkers(text string) string {
+	highlightRegex := regexp.MustCompile(`={2,}`)
+	return highlightRegex.ReplaceAllString(text, "")
+}
+
+// htBuildSMGameAudioText converts the text entries of a smartphone screen into
+// plain text. Smartphone content uses both HTML and Markdown, so each entry is
+// converted through the same pipeline used by the class audio generator: the
+// markup is rendered and then reduced to its readable text (citations, dates
+// and entities included). Only text the reader can understand is written.
+func htBuildSMGameAudioText(textBlocks []HTText, lang string) string {
 	var audioBuilder strings.Builder
 
-	for _, textBlock := range textBlocks {
+	for i := range textBlocks {
+		textBlock := textBlocks[i]
 		if textBlock.Text == "" {
 			continue
 		}
 
-		cleanText := htRemoveHTMLTags(textBlock.Text)
+		// Keep the previous smartphone behavior: imgdesc is accessibility
+		// metadata that was not part of the generated smartphone audio.
+		textBlock.ImgDesc = ""
+		if textBlock.Format == "" {
+			textBlock.Format = "markdown"
+		}
+
+		cleanText := htTextToHumanText(&textBlock, lang, false)
+		cleanText = htRemoveMarkdownHighlightMarkers(cleanText)
 		cleanText = htRemoveAsiaticCharacters(cleanText)
 		cleanText = strings.TrimSpace(cleanText)
 
@@ -1061,7 +1083,7 @@ func htConvertSMGameToAudio() {
 
 				if isSmartphone {
 					for _, block := range smGame.Content {
-						audioContent := htBuildSMGameAudioText(block.Text)
+						audioContent := htBuildSMGameAudioText(block.Text, lang)
 						if len(audioContent) == 0 {
 							continue
 						}
@@ -1078,7 +1100,7 @@ func htConvertSMGameToAudio() {
 					var audioBuilder strings.Builder
 
 					for _, block := range smGame.Content {
-						audioBuilder.WriteString(htBuildSMGameAudioText(block.Text))
+						audioBuilder.WriteString(htBuildSMGameAudioText(block.Text, lang))
 					}
 
 					audioContent := audioBuilder.String()
