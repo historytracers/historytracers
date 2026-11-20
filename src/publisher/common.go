@@ -1423,7 +1423,10 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 			} else if n.Data == "msup" || n.Data == "sup" {
 				var base, exponent strings.Builder
 				child := n.FirstChild
-				if child != nil {
+				if n.Data == "sup" && child != nil && child.NextSibling == nil {
+					// Ordinary HTML <sup>2</sup>: keep the superscript text.
+					collectMathMLText(child, &exponent, false)
+				} else if child != nil {
 					collectMathMLText(child, &base, false)
 					child = child.NextSibling
 					if child != nil {
@@ -1432,7 +1435,15 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 				}
 				baseText := strings.TrimSpace(base.String())
 				expText := strings.TrimSpace(exponent.String())
-				if baseText != "" && expText != "" {
+				if baseText == "" && expText != "" {
+					if b.Len() > 0 {
+						last := b.String()[b.Len()-1]
+						if last != ' ' && last != '\n' {
+							b.WriteByte(' ')
+						}
+					}
+					b.WriteString(expText)
+				} else if baseText != "" && expText != "" {
 					if b.Len() > 0 {
 						last := b.String()[b.Len()-1]
 						if last != ' ' && last != '\n' {
@@ -1507,12 +1518,7 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 
 		htmlText = htOverwriteDates(ret, txt.FillDates, "", lang, dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {
-		work := text
-		if len(txt.PostMention) > 0 {
-			work += txt.PostMention
-		}
-
-		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, lang, dateAbbreviation)
+		work := htOverwriteDates(text, txt.FillDates, txt.PostMention, lang, dateAbbreviation)
 		htmlText = htMarkdownToHTML(work) + "<br />"
 	} else {
 		htFormatNotExpected(txt.Format)
@@ -1537,12 +1543,7 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 }
 
 func htOverwriteDates(text string, dates []HTDate, PostMention string, lang string, dateAbbreviation bool) string {
-	size := len(dates)
-	if size == 0 {
-		return text
-	}
-
-	for i := 0; i < size; i++ {
+	for i := 0; i < len(dates); i++ {
 		dt := htDateToString(&dates[i], lang, dateAbbreviation)
 		overwrite := "<htdate" + strconv.Itoa(i) + ">"
 		text = strings.Replace(text, overwrite, dt, 1)

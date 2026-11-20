@@ -3357,7 +3357,7 @@ function htURLMatchesPage(page, arg) {
         return (params.get("arg") || "") === parts[0] &&
             (params.get("person_id") || "") === parts[1];
     }
-    return (params.get("arg") || "") === (arg || "");
+    return (params.get("arg") || "") === (arg || "") && !params.has("person_id");
 }
 
 function htLoadPage(page, ext, arg, reload) {

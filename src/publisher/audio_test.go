@@ -691,6 +691,16 @@ func TestHTHTML2Text(t *testing.T) {
 			t.Errorf("got %q", got)
 		}
 	})
+
+	t.Run("html superscript", func(t *testing.T) {
+		got, err := htHTML2Text("<p>E = mc<sup>2</sup></p>", "en-US")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(got, "mc 2") {
+			t.Errorf("got %q", got)
+		}
+	})
 }
 
 func TestHTIsInternalContentLink(t *testing.T) {
@@ -754,6 +764,18 @@ func TestHTTextToHumanText(t *testing.T) {
 	if !strings.Contains(got, "Physics") {
 		t.Errorf("markdown link text missing: %q", got)
 	}
+
+	dated := &HTText{Text: "Year <htdate0>", Format: "markdown", FillDates: []HTDate{{DateType: "gregory", Year: "2024", Month: "2", Day: "29"}}, PostMention: " END"}
+	got = htTextToHumanText(dated, "en-US", false)
+	if strings.Count(got, "END") != 1 {
+		t.Errorf("post mention repeated: %q", got)
+	}
+
+	plain := &HTText{Text: "Plain text", Format: "markdown", PostMention: " END"}
+	got = htTextToHumanText(plain, "en-US", false)
+	if !strings.HasSuffix(got, "END") {
+		t.Errorf("post mention missing without dates: %q", got)
+	}
 }
 
 func TestHTOverwriteDates(t *testing.T) {
@@ -775,17 +797,19 @@ func TestHTOverwriteDates(t *testing.T) {
 
 func TestHTBuildSMGameAudioText(t *testing.T) {
 	tests := []struct {
-		name   string
-		lang   string
-		blocks []HTText
-		want   []string
-		absent []string
+		name      string
+		lang      string
+		blocks    []HTText
+		want      []string
+		wantEmpty bool
+		absent    []string
 	}{
 		{
-			name:   "empty block",
-			lang:   "en-US",
-			blocks: []HTText{{Text: ""}},
-			want:   nil,
+			name:      "empty block",
+			lang:      "en-US",
+			blocks:    []HTText{{Text: ""}},
+			want:      nil,
+			wantEmpty: true,
 		},
 		{
 			name:   "html tags and entities",
@@ -823,16 +847,20 @@ func TestHTBuildSMGameAudioText(t *testing.T) {
 			absent: []string{"htdate", "htcite"},
 		},
 		{
-			name:   "interactive app",
-			lang:   "en-US",
-			blocks: []HTText{{Text: `<div class="yupana-panel"></div>`, Format: "html"}},
-			want:   nil,
+			name:      "interactive app",
+			lang:      "en-US",
+			blocks:    []HTText{{Text: `<div class="yupana-panel">Interactive content</div>`, Format: "html"}},
+			want:      nil,
+			wantEmpty: true,
 		},
 	}
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
 			got := htBuildSMGameAudioText(tc.blocks, tc.lang)
+			if tc.wantEmpty && got != "" {
+				t.Errorf("expected no audio output, got %q", got)
+			}
 			for _, want := range tc.want {
 				if !strings.Contains(got, want) {
 					t.Errorf("missing %q in %q", want, got)
