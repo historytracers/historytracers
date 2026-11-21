@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795201594"
+      "1795278522"
    ],
    "authors": [
       ""
@@ -266,7 +266,7 @@
          "id": "SECTION_two_coordinates",
          "text": [
             {
-               "text": "<h4>Duas coordenadas</h4><p>Quando podemos nos mover em duas direções, uma coordenada não basta. Precisamos de duas coordenadas independentes, uma para cada direção. Medimos as duas a partir da mesma origem, seguindo duas direções separadas que costumamos chamar de X e Y. Por exemplo, para localizar um ponto em uma superfície plana, dizemos quanto avançar em X e quanto avançar em Y (<htcite0>).</p><p>As dimensões de um círculo podem ser relacionadas diretamente com essas direções, seguindo as regras que já estudamos. Se desenharmos um raio r com um ângulo θ, a sua parte horizontal é r × cos(θ) e a sua parte vertical é r × sin(θ). São as mesmas duas coordenadas escritas de duas maneiras: coordenadas lineares (x, y) ou coordenadas radiais (r, θ) (<htcite1>).</p>",
+               "text": "<h4>Duas coordenadas</h4><p>Quando podemos nos mover em duas direções, uma coordenada não basta. Precisamos de duas coordenadas independentes, uma para cada direção. Medimos as duas a partir da mesma origem, seguindo duas direções separadas que costumamos chamar de X e Y. Por exemplo, para localizar um ponto em uma superfície plana, dizemos quanto avançar em X e quanto avançar em Y (<htcite0>).</p><p>As dimensões de um círculo podem ser relacionadas diretamente com essas direções, seguindo as regras que já estudamos. Se desenharmos um raio r com um ângulo θ, a sua parte horizontal é r × cos(θ) e a sua parte vertical é r × sin(θ). São as mesmas duas coordenadas escritas de duas maneiras: coordenadas lineares (x, y) ou coordenadas radiais (r, θ) (<htcite1>).</p><p>Como X e Y são perpendiculares, eles formam os catetos de um triângulo retângulo cuja hipotenusa é o raio r. Aqui nos ajuda a <b>diagonal tripla babilônica</b>, também conhecida como o <b>Teorema de Pitágoras</b>: o quadrado da hipotenusa é igual à soma dos quadrados dos catetos, então r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup> (<htcite2>). No nosso exemplo, 4<sup>2</sup> + 3<sup>2</sup> = 16 + 9 = 25 e, portanto, r = 5 m.</p>",
                "source": [
                   {
                      "type": 1,
@@ -288,6 +288,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4f5cb70e-d246-49b2-ae2a-9841ffc1fb14",
+                     "text": "History Tracers Team",
+                     "page": "Praticando com o teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }
@@ -314,7 +326,7 @@
          "id": "SECTION_three_coordinates",
          "text": [
             {
-               "text": "<h4>A terceira coordenada</h4><p>Para descrever uma posição fora de uma superfície plana, duas coordenadas ainda não bastam. Imagine um balão: um ponto na sua superfície não está no mapa plano que fica embaixo. Precisamos de uma terceira coordenada que diga a que distância o ponto está do plano. Assim obtemos as coordenadas esféricas: r é a distância à origem, θ dá a direção no plano e φ dá o ângulo medido a partir do eixo vertical. Observe a mudança no raio: no plano ele era de 5 m, mas em três dimensões o mesmo vetor agora tem r = 7,1 m. <span style=\"background-color:#fff3cd; padding:0 4px; border-radius:3px;\"><b>Essa mudança é consequência de acrescentar a nova dimensão: a altura z = 5 m aumenta a distância à origem.</b></span> Com essas três coordenadas podemos localizar qualquer ponto de uma esfera, como a superfície da Terra (<htcite0>).</p>",
+               "text": "<h4>A terceira coordenada</h4><p>Para descrever uma posição fora de uma superfície plana, duas coordenadas ainda não bastam. Imagine um balão: um ponto na sua superfície não está no mapa plano que fica embaixo. Precisamos de uma terceira coordenada que diga a que distância o ponto está do plano. Assim obtemos as coordenadas esféricas: r é a distância à origem, θ dá a direção no plano e φ dá o ângulo medido a partir do eixo vertical.</p><p>A mesma diagonal tripla babilônica (Teorema de Pitágoras) pode ser ampliada para três dimensões. Quando a terceira coordenada z é perpendicular a X e Y, o quadrado do raio esférico é a soma dos quadrados das três coordenadas: r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>. No nosso exemplo, r<sup>2</sup> = 4<sup>2</sup> + 3<sup>2</sup> + 5<sup>2</sup> = 16 + 9 + 25 = 50, então r = √50 ≈ 7,1 m.</p><p>Observe a mudança: no plano o raio era de 5 m, mas em três dimensões ele é de 7,1 m. <span style=\"background-color:#fff3cd; padding:0 4px; border-radius:3px;\"><b>Essa mudança é consequência de acrescentar a nova dimensão: a altura z = 5 m aumenta a distância à origem.</b></span></p><p>Com essas três coordenadas podemos localizar qualquer ponto de uma esfera, como a superfície da Terra (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,

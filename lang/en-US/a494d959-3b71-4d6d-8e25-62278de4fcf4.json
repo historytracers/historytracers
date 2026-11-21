@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795201521"
+      "1795278471"
    ],
    "authors": [
       ""
@@ -266,7 +266,7 @@
          "id": "SECTION_two_coordinates",
          "text": [
             {
-               "text": "<h4>Two coordinates</h4><p>When we can move in two directions, one coordinate is not enough. We need two independent coordinates, one for each direction. We measure both from the same origin, following two separate directions that we usually call X and Y. For example, to locate a point on a flat surface, we say how far to go along X and how far to go along Y (<htcite0>).</p><p>The dimensions of a circle can be mapped directly onto these directions, following the rules we have already studied. If we draw a radius r at an angle θ, its horizontal part is r × cos(θ) and its vertical part is r × sin(θ). These are the same two coordinates written in two ways: linear coordinates (x, y) or radial coordinates (r, θ) (<htcite1>).</p>",
+               "text": "<h4>Two coordinates</h4><p>When we can move in two directions, one coordinate is not enough. We need two independent coordinates, one for each direction. We measure both from the same origin, following two separate directions that we usually call X and Y. For example, to locate a point on a flat surface, we say how far to go along X and how far to go along Y (<htcite0>).</p><p>The dimensions of a circle can be mapped directly onto these directions, following the rules we have already studied. If we draw a radius r at an angle θ, its horizontal part is r × cos(θ) and its vertical part is r × sin(θ). These are the same two coordinates written in two ways: linear coordinates (x, y) or radial coordinates (r, θ) (<htcite1>).</p><p>Because X and Y are perpendicular, they form the legs of a right triangle whose hypotenuse is the radius r. Here the <b>Babylonian Diagonal Triple</b>, also known as the <b>Pythagorean Theorem</b>, helps us: the square of the hypotenuse is equal to the sum of the squares of the legs, so r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup> (<htcite2>). In our example, 4<sup>2</sup> + 3<sup>2</sup> = 16 + 9 = 25, and therefore r = 5 m.</p>",
                "source": [
                   {
                      "type": 1,
@@ -288,6 +288,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4f5cb70e-d246-49b2-ae2a-9841ffc1fb14",
+                     "text": "History Tracers Team",
+                     "page": "Practicing with the Theorem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }
@@ -314,7 +326,7 @@
          "id": "SECTION_three_coordinates",
          "text": [
             {
-               "text": "<h4>The third coordinate</h4><p>To describe a position outside a flat surface, two coordinates are still not enough. Imagine a balloon: a point on its surface is not on the flat map below it. We need a third coordinate that tells us how far the point is from the flat plane. This gives us spherical coordinates: r is the distance from the origin, θ gives the direction on the flat plane, and φ gives the angle measured from the vertical axis. Notice the change in the radius: in the flat plane it was 5 m, but in three dimensions the same vector now has r = 7.1 m. <span style=\"background-color:#fff3cd; padding:0 4px; border-radius:3px;\"><b>This change is a consequence of adding the new dimension: the height z = 5 m increases the distance from the origin.</b></span> With these three coordinates we can locate any point on a sphere, such as the surface of the Earth (<htcite0>).</p>",
+               "text": "<h4>The third coordinate</h4><p>To describe a position outside a flat surface, two coordinates are still not enough. Imagine a balloon: a point on its surface is not on the flat map below it. We need a third coordinate that tells us how far the point is from the flat plane. This gives us spherical coordinates: r is the distance from the origin, θ gives the direction on the flat plane, and φ gives the angle measured from the vertical axis.</p><p>The same Babylonian Diagonal Triple (Pythagorean Theorem) can be expanded to three dimensions. When the third coordinate z is perpendicular to X and Y, the square of the spherical radius is the sum of the squares of the three coordinates: r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>. In our example, r<sup>2</sup> = 4<sup>2</sup> + 3<sup>2</sup> + 5<sup>2</sup> = 16 + 9 + 25 = 50, so r = √50 ≈ 7.1 m.</p><p>Notice the change: in the flat plane the radius was 5 m, but in three dimensions it is 7.1 m. <span style=\"background-color:#fff3cd; padding:0 4px; border-radius:3px;\"><b>This change is a consequence of adding the new dimension: the height z = 5 m increases the distance from the origin.</b></span></p><p>With these three coordinates we can locate any point on a sphere, such as the surface of the Earth (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,

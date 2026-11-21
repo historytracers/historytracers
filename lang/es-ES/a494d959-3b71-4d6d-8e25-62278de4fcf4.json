@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795201564"
+      "1795278500"
    ],
    "authors": [
       ""
@@ -266,7 +266,7 @@
          "id": "SECTION_two_coordinates",
          "text": [
             {
-               "text": "<h4>Dos coordenadas</h4><p>Cuando podemos movernos en dos direcciones, una coordenada no basta. Necesitamos dos coordenadas independientes, una para cada dirección. Medimos ambas desde el mismo origen, siguiendo dos direcciones separadas que normalmente llamamos X e Y. Por ejemplo, para localizar un punto en una superficie plana, decimos cuánto avanzar en X y cuánto avanzar en Y (<htcite0>).</p><p>Las dimensiones de un círculo se pueden relacionar directamente con estas direcciones, siguiendo las reglas que ya estudiamos. Si dibujamos un radio r con un ángulo θ, su parte horizontal es r × cos(θ) y su parte vertical es r × sin(θ). Son las mismas dos coordenadas escritas de dos maneras: coordenadas lineales (x, y) o coordenadas radiales (r, θ) (<htcite1>).</p>",
+               "text": "<h4>Dos coordenadas</h4><p>Cuando podemos movernos en dos direcciones, una coordenada no basta. Necesitamos dos coordenadas independientes, una para cada dirección. Medimos ambas desde el mismo origen, siguiendo dos direcciones separadas que normalmente llamamos X e Y. Por ejemplo, para localizar un punto en una superficie plana, decimos cuánto avanzar en X y cuánto avanzar en Y (<htcite0>).</p><p>Las dimensiones de un círculo se pueden relacionar directamente con estas direcciones, siguiendo las reglas que ya estudiamos. Si dibujamos un radio r con un ángulo θ, su parte horizontal es r × cos(θ) y su parte vertical es r × sin(θ). Son las mismas dos coordenadas escritas de dos maneras: coordenadas lineales (x, y) o coordenadas radiales (r, θ) (<htcite1>).</p><p>Como X e Y son perpendiculares, forman los catetos de un triángulo rectángulo cuya hipotenusa es el radio r. Aquí nos ayuda la <b>diagonal triple babilónica</b>, también conocida como el <b>Teorema de Pitágoras</b>: el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos, así que r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup> (<htcite2>). En nuestro ejemplo, 4<sup>2</sup> + 3<sup>2</sup> = 16 + 9 = 25 y, por lo tanto, r = 5 m.</p>",
                "source": [
                   {
                      "type": 1,
@@ -288,6 +288,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4f5cb70e-d246-49b2-ae2a-9841ffc1fb14",
+                     "text": "History Tracers Team",
+                     "page": "Practicando con el teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }
@@ -314,7 +326,7 @@
          "id": "SECTION_three_coordinates",
          "text": [
             {
-               "text": "<h4>La tercera coordenada</h4><p>Para describir una posición fuera de una superficie plana, dos coordenadas todavía no bastan. Imagina un globo: un punto en su superficie no está en el mapa plano que hay debajo. Necesitamos una tercera coordenada que nos diga a qué distancia está el punto del plano. Así obtenemos las coordenadas esféricas: r es la distancia al origen, θ da la dirección en el plano y φ da el ángulo medido desde el eje vertical. Observa el cambio en el radio: en el plano era de 5 m, pero en tres dimensiones el mismo vector ahora tiene r = 7,1 m. <span style=\"background-color:#fff3cd; padding:0 4px; border-radius:3px;\"><b>Este cambio es consecuencia de añadir la nueva dimensión: la altura z = 5 m aumenta la distancia al origen.</b></span> Con estas tres coordenadas podemos localizar cualquier punto de una esfera, como la superficie de la Tierra (<htcite0>).</p>",
+               "text": "<h4>La tercera coordenada</h4><p>Para describir una posición fuera de una superficie plana, dos coordenadas todavía no bastan. Imagina un globo: un punto en su superficie no está en el mapa plano que hay debajo. Necesitamos una tercera coordenada que nos diga a qué distancia está el punto del plano. Así obtenemos las coordenadas esféricas: r es la distancia al origen, θ da la dirección en el plano y φ da el ángulo medido desde el eje vertical.</p><p>La misma diagonal triple babilónica (Teorema de Pitágoras) se puede ampliar a tres dimensiones. Cuando la tercera coordenada z es perpendicular a X e Y, el cuadrado del radio esférico es la suma de los cuadrados de las tres coordenadas: r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>. En nuestro ejemplo, r<sup>2</sup> = 4<sup>2</sup> + 3<sup>2</sup> + 5<sup>2</sup> = 16 + 9 + 25 = 50, así que r = √50 ≈ 7,1 m.</p><p>Observa el cambio: en el plano el radio era de 5 m, pero en tres dimensiones es de 7,1 m. <span style=\"background-color:#fff3cd; padding:0 4px; border-radius:3px;\"><b>Este cambio es consecuencia de añadir la nueva dimensión: la altura z = 5 m aumenta la distancia al origen.</b></span></p><p>Con estas tres coordenadas podemos localizar cualquier punto de una esfera, como la superficie de la Tierra (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
