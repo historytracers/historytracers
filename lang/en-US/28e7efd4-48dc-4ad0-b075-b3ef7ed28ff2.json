@@ -12,24 +12,32 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/7aEsPqKEaRsEY3BaGs4HQe?si=5n0pLeV3RxieJskV9mbKrg",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
       "atlas",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504808"
+      "1795052076"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -47,13 +55,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nWe recommend reading the previous text first, so that this one is easier to understand:\n\n- **Everything Together**: what the universe was like when all matter and energy were still mixed together (<htcite0>)",
                "source": [
                   {
                      "type": 1,
                      "uuid": "b2d28a2f-db19-4ca3-a09a-d50b6db5933b",
                      "text": "History Tracers Atlas",
-                     "page": "All Together",
+                     "page": "Everything Together",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -74,7 +82,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgPlanckCMB\" onclick=\"htImageZoom('imgPlanckCMB', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: Map of the cosmic microwave background (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgPlanckCMB\" onclick=\"htImageZoom('imgPlanckCMB', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: Map of the cosmic microwave background — the oldest light we can detect (<htcite0>).</p>",
                "source": [
                   {
                      "type": 0,
@@ -96,7 +104,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Cosmic Microwave Background\n\nThe image in this section shows the Cosmic Microwave Background (CMB) recorded by the ESA (European Space Agency) Planck mission (<htcite0>).\n\n#### It is not noise, it is a discovery\n\nIn <htdate0>, A. A. Penzias and R. W. Wilson observed that the temperature of a horn reflector antenna remained 3.5 K (Kelvin) higher than expected (<htcite1>).",
+               "text": "### Cosmic Microwave Background\n\nThe Cosmic Microwave Background (CMB) is the oldest light in the universe. It has been traveling through space for billions of years and reaches us from every direction. The image in this section is a map of that light, recorded by the Planck mission of the ESA (European Space Agency) (<htcite0>).\n\n#### It Is Not Noise — It Is a Discovery\n\nIn <htdate0>, A. A. Penzias and R. W. Wilson were testing a huge horn-shaped antenna and found a small excess of radio noise that they could not eliminate. Expressed as an equivalent temperature, this excess was 3.5 ± 1.0 K (Kelvin) (<htcite1>).\n\nAbout the Kelvin scale: 0 K is the coldest temperature possible (−273.15 °C) and water freezes near 273 K. So 3.5 K is a very small difference — yet it would not go away.",
                "source": [
                   {
                      "type": 0,
@@ -137,7 +145,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: What could it be?</b><br /><br />When we talk about measuring temperature, we usually think of a thermometer. Imagine that you feel fine, no fever, but when you take your temperature, the thermometer reads 40 °C.<br /><br />What would you do in that situation?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: What could it be?</b><br /><br />When we talk about measuring temperature, we usually think of a thermometer. Imagine that you feel fine — no fever — but when you take your temperature, the thermometer reads 40 °C.<br /><br />What would you do in that situation?<br /><br />Take a moment to think before you read on.</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -146,7 +154,7 @@
                "PostMention": ""
             },
             {
-               "text": "You would probably suspect that there is something wrong with the thermometer. Similarly, the researchers also tested for potential problems.\n\nWhile investigating possible measurement errors, Penzias and Wilson ruled out a series of potential causes: atmospheric absorption, impedance, antenna temperature, imperfections in the structure, and even backlobe effects (<htcite0>).\n\nWith all instrumental problems eliminated, the need to find a new explanation arose.\n\n### Confirming the Big Bang\n\nThe measurements by Penzias and Wilson could not be attributed to any known source in the Universe—such as stars or galaxies (<htcite1>). However, their results matched the predictions presented in another paper, by R. H. Dicke, P. J. E. Peebles, P. G. Roll, and D. T. Wilkinson (<htcite2>; <htcite3>).\n\nAccording to Dicke et al., the early Universe should have had a temperature of about 10 billion Kelvin (10,000,000,000 K), which, throughout the cosmic expansion, would have cooled to approximately 3.5 K—exactly the value observed by Penzias and Wilson (<htcite4>).\n\nThis discovery not only confirmed the prediction of the Cosmic Microwave Background but also reinforced the model of a uniform and isotropic Universe—that is, with the same properties in all directions of space (<htcite5>; <htcite6>).",
+               "text": "You would probably suspect that something is wrong with the thermometer. Penzias and Wilson did the same: at first, they suspected a problem with their own equipment.\n\nWhile looking for a measurement error, they ruled out one possible cause after another: signals absorbed from the atmosphere, problems with the electric flow in the cables (impedance), the temperature of the antenna itself, small imperfections in its structure, and even waves that came from behind it (the backlobe) (<htcite0>).\n\nWith every instrumental problem eliminated, the mysterious signal was still there. A new explanation was needed.\n\n### Confirming the Big Bang\n\nThe measurements by Penzias and Wilson could not come from any known source in the universe, such as a star or a galaxy (<htcite1>). However, their results matched the predictions in another paper, written by R. H. Dicke, P. J. E. Peebles, P. G. Roll and D. T. Wilkinson (<htcite2>; <htcite3>).\n\nAccording to Dicke and his colleagues, the early universe started at about 10 billion Kelvin (10,000,000,000 K) and, as space expanded, cooled. Their relic-radiation explanation indicated that such a signal should still exist today, but they could not predict its present temperature without knowing the density of matter in the early universe. The value observed by Penzias and Wilson supported this explanation (<htcite4>).\n\nThis discovery did two things at once: it confirmed that the Cosmic Microwave Background really exists, and it strengthened the model of a uniform and isotropic universe — that is, one with the same properties in every direction (<htcite5>; <htcite6>).\n\n**In short:** the strange signal that Penzias and Wilson could not explain is the oldest light in the universe — a faint echo of the Big Bang that has been traveling toward us for billions of years.",
                "source": [
                   {
                      "type": 1,

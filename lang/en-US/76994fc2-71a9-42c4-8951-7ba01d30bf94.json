@@ -1,0 +1,123 @@
+{
+   "title": "Matching the Tables of 3 and 9",
+   "header": "Matching the Tables of 3 and 9",
+   "sources": [
+      "76994fc2-71a9-42c4-8951-7ba01d30bf94"
+   ],
+   "scripts": [
+      "76994fc2-71a9-42c4-8951-7ba01d30bf94"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/76994fc2-71a9-42c4-8951-7ba01d30bf94_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/3YvfRxsnZSmFucpDNKaZm0?si=1_3hZzEcSBaphGlAx35FzQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794846552"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game shows how the multiplication tables of 3 and 9 are related: 9 × n = 3 × 3 × n, so the table of 9 is the table of 3 multiplied by 3 — every result of the table of 9 is a result of the table of 3 with the multiplier tripled. Before you play, we suggest reviewing:\n\n- **Learning the Multiplication Table (8 and 9)**: a simple introduction to multiplying by eight and by nine with an octagon and an enneagon (<htcite0>)\n\nWith the table of 9 fresh in your memory, you are ready to see how each of its results is also a result of the table of 3.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f15f6887-65b2-4622-a7d7-8d789fc8e2a1",
+                     "text": "History Tracers Team",
+                     "page": "Learning the Multiplication Table (8 and 9)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nThe table of 9 is built from the table of 3. Nine is 3 × 3, so we reach a multiple of 9 by multiplying by 3 twice: for 9 × 4, take 3 × 4 = 12, then 12 × 3 = 36. In this game, the left column shows that road — 3 × 3 × n = 9 × n — and the right column shows the product it reaches, drawn as groups of nine characters. Once you can walk this road, the table of 9 stops being a new table: it is only the table of 3 one more multiplication by 3 away.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### General rules\n\nThe table of 9 is the table of 3 multiplied by 3. Multiplying by 9 is the same as multiplying by 3 twice in a row — 9 × n = 3 × 3 × n. That is why every result of the table of 9 is also a result of the table of 3: for n = 4, 3 × 3 × 4 = 36 and 9 × 4 = 36; three groups of three groups of four are nine groups of four.\n\nThis game makes that relationship visible. On the left, you will see an equality like 3 × 3 × 4 = 9 × 4; on the right, its result appears together with a picture of groups of characters, drawn as rectangles with nine characters each — the picture of the 9 × n side of the equality.\n\nThe game has three levels:\n\n- **Level 1**: three equalities written as 3 × 3 × n = 9 × n, from the first third of the table of 9 (results 9 to 27).\n- **Level 2**: three equalities written as 3 × 3 × n = 9 × n, from the second third of the table of 9 (results 36 to 54).\n- **Level 3**: three equalities written as 3 × 3 × n = 9 × n, from the last third of the table of 9 (results 63 to 81).\n\nAbove the game, a selector chooses the image used in the groups: **🎲 Random** draws a random object from the multiplication tables in every new exercise, or you can select one specific image — the same ones used in the multiplication tables — and every group uses it while you play.\n\nTo play, select an equality on the left and then its result on the right. If the pair is correct, both stay highlighted. When you match every pair, you complete the level and can move on to the next one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The Game\n\nMatch each equality on the left with its result on the right. The result also appears as groups of characters, so you can count them to check your answer — every rectangle holds nine characters, exactly like the 9 × n side of the equality. If a pair is wrong, a message will ask you to try again.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEq9Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEq9Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEq9Game\" class=\"orderGame htMultGroupGame htMultGroupCenterGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEq9LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEq9RightCol\"></div></div></p><p id=\"multGroupEq9Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupEq9LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the pairs in this level!</p><p id=\"multGroupEq9AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the equalities!</p><p style=\"text-align: center\"><button id=\"multGroupEq9Reset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"multGroupEq9NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEq9WordLevel\" style=\"display: none\">Level</span><span id=\"multGroupEq9WordNextLevel\" style=\"display: none\">Next level</span><span id=\"multGroupEq9WordPlayAgain\" style=\"display: none\">Play again</span><span id=\"multGroupEq9WordWrongPair\" style=\"display: none\">%RESULT% is not the result of %EXPRESSION%. Count the characters and try again.</span><span id=\"multGroupEq9WordGroups\" style=\"display: none\">Groups: %COUNT%. Characters per group: %SIZE%.</span><span id=\"multGroupEq9WordRandom\" style=\"display: none\">🎲 Random</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

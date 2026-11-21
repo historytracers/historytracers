@@ -60,6 +60,31 @@ A "main menu entry" is an item in the sidebar navigation shown on every page (e.
 
 Note: if the desktop viewer must track navigation to the new page, add it to the `allowedPage` list in `src/viewer/main.go` (e.g. `"documentation"`) and rebuild the viewer.
 
+## Agent-facing discovery files
+
+The repository root contains static files used by search engines, agents and AI clients. They are **source files**, copied to `www/` by `-minify` (see `htAgentFiles` in `src/publisher/minify.go`). Edit the root copies only; never edit `www/`. Keep them in sync with the site content and with each other.
+
+| File | Update when |
+| --- | --- |
+| `robots.txt` | Crawl policy, `Content-Signal`, domain, or sitemap URL changes. |
+| `sitemap.xml` | **Generated automatically** by `-minify` from `lang/en-US/*.json`; do not hand-edit. New UUID content is picked up automatically. If a new page type or index file is added, update `htSitemapInternalPages` / `htSitemapNonUUIDPages` in `src/publisher/minify.go` and regenerate. |
+| `llms.txt` | Project description, primary navigation, license, contact details, email or social profiles change. |
+| `index.md` | Same facts as `llms.txt`, plus the Markdown representation of the homepage changes. |
+| `index.html` | Meta description, canonical URL, JSON-LD (`Organization`/`WebSite`/`CollectionPage`, `sameAs`, `contactPoint`), Markdown alternate link, the single `<h1>`, footer links or the WebMCP tool registration change. |
+| `.well-known/mcp/server-card.json` | The WebMCP tool name, description, `inputSchema`, transport or endpoint changes. Mirror the same change in the inline WebMCP script in `index.html`. |
+| `.htaccess` | Markdown content negotiation or `Link`/`Vary` headers change. Keep the homepage rewrite restricted to the bare homepage (`RewriteCond %{QUERY_STRING} ^$`) so content pages are not replaced by `index.md`. |
+
+When updating these files:
+
+1. Keep `index.html` JSON-LD, `llms.txt`, `index.md` and `server-card.json` consistent (same description, contact email, license and profile URLs).
+2. Keep exactly one `<h1>` in `index.html`.
+3. Verify LF-only line endings for every file.
+4. Validate JSON with `python3 -c "import json; json.load(open('<file>'))"` and XML with `python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml')"`.
+5. Run `build/historytracers-publisher -globalangtest` and `-checksources`.
+6. Run `build/historytracers-publisher -minify`, then confirm `robots.txt`, `llms.txt`, `index.md`, `.htaccess`, `.well-known/mcp/server-card.json` and `sitemap.xml` match their `www/` copies.
+7. Render the homepage with headless Chromium at ~320px, ~768px and desktop widths and confirm `scrollWidth <= clientWidth`.
+8. Do not commit or push; leave the changes for human review.
+
 ## Adding new video content (inside `videos/??-??/`)
 
 Video files live under `videos/<locale>/` where `<locale>` is the language code (e.g. `en-US`, `es-ES`, `pt-BR`). Each video file follows the naming pattern `UUID_<locale>` where `<locale>` matches the directory name. Steps to add one:

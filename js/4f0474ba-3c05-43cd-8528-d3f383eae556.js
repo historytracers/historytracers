@@ -9,6 +9,20 @@ function closeDiv() {
 function htFillImage() {
     var obj = local.gameVector[local.currentLevel];
     var prefix = htGetImgSrcPrefix();
+
+    // Keep the reward popup inside the game table: once the image is loaded,
+    // its height is capped with "table height - popup chrome" (the Close link,
+    // spacing and caption), so the whole popup fits inside the table without
+    // growing the page scrollbar. The popup itself is also capped by CSS to
+    // the table height, so long captions scroll inside it instead of the page.
+    var img = document.getElementById("imgSeqGame");
+    img.onload = function() {
+        var popup = $("#history");
+        var tableH = $("#yupana0").outerHeight();
+        var chrome = Math.max(0, popup.outerHeight() - img.getBoundingClientRect().height);
+        var maxH = Math.max(120, Math.round(Math.min(tableH - chrome, window.innerHeight * 0.4)));
+        img.style.maxHeight = maxH.toString() + "px";
+    };
     $("#imgSeqGame").attr("src", prefix+obj.imagePath);
     $("#desc").html(obj.imageDesc);
     local.currentLevel++;
@@ -55,9 +69,17 @@ function htFillExercise(test) {
     local.second = (test == "-1") ? htGetRandomArbitrary(0, 9) : test;
     local.total = local.first * local.second;
     local.selector = 0;
-    if (local.chart) {
-        local.chart.destroy();
+
+    // Chart.js requires the previous chart to be destroyed before its canvas
+    // is reused. Look the chart up on the canvas instead of trusting
+    // local.chart: local is re-created every time this script is loaded, so
+    // the reference can be lost while the canvas still has a chart bound.
+    var chartCanvas = document.getElementById("chart1");
+    var existingChart = (chartCanvas) ? Chart.getChart(chartCanvas) : undefined;
+    if (existingChart) {
+        existingChart.destroy();
     }
+    local.chart = undefined;
 
     $("#exercise").html("<spam class=\"text_to_paint\">&nbsp;&nbsp;&nbsp;"+local.first+"</spam><br /><spam class=\"text_to_paint\">× "+local.second+"</spam>");
     local.chart = htFillMultiplicationTable("chart1", local.second, local.second, false, false);
@@ -69,6 +91,11 @@ function htFillExercise(test) {
 
 function htLoadContent() {
     local = { "gameVector": [], "currentLevel": 0, "first": 0, "second": 0, "total": 0, "selector": 0, "stopMe": false, "chart": undefined, "answerVector": undefined }; 
+
+    // Keep a fixed 3/2 ratio on every redraw. Without it Chart.js derives the
+    // ratio from the current canvas size, so the ResizeObserver feedback can
+    // shrink the chart until it disappears (notably in WebKit after Next).
+    Chart.defaults.aspectRatio = 1.5;
 
     htWriteNavigation();
 

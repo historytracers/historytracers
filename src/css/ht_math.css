@@ -858,12 +858,21 @@
   margin: 0 auto;
 }
 
-/* Memory game (52dc6a73): make table and cards responsive on small screens */
+/* Memory game (52dc6a73): make table and cards responsive on small screens.
+   The auto layout is scoped to tables without a chart canvas: sequence games
+   with a chart (e.g. 4f0474ba "Multiplying the Findings", ad9516ac "Table 4
+   and 5") must keep table-layout: fixed, otherwise the Chart column collapses
+   to a few pixels on small screens and the charts disappear. */
 @media screen and (max-width: 600px) {
   #yupana0.tawapukllay {
     font-size: 0.72em;
-    table-layout: auto;
     width: 100%;
+  }
+  #yupana0.tawapukllay:not(:has(canvas)) {
+    table-layout: auto;
+  }
+  #yupana0.tawapukllay:has(canvas) {
+    table-layout: fixed;
   }
   #yupana0.tawapukllay td:nth-child(-n+4) {
     width: 6em;
@@ -2658,6 +2667,10 @@ canvas {
 .tawapukllay canvas {
   max-width: 100% !important;
   height: auto !important;
+  /* Do not force an aspect ratio on chart canvases. Chart.js keeps the
+     canvas buffer ratio in sync with its own resizing; a different CSS
+     aspect-ratio makes WebKit shrink the chart to 0x0 after a redraw. */
+  aspect-ratio: auto !important;
 }
 .tawapukllay td img {
   max-width: 100%;
@@ -2873,6 +2886,236 @@ p.desc svg {
 .design-dark .htMultGroupBox {
   background-color: #263238;
   border-color: #90a4ae;
+}
+
+/* Both group-matching games (f641941e and 0f7102a6) reuse the times-table
+   drawing-object selector (htMultiplicationTableObjects in src/js/ht_math.js),
+   but their random option carries a localized word, so the select grows to
+   fit it instead of the fixed 5em width of .mtDrawSelect. */
+.htMultGroupSelect {
+  width: auto;
+  min-width: 5em;
+  max-width: 90%;
+}
+
+/* Matching the Tables of 2, 4 and 8 (5a2eb2fa): the left column shows longer
+   equalities than the other group games (2 × 2 × 2 × N = 8 × N), so the
+   button may break between the two sides of the equality on narrow screens
+   instead of overflowing the column, while each side stays together. */
+.htMultGroupEq8ExprBtn {
+  white-space: normal;
+  font-size: 1.05em;
+}
+
+.htMultGroupEq8Side {
+  white-space: nowrap;
+}
+
+/* Matching the Tables of 3 and 9 (76994fc2): the left column shows the
+   equality 3 × 3 × N = 9 × N, so the button may break between the two sides of
+   the equality on narrow screens instead of overflowing the column, while each
+   side stays together. */
+.htMultGroupEq9ExprBtn {
+  white-space: normal;
+  font-size: 1.05em;
+}
+
+.htMultGroupEq9Side {
+  white-space: nowrap;
+}
+
+/* The matching games (eaa3c957, 3eb7337a, f2f9f038, 5a2eb2fa and 76994fc2)
+   reuse the .orderGame two-column layout, whose result column grows to fill
+   the page (flex: 1 1 16em in .htMultGroupRightCol), so on wide screens the
+   game spread over the whole screen. Here the result column stops growing: it
+   follows the width of its own groups, capped so the rectangles keep wrapping
+   instead of pushing the page wide, and it still shrinks on narrow screens
+   exactly like before. .orderGame already centers the columns, so the game now
+   shows as a compact block in the middle of the page. */
+.htMultGroupCenterGame .htMultGroupRightCol {
+  flex: 0 1 auto;
+  max-width: 20em;
+}
+
+/* Multiplying the Findings with Groups (21f8d529): the same controls as
+   4f0474ba, but the current operation is drawn as groups of the same
+   characters (reusing .htMultGroupBox/.htMultGroupIcon from f641941e)
+   instead of a chart. The first factor is the number of characters inside
+   each rectangle and the second factor is how many times that group is
+   repeated. As in 19b00e11, the groups are stacked vertically (one group per
+   line), which keeps the board narrow, so the whole game stays compact and
+   centered instead of being stretched. */
+.htMultGroupsBoard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.htMultGroupsBoard .htMultGroupIcon {
+  font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+}
+
+/* The "Stars" column was removed from 21f8d529, so the groups cell is now the
+   fourth cell of the row. Keep it white like the former chart column instead
+   of falling back to the table background. */
+.tawapukllay.htMultGroupsTable td:nth-child(4) {
+  background: white;
+}
+
+/* The shared tawa table stretches to 90% of the page and sizes its cells with
+   fixed measures, which left this game wide and pushed the groups to the
+   right edge. Here the table is sized by its own content and stays centered,
+   so the compact board sits in the middle of the page. The id selector is
+   needed to override the responsive #yupana0 rules shared by the other
+   yupana games. */
+#yupana0.htMultGroupsTable {
+  width: auto;
+  max-width: 100%;
+  table-layout: auto;
+}
+
+#yupana0.htMultGroupsTable td:nth-child(-n+4) {
+  width: auto;
+  height: auto;
+}
+
+#yupana0.htMultGroupsTable th:first-child {
+  width: auto;
+}
+
+/* Complete the Multiplication Table (19b00e11): the times table of a randomly
+   chosen number on the left, almost fully complete with three products left
+   blank for the reader to type, and the groups of the selected multiplication
+   on the right (reusing .htMultGroupBox/.htMultGroupIcon/.htMultGroupsWrap
+   from f641941e). The groups are stacked vertically, so the right column
+   stays narrow and both columns fit side by side even on phones; the whole
+   game is centered and the columns wrap only when there is no other option,
+   so it never overflows small screens. */
+.htMultFillGame {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.6em;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.htMultFillLeft {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.htMultFillRight {
+  /* A stable width keeps the table in the same place whether the column shows
+     the initial hint or the groups of a multiplication; with `auto` the wide
+     hint pushed the table to the left and it moved back to the center as soon
+     as groups (narrower) replaced the hint. The width fits the widest group
+     (nine characters) and the short hint lines written in the class JSON. */
+  flex: 0 0 11em;
+  width: 11em;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4em;
+  padding: 0.4em;
+  box-sizing: border-box;
+}
+
+/* One group per line: vertical stacking keeps this column as narrow as a
+   single rectangle of characters, which is what lets the table and the groups
+   share a row and the whole game stay centered instead of stretched. */
+.htMultFillGroups {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.2em;
+}
+
+/* The initial hint is written in short lines in the class JSON (separated by
+   newlines) so this column stays as narrow as the groups column and the table
+   does not jump to the side while the hint is shown. `pre-line` renders those
+   newlines as line breaks without reinterpreting the text as HTML (the game
+   copies it with jQuery `.text()`). */
+.htMultFillHint {
+  color: #5a3f2c;
+  font-weight: bold;
+  white-space: pre-line;
+}
+
+.design-dark .htMultFillHint {
+  color: #eceff1;
+}
+
+.htMultFillTable {
+  border-collapse: collapse;
+  margin: auto;
+  max-width: 100%;
+}
+
+.htMultFillTable th,
+.htMultFillTable td {
+  border: 1px solid #2c5f8a;
+  padding: 0.15em 0.45em;
+  text-align: center;
+}
+
+.design-dark .htMultFillTable th,
+.design-dark .htMultFillTable td {
+  border-color: #90a4ae;
+}
+
+.htMultFillExpr {
+  white-space: nowrap;
+}
+
+.htMultFillBoardExpr {
+  font-weight: bold;
+}
+
+.htMultFillValue {
+  min-width: 2.5em;
+  padding: 0.25em 0.6em;
+  border: 2px solid #5a3f2c;
+  border-radius: 10px;
+  background: #fff8e7;
+  color: #2e241f;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+}
+
+.htMultFillValue:hover {
+  background: #ffe9b8;
+}
+
+.design-dark .htMultFillValue {
+  background: #37474f;
+  color: #eceff1;
+  border-color: #90a4ae;
+}
+
+.design-dark .htMultFillValue:hover {
+  background: #455a64;
+}
+
+.htMultFillInput {
+  width: 4em;
+  max-width: 100%;
+  text-align: center;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.htMultFillInputWrong {
+  border: 2px solid #b3261e;
 }
 
 /* Around the World (6c071696): tour of the first counting tools created by
@@ -3147,13 +3390,19 @@ p.desc svg {
 
 .htStringsGrid {
   display: grid;
-  grid-template-columns: 1.2em 2.2em minmax(0, 1fr) 2.2em;
+  grid-template-columns: 1.2em 2.2em minmax(0, 1fr) 2.2em 1.8em;
   align-items: center;
   justify-items: stretch;
   column-gap: 0.3em;
   row-gap: 0.3em;
   max-width: 32em;
   margin: 0 auto;
+}
+
+.htStringsValue {
+  justify-self: start;
+  font-weight: bold;
+  color: #2f6fb3;
 }
 
 .htStringsLabel {
@@ -3238,7 +3487,7 @@ p.desc svg {
 
 @media screen and (max-width: 400px) {
   .htStringsGrid {
-    grid-template-columns: 1.1em 1.9em minmax(0, 1fr) 1.9em;
+    grid-template-columns: 1.1em 1.9em minmax(0, 1fr) 1.9em 1.6em;
     column-gap: 0.25em;
   }
 
@@ -3847,6 +4096,34 @@ p.desc svg {
 }
 
 /*
+ * Practicing multiplication by one-digit numbers (content
+ * b9e71da5-355b-4c0c-8d24-a746a27fcc3e). It reuses the vertical board and the
+ * squares of the Practicing addition game; the new classes are the level
+ * badge and the dashed box around each repeated group of squares.
+ */
+.htMultLevel {
+  display: inline-block;
+  margin-bottom: 0.5em;
+  padding: 0.2em 0.7em;
+  border: 1px solid #2c5f8a;
+  border-radius: 6px;
+  background-color: #eaf3fb;
+  color: #2c5f8a;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+/* One repeated group of squares: a single repetition of the top digit. */
+.htMultGroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border: 2px dashed #2c5f8a;
+  border-radius: 6px;
+}
+
+/*
  * Practicing addition with typed values (content
  * 18ca9e1f-b936-447a-9bab-798159cefbb9). It reuses the vertical addition board
  * and the squares of the Practicing addition game, but the bottom digit is
@@ -3962,6 +4239,36 @@ p.desc svg {
   color: #c0392b;
   font-weight: bold;
 }
+
+/*
+ * Practicing multiplication with chosen numbers (content
+ * a4124f1d-95f7-44cb-af82-da4ab9c9ff28). The setup panel of the chosen-number
+ * exercises gains a select for the one-digit multiplier.
+ */
+.htAddTypedField select {
+  box-sizing: border-box;
+  width: 8em;
+  max-width: 100%;
+  padding: 0.35em 0.5em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.htAddTypedField select:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+.design-dark .htAddTypedField select {
+  background-color: #263238;
+  border-color: #546e7a;
+  color: #eceff1;
+}
+
 
 /*
  * Rectangles comparison practice (content 03bb4b8e-6187-4572-8f00-ea3892df51a4).
@@ -4141,6 +4448,172 @@ p.desc svg {
   .htRectVTick,
   .htRectHTick {
     font-size: 0.55em;
+  }
+}
+
+/*
+ * Cubes comparison practice (content b56ef907-93eb-45ee-ae22-ce4f364ffa4e).
+ */
+.htCubeFigure {
+  margin: 1em auto;
+  max-width: 22em;
+  box-sizing: border-box;
+}
+
+.htCubeFigure svg,
+.htCubeCanvas svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.htCubeApp {
+  margin: 1em auto;
+  max-width: 40em;
+  padding: 0.75em;
+  background-color: lightyellow;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.htCubeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75em;
+}
+
+.htCubeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
+  min-width: 0;
+}
+
+.htCubeCanvas {
+  width: 100%;
+  max-width: 18em;
+}
+
+.htCubeControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 0.85em;
+}
+
+.htCubeLabel {
+  font-weight: bold;
+}
+
+.htCubeCtrl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+}
+
+.htCubeCtrlName {
+  line-height: 1.1;
+}
+
+.htCubeLen {
+  color: #2f6fb3;
+}
+
+.htCubeWid {
+  color: #e07b39;
+}
+
+.htCubeHei {
+  color: #2e7d32;
+}
+
+.htCubeCtrlBtns {
+  display: inline-flex;
+  gap: 0.15em;
+}
+
+.htCubeVal,
+.htRectVal {
+  font-weight: bold;
+  align-self: center;
+  margin-left: 0.25em;
+  min-width: 1.1em;
+  text-align: center;
+}
+
+.htCubeVal[data-dim="len"] {
+  color: #2f6fb3;
+}
+
+.htCubeVal[data-dim="wid"] {
+  color: #e07b39;
+}
+
+.htCubeVal[data-dim="hei"] {
+  color: #2e7d32;
+}
+
+.htCubeBtn {
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #222;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.htCubeBtn:hover {
+  background: #e0e0e0;
+}
+
+.htStringsBtn:disabled,
+.htRectBtn:disabled,
+.htCubeBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.htStringsBtn:disabled:hover,
+.htRectBtn:disabled:hover,
+.htCubeBtn:disabled:hover {
+  background: #f0f0f0;
+}
+
+.htCubeFeedback {
+  margin-top: 0.75em;
+  text-align: left;
+}
+
+.htCubeFeedbackEqual {
+  font-weight: bold;
+}
+
+.htCubeHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .htCubeGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .htCubeControls {
+    font-size: 0.8em;
+  }
+
+  .htCubeBtn {
+    width: 1.5em;
+    height: 1.5em;
   }
 }
 
@@ -5127,5 +5600,490 @@ p.desc svg {
 
   .htDivisionTypedUserStart {
     padding: 0.4em 1em;
+  }
+}
+
+/*
+ * Multiplication visualization (times tables drawn by
+ * htWriteMultiplicationTable in src/js/ht_math.js). The drawing area of each
+ * table gains a selector so children can switch the default star for other
+ * fun UTF-8 objects. The boxes already keep their lightblue background from
+ * the inline styles, so the select itself stays white in both themes.
+ */
+.mtDrawHeader {
+  display: block;
+  margin-bottom: 0.4em;
+  line-height: 1;
+}
+
+.mtDrawLabel {
+  font-size: 1.1em;
+}
+
+.mtDrawSelect {
+  box-sizing: border-box;
+  /* Wide enough for the option emoji plus the native dropdown arrow:
+     the right padding reserves the arrow area so the drawn object is
+     never partially covered. */
+  width: 5em;
+  max-width: 90%;
+  padding: 0.25em 1.6em 0.25em 0.5em;
+  background-color: #ffffff;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+
+.mtDrawSelect:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 1px;
+}
+
+/*
+ * The drawn objects are rendered in rows on top of each other. The visible
+ * size comes from the "--mt-size" custom property, computed per drawing area
+ * by htDrawMultiplicationObjectSize (src/js/ht_math.js) so the widest row
+ * fits the box; the clamp below only serves as the fallback when the JS
+ * sizing could not run.
+ */
+.mtDraw {
+  --mt-size: clamp(1em, 2.2vw, 1.6em);
+}
+
+/*
+ * Each "times" row is an inline-flex line so rows that would not fit the
+ * box wrap their objects instead of overflowing horizontally. Rows keep the
+ * vertical centering created by the <br /> elements around them.
+ */
+.mtDrawRow {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  line-height: 1.15;
+  font-size: var(--mt-size, 1em);
+}
+
+/*
+ * The objects fill their row; .mtDrawBox gets as much width as the layout
+ * allows on wide screens.
+ */
+.mtDrawEmoji {
+  font-size: 1em;
+  line-height: 1.15;
+}
+
+/* On narrow screens the two boxes stack vertically, so the drawing area
+   uses almost the full width and the objects stay large on phones. */
+@media (max-width: 600px) {
+  .mtLeftBox,
+  .mtDrawBox {
+    display: block !important;
+    width: 96% !important;
+  }
+
+  .mtDrawBox {
+    margin-top: 0.6em;
+  }
+}
+
+/*
+ * Measuring Practice game
+ * (content bcdd8651-feb4-4852-b46d-49f454a68482): one ruler with a string and a
+ * polygon, two rulers with a square and a rectangle, three rulers with a cube
+ * and another solid.
+ */
+.htMeasureGame {
+  margin: 1em auto;
+  max-width: 42em;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.htMeasureHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.35em 1em;
+  margin-bottom: 0.5em;
+}
+
+.htMeasureLevel,
+.htMeasureScore {
+  font-weight: bold;
+  color: #2c5f8a;
+}
+
+.htMeasureQuestion {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.htMeasurePrompt {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  overflow-wrap: break-word;
+}
+
+.htMeasureCanvas {
+  margin: 0 auto;
+  max-width: 24em;
+  width: 100%;
+}
+
+.htMeasureCanvas svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.htMeasureChoices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htMeasureChoice {
+  padding: 0.5em 1.1em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htMeasureChoice:hover {
+  background-color: #d3e8f8;
+}
+
+.htMeasureChoice:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.htMeasureChoiceCorrect {
+  background-color: #b9f6ca;
+  border-color: #2e7d32;
+  color: #1b5e20;
+  opacity: 1 !important;
+}
+
+.htMeasureChoiceWrong {
+  background-color: #ffcdd2;
+  border-color: #c62828;
+  color: #8e2020;
+  opacity: 1 !important;
+}
+
+.htMeasureFeedback {
+  margin-top: 0.75em;
+  min-height: 2.5em;
+  font-size: 1em;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+.htMeasureFeedback.htMeasureCorrect {
+  color: #2e7d32;
+}
+
+.htMeasureFeedback.htMeasureWrong {
+  color: #c62828;
+}
+
+.htMeasureButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.75em;
+}
+
+.htMeasureButton {
+  padding: 0.5em 1.2em;
+  background-color: #eaf3fb;
+  border: 2px solid #2c5f8a;
+  border-radius: 6px;
+  color: #2c5f8a;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.htMeasureButton:hover {
+  background-color: #d3e8f8;
+}
+
+.htMeasureHidden {
+  display: none;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .htMeasureChoices {
+    gap: 0.35em;
+  }
+
+  .htMeasureChoice {
+    padding: 0.45em 0.8em;
+    font-size: 0.95em;
+  }
+}
+
+/*
+ * Print-and-play board game: Counting with the bone
+ * (content 0ee3ca6e-0c14-479d-9a93-de8383211f18).
+ */
+
+.htBoardSheet {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #d8cdbd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #2b2b2b;
+  margin: 1.2em auto;
+  max-width: 210mm;
+  padding: 1em;
+  width: 100%;
+}
+
+.htBoardSheetTitle {
+  color: #3b2a1d;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 0.6em;
+  text-align: center;
+}
+
+.htBoardSheetNote {
+  color: #5a4a3a;
+  font-size: 0.9em;
+  margin-top: 0.6em;
+  text-align: center;
+}
+
+.htBoardSheetIntro {
+  color: #4a3a2a;
+  margin: 0 0 0.75em;
+  text-align: center;
+}
+
+.htBoardPrintBar {
+  margin: 0 0 0.75em;
+  text-align: center;
+}
+
+.htBoardPrintButton {
+  background: #f4ead7;
+  border: 2px solid #6b4f35;
+  border-radius: 6px;
+  color: #3b2a1d;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+  max-width: 100%;
+  padding: 0.45em 1em;
+}
+
+.htBoardPrintButton:hover {
+  background: #e8d8b8;
+}
+
+.htBoardPartsNote {
+  color: #5a4a3a;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.htBoardBoneSvg {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.htBoardBoneShape {
+  fill: #f4ead7;
+  stroke: #6b4f35;
+  stroke-width: 4;
+}
+
+.htBoardBoneSlots rect {
+  fill: none;
+  stroke: #8a6a4a;
+  stroke-dasharray: 6 5;
+  stroke-width: 2.5;
+}
+
+.htBoardMarkGrid {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 150mm;
+}
+
+.htBoardMarkToken {
+  align-items: center;
+  aspect-ratio: 2 / 3;
+  background: #fffdf8;
+  border: 2px dashed #8a6a4a;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.htBoardMarkGlyph {
+  background: #3b2a1d;
+  display: block;
+  height: 62%;
+  width: 28%;
+}
+
+.htBoardDeck + .htBoardDeck {
+  margin-top: 1em;
+}
+
+.htBoardDeck {
+  break-inside: avoid;
+}
+
+.htBoardDeckTitle {
+  color: #3b2a1d;
+  font-weight: bold;
+  margin-bottom: 0.35em;
+  text-align: center;
+}
+
+.htBoardCardGrid {
+  display: grid;
+  gap: 0.4em;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.htBoardCard {
+  align-items: center;
+  aspect-ratio: 3 / 4;
+  background: #fffdf8;
+  border: 2px dashed #8a6a4a;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  position: relative;
+}
+
+.htBoardCardLabel {
+  color: #8a6a4a;
+  font-size: 0.75em;
+  font-weight: bold;
+  left: 0.4em;
+  position: absolute;
+  top: 0.3em;
+}
+
+.htBoardCardNumber {
+  color: #3b2a1d;
+  font-size: clamp(1.4rem, 5vw, 2.4rem);
+  font-weight: bold;
+  line-height: 1;
+}
+
+@page htBoardSheetPage {
+  size: A4 landscape;
+  margin: 10mm;
+}
+
+@media print {
+  .htBoardSheet {
+    -webkit-print-color-adjust: exact;
+    break-after: page;
+    break-inside: avoid;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 auto;
+    max-width: 277mm;
+    min-height: 185mm;
+    padding: 0;
+    page: htBoardSheetPage;
+    print-color-adjust: exact;
+    width: 277mm;
+  }
+
+  .htBoardSheetTitle {
+    font-size: 14pt;
+  }
+
+  .htBoardSheetNote {
+    font-size: 10pt;
+  }
+
+  .htBoardBoneSheet {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .htBoardBoneSheet .htBoardSheetTitle,
+  .htBoardBoneSheet .htBoardSheetIntro,
+  .htBoardBoneSheet .htBoardSheetNote,
+  .htBoardBoneSheet .htBoardPrintBar {
+    display: none !important;
+  }
+
+  .htBoardBoneSheet .htBoardBoneSvg {
+    max-width: 265mm;
+    width: 265mm;
+  }
+
+  .htBoardMarkGrid {
+    gap: 4mm;
+    grid-template-columns: repeat(10, 14mm);
+    justify-content: center;
+    max-width: none;
+  }
+
+  .htBoardMarkToken {
+    aspect-ratio: auto;
+    height: 21mm;
+    width: 14mm;
+  }
+
+  .htBoardPrintBar {
+    display: none !important;
+  }
+
+  .htBoardPartsActions {
+    display: none !important;
+  }
+
+  .htBoardDeck + .htBoardDeck {
+    margin-top: 4mm;
+  }
+
+  .htBoardCardGrid {
+    gap: 2mm;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .htBoardCard {
+    aspect-ratio: auto;
+    height: 35mm;
   }
 }

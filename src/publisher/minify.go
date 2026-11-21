@@ -7,8 +7,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"path/filepath"
 	"regexp"
 	"runtime"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -754,6 +756,153 @@ func htCopyImages() {
 	htCopyImagesSpecificDir(outImages, inImages)
 }
 
+// Agent-facing files published at the site root. They are kept as plain
+// source files so they can also be served when the source tree itself is
+// the document root.
+var htAgentFiles = []string{
+	"robots.txt",
+	"llms.txt",
+	"index.md",
+	".htaccess",
+	".well-known/mcp/server-card.json",
+}
+
+// Pages that exist only to support the application and must not be listed
+// in the sitemap.
+var htSitemapInternalPages = map[string]bool{
+	"calendars":          true,
+	"common_keywords":    true,
+	"gallery_copy":       true,
+	"language":           true,
+	"math_keywords":      true,
+	"theme":              true,
+	"under_construction": true,
+}
+
+// Non-UUID pages whose public URL is not simply "page=<name>".
+var htSitemapNonUUIDPages = map[string]string{
+	"acknowledgement":          "index.html?page=class_content&arg=acknowledgement",
+	"contact":                  "index.html?page=contact",
+	"genealogical_faq":         "index.html?page=class_content&arg=genealogical_faq",
+	"genealogical_first_steps": "index.html?page=class_content&arg=genealogical_first_steps",
+	"main":                     "index.html?page=class_content&arg=main",
+	"partnership":              "index.html?page=class_content&arg=partnership",
+	"release":                  "index.html?page=release",
+	"sources":                  "index.html?page=class_content&arg=sources",
+}
+
+func htSitemapPathForFile(id string, docType string) (string, bool) {
+	if id == "index" {
+		return "/", true
+	}
+	if page, ok := htSitemapNonUUIDPages[id]; ok {
+		return page, true
+	}
+	if id == "families" || id == "history" {
+		return "index.html?page=" + id, true
+	}
+
+	switch docType {
+	case "index":
+		if htSitemapInternalPages[id] {
+			return "", false
+		}
+		return "index.html?page=" + id, true
+	case "class":
+		if _, err := uuid.Parse(id); err == nil {
+			return "index.html?page=class_content&arg=" + id, true
+		}
+	case "family_tree", "genealogy":
+		if _, err := uuid.Parse(id); err == nil {
+			return "index.html?page=tree&arg=" + id, true
+		}
+	}
+	return "", false
+}
+
+func htSitemapAbsolute(path string) string {
+	if path == "/" {
+		return "https://www.historytracers.org/"
+	}
+	return "https://www.historytracers.org/" + path
+}
+
+// htGenerateSitemap lists every page that should be available to search
+// engines and agents. It is regenerated during every minify run so new
+// content is picked up automatically.
+func htGenerateSitemap() {
+	urlSet := map[string]bool{
+		"/":                       true,
+		"index.html?page=license": true,
+	}
+
+	langPath := fmt.Sprintf("%slang/en-US/", CFG.SrcPath)
+	entries, err := os.ReadDir(langPath)
+	if err != nil {
+		panic(err)
+	}
+
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".json") {
+			continue
+		}
+
+		id := strings.TrimSuffix(entry.Name(), ".json")
+		data, err := os.ReadFile(langPath + entry.Name())
+		if err != nil {
+			panic(err)
+		}
+
+		var doc struct {
+			Type string `json:"type"`
+		}
+		if err := json.Unmarshal(data, &doc); err != nil {
+			continue
+		}
+
+		if page, ok := htSitemapPathForFile(id, strings.TrimSpace(doc.Type)); ok {
+			urlSet[page] = true
+		}
+	}
+
+	urls := make([]string, 0, len(urlSet))
+	for page := range urlSet {
+		urls = append(urls, htSitemapAbsolute(page))
+	}
+	sort.Strings(urls)
+
+	var sitemap strings.Builder
+	sitemap.WriteString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
+	sitemap.WriteString("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n")
+	for _, page := range urls {
+		sitemap.WriteString("  <url><loc>" + strings.ReplaceAll(page, "&", "&amp;") + "</loc></url>\n")
+	}
+	sitemap.WriteString("</urlset>\n")
+
+	for _, path := range []string{CFG.SrcPath + "sitemap.xml", CFG.ContentPath + "sitemap.xml"} {
+		if err := os.WriteFile(path, []byte(sitemap.String()), 0644); err != nil {
+			panic(err)
+		}
+	}
+}
+
+func htCopyAgentFiles() {
+	for _, name := range htAgentFiles {
+		inFile := CFG.SrcPath + name
+		if _, err := os.Stat(inFile); err != nil {
+			continue
+		}
+
+		outFile := CFG.ContentPath + name
+		if err := os.MkdirAll(filepath.Dir(outFile), 0755); err != nil {
+			panic(err)
+		}
+		if err := HTCopyFilesWithoutChanges(outFile, inFile); err != nil {
+			panic(err)
+		}
+	}
+}
+
 // MAIN FUNCTION
 
 func HTMinifyAllFiles() {
@@ -762,6 +911,9 @@ func HTMinifyAllFiles() {
 
 	// Create directories
 	htMinifyCreateDirectories()
+
+	// Publish the agent-facing sitemap and static discovery files.
+	htGenerateSitemap()
 
 	// Rewrite Sources from DB
 	htRewriteSourcesFromDB()
@@ -794,6 +946,7 @@ func HTMinifyAllFiles() {
 	htCopyCSV()
 	htCopyGEDCOM()
 	htCopyImages()
+	htCopyAgentFiles()
 	if verboseFlag {
 		fmt.Println("Completed successfully!")
 	}

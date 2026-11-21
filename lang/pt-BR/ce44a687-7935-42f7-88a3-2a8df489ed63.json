@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_pt-BR.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6SUBspH3nWcHZxfmRoGYl4?si=CKoMWOdfRL6BlZw97__3-A",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -23,12 +28,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791384303"
+      "1795145209"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -95,7 +102,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Entendendo a Gravidade</h3>No texto anterior, mencionamos a gravidade ao definir um planeta, mas sem detalhar o conceito. Por isso, criamos esta seção.</p>",
+               "text": "<p><h3>Entendendo a Gravidade</h3>No texto anterior, mencionamos a gravidade ao definir um planeta, mas sem detalhar o conceito. Esta seção amplia essa ideia: você vai aprender como Isaac Newton e Albert Einstein explicaram a gravidade e por que as duas explicações ainda são importantes hoje.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -104,7 +111,36 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>O espaço-tempo</h4>Por muito tempo, entendemos o espaço, onde nos movemos, e o tempo, que registra a sucessão de eventos, como dimensões absolutas e separadas. Assim, acreditava-se que o tempo passava da mesma forma para todos, seja para uma pessoa lendo um texto, alguém viajando de carro ou até para astronautas em uma viagem à Lua",
+               "text": "<h4>A lei da gravitação de Newton</h4><p>Muito antes de Einstein, em <htdate0>, Isaac Newton se perguntou por que as coisas caem. Sua resposta foi que a gravidade é uma força: um puxão invisível que todo objeto com massa exerce sobre qualquer outro objeto com massa (<htcite0>). É esse puxão que faz uma maçã cair da árvore.</p><p>Newton descobriu duas regras importantes sobre esse puxão:</p><ul><li><b>Depende da massa:</b> quanto mais massa tem um objeto, mais forte é o seu puxão. Um planeta grande atrai muito mais do que uma pedra pequena.</li><li><b>Depende da distância:</b> quanto mais longe estão dois objetos, mais fraco é o puxão. Se a distância dobra, o puxão fica quatro vezes mais fraco. Os cientistas chamam isso de lei do inverso do quadrado da distância.</li></ul><p>A gravidade também é uma força muito pequena. Se você ficar ao lado de outra pessoa, a gravidade entre os dois é minúscula e você não consegue senti-la. Mas a Terra é enormemente massiva, então a gravidade entre você e a Terra é forte o suficiente para manter seus pés no chão. Esse mesmo puxão faz a Lua girar ao redor da Terra e os planetas girarem ao redor do Sol.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "412d92f9-93f1-4967-9e28-ce7689f60e8d",
+                     "text": "Britannica Editors",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "09",
+                        "day": "26"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1687",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>O espaço-tempo</h4>A ideia de Newton explicava muito, mas nem tudo: até a órbita de Mercúrio, o planeta mais próximo do Sol, não seguia exatamente as previsões dele. Para resolver mistérios como esse, os cientistas tiveram que mudar a forma como pensavam o espaço e o tempo. Por muito tempo, entendemos o espaço, onde nos movemos, e o tempo, que registra a sucessão de eventos, como dimensões absolutas e separadas. Assim, acreditava-se que o tempo passava da mesma forma para todos, seja para uma pessoa lendo um texto, alguém viajando de carro ou até para astronautas em uma viagem à Lua",
                "source": [
                   {
                      "type": 1,
@@ -126,7 +162,7 @@
                "PostMention": "."
             },
             {
-               "text": "Esse conceito começou a mudar em <htdate0>, quando Albert Einstein propôs que espaço e tempo são relativos e dependem do movimento de cada observador. Essa ideia, inicialmente estranha, não é perceptível em nossa rotina devido às baixas velocidades que experimentamos, mas experimentos confirmam a precisão dessa teoria. Com ela, pudemos explicar fenômenos como a órbita de Mercúrio",
+               "text": "Esse conceito começou a mudar em <htdate0>, quando Albert Einstein propôs que espaço e tempo são relativos e dependem do movimento de cada observador. Essa ideia, inicialmente estranha, não é perceptível em nossa rotina devido às baixas velocidades que experimentamos, mas experimentos confirmam a precisão dessa teoria. Com ela, pudemos explicar fenômenos que antes pareciam misteriosos",
                "source": [
                   {
                      "type": 1,
@@ -155,7 +191,7 @@
                "PostMention": "."
             },
             {
-               "text": "Em <htdate0>, Einstein propôs uma teoria mais abrangente que resolvia a órbita de Mercúrio e outros problemas cosmológicos: a Teoria da Relatividade Geral. Ela traz dois conceitos essenciais para o nosso estudo",
+               "text": "Em <htdate0>, Einstein propôs uma teoria mais abrangente que resolveu o problema da órbita de Mercúrio junto com outros mistérios cosmológicos: a Teoria da Relatividade Geral. Ela traz dois conceitos essenciais para o nosso estudo",
                "source": [
                   {
                      "type": 1,
@@ -229,10 +265,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ":"
             },
             {
-               "text": "<p><ul><li>O universo pode ser descrito como uma estrutura de quatro dimensões, o <b>espaço-tempo</b>, que combina as três coordenadas espaciais (altura, largura e profundidade) com o tempo, formando um contínuo quadridimensional.</li><li>No espaço-tempo, a presença de matéria cria uma curvatura, ou seja, os objetos com massa deformam o espaço-tempo.</li></ul></p>",
+               "text": "<p><ul><li>O universo pode ser descrito como uma estrutura de quatro dimensões, o <b>espaço-tempo</b>, que combina as três coordenadas espaciais (altura, largura e profundidade) com o tempo, formando um contínuo quadridimensional.</li><li>No espaço-tempo, a presença de massa curva essa estrutura; ou seja, os objetos com massa deformam o espaço-tempo ao redor deles.</li></ul></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -241,7 +277,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>O planeta no espaço-tempo</h4>Quando um planeta se forma, ele tende a adquirir uma forma esférica ou semelhante a um elipsoide e, ao fazer isso, curva o espaço-tempo, como ilustrado na figura desta seção. O movimento nesse espaço-tempo curvado é o que chamamos de gravidade. John Wheeler explicou esse fenômeno da seguinte maneira \"A matéria diz ao espaço-tempo como se curvar, e o espaço-tempo diz à matéria como se mover\". Um exemplo disso é o movimento de nosso planeta em órbita ao redor do Sol, causado pela curvatura gerada pela massa solar",
+               "text": "<h4>O planeta no espaço-tempo</h4>Quando um planeta se forma, ele tende a ficar quase redondo, como uma bola, embora um pouco achatado (um elipsoide) e, ao fazer isso, curva o espaço-tempo, como mostrado na figura desta seção. No modelo de Einstein, o efeito de se mover nesse espaço-tempo curvado é o que chamamos de gravidade. John Wheeler explicou esse fenômeno da seguinte maneira: \"A matéria diz ao espaço-tempo como se curvar, e o espaço-tempo diz à matéria como se mover\". Um exemplo disso é o movimento de nosso planeta em órbita ao redor do Sol, causado pela curvatura gerada pela massa solar",
                "source": [
                   {
                      "type": 1,
@@ -321,6 +357,15 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<h4>Conclusão</h4><p>Newton e Einstein nos deram duas imagens diferentes da gravidade. Para Newton, a gravidade é uma força de atração entre objetos com massa. Para Einstein, a gravidade é o efeito da curvatura do espaço-tempo ao redor desses objetos. Os dois modelos descrevem o mesmo universo, mas cada um é útil do seu jeito.</p><p>A teoria de Einstein não descarta a de Newton. Quando a gravidade não é extremamente forte e as velocidades são muito menores que a da luz, os dois modelos dão respostas quase iguais. A lei de Newton é muito mais simples, por isso continuamos a usá-la todos os dias: para prever onde uma bola vai cair, para planejar órbitas de satélites, para estudar as marés e para enviar naves espaciais a outros planetas. O modelo de Einstein também é necessário quando queremos uma precisão extrema, quando a gravidade é enorme, como perto de buracos negros, ou quando descrevemos a propagação da luz e o movimento a velocidades próximas à da luz.</p><p>Então, da próxima vez que uma maçã cair, você pode agradecer a Newton: a pequena força que ele descreveu ainda explica o nosso mundo cotidiano.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       }

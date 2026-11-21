@@ -889,7 +889,7 @@ function htLoadContent() {
                 let displayValue = value;
                 if (typeof value === 'number' && isNaN(value)) displayValue = '0';
                 if (displayValue === undefined || displayValue === null) displayValue = '';
-                result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), displayValue);
+                result = result.split("{" + key + "}").join(displayValue);
             }
             return result;
         },

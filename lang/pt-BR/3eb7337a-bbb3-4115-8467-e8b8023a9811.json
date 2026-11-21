@@ -1,0 +1,109 @@
+{
+   "title": "Unindo as tabuadas do 2, do 3 e do 6",
+   "header": "Unindo as tabuadas do 2, do 3 e do 6",
+   "sources": [
+      "3eb7337a-bbb3-4115-8467-e8b8023a9811"
+   ],
+   "scripts": [
+      "3eb7337a-bbb3-4115-8467-e8b8023a9811"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/3eb7337a-bbb3-4115-8467-e8b8023a9811_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/07PYLhbJtlcJa7W68os4Rd?si=survXTNiQo2zPtFFDIlkgg",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794842024"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo mostra como as tabuadas de multiplicação do 2, do 3 e do 6 se relacionam: multiplicar por 6 é o mesmo que somar três cópias do produto obtido ao multiplicar por 2, e também o mesmo que somar duas cópias do produto obtido ao multiplicar por 3. Antes de jogar, sugerimos revisar:\n\n- **Aprendendo a Tabuada (6 e 7)**: uma introdução simples à multiplicação por seis e por sete com uma flor de seis pétalas e os dias da semana (<htcite0>)\n\nCom a tabuada do 6 fresca na memória, você está pronto para ver como cada um dos seus resultados também é um resultado das tabuadas do 2 e do 3.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Aprendendo a Tabuada (6 e 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Regras gerais\n\nA tabuada do 6 é o ponto de encontro das tabuadas do 2 e do 3: multiplicar por 6 é o mesmo que somar três cópias do produto obtido ao multiplicar por 2, e também o mesmo que somar duas cópias do produto obtido ao multiplicar por 3. Por isso cada resultado da tabuada do 6 é um resultado da tabuada do 2 com o triplo do multiplicador, e também um resultado da tabuada do 3 com o dobro do multiplicador. Por exemplo, 6 × 2 = 12 é o mesmo que 2 × 6 = 12 e que 3 × 4 = 12: dois grupos de seis, seis grupos de dois e quatro grupos de três são a mesma quantidade.\n\nEste jogo torna essas relações visíveis. À esquerda aparece uma igualdade como 2 × 6 = 6 × 2 ou 3 × 4 = 6 × 2; à direita, o seu resultado é mostrado junto com um desenho de grupos de caracteres, desenhados como retângulos com seis caracteres cada — o desenho do lado 6 × Z da igualdade.\n\nO jogo tem quatro níveis:\n\n- **Nível 1**: duas igualdades entre as tabuadas do 2 e do 6, da primeira metade da tabuada do 6 (resultados de 6 a 18).\n- **Nível 2**: duas igualdades entre as tabuadas do 2 e do 6, da segunda metade da tabuada do 6 (resultados de 24 a 36).\n- **Nível 3**: duas igualdades entre as tabuadas do 3 e do 6, da primeira metade da tabuada do 6 (resultados de 6 a 18).\n- **Nível 4**: duas igualdades entre as tabuadas do 3 e do 6, da segunda metade da tabuada do 6 (resultados de 24 a 36).\n\nAcima do jogo, um seletor escolhe a imagem usada nos grupos: **🎲 Aleatório** desenha um objeto aleatório das tabuadas de multiplicação em cada novo exercício, ou você pode selecionar uma imagem específica — as mesmas usadas nas tabuadas de multiplicação — e todos os grupos a usam enquanto você joga.\n\nPara jogar, selecione uma igualdade da esquerda e depois o resultado da direita. Se o par estiver correto, ambos ficam destacados. Quando acertar todos os pares, você terá completado o nível e poderá avançar para o próximo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nUna cada igualdade da esquerda com o resultado da direita. O resultado também aparece como grupos de caracteres, assim você pode contá-los para conferir a sua resposta — cada retângulo contém seis caracteres, exatamente como o lado 6 × Z da igualdade. Se um par estiver errado, uma mensagem pedirá que você tente novamente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEq6Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEq6Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEq6Game\" class=\"orderGame htMultGroupGame htMultGroupCenterGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEq6LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEq6RightCol\"></div></div></p><p id=\"multGroupEq6Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupEq6LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRETO! 🎉🎉🎉<br />Você acertou todos os pares deste nível!</p><p id=\"multGroupEq6AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br />Você acertou todas as igualdades!</p><p style=\"text-align: center\"><button id=\"multGroupEq6Reset\" class=\"reset-tutor-btn\">🎲 Novo exercício</button></p><p style=\"text-align: center\"><button id=\"multGroupEq6NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEq6WordLevel\" style=\"display: none\">Nível</span><span id=\"multGroupEq6WordNextLevel\" style=\"display: none\">Próximo nível</span><span id=\"multGroupEq6WordPlayAgain\" style=\"display: none\">Jogar novamente</span><span id=\"multGroupEq6WordWrongPair\" style=\"display: none\">%RESULT% não é o resultado de %EXPRESSION%. Conte os caracteres e tente novamente.</span><span id=\"multGroupEq6WordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroupEq6WordRandom\" style=\"display: none\">🎲 Aleatório</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

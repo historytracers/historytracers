@@ -1,6 +1,6 @@
 {
    "title": "Tudo junto",
-   "header": "Tudo Junto",
+   "header": "Tudo junto",
    "sources": [
       "57dcce75-96a6-49d9-a9cd-dd5fa5db1028"
    ],
@@ -12,24 +12,32 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_pt-BR.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/05h3egXyKt8y5vSas4uTGa?si=iF28Y8h_SIKGuZhUnXi9Jw",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
       "atlas",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504857"
+      "1794970207"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -47,13 +55,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nRecomendamos ler o texto anterior primeiro para melhorar a compreensão (<htcite0>).",
+               "text": "### Pré-requisitos\n\nAntes de continuar, recomendamos ler o texto anterior primeiro: ele vai ajudar você a entender melhor este (<htcite0>).",
                "source": [
                   {
                      "type": 1,
                      "uuid": "d5e4d8a3-3d79-4b16-a8cb-701256fb83fc",
                      "text": "History Tracers Atlas",
-                     "page": "Cosmic Inflation",
+                     "page": "A Inflação Cósmica",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -96,7 +104,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Tudo Junto\n\nA imagem desta seção representa nosso entendimento sobre a história do universo conforme o modelo Lambda-CDM. Como pode ser observado, após a Inflação Cósmica ocorre o processo de formação das partículas que passamos a estudar (<htcite0>).\n\n#### Quem surgiu primeiro?\n\nLogo após a Inflação, começam a surgir as primeiras partículas no universo. Para entendê-las, façamos uma reflexão:",
+               "text": "### Tudo junto\n\nA imagem acima mostra a história do universo de acordo com o modelo Lambda-CDM. Após a Inflação Cósmica, o universo começou a formar as partículas que passamos a estudar (<htcite0>).\n\n#### Quem surgiu primeiro?\n\nLogo após a Inflação, começaram a surgir as primeiras partículas no universo. Para entendê-las, façamos uma reflexão:",
                "source": [
                   {
                      "type": 1,
@@ -118,7 +126,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: O universo é como eu</b><br /><br />As leis do universo não mudam com o tempo. Assim, podemos olhar para o nosso próprio crescimento e, a partir disso, propor uma analogia com o desenvolvimento do universo.<br /><br />Nós começamos com a união das células de nossos pais e nos desenvolvemos dentro de nossa mãe, formando um bebê que nasce após a gestação. Depois da fase de bebê, tornamo-nos crianças; em seguida, adolescentes; e, finalmente, adultos.<br /><br />Faria sentido o universo começar já com estruturas grandes, como a Lua, as estrelas e os planetas?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: O universo é como eu</b><br /><br />As leis do universo não mudam com o tempo. Assim, podemos olhar para o nosso próprio crescimento e compará-lo com o desenvolvimento do universo.<br /><br />Nós começamos com a união das células de nossos pais e nos desenvolvemos dentro de nossa mãe até nascermos. Depois da fase de bebê, tornamo-nos crianças; em seguida, adolescentes; e, finalmente, adultos.<br /><br />Faria sentido o universo começar já com estruturas grandes, como a Lua, as estrelas e os planetas?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -127,7 +135,7 @@
                "PostMention": ""
             },
             {
-               "text": "Da mesma maneira que começamos como pequenas células até nos tornarmos quem somos, o universo também começou pequeno.\n\n#### Primeiras partículas\n\nLogo após o término da Inflação — que durou menos de um segundo —, as primeiras partículas elementares começaram a surgir (<htcite0>).\n\nApesar de as partículas existirem no universo há bilhões de anos, nossa descoberta e compreensão delas ocorreram apenas no século XX, de acordo com o calendário gregoriano.\n\nA ideia de algo indivisível, chamado “átomo”, surgiu com Demócrito, por volta de <htdate0> (<htcite1>).\n\nCom o avanço do conhecimento e o desenvolvimento de máquinas capazes de realizar medições mais precisas, concluímos que modelos atômicos como o de Rutherford (<htcite2>; <htcite3>), representado no Gráfico 1, consideravam apenas o elétron como partícula fundamental (<htcite4>).\n\nOutras partículas, como prótons e nêutrons, continham dentro delas outras partículas ainda menores, que hoje conhecemos como quarks (<htcite5>).",
+               "text": "Assim como nós começamos como pequenas células e nos tornamos quem somos, o universo também começou pequeno.\n\n#### Primeiras partículas\n\nLogo após o término da Inflação — que durou menos de um segundo —, as primeiras partículas elementares começaram a surgir (<htcite0>).\n\nAs partículas existem no universo há bilhões de anos, mas muitas partículas elementares só foram descobertas e compreendidas no século XX, de acordo com o calendário gregoriano.\n\nA ideia de algo indivisível, chamado “átomo”, surgiu com Demócrito, por volta de <htdate0> (<htcite1>).\n\nCom o avanço do conhecimento e o desenvolvimento de máquinas capazes de fazer medições mais precisas, aprendemos que modelos atômicos como o de Rutherford (<htcite2>; <htcite3>), representados no Gráfico 1, consideravam apenas o elétron como partícula fundamental (<htcite4>).\n\nPor exemplo, os prótons e os nêutrons são formados por partículas ainda menores, que hoje conhecemos como quarks (<htcite5>).",
                "source": [
                   {
                      "type": 1,
@@ -225,7 +233,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Uma matéria diferente\n\nAlém das partículas que formam os átomos, nesse período também havia a antimatéria, que, ao entrar em contato com a matéria que conhecemos, se aniquila (ou elimina), formando radiação gama (<htcite0>).\n\nO fato de que matéria e antimatéria se aniquilam tornou o universo inicial um ambiente extremamente turbulento. Por algum motivo — que ainda buscamos compreender —, ocorreu um desbalanceamento à medida que o universo foi esfriando. Como resultado, temos hoje mais matéria do que antimatéria, embora não se descarte a existência de regiões muito distantes no universo onde ainda possa haver antimatéria (<htcite1>).\n\n#### Uma matéria não visível\n\nMatéria e antimatéria não estavam sozinhas no início do universo. Existe outro tipo de matéria cuja composição ainda desconhecemos. No entanto, sua existência é indiscutível, pois medições mostram que a velocidade de rotação de uma galáxia espiral é maior do que o esperado com base apenas na matéria visível (<htcite2>).\n\n#### As primeiras medições\n\nEsse estágio de união de diferentes partículas — incluindo o fóton, a partícula de luz —, de acordo com nossos modelos atuais, durou cerca de 380.000 anos (<htcite3>).\n\nTrata-se de um período para o qual não temos dados diretos que comprovem nossas teorias; por isso, realizamos experimentos a fim de entender o que pode ter ocorrido nesse intervalo de tempo.\n\nA partir de 380.000 anos após o Big Bang, já possuímos dados observacionais — a luz se separou da matéria. Essa primeira informação que obtemos do universo primordial é chamada Radiação Cósmica de Fundo, e é o tema da próxima seção do *Atlas*.",
+               "text": "#### Uma matéria diferente\n\nAlém das partículas que formam os átomos, nesse período também havia a antimatéria. Quando ela encontra a matéria que conhecemos, as duas se aniquilam — se destruem mutuamente — e formam radiação gama (<htcite0>).\n\nEssa aniquilação tornou o universo inicial um ambiente extremamente turbulento. Por algum motivo — que ainda buscamos compreender —, apareceu um desequilibrio à medida que o universo esfriava. Como resultado, temos hoje mais matéria do que antimatéria, embora não se descarte a existência de regiões muito distantes do universo onde ainda possa haver antimatéria (<htcite1>).\n\n#### A matéria escura\n\nMatéria e antimatéria não estavam sozinhas no início do universo. Existe outro tipo de matéria — a chamamos matéria escura — cuja composição ainda desconhecemos. Sabemos que ela existe porque medições mostram que galáxias espirais giram mais rápido do que o esperado apenas com a matéria visível (<htcite2>).\n\n#### As primeiras medições\n\nEsse estágio de união de diferentes partículas — incluindo o fóton, a partícula de luz —, de acordo com nossos modelos atuais, durou cerca de 380.000 anos (<htcite3>).\n\nDesse período não temos dados diretos que comprovem nossas teorias; por isso, realizamos experimentos para entender o que pode ter ocorrido nesse intervalo de tempo.\n\nA partir de 380.000 anos após o Big Bang, já temos dados observacionais — a luz se separou da matéria. Essa primeira informação do universo primordial é chamada Radiação Cósmica de Fundo, e é o tema da próxima seção do *Atlas*.",
                "source": [
                   {
                      "type": 1,

@@ -24,14 +24,15 @@
       "shapes",
       "math_games",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504858"
+      "1794772668"
    ],
    "authors": [
       ""
@@ -45,16 +46,16 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Pré-requisitos\n\nRecomendamos ler o texto anterior primeiro para melhorar a compreensão (<htcite0>).",
+               "text": "### Pré-requisitos\n\nRecomendamos ler primeiro o texto anterior: ali se constrói a mesma figura para a secante sobre o eixo x, que esta lição espelha sobre o eixo y (<htcite0>).",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "cbce5f98-ad82-4995-b5f0-960554919dbd",
+                     "uuid": "dbb88e75-d0f1-1252-87a7-131419b25872",
                      "text": "History Tracers Atlas",
-                     "page": "Nossa posição",
+                     "page": "A outra hipotenusa",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2026",
+                        "year": "2024",
                         "month": "",
                         "day": ""
                      }
@@ -72,7 +73,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p id=\"circtri1\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 -70 600 410\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path class=\"radius-30\" d=\"M 320 147 A 30 30 0 0 1 340.0 170.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"-55\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"300\" y2=\"-41\"></line> <line class=\"vertical45\" x1=\"405\" y1=\"64\" x2=\"300\" y2=\"-41\"></line> <line class=\"vertical45\" x1=\"405\" y1=\"64\" x2=\"510\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"405\" y2=\"64\"></line> <line class=\"vertical45\" x1=\"405\" y1=\"64\" x2=\"405\" y2=\"166\"></line> <line class=\"vertical45\" x1=\"405\" y1=\"169\" x2=\"301\" y2=\"169\"></line> <text class=\"atlasTextRadius\" x=\"282\" y=\"95\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"208\" y=\"64\" font-size=\"1.3em\" font-weight=\"bold\">csc θ</text> <text class=\"atlasTextRadius\" x=\"365\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">cot θ</text> <text class=\"atlasTextRadius\" x=\"470\" y=\"115\" font-size=\"1.3em\" font-weight=\"bold\">tan θ</text> <text class=\"atlasTextRadius\" x=\"345\" y=\"205\" font-size=\"1.3em\" font-weight=\"bold\">cos θ</text> <text class=\"atlasTextRadius\" x=\"419\" y=\"115\" font-size=\"1.3em\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" transform=\"rotate(90, 419, 115)\">sen θ</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"-58\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"396\" y=\"52\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Círculo mostrando relações trigonométricas.</p>",
+               "text": "<p id=\"circtri1\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 -70 600 410\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path class=\"radius-30\" d=\"M 320 147 A 30 30 0 0 1 340.0 170.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"-55\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"300\" y2=\"-41\"></line> <line class=\"vertical45\" x1=\"405\" y1=\"64\" x2=\"300\" y2=\"-41\"></line> <line class=\"vertical45\" x1=\"405\" y1=\"64\" x2=\"510\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"405\" y2=\"64\"></line> <line class=\"vertical45\" x1=\"405\" y1=\"64\" x2=\"405\" y2=\"166\"></line> <line class=\"vertical45\" x1=\"405\" y1=\"169\" x2=\"301\" y2=\"169\"></line> <text class=\"atlasTextRadius\" x=\"282\" y=\"95\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"208\" y=\"64\" font-size=\"1.3em\" font-weight=\"bold\">csc θ</text> <text class=\"atlasTextRadius\" x=\"365\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">cot θ</text> <text class=\"atlasTextRadius\" x=\"470\" y=\"115\" font-size=\"1.3em\" font-weight=\"bold\">tan θ</text> <text class=\"atlasTextRadius\" x=\"345\" y=\"205\" font-size=\"1.3em\" font-weight=\"bold\">cos θ</text> <text class=\"atlasTextRadius\" x=\"419\" y=\"115\" font-size=\"1.3em\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" transform=\"rotate(90, 419, 115)\">sen θ</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"-58\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"396\" y=\"52\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: O círculo com raio 1 e os segmentos trigonométricos construídos sobre ele: cos θ, sen θ, tan θ, cot θ e csc θ.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -81,7 +82,7 @@
                "PostMention": ""
             },
             {
-               "text": "### O outro cateto oposto\n\nNeste texto, iremos focar na linha da cossecante ilustrada no **Gráfico 1** e entender o que podemos esperar dos valores dessa função no primeiro quadrante que estamos estudando.\n\n#### Isolando\n\nA fim de tornar mais visível o que estamos analisando neste texto, iremos isolar, do **Gráfico 1**, as partes necessárias para este estudo:",
+               "text": "### O outro cateto oposto\n\nO **Gráfico 1** mostra as relações trigonométricas sobre o círculo. Além do triângulo retângulo cuja hipotenusa é o raio 1, ele contém a cossecante: o segmento desde o centro O para cima pelo eixo y, que termina onde a tangente em **P** corta esse eixo. Nos concentraremos nesse segmento e preveremos quais valores csc(θ) pode assumir no primeiro quadrante que estamos estudando.\n\n#### Isolando\n\nPara enxergar isso com mais clareza, vamos isolar, do **Gráfico 1**, apenas as partes necessárias para este estudo:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -90,7 +91,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 -70 600 270\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker></defs>  <line class=\"radius-line\" x1=\"200\" y1=\"169\" x2=\"200\" y2=\"-41\"></line> <line class=\"vertical45\" x1=\"305\" y1=\"64\" x2=\"200\" y2=\"-41\"></line> <line class=\"radius-45\" x1=\"200\" y1=\"169\" x2=\"305\" y2=\"64\"></line>  <text class=\"atlasTextRadius\" x=\"182\" y=\"100\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"182\" y=\"25\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"108\" y=\"64\" font-size=\"1.3em\" font-weight=\"bold\">csc θ</text> <text class=\"atlasTextRadius\" x=\"265\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">cot θ</text> <text class=\"atlasTextRadius\" x=\"218\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"182\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"298\" y=\"52\" font-size=\"1.3em\" font-weight=\"bold\">P</text> </svg></div></p><p class=\"desc\"><b>Gráfico 2</b>: Triângulo do <b>Gráfico 1</b> explicitando a cossecante na hipotenusa do triângulo.</p>",
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 -70 600 270\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker></defs>  <path class=\"radius-30\" d=\"M 230 169 A 30 30 0 0 0 221.2 147.8\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line class=\"radius-line\" x1=\"200\" y1=\"169\" x2=\"200\" y2=\"-41\"></line> <line class=\"vertical45\" x1=\"305\" y1=\"64\" x2=\"200\" y2=\"-41\"></line> <line class=\"radius-45\" x1=\"200\" y1=\"169\" x2=\"305\" y2=\"64\"></line>  <text class=\"atlasTextRadius\" x=\"182\" y=\"100\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"182\" y=\"25\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"108\" y=\"64\" font-size=\"1.3em\" font-weight=\"bold\">csc θ</text> <text class=\"atlasTextRadius\" x=\"265\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">cot θ</text> <text class=\"atlasTextRadius\" x=\"218\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"182\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"298\" y=\"52\" font-size=\"1.3em\" font-weight=\"bold\">P</text> </svg></div></p><p class=\"desc\"><b>Gráfico 2</b>: O triângulo do <b>Gráfico 1</b> isolado: ali a cossecante é a hipotenusa.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -99,7 +100,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Os dois pontos P\n\nNo **Gráfico 2**, podemos notar dois pontos chamados **P**. Ambos estão à mesma distância do centro O: o **P** no círculo marca a posição do ângulo, enquanto o **P** no eixo vertical marca o mesmo comprimento do segmento OP. Dessa forma, ambos os pontos são representações do raio R do círculo.",
+               "text": "#### Os dois pontos P\n\nNo **Gráfico 2**, dois pontos se chamam **P** e ambos estão à mesma distância do centro O: o raio do círculo. O **P** sobre o círculo marca a posição do ângulo θ, enquanto o **P** sobre o eixo vertical marca esse mesmo comprimento de raio levado para cima pelo eixo y. Chamá-los igual nos lembra que os dois pontos representam um mesmo e único raio R do círculo; a linha vertical então continua acima do **P** superior até o extremo do segmento da cossecante.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -108,13 +109,13 @@
                "PostMention": ""
             },
             {
-               "text": "#### A definição\n\nA linha da cossecante que visualizamos no **Gráfico 2** também foi definida matematicamente quando manipulávamos relações trigonométricas, de onde concluímos que a função cossecante é definida como (<htcite0>):",
+               "text": "#### A definição\n\nO segmento que vemos no **Gráfico 2** também recebeu uma definição matemática em um texto anterior: ao manipular relações trigonométricas, trabalhamos com a cossecante como o recíproco do seno (<htcite0>):",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "213a8932-84c2-4f72-9852-38368994d9a5",
+                     "uuid": "f74e0412-ac03-4bc4-b6a1-fa22dd5c441d",
                      "text": "History Tracers Team",
-                     "page": "Nós tangenciamos o planeta?",
+                     "page": "Jogando com a Cotangente",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -130,7 +131,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>csc (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>sen (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Fórmula 1</b>: Definição da cossecante.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>csc (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>sen (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Fórmula 1</b>: Definição da cossecante como o recíproco do seno.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -139,7 +140,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Curiosidade\n\nApesar do nosso conhecimento da função, um ponto importante trazido por Eric W. Weisstein merece ser ressaltado. Essa função teve sua origem praticamente junto com o seno; entretanto, seu uso acabou sendo reduzido, a ponto de passar a ser contada entre as funções raramente utilizadas (<htcite0>).\n\n#### O gráfico\n\nPodemos entender o gráfico da função cossecante a partir do próprio gráfico da cotangente, pois ambas as funções possuem o seno de teta no denominador (<htcite1>). Nele, aprendemos que a cotangente é dada pela divisão da função cosseno pela função seno (**Fórmula 2**):",
+               "text": "#### Curiosidade\n\nMerece destaque um ponto apontado por Eric W. Weisstein: essa função surgiu praticamente junto com o seno, mas seu uso diminuiu a ponto de passar a ser contada entre as funções raramente utilizadas (<htcite0>).\n\n#### O gráfico\n\nPodemos prever o gráfico da cossecante comparando-o com o da cotangente, porque ambas as funções dividem por sen(θ). Aprendemos em um texto anterior que a cotangente é o cosseno dividido pelo seno (<htcite1>); essa relação é a nossa **Fórmula 2**:",
                "source": [
                   {
                      "type": 1,
@@ -155,12 +156,12 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "cbce5f98-ad82-4995-b5f0-960554919dbd",
+                     "uuid": "f74e0412-ac03-4bc4-b6a1-fa22dd5c441d",
                      "text": "History Tracers Team",
-                     "page": "Nossa posição",
+                     "page": "Jogando com a Cotangente",
                      "date_time": {
                         "type": "gregory",
-                        "year": "",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }
@@ -173,7 +174,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>cot (θ)</mi><mn>=</mn><mfrac><mi>cos(θ)</mi><mi>sen (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definição da cotangente de acordo com funções trigonométricas.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>cot (θ)</mi><mn>=</mn><mfrac><mi>cos(θ)</mi><mi>sen (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definição da cotangente em termos do seno e do cosseno.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -182,7 +183,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ao compararmos as **Fórmulas 1 e 2**, podemos observar que ambas possuem o seno de teta (θ) no denominador, mas, na **Fórmula 1**, temos um valor constante no numerador. Com isso, podemos esperar do gráfico:\n- Quando o seno de teta (θ) tem seu maior valor, 1, então o valor da cossecante será igual a 1;\n- Como visto em outro texto do History Tracers, entre 0 e 1 há infinitos números (<htcite0>). Como o valor do seno começa no valor máximo e vai diminuindo em direção a zero, o valor da cossecante começará a crescer à medida que nos aproximamos de zero;\n- Não há valor da cossecante definido quando o valor do seno é igual a zero.\n\nPara melhor entender o que descrevemos, veja o **Gráfico 3**:",
+               "text": "Ao comparar as **Fórmulas 1 e 2**, vemos que ambas dividem por sen(θ); só o numerador muda: a **Fórmula 1** divide 1 por sen(θ), enquanto a **Fórmula 2** divide cos(θ) por sen(θ). Com isso, podemos prever o gráfico da cossecante:\n- Quando sen(θ) atinge seu valor máximo, 1, csc(θ) também vale 1: dividir 1 por 1 não muda nada;\n- Como aponta outro texto do *History Tracers*, entre 0 e 1 há infinitos números (<htcite0>). Quando sen(θ) diminui de 1 em direção a zero, dividir 1 por um número positivo cada vez menor faz csc(θ) crescer;\n- Quando sen(θ) = 0, a divisão não está definida, portanto csc(θ) não tem valor ali.\n\nPara ver isso em uma imagem, olhe o **Gráfico 3**:",
                "source": [
                   {
                      "type": 1,
@@ -204,7 +205,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcsc1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Gráfico da função cossecante. Gráfico criado com a biblioteca <htcite0>.</div></p><script> htPlotCosecant('chartcsc1', 'teta (radianos)', 'cosecante (θ)', 1);</script>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcsc1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Gráfico da função cossecante no primeiro quadrante: desce de valores muito grandes e chega a 1 quando θ = 90°. Gráfico criado com a biblioteca <htcite0>.</div></p><script> htPlotCosecant('chartcsc1', 'teta (radianos)', 'cossecante (θ)', 1);</script>",
                "source": [
                   {
                      "type": 1,
@@ -226,7 +227,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para auxiliar na comparação com o gráfico da cotangente, novamente o desenhamos abaixo:",
+               "text": "Para comparar com o gráfico da cotangente, o desenhamos abaixo:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -235,7 +236,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcot2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Gráfico da função cotangente. Gráfico criado com a biblioteca <htcite0>.</div></p><script> htPlotCotangent('chartcot2', 'cotangente (θ)', 1);</script>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcot2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Gráfico da função cotangente, desenhado aqui para comparação. Gráfico criado com a biblioteca <htcite0>.</div></p><script> htPlotCotangent('chartcot2', 'cotangente (θ)', 1);</script>",
                "source": [
                   {
                      "type": 1,
@@ -257,7 +258,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### De um gráfico para o outro\n\nO **Gráfico 1** nos mostra a cossecante em uma posição intermediária. Dessa forma, iremos ajustar esse gráfico para os extremos, para podermos entender os valores que aparecem no **Gráfico 3**.\n\nPrimeiramente, iremos começar com o cenário em que o seno de teta atinge seu maior valor e, por consequência, a cossecante de teta possui o menor valor:",
+               "text": "#### De um gráfico para o outro\n\nO **Gráfico 1** mostra a cossecante em uma posição intermediária. Agora moveremos o raio até os dois extremos para poder entender os valores que aparecem no **Gráfico 3**.\n\nComeçamos com o caso em que sen(θ) atinge seu valor máximo e, como consequência, csc(θ) atinge o seu menor:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -266,7 +267,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p id=\"circtri3\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\"> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"300\" y2=\"21\"></line> <text class=\"atlasTextRadius\" x=\"285\" y=\"100\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"308\" y=\"135\" font-size=\"1.3em\" font-weight=\"bold\">csc θ</text> <text class=\"atlasTextRadius\" x=\"308\" y=\"50\" font-size=\"1.3em\" font-weight=\"bold\">sen θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"295\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"425\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 5</b>: Círculo com raio 1 contendo triângulos e algumas funções trigonométricas expostas.</p>",
+               "text": "<p id=\"circtri3\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\"> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"300\" y2=\"21\"></line> <text class=\"atlasTextRadius\" x=\"285\" y=\"100\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"308\" y=\"135\" font-size=\"1.3em\" font-weight=\"bold\">csc θ</text> <text class=\"atlasTextRadius\" x=\"308\" y=\"50\" font-size=\"1.3em\" font-weight=\"bold\">sen θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"295\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 5</b>: Posição inicial: o raio aponta para cima pelo eixo y, de modo que sen θ = 1 e csc θ = 1.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -275,7 +276,7 @@
                "PostMention": ""
             },
             {
-               "text": "A partir do momento em que o raio começa a girar, o seno de teta (θ) começará a reduzir seu valor, indo em direção a zero. Como consequência disso, a cossecante começará a crescer indefinidamente. Dessa forma, o **Gráfico 5**, no limite em que o seno se aproxima de zero, ficaria como:",
+               "text": "A partir do momento em que o raio começa a descer, sen(θ) diminui em direção a zero. Como consequência, csc(θ) cresce sem limite. No limite em que sen(θ) se aproxima de zero, a figura ficaria como o **Gráfico 6**:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -284,7 +285,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p id=\"circtri4\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\"> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle>  <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"445\" y2=\"150\"></line> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"300\" y2=\"-200\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"205\" font-size=\"1.3em\" font-weight=\"bold\">sen θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"450\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"425\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 6</b>: Círculo com raio 1 contendo triângulos e algumas funções trigonométricas expostas.</p>",
+               "text": "<p id=\"circtri4\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\"> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle>  <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"445\" y2=\"150\"></line> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"300\" y2=\"-200\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"205\" font-size=\"1.3em\" font-weight=\"bold\">sen θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"450\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"425\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 6</b>: Caso limite: enquanto o raio cai em direção ao eixo x, sen θ se aproxima de 0 e a cossecante cresce tanto que seu rótulo sai da figura.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -293,7 +294,7 @@
                "PostMention": ""
             },
             {
-               "text": "Neste último gráfico, mantivemos o seno de teta (θ) visível, mas a cossecante foi expandida de tal maneira que seu texto não fica mais visível.",
+               "text": "Neste último gráfico mantivemos sen(θ) visível, mas a cossecante se estendeu a ponto de seu rótulo não caber mais na figura.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -302,7 +303,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Praticando\n\nAgora é hora de praticar o que acabamos de aprender. No **Gráfico 5**, o raio estava no topo, onde o seno de teta (θ) tem seu maior valor e, por consequência, a cossecante de teta tem seu menor valor: ambos são iguais a 1. Essa é exatamente a posição inicial da aplicação interativa do **Gráfico 7**.\n\nClique no gráfico para mover o raio dentro do primeiro quadrante. Observe como mudam o triângulo retângulo e o ângulo teta (θ): à medida que o raio se afasta do topo, o seno de teta (θ) reduz seu valor enquanto a cossecante de teta começa a crescer, tal como previmos com o **Gráfico 3** e observamos no **Gráfico 6**. Mova o raio para diferentes posições e tente antecipar os valores do seno e da cossecante antes de lê-los no painel abaixo do gráfico.",
+               "text": "#### Praticando\n\nAgora vamos praticar o que acabamos de aprender. No **Gráfico 5**, o raio apontava para cima pelo eixo y, onde sen(θ) tem seu valor máximo, 1, e — como consequência — csc(θ) tem o seu menor valor, também 1. Essa é exatamente a posição inicial da aplicação interativa do **Gráfico 7**.\n\nClique no gráfico para mover o raio pelo primeiro quadrante. Observe como mudam o triângulo retângulo e θ: à medida que o raio cai a partir da vertical, sen(θ) diminui enquanto csc(θ) cresce — tal como o **Gráfico 3** previu e o **Gráfico 6** ilustrou. Experimente várias posições e tente adivinhar sen e csc antes de lê-los no painel abaixo do gráfico.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -311,7 +312,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"cscPracticeInstruction\" style=\"text-align:center;\">Clique no gráfico para mover o raio no primeiro quadrante. Observe como o seno diminui enquanto a cossecante cresce.</p> <div class=\"atlasCircleContainer\"><div id=\"cscpractice4e1d\"></div></div> <p class=\"desc\"><b>Gráfico 7</b>: Prática interativa: movendo o raio no primeiro quadrante, o seno diminui enquanto a cossecante cresce.</p>",
+               "text": "<p class=\"cscPracticeInstruction\" style=\"text-align:center;\">Clique no gráfico para mover o raio no primeiro quadrante. Observe como sen(θ) diminui enquanto csc(θ) cresce.</p> <div class=\"atlasCircleContainer\"><div id=\"cscpractice4e1d\"></div></div> <p class=\"desc\"><b>Gráfico 7</b>: Prática interativa: ao mover o raio pelo primeiro quadrante, sen(θ) diminui enquanto csc(θ) cresce.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -320,7 +321,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Conclusão\n\nApesar de ser pouco utilizada (<htcite0>), não é possível negar a existência dessa função, motivo pelo qual exploramos, neste texto, seus gráficos para revisar o conhecimento que estamos construindo.",
+               "text": "#### Conclusão\n\nApesar de ser pouco utilizada (<htcite0>), a cossecante merece seu lugar entre as funções trigonométricas. Neste texto revisamos que csc(θ) = 1 / sen(θ): vale 1 quando sen(θ) = 1, cresce quando sen(θ) diminui e não tem valor onde sen(θ) = 0 — o mesmo comportamento que o **Gráfico 3** e nossa figura interativa deixam visível.",
                "source": [
                   {
                      "type": 1,

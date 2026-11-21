@@ -27,5 +27,6 @@ function htLoadContent() {
     
     htSetImageSrc("JC", "images/JoyaCeren/JoyaCerenCocina.jpg")
     htSetImageSrc("imgShona", "images/UniversityJohannesburg/ShonaJohannnesburg.jpg");
+    htSetImageSrc("imgBZ0", "images/BingZhao/img-5.jpg");
     return false;
 }

@@ -1,0 +1,109 @@
+{
+   "title": "Uniendo las tablas del 2, del 3 y del 6",
+   "header": "Uniendo las tablas del 2, del 3 y del 6",
+   "sources": [
+      "3eb7337a-bbb3-4115-8467-e8b8023a9811"
+   ],
+   "scripts": [
+      "3eb7337a-bbb3-4115-8467-e8b8023a9811"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/3eb7337a-bbb3-4115-8467-e8b8023a9811_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5HzqfFz5eb9raJknfCrfNq?si=BF9R-m0cQSGU-TdvsX3UTw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794841999"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEste juego muestra cómo se relacionan las tablas de multiplicar del 2, del 3 y del 6: multiplicar por 6 es lo mismo que sumar tres copias del producto obtenido al multiplicar por 2, y también lo mismo que sumar dos copias del producto obtenido al multiplicar por 3. Antes de jugar, te sugerimos repasar:\n\n- **Aprendiendo la tabla de multiplicar (6 y 7)**: una introducción sencilla a multiplicar por seis y por siete con una flor de seis pétalos y los días de la semana (<htcite0>)\n\nCon la tabla del 6 fresca en tu memoria, estás listo para ver cómo cada uno de sus resultados también es un resultado de las tablas del 2 y del 3.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "600c0c57-4120-478f-b5fa-66e7ecb6372d",
+                     "text": "History Tracers Team",
+                     "page": "Aprendiendo la tabla de multiplicar (6 y 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Reglas generales\n\nLa tabla del 6 es el punto de encuentro de las tablas del 2 y del 3: multiplicar por 6 es lo mismo que sumar tres copias del producto obtenido al multiplicar por 2, y también lo mismo que sumar dos copias del producto obtenido al multiplicar por 3. Por eso cada resultado de la tabla del 6 es un resultado de la tabla del 2 con el triple del multiplicador, y también un resultado de la tabla del 3 con el doble del multiplicador. Por ejemplo, 6 × 2 = 12 es lo mismo que 2 × 6 = 12 y que 3 × 4 = 12: dos grupos de seis, seis grupos de dos y cuatro grupos de tres son la misma cantidad.\n\nEste juego hace visibles esas relaciones. A la izquierda aparece una igualdad como 2 × 6 = 6 × 2 o 3 × 4 = 6 × 2; a la derecha, su resultado se muestra junto con un dibujo de grupos de caracteres, dibujados como rectángulos con seis caracteres cada uno — el dibujo del lado 6 × Z de la igualdad.\n\nEl juego tiene cuatro niveles:\n\n- **Nivel 1**: dos igualdades entre las tablas del 2 y del 6, de la primera mitad de la tabla del 6 (resultados del 6 al 18).\n- **Nivel 2**: dos igualdades entre las tablas del 2 y del 6, de la segunda mitad de la tabla del 6 (resultados del 24 al 36).\n- **Nivel 3**: dos igualdades entre las tablas del 3 y del 6, de la primera mitad de la tabla del 6 (resultados del 6 al 18).\n- **Nivel 4**: dos igualdades entre las tablas del 3 y del 6, de la segunda mitad de la tabla del 6 (resultados del 24 al 36).\n\nEncima del juego, un selector elige la imagen usada en los grupos: **🎲 Aleatorio** dibuja un objeto aleatorio de las tablas de multiplicar en cada nuevo ejercicio, o puedes seleccionar una imagen concreta — las mismas usadas en las tablas de multiplicar — y todos los grupos la usan mientras juegas.\n\nPara jugar, selecciona una igualdad de la izquierda y luego su resultado de la derecha. Si la pareja es correcta, ambos quedan resaltados. Cuando aciertes todas las parejas, completarás el nivel y podrás pasar al siguiente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### El juego\n\nUne cada igualdad de la izquierda con su resultado de la derecha. El resultado también se muestra como grupos de caracteres, así puedes contarlos para comprobar tu respuesta — cada rectángulo contiene seis caracteres, exactamente como el lado 6 × Z de la igualdad. Si una pareja es incorrecta, un mensaje te pedirá que lo intentes de nuevo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEq6Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEq6Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEq6Game\" class=\"orderGame htMultGroupGame htMultGroupCenterGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEq6LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEq6RightCol\"></div></div></p><p id=\"multGroupEq6Feedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupEq6LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡CORRECTO! 🎉🎉🎉<br />¡Acertaste todas las parejas de este nivel!</p><p id=\"multGroupEq6AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br />¡Acertaste todas las igualdades!</p><p style=\"text-align: center\"><button id=\"multGroupEq6Reset\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button></p><p style=\"text-align: center\"><button id=\"multGroupEq6NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEq6WordLevel\" style=\"display: none\">Nivel</span><span id=\"multGroupEq6WordNextLevel\" style=\"display: none\">Siguiente nivel</span><span id=\"multGroupEq6WordPlayAgain\" style=\"display: none\">Jugar de nuevo</span><span id=\"multGroupEq6WordWrongPair\" style=\"display: none\">%RESULT% no es el resultado de %EXPRESSION%. Cuenta los caracteres e inténtalo de nuevo.</span><span id=\"multGroupEq6WordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroupEq6WordRandom\" style=\"display: none\">🎲 Aleatorio</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

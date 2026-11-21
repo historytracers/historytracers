@@ -43,6 +43,7 @@ var htFirstStepsVolume2Idx = new Map();
 var htSunTzuChessIdx = new Map();
 var htShapesIdx = new Map();
 var htMathGamesIdx = new Map();
+var htBoardGameIdx = new Map();
 var htIndigenousWhoIdx = new Map();
 var htMythsBelievesIdx = new Map();
 var htHistoricalEventsIdx = new Map();
@@ -190,6 +191,7 @@ function htResetAllIndexes()
         htSunTzuChessIdx,
         htShapesIdx,
         htMathGamesIdx,
+        htBoardGameIdx,
         htFamilyIdx,
         htIndigenousWhoIdx,
         htMythsBelievesIdx,
@@ -360,6 +362,7 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
     let fh=htFixImagesForPrint(header);
     let fb=htFixImagesForPrint(body);
     let fs=htFixImagesForPrint(sources);
+    let printBoardPage = fb.indexOf('htBoardSheet') >= 0 ? '@page { size: A4 landscape; margin: 10mm; }' : '';
     let headerHtml = headerStyle ? `<div class="print-header" style="${escapeHtmlAttr(headerStyle)}text-align:center;margin-bottom:20px;">${fh}</div>` : `<h1>${fh}</h1>`;
     return `<!DOCTYPE html>
 <html>
@@ -371,11 +374,13 @@ function htBuildPrintDocument(header, body, sources, headerStyle){
     <link rel="stylesheet" href="${window.location.origin}/css/ht_math.css">
     <link rel="stylesheet" href="${window.location.origin}/css/fa_6_5_2.min.css">
     <style>
+        ${printBoardPage}
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
         }
+        ${printBoardPage ? 'body { font-size: 11pt; line-height: 1.4; }' : ''}
         .print-header {
             text-align: center;
             margin-bottom: 20px;
@@ -1920,11 +1925,12 @@ function htFillFamilies(page, table) {
     if (hasPrerequisites) {
         htAddPaperDivs("#paper", "family-prerequisites", "", "", "", paperIdx++);
         var prHtml = "";
+        var localLangPrereq = $("#site_language").val();
+        var localCalPrereq = $("#site_calendar").val();
         for (const i in table.prerequisites) {
             let pr = table.prerequisites[i];
-            prHtml += "<p>"+ pr + "</p>";
+            prHtml += (typeof pr === "string") ? "<p>"+ pr + "</p>" : htParagraphFromObject(pr, localLangPrereq, localCalPrereq);
         }
-        prHtml += "</ul></p>";
         $("#paper-family-prerequisites").html("<div id=\"pre_requisites_inside\">"+prHtml+"</div>");
         var prereqLabel = (function(){
             var lang = $("#site_language").val() || "en-US";
@@ -1935,15 +1941,38 @@ function htFillFamilies(page, table) {
         var introLabelForPrereq = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdu\u00e7\u00e3o"; if(lang.startsWith("es")) return "Introducci\u00f3n"; return "Introduction";})();
         $("#index_list").prepend("<li id=\"lnk-prerequisites\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabel+"</a></li>");
         var prereqPrev = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
-        var prereqNext = hasIntroductionForPrereq ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabelForPrereq+"</a>" : (hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+(keywords[79]||"Geography")+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;"));
+        var prereqNext = hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+(keywords[79]||"Geography")+"</a>" : (hasIntroductionForPrereq ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabelForPrereq+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;"));
         var prereqMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
         var prereqNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+prereqPrev+"</td><td style=\"width:34%;text-align:center;\">"+prereqMiddle+"</td><td style=\"width:33%;text-align:right;\">"+prereqNext+"</td></tr></table></p>";
         $("#paper-family-prerequisites").prepend(prereqNav);
         $("#paper-family-prerequisites").append(prereqNav);
     }
 
-    // --- Introduction page: common vector on top of families ---
+    // --- Geography page: maps vector before Introduction ---
     var hasIntroduction = table.common && Array.isArray(table.common) && table.common.length > 0;
+    if (hasGeography) {
+        htAddPaperDivs("#paper", "family-geography", "", "", "", paperIdx++);
+        $("#paper-family-geography").html(geographyHtml);
+        var geoLabel = keywords[79] || "Geography";
+        // Add to index after Prerequisites (or first if none), before Introduction
+        var $prereqLnk = $("#lnk-prerequisites");
+        if ($prereqLnk.length) {
+            $prereqLnk.after("<li id=\"lnk-geography\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabel+"</a></li>");
+        } else {
+            $("#index_list").prepend("<li id=\"lnk-geography\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabel+"</a></li>");
+        }
+        // navigation for geography page
+        var prereqLabelForGeo = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Pr\u00e9-requisitos"; if(lang.startsWith("es")) return "Prerrequisitos"; return "Prerequisites";})();
+        var introLabelForGeo = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdu\u00e7\u00e3o"; if(lang.startsWith("es")) return "Introducci\u00f3n"; return "Introduction";})();
+        var geoPrev = hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelForGeo+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
+        var geoNext = hasIntroduction ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabelForGeo+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;");
+        var geoMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
+        var geoNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+geoPrev+"</td><td style=\"width:34%;text-align:center;\">"+geoMiddle+"</td><td style=\"width:33%;text-align:right;\">"+geoNext+"</td></tr></table></p>";
+        $("#paper-family-geography").prepend(geoNav);
+        $("#paper-family-geography").append(geoNav);
+    }
+
+    // --- Introduction page: common vector on top of families ---
     if (hasIntroduction) {
         htAddPaperDivs("#paper", "family-introduction", "", "", "", paperIdx++);
         var $commonBlock = $("#common");
@@ -1969,45 +1998,22 @@ function htFillFamilies(page, table) {
             return "Introduction";
         })();
         var prereqLabelForIntro = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Pr\u00e9-requisitos"; if(lang.startsWith("es")) return "Prerrequisitos"; return "Prerequisites";})();
-        if (hasPrerequisites) {
+        if ($("#lnk-geography").length) {
+            $("#lnk-geography").after("<li id=\"lnk-introduction\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabel+"</a></li>");
+        } else if (hasPrerequisites) {
             $("#lnk-prerequisites").after("<li id=\"lnk-introduction\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabel+"</a></li>");
         } else {
             $("#index_list").prepend("<li id=\"lnk-introduction\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabel+"</a></li>");
         }
-        // navigation for introduction page (next goes to Geography if exists, else first family)
-        var introPrev = hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelForIntro+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
-        var geoLabelForIntro = keywords[79] || "Geography";
-        var introNext = hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabelForIntro+"</a>" : (validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;");
+        // navigation for introduction page (prev goes to Geography if exists, next to first family)
+        var introPrev = hasGeography ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+(keywords[79]||"Geography")+"</a>" : (hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelForIntro+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>");
+        var introNext = validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;";
         var introMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
         var introNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+introPrev+"</td><td style=\"width:34%;text-align:center;\">"+introMiddle+"</td><td style=\"width:33%;text-align:right;\">"+introNext+"</td></tr></table></p>";
         $("#paper-family-introduction").prepend(introNav);
         $("#paper-family-introduction").append(introNav);
     }
 
-    // --- Geography page: maps vector after Introduction ---
-    if (hasGeography) {
-        htAddPaperDivs("#paper", "family-geography", "", "", "", paperIdx++);
-        $("#paper-family-geography").html(geographyHtml);
-        var geoLabel = keywords[79] || "Geography";
-        // Add to index after Introduction (or Prerequisites if no Introduction), before families
-        var $introLnk = $("#lnk-introduction");
-        var $prereqLnk = $("#lnk-prerequisites");
-        if ($introLnk.length) {
-            $introLnk.after("<li id=\"lnk-geography\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabel+"</a></li>");
-        } else if ($prereqLnk.length) {
-            $prereqLnk.after("<li id=\"lnk-geography\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabel+"</a></li>");
-        } else {
-            $("#index_list").prepend("<li id=\"lnk-geography\"><a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabel+"</a></li>");
-        }
-        // navigation for geography page
-        var prereqLabelForGeo = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Pr\u00e9-requisitos"; if(lang.startsWith("es")) return "Prerrequisitos"; return "Prerequisites";})();
-        var geoPrev = hasIntroduction ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabel+"</a>" : (hasPrerequisites ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelForGeo+"</a>" : "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>");
-        var geoNext = validFamilies.length>0 ? "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>" : "&nbsp;";
-        var geoMiddle = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('index');\">"+keywords[135]+"</a>";
-        var geoNav = "<p><table class=\"book_navigation\" style=\"width:100%;margin-top:20px;\"><tr><td style=\"width:33%;text-align:left;\">"+keywords[56]+"</td><td style=\"width:34%;text-align:center;\">"+keywords[57]+"</td><td style=\"width:33%;text-align:right;\">"+keywords[58]+"</td></tr><tr><td style=\"width:33%;text-align:left;\">"+geoPrev+"</td><td style=\"width:34%;text-align:center;\">"+geoMiddle+"</td><td style=\"width:33%;text-align:right;\">"+geoNext+"</td></tr></table></p>";
-        $("#paper-family-geography").prepend(geoNav);
-        $("#paper-family-geography").append(geoNav);
-    }
 
     // --- Patriarch/Matriarch list as an index with surrounding navigation ---
     (function(){
@@ -2017,11 +2023,11 @@ function htFillFamilies(page, table) {
         if (hasPrerequisites) {
             var prereqLabelIdx = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Pr\u00e9-requisitos"; if(lang.startsWith("es")) return "Prerrequisitos"; return "Prerequisites";})();
             idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelIdx+"</a>";
+        } else if (hasGeography) {
+            idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+(keywords[79]||"Geography")+"</a>";
         } else if (hasIntroduction) {
             var introLabelIdx = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdu\u00e7\u00e3o"; if(lang.startsWith("es")) return "Introducci\u00f3n"; return "Introduction";})();
             idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabelIdx+"</a>";
-        } else if (hasGeography) {
-            idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+(keywords[79]||"Geography")+"</a>";
         } else if (validFamilies.length>0) {
             idxNext = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+validFamilies[0].id+"');\">"+validFamilies[0].name+"</a>";
         } else {
@@ -2076,12 +2082,12 @@ function htFillFamilies(page, table) {
         if (fi > 0) {
             var prevF = validFamilies[fi-1];
             prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('"+prevF.id+"');\">"+prevF.name+"</a>";
-        } else if (hasGeography) {
-            var geoLabelPrev = keywords[79] || "Geography";
-            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabelPrev+"</a>";
         } else if (hasIntroduction) {
             var introLabelPrev = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Introdução"; if(lang.startsWith("es")) return "Introducción"; return "Introduction"; })();
             prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('introduction');\">"+introLabelPrev+"</a>";
+        } else if (hasGeography) {
+            var geoLabelPrev = keywords[79] || "Geography";
+            prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('geography');\">"+geoLabelPrev+"</a>";
         } else if (hasPrerequisites) {
             var prereqLabelPrev = (function(){ var lang=$("#site_language").val()||"en-US"; if(lang.startsWith("pt")) return "Pr\u00e9-requisitos"; if(lang.startsWith("es")) return "Prerrequisitos"; return "Prerequisites";})();
             prevLink = "<a href=\"javascript:void(0);\" onclick=\"htShowFamily('prerequisites');\">"+prereqLabelPrev+"</a>";
@@ -2189,7 +2195,11 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     }
     htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
 
-    $(".htSlide, .htSlides").remove();
+    // Clear slides from the previous content, but keep the ones rendered on
+    // family book pages. htFillFamilies() loads tree.json through this
+    // function after building the family pages, and removing those slides
+    // would leave their carriers (e.g. Altar Q) empty.
+    $(".htSlide, .htSlides").not("[id^='paper-family-'] .htSlide, [id^='paper-family-'] .htSlides").remove();
 
     var idx = 0;
     var navigationPage = "";
@@ -2408,6 +2418,7 @@ function htSelectIndexMap(index)
         sun_tzu_chess: htSunTzuChessIdx,
         shapes: htShapesIdx,
         math_games: htMathGamesIdx,
+        board_game: htBoardGameIdx,
         families: htFamilyIdx,
         indigenous_who: htIndigenousWhoIdx,
         myths_believes: htMythsBelievesIdx,
@@ -2710,14 +2721,44 @@ function htFillPIXQRCode(id, size) {
 
     if ($element.is(':empty')) {
         $('<img>', {
-            src: htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png',
-            width: size
+            src: htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png'
+        }).css({
+            width: size,
+            maxWidth: '100%',
+            height: 'auto'
         }).appendTo($element);
         htLastImgSrcPrefix = htImgSrcPrefix;
     } else if (htImgSrcPrefix !== htLastImgSrcPrefix) {
         $element.find('img').attr('src', htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png');
         htLastImgSrcPrefix = htImgSrcPrefix;
     }
+}
+
+// keywords[52] ends with "or PIX using the QR code:" — place the same QR
+// image used in the side bar right after that note in the main content.
+function htEnsureContentPIXQRCode() {
+    var $sn = $("#family_common_sn");
+    if ($sn.length === 0) {
+        return;
+    }
+    if ($("#htPixQRCode").length > 0) {
+        return;
+    }
+    var $host = $sn.closest("p");
+    if ($host.length === 0) {
+        $host = $sn;
+    }
+    $host.after('<p><center><div id="htPixQRCode"></div></center></p>');
+    htFillPIXQRCode("#htPixQRCode", "200px");
+}
+
+function htFillFamilyCommonSN() {
+    var $sn = $("#family_common_sn");
+    if ($sn.length === 0 || typeof keywords === 'undefined' || !keywords || keywords.length <= 52) {
+        return;
+    }
+    $sn.html(keywords[52]);
+    htEnsureContentPIXQRCode();
 }
 
 function htFillDivAuthorsContent(target, lastUpdate, authors, reviewers) {
@@ -2820,6 +2861,45 @@ function htGetTextWithDateReplacements(localObj, localLang, localCalendar) {
     return localObj.text || '';
 }
 
+// Replaces <htciteN> placeholders with the corresponding source links.
+function htApplySourceLinks(text, sources, localLang, localCalendar) {
+    if (!sources || sources.length === 0 || typeof text !== 'string') {
+        return text;
+    }
+
+    var citeSources = " (";
+    for (const i in sources) {
+        var searchFor = "<htcite"+i+">";
+        var pos = text.search(searchFor);
+        var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+        var dateText = "";
+        if (sources[i].date != undefined && sources[i].date.year.length > 0) {
+            dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
+        } else if (sources[i].date_time != undefined && sources[i].date_time.year.length > 0) {
+            dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
+        }
+
+        var pageText = "";
+        if (sources[i].page != undefined && sources[i].page.length > 0) {
+            pageText = ", "+sources[i].page;
+        }
+        var appendText = "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+pageText+"</i></a>";
+        if (pos < 0) {
+            if (i != 0 && citeSources.length > 2) {
+                citeSources += " ; ";
+            }
+            citeSources += appendText;
+        } else {
+            text = text.replace(searchFor, appendText);
+        }
+    }
+    if (citeSources.length > 2) {
+        text += citeSources+ ")";
+    }
+    return text;
+}
+
+// Formats a content text object and resolves its date and citation placeholders.
 function htParagraphFromObject(localObj, localLang, localCalendar) {
     if (!localObj || typeof localObj !== 'object') {
         return '<p></p>';
@@ -2833,36 +2913,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
     let text = (format === 'html' ? '<p>' + formattedText : formattedText);
 
     if (localObj.source != undefined && localObj.source != null) {
-        var sources = localObj.source;
-        var citeSources = " (";
-        for (const i in sources) { 
-            var searchFor = "<htcite"+i+">";
-            var pos = text.search(searchFor);
-            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var dateText = "";
-            if (sources[i].date != undefined && sources[i].date.year.length > 0) {
-                dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
-            } else if (sources[i].date_time != undefined && sources[i].date_time.year.length > 0) {
-                dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
-            }
-
-            var pageText = "";
-            if (sources[i].page != undefined && sources[i].page.length > 0) {
-                pageText = ", "+sources[i].page;
-            }
-            var appendText = "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+pageText+"</i></a>";
-            if (pos < 0) {
-                if (i != 0 && citeSources.length > 2) {
-                    citeSources += " ; ";
-                }
-                citeSources += appendText; 
-            } else {
-                text = text.replace(searchFor, appendText);
-            }
-        }
-        if (citeSources.length > 2) {
-            text += citeSources+ ")";
-        }
+        text = htApplySourceLinks(text, localObj.source, localLang, localCalendar);
     }
     text += (localObj.PostMention) ? localObj.PostMention : "";
     text += "</p>";
@@ -3013,14 +3064,19 @@ function htFillSMGameData(data) {
 //    Atlas Section
 //
 
-function htModifyAtlasIndexMap(id) {
+function htModifyAtlasIndexMap(id, updateURL) {
     if (!id) {
         return;
     }
     $("#atlasindex option[value="+id+"]").prop('selected', true);
 
-    var myURL = 'index.html?page=atlas&atlas_page='+id;
-    window.history.replaceState(null, null, myURL);
+    // The initial atlas fill must not rewrite the address: changing the URL
+    // while the page renders makes search engines treat the requested URL as
+    // a redirect. User navigation (previous/next map) still updates it.
+    if (updateURL !== false) {
+        var myURL = 'index.html?page=atlas&atlas_page='+id;
+        window.history.replaceState(null, null, myURL);
+    }
     $("#atlas").val(id);
     $("#atlasindex").val(id);
 }
@@ -3141,7 +3197,15 @@ function htFillAtlas(data) {
         prevIdx = item.uuid;
     }
 
-    htModifyAtlasIndexMap(idx);
+    // The first fill happens while the page is being rendered, so the address
+    // must stay exactly as requested. Later fills (language/calendar reloads
+    // and in-app navigation) keep the URL in sync with the selected map.
+    if (window.htAtlasURLInitialized) {
+        htModifyAtlasIndexMap(idx);
+    } else {
+        window.htAtlasURLInitialized = true;
+        htModifyAtlasIndexMap(idx, false);
+    }
     htSelectAtlasMap(idx);
 }
 
@@ -3162,9 +3226,7 @@ function htProccessData(data, optional) {
         htFillHTDate(data.fill_dates);
     }
 
-    if ($("#family_common_sn").length > 0) {
-        $("#family_common_sn").html(keywords[52]);
-    }
+    htFillFamilyCommonSN();
 
 }
 
@@ -3236,7 +3298,7 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
 function htCallFillPIXQRCode() {
     if ($("#htPixQRCode").length > 0 ) {
-        htFillPIXQRCode("#htPixQRCode", "10%");
+        htFillPIXQRCode("#htPixQRCode", "200px");
     }
 
     if ($("#htPixSideQRCode").length > 0 ) {
@@ -3248,11 +3310,75 @@ window.addEventListener('load', function() {
     htCallFillPIXQRCode();
 });
 
+// Keep the canonical link in sync with the page rendered by the SPA. Only the
+// page and arg parameters identify content; presentation preferences (lang,
+// cal, font, rec) and tree selection (person_id) are dropped so every variant
+// points to the same canonical URL listed in sitemap.xml.
+function htUpdateCanonical() {
+    var canonical = document.getElementById("htCanonical");
+    if (!canonical) {
+        return;
+    }
+    var base = "https://www.historytracers.org/";
+    var url = base;
+    try {
+        var params = new URLSearchParams(window.location.search);
+        var page = params.get("page");
+        var arg = params.get("arg");
+        // The homepage renders the "main" content and is also reachable as
+        // index.html?page=class_content&arg=main. Keep its canonical on "/".
+        if (page === "class_content" && arg === "main") {
+            url = base;
+        } else if (page) {
+            url = base + "index.html?page=" + encodeURIComponent(page);
+            if (arg && (page === "class_content" || page === "tree")) {
+                url += "&arg=" + encodeURIComponent(arg);
+            }
+        }
+    } catch (error) {
+        return;
+    }
+    canonical.setAttribute("href", url);
+}
+
+// Whether the current address already identifies the requested page. When it
+// does, the SPA must leave the URL untouched: changing the URL while the page
+// is being rendered makes search engines treat the requested URL as a
+// redirect. Presentation parameters (lang, cal, font, rec) are ignored on
+// purpose, so they survive the initial render.
+function htURLMatchesPage(page, arg) {
+    var params;
+    try {
+        params = new URLSearchParams(window.location.search);
+    } catch (error) {
+        return false;
+    }
+    if (params.get("page") !== page) {
+        return false;
+    }
+    var parts = (arg || "").split("&person_id=");
+    if (parts.length === 2) {
+        return (params.get("arg") || "") === parts[0] &&
+            (params.get("person_id") || "") === parts[1];
+    }
+    return (params.get("arg") || "") === (arg || "") && !params.has("person_id");
+}
+
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;").hide();
     $("#ht_index_latex").append("");
     extLatexIdx = 0;
     if (ext == "html") {
+        // Keep the address bar as requested while the page is rendered. A
+        // reload caused by a preference change still normalizes the URL.
+        var isBareHome = false;
+        try {
+            isBareHome = !new URLSearchParams(window.location.search).has("page");
+        } catch (e) {
+        }
+        var preserveURL = (reload !== true) &&
+            (htURLMatchesPage(page, arg) ||
+             (isBareHome && page === "class_content" && arg === "main"));
         switch(page) {
             case "tree":
             case "genealogical_map_list":
@@ -3271,7 +3397,9 @@ function htLoadPage(page, ext, arg, reload) {
                 }
                 genealogicalStats = htResetGenealogicalStats();
 
-                window.history.replaceState(null, null, myURL);
+                if (!preserveURL) {
+                    window.history.replaceState(null, null, myURL);
+                }
                 break;
             case "families":
                 lastTreeLoaded.page = null;
@@ -3279,9 +3407,13 @@ function htLoadPage(page, ext, arg, reload) {
                 $("#loading").val("");
                 $("#selector").val("");
             default:
-                window.history.replaceState(null, null, 'index.html?page='+page);
+                if (!preserveURL) {
+                    window.history.replaceState(null, null, 'index.html?page='+page);
+                }
                 break;
         }
+
+        htUpdateCanonical();
 
         $("#tree-source").html("");
         $("#tree-ref").html("");
@@ -3434,6 +3566,7 @@ function htFillHTDate(vector)
     });
 }
 
+// Fills a page element from a class/index content entry, applying citations.
 function htFillStringOnPage(data, idx, page)
 {
     const item = data.content?.[idx];
@@ -3452,34 +3585,7 @@ function htFillStringOnPage(data, idx, page)
         : "";
 
     if (modifiedText && item.source && item.source.length > 0) {
-        var citeSources = " (";
-        for (const i in item.source) {
-            var searchFor = "<htcite" + i + ">";
-            var pos = modifiedText.search(searchFor);
-            var fcnt = htFillHistorySourcesSelectFunction(item.source[i].type);
-            var dateText = "";
-            if (item.source[i].date != undefined && item.source[i].date.year.length > 0) {
-                dateText = ", " + htMountSpecificDate(item.source[i].date, localLang, localCalendar);
-            } else if (item.source[i].date_time != undefined && item.source[i].date_time.year.length > 0) {
-                dateText = ", " + htMountSpecificDate(item.source[i].date_time, localLang, localCalendar);
-            }
-            var pageText = "";
-            if (item.source[i].page != undefined && item.source[i].page.length > 0) {
-                pageText = ", " + item.source[i].page;
-            }
-            var appendText = '<a href="#" onclick="htCleanSources(); ' + fcnt + "('" + item.source[i].uuid + "'); return false;\"><i>" + item.source[i].text + dateText + pageText + "</i></a>";
-            if (pos < 0) {
-                if (i != 0 && citeSources.length > 2) {
-                    citeSources += " ; ";
-                }
-                citeSources += appendText;
-            } else {
-                modifiedText = modifiedText.replace(searchFor, appendText);
-            }
-        }
-        if (citeSources.length > 2) {
-            modifiedText += citeSources + ")";
-        }
+        modifiedText = htApplySourceLinks(modifiedText, item.source, localLang, localCalendar);
     }
 
     // Handle special IDs
@@ -3514,7 +3620,7 @@ function htFillStringOnPage(data, idx, page)
     const allowedPages = [
         "families", "history", "literature", "first_steps",
         "first_steps_menu", "first_steps_volume2", "sun_tzu_chess",
-        "indigenous_who", "myths_believes", "math_games",
+        "indigenous_who", "myths_believes", "math_games", "board_game",
         "historical_events", "biology", "physics", "chemistry",
         "philosophy", "atlas", "gallery", "shapes", "documentation"
     ];
@@ -3806,7 +3912,11 @@ function htFillWebPage(page, data)
 
     for (const [selector, code] of Object.entries(reflections)) {
         if ($(selector).length) {
-            htAddTreeReflection(selector, code);
+            if (selector === "#family_common_sn") {
+                htFillFamilyCommonSN();
+            } else {
+                htAddTreeReflection(selector, code);
+            }
         }
     }
 
@@ -3979,6 +4089,7 @@ function htLoadIndex(data, arg, page)
         indigenous_who: htIndigenousWhoIdx,
         literature: htLiteratureIdx,
         math_games: htMathGamesIdx,
+        board_game: htBoardGameIdx,
         myths_believes: htMythsBelievesIdx,
         physics: htPhysicsIdx,
         philosophy: htPhilosophyIdx,
@@ -4104,14 +4215,22 @@ function htCheckExerciseAnswer(val0, val1, answer, explanation) {
     return false;
 }
 
+// Renders the yes/no exercise questions and their answer key.
 function htWriteQuestions(table, later, idx)
 {
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
     var questions = "<p><h3>"+keywords[50]+"</h3><ol>";
     var tmpAnswers = "<p class=\"ht_description\"><span id=\"htAnswersToBeUsed\">";
     var total = 0;
     for (const i in table) {
         let item = table[i];
-        questions += "<li>"+item.question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+item.additionalInfo+"</span></li>";
+        var question = htApplySourceLinks(item.question, item.source, localLang, localCalendar);
+        var additionalInfo = item.additionalInfo;
+        if (additionalInfo && additionalInfo.indexOf("<htcite") >= 0) {
+            additionalInfo = htApplySourceLinks(additionalInfo, item.source, localLang, localCalendar);
+        }
+        questions += "<li>"+question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+additionalInfo+"</span></li>";
         tmpAnswers += (item.yesNoAnswer == "Yes") ? 1+";" : 0+";";
         total++;
     }

@@ -48,6 +48,18 @@ var marriagesMap map[FamilyKey][]string
 var peopleMap map[string][]string
 
 // Common CSV and GEDCOM
+// htNormalizeGEDCOMGender maps the localized sex values used in the content
+// files to the English values expected by the GEDCOM/CSV importer.
+func htNormalizeGEDCOMGender(gender string) string {
+	switch gender {
+	case "masculine", "masculino", "male":
+		return "male"
+	case "feminine", "femenino", "feminino", "female":
+		return "female"
+	}
+	return gender
+}
+
 func htXrefGEDCOM(prefix string, id string) string {
 	if len(id) < 19 {
 		panic("AN EMPTY ID WAS GIVEN TO A PERSON")
@@ -306,7 +318,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 		}
 	}
 
-	return []string{"[" + pID + "]", person.Name, person.Surname, "", "", "", "", person.Gender, historySource, historyNote, birthDate, "", birthPlaceID, birthSource, baptismDate, "", baptismPlaceID, baptismSource, deathDate, "", deathPlaceID, deathSource}
+	return []string{"[" + pID + "]", person.Name, person.Surname, "", "", "", "", htNormalizeGEDCOMGender(person.Gender), historySource, historyNote, birthDate, "", birthPlaceID, birthSource, baptismDate, "", baptismPlaceID, baptismSource, deathDate, "", deathPlaceID, deathSource}
 }
 
 func htInitializeCSVMarriage() [][]string {

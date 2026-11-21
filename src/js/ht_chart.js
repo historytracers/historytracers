@@ -44,16 +44,20 @@ function htPlotConstantChart(dest, yValue, xLable, yLable)
         values.push( htPlotDefaultFiveConstantArray(yValue) );
     }
 
-    if ($("#"+dest).length < 0) {
+    const canvas = document.getElementById(dest);
+    if (canvas == null) {
         return;
     }
 
-    const canvas = document.getElementById(dest);
+    // Chart.js refuses to create a new chart on a canvas that still has one
+    // registered ("Canvas is already in use..."), so always destroy the
+    // previous chart before reusing the canvas.
     const existing = Chart.getChart(canvas);
-    const ctx = document.getElementById(dest).getContext("2d");
     if (existing) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        existing.destroy();
     }
+
+    const ctx = canvas.getContext("2d");
 
     var chartId = new Chart(ctx, {
          maintainAspectRatio: false,
@@ -111,7 +115,20 @@ function htPlotConstantContinuousChart(options)
         return;
     }
 
-    const ctx = document.getElementById(options.chartId).getContext("2d");
+    const canvas = document.getElementById(options.chartId);
+
+    // Chart.js refuses to create a new chart on a canvas that still has one
+    // registered ("Canvas is already in use..."), so always destroy the
+    // previous chart before reusing the canvas. Game scripts cannot always
+    // keep a reliable reference to the chart they created (their state is
+    // reset every time the content script is loaded), so this must be done
+    // here, next to the canvas lookup.
+    const existing = Chart.getChart(canvas);
+    if (existing) {
+        existing.destroy();
+    }
+
+    const ctx = canvas.getContext("2d");
     var chartId = new Chart(ctx, {
         maintainAspectRatio: false,
         type : 'line',

@@ -24,19 +24,22 @@
       "shapes",
       "math_games",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504810"
+      "1794787419"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -45,7 +48,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nThis text has an application to practice, in a single place, the trigonometric functions and the relationships we derived from the circle. Before using it, we recommend studying the sine and cosine functions (<htcite0>; <htcite1>) and how we walked on the circle to discover their relationship (<htcite2>).",
+               "text": "### Prerequisites\n\nThis text brings together a single application for practicing the trigonometric functions and the relationships we derived from the circle. Before using it, we recommend studying the sine and cosine functions (<htcite0>; <htcite1>) and how we walked on the circle to discover the relationship between them (<htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -96,7 +99,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nWhen we studied the trigonometric functions, we learned that each one relates an angle theta (θ) to one leg of the right triangle: the sine relates it to the opposite leg, and the cosine to the adjacent leg (<htcite0>; <htcite1>). When we walked on the circle, we also learned that the sum of the squares of these two functions is always equal to the square of the radius, which for the unit circle is 1 (<htcite2>):",
+               "text": "### Introduction\n\nWhen we studied the trigonometric functions, we learned that each one relates an angle θ to a leg of the right triangle: the sine to the opposite leg, the cosine to the adjacent leg (<htcite0>; <htcite1>). Walking on the circle, we then learned that the sum of the squares of the sine and the cosine always equals 1, for every angle (<htcite2>):",
                "source": [
                   {
                      "type": 1,
@@ -142,7 +145,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sin</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Formula 1</b>: Fundamental trigonometric identity.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><msup><mi>cos</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>+</mo><msup><mi>sin</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><mi>θ</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></math></p><p class=\"desc\"><b>Formula 1</b>: Fundamental trigonometric identity — true for every angle θ.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -151,7 +154,7 @@
                "PostMention": ""
             },
             {
-               "text": "In the previous texts, each relationship was practiced with its own application. Here, instead, we bring everything together: you can choose between the trigonometric functions and the trigonometric relationships, and then iterate with the app, moving the angle theta (θ) and observing how the triangle inside the circle changes together with the position of the point on the function chart.",
+               "text": "In the previous texts, each function and each relationship had its own application. Here we bring everything together: choose between the trigonometric functions and the trigonometric relationships, then work with the app — move the angle θ and watch how the triangle inside the circle changes together with the point on the chart.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -165,7 +168,7 @@
          "id": "SECTION_practice",
          "text": [
             {
-               "text": "### Practice\n\nTo better understand the connection between the triangle, the circle and the functions, we suggest that you move the angle theta (θ) in the following order:",
+               "text": "### Practice\n\nTo understand better how the triangle, the circle and the functions connect, we suggest moving the angle θ in this order:\n1. In **Functions**, go through sin(θ) → cos(θ) → tan(θ): the triangle inside the circle and the point on the chart change with each step;\n2. Switch to **Trigonometric relationships** and try the three identities in order: sin²(θ) + cos²(θ) = 1, then 1 + tan²(θ) = sec²(θ), and finally 1 + cot²(θ) = csc²(θ);\n3. Return to any tab and drag θ across its range while watching the numeric proof below the equation: up to 90°, though the slider stops at 78° when the tangent is involved and at 88° for 1 + cot²(θ) = csc²(θ).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -192,7 +195,7 @@
                "PostMention": ""
             },
             {
-               "text": "As we can see, the triangle inside the circle and the chart always walk together: when the angle theta (θ) changes, the value of the chosen function changes, and the point in the chart moves along the first quadrant. Whatever mode you choose — a single function or a relationship — the sum of the squares of the sine and the cosine always remains 1 in the unit circle.",
+               "text": "As we can see, the triangle inside the circle and the chart move together: as the angle θ changes, the value of the chosen function changes, and the point on the chart moves through the first quadrant. Whatever mode you choose — a single function or a relationship — the sum of the squares of the sine and the cosine always remains 1 on the unit circle: Formula 1 holds at every angle.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -206,7 +209,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text, we practiced the trigonometric functions and the trigonometric relationships in a single application. By selecting between functions and relationships and moving the angle theta (θ), we saw how the right triangle inside the circle is connected to the value of the functions and to the position of the point on the function chart in the first quadrant.",
+               "text": "### Conclusion\n\nIn this text we practiced the trigonometric functions and the trigonometric relationships in a single application. By switching between the two modes and moving the angle θ, we saw how the right triangle inside the circle connects with the value of the selected function and with the point on the chart in the first quadrant. We confirmed that sin²(θ) + cos²(θ) = 1 holds at every angle, while 1 + tan²(θ) = sec²(θ) and 1 + cot²(θ) = csc²(θ) hold only where both sides of each relationship are defined.",
                "source": null,
                "date_time": null,
                "isTable": false,

@@ -121,7 +121,7 @@ function htParseIndexRequest() {
     if (urlParams.has('atlas_page')) {
         var selAtlas = urlParams.get('atlas_page');
         if (selAtlas.length < 10) {
-            selAtlas = "29cd915c-1d1b-4769-a3d2-50e157a4de4a";
+            selAtlas = "09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1";
         }
         $("#atlas").val(selAtlas);
     }
@@ -212,6 +212,7 @@ function htParseIndexRequest() {
                 case 'indigenous_who':
                 case 'indigenous_time':
                 case 'math_games':
+                case 'board_game':
                 case 'release':
                 case 'literature':
                 case 'atlas':

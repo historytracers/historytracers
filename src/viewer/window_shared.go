@@ -146,6 +146,12 @@ L['en']=L['en-US'];
 		}
 		if(_font!=='small'&&_font!=='default'&&_font!=='large')_font='';
 		if(_font){try{$('#site_font_size').val(_font)}catch(e){}try{if(typeof htApplyFontSize==='function')htApplyFontSize(_font)}catch(e){}}
+		// Latest drawing object (see htMultiplicationTableObjects): shared
+		// links carry mtobj in the URL; the value baked at startup
+		// (window.__ht_mtobj) is kept otherwise, exactly like the language.
+		if(!window.__ht_mtobj){
+			try{var _mu=new URL(window.location.href);window.__ht_mtobj=_mu.searchParams.get('mtobj')||''}catch(e){}
+		}
 		var _el=[];
 		(function(){
 			var x=new XMLHttpRequest();
@@ -156,6 +162,10 @@ L['en']=L['en-US'];
 					if(!_cal&&d.cal){_cal=d.cal;refreshCal()}
 					if(!_recreio&&d.recreio){_recreio=d.recreio;var rs=$('#site_recreio');if(rs.length)rs.val(_recreio);var ors=document.getElementById('__ht_opt_recreio');if(ors)ors.value=_recreio}
 					if(!_font&&d.font&& (d.font==='small'||d.font==='default'||d.font==='large')){_font=d.font;var fs=$('#site_font_size');if(fs.length)fs.val(_font);try{if(typeof htApplyFontSize==='function')htApplyFontSize(_font)}catch(e){}var ofs=document.getElementById('__ht_opt_font');if(ofs)ofs.value=_font}
+					// Drawing object: when the startup injection is missing
+					// (e.g. first run before any choice), take it from the
+					// options file and apply it to the rendered selectors.
+					if(!window.__ht_mtobj&&d.mtobj){window.__ht_mtobj=String(d.mtobj);try{var _mts=document.querySelectorAll('select.mtDrawSelect');for(var _mi=0;_mi<_mts.length;_mi++){_mts[_mi].value=window.__ht_mtobj}}catch(e){}}
 					if(d.port){var ol=document.getElementById('__ht_opt_listen');if(ol)ol.value=d.port}
 				}}catch(e){}
 			};

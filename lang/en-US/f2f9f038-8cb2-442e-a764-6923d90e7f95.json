@@ -1,0 +1,109 @@
+{
+   "title": "Matching the Tables of 2 and 4",
+   "header": "Matching the Tables of 2 and 4",
+   "sources": [
+      "f2f9f038-8cb2-442e-a764-6923d90e7f95"
+   ],
+   "scripts": [
+      "f2f9f038-8cb2-442e-a764-6923d90e7f95"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f2f9f038-8cb2-442e-a764-6923d90e7f95_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0unq8cy0uKDPqIcMb4c8W7?si=HbvaLv5wTBuE7ja_6W4I0g",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794841966"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game shows how the multiplication tables of 2 and 4 are related: 4 × n = 2 × (2 × n), so every multiple of 4 is also a multiple of 2, but not every multiple of 2 is a multiple of 4. Before you play, we suggest reviewing:\n\n- **Learning the Multiplication Table (4 and 5)**: a simple introduction to multiplying by four and by five (<htcite0>)\n\nWith the table of 4 fresh in your memory, you are ready to see how each of its results is also a result of the table of 2.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3bc9800d-aa41-4930-84f4-749eb6e40657",
+                     "text": "History Tracers Team",
+                     "page": "Learning the Multiplication Table (4 and 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### General rules\n\nThe tables of 2 and 4 are close relatives: 4 × n = 2 × (2 × n), so every multiple of 4 is also a multiple of 2, but not every multiple of 2 is a multiple of 4. For example, 4 × 3 = 12 and 2 × 6 = 12: three groups of four is exactly the same quantity as six groups of two, while 6 is a result of the table of 2 but not of the table of 4.\n\nThis game makes that relationship visible. On the left, you will see an equality like 2 × 6 = 4 × 3; on the right, its result appears together with a picture of groups of characters, drawn as rectangles with four characters each — the picture of the 4 × Z side of the equality.\n\nThe game has three levels:\n\n- **Level 1**: two equalities from the first half of the table of 4 (results 4 to 12).\n- **Level 2**: two equalities from the second half of the table of 4 (results 16 to 24).\n- **Level 3**: two equalities mixing both halves of the table.\n\nAbove the game, a selector chooses the image used in the groups: **🎲 Random** draws a random object from the multiplication tables in every new exercise, or you can select one specific image — the same ones used in the multiplication tables — and every group uses it while you play.\n\nTo play, select an equality on the left and then its result on the right. If the pair is correct, both stay highlighted. When you match every pair, you complete the level and can move on to the next one.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The Game\n\nMatch each equality on the left with its result on the right. The result also appears as groups of characters, so you can count them to check your answer — every rectangle holds four characters, exactly like the 4 × Z side of the equality. If a pair is wrong, a message will ask you to try again.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEqLevel\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEqSelect\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEqGame\" class=\"orderGame htMultGroupGame htMultGroupCenterGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEqLeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEqRightCol\"></div></div></p><p id=\"multGroupEqFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"multGroupEqLevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 CORRECT! 🎉🎉🎉<br />You matched all the pairs in this level!</p><p id=\"multGroupEqAllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br />You matched all the equalities!</p><p style=\"text-align: center\"><button id=\"multGroupEqReset\" class=\"reset-tutor-btn\">🎲 New exercise</button></p><p style=\"text-align: center\"><button id=\"multGroupEqNextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEqWordLevel\" style=\"display: none\">Level</span><span id=\"multGroupEqWordNextLevel\" style=\"display: none\">Next level</span><span id=\"multGroupEqWordPlayAgain\" style=\"display: none\">Play again</span><span id=\"multGroupEqWordWrongPair\" style=\"display: none\">%RESULT% is not the result of %EXPRESSION%. Count the characters and try again.</span><span id=\"multGroupEqWordGroups\" style=\"display: none\">Groups: %COUNT%. Characters per group: %SIZE%.</span><span id=\"multGroupEqWordRandom\" style=\"display: none\">🎲 Random</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

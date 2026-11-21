@@ -1,0 +1,123 @@
+{
+   "title": "Uniendo las tablas del 2, del 4 y del 8",
+   "header": "Uniendo las tablas del 2, del 4 y del 8",
+   "sources": [
+      "5a2eb2fa-1f73-4681-bedc-e9f4be54a071"
+   ],
+   "scripts": [
+      "5a2eb2fa-1f73-4681-bedc-e9f4be54a071"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/5a2eb2fa-1f73-4681-bedc-e9f4be54a071_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6Lr8LnqGRCDGIAhVJuEFbc?si=iXbqVpB1RRCxTZnWFCxaBQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794841999"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEste juego muestra cómo se relacionan las tablas de multiplicar del 2, del 4 y del 8: 8 × n = 2 × 2 × 2 × n, así que la tabla del 8 es la tabla del 2 con su resultado doblado dos veces, y 8 × n = 4 × 2 × n, así que también es la tabla del 4 con su resultado doblado una vez. Antes de jugar, te sugerimos repasar:\n\n- **Aprendiendo la tabla de multiplicar (8 y 9)**: una introducción sencilla a multiplicar por ocho y por nueve con un octógono y un eneágono (<htcite0>)\n\nCon la tabla del 8 fresca en tu memoria, estás listo para ver cómo cada uno de sus resultados también es un resultado de las tablas del 4 y del 2.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f15f6887-65b2-4622-a7d7-8d789fc8e2a1",
+                     "text": "History Tracers Team",
+                     "page": "Aprendiendo la tabla de multiplicar (8 y 9)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nLa tabla del 8 se construye con tablas que ya conocemos. Ocho es 2 × 2 × 2, así que llegamos a un múltiplo de 8 multiplicando por 2 una vez y doblando después dos veces más: para 8 × 3, toma 3 × 2 = 6, luego 6 × 2 = 12 y 12 × 2 = 24. Ocho también es 2 × 4, así que ese mismo múltiplo de 8 es la tabla del 4 doblada: 4 × 3 = 12 y 12 × 2 = 24. Los dos caminos terminan en el mismo producto, 24.\n\nEn este juego, la columna de la izquierda muestra esos dos caminos y la columna de la derecha muestra el producto al que llegan ambos, dibujado como grupos de ocho caracteres. Cuando sepas recorrer los dos caminos, la tabla del 8 dejará de ser una tabla nueva: es solo la tabla del 2 y la tabla del 4, a dos dobles de la primera y uno de la segunda.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Reglas generales\n\nLa tabla del 8 es el punto de encuentro de las tablas del 2 y del 4. Multiplicar por 8 es lo mismo que multiplicar por 2 tres veces seguidas — 8 × n = 2 × 2 × 2 × n — y también es lo mismo que doblar un resultado de la tabla del 4 — 8 × n = 4 × 2 × n. Por eso los dos caminos de la columna de la izquierda siempre se encuentran en el mismo producto: para n = 6, 2 × 2 × 2 × 6 = 48 y 4 × 2 × 6 = 48.\n\nEste juego hace visibles esas relaciones. A la izquierda aparece una igualdad como 2 × 2 × 2 × 6 = 8 × 6 o 4 × 2 × 6 = 8 × 6; a la derecha, su resultado se muestra junto con un dibujo de grupos de caracteres, dibujados como rectángulos con ocho caracteres cada uno — el dibujo del lado 8 × n de la igualdad.\n\nEl juego tiene cuatro niveles:\n\n- **Nivel 1**: dos igualdades escritas como 2 × 2 × 2 × n = 8 × n, de la primera mitad de la tabla del 8 (resultados del 8 al 24).\n- **Nivel 2**: dos igualdades escritas como 2 × 2 × 2 × n = 8 × n, de la segunda mitad de la tabla del 8 (resultados del 32 al 48).\n- **Nivel 3**: dos igualdades escritas como 4 × 2 × n = 8 × n, de la primera mitad de la tabla del 8 (resultados del 8 al 24).\n- **Nivel 4**: dos igualdades escritas como 4 × 2 × n = 8 × n, de la segunda mitad de la tabla del 8 (resultados del 32 al 48).\n\nSobre el juego, un selector elige la imagen que se usa en los grupos: **🎲 Aleatorio** dibuja un objeto al azar de las tablas de multiplicar en cada nuevo ejercicio, o puedes seleccionar una imagen concreta — las mismas que se usan en las tablas de multiplicar — y todos los grupos la usan mientras juegas.\n\nPara jugar, selecciona una igualdad de la izquierda y después su resultado de la derecha. Si la pareja es correcta, ambos quedan resaltados. Cuando aciertes todas las parejas, habrás completado el nivel y podrás pasar al siguiente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### El juego\n\nUne cada igualdad de la izquierda con su resultado de la derecha. El resultado también se muestra como grupos de caracteres, así puedes contarlos para comprobar tu respuesta — cada rectángulo contiene ocho caracteres, exactamente como el lado 8 × n de la igualdad. Si una pareja es incorrecta, un mensaje te pedirá que lo intentes de nuevo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align: center\"><span id=\"multGroupEq8Level\" class=\"level-badge\"></span></p><p style=\"text-align: center\"><span class=\"mtDrawHeader\"><span class=\"mtDrawLabel\" aria-hidden=\"true\">🎨</span><select id=\"multGroupEq8Select\" class=\"mtDrawSelect htMultGroupSelect\"></select></span></p><p><div id=\"multGroupEq8Game\" class=\"orderGame htMultGroupGame htMultGroupCenterGame\"><div class=\"orderGameCol htMultGroupLeftCol\" id=\"multGroupEq8LeftCol\"></div><div class=\"orderGameCol htMultGroupRightCol\" id=\"multGroupEq8RightCol\"></div></div></p><p id=\"multGroupEq8Feedback\" class=\"orderFeedback\" role=\"status\" aria-live=\"polite\"></p><p id=\"multGroupEq8LevelDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡CORRECTO! 🎉🎉🎉<br />¡Acertaste todas las parejas de este nivel!</p><p id=\"multGroupEq8AllDone\" class=\"mngCongrats\" style=\"display: none; text-align: center\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br />¡Acertaste todas las igualdades!</p><p style=\"text-align: center\"><button id=\"multGroupEq8Reset\" class=\"reset-tutor-btn\">🎲 Nuevo ejercicio</button></p><p style=\"text-align: center\"><button id=\"multGroupEq8NextLevel\" class=\"game-next-btn\" style=\"display: none\"></button></p><span id=\"multGroupEq8WordLevel\" style=\"display: none\">Nivel</span><span id=\"multGroupEq8WordNextLevel\" style=\"display: none\">Siguiente nivel</span><span id=\"multGroupEq8WordPlayAgain\" style=\"display: none\">Jugar de nuevo</span><span id=\"multGroupEq8WordWrongPair\" style=\"display: none\">%RESULT% no es el resultado de %EXPRESSION%. Cuenta los caracteres e inténtalo de nuevo.</span><span id=\"multGroupEq8WordGroups\" style=\"display: none\">Grupos: %COUNT%. Caracteres por grupo: %SIZE%.</span><span id=\"multGroupEq8WordRandom\" style=\"display: none\">🎲 Aleatorio</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

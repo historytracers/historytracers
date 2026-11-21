@@ -12,19 +12,25 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_es-ES.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6psdne8bRWRvW3XlUfcgOW?si=VFbp7M5rT_u19T8taeogwA",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
       "atlas",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504837"
+      "1795052131"
    ],
    "authors": [
       ""
@@ -47,13 +53,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
+               "text": "### Prerrequisitos\n\nAntes de empezar, recomendamos leer primero este texto anterior:\n\n- **Nacimiento de una Estrella**: cómo nace una estrella dentro de una nube fría de gas y polvo (<htcite0>)",
                "source": [
                   {
                      "type": 1,
                      "uuid": "be57d0a5-4552-4b78-b817-6ac8d8fe11a5",
                      "text": "History Tracers Atlas",
-                     "page": "The Birth of a Star",
+                     "page": "Nacimiento de una Estrella",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -96,7 +102,7 @@
                "PostMention": ""
             },
             {
-               "text": "### ¿Cómo se forma un planeta?\n\nLa imagen de esta sección muestra el disco de un planeta en formación. Esta región se conoce como **IRAS 04302+2247** y está ubicada a 525 años luz de la Tierra, lo que equivale aproximadamente a 4,97 cuatrillones de kilómetros (4.966.920.000.000.000 km) de distancia (<htcite0>).",
+               "text": "### ¿Cómo se forma un planeta?\n\nLa imagen de esta sección muestra un disco donde se forma un planeta. Esta región se conoce como **IRAS 04302+2247**. Está a 525 años luz de la Tierra, unos 4,97 cuatrillones de kilómetros (4.966.920.000.000.000 km) (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -118,7 +124,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i> <i class=\"fa-solid fa-atom\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Matemáticas y Física en la Geografía</b><br /><br />¿Alguna vez te has detenido a pensar qué significan 525 años luz como distancia?<br /><br />Como el año es una unidad de tiempo, primero necesitamos entender qué representa en este contexto.<br />Un año luz es la distancia que la luz recorre en un año. Esto significa que, cuando observamos algo a 525 años luz de distancia, en realidad estamos viendo el pasado (<htcite0>), ya que la luz ha viajado durante 525 años para llegar hasta nosotros.<br /><br />Sabiendo que los fotones viajaron sin interrupciones hasta alcanzarnos, entendemos que su trayectoria se extendió durante 525 años, recorriendo la misma distancia cada segundo. En otras palabras, estamos sumando la misma cantidad de distancia año tras año (<htcite1>).<br />Por lo tanto, para calcular la distancia total, basta con sumar la distancia recorrida en un año 525 veces.<br /><br />¿Cuál es esa distancia?<br /><br />Sabemos que la luz viaja aproximadamente a 300.000 km por segundo.<br />Entonces, debemos multiplicar ese valor por el número de segundos en un año, y luego multiplicar el resultado por los 525 años.<br />La forma más sencilla de expresar esto es mediante una multiplicación:<br /><br />525 años luz = Años × Distancia por año<br />525 años luz = Años × (distancia por segundo × segundos por año)<br />525 años luz = Años × [(distancia por segundo) × (segundos por día × días por año)]<br /><br />Sustituyendo los valores, obtenemos:<br/>525 años luz= 525 × [(300000) × (864000 × 365)] = <b>4.966.920.000.000.000 Km </b></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i> <i class=\"fa-solid fa-atom\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Matemáticas y Física en la Geografía</b><br /><br />¿Alguna vez te has detenido a pensar qué significan 525 años luz como distancia?<br /><br />Como el año es una unidad de tiempo, primero tenemos que ver qué significa “año” en este contexto.<br />Un año luz es la distancia que la luz recorre en un año. Por eso, cuando observamos algo a 525 años luz, en realidad estamos mirando el pasado (<htcite0>): la luz ha viajado durante 525 años para llegar hasta nosotros.<br /><br />Esos fotones nunca se detuvieron en el camino, así que su viaje duró 525 años y cada segundo recorrieron la misma distancia. En otras palabras, vamos sumando la misma distancia una y otra vez, año tras año (<htcite1>).<br /><br />Para hallar el total, basta con multiplicar la distancia recorrida en UN año por 525.<br /><br />¿Cuál es esa distancia?<br /><br />La luz viaja a unos 300.000 km por segundo.<br />Multiplicamos ese valor por el número de segundos de un año y luego multiplicamos el resultado por 525:<br /><br />525 años luz = 525 × distancia por año<br />525 años luz = 525 × (distancia por segundo × segundos por año)<br />525 años luz = 525 × [(distancia por segundo) × (segundos por día × días por año)]<br /><br />Sustituyendo los valores:<br />525 años luz = 525 × [300000 × (86400 × 365)] = <b>4.966.920.000.000.000 km</b></div></div></center>",
                "source": [
                   {
                      "type": 1,
@@ -165,7 +171,7 @@
                "PostMention": ""
             },
             {
-               "text": "Este resultado es una aproximación, que se perfeccionará a medida que estudiemos la Tierra en el Atlas.\n\n#### Todos somos polvo\n\nLos planetas se forman a partir de nubes de polvo, al igual que las estrellas (<htcite0>).\n\nAl inicio de este proceso, la cantidad de partículas es muy pequeña. A medida que la nube colapsa, los granos de polvo se acercan y colisionan, formando aglomerados más grandes, llamados planetesimales (<htcite1>; <htcite2>; <htcite3>).\n\n#### Crecimiento del planeta\n\nEstos planetesimales continúan chocando con otras partículas, dando origen a una estructura aún mayor, conocida como protoplaneta.\n\nCon el tiempo, el protoplaneta acumula más materia y eventualmente alcanza la etapa de planeta completo (<htcite4>).",
+               "text": "Este resultado es una aproximación, y la perfeccionaremos a medida que estudiemos la Tierra en el Atlas.\n\n#### Todos somos polvo de estrellas\n\nLos planetas se forman a partir de nubes de polvo, al igual que las estrellas (<htcite0>).\n\nAl inicio de este proceso hay muy pocas partículas de polvo. A medida que la nube colapsa, los granos de polvo se acercan y chocan, formando aglomerados más grandes llamados planetesimales (<htcite1>; <htcite2>; <htcite3>).\n\n#### Crecimiento del planeta\n\nEstos planetesimales siguen chocando con otras partículas y crecen hasta formar una estructura aún mayor conocida como protoplaneta.\n\nCon el tiempo, el protoplaneta acumula cada vez más materia hasta convertirse en un planeta completo (<htcite4>).",
                "source": [
                   {
                      "type": 1,
@@ -235,7 +241,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### ¿Qué es un planeta?\n\nHoy en día existe un consenso general sobre el proceso de formación planetaria.\n\nSin embargo, la definición de planeta se ha actualizado recientemente: para que un cuerpo celeste sea considerado un planeta, debe ser lo suficientemente grande como para adoptar una forma esférica debido a su propia gravedad, orbitar una estrella y limpiar su órbita de otros objetos cercanos (<htcite0>; <htcite1>).\n\n#### Aplicando el método científico\n\nEl conocimiento sobre la formación de los planetas es relativamente reciente. Antes de <htdate0>, se creía que los planetas no podían formarse en las fases iniciales del universo.\n\nSin embargo, las mediciones realizadas por el telescopio Hubble mostraron que los planetas ya se formaban en las primeras etapas de la historia cósmica.\n\nEsto posiblemente ocurría porque los discos que dan origen a los planetas permanecían más tiempo en el universo primitivo, creando las condiciones necesarias para su formación (<htcite2>).\n\nEste descubrimiento refuerza que, en las ciencias, el conocimiento está en constante actualización y expansión.",
+               "text": "#### ¿Qué es un planeta?\n\nHoy existe un consenso general sobre cómo se forman los planetas.\n\nSin embargo, la definición de planeta se ha actualizado en los últimos años. Para que un cuerpo sea considerado planeta, debe tener masa suficiente para que su propia gravedad le dé forma esférica, debe orbitar una estrella y debe limpiar su órbita de otros objetos cercanos (<htcite0>; <htcite1>).\n\n#### Aplicando el método científico\n\nLo que sabemos sobre la formación de los planetas es relativamente reciente. Antes de <htdate0>, se creía que los planetas no podían formarse en las fases iniciales del universo.\n\nSin embargo, mediciones del telescopio Hubble mostraron que los planetas ya se formaban en las primeras etapas de la historia cósmica.\n\nEsto pudo ocurrir porque los discos de los que nacen los planetas permanecían más tiempo en el universo primitivo, dando tiempo suficiente para su formación (<htcite2>).\n\nEste descubrimiento muestra que, en la ciencia, el conocimiento se actualiza y se amplía constantemente.\n\n**En resumen:** los planetas crecen a partir de una nube de polvo alrededor de una estrella joven. Los granos se unen y forman planetesimales, los planetesimales chocan entre sí y dan lugar a un protoplaneta, y con el tiempo el protoplaneta se convierte en un planeta completo.",
                "source": [
                   {
                      "type": 1,

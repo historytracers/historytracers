@@ -1,0 +1,244 @@
+{
+   "title": "Contando con el hueso — Imprimir y jugar",
+   "header": "Contando con el hueso — Imprimir y jugar",
+   "sources": [
+      "0ee3ca6e-0c14-479d-9a93-de8383211f18"
+   ],
+   "scripts": [
+      "0ee3ca6e-0c14-479d-9a93-de8383211f18"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/0ee3ca6e-0c14-479d-9a93-de8383211f18_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/7kT9oRcqu0nQFMmzugOVhf?si=V1N8RosJQHiQOkjKVb4tJw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "board_game"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794970170"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>¿Por qué jugar?</h3>Durante muchísimo tiempo, las personas han contado haciendo marcas. Los huesos con marcas encontrados por los investigadores muestran que esta práctica es anterior a las ciudades y a la escritura (<htcite0> ; <htcite1>). Este juego imprimible convierte esa idea en una actividad física: un hueso grande, veinte marcas sueltas y dos barajas de cartas.</p><p class=\"desc\"><img id=\"imgBoardBoneFigure\" onclick=\"htImageZoom('imgBoardBoneFigure', '0%')\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();htImageZoom('imgBoardBoneFigure', '0%');}\" role=\"button\" tabindex=\"0\" aria-label=\"Ampliar imagen: Representación de un hueso de babuino con marcas\" class=\"imgcenter\" /><b>Figura 1</b>: Representación de un hueso de babuino con marcas. Imagen de Enrique Silván Pobes, del trabajo de Francisco A. González Redondo et al.<br />El original está disponible en ResearchGate, incluida aquí con la autorización del Doctor Francisco A. González Redondo.</p><p>Esta versión de imprimir y jugar se inspiró en la lección en línea <b>Contando con el hueso</b> (<htcite2>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "adaed4fb-9c50-4ef9-ab79-c65f3c0629b8",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "02",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7d2fd4de-5c10-4811-957c-8233bc8d21de",
+                     "text": "History Tracers Team",
+                     "page": "Counting with the bone",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_materials",
+         "text": [
+            {
+               "text": "<p><h3>Qué necesitas</h3><ul><li>Papel A4 y una impresora.</li><li>Tijeras.</li><li>Opcional: un lápiz y pegamento o cinta adhesiva.</li></ul><p>Imprime las tres hojas siguientes en papel A4 con orientación horizontal. Mantén entera la hoja del hueso. Recorta solo las marcas y las cartas siguiendo los bordes punteados.</p></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_bone",
+         "text": [
+            {
+               "text": "<div class=\"htBoardSheet htBoardBoneSheet\"><div class=\"htBoardSheetTitle\">El hueso</div><p class=\"htBoardSheetIntro\">Esta hoja representa el hueso grande. Está dibujado para ocupar toda la página A4 horizontal. Los veinte rectángulos punteados muestran dónde se pueden colocar las marcas, en dos filas de diez.</p><svg class=\"htBoardBoneSvg\" viewBox=\"0 0 800 520\" role=\"img\" aria-label=\"Large bone with twenty rectangular positions in two rows for placing marks\"><path class=\"htBoardBoneShape\" d=\"M 100 260 C 65 220 70 170 110 180 C 125 135 185 145 195 195 L 605 195 C 615 145 675 135 690 180 C 730 170 735 220 700 260 C 735 300 730 350 690 340 C 675 385 615 395 605 345 L 195 345 C 185 395 125 405 110 360 C 70 370 65 320 100 260 Z\"/><g class=\"htBoardBoneSlots\"><rect x=\"150.0\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"205.6\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"261.1\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"316.7\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"372.2\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"427.8\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"483.3\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"538.9\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"594.4\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"650.0\" y=\"200\" width=\"46.6\" height=\"67.7\"/><rect x=\"150.0\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"205.6\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"261.1\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"316.7\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"372.2\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"427.8\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"483.3\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"538.9\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"594.4\" y=\"275\" width=\"46.6\" height=\"67.7\"/><rect x=\"650.0\" y=\"275\" width=\"46.6\" height=\"67.7\"/></g></svg><p class=\"htBoardSheetNote\">Coloca las marcas rectangulares recortadas de izquierda a derecha: primero en la fila superior y después en la inferior.</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_marks",
+         "text": [
+            {
+               "text": "<div class=\"htBoardSheet htBoardMarksSheet\"><div class=\"htBoardSheetTitle\">Veinte marcas rectangulares para recortar</div><p class=\"htBoardSheetIntro\">Recorta las veinte marcas rectangulares siguiendo los bordes punteados. Cada marca cabe en un rectángulo punteado del hueso.</p><div class=\"htBoardMarkGrid\" aria-label=\"Veinte marcas rectangulares para recortar\"><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div><div class=\"htBoardMarkToken\" aria-hidden=\"true\"><span class=\"htBoardMarkGlyph\"></span></div></div><p class=\"htBoardSheetNote\">Recorta siguiendo las líneas punteadas.</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_cards",
+         "text": [
+            {
+               "text": "<div class=\"htBoardSheet htBoardCardsSheet\"><div class=\"htBoardSheetTitle\">Cartas de suma para recortar</div><p class=\"htBoardSheetIntro\">Recorta las dos barajas siguiendo los bordes punteados. Mantén separadas la baraja A y la baraja B, y luego coloca cada baraja boca abajo.</p><div class=\"htBoardDeck\"><div class=\"htBoardDeckTitle\">Baraja A — primer número</div><div class=\"htBoardCardGrid\"><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">1</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">2</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">3</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">4</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">5</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">6</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">7</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">8</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">9</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">A</span><span class=\"htBoardCardNumber\">10</span></div></div></div><div class=\"htBoardDeck\"><div class=\"htBoardDeckTitle\">Baraja B — segundo número</div><div class=\"htBoardCardGrid\"><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">1</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">2</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">3</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">4</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">5</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">6</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">7</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">8</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">9</span></div><div class=\"htBoardCard\"><span class=\"htBoardCardLabel\">B</span><span class=\"htBoardCardNumber\">10</span></div></div></div><p class=\"htBoardSheetNote\">Recorta siguiendo las líneas punteadas y mantén las dos barajas separadas.</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Cómo contar</h3><ol><li>Coloca la hoja del hueso delante de ti y mantén cerca las veinte marcas.</li><li>Elige cuántas marcas quieres contar. Colócalas una a una sobre los rectángulos punteados, de izquierda a derecha: primero la fila superior y después la inferior.</li><li>Di el número en voz alta cada vez que coloques una marca: uno, dos, tres...</li><li>El último número que digas es la cantidad que colocaste.</li></ol></p><p><h3>Cómo sumar</h3><ol><li>Mezcla cada baraja por separado y coloca las dos barajas boca abajo.</li><li>Saca una carta de la baraja A y una de la baraja B, y luego dales la vuelta.</li><li>Coloca en el hueso la cantidad de marcas que muestra la carta A, contando en voz alta desde uno.</li><li>Continúa con la cantidad de marcas que muestra la carta B sin empezar de nuevo: después de tres marcas, cuatro marcas más se cuentan como cuatro, cinco, seis, siete.</li><li>El último número que digas es la suma. Devuelve todas las marcas al espacio junto al hueso, vuelve a poner las cartas boca abajo, mezcla las barajas y vuelve a jugar.</li></ol></p><p><b>Ejemplo:</b> si la baraja A muestra 3 y la baraja B muestra 4, coloca tres marcas diciendo 1, 2, 3, y luego cuatro más diciendo 4, 5, 6, 7. La suma es 7.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_credits",
+         "text": [
+            {
+               "text": "<p><h3>Créditos</h3><p>Figura 1: representación de un hueso de babuino con marcas, de Enrique Silván Pobes, del trabajo de Francisco A. González Redondo et al. (<htcite0> ; <htcite1>), incluida con la autorización del Doctor Francisco A. González Redondo. Esta versión imprimible forma parte de la sección Juegos de Mesa de History Tracers y se inspiró en la lección en línea <b>Contando con el hueso</b> (<htcite2>).</p></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "adaed4fb-9c50-4ef9-ab79-c65f3c0629b8",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "02",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7d2fd4de-5c10-4811-957c-8233bc8d21de",
+                     "text": "History Tracers Team",
+                     "page": "Counting with the bone",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_print_parts",
+         "text": [
+            {
+               "text": "<div class=\"htBoardPartsActions\"><p class=\"htBoardPrintBar\"><button type=\"button\" class=\"htBoardPrintButton\" onclick=\"htBoardPrintParts(); return false;\">Imprimir las piezas del juego (3 páginas)</button></p><p class=\"htBoardPartsNote\">La primera página es el hueso, la segunda página son las veinte marcas y la tercera página son las dos barajas de cartas.</p></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

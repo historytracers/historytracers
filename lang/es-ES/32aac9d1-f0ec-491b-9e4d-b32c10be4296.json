@@ -1,0 +1,155 @@
+{
+   "title": "Juegos de secuencia (Orden decimal)",
+   "header": "Juegos de secuencia (Orden decimal)",
+   "sources": [
+      "32aac9d1-f0ec-491b-9e4d-b32c10be4296"
+   ],
+   "scripts": [
+      "32aac9d1-f0ec-491b-9e4d-b32c10be4296"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/32aac9d1-f0ec-491b-9e4d-b32c10be4296_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5eNIzsE4EHjeyXfvbl5UHf?si=uByjKwoRQ1iz40tIXNOh_A",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps_volume2",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794358790"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><h3>Requisitos previos</h3>En este juego, emparejamos cada número con el nombre de su familia, usando la segunda columna de la Tabla 1 del texto <i>Nombrando</i>. Para aprovechar al máximo esta actividad, recomendamos revisar primero:</p><p><ul><li><b>Nombrando</b>: en este texto, la Tabla 1 presenta los nombres de las familias, desde Quintillón hasta Unidades y desde Décimos hasta Trillonésimos (<htcite0>).</li><li><b>Juego de secuencia (Órdenes)</b>: el juego cuyas mecánicas sigue este, emparejando números con los nombres de sus órdenes (<htcite1>).</li></ul></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3bcce27b-3a3a-4a20-b294-1b98f7f72728",
+                     "text": "History Tracers Team",
+                     "page": "Nombrando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "570ee074-46dd-46cb-8b19-9f5dbd57c02d",
+                     "text": "History Tracers Team",
+                     "page": "Juego de secuencia (Órdenes)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Reglas</h3>El objetivo del juego es emparejar cada número con el nombre de su familia, siguiendo la segunda columna de la Tabla 1 de <i>Nombrando</i>: Quintillón, Cuatrillón, Trillón, Billón, Millón, Mil, Unidades, Décimos, Centésimos, Milésimos, Millonésimos, Billonésimos y Trillonésimos. La familia de un número es el intervalo de valores al que pertenece: 4.000.000 pertenece a la familia Millón y 0,004 a la familia Milésimos. En cada ronda, a la izquierda aparecen seis números, cada uno perteneciente a una familia diferente, y a la derecha aparecen los nombres de esas mismas seis familias, en un orden diferente. Selecciona un número y después selecciona el nombre de su familia; si la pareja es correcta, ambos botones quedan resaltados y permanecen en su lugar. Si la pareja no es correcta, aparece una pista que indica la familia a la que pertenece el número o los valores que contiene la familia elegida, para que aprendas del error y puedas intentarlo de nuevo.</p><p>El juego tiene tres niveles. En el primer nivel, se sortean seis números al azar entre las siete familias de números enteros, desde Quintillón hasta Unidades. En el segundo nivel, tres de los números sorteados son enteros y tres son decimales entre cero y uno, mezclando familias de enteros como Millón con familias de decimales como Centésimos. En el tercer nivel, los seis números son decimales entre cero y uno: se sortea uno de cada una de las familias de Décimos, Centésimos, Milésimos, Millonésimos, Billonésimos y Trillonésimos.</p><p>Cuando emparejas las seis parejas de un nivel, se muestra un mensaje de felicitación y se activa el botón <b>Siguiente nivel</b>. Tras terminar el tercer nivel, se muestra un mensaje de felicitación final. Puedes empezar una nueva ronda en cualquier momento haciendo clic en el botón <b>Nuevo juego</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Juegos de secuencia (Orden decimal)</h3>Conecta cada número de la izquierda con el nombre de su familia a la derecha. Selecciona un número y después selecciona el nombre de esa familia para formar la pareja. Antes de elegir la familia, pregúntate si el número es un entero o un decimal: los enteros pertenecen a las familias de Unidades a Quintillón, mientras que los decimales entre cero y uno pertenecen a las familias de Décimos a Trillonésimos. Para encontrar la familia rápidamente, agrupa las cifras de un número entero de tres en tres, empezando por la derecha (un grupo significa Unidades, dos significan Mil, tres Millón, cuatro Billón, cinco Trillón, seis Cuatrillón, siete Quintillón) o cuenta las cifras después de la coma (una significa Décimos, dos significan Centésimos, tres Milésimos, seis Millonésimos, nueve Billonésimos, doce Trillonésimos).</p><p><i>Nota: este juego usa la escala corta estadounidense, en la que «Billón» equivale a 10<sup>9</sup>; en España, «billón» equivale a 10<sup>12</sup>.</i></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><span id=\"orderFamLevel\" class=\"htGreaterSmallerLevel\"></span><div id=\"orderFamGame\" class=\"orderGame\"><div class=\"orderGameCol\" id=\"orderFamLeftCol\"></div><div class=\"orderGameCol\" id=\"orderFamRightCol\"></div></div></p><p id=\"orderFamFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"orderFamCongrats\" class=\"orderCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> ¡PERFECTO! ¡Has emparejado todos los números con los nombres de sus familias!</p><div class=\"htGreaterSmallerNextContainer\"><button type=\"button\" id=\"orderFamNextBtn\" class=\"reset-tutor-btn hidden\">Siguiente nivel</button><button type=\"button\" id=\"orderFamResetBtn\" class=\"reset-tutor-btn\">🎲 Nuevo juego</button></div><div id=\"orderFamNames\" style=\"display: none;\"><span id=\"htOrderFamName0\">Quintillón</span><span id=\"htOrderFamName1\">Cuatrillón</span><span id=\"htOrderFamName2\">Trillón</span><span id=\"htOrderFamName3\">Billón</span><span id=\"htOrderFamName4\">Millón</span><span id=\"htOrderFamName5\">Mil</span><span id=\"htOrderFamName6\">Unidades</span><span id=\"htOrderFamName7\">Décimos</span><span id=\"htOrderFamName8\">Centésimos</span><span id=\"htOrderFamName9\">Milésimos</span><span id=\"htOrderFamName10\">Millonésimos</span><span id=\"htOrderFamName11\">Billonésimos</span><span id=\"htOrderFamName12\">Trillonésimos</span></div><div id=\"orderFamNumberDescs\" style=\"display: none;\"><span id=\"htOrderFamNumberDesc0\">pertenece a la familia Quintillón, con valores entre 1.000.000.000.000.000.000 y 9.900.000.000.000.000.000</span><span id=\"htOrderFamNumberDesc1\">pertenece a la familia Cuatrillón, con valores entre 1.000.000.000.000.000 y 9.900.000.000.000.000</span><span id=\"htOrderFamNumberDesc2\">pertenece a la familia Trillón, con valores entre 1.000.000.000.000 y 9.999.999.999.999</span><span id=\"htOrderFamNumberDesc3\">pertenece a la familia Billón, con valores entre 1.000.000.000 y 9.999.999.999</span><span id=\"htOrderFamNumberDesc4\">pertenece a la familia Millón, con valores entre 1.000.000 y 9.999.999</span><span id=\"htOrderFamNumberDesc5\">pertenece a la familia Mil, con valores entre 1.000 y 9.999</span><span id=\"htOrderFamNumberDesc6\">pertenece a la familia Unidades, con valores entre 1 y 9</span><span id=\"htOrderFamNumberDesc7\">pertenece a la familia Décimos, con valores entre 0,1 y 0,9</span><span id=\"htOrderFamNumberDesc8\">pertenece a la familia Centésimos, con valores entre 0,01 y 0,09</span><span id=\"htOrderFamNumberDesc9\">pertenece a la familia Milésimos, con valores entre 0,001 y 0,009</span><span id=\"htOrderFamNumberDesc10\">pertenece a la familia Millonésimos, con valores entre 0,000001 y 0,000009</span><span id=\"htOrderFamNumberDesc11\">pertenece a la familia Billonésimos, con valores entre 0,000000001 y 0,000000009</span><span id=\"htOrderFamNumberDesc12\">pertenece a la familia Trillonésimos, con valores entre 0,000000000001 y 0,000000000009</span></div><div id=\"orderFamNameDescs\" style=\"display: none;\"><span id=\"htOrderFamNameDesc0\">Los números de la familia Quintillón están entre 1.000.000.000.000.000.000 y 9.900.000.000.000.000.000</span><span id=\"htOrderFamNameDesc1\">Los números de la familia Cuatrillón están entre 1.000.000.000.000.000 y 9.900.000.000.000.000</span><span id=\"htOrderFamNameDesc2\">Los números de la familia Trillón están entre 1.000.000.000.000 y 9.999.999.999.999</span><span id=\"htOrderFamNameDesc3\">Los números de la familia Billón están entre 1.000.000.000 y 9.999.999.999</span><span id=\"htOrderFamNameDesc4\">Los números de la familia Millón están entre 1.000.000 y 9.999.999</span><span id=\"htOrderFamNameDesc5\">Los números de la familia Mil están entre 1.000 y 9.999</span><span id=\"htOrderFamNameDesc6\">Los números de la familia Unidades están entre 1 y 9</span><span id=\"htOrderFamNameDesc7\">Los números de la familia Décimos están entre 0,1 y 0,9</span><span id=\"htOrderFamNameDesc8\">Los números de la familia Centésimos están entre 0,01 y 0,09</span><span id=\"htOrderFamNameDesc9\">Los números de la familia Milésimos están entre 0,001 y 0,009</span><span id=\"htOrderFamNameDesc10\">Los números de la familia Millonésimos están entre 0,000001 y 0,000009</span><span id=\"htOrderFamNameDesc11\">Los números de la familia Billonésimos están entre 0,000000001 y 0,000000009</span><span id=\"htOrderFamNameDesc12\">Los números de la familia Trillonésimos están entre 0,000000000001 y 0,000000000009</span></div><div id=\"orderFamMsgs\" style=\"display: none;\"><span id=\"orderFamLevelTemplate\">Nivel {n} de 3</span><span id=\"orderFamMsgFinal\">🎉 ¡Felicitaciones! ¡Completaste los tres niveles! 🎉</span><span id=\"orderFamNextLabel\">Siguiente nivel</span><span id=\"orderFamPlayAgain\">Jugar de nuevo</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Los nombres de las familias provienen de la Tabla 1 de <i>Nombrando</i> (<htcite0>), y las mecánicas de emparejamiento siguen al <i>Juego de secuencia (Órdenes)</i> (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3bcce27b-3a3a-4a20-b294-1b98f7f72728",
+                     "text": "History Tracers Team",
+                     "page": "Nombrando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "570ee074-46dd-46cb-8b19-9f5dbd57c02d",
+                     "text": "History Tracers Team",
+                     "page": "Juego de secuencia (Órdenes)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

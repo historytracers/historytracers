@@ -3,6 +3,7 @@ package main
 
 import (
 	"crypto/rand"
+	"crypto/sha256"
 	"encoding/csv"
 	"encoding/gob"
 	"encoding/hex"
@@ -74,10 +75,16 @@ var (
 )
 
 type optionsData struct {
-	Lang            string `json:"lang"`
-	Cal             string `json:"cal"`
-	Recreio         string `json:"recreio"`
-	Font            string `json:"font"`
+	Lang    string `json:"lang"`
+	Cal     string `json:"cal"`
+	Recreio string `json:"recreio"`
+	Font    string `json:"font"`
+	// MtObj is the index of the latest drawing object (see
+	// htMultiplicationTableObjects in src/js/ht_math.js) chosen in a
+	// times-table page. It is stored server-side, like language and
+	// calendar, because browser storage does not necessarily survive a
+	// viewer restart.
+	MtObj           string `json:"mtobj"`
 	Port            string `json:"port"`
 	Home            string `json:"home"`
 	TLSCert         string `json:"tls_cert"`
@@ -127,6 +134,15 @@ var validFonts = map[string]bool{
 	"small":   true,
 	"default": true,
 	"large":   true,
+}
+
+// validMtObjs mirrors the size of htMultiplicationTableObjects in
+// src/js/ht_math.js: one entry per drawing-object selector option.
+var validMtObjs = map[string]bool{
+	"0": true, "1": true, "2": true, "3": true, "4": true,
+	"5": true, "6": true, "7": true, "8": true, "9": true,
+	"10": true, "11": true, "12": true, "13": true, "14": true,
+	"15": true, "16": true, "17": true, "18": true, "19": true,
 }
 
 // jsString encodes s as a JSON double-quoted string literal safe for
@@ -677,6 +693,9 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		if v := r.FormValue("font"); v != "" && validFonts[v] {
 			data.Font = v
 		}
+		if v := r.FormValue("mtobj"); v != "" && validMtObjs[v] {
+			data.MtObj = v
+		}
 		if v := r.FormValue("port"); v != "" {
 			if p, err := strconv.Atoi(v); err == nil && p >= 1 && p <= 65535 {
 				data.Port = v
@@ -938,6 +957,9 @@ func validateOptions(data *optionsData) {
 	if !validFonts[data.Font] {
 		data.Font = ""
 	}
+	if !validMtObjs[data.MtObj] {
+		data.MtObj = ""
+	}
 	if data.Port != "" {
 		if p, err := strconv.Atoi(data.Port); err != nil || p < 1 || p > 65535 {
 			data.Port = ""
@@ -1031,7 +1053,7 @@ func allowedPage(name string) bool {
 		"license", "contact", "physics", "philosophy", "historical_events",
 		"biology", "chemistry", "history", "families", "myths_believes",
 		"first_steps_menu", "first_steps", "first_steps_volume2", "shapes",
-		"indigenous_who", "indigenous_time", "math_games", "release",
+		"indigenous_who", "indigenous_time", "math_games", "board_game", "release",
 		"literature", "atlas", "gallery", "tree", "class_content":
 		return true
 	}
@@ -1860,6 +1882,9 @@ func main() {
 		pageURL = buildPageURL(addr, "", *lang, *cal, *font)
 	}
 
+	// Bust the webview cache when the content changes (see addContentVersion).
+	pageURL = addContentVersion(pageURL, contentVersion(contentDir))
+
 	if *lang != "" && !validLangs[*lang] {
 		*lang = ""
 	}
@@ -1880,6 +1905,11 @@ func main() {
 		fontJS := "window.__ht_font=" + jsString(*font) + ";"
 		welcomePage = fontJS + welcomePage
 		addressBarJS = fontJS + addressBarJS
+	}
+	if savedOptions.MtObj != "" && validMtObjs[savedOptions.MtObj] {
+		mtobjJS := "window.__ht_mtobj=" + jsString(savedOptions.MtObj) + ";"
+		welcomePage = mtobjJS + welcomePage
+		addressBarJS = mtobjJS + addressBarJS
 	}
 	if savedOptions.Home != "" {
 		safeHome := sanitizeLabelPath(savedOptions.Home)
@@ -1933,7 +1963,7 @@ func main() {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		http.ServeFile(w, r, filepath.Join(contentDir, clean))
 	}))
-	mux.Handle("/", metricsMiddleware(logMiddleware(http.FileServer(projectFS{}))))
+	mux.Handle("/", metricsMiddleware(logMiddleware(cacheControlMiddleware(http.FileServer(projectFS{})))))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
 
@@ -1982,6 +2012,43 @@ func buildPageURL(addr, class, lang, cal, font string) string {
 	return u
 }
 
+// contentVersion fingerprints the served content. The generated index.html
+// embeds the cache-busting stamps of every asset (?v=...), so hashing it gives
+// a value that changes whenever the content is rebuilt or updated.
+func contentVersion(dir string) string {
+	if dir == "" {
+		return ""
+	}
+	b, err := os.ReadFile(filepath.Join(dir, "index.html"))
+	if err != nil {
+		return ""
+	}
+	sum := sha256.Sum256(b)
+	return hex.EncodeToString(sum[:])[:12]
+}
+
+// addContentVersion adds or updates v=<version> in the initial page URL. The
+// webview keeps an HTTP cache between runs, and index.html itself is requested
+// without a query string, so without this the cache could keep serving the
+// previous build's HTML (and therefore the previous build's JS) after an
+// update. That leaves bugs fixed in the content still visible only in the
+// viewer, while a normal browser revalidates the website. The parameter is
+// ignored by the page and is removed from the URL by its first
+// history.replaceState call.
+func addContentVersion(pageURL, version string) string {
+	if version == "" {
+		return pageURL
+	}
+	u, err := url.Parse(pageURL)
+	if err != nil {
+		return pageURL
+	}
+	q := u.Query()
+	q.Set("v", version)
+	u.RawQuery = q.Encode()
+	return u.String()
+}
+
 func resolveAddr(port int) string {
 	if port >= 1 && port <= 65535 {
 		l, err := net.Listen("tcp", fmt.Sprintf("127.0.0.1:%d", port))
@@ -2014,6 +2081,28 @@ func (w *statusWriter) WriteHeader(code int) {
 		w.wroteHeader = true
 	}
 	w.ResponseWriter.WriteHeader(code)
+}
+
+// cacheControlMiddleware marks page assets as revalidatable on every use.
+// The viewer ships new content with each release; without an explicit cache
+// directive a webview may keep running a stale index.html / ht_*.js from its
+// previous run (a normal browser accessing the website always revalidates),
+// which makes a fixed bug appear only in the viewer. Images, fonts and audio
+// keep the default caching because their file names change when they change.
+func cacheControlMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		ext := strings.ToLower(path.Ext(r.URL.Path))
+		// http.FileServer serves index.html for the root and redirects
+		// /index.html there, so treat "/" as an HTML response.
+		if r.URL.Path == "/" {
+			ext = ".html"
+		}
+		switch ext {
+		case ".html", ".js", ".css", ".json", ".md", ".xml", ".txt":
+			w.Header().Set("Cache-Control", "no-cache")
+		}
+		next.ServeHTTP(w, r)
+	})
 }
 
 func logMiddleware(next http.Handler) http.Handler {

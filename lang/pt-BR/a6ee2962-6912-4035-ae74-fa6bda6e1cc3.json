@@ -12,24 +12,32 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_pt-BR.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1E8401SC9eKqxv3fTmDzm7?si=u5oQJJarSBS2UuYrpCcllg",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
       "atlas",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504857"
+      "1794856239"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -47,13 +55,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nRecomendamos ler o texto anterior primeiro para melhorar a compreensão (<htcite0>).",
+               "text": "### Pré-requisitos\n\nAntes de começar, recomendamos ler primeiro o texto anterior: ele vai ajudar você a entender melhor este (<htcite0>).",
                "source": [
                   {
                      "type": 1,
                      "uuid": "6aa893ae-6dea-4e17-8180-6d3304b0ff2a",
                      "text": "History Tracers Atlas",
-                     "page": "An interdisciplinary study",
+                     "page": "Atlas, an interdisciplinar discipline",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -96,7 +104,7 @@
                "PostMention": ""
             },
             {
-               "text": "### A origem do universo\n\nA imagem desta seção representa nosso entendimento da história do universo conforme o modelo Lambda-CDM (<htcite0>).\n\n#### Nossas explicações iniciais\n\nA origem do universo é algo que a humanidade vem tentando explicar há milênios.\n\nDiversos modelos foram criados pelos seres humanos para explicar a criação do “céu” e da Terra, muitos deles com foco na humanidade — ou seja, eram antropocêntricos (<htcite1>):\n- Por volta de <htdate0>, os babilônios descreveram a criação dos humanos no **Épico de Atrahasis**. Além disso, narraram uma grande punição divina através de um dilúvio, do qual apenas Atrahasis sobreviveu (<htcite2>; <htcite3>; <htcite4>; <htcite5>).\n- Embora o **Popol Vuh** tenha sido escrito na Mesoamérica (*Abya Yala*) entre <htdate1> e <htdate2> (<htcite6>), é possível encontrar murais em El Mirador e Izapa, datados de cerca de <htdate3>, que demonstram que as crenças relatadas no *Popol Vuh* já estavam presentes na região muito antes de sua redação (<htcite7>).\n\nApesar de a humanidade ter criado outros épicos — alguns influenciados por esses — (<htcite8>; <htcite9>), nos limitaremos a esses dois neste Atlas.",
+               "text": "### A origem do universo\n\nA imagem desta seção mostra como os cientistas descrevem a história do universo. Ela segue o **modelo Lambda-CDM**, o modelo usado pela maioria dos cientistas hoje (<htcite0>).\n\n#### Nossas primeiras explicações\n\nAs pessoas tentam explicar a origem do universo há milhares de anos.\n\nMuito antes de existirem os telescópios, muitas culturas contaram histórias de como o céu e a Terra foram criados. Quase todas colocavam os seres humanos no centro — ou seja, eram **antropocêntricas** (<htcite1>):\n- Por volta de <htdate0>, os babilônios descreveram a criação dos seres humanos no **Épico de Atrahasis**. Eles também narraram um grande dilúvio enviado como castigo, do qual sobreviveram Atrahasis, a sua esposa e os animais que ele levou consigo (<htcite2>; <htcite3>; <htcite4>; <htcite5>).\n- O **Popol Vuh** foi escrito na Mesoamérica (*Abya Yala*) entre <htdate1> e <htdate2> (<htcite6>). Ainda assim, há murais em El Mirador e Izapa, com data por volta de <htdate3>, que mostram que as crenças do Popol Vuh já existiam na região muito antes de o livro ser escrito (<htcite7>).\n\nA humanidade também criou outros épicos — alguns influenciados por estes dois — (<htcite8>; <htcite9>), mas neste Atlas vamos focar nestes dois.",
                "source": [
                   {
                      "type": 1,
@@ -209,7 +217,7 @@
                   {
                      "type": 1,
                      "uuid": "68b1c90d-f604-4bc8-8010-a01620eeca54",
-                     "text": "",
+                     "text": "Finkelstein, Israel & Silbeman, Neil A.",
                      "page": "pp. 11 - 13",
                      "date_time": {
                         "type": "gregory",
@@ -251,7 +259,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: sobre textos e dados</b><br /><br />As descrições de um universo criado para o ser humano contrastam com as medições realizadas em diferentes áreas da ciência.<br /><br />Mas isso significa que os épicos antigos estão errados?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: textos e dados</b><br /><br />Algumas histórias antigas dizem que o universo foi feito para os seres humanos. As medições científicas às vezes contam outra história.<br /><br />Isso significa que os épicos antigos estão errados?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -260,7 +268,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Literatura e ciências\n\nExiste muita confusão quando se afirma que a literatura (épicos e poemas) não poderia estar relacionada às ciências.\n\nEsse equívoco é ampliado pelo fato de que textos literários são, muitas vezes, classificados de forma imprecisa.\n\nPara auxiliar no entendimento desses temas, o History Tracers está desenvolvendo a seção *Interpretação de Textos* (<htcite0>), onde abordamos mais profundamente a relação entre ciências e literatura (<htcite1>), explorando, entre outros aspectos, os limites entre poemas e fatos (<htcite2>).\n\nQuando nos limitamos a classificar algo como “certo” ou “errado”, muitas vezes apenas omitimos a complexidade dos textos em busca de conforto ou simplificação (<htcite3>; <htcite4>; <htcite5>). Uma análise profunda de dados científicos e literários pode revelar que ambos estão corretos dentro de seus respectivos contextos.",
+               "text": "#### Literatura e ciências\n\nUm poema ou um épico pode nos ensinar algo sobre a ciência?\n\nAlgumas pessoas dizem que a literatura (épicos e poemas) e a ciência não têm nada a ver uma com a outra. Isso não é totalmente verdade. Os textos literários muitas vezes são rotulados rápido demais, e isso piora a confusão.\n\nPara ajudar você a enxergar isso melhor, o History Tracers está criando a seção *Interpretação de Textos* (<htcite0>). Lá estudamos de perto a relação entre a ciência e a literatura (<htcite1>), incluindo a fronteira entre o poema e o fato (<htcite2>).\n\nQuando classificamos algo rápido demais como “certo” ou “errado”, costumamos deixar de lado a complexidade dos textos (<htcite3>; <htcite4>; <htcite5>). Se analisarmos com cuidado os dados científicos e as obras literárias, vemos que ambos podem estar certos, cada um em seu próprio contexto.",
                "source": [
                   {
                      "type": 1,
@@ -342,7 +350,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### O que realmente sabemos?\n\nA evolução do conhecimento sobre a estrutura do universo é relativamente recente, com grandes avanços ocorrendo a partir do século XX (<htcite0>), conforme o calendário gregoriano.\n\nEntre as várias descobertas que ampliaram nossa compreensão do cosmos, duas se destacam por nos ajudar a entender como o planeta em que vivemos foi formado:\n- A descoberta de Edwin Hubble, de que o universo está se expandindo (<htcite1>);\n- A descoberta da Radiação Cósmica de Fundo, a informação mais antiga já medida do universo (<htcite2>).\n\nEssas informações estão representadas na imagem acima e serão explicadas em maior detalhe nos próximos textos desta seção do *Atlas*.",
+               "text": "#### O que realmente sabemos?\n\nNosso conhecimento sobre o universo é bem recente. As descobertas mais importantes aconteceram no século XX (<htcite0>), segundo o calendário gregoriano.\n\nDuas descobertas ajudaram especialmente a entender como o planeta em que vivemos se formou:\n- Edwin Hubble descobriu que o universo está se expandindo (<htcite1>);\n- Os cientistas descobriram a Radiação Cósmica de Fondo: a informação mais antiga sobre o universo que já medimos (<htcite2>).\n\nVocê pode ver as duas descobertas na imagem acima. Os próximos textos desta seção do *Atlas* vão explicá-las em detalhe.",
                "source": [
                   {
                      "type": 1,

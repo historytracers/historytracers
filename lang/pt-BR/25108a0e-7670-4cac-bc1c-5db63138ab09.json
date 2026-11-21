@@ -24,14 +24,15 @@
       "shapes",
       "math_games",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504858"
+      "1794685202"
    ],
    "authors": [
       ""
@@ -45,7 +46,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Pré-requisitos\n\nRecomendamos ler o texto anterior primeiro para melhorar a compreensão (<htcite0>).",
+               "text": "### Pré-requisitos\n\nRecomendamos ler primeiro o texto anterior para seguir esta lição com mais facilidade (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -81,7 +82,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Nossa posição\n\n#### Introdução\n\nConsiderando que a tangente, como explicado anteriormente, representa um ponto na superfície (<htcite0>), isso nos leva a uma reflexão inicial:",
+               "text": "### Nossa posição\n\n#### Introdução\n\nNo texto anterior vimos que estar tangenciando o planeta é apenas uma aproximação — uma tangente verdadeira tocaria o chão em um único ponto (<htcite0>). Essa observação nos leva a uma reflexão inicial:",
                "source": [
                   {
                      "type": 1,
@@ -103,7 +104,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Se e somente se...</b><br /><br />Como vimos, o fato de que tangenciamos o planeta é uma aproximação; logo, vamos esclarecer isso melhor.<br /><br />Olhe para si mesmo. Em qual posição você poderia representar melhor um ponto tocando o planeta?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Se e somente se fôssemos um ponto...</b><br /><br />Como vimos, “estar tangenciando o planeta” é apenas uma aproximação. Vamos precisar melhor essa ideia.<br /><br />Olhe para você mesmo. Em qual posição do corpo você chegaria mais perto de um único ponto tocando o chão?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -112,7 +113,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Crescendo o conhecimento\n\nSabemos, a partir de textos anteriores, que a definição da tangente (**Fórmula 1**) é dada pelo seno e pelo cosseno (<htcite0>):",
+               "text": "#### Sobre o que já sabemos\n\nDe textos anteriores sabemos que a tangente (**Fórmula 1**) se define a partir do seno e do cosseno (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -134,7 +135,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>tan (θ)</mi><mn>=</mn><mfrac><mi>sen(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 1</b>: Definição da tangente de acordo com funções trigonométricas.</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>tan (θ)</mi><mn>=</mn><mfrac><mi>sen(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 1</b>: Definição da tangente em termos do seno e do cosseno.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -143,13 +144,13 @@
                "PostMention": ""
             },
             {
-               "text": "Além disso, também já estudamos os gráficos das funções seno e cosseno em outro texto, no qual vimos que, à medida que o valor do cosseno diminui, o do seno aumenta (<htcite0>):",
+               "text": "Também estudamos os gráficos do seno e do cosseno em outro texto. No primeiro quadrante, à medida que o cosseno diminui, o seno aumenta (<htcite0>):",
                "source": [
                   {
                      "type": 1,
                      "uuid": "1cc3be4f-110f-40eb-b281-d01378aae23f",
                      "text": "History Tracers Team",
-                     "page": "Caminhando sobre o círculo",
+                     "page": "Caminhando sobre o disco",
                      "date_time": {
                         "type": "gregory",
                         "year": "2026",
@@ -187,7 +188,7 @@
                "PostMention": ""
             },
             {
-               "text": "Finalmente, lembramos que também já estudamos que não é possível dividir por zero, mas que, por meio de limites, podemos entender um valor a ser obtido a partir das quantidades com as quais estamos trabalhando (<htcite0>; <htcite1>).\n\nCom essas informações, podemos fazer o gráfico da função tangente.",
+               "text": "Por fim, recordemos que não se pode dividir por zero — ainda que, com limites, possamos descrever o valor ao qual um resultado se aproxima quando seus dados mudam (<htcite0>; <htcite1>).\n\nCom essas ideias, podemos desenhar o gráfico da função tangente.",
                "source": [
                   {
                      "type": 1,
@@ -221,7 +222,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Entendendo o gráfico\n\nO resultado de nosso gráfico da tangente será dado pela **Fórmula 1**, ou seja, será dado pela divisão do seno de teta (θ) pelo cosseno de teta (θ), com o valor do ângulo teta (θ) sendo igual para ambas as funções trigonométricas. Observando o **Gráfico 2** que mostra os valores do seno e do cosseno para ângulos iguais, podemos concluir:\n- Quando o cosseno tiver valor zero, não haverá valor definido. Logo, este é um cenário em que utilizaremos limites para entender para qual valor os resultados vão se aproximando à medida que o cosseno se aproxima de zero;\n- Como visto em outro texto do History Tracers, entre 0 e 1 há infinitos números (<htcite0>). Dessa forma, quando o valor do cosseno de teta (θ) for igual a 1, então o valor da tangente será igual ao valor do seno. Por exemplo, o valor do cosseno é igual a 1 quando o seno é igual a 0; logo, a tangente será igual a 0;\n- Por outro lado, à medida que o valor do cosseno de teta for diminuindo em direção a zero, o valor da tangente irá aumentando; dessa forma, o valor tenderá ao infinito não se limitando a valores entre 0 e 1.\n\nPara melhor entender o que descrevemos, veja o **Gráfico 3**:",
+               "text": "#### Entendendo o gráfico\n\nEm cada ângulo θ, o gráfico da tangente segue a **Fórmula 1**: tan(θ) = sen(θ) / cos(θ), com o mesmo ângulo em ambas as funções. Olhando o **Gráfico 2**, que traça seno e cosseno no primeiro quadrante, podemos concluir:\n- Se o cosseno for 0, o quociente não tem valor definido. Ali usamos limites para descrever a que valor os resultados se aproximam quando o cosseno se aproxima de 0;\n- Como nota outro texto do History Tracers, entre 0 e 1 há infinitos números (<htcite0>). Em particular, quando cos(θ) = 1, tan(θ) é igual a sen(θ). Com θ = 0° temos cos(θ) = 1 e sen(θ) = 0, logo tan(θ) = 0;\n- À medida que cos(θ) diminui em direção a 0, tan(θ) cresce sem limite — não permanece entre 0 e 1.\n\nPara ver isso em uma imagem, olhe o **Gráfico 3**:",
                "source": [
                   {
                      "type": 1,
@@ -265,7 +266,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### De um gráfico para outro\n\nA partir do **Gráfico 3**, também podemos entender o que ocorre com a tangente de teta (θ) no **Gráfico 1**. Primeiramente, iremos deslocar o ponto **P** em direção ao eixo **x**:",
+               "text": "#### De um gráfico para outro\n\nO **Gráfico 3** também nos ajuda a interpretar o que acontece com tan(θ) no **Gráfico 1**. Primeiro, deslocamos o ponto **P** em direção ao eixo **x**:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -283,7 +284,7 @@
                "PostMention": ""
             },
             {
-               "text": "Ao fazermos o ajuste no **Gráfico 1**, gerando o **Gráfico 4**, podemos observar que o seno não está mais visível quando o ângulo teta (θ) atinge o valor zero. Também podemos observar a inexistência de triângulos, apesar de nossa hipotenusa original e do cosseno de teta (θ) ainda serem mostrados com o valor máximo esperado para eles, o comprimento 1.\n\nUm exemplo para os valores intermediários está disponível no **Gráfico 1**, onde os dois triângulos estão à mostra. Neste gráfico, gostaríamos de destacar um ponto relevante: apesar de a hipotenusa ser uma linha reta a partir da origem, o valor da tangente, como pode ser observado no **Gráfico 3**, não é linear.\n\nFinalmente, vamos redesenhar o **Gráfico 1** para alguns valores próximos do extremo mostrado no **Gráfico 2**.",
+               "text": "Após esse ajuste obtemos o **Gráfico 4**. Quando θ se aproxima de 0, o segmento do seno desaparece (seu comprimento tende a 0). Os triângulos colapsam, mas a hipotenusa original e cos(θ) permanecem com seu comprimento máximo, 1.\n\nO **Gráfico 1** mostra um caso intermediário em que os dois triângulos ainda aparecem. Ali convém destacar um ponto: embora a hipotenusa seja uma reta a partir da origem, tan(θ) — véja o **Gráfico 3** — não cresce de forma linear.\n\nPor fim, vamos redesenhar o **Gráfico 1** para valores próximos do outro extremo que sugere o **Gráfico 2**:",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -301,7 +302,7 @@
                "PostMention": ""
             },
             {
-               "text": "O **Gráfico 5** nos mostra que não há cosseno de teta (θ) definido quando a hipotenusa está completamente na vertical. Além disso, como já havíamos mencionado, não há definição para a tangente de teta (θ), que não é exposta neste gráfico; no entanto, mostramos sua trajetória tendendo ao infinito no eixo **x** (<htcite0>).",
+               "text": "O **Gráfico 5** mostra o que acontece quando a hipotenusa está completamente na vertical (θ = 90°). Nesse ângulo o cosseno cai a 0 — seu segmento deixa de aparecer —, enquanto o seno atinge seu máximo, 1. A tangente, porém, não está definida ali, porque tan(θ) exigiria dividir por 0. O gráfico marca esse valor ausente e mostra a tangente indo ao infinito pelo eixo **x** (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -323,7 +324,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Praticando\n\nAgora é hora de praticar o que acabamos de aprender. No **Gráfico 4**, o raio estava para a direita, onde o seno de teta (θ) é igual a 0 e o cosseno de teta (θ) tem seu maior valor, 1. Nesse cenário, a tangente de teta (θ) também é igual a 0, pois é dada pela divisão do seno pelo cosseno (**Fórmula 1**). Essa é exatamente a posição inicial da aplicação interativa do **Gráfico 6**.\n\nClique no gráfico para mover o raio dentro do primeiro quadrante. Observe como mudam o triângulo retângulo e o ângulo teta (θ): à medida que o raio se afasta da horizontal, o seno de teta (θ) começa a crescer enquanto o cosseno de teta (θ) se reduz, e a tangente de teta (θ) cresce, tal como previmos com o **Gráfico 2** e observamos no **Gráfico 3** e no **Gráfico 5**. Mova o raio para diferentes posições e tente antecipar os valores do seno, do cosseno e da tangente antes de lê-los no painel abaixo do gráfico.",
+               "text": "#### Praticando\n\nAgora pratiquemos o que acabamos de aprender. No **Gráfico 4**, o raio apontava para a direita: sen(θ) = 0 e cos(θ) tinha seu maior valor, 1. Ali tan(θ) = 0 também, porque tan = sen / cos (**Fórmula 1**). Essa é exatamente a posição inicial da aplicação interativa do **Gráfico 6**.\n\nClique no gráfico para mover o raio pelo primeiro quadrante. Observe como mudam o triângulo retângulo e θ: quando o raio se eleva da horizontal, sen(θ) cresce, cos(θ) diminui e tan(θ) cresce — tal como previu o **Gráfico 2** e mostraram o **Gráfico 3** e o **Gráfico 5**. Experimente várias posições e tente adivinhar sen, cos e tan antes de lê-los no painel de baixo.",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -332,7 +333,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"tanPracticeInstruction\" style=\"text-align:center;\">Clique no gráfico para mover o raio no primeiro quadrante. Observe como o seno cresce enquanto o cosseno se reduz e a tangente cresce.</p> <div class=\"atlasCircleContainer\"><div id=\"tanpractice2510\"></div></div> <p class=\"desc\"><b>Gráfico 6</b>: Prática interativa: movendo o raio no primeiro quadrante, o seno cresce enquanto o cosseno se reduz e a tangente cresce.</p>",
+               "text": "<p class=\"tanPracticeInstruction\" style=\"text-align:center;\">Clique no gráfico para mover o raio no primeiro quadrante. Observe o seno crescer, o cosseno diminuir e a tangente crescer.</p> <div class=\"atlasCircleContainer\"><div id=\"tanpractice2510\"></div></div> <p class=\"desc\"><b>Gráfico 6</b>: Prática interativa — ao mover o raio pelo primeiro quadrante, o seno cresce, o cosseno diminui e a tangente cresce.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -341,7 +342,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Saindo pela tangente</b><br /><br />Ao olhar os gráficos deste texto, eles ajudam você a entender o que significa a expressão “sair pela tangente”?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Saindo pela tangente</b><br /><br />Ao olhar os gráficos deste texto, eles ajudam você a entender a expressão “sair pela tangente”?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -350,7 +351,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Pontuando na vertical\n\nVoltando à nossa reflexão inicial, com o conhecimento adquirido neste texto e no anterior (<htcite0>), podemos concluir que estamos mais próximos de tangenciar o planeta quando estamos de pé, pois, nesse caso, reduzimos nossa área de contato com o planeta, aproximando-nos de um ponto.",
+               "text": "#### Apontando na vertical\n\nVoltando à reflexão inicial, com o que aprendemos aqui e no texto anterior (<htcite0>), concluímos que nos aproximamos mais de estar tangenciando o planeta quando estamos de pé: em pé reduzimos a área de contato com o chão e nos aproximamos de um único ponto.",
                "source": [
                   {
                      "type": 1,

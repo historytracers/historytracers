@@ -12,24 +12,32 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0PNiTXfQYhRiLYdbrx4DFe?si=LwW_TMP8SRqLkPXPZIQ-CQ",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
       "atlas",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504806"
+      "1794856176"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -47,13 +55,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nBefore you begin, we recommend reading the previous text first — it will help you understand this one better (<htcite0>).",
                "source": [
                   {
                      "type": 1,
                      "uuid": "6aa893ae-6dea-4e17-8180-6d3304b0ff2a",
                      "text": "History Tracers Atlas",
-                     "page": "An interdisciplinary study",
+                     "page": "Atlas, an interdisciplinar discipline",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -74,7 +82,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgPlanckHistory\" onclick=\"htImageZoom('imgPlanckHistory', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: History of the universe according to the |Lambda-CDM model (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgPlanckHistory\" onclick=\"htImageZoom('imgPlanckHistory', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: History of the universe according to the Lambda-CDM model (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -96,7 +104,7 @@
                "PostMention": ""
             },
             {
-               "text": "### The Origin of the Universe\n\nThe image in this section represents our understanding of the history of the universe according to the Lambda-CDM model (<htcite0>).\n\n#### Our Initial Explanations\n\nThe origin of the universe is something that humanity has been trying to explain for millennia.\n\nVarious models have been created by human beings to explain the creation of the “sky” and the Earth, many of which were centered on humanity — that is, they were anthropocentric (<htcite1>):\n- Around <htdate0>, the Babylonians described the creation of humankind in the **Epic of Atrahasis**. They also narrated a great divine punishment through a flood, from which only Atrahasis survived (<htcite2>; <htcite3>; <htcite4>; <htcite5>).\n- Although the **Popol Vuh** was written in Mesoamerica (*Abya Yala*) between <htdate1> and <htdate2> (<htcite6>), murals found in El Mirador and Izapa, dated to around <htdate3>, show that the beliefs recorded in the Popol Vuh already existed in the region long before it was written (<htcite7>).\n\nAlthough humanity created other epic texts — some influenced by these — (<htcite8>; <htcite9>), we will limit ourselves to these two in this Atlas.",
+               "text": "### The Origin of the Universe\n\nThe image in this section shows how scientists describe the history of the universe. It follows the **Lambda-CDM model**, the model used by most scientists today (<htcite0>).\n\n#### Our first explanations\n\nPeople have been trying to explain the origin of the universe for thousands of years.\n\nLong before telescopes existed, many cultures told stories about how the sky and the Earth were created. Most of these stories put people at the center — that is, they were **anthropocentric** (<htcite1>):\n- Around <htdate0>, the Babylonians described how human beings were created in the **Epic of Atrahasis**. They also told of a great flood sent as a punishment, from which Atrahasis survived, together with his wife and the animals he took with him (<htcite2>; <htcite3>; <htcite4>; <htcite5>).\n- The **Popol Vuh** was written in Mesoamerica (*Abya Yala*) between <htdate1> and <htdate2> (<htcite6>). Yet murals in El Mirador and Izapa, dated to about <htdate3>, show that the beliefs told in the Popol Vuh already existed in the region long before the book was written (<htcite7>).\n\nHumanity created other epic stories too — some of them influenced by these two (<htcite8>; <htcite9>) — but in this Atlas we will focus on these two.",
                "source": [
                   {
                      "type": 1,
@@ -209,7 +217,7 @@
                   {
                      "type": 1,
                      "uuid": "68b1c90d-f604-4bc8-8010-a01620eeca54",
-                     "text": "",
+                     "text": "Finkelstein, Israel & Silbeman, Neil A.",
                      "page": "pp. 11 - 13",
                      "date_time": {
                         "type": "gregory",
@@ -251,7 +259,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: On Texts and Data</b><br /><br />Descriptions of a universe created for humankind contrast with measurements made in different fields of science.<br /><br />Does that mean ancient epics are wrong?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Texts and data</b><br /><br />Some old stories say that the universe was made for people. Scientific measurements sometimes tell a different story.<br /><br />Does that mean the ancient epics are wrong?</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -260,7 +268,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Literature and Sciences\n\nThere is much confusion around the idea that literature (epics and poems) cannot be related to the sciences.\n\nThis misconception is deepened by the fact that literary texts are often classified imprecisely.\n\nTo help clarify these topics, History Tracers is developing the section *Understanding Texts* (<htcite0>), where we explore in greater depth the relationship between science and literature (<htcite1>), examining, among other things, the boundaries between poetry and fact (<htcite2>).\n\nWhen we restrict ourselves to labeling something as “right” or “wrong,” we often overlook the complexity of texts in favor of convenience or simplicity (<htcite3>; <htcite4>; <htcite5>). A thorough analysis of scientific data and literary works can reveal that both can be correct within their respective contexts.",
+               "text": "#### Literature and science\n\nCan a poem or an epic really teach us something about science?\n\nSome people say that literature (epics and poems) and science have nothing to do with each other. That is not quite right. Literary texts are often labeled too quickly, and that makes the confusion worse.\n\nTo help you see this more clearly, History Tracers is building the section *Understanding Texts* (<htcite0>). There we look closely at the relationship between science and literature (<htcite1>), including the border between poetry and fact (<htcite2>).\n\nWhen we quickly label something as “right” or “wrong,” we often miss how complex texts really are (<htcite3>; <htcite4>; <htcite5>). If we study scientific data and literary works carefully, we can see that both can be correct — each one in its own context.",
                "source": [
                   {
                      "type": 1,
@@ -342,7 +350,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### What Do We Really Know?\n\nThe evolution of knowledge about the structure of the universe is relatively recent, with major advances occurring from the 20th century onward (<htcite0>), according to the Gregorian calendar.\n\nAmong the many discoveries that expanded our understanding of the cosmos, two stand out for helping us comprehend how the planet we live on was formed:\n- Edwin Hubble’s discovery that the universe is expanding (<htcite1>);\n- The discovery of the Cosmic Microwave Background Radiation, the oldest information we have ever measured from the universe (<htcite2>).\n\nThese findings are represented in the image above and will be further detailed in the upcoming texts of this section of the *Atlas*.",
+               "text": "#### What do we really know?\n\nOur knowledge of the universe is quite new. Most big discoveries happened in the 20th century (<htcite0>), according to the Gregorian calendar.\n\nTwo discoveries especially helped us understand how the planet we live on was formed:\n- Edwin Hubble discovered that the universe is expanding (<htcite1>);\n- Scientists discovered the Cosmic Microwave Background — the oldest information about the universe we have ever measured (<htcite2>).\n\nYou can see both discoveries in the image above. The next texts of this *Atlas* section will explain them in detail.",
                "source": [
                   {
                      "type": 1,

@@ -12,24 +12,32 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_es-ES.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5P6ELToJ9vLO3h4evVyu83?si=ngswgfNlQAOfsihGJeR0VA",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
       "atlas",
       "physics",
-      "chemistry"
+      "chemistry",
+      "biology"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1792504837"
+      "1795052131"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -47,13 +55,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
+               "text": "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para que este sea más fácil de entender:\n\n- **Todo Junto**: cómo era el universo cuando toda la materia y toda la energía todavía estaban mezcladas (<htcite0>)",
                "source": [
                   {
                      "type": 1,
                      "uuid": "b2d28a2f-db19-4ca3-a09a-d50b6db5933b",
                      "text": "History Tracers Atlas",
-                     "page": "All Together",
+                     "page": "Todo Junto",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -74,7 +82,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgPlanckCMB\" onclick=\"htImageZoom('imgPlanckCMB', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: Mapa de la radiación cósmica de fondo (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgPlanckCMB\" onclick=\"htImageZoom('imgPlanckCMB', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: Mapa de la radiación cósmica de fondo, la luz más antigua que podemos detectar (<htcite0>).</p>",
                "source": [
                   {
                      "type": 0,
@@ -96,7 +104,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Radiación Cósmica de Fondo\n\nLa imagen de esta sección muestra la Radiación Cósmica de Fondo (RCF) registrada por la misión Planck de la ESA (Agencia Espacial Europea) (<htcite0>).\n\n#### No es ruido, es un descubrimiento\n\nEn <htdate0>, A. A. Penzias y R. W. Wilson observaron que la temperatura de una antena reflectora tipo bocina se mantenía 3.5 K (Kelvin) por encima de lo esperado (<htcite1>).",
+               "text": "### Radiación Cósmica de Fondo\n\nLa Radiación Cósmica de Fondo (RCF) es la luz más antigua del universo. Lleva miles de millones de años viajando por el espacio y nos llega desde todas las direcciones. La imagen de esta sección es un mapa de esa luz, registrado por la misión Planck de la ESA (Agencia Espacial Europea) (<htcite0>).\n\n#### No es ruido — es un descubrimiento\n\nEn <htdate0>, A. A. Penzias y R. W. Wilson probaban una antena enorme con forma de bocina y detectaron un pequeño exceso de ruido de radio que no lograban eliminar. Expresado como temperatura equivalente, ese exceso era de 3,5 ± 1,0 K (Kelvin) (<htcite1>).\n\nSobre la escala Kelvin: 0 K es la temperatura más baja posible (−273,15 °C) y el agua se congela cerca de los 273 K. Así que 3,5 K es una diferencia muy pequeña, pero no desaparecía.",
                "source": [
                   {
                      "type": 0,
@@ -137,7 +145,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Qué podría ser?</b><br /><br />Cuando hablamos de medir temperatura, generalmente pensamos en un termómetro. Imagina que te sientes bien, sin fiebre, pero al medir tu temperatura, el termómetro marca 40 °C.<br /><br />¿Qué harías en esa situación?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Qué podría ser?</b><br /><br />Cuando hablamos de medir la temperatura, siempre pensamos en un termómetro. Imagina que te sientes bien, sin fiebre, pero al tomarte la temperatura el termómetro marca 40 °C.<br /><br />¿Qué harías en esa situación?<br /><br />Tómate un momento para pensarlo antes de seguir leyendo.</div></div></center></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -146,7 +154,7 @@
                "PostMention": ""
             },
             {
-               "text": "Probablemente sospecharías que hay algo mal con el termómetro. De forma análoga, los investigadores también probaron posibles problemas.\n\nAl investigar posibles errores de medición, Penzias y Wilson descartaron una serie de causas potenciales: absorción atmosférica, impedancia, temperatura de la antena, imperfecciones en la estructura e incluso efectos de radiación posterior (\"backlobe\") (<htcite0>).\n\nCon todos los problemas instrumentales eliminados, surgió la necesidad de buscar una nueva explicación.\n\n### Confirmando el Big Bang\n\nLas mediciones de Penzias y Wilson no podían atribuirse a ninguna fuente conocida del Universo, como estrellas o galaxias (<htcite1>). Sin embargo, sus resultados coincidían con las predicciones presentadas en otro artículo, de R. H. Dicke, P. J. E. Peebles, P. G. Roll y D. T. Wilkinson (<htcite2>; <htcite3>).\n\nSegún Dicke et al., el Universo primitivo debería haber tenido una temperatura de unos 10 mil millones de Kelvin (10.000.000.000 K), que a lo largo de la expansión cósmica se habría enfriado hasta aproximadamente 3.5 K, exactamente el valor observado por Penzias y Wilson (<htcite4>).\n\nEste descubrimiento no solo confirmó la predicción de la Radiación Cósmica de Fondo, sino que también reforzó el modelo de un Universo uniforme e isótropo; es decir, con las mismas propiedades en todas las direcciones del espacio (<htcite5>; <htcite6>).",
+               "text": "Probablemente sospecharías que algo falla en el termómetro. Penzias y Wilson hicieron lo mismo: al principio sospecharon de su propio equipo.\n\nAl buscar un error de medida, descartaron una causa tras otra: señales absorbidas de la atmósfera, problemas en el flujo eléctrico de los cables (impedancia), la temperatura de la propia antena, pequeñas imperfecciones de su estructura e incluso ondas que entraban por detrás de la antena (\"backlobe\") (<htcite0>).\n\nCuando eliminaron todos los problemas instrumentales, la señal misteriosa seguía ahí. Hacía falta una nueva explicación.\n\n### Confirmando el Big Bang\n\nLas mediciones de Penzias y Wilson no podían venir de ninguna fuente conocida del universo, como una estrella o una galaxia (<htcite1>). Sin embargo, sus resultados coincidían con las predicciones de otro artículo, escrito por R. H. Dicke, P. J. E. Peebles, P. G. Roll y D. T. Wilkinson (<htcite2>; <htcite3>).\n\nSegún Dicke y sus colegas, el universo primitivo tenía unos 10 mil millones de Kelvin (10.000.000.000 K) y, a medida que el espacio se expandía, se enfrió. Su explicación de la radiación relicta indicaba que esa señal debía existir todavía hoy, pero no podían predecir su temperatura actual sin conocer la densidad de materia del universo primitivo. El valor observado por Penzias y Wilson apoyó esta explicación (<htcite4>).\n\nEste descubrimiento hizo dos cosas a la vez: confirmó que la Radiación Cósmica de Fondo existe de verdad y reforzó el modelo de un universo uniforme e isótropo, es decir, con las mismas propiedades en todas las direcciones del espacio (<htcite5>; <htcite6>).\n\n**En resumen:** la señal extraña que Penzias y Wilson no pudieron explicar es la luz más antigua del universo: un eco tenue del Big Bang que lleva miles de millones de años viajando hacia nosotros.",
                "source": [
                   {
                      "type": 1,

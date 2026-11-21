@@ -1,0 +1,155 @@
+{
+   "title": "Sequence games (Decimal order)",
+   "header": "Sequence games (Decimal order)",
+   "sources": [
+      "32aac9d1-f0ec-491b-9e4d-b32c10be4296"
+   ],
+   "scripts": [
+      "32aac9d1-f0ec-491b-9e4d-b32c10be4296"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/32aac9d1-f0ec-491b-9e4d-b32c10be4296_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/2PaZjrX4sBAhW48fwGXP1x?si=uJ5qyF8fQtu3dFBfEsgG7w",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps_volume2",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1794358764"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><h3>Prerequisites</h3>In this game, we pair each number with the name of its family, using the second column of Table 1 of the text <i>Naming</i>. To make the most of this activity, we recommend reviewing first:</p><p><ul><li><b>Naming</b>: in this text, Table 1 presents the names of the families, from Quintillion down to Units and from Tenths down to Trillionths (<htcite0>).</li><li><b>Sequence game (Orders)</b>: the game whose mechanics this one follows, pairing numbers with the names of their orders (<htcite1>).</li></ul></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3bcce27b-3a3a-4a20-b294-1b98f7f72728",
+                     "text": "History Tracers Team",
+                     "page": "Naming",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "570ee074-46dd-46cb-8b19-9f5dbd57c02d",
+                     "text": "History Tracers Team",
+                     "page": "Sequence game (Orders)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Rules</h3>The goal of the game is to pair each number with the name of its family, following the second column of Table 1 of <i>Naming</i>: Quintillion, Quadrillion, Trillion, Billion, Million, Thousand, Units, Tenths, Hundredths, Thousandths, Millionths, Billionths and Trillionths. The family of a number is the range of values it lies in: 4,000,000 lies in the Million family and 0.004 in the Thousandths family. In each round, six numbers appear on the left, each one belonging to a different family, and the names of these same six families appear on the right in a different order. Select a number and then select the name of its family; if the pair is correct, both buttons are highlighted and stay in place. If the pair is wrong, a hint appears telling you which family the number belongs to, or which values the family you chose contains, so you can learn from the mistake and try again.</p><p>The game has three levels. In the first level, six numbers are drawn at random from the seven families of whole numbers, from Quintillion down to Units. In the second level, three of the drawn numbers are whole numbers and three are decimals between zero and one, mixing whole-number families such as Million with decimal families such as Hundredths. In the third level, all six numbers are decimals between zero and one: one is drawn from each of the six families from Tenths down to Trillionths.</p><p>When you match all six pairs of a level, a congratulatory message is displayed and the button <b>Next level</b> becomes available. After you finish the third level, a final congratulatory message is displayed. You can start a new round at any time by clicking the button <b>New Game</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Sequence games (Decimal order)</h3>Connect each number on the left with the name of its family on the right. Select a number, then select the name of its family to form the pair. Before choosing the family, ask yourself whether the number is a whole number or a decimal: whole numbers belong to the families from Units up to Quintillion, while decimals between zero and one belong to the families from Tenths down to Trillionths. To find the family quickly, group the digits of a whole number in threes from the right (one group means Units, two mean Thousand, three mean Million, four mean Billion, five mean Trillion, six mean Quadrillion, seven mean Quintillion) or count the digits after the decimal point (one means Tenths, two mean Hundredths, three mean Thousandths, six mean Millionths, nine mean Billionths, twelve mean Trillionths).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><span id=\"orderFamLevel\" class=\"htGreaterSmallerLevel\"></span><div id=\"orderFamGame\" class=\"orderGame\"><div class=\"orderGameCol\" id=\"orderFamLeftCol\"></div><div class=\"orderGameCol\" id=\"orderFamRightCol\"></div></div></p><p id=\"orderFamFeedback\" class=\"orderFeedback\" style=\"display: none;\"></p><p id=\"orderFamCongrats\" class=\"orderCongrats\" style=\"display: none;\"><i class=\"fa-solid fa-medal\" style=\"color: gold;\"></i> PERFECT! You matched all the numbers with the names of their families!</p><div class=\"htGreaterSmallerNextContainer\"><button type=\"button\" id=\"orderFamNextBtn\" class=\"reset-tutor-btn hidden\">Next level</button><button type=\"button\" id=\"orderFamResetBtn\" class=\"reset-tutor-btn\">🎲 New Game</button></div><div id=\"orderFamNames\" style=\"display: none;\"><span id=\"htOrderFamName0\">Quintillion</span><span id=\"htOrderFamName1\">Quadrillion</span><span id=\"htOrderFamName2\">Trillion</span><span id=\"htOrderFamName3\">Billion</span><span id=\"htOrderFamName4\">Million</span><span id=\"htOrderFamName5\">Thousand</span><span id=\"htOrderFamName6\">Units</span><span id=\"htOrderFamName7\">Tenths</span><span id=\"htOrderFamName8\">Hundredths</span><span id=\"htOrderFamName9\">Thousandths</span><span id=\"htOrderFamName10\">Millionths</span><span id=\"htOrderFamName11\">Billionths</span><span id=\"htOrderFamName12\">Trillionths</span></div><div id=\"orderFamNumberDescs\" style=\"display: none;\"><span id=\"htOrderFamNumberDesc0\">is in the Quintillion family, with values between 1,000,000,000,000,000,000 and 9,900,000,000,000,000,000</span><span id=\"htOrderFamNumberDesc1\">is in the Quadrillion family, with values between 1,000,000,000,000,000 and 9,900,000,000,000,000</span><span id=\"htOrderFamNumberDesc2\">is in the Trillion family, with values between 1,000,000,000,000 and 9,999,999,999,999</span><span id=\"htOrderFamNumberDesc3\">is in the Billion family, with values between 1,000,000,000 and 9,999,999,999</span><span id=\"htOrderFamNumberDesc4\">is in the Million family, with values between 1,000,000 and 9,999,999</span><span id=\"htOrderFamNumberDesc5\">is in the Thousand family, with values between 1,000 and 9,999</span><span id=\"htOrderFamNumberDesc6\">is in the Units family, with values between 1 and 9</span><span id=\"htOrderFamNumberDesc7\">is in the Tenths family, with values between 0.1 and 0.9</span><span id=\"htOrderFamNumberDesc8\">is in the Hundredths family, with values between 0.01 and 0.09</span><span id=\"htOrderFamNumberDesc9\">is in the Thousandths family, with values between 0.001 and 0.009</span><span id=\"htOrderFamNumberDesc10\">is in the Millionths family, with values between 0.000001 and 0.000009</span><span id=\"htOrderFamNumberDesc11\">is in the Billionths family, with values between 0.000000001 and 0.000000009</span><span id=\"htOrderFamNumberDesc12\">is in the Trillionths family, with values between 0.000000000001 and 0.000000000009</span></div><div id=\"orderFamNameDescs\" style=\"display: none;\"><span id=\"htOrderFamNameDesc0\">Numbers in the Quintillion family are between 1,000,000,000,000,000,000 and 9,900,000,000,000,000,000</span><span id=\"htOrderFamNameDesc1\">Numbers in the Quadrillion family are between 1,000,000,000,000,000 and 9,900,000,000,000,000</span><span id=\"htOrderFamNameDesc2\">Numbers in the Trillion family are between 1,000,000,000,000 and 9,999,999,999,999</span><span id=\"htOrderFamNameDesc3\">Numbers in the Billion family are between 1,000,000,000 and 9,999,999,999</span><span id=\"htOrderFamNameDesc4\">Numbers in the Million family are between 1,000,000 and 9,999,999</span><span id=\"htOrderFamNameDesc5\">Numbers in the Thousand family are between 1,000 and 9,999</span><span id=\"htOrderFamNameDesc6\">Numbers in the Units family are between 1 and 9</span><span id=\"htOrderFamNameDesc7\">Numbers in the Tenths family are between 0.1 and 0.9</span><span id=\"htOrderFamNameDesc8\">Numbers in the Hundredths family are between 0.01 and 0.09</span><span id=\"htOrderFamNameDesc9\">Numbers in the Thousandths family are between 0.001 and 0.009</span><span id=\"htOrderFamNameDesc10\">Numbers in the Millionths family are between 0.000001 and 0.000009</span><span id=\"htOrderFamNameDesc11\">Numbers in the Billionths family are between 0.000000001 and 0.000000009</span><span id=\"htOrderFamNameDesc12\">Numbers in the Trillionths family are between 0.000000000001 and 0.000000000009</span></div><div id=\"orderFamMsgs\" style=\"display: none;\"><span id=\"orderFamLevelTemplate\">Level {n} of 3</span><span id=\"orderFamMsgFinal\">🎉 Congratulations! You completed all three levels! 🎉</span><span id=\"orderFamNextLabel\">Next level</span><span id=\"orderFamPlayAgain\">Play again</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">The family names come from Table 1 of <i>Naming</i> (<htcite0>), and the pairing mechanics follow <i>Sequence game (Orders)</i> (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3bcce27b-3a3a-4a20-b294-1b98f7f72728",
+                     "text": "History Tracers Team",
+                     "page": "Naming",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "570ee074-46dd-46cb-8b19-9f5dbd57c02d",
+                     "text": "History Tracers Team",
+                     "page": "Sequence game (Orders)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

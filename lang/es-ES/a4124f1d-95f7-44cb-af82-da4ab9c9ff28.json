@@ -1,0 +1,184 @@
+{
+   "title": "Ejercitando la multiplicación con números elegidos",
+   "header": "Ejercitando la multiplicación con números elegidos",
+   "sources": [
+      "a4124f1d-95f7-44cb-af82-da4ab9c9ff28"
+   ],
+   "scripts": [
+      "a4124f1d-95f7-44cb-af82-da4ab9c9ff28"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/a4124f1d-95f7-44cb-af82-da4ab9c9ff28_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6BKl46MDtsOJvUkMLOqWkg?si=tzsRiNGNSAicLfE8wfrZpQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games",
+      "physics",
+      "chemistry"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1793929877"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerrequisitos\n\nEn este texto, practicarás la multiplicación de un número por otro número de un dígito, eligiendo tú mismo el número y escribiendo los valores. Antes de continuar con este ejercicio, sugerimos estudiar:\n\n- **Aprendiendo las tablas de multiplicar (Resumen)**: un repaso de las diez tablas de multiplicar, desde los grupos de objetos hasta la fórmula general (<htcite0>)\n- **Sumando los mismos números**: la idea de la multiplicación como la repetición de sumas de la misma cantidad (<htcite1>)\n- **Corriendo entre los números**: cómo funcionan los órdenes con números mayores y un método paso a paso para operar con números de cualquier tamaño (<htcite2>)\n- **Practicando la multiplicación por números de un dígito**: un ejercicio para practicar la multiplicación columna por columna, en tres niveles, repitiendo los grupos de cuadrados con los botones (<htcite3>)\n- **Practicando la multiplicación escribiendo los valores**: la misma multiplicación en vertical con los valores escritos, pero con un número y un multiplicador de un dígito sugeridos al azar (<htcite4>)\n- **El arte de estudiar**: los cinco factores de Sun Tzu y cómo usarlos como estrategia de aprendizaje (<htcite5>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3d7db1f2-6f0f-4546-80f0-3e12743b2627",
+                     "text": "History Tracers Team",
+                     "page": "Aprendiendo las tablas de multiplicar (Resumen)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "687a38b5-de0e-4d16-a4d0-8ec87a545ccb",
+                     "text": "History Tracers Team",
+                     "page": "Corriendo entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9e71da5-355b-4c0c-8d24-a746a27fcc3e",
+                     "text": "History Tracers Team",
+                     "page": "Practicando la multiplicación por números de un dígito",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f5a96471-94f4-4cf2-80c4-47be458c28ea",
+                     "text": "History Tracers Team",
+                     "page": "Practicando la multiplicación escribiendo los valores",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "El arte de estudiar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_suntzu",
+         "text": [
+            {
+               "text": "### Los 5 factores de Sun Tzu (孙子)\n\nPara hacer los ejercicios, recomendamos usar los 5 factores de Sun Tzu (los mismos de **El arte de estudiar** (<htcite0>)) de la siguiente manera:\n\n- **La ley de la moral**: No te limites a un solo ejercicio. Para reforzar lo que aprendiste, practica hasta sentirte más cómodo y reparte la práctica en más de un día.\n- **El paraíso**: Visualiza los números que estás multiplicando con tu propio cuerpo. Cada vez que se repite un grupo de cuadrados, comprueba si la cuenta todavía cabe en el conteo de tus dedos o si lo supera. Después, intenta recrear en otros escenarios las multiplicaciones que estás haciendo aquí, para que veas que la misma idea aparece en todas partes.\n- **La tierra**: En cada multiplicación, los cuadrados representan los dígitos. Multiplicar una columna por un número de un dígito es repetir el grupo de cuadrados de esa columna tantas veces como el número de un dígito; cada grupo completo de diez cuadrados se convierte en el acarreo al siguiente orden, y los cuadrados que quedan fuera del último grupo de diez son el dígito que se queda en la columna. Así que, antes de multiplicar una columna, pregúntate: al repetir el grupo esa cantidad de veces, ¿cuántos grupos de diez se formarán? La respuesta te dice lo que la columna acarrearía.\n- **El comandante**: Como comandante de tu aprendizaje, debes:\n    - Ser benevolente contigo mismo y con las personas que aún no entienden la multiplicación, y ayudarlas a aprender.\n    - Ser honesto contigo mismo y no permitir que tu confianza subestime o sobreestime el problema que tienes delante.\n    - Respetarte a ti mismo, recordando que hay diferentes maneras de entender las matemáticas. Descubre la manera con la que te sientas cómodo y síguela. En History Tracers haremos todo lo posible para ayudarte a encontrar tu camino.\n    - Usar tu sabiduría para identificar tus debilidades, a fin de entrenarlas y convertirlas en fortalezas.\n    - Usar tu sinceridad para ver dónde tienes que mejorar y no levantar barreras por las dificultades que puedas encontrar.\n- **Método y disciplina**: Reserva un período de tiempo para entrenar todos los días y respeta tu tiempo de descanso.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "867d9985-b757-472a-8197-386486ec58d6",
+                     "text": "History Tracers Team",
+                     "page": "El arte de estudiar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Ejercicio de práctica\n\nLeer sobre la multiplicación ayuda, pero practicar es esencial para comprenderla de verdad. En este ejercicio, eliges los números: escribe un número entre 0 y 99999 en el primer campo, selecciona un multiplicador de un dígito entre 0 y 9 y haz clic en **Comenzar**. Puedes empezar con números más pequeños — por ejemplo, 25 × 3 — y avanzar hasta números mayores. La multiplicación se escribe en vertical, columna por columna, desde las unidades, y cada columna se resuelve así:\n\n1. Los cuadrados azul claro muestran los cuadrados acarreados del orden anterior; los cuadrados neutros son el producto de la columna, mostrados desde el principio.\n2. Escribe en la casilla de la fila del resultado el dígito que se queda en la columna.\n3. Cuando la columna llega a diez o más, aparece una casilla del acarreo sobre el siguiente orden: escribe el acarreo en ella. En la multiplicación, ese acarreo es el número de grupos completos de diez cuadrados, y puede ser mayor que 1. Cuando la columna se queda por debajo de diez, no hay casilla de acarreo.\n\nLos valores se comprueban a medida que escribes. Si un dígito es incorrecto, los cuadrados se colorean según el número escrito, y una pista explica los grupos de diez. Cuando los valores son correctos, los cuadrados se llenan, aparece una felicitación y se muestra el botón que pasa a la siguiente columna.\n\nAntes de escribir, imagina repetir el grupo de cuadrados del dígito de arriba tantas veces como el número de un dígito, y recuerda que los cuadrados acarreados del orden anterior se añaden al final: cada grupo completo de diez cuadrados se convierte en el acarreo al siguiente orden, y los cuadrados que quedan fuera del último grupo de diez son el dígito que se queda en la columna. Multiplicar por 1 deja el número sin cambios, y multiplicar por 0 da 0.\n\n**Ejemplo: 7 × 8.** La columna repite el grupo de 7 cuadrados ocho veces: 7 × 8 = 56. Los cuadrados forman 5 grupos completos de diez, que se convierten en el 5 acarreado al siguiente orden, y 6 cuadrados se quedan fuera del último grupo: ese es el dígito 6. Escribe 6 en la casilla de la fila del resultado y 5 en la casilla del acarreo sobre el siguiente orden:<div class=\"htAddSquares\"><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddTenGroup\"><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span><span class=\"htAddSquare htAddSquareAdded\"></span></div><span class=\"htAddSquaresCaption\">7 × 8 = 56</span>\n\nAl terminar el cálculo, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás volver a los campos para elegir otros números haciendo clic en el botón de abajo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"htAddTypedSetup\" id=\"htMultChosenSetup\"><span class=\"htAddTypedSetupTitle\" id=\"htMultChosenSetupTitle\">Escribe un número entre 0 y 99999 y un multiplicador entre 0 y 9</span><div class=\"htAddTypedFields\"><label class=\"htAddTypedField\" for=\"htMultChosenNumber\"><span id=\"htMultChosenNumberLabel\">Número</span><input type=\"text\" inputmode=\"numeric\" maxlength=\"5\" autocomplete=\"off\" id=\"htMultChosenNumber\" aria-label=\"Número (de 0 a 99999)\" /></label><label class=\"htAddTypedField\" for=\"htMultChosenMultiplier\"><span id=\"htMultChosenMultiplierLabel\">Multiplicador</span><select id=\"htMultChosenMultiplier\" aria-label=\"Multiplicador (de 0 a 9)\"></select></label></div><div class=\"htAddTypedError\" id=\"htMultChosenError\" role=\"alert\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htMultChosenStartBtn\" class=\"reset-tutor-btn\">Comenzar</button></div><span id=\"htMultChosenErrorTemplate\" class=\"htAddHidden\">El número debe estar entre {min} y {max}.</span></div><div class=\"htAddGame htAddHidden\" id=\"htMultChosenGame\"><div class=\"htAddOrders\" id=\"htMultChosenOrders\"></div><span class=\"htAddQuestion\" id=\"htMultChosenQuestion\"></span><div class=\"htAddIncomingNote htAddHidden\" id=\"htMultChosenIncomingNote\"></div><table class=\"htAddTable\" id=\"htMultChosenTable\" aria-live=\"polite\"></table><div class=\"htAddSquaresWrap\"><span class=\"htAddSquaresLabel\" id=\"htMultChosenSquaresLabel\">Multiplicación en esta columna</span><div class=\"htAddSquares\" id=\"htMultChosenSquares\" aria-hidden=\"true\"></div><span class=\"htAddSquaresCaption\" id=\"htMultChosenSquaresCaption\"></span><span class=\"htAddSquaresNote\" id=\"htMultChosenSquaresNote\"></span></div><span id=\"htMultChosenInputHome\" class=\"htAddHidden\"><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htMultChosenDigitInput\" aria-label=\"Dígito que se queda en la columna\" /><input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" autocomplete=\"off\" class=\"htAddInput\" id=\"htMultChosenCarryInput\" aria-label=\"Acarreo a la siguiente orden\" /></span><div class=\"htAddFeedback\" id=\"htMultChosenFeedback\" role=\"status\" aria-live=\"polite\"></div><div class=\"htAddNextContainer\"><button type=\"button\" id=\"htMultChosenNextBtn\" class=\"reset-tutor-btn hidden\">Siguiente columna</button></div><span id=\"htMultChosenOrder0\" class=\"htAddHidden\">Unidades</span><span id=\"htMultChosenOrder1\" class=\"htAddHidden\">Decenas</span><span id=\"htMultChosenOrder2\" class=\"htAddHidden\">Centenas</span><span id=\"htMultChosenOrder3\" class=\"htAddHidden\">Millares</span><span id=\"htMultChosenOrder4\" class=\"htAddHidden\">Decenas de millar</span><span id=\"htMultChosenQuestionTemplate\" class=\"htAddHidden\">La columna de las {order}: {digit} × {mult}. Escribe en la fila del resultado el dígito que se queda en la columna y, si la columna llega a diez o más, escribe el acarreo en la casilla sobre la siguiente orden.</span><span id=\"htMultChosenIncomingTemplate\" class=\"htAddHidden\">El {carry} acarreado de la columna anterior se añadirá al final, después de {digit} × {mult}.</span><span id=\"htMultChosenMsgCarryTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Llega a diez o más, así que la columna de las {order} conserva {result} y acarrea {out} al siguiente orden.</span><span id=\"htMultChosenMsgNoCarryTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. No llega a diez, así que la columna de las {order} conserva {result}.</span><span id=\"htMultChosenMsgCarryInTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Sumando el {carry} acarreado del orden anterior llegamos a {total}; llega a diez o más, así que la columna de las {order} conserva {result} y acarrea {out} al siguiente orden.</span><span id=\"htMultChosenMsgNoCarryInTemplate\" class=\"htAddHidden\">{digit} × {mult} = {product}. Sumando el {carry} acarreado del orden anterior llegamos a {total}; no llega a diez, así que la columna de las {order} conserva {result}.</span><span id=\"htMultChosenWrongBelowTemplate\" class=\"htAddHidden\">Ese dígito no es correcto. Repetir el grupo de {digit}, {mult} veces, da {product} cuadrados. No llega a diez, así que el dígito que se queda en la columna de las {order} es el número de cuadrados de la columna.</span><span id=\"htMultChosenWrongBelowInTemplate\" class=\"htAddHidden\">Ese dígito no es correcto. Repetir el grupo de {digit}, {mult} veces, da {product} cuadrados; sumando el {carry} acarreado del orden anterior llegamos a {total} cuadrados. No llega a diez, así que el dígito que se queda en la columna de las {order} es el número de cuadrados de la columna.</span><span id=\"htMultChosenWrongAboveTemplate\" class=\"htAddHidden\">Ese dígito no es correcto. Repetir el grupo de {digit}, {mult} veces, da {product} cuadrados. Llega a diez o más, así que cada grupo completo de diez cuadrados se acarrea al siguiente orden, y los cuadrados que quedan fuera del último grupo de diez son el dígito que se queda en la columna de las {order}.</span><span id=\"htMultChosenWrongAboveInTemplate\" class=\"htAddHidden\">Ese dígito no es correcto. Repetir el grupo de {digit}, {mult} veces, da {product} cuadrados; sumando el {carry} acarreado del orden anterior llegamos a {total} cuadrados. Llega a diez o más, así que cada grupo completo de diez cuadrados se acarrea al siguiente orden, y los cuadrados que quedan fuera del último grupo de diez son el dígito que se queda en la columna de las {order}.</span><span id=\"htMultChosenWrongCarryTemplate\" class=\"htAddHidden\">El acarreo no es correcto. Comprueba {digit} × {mult} = {product}, más el {carry} acarreado del orden anterior: {total}. El acarreo es el número de grupos completos de diez cuadrados.</span><span id=\"htMultChosenCongratsTemplate\" class=\"htAddHidden\">✅ ¡Correcto! Haz clic en 'Siguiente columna' para continuar.</span><span id=\"htMultChosenPerfectTemplate\" class=\"htAddHidden\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br>{multiplicand} × {multiplier} = {product}<br>¡Buen trabajo!</span><span id=\"htMultChosenNextColumnLabel\" class=\"htAddHidden\">Siguiente columna</span><span id=\"htMultChosenNewNumbersLabel\" class=\"htAddHidden\">Nuevos números</span><span id=\"htMultChosenNoteTemplate\" class=\"htAddHidden\">Repetir el grupo de {digit}, {mult} veces, da {product} cuadrados.</span><span id=\"htMultChosenNoteIncomingTemplate\" class=\"htAddHidden\">Repetir el grupo de {digit}, {mult} veces, da {product} cuadrados; los {incoming} cuadrados azul claro se acarrearon del orden anterior y se añaden al final.</span><span id=\"htMultChosenTenNoteTemplate\" class=\"htAddHidden\">Grupos completos de diez: {tens}; cuadrados que se quedan en la columna de las {order}: {outside}.</span></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

@@ -24,7 +24,7 @@ import (
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
 
-var indexFiles []string = []string{"gallery", "first_steps_menu", "first_steps", "first_steps_volume2", "sun_tzu_chess", "shapes", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history", "philosophy", "atlas", "documentation"}
+var indexFiles []string = []string{"gallery", "first_steps_menu", "first_steps", "first_steps_volume2", "sun_tzu_chess", "shapes", "literature", "indigenous_who", "myths_believes", "math_games", "board_game", "historical_events", "physics", "chemistry", "biology", "history", "philosophy", "atlas", "documentation"}
 
 var commonKeywords []string
 var mathKeywords []string
@@ -545,6 +545,7 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = htConvertTemperatures(ret, lang)
 	ret = htRemoveHTMLTags(ret)
 	ret = htReplaceSocialMediaUrls(ret)
+	ret = htRemoveLinesWithoutAlphabet(ret)
 
 	return ret
 }
@@ -603,6 +604,7 @@ func htWriteAudioFile(fileName string, lang string, content string) error {
 		return err
 	}
 
+	content = htRemoveLinesWithoutAlphabet(content)
 	content = htAdjustTrailingDots(content)
 	text := []byte(content)
 
@@ -864,7 +866,16 @@ func htPrepareQuestions(questions []HTExercise, lang string) string {
 func htChangeTag2Keywords(text string) string {
 	ret := strings.ReplaceAll(text, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
 	ret = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
-	ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>", commonKeywords[52])
+	// keywords[52] ends with "or PIX using the QR code:" — place the same
+	// content-area QR (htPixQRCode) right after that note, outside the
+	// enclosing <p><b>…</b></p> so the markup stays valid.
+	const pixQR = `<p><center><div id="htPixQRCode"></div></center></p>`
+	if strings.Contains(ret, `<span id="family_common_sn"></span></b></p>`) {
+		ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span></b></p>",
+			commonKeywords[52]+"</b></p>"+pixQR)
+	}
+	ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>",
+		commonKeywords[52]+pixQR)
 	ret = strings.ReplaceAll(ret, "<span id=\"htChartMsg\"></span>", commonKeywords[112])
 	ret = strings.ReplaceAll(ret, "<span id=\"htAgeMsg\"></span>", commonKeywords[131])
 	ret = strings.ReplaceAll(ret, "<p id=\"htChinaZhongguo\"></p>", commonKeywords[137])
@@ -1412,7 +1423,10 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 			} else if n.Data == "msup" || n.Data == "sup" {
 				var base, exponent strings.Builder
 				child := n.FirstChild
-				if child != nil {
+				if n.Data == "sup" && child != nil && child.NextSibling == nil {
+					// Ordinary HTML <sup>2</sup>: keep the superscript text.
+					collectMathMLText(child, &exponent, false)
+				} else if child != nil {
 					collectMathMLText(child, &base, false)
 					child = child.NextSibling
 					if child != nil {
@@ -1421,7 +1435,15 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 				}
 				baseText := strings.TrimSpace(base.String())
 				expText := strings.TrimSpace(exponent.String())
-				if baseText != "" && expText != "" {
+				if baseText == "" && expText != "" {
+					if b.Len() > 0 {
+						last := b.String()[b.Len()-1]
+						if last != ' ' && last != '\n' {
+							b.WriteByte(' ')
+						}
+					}
+					b.WriteString(expText)
+				} else if baseText != "" && expText != "" {
 					if b.Len() > 0 {
 						last := b.String()[b.Len()-1]
 						if last != ' ' && last != '\n' {
@@ -1486,7 +1508,9 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	var err error
 
 	text := txt.Text
-	htciteRegex := regexp.MustCompile(`\(<htcite\d+>\)`)
+	htciteGroupRegex := regexp.MustCompile(`\s*\(<htcite\d+>(?:\s*;\s*<htcite\d+>)*\)`)
+	text = htciteGroupRegex.ReplaceAllString(text, "")
+	htciteRegex := regexp.MustCompile(`\s*<htcite\d+>`)
 	text = htciteRegex.ReplaceAllString(text, "")
 
 	if txt.Format == "html" {
@@ -1494,12 +1518,7 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 
 		htmlText = htOverwriteDates(ret, txt.FillDates, "", lang, dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {
-		work := text
-		if len(txt.PostMention) > 0 {
-			work += txt.PostMention
-		}
-
-		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, lang, dateAbbreviation)
+		work := htOverwriteDates(text, txt.FillDates, txt.PostMention, lang, dateAbbreviation)
 		htmlText = htMarkdownToHTML(work) + "<br />"
 	} else {
 		htFormatNotExpected(txt.Format)
@@ -1524,12 +1543,7 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 }
 
 func htOverwriteDates(text string, dates []HTDate, PostMention string, lang string, dateAbbreviation bool) string {
-	size := len(dates)
-	if size == 0 {
-		return text
-	}
-
-	for i := 0; i < size; i++ {
+	for i := 0; i < len(dates); i++ {
 		dt := htDateToString(&dates[i], lang, dateAbbreviation)
 		overwrite := "<htdate" + strconv.Itoa(i) + ">"
 		text = strings.Replace(text, overwrite, dt, 1)
