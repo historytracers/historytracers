@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795356275"
+      "1795357685"
    ],
    "authors": [
       ""
@@ -190,6 +190,77 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<h4>Variable transformation</h4><p>Until now we have written the position of a point with angles and a radius. In this subsection we change the variables: we want the distances along the axes, that is, the Cartesian coordinates. We do it in two steps, always starting from a right triangle: first a point on a plane, and then a point on a sphere.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 700 620\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:760px; display:block; margin:0 auto;\" aria-label=\"A circle of radius r with a point at the angle theta. The horizontal leg of the right triangle, x, is r times cosine of theta, and the vertical leg, y, is r times sine of theta\"><text x=\"24\" y=\"34\" font-size=\"19\" font-weight=\"bold\" fill=\"#333333\">x = r cos(θ)</text><text x=\"24\" y=\"62\" font-size=\"19\" font-weight=\"bold\" fill=\"#333333\">y = r sin(θ)</text><line x1=\"40\" y1=\"420\" x2=\"660\" y2=\"420\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"660,427 676,420 660,413\" fill=\"#555555\"/><line x1=\"240\" y1=\"600\" x2=\"240\" y2=\"60\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"247,60 240,44 233,60\" fill=\"#555555\"/><circle cx=\"240\" cy=\"420\" r=\"180\" fill=\"#eaf2fa\" fill-opacity=\"0.45\" stroke=\"#4f8bc4\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><polygon points=\"240,420 377.9,420 377.9,304.3\" fill=\"#fff4e0\" fill-opacity=\"0.85\" stroke=\"none\"/><line x1=\"240\" y1=\"420\" x2=\"377.9\" y2=\"420\" stroke=\"#2f6fb3\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"377.9\" y1=\"420\" x2=\"377.9\" y2=\"304.3\" stroke=\"#27ae60\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"240\" y1=\"420\" x2=\"377.9\" y2=\"304.3\" stroke=\"#c0392b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M 310,420 Q 313.3,393.3 293.6,375\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"322\" y=\"398\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">θ</text><circle cx=\"240\" cy=\"420\" r=\"5\" fill=\"#333333\"/><circle cx=\"377.9\" cy=\"304.3\" r=\"5\" fill=\"#333333\"/><text x=\"222\" y=\"442\" font-size=\"18\" text-anchor=\"end\" fill=\"#333333\">O</text><text x=\"392\" y=\"298\" font-size=\"18\" fill=\"#333333\">P</text><text x=\"668\" y=\"448\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">X</text><text x=\"240\" y=\"40\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Y</text><text x=\"280\" y=\"346\" font-size=\"22\" fill=\"#c0392b\">r</text><text x=\"300\" y=\"452\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2f6fb3\">x = r cos(θ)</text><text x=\"430\" y=\"380\" font-size=\"18\" fill=\"#27ae60\">y = r sin(θ)</text></svg></p><p class=\"desc\"><b>Figure 2</b>: A point on a plane written with the radius <b>r</b> and the angle <b>θ</b>: the adjacent leg is <b>x</b> = r × cos(θ) and the opposite leg is <b>y</b> = r × sin(θ).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>On a plane, a point <b>P</b> is described by the radius <b>r</b> and by the angle <b>θ</b>. Weisstein, Eric W. presents this transformation (<htcite0>) as a right triangle whose hypotenuse is the radius. Let us follow the steps:</p><ol><li>The radius <b>r</b> goes from the origin <b>O</b> to the point <b>P</b>, and the angle <b>θ</b> is measured between the x axis and the radius.</li><li>We project the point on the x axis: the adjacent leg of the triangle measures <b>r</b> × cos(<b>θ</b>), therefore <b>x</b> = r × cos(θ).</li><li>We project the point on the y axis: the opposite leg measures <b>r</b> × sin(<b>θ</b>), therefore <b>y</b> = r × sin(θ).</li></ol><p>Thus the same point can be written as (r, θ) or as (x, y), and the radius is recovered by r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d94b147e-c84b-40cc-8a86-5d18cefc9c59",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Polar Coordinates",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 720 620\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:760px; display:block; margin:0 auto;\" aria-label=\"A transparent sphere with a point P on its surface and its projection Q on the flat plane. The angle phi is measured from the vertical axis and the angle theta on the plane, giving the coordinates x, y and z of the point\"><text x=\"20\" y=\"32\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">x = r sin(φ) cos(θ)</text><text x=\"20\" y=\"58\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">y = r sin(φ) sin(θ)</text><text x=\"20\" y=\"84\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">z = r cos(φ)</text><defs><radialGradient id=\"ht53089395SphereGrad\" cx=\"0.32\" cy=\"0.22\" r=\"1.05\"><stop offset=\"0%\" stop-color=\"#ffffff\" stop-opacity=\"0.55\"/><stop offset=\"45%\" stop-color=\"#a9c9e8\" stop-opacity=\"0.28\"/><stop offset=\"100%\" stop-color=\"#2f6fb3\" stop-opacity=\"0.10\"/></radialGradient></defs><circle cx=\"330\" cy=\"400\" r=\"185\" fill=\"url(#ht53089395SphereGrad)\" stroke=\"#4f8bc4\" stroke-width=\"2\"/><ellipse cx=\"330\" cy=\"400\" rx=\"185\" ry=\"55\" fill=\"#eaf2fa\" fill-opacity=\"0.55\" stroke=\"#4f8bc4\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><ellipse cx=\"330\" cy=\"400\" rx=\"60\" ry=\"185\" fill=\"none\" stroke=\"#4f8bc4\" stroke-width=\"1\" stroke-opacity=\"0.35\"/><line x1=\"330\" y1=\"400\" x2=\"330\" y2=\"140\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"337,140 330,124 323,140\" fill=\"#555555\"/><line x1=\"330\" y1=\"400\" x2=\"630\" y2=\"454\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"629,461 645,457 632,447\" fill=\"#555555\"/><line x1=\"330\" y1=\"400\" x2=\"190\" y2=\"280\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"190,273 174,277 187,287\" fill=\"#555555\"/><line x1=\"374.5\" y1=\"244.8\" x2=\"374.5\" y2=\"386.5\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"330\" y1=\"400\" x2=\"374.5\" y2=\"386.5\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"374.5\" y1=\"386.5\" x2=\"406.4\" y2=\"413.8\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"374.5\" y1=\"386.5\" x2=\"298.1\" y2=\"372.7\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"330\" y1=\"400\" x2=\"374.5\" y2=\"244.8\" stroke=\"#c0392b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M 330,320 Q 342.5,310.9 352.1,323.1\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"370\" y=\"312\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">φ</text><path d=\"M 418.6,415.9 Q 427.8,394.3 416.1,373.9\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"446\" y=\"400\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">θ</text><circle cx=\"330\" cy=\"400\" r=\"5\" fill=\"#333333\"/><circle cx=\"374.5\" cy=\"244.8\" r=\"5\" fill=\"#333333\"/><circle cx=\"374.5\" cy=\"386.5\" r=\"5\" fill=\"#333333\"/><text x=\"312\" y=\"422\" font-size=\"18\" text-anchor=\"end\" fill=\"#333333\">O</text><text x=\"388\" y=\"240\" font-size=\"18\" fill=\"#333333\">P</text><text x=\"386\" y=\"378\" font-size=\"18\" fill=\"#333333\">Q</text><text x=\"330\" y=\"114\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Z</text><text x=\"644\" y=\"486\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">X</text><text x=\"170\" y=\"258\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Y</text><text x=\"312\" y=\"332\" font-size=\"22\" fill=\"#c0392b\">r</text></svg></p><p class=\"desc\"><b>Figure 3</b>: A transparent sphere with the projection of the point <b>P</b> on the flat plane (point <b>Q</b>). The angle <b>φ</b> is measured from the vertical axis and the angle <b>θ</b> from the x axis, giving x = r × sin(φ) × cos(θ), y = r × sin(φ) × sin(θ) and z = r × cos(φ).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>For a point in space we need a third coordinate. The radius <b>r</b> is the distance from the origin, <b>θ</b> is the angle on the flat plane and <b>φ</b> is the angle measured from the vertical axis. Weisstein, Eric W. describes this transformation step by step (<htcite0>):</p><ol><li>We project the point <b>P</b> from the sphere down to the plane and obtain the point <b>Q</b>. The projected radius <b>OQ</b> measures <b>r</b> × sin(<b>φ</b>), and the height of the point is <b>z</b> = r × cos(φ).</li><li>On the plane we apply the previous transformation to the projected radius: <b>x</b> = OQ × cos(<b>θ</b>) = r × sin(φ) × cos(θ).</li><li>In the same way, on the other axis: <b>y</b> = OQ × sin(<b>θ</b>) = r × sin(φ) × sin(θ).</li><li>Putting the three results together, (x, y, z) = (r × sin(φ) × cos(θ), r × sin(φ) × sin(θ), r × cos(φ)).</li></ol><p>Both transformations use the same idea twice: first the radius is projected on the plane, and then the projection is distributed on the two axes.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Spherical Coordinates",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             },
             {
                "text": "<h4>All variables</h4>To express coordinates more precisely, it’s essential to use the same unit of measurement for all coordinates. On the Earth's surface, when we work with angles, we can simplify calculations by omitting the Earth’s radius. However, for three-dimensional accuracy, we need to include the radius and convert angle measurements from degrees to radians before continuing with calculations",

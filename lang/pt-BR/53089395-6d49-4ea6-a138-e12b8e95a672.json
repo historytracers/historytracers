@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795356335"
+      "1795357739"
    ],
    "authors": [
       ""
@@ -185,6 +185,77 @@
             {
                "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (35,6764° Norte, 139,6500° Leste)</li><li><b>Montevidéu</b>: (34,9055° Sul, 56,1851° Oeste)</li></ul></p><p><h4>Todas as variáveis</h4>Para expressarmos coordenadas de forma precisa, é fundamental que todas estejam na mesma unidade de medida.</p>",
                "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Transformação de variáveis</h4><p>Até agora escrevemos a posição de um ponto com ângulos e um raio. Nesta subseção mudamos as variáveis: queremos as distâncias sobre os eixos, isto é, as coordenadas cartesianas. Vamos fazer isso em dois passos, sempre a partir de um triângulo retângulo: primeiro um ponto em um plano e depois um ponto em uma esfera.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 700 620\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:760px; display:block; margin:0 auto;\" aria-label=\"Um círculo de raio r com um ponto no ângulo theta. O cateto horizontal do triângulo retângulo, x, é r pelo cosseno de theta, e o cateto vertical, y, é r pelo seno de theta\"><text x=\"24\" y=\"34\" font-size=\"19\" font-weight=\"bold\" fill=\"#333333\">x = r cos(θ)</text><text x=\"24\" y=\"62\" font-size=\"19\" font-weight=\"bold\" fill=\"#333333\">y = r sen(θ)</text><line x1=\"40\" y1=\"420\" x2=\"660\" y2=\"420\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"660,427 676,420 660,413\" fill=\"#555555\"/><line x1=\"240\" y1=\"600\" x2=\"240\" y2=\"60\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"247,60 240,44 233,60\" fill=\"#555555\"/><circle cx=\"240\" cy=\"420\" r=\"180\" fill=\"#eaf2fa\" fill-opacity=\"0.45\" stroke=\"#4f8bc4\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><polygon points=\"240,420 377.9,420 377.9,304.3\" fill=\"#fff4e0\" fill-opacity=\"0.85\" stroke=\"none\"/><line x1=\"240\" y1=\"420\" x2=\"377.9\" y2=\"420\" stroke=\"#2f6fb3\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"377.9\" y1=\"420\" x2=\"377.9\" y2=\"304.3\" stroke=\"#27ae60\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"240\" y1=\"420\" x2=\"377.9\" y2=\"304.3\" stroke=\"#c0392b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M 310,420 Q 313.3,393.3 293.6,375\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"322\" y=\"398\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">θ</text><circle cx=\"240\" cy=\"420\" r=\"5\" fill=\"#333333\"/><circle cx=\"377.9\" cy=\"304.3\" r=\"5\" fill=\"#333333\"/><text x=\"222\" y=\"442\" font-size=\"18\" text-anchor=\"end\" fill=\"#333333\">O</text><text x=\"392\" y=\"298\" font-size=\"18\" fill=\"#333333\">P</text><text x=\"668\" y=\"448\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">X</text><text x=\"240\" y=\"40\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Y</text><text x=\"280\" y=\"346\" font-size=\"22\" fill=\"#c0392b\">r</text><text x=\"300\" y=\"452\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2f6fb3\">x = r cos(θ)</text><text x=\"430\" y=\"380\" font-size=\"18\" fill=\"#27ae60\">y = r sen(θ)</text></svg></p><p class=\"desc\"><b>Figura 2</b>: Um ponto em um plano escrito com o raio <b>r</b> e o ângulo <b>θ</b>: o cateto adjacente é <b>x</b> = r × cos(θ) e o cateto oposto é <b>y</b> = r × sen(θ).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Em um plano, um ponto <b>P</b> fica descrito pelo raio <b>r</b> e pelo ângulo <b>θ</b>. Weisstein, Eric W. apresenta essa transformação (<htcite0>) como um triângulo retângulo cuja hipotenusa é o raio. Vejamos os passos:</p><ol><li>O raio <b>r</b> vai da origem <b>O</b> ao ponto <b>P</b>, e o ângulo <b>θ</b> é medido entre o eixo x e o raio.</li><li>Projetamos o ponto sobre o eixo x: o cateto adjacente do triângulo mede <b>r</b> × cos(<b>θ</b>), portanto <b>x</b> = r × cos(θ).</li><li>Projetamos o ponto sobre o eixo y: o cateto oposto mede <b>r</b> × sen(<b>θ</b>), portanto <b>y</b> = r × sen(θ).</li></ol><p>Assim, o mesmo ponto pode ser escrito como (r, θ) ou como (x, y), e o raio é recuperado por r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d94b147e-c84b-40cc-8a86-5d18cefc9c59",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Polar Coordinates",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 720 620\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:760px; display:block; margin:0 auto;\" aria-label=\"Uma esfera transparente com um ponto P em sua superfície e sua projeção Q sobre o plano. O ângulo phi é medido a partir do eixo vertical e o ângulo theta sobre o plano, o que dá as coordenadas x, y e z do ponto\"><text x=\"20\" y=\"32\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">x = r sen(φ) cos(θ)</text><text x=\"20\" y=\"58\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">y = r sen(φ) sen(θ)</text><text x=\"20\" y=\"84\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">z = r cos(φ)</text><defs><radialGradient id=\"ht53089395SphereGrad\" cx=\"0.32\" cy=\"0.22\" r=\"1.05\"><stop offset=\"0%\" stop-color=\"#ffffff\" stop-opacity=\"0.55\"/><stop offset=\"45%\" stop-color=\"#a9c9e8\" stop-opacity=\"0.28\"/><stop offset=\"100%\" stop-color=\"#2f6fb3\" stop-opacity=\"0.10\"/></radialGradient></defs><circle cx=\"330\" cy=\"400\" r=\"185\" fill=\"url(#ht53089395SphereGrad)\" stroke=\"#4f8bc4\" stroke-width=\"2\"/><ellipse cx=\"330\" cy=\"400\" rx=\"185\" ry=\"55\" fill=\"#eaf2fa\" fill-opacity=\"0.55\" stroke=\"#4f8bc4\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><ellipse cx=\"330\" cy=\"400\" rx=\"60\" ry=\"185\" fill=\"none\" stroke=\"#4f8bc4\" stroke-width=\"1\" stroke-opacity=\"0.35\"/><line x1=\"330\" y1=\"400\" x2=\"330\" y2=\"140\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"337,140 330,124 323,140\" fill=\"#555555\"/><line x1=\"330\" y1=\"400\" x2=\"630\" y2=\"454\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"629,461 645,457 632,447\" fill=\"#555555\"/><line x1=\"330\" y1=\"400\" x2=\"190\" y2=\"280\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"190,273 174,277 187,287\" fill=\"#555555\"/><line x1=\"374.5\" y1=\"244.8\" x2=\"374.5\" y2=\"386.5\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"330\" y1=\"400\" x2=\"374.5\" y2=\"386.5\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"374.5\" y1=\"386.5\" x2=\"406.4\" y2=\"413.8\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"374.5\" y1=\"386.5\" x2=\"298.1\" y2=\"372.7\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"330\" y1=\"400\" x2=\"374.5\" y2=\"244.8\" stroke=\"#c0392b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M 330,320 Q 342.5,310.9 352.1,323.1\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"370\" y=\"312\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">φ</text><path d=\"M 418.6,415.9 Q 427.8,394.3 416.1,373.9\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"446\" y=\"400\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">θ</text><circle cx=\"330\" cy=\"400\" r=\"5\" fill=\"#333333\"/><circle cx=\"374.5\" cy=\"244.8\" r=\"5\" fill=\"#333333\"/><circle cx=\"374.5\" cy=\"386.5\" r=\"5\" fill=\"#333333\"/><text x=\"312\" y=\"422\" font-size=\"18\" text-anchor=\"end\" fill=\"#333333\">O</text><text x=\"388\" y=\"240\" font-size=\"18\" fill=\"#333333\">P</text><text x=\"386\" y=\"378\" font-size=\"18\" fill=\"#333333\">Q</text><text x=\"330\" y=\"114\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Z</text><text x=\"644\" y=\"486\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">X</text><text x=\"170\" y=\"258\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Y</text><text x=\"312\" y=\"332\" font-size=\"22\" fill=\"#c0392b\">r</text></svg></p><p class=\"desc\"><b>Figura 3</b>: Uma esfera transparente com a projeção do ponto <b>P</b> sobre o plano (ponto <b>Q</b>). O ângulo <b>φ</b> é medido a partir do eixo vertical e o ângulo <b>θ</b> a partir do eixo x, o que dá x = r × sen(φ) × cos(θ), y = r × sen(φ) × sen(θ) e z = r × cos(φ).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Para um ponto no espaço precisamos de uma terceira coordenada. O raio <b>r</b> é a distância à origem, <b>θ</b> é o ângulo sobre o plano e <b>φ</b> é o ângulo medido a partir do eixo vertical. Weisstein, Eric W. descreve essa transformação passo a passo (<htcite0>):</p><ol><li>Projetamos o ponto <b>P</b> da esfera para o plano e obtemos o ponto <b>Q</b>. O raio projetado <b>OQ</b> mede <b>r</b> × sen(<b>φ</b>), e a altura do ponto é <b>z</b> = r × cos(φ).</li><li>No plano aplicamos a transformação anterior ao raio projetado: <b>x</b> = OQ × cos(<b>θ</b>) = r × sen(φ) × cos(θ).</li><li>Da mesma forma, sobre o outro eixo: <b>y</b> = OQ × sen(<b>θ</b>) = r × sen(φ) × sen(θ).</li><li>Reunindo os três resultados, (x, y, z) = (r × sen(φ) × cos(θ), r × sen(φ) × sen(θ), r × cos(φ)).</li></ol><p>As duas transformações usam a mesma ideia duas vezes: primeiro o raio é projetado sobre o plano e depois a projeção é distribuída entre os dois eixos.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Spherical Coordinates",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
