@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795308381"
+      "1795368003"
    ],
    "authors": [
       ""
@@ -45,7 +45,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nBefore you start, we recommend reading the previous text first — it will make this one much easier to follow (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -72,7 +72,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "<p><h3>Introduction</h3>In the previous text we learned that a point on a sphere can be described with spherical coordinates: a radius <b>r</b> and two angles, theta (<b>θ</b>) and phi (<b>ϕ</b>). The radius tells us the distance from the origin, theta gives the direction on the flat plane, and phi gives the angle measured from the vertical axis (<htcite0>).</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: are these the coordinates we use in our smartphone?</b><br /><br />When we open a map application on a smartphone, it shows our position on the planet. Are the spherical coordinates — the radius and the two angles theta and phi — the same coordinates the smartphone uses to tell us where we are?</div></div></center></p>",
+               "text": "<p><h3>Introduction</h3>In the previous text we learned how to locate any point on a sphere using three numbers: a radius <b>r</b> and two angles, theta (<b>θ</b>) and phi (<b>ϕ</b>). Think of it this way: the radius <b>r</b> tells us how far the point is from the center, theta (<b>θ</b>) tells us which way to turn around the sphere, and phi (<b>ϕ</b>) tells us how far to move up or down from the top (<htcite0>).</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: are these the coordinates we use on our smartphone?</b><br /><br />When we open a map application on a smartphone, it shows our position on the planet. Are the spherical coordinates — the radius and the two angles theta and phi — the same coordinates the smartphone uses to tell us where we are, or does it use something different? Keep your guess: we will check it in the conclusion.</div></div></center></p>",
                "source": [
                   {
                      "type": 1,
@@ -99,7 +99,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgMath13\" onclick=\"htImageZoom('imgMath13', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: In this image, the Equator parallel and the Greenwich Meridian are highlighted, with the intersection at point O © Mapswire (<htcite0>)</p>",
+               "text": "<p class=\"desc\"><img id=\"imgMath13\" onclick=\"htImageZoom('imgMath13', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: The Equator parallel and the Greenwich Meridian cross each other at point O — the reference point we will use throughout this text © Mapswire (<htcite0>)</p>",
                "source": [
                   {
                      "type": 1,
@@ -121,7 +121,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Surface Coordinates</h3>The figure in this section shows the intersection of the <b>Equator parallel</b> and the <i>Greenwich Meridian</i>, marked as point <b>O</b>. This serves as the reference point for all measurements of latitude and longitude.</p>",
+               "text": "<p><h3>Surface Coordinates</h3>The figure in this section shows where the <b>Equator parallel</b> (the imaginary circle halfway between the North and South Poles) and the <i>Greenwich Meridian</i> (the imaginary line passing through Greenwich, England) cross each other. The crossing point is marked as point <b>O</b>. From now on, point O is the reference point for every measurement of latitude and longitude.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -130,7 +130,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>The origin</h4><p>To determine our position on Earth's surface, we initially use the angular coordinates theta (<b>θ</b>) and phi (<b>ϕ</b>). However, in everyday terminology, these coordinates are known by different names: theta (<b>θ</b>) corresponds to <b>longitude</b>, and phi (<b>ϕ</b>) is referred to as <b>colatitude</b>.</p><p>In geographic contexts, we also use a measure called <b>latitude</b> (<b>δ</b>), which indicates position relative to the Equator. The relationship between latitude and colatitude is defined by the formula: ϕ = 90° - δ.</p><p>This is just one of the simplifications we will explore further (<htcite0>; <htcite1>; <htcite2>; <htcite3>).</p>",
+               "text": "<h4>The origin</h4><p>To locate a point on Earth's surface, we start with the two angular coordinates we already know, theta (<b>θ</b>) and phi (<b>ϕ</b>). In everyday language, however, these angles have other names: theta (<b>θ</b>) is called <b>longitude</b>, and phi (<b>ϕ</b>) is called <b>colatitude</b> — the angle measured from the North Pole.</p><p>Geography adds one more measure, <b>latitude</b> (<b>δ</b>), which tells us how far north or south of the Equator a point is. Latitude and colatitude are simple partners: ϕ = 90° - δ. So a point at latitude 30° N has a colatitude of 90° - 30° = 60°.</p><p>This is only the first of the small simplifications we will meet along the way (<htcite0>; <htcite1>; <htcite2>; <htcite3>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -188,7 +188,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>Longitude</h4>In mathematics, longitude (<b>θ</b>) s expressed in values ranging from 0 to 2π radians or 0 to 360 degrees. When applied to geographic coordinates, the Earth is divided into two regions of 180 degrees each. The dividing line between these regions is the <b>Greenwich Meridian line</b>, established arbitrarily in <htdate0> as zero degrees at the Royal Observatory in Greenwich, England. Positions east of Greenwich are measured as X degrees <b>East</b>, and positions to the west as X degrees <b>West</b>",
+               "text": "<h4>Longitude</h4>In mathematics, longitude (<b>θ</b>) is expressed with values from 0 to 2π radians, or from 0 to 360 degrees. For geographic coordinates, we split the Earth into two halves of 180 degrees each. The line that separates them is the <b>Greenwich Meridian</b>, fixed in <htdate0> as the zero meridian at the Royal Observatory in Greenwich, England. Every place east of Greenwich is measured as X degrees <b>East</b>, and every place west of it as X degrees <b>West</b>",
                "source": [
                   {
                      "type": 1,
@@ -226,7 +226,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>Latitude</h4>Latitude (<b>ϕ</b>) is represented mathematically with values ranging from 0 to π/2 radians or from 0 to 180 degrees. In geographic terms, Earth is divided into two 90 degrees regions: the Northern Hemisphere and the Southern Hemisphere. In mathematics, however, positions south of the Equator are represented with negative values. Unlike longitude, which is measured from a prime meridian, latitude is measured from the Equator — an imaginary line dividing the planet into northern and southern halves. Positions north of the Equator are noted as \"X degrees <b>North</b>\", and those south as \"X degrees <b>South</b>\"",
+               "text": "<h4>Latitude</h4>Latitude (<b>δ</b>) is represented mathematically with values from 0 to π/2 radians, or from 0 to 90 degrees. In geographic terms, Earth is divided into two 90-degree regions: the Northern Hemisphere and the Southern Hemisphere. In mathematics, however, positions south of the Equator get negative values. Unlike longitude, which is measured from a prime meridian, latitude is measured from the Equator — the imaginary line that divides the planet into northern and southern halves. Positions north of the Equator are written as \"X degrees <b>North</b>\", and positions south as \"X degrees <b>South</b>\"",
                "source": [
                   {
                      "type": 1,
@@ -274,7 +274,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nIn this text we answered the question posed at the beginning: the coordinates our smartphone shows are not a different system. They are the same spherical coordinates we already know, with slight adjustments. On the surface of the Earth the radius is fixed, theta (θ) becomes **longitude**, measured from the Greenwich Meridian, and phi (ϕ) is replaced by **latitude** (δ), measured from the Equator.\n\nLatitude and longitude are therefore geographic names for spherical coordinates. The smartphone simply reads them as a pair of angles, X degrees East or West and X degrees North or South, and turns them into the position we see on the map. The same direct relationship appears in other History Tracers texts: whenever a sphere is used — a planet, the sky or a globe — spherical coordinates return with slight adjustments of origin, name and range.",
+               "text": "### Conclusion\n\nNow we can answer the question from the introduction: the coordinates on our smartphone are **not** a different system. They are the same spherical coordinates we already know, with a few small changes. On the Earth's surface the radius never changes, so we can drop it; theta (θ) becomes **longitude**, measured from the Greenwich Meridian; and phi (ϕ) becomes **latitude** (δ), measured from the Equator.\n\nSo latitude and longitude are just geographic names for spherical coordinates. The smartphone reads a pair of angles — X degrees East or West, and X degrees North or South — and turns them into the position we see on the map. Look at any point on a map application: behind the blue dot there are always two numbers, one of each kind. The same connection appears in other History Tracers texts: whenever we work with a sphere — a planet, the sky or a globe — spherical coordinates come back with small adjustments of origin, name and range.",
                "source": null,
                "date_time": null,
                "isTable": false,
