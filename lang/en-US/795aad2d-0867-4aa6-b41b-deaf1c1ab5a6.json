@@ -23,12 +23,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795191649"
+      "1795391017"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -91,7 +93,7 @@
          "id": "SECTION_force_vector",
          "text": [
             {
-               "text": "### Why Is a Force a Vector?\n\nImagine you are pushing a box. Push it with 5 newtons to the right, and the box moves to the right. Push it with the same 5 newtons to the left, and the box moves to the left. The strength is the same, but the result changes, because the direction changed.\n\nThat is why a force is a vector: one number is not enough. A **vector** is a quantity with a **magnitude** and a **direction**. In science books, vectors are drawn as arrows. The length of the arrow shows the magnitude, and the tip shows the direction.\n\nVectors also help us add forces. If two people push a box in the same direction, their forces add up. If they push in opposite directions, part of one force cancels the other. This is much easier to see when we draw the forces as arrows (<htcite0>).",
+               "text": "### Why Is a Force a Vector?\n\nImagine a box at rest on a smooth floor, with no other horizontal forces acting on it. Push it with 5 newtons to the right, and the box starts moving to the right. Push it with the same 5 newtons to the left, and the box starts moving to the left. The strength is the same, but the result changes, because the direction changed.\n\nThat is why a force is a vector: one number is not enough. A **vector** is a quantity with a **magnitude** and a **direction**. In science books, vectors are drawn as arrows. The length of the arrow shows the magnitude, and the tip shows the direction.\n\nVectors also help us add forces. If two people push a box in the same direction, their forces add up. If they push in opposite directions, part of one force cancels the other. This is much easier to see when we draw the forces as arrows (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -223,7 +225,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h3>A Common Question</h3>Finally, let’s use this model to answer a question we often hear: \"If the Earth isn’t flat, why don’t we fall off it in certain places?\" To leave Earth, you would have to move very fast. The minimum speed needed to escape is called the <b>escape velocity</b>: about 40,000 kilometers per hour. If you never reach it, gravity keeps you on the ground",
+               "text": "<h3>A Common Question</h3>Finally, let’s use this model to answer a question we often hear: \"If the Earth isn’t flat, why don’t we fall off it in certain places?\" To leave Earth, you would have to move very fast. The minimum speed needed to escape is called the <b>escape velocity</b>: about 40,000 kilometers per hour at Earth’s surface, without further propulsion and ignoring air resistance. A slower upward launch does not keep you on the ground forever: the object can rise and then fall back.",
                "source": [
                   {
                      "type": 1,

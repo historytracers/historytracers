@@ -1037,6 +1037,11 @@ canvas {
   max-width: 688px;
 }
 
+#sorobanCanvas:focus-visible {
+  outline: 3px solid #f7b32b;
+  outline-offset: 3px;
+}
+
 .value-panel {
   margin-top: clamp(0.5rem, 3vw, 1rem);
   background: #2e241f;

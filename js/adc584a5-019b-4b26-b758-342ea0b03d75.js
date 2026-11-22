@@ -33,6 +33,7 @@ var localNumberSetterController = {
     "stepCompleted": false,
     "helpMode": false,
     "solved": false,
+    "completedLevels": [false, false, false, false, false, false, false, false],
     "TextManager": null
 };
 
@@ -91,13 +92,12 @@ function htSetterGetAbacusDigits(raw) {
 function htSetterUpdateDisplay() {
     const numSpan = document.getElementById('numericValue');
     if (numSpan && localSorobanController.state && localSorobanController.state.length > 0) {
-        const level = htSetterLevel();
         const digits = htSetterGetAbacusDigits(false);
         const markerCol = localSorobanController.decimalMarkerCol;
         let intStr = digits.slice(0, markerCol + 1).join('');
         intStr = intStr.replace(/^0+/, '');
         if (intStr === '') intStr = '0';
-        let fracStr = digits.slice(markerCol + 1, markerCol + 1 + level.decDigits).join('');
+        let fracStr = digits.slice(markerCol + 1).join('');
         if (fracStr === '') fracStr = '0';
         numSpan.innerText = intStr + '.' + fracStr;
     }
@@ -197,7 +197,8 @@ function htSetterBuildSteps() {
             "instruction": digit === 0
                 ? TM.getWriteZeroInstruction(placeName, hint)
                 : TM.getWriteDigitInstruction(digit, placeName, hint),
-            "target": current.slice()
+            "target": current.slice(),
+            "targetMarker": markerCol
         });
     }
 
@@ -212,7 +213,8 @@ function htSetterBuildSteps() {
             "instruction": digit === 0
                 ? TM.getWriteZeroInstruction(placeName, TM.get('txt_hintRight'))
                 : TM.getWriteDigitInstruction(digit, placeName, TM.get('txt_hintRight')),
-            "target": current.slice()
+            "target": current.slice(),
+            "targetMarker": markerCol
         });
     }
 
@@ -220,7 +222,8 @@ function htSetterBuildSteps() {
     steps.push({
         "type": "digit",
         "instruction": TM.getFinalInstruction(htSetterNumberString(number)),
-        "target": htSetterBuildTarget(number).digits
+        "target": htSetterBuildTarget(number).digits,
+        "targetMarker": markerCol
     });
 
     return steps;
@@ -332,6 +335,7 @@ function htSetterCheckChallenge() {
     }
     if (ctl.solved) return;
     ctl.solved = true;
+    htSetterMarkLevelCompleted();
     if (feedback) feedback.innerHTML = '<div class="congrats">' + ctl.TextManager.getCongratsMessage(htSetterNumberString(ctl.number)) + '</div>';
     htSetterSetStepVisibility(false);
     htSetterSetHelpVisibility(false);
@@ -358,10 +362,13 @@ function htSetterStartHelp() {
     htSetterSetStepVisibility(true);
 }
 
-function htSetterStepMatches(step) {
-    if (step.type === 'marker') {
-        return localSorobanController.decimalMarkerCol === step.targetMarker;
-    }
+function htSetterStepMarkerMatches(step) {
+    const targetMarker = step.targetMarker !== undefined ? step.targetMarker : htSetterLevelMarkerCol();
+    return localSorobanController.decimalMarkerCol === targetMarker;
+}
+
+function htSetterStepDigitsMatch(step) {
+    if (step.type === 'marker') return true;
     const digits = htSetterGetAbacusDigits(true);
     for (let i = 0; i < digits.length; i++) {
         if (digits[i] !== step.target[i]) return false;
@@ -369,11 +376,36 @@ function htSetterStepMatches(step) {
     return true;
 }
 
+function htSetterStepMatches(step) {
+    if (step.type === 'marker') {
+        return localSorobanController.decimalMarkerCol === step.targetMarker;
+    }
+    return htSetterStepMarkerMatches(step) && htSetterStepDigitsMatch(step);
+}
+
+function htSetterShowRestoreMarker(step) {
+    const TM = localNumberSetterController.TextManager;
+    const targetMarker = step.targetMarker !== undefined ? step.targetMarker : htSetterLevelMarkerCol();
+    const feedback = document.getElementById('feedbackArea');
+    if (feedback) {
+        feedback.innerHTML = '<div class="warning-message"><span class="warning-icon">⚠</span><span>' +
+            TM.format(TM.get('txt_restoreMarker'), { "column": targetMarker + 1 }) + '</span></div>';
+    }
+}
+
+function htSetterMarkLevelCompleted() {
+    const ctl = localNumberSetterController;
+    if (ctl.levelIdx >= 0 && ctl.levelIdx < ctl.completedLevels.length) {
+        ctl.completedLevels[ctl.levelIdx] = true;
+    }
+}
+
 function htSetterFinishHelp() {
     const ctl = localNumberSetterController;
     ctl.helpMode = false;
     ctl.solved = true;
     ctl.stepCompleted = false;
+    htSetterMarkLevelCompleted();
     const feedback = document.getElementById('feedbackArea');
     if (feedback) feedback.innerHTML = '<div class="congrats">' + ctl.TextManager.getHelpDoneMessage(htSetterNumberString(ctl.number)) + '</div>';
     htSetterSetStepVisibility(false);
@@ -384,7 +416,13 @@ function htSetterFinishHelp() {
 function htSetterNextStep() {
     const ctl = localNumberSetterController;
     if (!ctl.helpMode || !ctl.steps.length || ctl.currentStepIdx >= ctl.steps.length) return;
-    if (!htSetterStepMatches(ctl.steps[ctl.currentStepIdx])) return;
+    const step = ctl.steps[ctl.currentStepIdx];
+    if (!htSetterStepMatches(step)) {
+        if (step.type !== 'marker' && !htSetterStepMarkerMatches(step) && htSetterStepDigitsMatch(step)) {
+            htSetterShowRestoreMarker(step);
+        }
+        return;
+    }
 
     if (ctl.currentStepIdx + 1 < ctl.steps.length) {
         ctl.currentStepIdx++;
@@ -410,9 +448,10 @@ function htSetterNextLevel() {
         ctl.levelIdx = 0;
         wrapped = true;
     }
+    const allLevelsCompleted = ctl.completedLevels.every(Boolean);
     htSetterUpdateLevelBadge();
     htSetterStartNewExercise();
-    if (wrapped) {
+    if (wrapped && allLevelsCompleted) {
         const feedback = document.getElementById('feedbackArea');
         if (feedback) feedback.innerHTML = '<div class="congrats">' + ctl.TextManager.get('txt_finalLevelMessage') + '</div>';
     }
@@ -433,7 +472,9 @@ window.checkCurrentSetterStepPositive = function() {
     const feedback = document.getElementById('feedbackArea');
     if (!htSetterStepMatches(step)) {
         ctl.stepCompleted = false;
-        if (feedback && feedback.innerHTML && !feedback.innerHTML.includes('congrats')) {
+        if (step.type !== 'marker' && !htSetterStepMarkerMatches(step) && htSetterStepDigitsMatch(step)) {
+            htSetterShowRestoreMarker(step);
+        } else if (feedback && feedback.innerHTML && !feedback.innerHTML.includes('congrats')) {
             feedback.innerHTML = '';
         }
         return;

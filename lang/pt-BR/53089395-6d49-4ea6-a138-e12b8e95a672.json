@@ -22,12 +22,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795371941"
+      "1795391072"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -337,7 +339,7 @@
                "PostMention": ".</center>"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (-3944126.27, 3350784.05, 3715609.67)</li><li><b>Montevidéu</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>Assim, ao levar em conta o raio e usar coordenadas tridimensionais, obtemos uma representação completa e precisa.</p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (-3944126.27, 3350784.05, 3715609.67)</li><li><b>Montevidéu</b>: (2907683.28, -4341002.95, -3645642.93)</li></ul></p><p>Assim, ao levar em conta o raio e usar coordenadas tridimensionais, obtemos uma representação completa e precisa.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -351,7 +353,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "<h3>Conclusão</h3><p>Neste texto tomamos uma decisão importante: tratamos a Terra como uma esfera perfeita, parecida com uma bola, embora na verdade seja ligeiramente achatada nos polos — um elipsoide. Essa escolha é uma <b>simplificação</b> e traz uma consequência muito útil. Se o raio é sempre o mesmo, não precisamos mais nos preocupar com ele. Por isso qualquer lugar da superfície pode ser descrito com apenas dois ângulos: a <b>longitude</b> (θ) e a <b>latitude</b> (δ).</p>",
+               "text": "<h3>Conclusão</h3><p>Neste texto fixamos a superfície da Terra. Fixar uma superfície remove a variável independente da altura, então qualquer lugar dessa superfície pode ser descrito com apenas dois ângulos: a <b>longitude</b> (θ) e a <b>latitude</b> (δ). Essa descrição com dois ângulos funciona tanto em uma esfera quanto em um elipsoide. Em seguida escolhemos uma <b>esfera</b> — uma simplificação, porque a Terra é ligeiramente achatada nos polos — o que torna as fórmulas de conversão mais simples.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,

@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795368003"
+      "1795391017"
    ],
    "authors": [
       ""
@@ -226,7 +226,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>Latitude</h4>Latitude (<b>δ</b>) is represented mathematically with values from 0 to π/2 radians, or from 0 to 90 degrees. In geographic terms, Earth is divided into two 90-degree regions: the Northern Hemisphere and the Southern Hemisphere. In mathematics, however, positions south of the Equator get negative values. Unlike longitude, which is measured from a prime meridian, latitude is measured from the Equator — the imaginary line that divides the planet into northern and southern halves. Positions north of the Equator are written as \"X degrees <b>North</b>\", and positions south as \"X degrees <b>South</b>\"",
+               "text": "<h4>Latitude</h4>Latitude (<b>δ</b>) is represented mathematically with values from −π/2 to π/2 radians, or from −90° to 90°. The values from 0° to 90° describe only the unsigned magnitude north or south of the Equator. In geographic terms, Earth is divided into two 90-degree regions: the Northern Hemisphere and the Southern Hemisphere. In mathematics, however, positions south of the Equator get negative values. Unlike longitude, which is measured from a prime meridian, latitude is measured from the Equator — the imaginary line that divides the planet into northern and southern halves. Positions north of the Equator are written as \"X degrees <b>North</b>\", and positions south as \"X degrees <b>South</b>\"",
                "source": [
                   {
                      "type": 1,
@@ -274,7 +274,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusion\n\nNow we can answer the question from the introduction: the coordinates on our smartphone are **not** a different system. They are the same spherical coordinates we already know, with a few small changes. On the Earth's surface the radius never changes, so we can drop it; theta (θ) becomes **longitude**, measured from the Greenwich Meridian; and phi (ϕ) becomes **latitude** (δ), measured from the Equator.\n\nSo latitude and longitude are just geographic names for spherical coordinates. The smartphone reads a pair of angles — X degrees East or West, and X degrees North or South — and turns them into the position we see on the map. Look at any point on a map application: behind the blue dot there are always two numbers, one of each kind. The same connection appears in other History Tracers texts: whenever we work with a sphere — a planet, the sky or a globe — spherical coordinates come back with small adjustments of origin, name and range.",
+               "text": "### Conclusion\n\nNow we can answer the question from the introduction: the coordinates on our smartphone are **not** a different system. They are the same spherical coordinates we already know, with a few small changes. On the Earth's surface the radius never changes, so we can drop it; theta (θ) becomes **longitude**, measured from the Greenwich Meridian; and phi (ϕ) is the **colatitude**, the angle measured from the North Pole; latitude (δ) is therefore δ = 90° − ϕ, measured from the Equator.\n\nSo latitude and longitude are just geographic names for spherical coordinates. The smartphone reads a pair of angles — X degrees East or West, and X degrees North or South — and turns them into the position we see on the map. Look at any point on a map application: behind the blue dot there are always two numbers, one of each kind. The same connection appears in other History Tracers texts: whenever we work with a sphere — a planet, the sky or a globe — spherical coordinates come back with small adjustments of origin, name and range.",
                "source": null,
                "date_time": null,
                "isTable": false,

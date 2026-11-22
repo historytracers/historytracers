@@ -222,6 +222,11 @@ func TestHTConvertArabicNumbersToWords(t *testing.T) {
 		{lang: "en-US", in: "1000000", want: "one million"},
 		{lang: "en-US", in: "1,234", want: "one thousand two hundred thirty four"},
 		{lang: "en-US", in: "1,234.56", want: "one thousand two hundred thirty four point five six"},
+		{lang: "en-US", in: "000", want: "zero zero zero"},
+		{lang: "en-US", in: "1,2,3", want: "one,two,three"},
+		{lang: "en-US", in: "12,34", want: "twelve,thirty four"},
+		{lang: "es-ES", in: "1,2,3", want: "uno,dos,tres"},
+		{lang: "pt-BR", in: "1,2,3", want: "um,dois,três"},
 		{lang: "en-US", in: "3.14", want: "three point one four"},
 		{lang: "en-US", in: "007", want: "zero zero seven"},
 		{lang: "en-US", in: "Chapter 2 has 15 pages.", want: "Chapter two has fifteen pages."},
@@ -266,6 +271,16 @@ func TestHTAdjustAudioStringBeforeWriteSpellsArabicDigits(t *testing.T) {
 
 	in := "The way the Arabs write: ٠, ١, ٢\n٠\n"
 	want := "The way the Arabs write: sifr, wahid, ithnan.\nsifr.\n\n"
+	if got := htAdjustAudioStringBeforeWrite(in, "en-US"); got != want {
+		t.Errorf("htAdjustAudioStringBeforeWrite(%q, %q) = %q, want %q", in, "en-US", got, want)
+	}
+}
+
+func TestHTAdjustAudioStringBeforeWriteKeepsNumericLines(t *testing.T) {
+	useRepoSource(t)
+
+	in := "007\n____________."
+	want := "zero zero seven.\n"
 	if got := htAdjustAudioStringBeforeWrite(in, "en-US"); got != want {
 		t.Errorf("htAdjustAudioStringBeforeWrite(%q, %q) = %q, want %q", in, "en-US", got, want)
 	}

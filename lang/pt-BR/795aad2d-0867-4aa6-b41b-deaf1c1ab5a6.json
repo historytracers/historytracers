@@ -23,12 +23,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795191722"
+      "1795391072"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -91,7 +93,7 @@
          "id": "SECTION_force_vector",
          "text": [
             {
-               "text": "### Por que a força é um vetor?\n\nImagine que você empurra uma caixa. Empurre com 5 newtons para a direita e a caixa se move para a direita. Empurre com os mesmos 5 newtons para a esquerda e a caixa se move para a esquerda. A magnitude é a mesma, mas o resultado muda, porque a direção muda.\n\nPor isso a força é um vetor: um único número não basta. Um **vetor** é uma quantidade com uma **magnitude** e uma **direção**. Nos livros de ciência, os vetores são desenhados como flechas. O comprimento da flecha mostra a magnitude e a ponta mostra a direção.\n\nOs vetores também ajudam a somar forças. Se duas pessoas empurram uma caixa na mesma direção, as forças se somam. Se empurrarem em direções opostas, parte de uma força anula a outra. Fica muito mais fácil ver isso quando desenhamos as forças como flechas (<htcite0>).",
+               "text": "### Por que a força é um vetor?\n\nImagine uma caixa em repouso sobre um piso liso, sem outras forças horizontais agindo sobre ela. Empurre com 5 newtons para a direita e a caixa começa a se mover para a direita. Empurre com os mesmos 5 newtons para a esquerda e a caixa começa a se mover para a esquerda. A magnitude é a mesma, mas o resultado muda, porque a direção muda.\n\nPor isso a força é um vetor: um único número não basta. Um **vetor** é uma quantidade com uma **magnitude** e uma **direção**. Nos livros de ciência, os vetores são desenhados como flechas. O comprimento da flecha mostra a magnitude e a ponta mostra a direção.\n\nOs vetores também ajudam a somar forças. Se duas pessoas empurram uma caixa na mesma direção, as forças se somam. Se empurrarem em direções opostas, parte de uma força anula a outra. Fica muito mais fácil ver isso quando desenhamos as forças como flechas (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -223,7 +225,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h3>Uma pergunta comum</h3>Para terminar, usamos este modelo para responder a uma pergunta que ouvimos com frequência: \"Se a Terra não é plana, por que não caímos dela em certos lugares?\" Para sair da Terra, teríamos que nos mover a uma velocidade muito alta. A velocidade mínima necessária se chama <b>velocidade de escape</b>: cerca de 40.000 quilômetros por hora. Se não a alcançarmos, a gravidade nos mantém no chão",
+               "text": "<h3>Uma pergunta comum</h3>Para terminar, usamos este modelo para responder a uma pergunta que ouvimos com frequência: \"Se a Terra não é plana, por que não caímos dela em certos lugares?\" Para sair da Terra, teríamos que nos mover a uma velocidade muito alta. A velocidade mínima necessária se chama <b>velocidade de escape</b>: cerca de 40.000 quilômetros por hora na superfície da Terra, sem propulsão adicional e desprezando a resistência do ar. Um lançamento ascendente mais lento não nos mantém no chão para sempre: o objeto pode subir e depois voltar a cair.",
                "source": [
                   {
                      "type": 1,

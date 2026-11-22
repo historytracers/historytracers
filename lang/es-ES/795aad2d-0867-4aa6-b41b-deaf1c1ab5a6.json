@@ -23,12 +23,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795191687"
+      "1795391045"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -91,7 +93,7 @@
          "id": "SECTION_force_vector",
          "text": [
             {
-               "text": "### ¿Por qué la fuerza es un vector?\n\nImagina que empujas una caja. Empújala con 5 newtons hacia la derecha y la caja se mueve hacia la derecha. Empújala con los mismos 5 newtons hacia la izquierda y la caja se mueve hacia la izquierda. La magnitud es la misma, pero el resultado cambia, porque cambia la dirección.\n\nPor eso la fuerza es un vector: con un solo número no basta. Un **vector** es una cantidad con una **magnitud** y una **dirección**. En los libros de ciencia, los vectores se dibujan como flechas. El largo de la flecha muestra la magnitud y la punta muestra la dirección.\n\nLos vectores también nos ayudan a sumar fuerzas. Si dos personas empujan una caja en la misma dirección, sus fuerzas se suman. Si empujan en direcciones opuestas, parte de una fuerza anula a la otra. Es mucho más fácil verlo cuando dibujamos las fuerzas como flechas (<htcite0>).",
+               "text": "### ¿Por qué la fuerza es un vector?\n\nImagina una caja en reposo sobre un suelo liso, sin otras fuerzas horizontales actuando sobre ella. Empújala con 5 newtons hacia la derecha y la caja empieza a moverse hacia la derecha. Empújala con los mismos 5 newtons hacia la izquierda y la caja empieza a moverse hacia la izquierda. La magnitud es la misma, pero el resultado cambia, porque cambia la dirección.\n\nPor eso la fuerza es un vector: con un solo número no basta. Un **vector** es una cantidad con una **magnitud** y una **dirección**. En los libros de ciencia, los vectores se dibujan como flechas. El largo de la flecha muestra la magnitud y la punta muestra la dirección.\n\nLos vectores también nos ayudan a sumar fuerzas. Si dos personas empujan una caja en la misma dirección, sus fuerzas se suman. Si empujan en direcciones opuestas, parte de una fuerza anula a la otra. Es mucho más fácil verlo cuando dibujamos las fuerzas como flechas (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -223,7 +225,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h3>Una pregunta común</h3>Para terminar, usamos este modelo para responder a una pregunta que solemos escuchar: \"Si la Tierra no es plana, ¿por qué no caemos de ella en ciertos lugares?\" Para salir de la Tierra tendríamos que movernos a una velocidad muy alta. A esa velocidad mínima la llamamos <b>velocidad de escape</b>: unas 40.000 kilómetros por hora. Si no la alcanzamos, la gravedad nos mantiene en el suelo",
+               "text": "<h3>Una pregunta común</h3>Para terminar, usamos este modelo para responder a una pregunta que solemos escuchar: \"Si la Tierra no es plana, ¿por qué no caemos de ella en ciertos lugares?\" Para salir de la Tierra tendríamos que movernos a una velocidad muy alta. A esa velocidad mínima la llamamos <b>velocidad de escape</b>: unas 40.000 kilómetros por hora en la superficie terrestre, sin propulsión adicional y despreciando la resistencia del aire. Un lanzamiento ascendente más lento no nos mantiene en el suelo para siempre: el objeto puede subir y luego volver a caer.",
                "source": [
                   {
                      "type": 1,

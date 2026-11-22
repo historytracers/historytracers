@@ -312,6 +312,21 @@ function htSorobanDrawDecimalMarker() {
     localSorobanController.ctx.stroke();
 }
 
+function htSorobanDrawKeyboardFocus() {
+    if (!localSorobanController.ctx || !localSorobanController.keyboardFocused) return;
+    if (localSorobanController.focusedCol === null || localSorobanController.focusedCol === undefined) return;
+    const x = localSorobanController.startX + localSorobanController.focusedCol * localSorobanController.colWidth;
+    const top = localSorobanController.margin.top - 14;
+    const bottom = localSorobanController.canvasHeight - localSorobanController.margin.bottom + 14;
+    localSorobanController.ctx.save();
+    localSorobanController.ctx.fillStyle = "rgba(247, 179, 43, 0.20)";
+    localSorobanController.ctx.strokeStyle = "#f7b32b";
+    localSorobanController.ctx.lineWidth = 2;
+    localSorobanController.ctx.fillRect(x - localSorobanController.colWidth / 2, top, localSorobanController.colWidth, bottom - top);
+    localSorobanController.ctx.strokeRect(x - localSorobanController.colWidth / 2, top, localSorobanController.colWidth, bottom - top);
+    localSorobanController.ctx.restore();
+}
+
 function htSorobanDrawColumn(idx) {
     if (!localSorobanController.ctx) return;
     const x = localSorobanController.startX + idx * localSorobanController.colWidth;
@@ -435,6 +450,7 @@ function htSorobanRender() {
     localSorobanController.ctx.globalAlpha = 1;
     
     htSorobanDrawDecimalTrack();
+    htSorobanDrawKeyboardFocus();
     
     for(let i=0;i<localSorobanController.COLUMNS;i++){
         htSorobanDrawColumn(i);
@@ -589,6 +605,12 @@ function htSorobanHandleCanvasStart(e) {
     }
     
     if(!hit) return;
+    if(hit.type === 'upper' || hit.type === 'lower'){
+        localSorobanController.focusedCol = hit.col;
+        if (document.activeElement !== localSorobanController.canvas) {
+            localSorobanController.canvas.focus({ preventScroll: true });
+        }
+    }
     if(hit.type === 'upper'){
         htSorobanToggleUpper(hit.col, hit.beadIdx);
     } else if(hit.type === 'lower'){
@@ -837,6 +859,80 @@ function htSorobanSwitchMode(mode) {
     htSorobanUpdateDisplay();
 }
         
+function htSorobanKeyboardToggleUpper(col) {
+    const colState = localSorobanController.state[col];
+    const nextUpper = colState.upper >= colState.upperMax ? 0 : colState.upper + 1;
+    if (nextUpper === colState.upper) return;
+    if (nextUpper === 0) {
+        htSorobanToggleUpper(col, 0);
+    } else {
+        htSorobanToggleUpper(col, nextUpper - 1);
+    }
+}
+
+function htSorobanKeyboardToggleLower(col) {
+    const colState = localSorobanController.state[col];
+    const nextLower = colState.lower >= colState.lowerMax ? 0 : colState.lower + 1;
+    if (nextLower === colState.lower) return;
+    if (nextLower === 0) {
+        htSorobanHandleLowerClick(col, 0);
+    } else {
+        htSorobanHandleLowerClick(col, nextLower - 1);
+    }
+}
+
+function htSorobanKeyboardClearColumn(col) {
+    if (localSorobanController.state[col].upper > 0) htSorobanToggleUpper(col, 0);
+    if (localSorobanController.state[col].lower > 0) htSorobanHandleLowerClick(col, 0);
+}
+
+function htSorobanHandleKeyboardFocus() {
+    localSorobanController.keyboardFocused = true;
+    if (localSorobanController.focusedCol === null || localSorobanController.focusedCol === undefined) {
+        localSorobanController.focusedCol = localSorobanController.decimalMarkerCol;
+    }
+    htSorobanRender();
+}
+
+function htSorobanHandleKeyboardBlur() {
+    localSorobanController.keyboardFocused = false;
+    htSorobanRender();
+}
+
+function htSorobanHandleKeydown(e) {
+    if (localSorobanController.abacusMode === 'schyoty') return;
+    const columns = localSorobanController.COLUMNS;
+    if (localSorobanController.focusedCol === null || localSorobanController.focusedCol === undefined) {
+        localSorobanController.focusedCol = localSorobanController.decimalMarkerCol;
+    }
+    let col = localSorobanController.focusedCol;
+
+    if (e.key === 'ArrowLeft') {
+        localSorobanController.focusedCol = Math.max(0, col - 1);
+        htSorobanRender();
+        e.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+        localSorobanController.focusedCol = Math.min(columns - 1, col + 1);
+        htSorobanRender();
+        e.preventDefault();
+    } else if (e.key === 'ArrowUp' || e.key === '5') {
+        htSorobanKeyboardToggleUpper(col);
+        e.preventDefault();
+    } else if (e.key === 'ArrowDown' || e.key === '1') {
+        htSorobanKeyboardToggleLower(col);
+        e.preventDefault();
+    } else if (e.key === '0') {
+        htSorobanKeyboardClearColumn(col);
+        e.preventDefault();
+    } else if (e.key === ',' || e.key === 'PageDown') {
+        htSorobanMoveDecimalMarkerToColumn(Math.max(0, localSorobanController.decimalMarkerCol - 1));
+        e.preventDefault();
+    } else if (e.key === '.' || e.key === 'PageUp') {
+        htSorobanMoveDecimalMarkerToColumn(Math.min(columns - 1, localSorobanController.decimalMarkerCol + 1));
+        e.preventDefault();
+    }
+}
+
 function htSorobanAttachEvents() {
     const canvas = localSorobanController.canvas;
     const resetBtn = document.getElementById('resetButton');
@@ -845,9 +941,18 @@ function htSorobanAttachEvents() {
     const schyotyBtn = document.getElementById('btnSchyotyMode');
     
     if (!canvas) return;
-    
+
+    if (!canvas.hasAttribute('tabindex')) canvas.setAttribute('tabindex', '0');
+    if (!canvas.hasAttribute('role')) canvas.setAttribute('role', 'application');
+    if (!canvas.getAttribute('aria-label')) {
+        canvas.setAttribute('aria-label', 'Interactive abacus. Use Left and Right arrows to choose a column, Up or 5 to toggle an upper bead, Down or 1 to toggle a lower bead, comma and period to move the decimal point, and 0 to clear the column.');
+    }
+
     canvas.removeEventListener('mousedown', htSorobanHandleCanvasStart);
     canvas.removeEventListener('touchstart', htSorobanHandleCanvasStart);
+    canvas.removeEventListener('keydown', htSorobanHandleKeydown);
+    canvas.removeEventListener('focus', htSorobanHandleKeyboardFocus);
+    canvas.removeEventListener('blur', htSorobanHandleKeyboardBlur);
     window.removeEventListener('mousemove', htSorobanHandleCanvasMove);
     window.removeEventListener('mouseup', htSorobanHandleCanvasEnd);
     window.removeEventListener('touchmove', htSorobanHandleCanvasMove);
@@ -859,6 +964,9 @@ function htSorobanAttachEvents() {
     window.removeEventListener('resize', htSorobanComputeLayout);
     
     canvas.addEventListener('mousedown', htSorobanHandleCanvasStart);
+    canvas.addEventListener('keydown', htSorobanHandleKeydown);
+    canvas.addEventListener('focus', htSorobanHandleKeyboardFocus);
+    canvas.addEventListener('blur', htSorobanHandleKeyboardBlur);
     window.addEventListener('mousemove', htSorobanHandleCanvasMove);
     window.addEventListener('mouseup', htSorobanHandleCanvasEnd);
     canvas.addEventListener('touchstart', htSorobanHandleCanvasStart, { passive: false });
@@ -922,7 +1030,9 @@ function htSorobanLoadContent() {
         "schyotyActiveX0": 0,
         "schyotyInactiveX0": 0,
         "schyotyWireL": 14,
-        "currentTargetLevel": 0
+        "currentTargetLevel": 0,
+        "focusedCol": null,
+        "keyboardFocused": false
     };
 
     if (document.getElementById('btnSuanpanMode') == undefined) {

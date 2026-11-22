@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795368059"
+      "1795391072"
    ],
    "authors": [
       ""
@@ -121,7 +121,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Coordenadas de Superfície</h3>A figura desta seção mostra onde se cruzam o <b>paralelo do Equador</b> (<i>Equator parallel</i>), o círculo imaginário que atravessa o meio da Terra, e o <b>meridiano de Greenwich</b> (<i>Greenwich meridian line</i>), a linha imaginária que passa por Greenwich, Inglaterra. O ponto de cruzamento está marcado como o ponto <b>O</b>. Esse ponto O é a referência para todas as medições de latitude e longitude.</p>",
+               "text": "<p><h3>Coordenadas de Superfície</h3>A figura desta seção mostra onde se cruzam o <b>paralelo do Equador</b> (<i>Equator parallel</i>), o círculo imaginário a meio caminho entre os polos Norte e Sul, e o <b>meridiano de Greenwich</b> (<i>Greenwich meridian line</i>), a linha imaginária que passa por Greenwich, Inglaterra. O ponto de cruzamento está marcado como o ponto <b>O</b>. Esse ponto O é a referência para todas as medições de latitude e longitude.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -226,7 +226,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>Latitude</h4>A latitude (<b>δ</b>) é representada na matemática por valores de 0 a π/2 radianos, ou de 0 a 90 graus. Em coordenadas geográficas, dividimos a Terra em duas regiões de 90 graus: o Hemisfério Norte e o Hemisfério Sul. Na matemática, porém, as posições ao sul do Equador recebem valores negativos. Diferentemente da longitude, que se mede a partir de um meridiano, a latitude se mede a partir do Equador — a linha imaginária que divide o planeta ao meio. As posições ao norte do Equador são indicadas como \"X graus ao <b>norte</b>\" e, ao sul, como \"X graus ao <b>sul</b>\"",
+               "text": "<h4>Latitude</h4>A latitude (<b>δ</b>) é representada na matemática por valores de −π/2 a π/2 radianos, ou de −90° a 90°. Os valores de 0° a 90° descrevem apenas a magnitude sem sinal ao norte ou ao sul do Equador. Em coordenadas geográficas, dividimos a Terra em duas regiões de 90 graus: o Hemisfério Norte e o Hemisfério Sul. Na matemática, porém, as posições ao sul do Equador recebem valores negativos. Diferentemente da longitude, que se mede a partir de um meridiano, a latitude se mede a partir do Equador — a linha imaginária que divide o planeta ao meio. As posições ao norte do Equador são indicadas como \"X graus ao <b>norte</b>\" e, ao sul, como \"X graus ao <b>sul</b>\"",
                "source": [
                   {
                      "type": 1,
@@ -274,7 +274,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nAgora podemos responder à pergunta da introdução: as coordenadas do nosso celular **não** são um sistema diferente. São as mesmas coordenadas esféricas que já conhecemos, com pequenos ajustes. Na superfície da Terra o raio é fixo, então podemos deixá-lo de lado; teta (θ) passa a ser a **longitude**, medida a partir do Meridiano de Greenwich, e fi (ϕ) passa a ser a **latitude** (δ), medida a partir do Equador.\n\nAssim, latitude e longitude são apenas nomes geográficos das coordenadas esféricas. O celular lê um par de ângulos — X graus a leste ou a oeste e X graus ao norte ou ao sul — e os converte na posição que vemos no mapa. Olhe qualquer ponto num aplicativo de mapas: atrás do ponto azul sempre há dois números, um de cada tipo. A mesma relação aparece em outros textos da History Tracers: sempre que se usa uma esfera — um planeta, o céu ou um globo terrestre — as coordenadas esféricas retornam com pequenos ajustes de origem, nome e intervalo.",
+               "text": "### Conclusão\n\nAgora podemos responder à pergunta da introdução: as coordenadas do nosso celular **não** são um sistema diferente. São as mesmas coordenadas esféricas que já conhecemos, com pequenos ajustes. Na superfície da Terra o raio é fixo, então podemos deixá-lo de lado; teta (θ) passa a ser a **longitude**, medida a partir do Meridiano de Greenwich, e fi (ϕ) é a **colatitude**, o ângulo medido a partir do Polo Norte; por isso a **latitude** (δ) é δ = 90° − ϕ, medida a partir do Equador.\n\nAssim, latitude e longitude são apenas nomes geográficos das coordenadas esféricas. O celular lê um par de ângulos — X graus a leste ou a oeste e X graus ao norte ou ao sul — e os converte na posição que vemos no mapa. Olhe qualquer ponto num aplicativo de mapas: atrás do ponto azul sempre há dois números, um de cada tipo. A mesma relação aparece em outros textos da History Tracers: sempre que se usa uma esfera — um planeta, o céu ou um globo terrestre — as coordenadas esféricas retornam com pequenos ajustes de origem, nome e intervalo.",
                "source": null,
                "date_time": null,
                "isTable": false,

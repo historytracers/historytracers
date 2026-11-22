@@ -3637,6 +3637,27 @@ function htFillStringOnPage(data, idx, page)
 
 function htFillWebPage(page, data)
 {
+    // Content scripts define these entry points globally. Drop the previous
+    // page's entry points before filling a new content page so a stale
+    // htLoadContent() cannot run on, or rebind hooks of, a board that is no
+    // longer on screen. Background loads (source files, language lists) must
+    // not clear the hooks of the page that is still displayed.
+    const isContentPage = data && (
+        data.type === "class" ||
+        data.type === "index" ||
+        data.type === "atlas" ||
+        data.type === "family_tree" ||
+        data.type === "genealogy" ||
+        (data.scripts && data.scripts.length > 0)
+    );
+    if (isContentPage) {
+        window.htLoadContent = undefined;
+        window.htLoadExercise = undefined;
+        window.htCheckAnswers = undefined;
+        window.htTriangleLoadContent = undefined;
+        window.htSorobanLoadContent = undefined;
+    }
+
     // Remove Family Book title when not on genealogy pages (it will be recreated in htFillFamilies)
     if (!data?.families) {
         $("#family-book-title").remove();

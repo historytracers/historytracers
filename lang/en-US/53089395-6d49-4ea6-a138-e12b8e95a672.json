@@ -22,12 +22,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795371897"
+      "1795391017"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -337,7 +339,7 @@
                "PostMention": ".</center>"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (-3944126.27, 3350784.05, 3715609.67)</li><li><b>Montevideo</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>With this three-dimensional representation, we get a complete and much more precise location.</p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (-3944126.27, 3350784.05, 3715609.67)</li><li><b>Montevideo</b>: (2907683.28, -4341002.95, -3645642.93)</li></ul></p><p>With this three-dimensional representation, we get a complete and much more precise location.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -351,7 +353,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "<h3>Conclusion</h3><p>In this text we made a big choice: we treated the Earth as a perfect sphere, like a ball, even though it is slightly flattened at the poles — an ellipsoid. This choice is a <b>simplification</b>, and it brings a very useful consequence. If the radius is always the same, we no longer need to worry about it. That is why any place on the surface can be described with only two angles: the <b>longitude</b> (θ) and the <b>latitude</b> (δ).</p>",
+               "text": "<h3>Conclusion</h3><p>In this text we fixed the Earth's surface. Fixing a surface removes the independent height variable, so any place on that surface can be described with only two angles: the <b>longitude</b> (θ) and the <b>latitude</b> (δ). This two-angle description works on a sphere and also on an ellipsoid. We then chose a <b>sphere</b> — a simplification, because the Earth is slightly flattened at the poles — which makes the conversion formulas simpler.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,

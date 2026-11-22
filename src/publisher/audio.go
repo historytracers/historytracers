@@ -1157,6 +1157,10 @@ func htArabicNumberToWords(raw string, lang string) string {
 
 	var words string
 	switch {
+	case trimmedIntPart == "" && len(intPart) > 1:
+		// Multi-digit all-zero identifiers (for example "000") keep every
+		// digit instead of collapsing to a single "zero".
+		words = htArabicDigitsToWords(intPart, lang)
 	case trimmedIntPart == "":
 		words = htArabicNumberOnes[lang][0]
 	case len(trimmedIntPart) != len(intPart):
@@ -1258,9 +1262,64 @@ func htConvertArabicNumbersToWords(text string, lang string) string {
 		})
 	}
 
+	// Match a maximal number token, then validate its separators in
+	// htArabicNumberTokenToWords: a separator is a thousands separator only
+	// when it forms complete groups of three digits.
 	numberRegex := regexp.MustCompile(`\d+(?:[.,]\d+)*`)
 	return numberRegex.ReplaceAllStringFunc(text, func(match string) string {
-		return htArabicNumberToWords(match, lang)
+		return htArabicNumberTokenToWords(match, lang)
+	})
+}
+
+// htArabicNumberTokenToWords converts one numeric token, treating a separator
+// as a thousands separator only when it follows valid 3-digit grouping.
+// Invalid tokens such as "1,2,3" are read as separate values.
+func htArabicNumberTokenToWords(token string, lang string) string {
+	lang = htArabicNumberLang(lang)
+	decimalSeparator := "."
+	thousandsSeparator := ","
+	if lang != "en-US" {
+		decimalSeparator = ","
+		thousandsSeparator = "."
+	}
+
+	// More than one decimal separator cannot be one decimal number.
+	if strings.Count(token, decimalSeparator) > 1 {
+		return htArabicNumberGroupsToWords(token, lang)
+	}
+
+	if strings.Contains(token, thousandsSeparator) {
+		intPart := token
+		if index := strings.LastIndex(token, decimalSeparator); index >= 0 {
+			intPart = token[:index]
+		}
+		groups := strings.Split(intPart, thousandsSeparator)
+		validGrouping := len(groups) > 1
+		for i, group := range groups {
+			if i == 0 {
+				if len(group) < 1 || len(group) > 3 {
+					validGrouping = false
+					break
+				}
+			} else if len(group) != 3 {
+				validGrouping = false
+				break
+			}
+		}
+		if !validGrouping {
+			return htArabicNumberGroupsToWords(token, lang)
+		}
+	}
+
+	return htArabicNumberToWords(token, lang)
+}
+
+// htArabicNumberGroupsToWords reads each run of digits in an invalid numeric
+// token as a separate value, keeping the original separators as punctuation.
+func htArabicNumberGroupsToWords(token string, lang string) string {
+	groupRegex := regexp.MustCompile(`\d+`)
+	return groupRegex.ReplaceAllStringFunc(token, func(group string) string {
+		return htArabicNumberToWords(group, lang)
 	})
 }
 

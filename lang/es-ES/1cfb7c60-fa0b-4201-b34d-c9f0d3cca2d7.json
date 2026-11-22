@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795368031"
+      "1795391045"
    ],
    "authors": [
       ""
@@ -121,7 +121,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Coordenadas de Superficie</h3>La figura de esta sección muestra dónde se cruzan el <b>paralelo de Ecuador</b> (<i>Equator parallel</i>), el círculo imaginario que atraviesa el centro de la Tierra, y el <b>meridiano de Greenwich</b> (<i>Greenwich meridian line</i>), la línea imaginaria que pasa por Greenwich, Inglaterra. El punto de cruce está marcado como el punto <b>O</b>. A partir de ahora, el punto O es el punto de referencia para todas las mediciones de latitud y longitud.</p>",
+               "text": "<p><h3>Coordenadas de Superficie</h3>La figura de esta sección muestra dónde se cruzan el <b>paralelo de Ecuador</b> (<i>Equator parallel</i>), el círculo imaginario a medio camino entre los polos Norte y Sur, y el <b>meridiano de Greenwich</b> (<i>Greenwich meridian line</i>), la línea imaginaria que pasa por Greenwich, Inglaterra. El punto de cruce está marcado como el punto <b>O</b>. A partir de ahora, el punto O es el punto de referencia para todas las mediciones de latitud y longitud.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -226,7 +226,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>Latitud</h4>La latitud (<b>δ</b>) se representa en matemáticas con valores de 0 a π/2 radianes, o de 0 a 90 grados. En coordenadas geográficas, dividimos la Tierra en dos regiones de 90 grados: el hemisferio norte y el hemisferio sur. En matemáticas, sin embargo, las posiciones al sur del ecuador se representan con valores negativos. A diferencia de la longitud, que se mide desde un meridiano, la latitud se mide desde el ecuador, la línea imaginaria que divide el planeta en dos mitades. Las posiciones al norte del ecuador se escriben como \"X grados al <b>norte</b>\" y las del sur como \"X grados al <b>sur</b>\"",
+               "text": "<h4>Latitud</h4>La latitud (<b>δ</b>) se representa en matemáticas con valores de −π/2 a π/2 radianes, o de −90° a 90°. Los valores de 0° a 90° describen solo la magnitud sin signo al norte o al sur del ecuador. En coordenadas geográficas, dividimos la Tierra en dos regiones de 90 grados: el hemisferio norte y el hemisferio sur. En matemáticas, sin embargo, las posiciones al sur del ecuador se representan con valores negativos. A diferencia de la longitud, que se mide desde un meridiano, la latitud se mide desde el ecuador, la línea imaginaria que divide el planeta en dos mitades. Las posiciones al norte del ecuador se escriben como \"X grados al <b>norte</b>\" y las del sur como \"X grados al <b>sur</b>\"",
                "source": [
                   {
                      "type": 1,
@@ -274,7 +274,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusión\n\nAhora podemos responder a la pregunta de la introducción: las coordenadas de nuestro móvil **no** son un sistema distinto. Son las mismas coordenadas esféricas que ya conocemos, con pequeños cambios. En la superficie de la Tierra el radio es fijo, así que lo descartamos; theta (θ) pasa a ser la **longitud**, medida desde el Meridiano de Greenwich, y fi (ϕ) pasa a ser la **latitud** (δ), medida desde el ecuador.\n\nAsí, latitud y longitud son solo nombres geográficos de las coordenadas esféricas. El móvil lee un par de ángulos — X grados al este u oeste y X grados al norte o sur — y los convierte en la posición que vemos en el mapa. Mira cualquier punto en una aplicación de mapas: detrás del punto azul siempre hay dos números, uno de cada tipo. La misma relación aparece en otros textos de History Tracers: siempre que se usa una esfera — un planeta, el cielo o un globo terráqueo — las coordenadas esféricas vuelven con pequeños ajustes de origen, nombre e intervalo.",
+               "text": "### Conclusión\n\nAhora podemos responder a la pregunta de la introducción: las coordenadas de nuestro móvil **no** son un sistema distinto. Son las mismas coordenadas esféricas que ya conocemos, con pequeños cambios. En la superficie de la Tierra el radio es fijo, así que lo descartamos; theta (θ) pasa a ser la **longitud**, medida desde el Meridiano de Greenwich, y fi (ϕ) es la **colatitud**, el ángulo medido desde el Polo Norte; por eso la **latitud** (δ) es δ = 90° − ϕ, medida desde el ecuador.\n\nAsí, latitud y longitud son solo nombres geográficos de las coordenadas esféricas. El móvil lee un par de ángulos — X grados al este u oeste y X grados al norte o sur — y los convierte en la posición que vemos en el mapa. Mira cualquier punto en una aplicación de mapas: detrás del punto azul siempre hay dos números, uno de cada tipo. La misma relación aparece en otros textos de History Tracers: siempre que se usa una esfera — un planeta, el cielo o un globo terráqueo — las coordenadas esféricas vuelven con pequeños ajustes de origen, nombre e intervalo.",
                "source": null,
                "date_time": null,
                "isTable": false,
