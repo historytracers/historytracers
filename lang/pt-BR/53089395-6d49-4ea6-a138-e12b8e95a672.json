@@ -1,6 +1,6 @@
 {
-   "title": "Nossas coordenadas",
-   "header": "Nossas coordenadas",
+   "title": "Nossas Coordenadas",
+   "header": "Nossas Coordenadas",
    "sources": [
       "53089395-6d49-4ea6-a138-e12b8e95a672"
    ],
@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795364410"
+      "1795371941"
    ],
    "authors": [
       ""
@@ -45,7 +45,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nPara aproveitar melhor esta lição, recomendamos ler primeiro estes textos:\n\n- **Onde estamos em uma esfera?**: como um ponto em uma esfera é localizado com coordenadas esféricas, um raio e dois ângulos (<htcite0>)\n- **Coordenadas de Superfície**: como essas coordenadas se tornam latitude e longitude, medidas a partir do Equador e do Meridiano de Greenwich (<htcite1>)",
+               "text": "### Pré-requisitos\n\nPara aproveitar melhor esta lição, recomendamos ler primeiro estes textos:\n\n- **Onde estamos em uma esfera?**: como localizar um ponto em uma esfera com coordenadas esféricas — um raio e dois ângulos (<htcite0>)\n- **Coordenadas de Superfície**: como essas coordenadas se tornam latitude e longitude, medidas a partir do Equador e do Meridiano de Greenwich (<htcite1>)",
                "source": [
                   {
                      "type": 1,
@@ -84,7 +84,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgGeo21\" onclick=\"htImageZoom('imgGeo21', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: Neste mapa, o continente está destacado © Mapswire (<htcite0>)</p>",
+               "text": "<p class=\"desc\"><img id=\"imgGeo21\" onclick=\"htImageZoom('imgGeo21', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: A África está destacada neste mapa © Mapswire (<htcite0>)</p>",
                "source": [
                   {
                      "type": 1,
@@ -106,7 +106,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Introdução</h3>Antes de nos localizarmos no planeta Terra, vamos refletir sobre uma questão:</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: Sobre a quantidade de variáveis</b><br /><br />Será que estamos cometendo um erro ao usar apenas longitude (<b>θ</b>) e latitude (<b>δ</b>) para nos localizarmos na superfície terrestre?</div></div></center><h3>Nossas coordenadas</h3><p>Agora vamos fazer a conversão de ângulos para metros, para que nossa posição também possa ser expressa como distâncias.</p>",
+               "text": "<p><h3>Introdução</h3>Antes de nos localizarmos na Terra, vamos refletir sobre uma questão:</p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: será que usamos a quantidade certa de variáveis?</b><br /><br />Será que estamos simplificando demais ao usar apenas longitude (<b>θ</b>) e latitude (<b>δ</b>) para nos localizarmos na superfície terrestre? Guarde a sua resposta: vamos conferir no final.</div></div></center><h3>Nossas Coordenadas</h3><p>Agora vamos converter ângulos em metros, para que a nossa posição também possa ser expressa como distâncias.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -115,7 +115,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>Simplificação</h4>Ao utilizar apenas latitude e longitude para nos posicionar na Terra, estamos de fato simplificando. Essa simplificação se baseia na suposição de que o raio médio da Terra é constante, estimado em 6.371 quilômetros (Km) (ou 6.371.000 metros (m))",
+               "text": "<h4>Simplificação</h4>Ao usar apenas latitude e longitude para nos localizar na Terra, estamos mesmo simplificando. A simplificação pressupõe que o raio médio da Terra é constante: cerca de 6.371 quilômetros (km), isto é, 6.371.000 metros (m) — a distância média do centro da Terra até a sua superfície",
                "source": [
                   {
                      "type": 1,
@@ -149,7 +149,7 @@
                "PostMention": "."
             },
             {
-               "text": "Para entender melhor essa simplificação, vejamos dois exemplos. Quando consideramos o raio da Terra constante, não o eliminamos, apenas o omitimos na representação final das coordenadas. Assim, as posições das cidades de Tóquio e Montevidéu podem ser expressas apenas com latitude e longitude",
+               "text": "Para entender melhor essa simplificação, vejamos um exemplo. Ao assumir um raio terrestre constante, não o eliminamos dos cálculos: apenas o deixamos de fora das coordenadas finais. É por isso que podemos expressar as posições de cidades como Tóquio (<htcite0>) e Montevidéu (<htcite1>) apenas com latitude e longitude",
                "source": [
                   {
                      "type": 1,
@@ -183,16 +183,16 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (35,6764° Norte, 139,6500° Leste)</li><li><b>Montevidéu</b>: (34,9055° Sul, 56,1851° Oeste)</li></ul></p><p><h4>Todas as variáveis</h4>Para expressarmos coordenadas de forma precisa, é fundamental que todas estejam na mesma unidade de medida.</p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (35,6764° Norte, 139,6500° Leste)</li><li><b>Montevidéu</b>: (34,9055° Sul, 56,1851° Oeste)</li></ul></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": ""
+               "PostMention": "."
             },
             {
-               "text": "<h4>Transformação de variáveis</h4><p>Até agora escrevemos a posição de um ponto com ângulos e um raio. Nesta subseção mudamos as variáveis: queremos as distâncias sobre os eixos, isto é, as coordenadas cartesianas. Vamos fazer isso em dois passos, sempre a partir de um triângulo retângulo: primeiro um ponto em um plano e depois um ponto em uma esfera.</p>",
+               "text": "<h4>Transformação de variáveis</h4><p>Até agora descrevemos a posição de um ponto com ângulos e um raio. Aqui trocamos essas variáveis por distâncias sobre os eixos: as coordenadas cartesianas. Vamos fazer isso em dois passos, sempre a partir de um triângulo retângulo: primeiro para um ponto em um plano e depois para um ponto em uma esfera.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -210,7 +210,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>Em um plano, um ponto <b>P</b> fica descrito pelo raio <b>r</b> e pelo ângulo <b>θ</b>. Weisstein, Eric W. apresenta essa transformação (<htcite0>) como um triângulo retângulo cuja hipotenusa é o raio. Vejamos os passos:</p><ol><li>O raio <b>r</b> vai da origem <b>O</b> ao ponto <b>P</b>, e o ângulo <b>θ</b> é medido entre o eixo x e o raio.</li><li>Projetamos o ponto sobre o eixo x: o cateto adjacente do triângulo mede <b>r</b> × cos(<b>θ</b>), portanto <b>x</b> = r × cos(θ).</li><li>Projetamos o ponto sobre o eixo y: o cateto oposto mede <b>r</b> × sen(<b>θ</b>), portanto <b>y</b> = r × sen(θ).</li></ol><p>Assim, o mesmo ponto pode ser escrito como (r, θ) ou como (x, y), e o raio é recuperado por r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>.</p>",
+               "text": "<p>Em um plano, um ponto <b>P</b> fica descrito pelo raio <b>r</b> e pelo ângulo <b>θ</b>. Weisstein, Eric W. apresenta essa transformação (<htcite0>) como um triângulo retângulo cuja hipotenusa é o raio. Vejamos os passos:</p><ol><li>O raio <b>r</b> vai da origem <b>O</b> ao ponto <b>P</b>, e o ângulo <b>θ</b> é medido entre o eixo x e o raio.</li><li>Projetamos o ponto sobre o eixo x: o cateto adjacente do triângulo mede <b>r</b> × cos(<b>θ</b>); portanto, <b>x</b> = r × cos(θ).</li><li>Projetamos o ponto sobre o eixo y: o cateto oposto mede <b>r</b> × sen(<b>θ</b>); portanto, <b>y</b> = r × sen(θ).</li></ol><p>Assim, o mesmo ponto pode ser escrito como (r, θ) ou como (x, y), e o raio é recuperado por r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>.</p>",
                "source": [
                   {
                      "type": 1,
@@ -232,7 +232,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>A transformação anterior resolve o problema sobre uma superfície plana. No entanto, um ponto no espaço nem sempre está sobre essa superfície: ele pode estar acima ou abaixo do plano. No passo seguinte acrescentamos a terceira coordenada e repetimos a mesma ideia em uma esfera, onde o raio e um novo ângulo, <b>ϕ</b>, nos dizem quanto o ponto se eleva acima do plano.</p>",
+               "text": "<p>A transformação anterior resolve o problema sobre uma superfície plana. No entanto, um ponto no espaço nem sempre está sobre essa superfície: ele pode estar acima ou abaixo do plano. No passo seguinte acrescentamos a terceira coordenada e repetimos a mesma ideia em uma esfera, onde o raio <b>r</b> e um novo ângulo <b>ϕ</b>, medido a partir do eixo vertical, nos dizem quão alto ou baixo está o ponto.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -250,7 +250,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>Para um ponto no espaço precisamos de uma terceira coordenada. O raio <b>r</b> é a distância à origem, <b>θ</b> é o ângulo sobre o plano e <b>ϕ</b> é o ângulo medido a partir do eixo vertical. Weisstein, Eric W. descreve essa transformação passo a passo (<htcite0>):</p><ol><li>Projetamos o ponto <b>P</b> da esfera para o plano e obtemos o ponto <b>Q</b>. O raio projetado <b>OQ</b> mede <b>r</b> × sen(<b>ϕ</b>), e a altura do ponto é <b>z</b> = r × cos(ϕ).</li><li>No plano aplicamos a transformação anterior ao raio projetado: <b>x</b> = OQ × cos(<b>θ</b>) = r × sen(ϕ) × cos(θ).</li><li>Da mesma forma, sobre o outro eixo: <b>y</b> = OQ × sen(<b>θ</b>) = r × sen(ϕ) × sen(θ).</li><li>Reunindo os três resultados, (x, y, z) = (r × sen(ϕ) × cos(θ), r × sen(ϕ) × sen(θ), r × cos(ϕ)).</li></ol><p>As duas transformações usam a mesma ideia duas vezes: primeiro o raio é projetado sobre o plano e depois a projeção é distribuída entre os dois eixos.</p>",
+               "text": "<p>Para um ponto no espaço precisamos de uma terceira coordenada. O raio <b>r</b> é a distância à origem, <b>θ</b> é o ângulo sobre o plano e <b>ϕ</b> é o ângulo medido a partir do eixo vertical. Weisstein, Eric W. descreve essa transformação passo a passo (<htcite0>):</p><ol><li>Projetamos o ponto <b>P</b> da esfera para o plano e obtemos o ponto <b>Q</b>. O raio projetado <b>OQ</b> mede <b>r</b> × sen(<b>ϕ</b>), e a altura do ponto é <b>z</b> = r × cos(ϕ).</li><li>No plano aplicamos a transformação anterior ao raio projetado: <b>x</b> = OQ × cos(<b>θ</b>) = r × sen(ϕ) × cos(θ).</li><li>Da mesma forma, sobre o outro eixo: <b>y</b> = OQ × sen(<b>θ</b>) = r × sen(ϕ) × sen(θ).</li><li>Juntando os três resultados, temos (x, y, z) = (r × sen(ϕ) × cos(θ), r × sen(ϕ) × sen(θ), r × cos(ϕ)).</li></ol><p>As duas transformações usam a mesma ideia duas vezes: primeiro o raio é projetado sobre o plano e depois a projeção é distribuída entre os dois eixos.</p>",
                "source": [
                   {
                      "type": 1,
@@ -272,7 +272,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para obter uma precisão ainda maior, primeiramente, devemos incluir o raio, transformar a latitude (<b>δ</b>) em colatitude (<b>ϕ</b>) por meio de ϕ = 90° − δ (<htcite0>) e converter os ângulos de graus para radianos (<htcite1>) antes de prosseguir com os cálculos",
+               "text": "<h4>Todas as variáveis</h4>Para expressar coordenadas com mais precisão, é fundamental que todas estejam na mesma unidade de medida. Na superfície da Terra, quando trabalhamos com ângulos, podemos simplificar os cálculos omitindo o raio da Terra. No entanto, para uma posição tridimensional exata, precisamos incluir o raio, transformar a latitude (<b>δ</b>) em colatitude (<b>ϕ</b>) por meio de ϕ = 90° − δ (<htcite0>) e converter os ângulos de graus para radianos (<htcite1>) antes de prosseguir com os cálculos",
                "source": [
                   {
                      "type": 1,
@@ -306,7 +306,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><msub><mi>θ</mi><mtext>rad</mtext></msub><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>θ</mi><mfrac><mi>π</mi><mi>180</mi></mfrac></math><br /><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><msub><mi>ϕ</mi><mtext>rad</mtext></msub><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo>(</mo><mn>90</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>δ</mi><mo>)</mo><mfrac><mi>π</mi><mi>180</mi></mfrac></math></p></p><p>Depois, aplicamos essas coordenadas nas fórmulas para conversão esférica em coordenadas cartesianas, considerando o raio <b>r</b>:</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><msub><mi>θ</mi><mtext>rad</mtext></msub><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>θ</mi><mfrac><mi>π</mi><mi>180</mi></mfrac></math><br /><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><msub><mi>ϕ</mi><mtext>rad</mtext></msub><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo>(</mo><mn>90</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>δ</mi><mo>)</mo><mfrac><mi>π</mi><mi>180</mi></mfrac></math></p><p>Depois, aplicamos esses ângulos convertidos nas fórmulas de conversão de coordenadas esféricas para cartesianas, considerando o raio <b>r</b>:</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -337,7 +337,7 @@
                "PostMention": ".</center>"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (-3944126.27, 3350784.05, 3715609.67) </li><li><b>Montevidéu</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>Assim, ao levar em conta o raio e usar coordenadas tridimensionais, obtemos uma representação completa e precisa.</p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (-3944126.27, 3350784.05, 3715609.67)</li><li><b>Montevidéu</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>Assim, ao levar em conta o raio e usar coordenadas tridimensionais, obtemos uma representação completa e precisa.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -351,7 +351,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "<h3>Conclusão</h3><p>Neste texto tomamos uma decisão importante: tratamos a Terra como uma esfera perfeita, parecida com uma bola, embora ela seja ligeiramente achatada nos polos, isto é, é um elipsoide. Essa escolha é uma <b>simplificação</b> e traz uma consequência muito útil. Se o raio é sempre o mesmo, não precisamos mais nos preocupar com ele. Por isso qualquer lugar da superfície pode ser descrito com apenas dois ângulos: a <b>longitude</b> (θ) e a <b>latitude</b> (δ).</p>",
+               "text": "<h3>Conclusão</h3><p>Neste texto tomamos uma decisão importante: tratamos a Terra como uma esfera perfeita, parecida com uma bola, embora na verdade seja ligeiramente achatada nos polos — um elipsoide. Essa escolha é uma <b>simplificação</b> e traz uma consequência muito útil. Se o raio é sempre o mesmo, não precisamos mais nos preocupar com ele. Por isso qualquer lugar da superfície pode ser descrito com apenas dois ângulos: a <b>longitude</b> (θ) e a <b>latitude</b> (δ).</p>",
                "source": [],
                "date_time": null,
                "isTable": false,

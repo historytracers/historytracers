@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795364357"
+      "1795371897"
    ],
    "authors": [
       ""
@@ -45,7 +45,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nTo get the most out of this lesson, we recommend reading these texts first:\n\n- **Where are we on a sphere?**: how a point on a sphere is located with spherical coordinates, a radius and two angles (<htcite0>)\n- **Surface Coordinates**: how those coordinates become latitude and longitude, measured from the Equator and the Greenwich Meridian (<htcite1>)",
+               "text": "### Prerequisites\n\nTo get the most out of this lesson, we recommend reading these texts first:\n\n- **Where are we on a sphere?**: how to locate a point on a sphere with spherical coordinates — a radius and two angles (<htcite0>)\n- **Surface Coordinates**: how those coordinates become latitude and longitude, measured from the Equator and the Greenwich Meridian (<htcite1>)",
                "source": [
                   {
                      "type": 1,
@@ -84,7 +84,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgGeo21\" onclick=\"htImageZoom('imgGeo21', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: In this map, the continent is highlighted © Mapswire (<htcite0>)</p>",
+               "text": "<p class=\"desc\"><img id=\"imgGeo21\" onclick=\"htImageZoom('imgGeo21', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: Africa is highlighted on this map © Mapswire (<htcite0>)</p>",
                "source": [
                   {
                      "type": 1,
@@ -106,7 +106,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Introduction</h3>Before pinpointing our location on Earth, let’s consider a question:</p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Are we using the correct number of variables?</b><br /><br />Could we be oversimplifying by using only longitude (<b>θ</b>) and latitude (<b>δ</b>) to locate ourselves on the Earth's surface?</div></div></center><h3>Our Coordinates</h3><p>Now we are going to do the conversion from angles to meters, so that our position can also be expressed as distances.</p>",
+               "text": "<p><h3>Introduction</h3>Before we pin down our location on Earth, consider a question:</p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: are we using the right number of variables?</b><br /><br />Could we be oversimplifying by using only longitude (<b>θ</b>) and latitude (<b>δ</b>) to locate ourselves on the Earth’s surface? Keep your guess: we will check it at the end.</div></div></center><h3>Our Coordinates</h3><p>Now we will turn angles into meters, so that our position can also be expressed as distances.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -115,7 +115,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>Simplification</h4>When we use only latitude and longitude to determine our location, we are indeed simplifying. This approach assumes a constant average Earth radius, estimated at 6,371 kilometers (Km) (or 6,371,000 meters (m))",
+               "text": "<h4>Simplification</h4>When we use only latitude and longitude to locate ourselves, we really are simplifying. The simplification assumes that the Earth’s average radius is constant: about 6,371 kilometers (km), or 6,371,000 meters (m) — the average distance from the Earth’s center to its surface",
                "source": [
                   {
                      "type": 1,
@@ -149,7 +149,7 @@
                "PostMention": "."
             },
             {
-               "text": "To better understand this simplification, let’s look at an example. By assuming a constant Earth radius, we don’t remove it from our calculations; rather, we omit it in the final representation of coordinates. This allows us to express the locations of cities like Tokyo and Montevideo with latitude and longitude alone",
+               "text": "To better understand this simplification, let’s look at an example. By assuming a constant Earth radius, we do not remove it from our calculations; we only leave it out of the final coordinates. That is why we can express the locations of cities like Tokyo (<htcite0>) and Montevideo (<htcite1>) with latitude and longitude alone",
                "source": [
                   {
                      "type": 1,
@@ -183,7 +183,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (35,6764° North, 139,6500° East)</li><li><b>Montevideo</b>: (34,9055° South, 56,1851° West)</li></ul></p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (35.6764° North, 139.6500° East)</li><li><b>Montevideo</b>: (34.9055° South, 56.1851° West)</li></ul></p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -192,7 +192,7 @@
                "PostMention": "."
             },
             {
-               "text": "<h4>Variable transformation</h4><p>Until now we have written the position of a point with angles and a radius. In this subsection we change the variables: we want the distances along the axes, that is, the Cartesian coordinates. We do it in two steps, always starting from a right triangle: first a point on a plane, and then a point on a sphere.</p>",
+               "text": "<h4>Variable transformation</h4><p>Until now we have described the position of a point with angles and a radius. Here we swap those variables for distances along the axes — the Cartesian coordinates. We do it in two steps, always starting from a right triangle: first for a point on a flat plane, and then for a point on a sphere.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -210,7 +210,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>On a plane, a point <b>P</b> is described by the radius <b>r</b> and by the angle <b>θ</b>. Weisstein, Eric W. presents this transformation (<htcite0>) as a right triangle whose hypotenuse is the radius. Let us follow the steps:</p><ol><li>The radius <b>r</b> goes from the origin <b>O</b> to the point <b>P</b>, and the angle <b>θ</b> is measured between the x axis and the radius.</li><li>We project the point on the x axis: the adjacent leg of the triangle measures <b>r</b> × cos(<b>θ</b>), therefore <b>x</b> = r × cos(θ).</li><li>We project the point on the y axis: the opposite leg measures <b>r</b> × sin(<b>θ</b>), therefore <b>y</b> = r × sin(θ).</li></ol><p>Thus the same point can be written as (r, θ) or as (x, y), and the radius is recovered by r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>.</p>",
+               "text": "<p>On a plane, a point <b>P</b> is described by the radius <b>r</b> and by the angle <b>θ</b>. Weisstein, Eric W. presents this transformation (<htcite0>) as a right triangle whose hypotenuse is the radius. Let us follow the steps:</p><ol><li>The radius <b>r</b> goes from the origin <b>O</b> to the point <b>P</b>, and the angle <b>θ</b> is measured between the x-axis and the radius.</li><li>We project the point on the x-axis: the adjacent leg of the triangle measures <b>r</b> × cos(<b>θ</b>); therefore, <b>x</b> = r × cos(θ).</li><li>We project the point on the y-axis: the opposite leg measures <b>r</b> × sin(<b>θ</b>); therefore, <b>y</b> = r × sin(θ).</li></ol><p>Thus the same point can be written as (r, θ) or as (x, y), and the radius is recovered by r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>.</p>",
                "source": [
                   {
                      "type": 1,
@@ -232,7 +232,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>The transformation above solves the problem on a flat surface. However, a point in space is not always on that surface: it can be above or below the plane. In the next step we add the third coordinate and repeat the same idea on a sphere, where the radius and a new angle, <b>ϕ</b>, tell us how far the point rises from the plane.</p>",
+               "text": "<p>The transformation above solves the problem on a flat surface. However, a point in space is not always on that surface: it can be above or below the plane. In the next step we add the third coordinate and repeat the same idea on a sphere, where the radius <b>r</b> and a new angle <b>ϕ</b>, measured from the vertical axis, tell us how high or low the point is.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -250,7 +250,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>For a point in space we need a third coordinate. The radius <b>r</b> is the distance from the origin, <b>θ</b> is the angle on the flat plane and <b>ϕ</b> is the angle measured from the vertical axis. Weisstein, Eric W. describes this transformation step by step (<htcite0>):</p><ol><li>We project the point <b>P</b> from the sphere down to the plane and obtain the point <b>Q</b>. The projected radius <b>OQ</b> measures <b>r</b> × sin(<b>ϕ</b>), and the height of the point is <b>z</b> = r × cos(ϕ).</li><li>On the plane we apply the previous transformation to the projected radius: <b>x</b> = OQ × cos(<b>θ</b>) = r × sin(ϕ) × cos(θ).</li><li>In the same way, on the other axis: <b>y</b> = OQ × sin(<b>θ</b>) = r × sin(ϕ) × sin(θ).</li><li>Putting the three results together, (x, y, z) = (r × sin(ϕ) × cos(θ), r × sin(ϕ) × sin(θ), r × cos(ϕ)).</li></ol><p>Both transformations use the same idea twice: first the radius is projected on the plane, and then the projection is distributed on the two axes.</p>",
+               "text": "<p>For a point in space we need a third coordinate. The radius <b>r</b> is the distance from the origin, <b>θ</b> is the angle on the flat plane and <b>ϕ</b> is the angle measured from the vertical axis. Weisstein, Eric W. describes this transformation step by step (<htcite0>):</p><ol><li>We project the point <b>P</b> from the sphere down to the plane and obtain the point <b>Q</b>. The projected radius <b>OQ</b> measures <b>r</b> × sin(<b>ϕ</b>), and the height of the point is <b>z</b> = r × cos(ϕ).</li><li>On the plane we apply the previous transformation to the projected radius: <b>x</b> = OQ × cos(<b>θ</b>) = r × sin(ϕ) × cos(θ).</li><li>In the same way, on the other axis: <b>y</b> = OQ × sin(<b>θ</b>) = r × sin(ϕ) × sin(θ).</li><li>Joining the three results gives (x, y, z) = (r × sin(ϕ) × cos(θ), r × sin(ϕ) × sin(θ), r × cos(ϕ)).</li></ol><p>Both transformations use the same idea twice: first the radius is projected on the plane, and then the projection is distributed across the two axes.</p>",
                "source": [
                   {
                      "type": 1,
@@ -272,7 +272,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>All variables</h4>To express coordinates more precisely, it’s essential to use the same unit of measurement for all coordinates. On the Earth's surface, when we work with angles, we can simplify calculations by omitting the Earth’s radius. However, for three-dimensional accuracy, we need to include the radius, transform the latitude (<b>δ</b>) into colatitude (<b>ϕ</b>) using ϕ = 90° − δ (<htcite0>), and convert the angles from degrees to radians (<htcite1>) before continuing with calculations",
+               "text": "<h4>All variables</h4>To express coordinates more precisely, it’s essential to use the same unit of measurement for all coordinates. On the Earth’s surface, when we work with angles, we can simplify calculations by omitting the Earth’s radius. However, for an accurate three-dimensional position, we need to include the radius, transform the latitude (<b>δ</b>) into colatitude (<b>ϕ</b>) using ϕ = 90° − δ (<htcite0>), and convert the angles from degrees to radians (<htcite1>) before continuing with the calculations",
                "source": [
                   {
                      "type": 1,
@@ -337,7 +337,7 @@
                "PostMention": ".</center>"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (-3944126.27, 3350784.05, 3715609.67) </li><li><b>Montevideo</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>With this three-dimensional representation, we achieve a complete and highly precise location.</p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (-3944126.27, 3350784.05, 3715609.67)</li><li><b>Montevideo</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>With this three-dimensional representation, we get a complete and much more precise location.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -360,7 +360,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>After that, we learned what to do when we need the position in meters instead of degrees. We made two more transformations. First, we changed the latitude into <b>colatitude</b> (ϕ = 90° − δ), because the spherical formulas measure the angle from the vertical axis. Then we used the transformation from <b>spherical coordinates</b> to <b>cartesian coordinates</b> (x, y, z), applying the same right triangle twice.</p>",
+               "text": "<p>After that, we learned what to do when we need the position in meters instead of degrees. We made two more transformations. First, we changed the latitude into <b>colatitude</b> (ϕ = 90° − δ), because the spherical formulas measure the angle from the vertical axis. Then we used the transformation from <b>spherical coordinates</b> to <b>Cartesian coordinates</b> (x, y, z), applying the same right triangle twice.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
