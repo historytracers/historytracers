@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795361415"
+      "1795362850"
    ],
    "authors": [
       ""
@@ -106,7 +106,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Introducción</h3>Antes de ubicarnos en la Tierra, reflexionemos sobre una cuestión:</p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>¿Estamos usando la cantidad adecuada de variables?</b><br /><br />¿Es posible que estemos cometiendo un error al usar solo longitud (<b>θ</b>) y latitud (<b>δ</b>) para localizarnos en la superficie terrestre?</div></div></center><h3>Nuestras Coordenadas</h3><p>Ahora vamos a hacer la conversión de ángulos a metros, para que nuestra posición también pueda expresarse como distancias.</p>",
+               "text": "<p><h3>Introducción</h3>Antes de ubicarnos en la Tierra, reflexionemos sobre una cuestión:</p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Estamos usando la cantidad adecuada de variables?</b><br /><br />¿Es posible que estemos cometiendo un error al usar solo longitud (<b>θ</b>) y latitud (<b>δ</b>) para localizarnos en la superficie terrestre?</div></div></center><h3>Nuestras Coordenadas</h3><p>Ahora vamos a hacer la conversión de ángulos a metros, para que nuestra posición también pueda expresarse como distancias.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -232,7 +232,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>La transformación anterior resuelve el problema sobre una superficie plana. Sin embargo, un punto en el espacio no siempre está sobre esa superficie: puede estar por encima o por debajo del plano. En el siguiente paso añadimos la tercera coordenada y repetimos la misma idea en una esfera, donde el radio y un nuevo ángulo, <b>φ</b>, nos dicen cuánto se eleva el punto sobre el plano.</p>",
+               "text": "<p>La transformación anterior resuelve el problema sobre una superficie plana. Sin embargo, un punto en el espacio no siempre está sobre esa superficie: puede estar por encima o por debajo del plano. En el siguiente paso añadimos la tercera coordenada y repetimos la misma idea en una esfera, donde el radio y un nuevo ángulo, <b>ϕ</b>, nos dicen cuánto se eleva el punto sobre el plano.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -241,7 +241,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><svg viewBox=\"0 0 720 620\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:760px; display:block; margin:0 auto;\" aria-label=\"Una esfera transparente con un punto P en su superficie y su proyección Q sobre el plano. El ángulo phi se mide desde el eje vertical y el ángulo theta sobre el plano, lo que da las coordenadas x, y y z del punto\"><text x=\"20\" y=\"32\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">x = r sen(φ) cos(θ)</text><text x=\"20\" y=\"58\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">y = r sen(φ) sen(θ)</text><text x=\"20\" y=\"84\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">z = r cos(φ)</text><defs><radialGradient id=\"ht53089395SphereGrad\" cx=\"0.32\" cy=\"0.22\" r=\"1.05\"><stop offset=\"0%\" stop-color=\"#ffffff\" stop-opacity=\"0.55\"/><stop offset=\"45%\" stop-color=\"#a9c9e8\" stop-opacity=\"0.28\"/><stop offset=\"100%\" stop-color=\"#2f6fb3\" stop-opacity=\"0.10\"/></radialGradient></defs><circle cx=\"330\" cy=\"390\" r=\"185\" fill=\"url(#ht53089395SphereGrad)\" stroke=\"#4f8bc4\" stroke-width=\"2\"/><ellipse cx=\"330\" cy=\"390\" rx=\"185\" ry=\"55\" fill=\"#eaf2fa\" fill-opacity=\"0.55\" stroke=\"#4f8bc4\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><ellipse cx=\"330\" cy=\"390\" rx=\"60\" ry=\"185\" fill=\"none\" stroke=\"#4f8bc4\" stroke-width=\"1\" stroke-opacity=\"0.35\"/><line x1=\"330\" y1=\"390\" x2=\"330\" y2=\"142.7\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"330,142.7 337,158.7 323,158.7\" fill=\"#555555\"/><line x1=\"330\" y1=\"390\" x2=\"632.5\" y2=\"443.2\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"632.5,443.2 615.5,447.3 617.9,433.5\" fill=\"#555555\"/><line x1=\"330\" y1=\"390\" x2=\"508.9\" y2=\"300.1\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"508.9,300.1 497.7,313.6 491.5,301.0\" fill=\"#555555\"/><line x1=\"428.1\" y1=\"234.7\" x2=\"428.1\" y2=\"370.0\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"330\" y1=\"390\" x2=\"428.1\" y2=\"370.0\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"428.1\" y1=\"370.0\" x2=\"373.3\" y2=\"397.6\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"428.1\" y1=\"370.0\" x2=\"384.9\" y2=\"362.4\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"330\" y1=\"390\" x2=\"428.1\" y2=\"234.7\" stroke=\"#c0392b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M 330,310 Q 355,303.6 372.7,322.4\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"373\" y=\"296\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">φ</text><path d=\"M 384.2,399.5 Q 392.0,389.2 383.9,379.0\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"404\" y=\"396\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">θ</text><circle cx=\"330\" cy=\"390\" r=\"5\" fill=\"#333333\"/><circle cx=\"428.1\" cy=\"234.7\" r=\"5\" fill=\"#333333\"/><circle cx=\"428.1\" cy=\"370.0\" r=\"5\" fill=\"#333333\"/><text x=\"312\" y=\"412\" font-size=\"18\" text-anchor=\"end\" fill=\"#333333\">O</text><text x=\"441\" y=\"230\" font-size=\"18\" fill=\"#333333\">P</text><text x=\"432\" y=\"362\" font-size=\"18\" fill=\"#333333\">Q</text><text x=\"330\" y=\"130\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Z</text><text x=\"648\" y=\"462\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">X</text><text x=\"523\" y=\"290\" font-size=\"18\" fill=\"#333333\">Y</text><text x=\"345\" y=\"340\" font-size=\"22\" fill=\"#c0392b\">r</text></svg></p><p class=\"desc\"><b>Figura 3</b>: Una esfera transparente con la proyección del punto <b>P</b> sobre el plano (punto <b>Q</b>). El ángulo <b>φ</b> se mide desde el eje vertical y el ángulo <b>θ</b> desde el eje x, lo que da x = r × sen(φ) × cos(θ), y = r × sen(φ) × sen(θ) y z = r × cos(φ).</p>",
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 720 620\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:760px; display:block; margin:0 auto;\" aria-label=\"Una esfera transparente con un punto P en su superficie y su proyección Q sobre el plano. El ángulo phi se mide desde el eje vertical y el ángulo theta sobre el plano, lo que da las coordenadas x, y y z del punto\"><text x=\"20\" y=\"32\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">x = r sen(ϕ) cos(θ)</text><text x=\"20\" y=\"58\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">y = r sen(ϕ) sen(θ)</text><text x=\"20\" y=\"84\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">z = r cos(ϕ)</text><defs><radialGradient id=\"ht53089395SphereGrad\" cx=\"0.32\" cy=\"0.22\" r=\"1.05\"><stop offset=\"0%\" stop-color=\"#ffffff\" stop-opacity=\"0.55\"/><stop offset=\"45%\" stop-color=\"#a9c9e8\" stop-opacity=\"0.28\"/><stop offset=\"100%\" stop-color=\"#2f6fb3\" stop-opacity=\"0.10\"/></radialGradient></defs><circle cx=\"330\" cy=\"390\" r=\"185\" fill=\"url(#ht53089395SphereGrad)\" stroke=\"#4f8bc4\" stroke-width=\"2\"/><ellipse cx=\"330\" cy=\"390\" rx=\"185\" ry=\"55\" fill=\"#eaf2fa\" fill-opacity=\"0.55\" stroke=\"#4f8bc4\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><ellipse cx=\"330\" cy=\"390\" rx=\"60\" ry=\"185\" fill=\"none\" stroke=\"#4f8bc4\" stroke-width=\"1\" stroke-opacity=\"0.35\"/><line x1=\"330\" y1=\"390\" x2=\"330\" y2=\"142.7\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"330,142.7 337,158.7 323,158.7\" fill=\"#555555\"/><line x1=\"330\" y1=\"390\" x2=\"632.5\" y2=\"443.2\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"632.5,443.2 615.5,447.3 617.9,433.5\" fill=\"#555555\"/><line x1=\"330\" y1=\"390\" x2=\"508.9\" y2=\"300.1\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"508.9,300.1 497.7,313.6 491.5,301.0\" fill=\"#555555\"/><line x1=\"428.1\" y1=\"234.7\" x2=\"428.1\" y2=\"370.0\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"330\" y1=\"390\" x2=\"428.1\" y2=\"370.0\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"428.1\" y1=\"370.0\" x2=\"373.3\" y2=\"397.6\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"428.1\" y1=\"370.0\" x2=\"384.9\" y2=\"362.4\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"330\" y1=\"390\" x2=\"428.1\" y2=\"234.7\" stroke=\"#c0392b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M 330,310 Q 355,303.6 372.7,322.4\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"373\" y=\"296\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">ϕ</text><path d=\"M 384.2,399.5 Q 392.0,389.2 383.9,379.0\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"404\" y=\"396\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">θ</text><circle cx=\"330\" cy=\"390\" r=\"5\" fill=\"#333333\"/><circle cx=\"428.1\" cy=\"234.7\" r=\"5\" fill=\"#333333\"/><circle cx=\"428.1\" cy=\"370.0\" r=\"5\" fill=\"#333333\"/><text x=\"312\" y=\"412\" font-size=\"18\" text-anchor=\"end\" fill=\"#333333\">O</text><text x=\"441\" y=\"230\" font-size=\"18\" fill=\"#333333\">P</text><text x=\"432\" y=\"362\" font-size=\"18\" fill=\"#333333\">Q</text><text x=\"330\" y=\"130\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Z</text><text x=\"648\" y=\"462\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">X</text><text x=\"523\" y=\"290\" font-size=\"18\" fill=\"#333333\">Y</text><text x=\"345\" y=\"340\" font-size=\"22\" fill=\"#c0392b\">r</text></svg></p><p class=\"desc\"><b>Figura 3</b>: Una esfera transparente con la proyección del punto <b>P</b> sobre el plano (punto <b>Q</b>). El ángulo <b>ϕ</b> se mide desde el eje vertical y el ángulo <b>θ</b> desde el eje x, lo que da x = r × sen(ϕ) × cos(θ), y = r × sen(ϕ) × sen(θ) y z = r × cos(ϕ).</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -250,7 +250,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>Para un punto en el espacio necesitamos una tercera coordenada. El radio <b>r</b> es la distancia al origen, <b>θ</b> es el ángulo sobre el plano y <b>φ</b> es el ángulo medido desde el eje vertical. Weisstein, Eric W. describe esta transformación paso a paso (<htcite0>):</p><ol><li>Proyectamos el punto <b>P</b> de la esfera hacia el plano y obtenemos el punto <b>Q</b>. El radio proyectado <b>OQ</b> mide <b>r</b> × sen(<b>φ</b>), y la altura del punto es <b>z</b> = r × cos(φ).</li><li>En el plano aplicamos la transformación anterior al radio proyectado: <b>x</b> = OQ × cos(<b>θ</b>) = r × sen(φ) × cos(θ).</li><li>De la misma forma, sobre el otro eje: <b>y</b> = OQ × sen(<b>θ</b>) = r × sen(φ) × sen(θ).</li><li>Reuniendo los tres resultados, (x, y, z) = (r × sen(φ) × cos(θ), r × sen(φ) × sen(θ), r × cos(φ)).</li></ol><p>Las dos transformaciones usan la misma idea dos veces: primero el radio se proyecta sobre el plano y después la proyección se reparte entre los dos ejes.</p>",
+               "text": "<p>Para un punto en el espacio necesitamos una tercera coordenada. El radio <b>r</b> es la distancia al origen, <b>θ</b> es el ángulo sobre el plano y <b>ϕ</b> es el ángulo medido desde el eje vertical. Weisstein, Eric W. describe esta transformación paso a paso (<htcite0>):</p><ol><li>Proyectamos el punto <b>P</b> de la esfera hacia el plano y obtenemos el punto <b>Q</b>. El radio proyectado <b>OQ</b> mide <b>r</b> × sen(<b>ϕ</b>), y la altura del punto es <b>z</b> = r × cos(ϕ).</li><li>En el plano aplicamos la transformación anterior al radio proyectado: <b>x</b> = OQ × cos(<b>θ</b>) = r × sen(ϕ) × cos(θ).</li><li>De la misma forma, sobre el otro eje: <b>y</b> = OQ × sen(<b>θ</b>) = r × sen(ϕ) × sen(θ).</li><li>Reuniendo los tres resultados, (x, y, z) = (r × sen(ϕ) × cos(θ), r × sen(ϕ) × sen(θ), r × cos(ϕ)).</li></ol><p>Las dos transformaciones usan la misma idea dos veces: primero el radio se proyecta sobre el plano y después la proyección se reparte entre los dos ejes.</p>",
                "source": [
                   {
                      "type": 1,
@@ -272,8 +272,20 @@
                "PostMention": ""
             },
             {
-               "text": "Para una ubicación tridimensional más exacta, debemos convertir los ángulos de grados a radianes antes de continuar con los cálculos",
+               "text": "Para una ubicación tridimensional más exacta, debemos incluir el radio, transformar la latitud (<b>δ</b>) en colatitud (<b>ϕ</b>) mediante ϕ = 90° − δ (<htcite0>) y convertir los ángulos de grados a radianes (<htcite1>) antes de continuar con los cálculos",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7",
+                     "text": "History Tracers Team",
+                     "page": "Coordenadas de Superficie",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
@@ -294,7 +306,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mn>θ'</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>θ</mn><mfrac><mi>π</mi><mi>180</mi></mfrac></math><br /><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mn>ϕ</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo>(</mo><mn>90</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>δ</mi><mo>)</mo><mfrac><mi>π</mi><mi>180</mi></mfrac></math></p><p>Luego, aplicamos estas coordenadas en las fórmulas de conversión de coordenadas esféricas a cartesianas, considerando el radio <b>r</b>:</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><msub><mi>θ</mi><mtext>rad</mtext></msub><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>θ</mi><mfrac><mi>π</mi><mi>180</mi></mfrac></math><br /><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><msub><mi>ϕ</mi><mtext>rad</mtext></msub><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo>(</mo><mn>90</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>δ</mi><mo>)</mo><mfrac><mi>π</mi><mi>180</mi></mfrac></math></p><p>Luego, aplicamos estas coordenadas en las fórmulas de conversión de coordenadas esféricas a cartesianas, considerando el radio <b>r</b>:</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -303,7 +315,7 @@
                "PostMention": "."
             },
             {
-               "text": "<center>(x, y, z) = (r cos(θ') sen(ϕ), r sen(θ') sen(ϕ) , r cos (ϕ))",
+               "text": "<center>(x, y, z) = (r cos(θ) sen(ϕ), r sen(θ) sen(ϕ), r cos(ϕ))",
                "source": [
                   {
                      "type": 1,
