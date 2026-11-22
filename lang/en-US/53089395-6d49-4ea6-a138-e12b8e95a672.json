@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795362826"
+      "1795364357"
    ],
    "authors": [
       ""
@@ -338,6 +338,38 @@
             },
             {
                "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (-3944126.27, 3350784.05, 3715609.67) </li><li><b>Montevideo</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>With this three-dimensional representation, we achieve a complete and highly precise location.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<h3>Conclusion</h3><p>In this text we made a big choice: we treated the Earth as a perfect sphere, like a ball, even though it is slightly flattened at the poles — an ellipsoid. This choice is a <b>simplification</b>, and it brings a very useful consequence. If the radius is always the same, we no longer need to worry about it. That is why any place on the surface can be described with only two angles: the <b>longitude</b> (θ) and the <b>latitude</b> (δ).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>After that, we learned what to do when we need the position in meters instead of degrees. We made two more transformations. First, we changed the latitude into <b>colatitude</b> (ϕ = 90° − δ), because the spherical formulas measure the angle from the vertical axis. Then we used the transformation from <b>spherical coordinates</b> to <b>cartesian coordinates</b> (x, y, z), applying the same right triangle twice.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Are these results wrong? No. They are very good approximations, and they help us do the math without getting lost in the details. Even so, they are approximations: to find the real position on the Earth's surface, small adjustments are made, because our planet is not a perfect sphere. The main idea is simple: each simplification brings us to a problem we can solve, and each adjustment brings us closer to the real world.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
