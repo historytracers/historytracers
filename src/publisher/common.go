@@ -545,7 +545,11 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = htConvertTemperatures(ret, lang)
 	ret = htRemoveHTMLTags(ret)
 	ret = htReplaceSocialMediaUrls(ret)
+	// Arabic numeral glyphs are unreadable for text-to-speech engines, so they
+	// are spelled out before the lines without letters are discarded.
+	ret = htConvertArabicIndicDigits(ret)
 	ret = htRemoveLinesWithoutAlphabet(ret)
+	ret = htConvertArabicNumbersToWords(ret, lang)
 
 	return ret
 }
