@@ -1,0 +1,146 @@
+.\" SPDX-License-Identifier: GPL-3.0-or-later
+.\" Man page for the History Tracers viewer.
+.TH HISTORYTRACERS 1 "2026-09-24" "History Tracers 1.0.0" "User Commands"
+.SH NAME
+historytracers \- graphical desktop viewer for the History Tracers teaching tool
+.SH SYNOPSIS
+.B historytracers
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+.B historytracers
+is the desktop viewer of History Tracers, a free and open-source teaching tool.
+.PP
+.B This is GUI software.
+It is not a command-line or terminal application. When it starts, it opens a
+native graphical window and renders the History Tracers content in an embedded
+web view (WebView2 on Windows, GTK/WebKit on Linux and the BSDs, and
+Cocoa/WebKit on macOS). The options described below only configure that window
+and the local content server before the window appears.
+.PP
+To display the content, the program starts a small HTTP server bound exclusively
+to the loopback interface (\fB127.0.0.1\fR) and points the embedded web view to
+it. A free port is chosen automatically unless one is set with
+.BR \-port .
+The server is private to the local machine and stops when the window is closed.
+.PP
+By default the viewer serves the web content found in the
+.I www
+directory of the current working directory. Use
+.B \-dir
+or
+.B \-path
+to point it to another content directory. When no content is found, a welcome
+page is shown instead.
+.SH OPTIONS
+.TP
+.BI \-port " n"
+HTTP port for the local server. Use a value in the range 1\(en65535 to bind a
+fixed port, or 0 (the default) to let the program choose a random free port. If
+the requested fixed port is unavailable, a random port is chosen instead.
+.TP
+.BI \-dir " directory"
+Content directory to serve (default:
+.IR www ).
+.TP
+.BI \-path " directory"
+Content directory to serve. When set, it overrides
+.BR \-dir .
+.TP
+.BI \-lang " code"
+Initial interface language, for example
+.BR en-US ,
+.B pt-BR
+or
+.BR es-ES .
+.TP
+.BI \-calendar " name"
+Initial calendar used to display dates, for example
+.BR gregory ,
+.BR julian ,
+.BR hebrew ,
+.BR islamic ,
+.BR persian ,
+.BR french ,
+.BR shaka ,
+.BR hispanic ,
+.BR mesoamerican ,
+.BR emesoamerican ,
+.BR aymara ,
+.BR mapuche ,
+.BR inca ,
+.BR chinese ,
+.BR javanese
+or
+.BR japanese .
+.TP
+.BI \-class " uuid"
+Open the class content with the given UUID when the window opens.
+.TP
+.BI \-log " file"
+Write an HTTP access log to
+.IR file .
+By default no access log is written.
+.TP
+.BI \-tls-cert " file"
+TLS certificate file. When given together with
+.BR \-tls-key ,
+the local server uses HTTPS.
+.TP
+.BI \-tls-key " file"
+TLS private key file. It must be given together with
+.BR \-tls-cert .
+.TP
+.BR \-h ", " \-help
+Show a short usage message and exit.
+.SH FILES
+.TP
+.I www/
+Default web content directory served when no other directory is given.
+.TP
+.I ~/.config/HistoryTracers/
+Per-user state directory on Unix-like systems (on Windows it is
+.IR %USERPROFILE%\\HistoryTracers ).
+It stores the saved window options
+.RI ( options.bin ),
+the browsing history
+.RI ( history.csv ),
+the favourites
+.RI ( favorites.csv )
+and the installation identifier
+.RI ( uuid.bin ).
+.TP
+.I /etc/historytracers/historytracers.conf
+System configuration file installed by the History Tracers packages.
+.SH EXAMPLES
+Start the viewer with the default content directory:
+.PP
+.nf
+.RS
+historytracers
+.RE
+.fi
+.PP
+Use a specific content directory and start in Portuguese:
+.PP
+.nf
+.RS
+historytracers \-path /usr/share/historytracers/www \-lang pt\-BR
+.RE
+.fi
+.PP
+Serve the content over HTTPS on a fixed port:
+.PP
+.nf
+.RS
+historytracers \-port 8443 \-tls\-cert cert.pem \-tls\-key key.pem
+.RE
+.fi
+.SH SEE ALSO
+Full documentation and the web version of the content:
+.IR https://historytracers.org/ .
+.SH AUTHOR
+History Tracers Team <historytracers@gmail.com>
+.SH COPYRIGHT
+Copyright \(co History Tracers Team.
+This program is free software, distributed under the terms of the GNU General
+Public License version 3 or later (GPL\-3.0\-or\-later).
