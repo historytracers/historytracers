@@ -65,7 +65,7 @@ func HTParseArg() {
 	flag.StringVar(&contentVal, "www", compileContentPath, "Directory for user-facing content.")
 	flag.StringVar(&confPath, "conf", compileConfPath, "Path to the configuration file.")
 	flag.StringVar(&logFileFlag, "logfile", "", "Path to log file (truncates on open). All output is redirected here.")
-	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, first_steps_volume2, shapes, literature, biology, chemistry, physics, historical_events, philosophy).")
+	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, first_steps_volume2, shapes, literature, biology, chemistry, physics, historical_events, philosophy, documentation).")
 	flag.StringVar(&additionalIndexesFlag, "additional-indexes", "", "Comma-separated list of additional indexes to register the new UUID in, when used together with -class or -family.")
 	flag.StringVar(&insertAfterID, "insert-after", "", "ID of an existing entry; the new entry is inserted right after it in the value vector instead of being appended at the end. Only available together with -class or -family.")
 	flag.StringVar(&smGameTemplate, "smgame", smGameTemplate, "Create a foundation for a new SM Game.")

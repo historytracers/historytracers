@@ -15,33 +15,21 @@ config() {
 }
 
 # Handle configuration files
-config etc/historytracers/historytracers.conf.new 2>/dev/null || true
+config etc/historytracers/historytracers.conf.new
 
 # Set proper permissions on web directories
 if [ -d /usr/share/historytracers/www ]; then
-  chmod -R 755 /usr/share/historytracers/www
+  find /usr/share/historytracers/www -type d -exec chmod 755 {} \;
+  find /usr/share/historytracers/www -type f -exec chmod 644 {} \;
 fi
 
-# Create user and group if they don't exist
-if ! grep -q "^historytracers:" /etc/group 2>/dev/null; then
-  echo "Creating historytracers group..."
-  groupadd -r historytracers 2>/dev/null || true
+# Ensure log directory exists with correct permissions
+if [ ! -d /var/log/historytracers ]; then
+  mkdir -p /var/log/historytracers
+  chmod 755 /var/log/historytracers
 fi
-
-if ! grep -q "^historytracers:" /etc/passwd 2>/dev/null; then
-  echo "Creating historytracers user..."
-  useradd -r -g historytracers -s /bin/false -d /usr/share/historytracers -c "History Tracers" historytracers 2>/dev/null || true
-fi
-
-# Set ownership on all installed files (outside home directories)
-chown -R historytracers:historytracers /usr/share/historytracers/ 2>/dev/null || true
-chown historytracers:historytracers /usr/bin/historytracers 2>/dev/null || true
-#chown historytracers:historytracers /usr/bin/historytracers-editor 2>/dev/null || true
-chown -R historytracers:historytracers /etc/historytracers 2>/dev/null || true
-chown historytracers:historytracers /var/lib/historytracers 2>/dev/null || true
-chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true
-chown -R historytracers:historytracers /usr/src/historytracers 2>/dev/null || true
 
 echo ""
 echo "History Tracers has been installed."
+echo "Edit /etc/historytracers/historytracers.conf to customize paths."
 echo ""
