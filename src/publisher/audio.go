@@ -818,6 +818,77 @@ func htConvertGreekLetter(letter string, lang string) string {
 	return letter
 }
 
+var htGreekLetters = []string{
+	"α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ",
+	"ν", "ξ", "π", "ρ", "σ", "τ", "υ", "φ", "ϕ", "χ", "ψ", "ω",
+}
+
+// htRemoveParentheticalGreekSymbols drops the visual parentheses around a
+// single Greek-letter name, and removes the name entirely when the same word
+// already appears immediately before the parentheses. For example,
+// "phi (ϕ)" becomes "phi" and "the angle (ϕ)" becomes "the angle phi".
+func htRemoveParentheticalGreekSymbols(text string, lang string) string {
+	names := make(map[string]bool)
+	for _, letter := range htGreekLetters {
+		names[strings.ToLower(htConvertGreekLetter(letter, lang))] = true
+	}
+
+	duplicateParenRegex := regexp.MustCompile(`(\p{L}+)\s*\(\s*(\p{L}+)\s*\)`)
+	text = duplicateParenRegex.ReplaceAllStringFunc(text, func(match string) string {
+		parts := duplicateParenRegex.FindStringSubmatch(match)
+		if len(parts) == 3 && names[strings.ToLower(parts[2])] && strings.EqualFold(parts[1], parts[2]) {
+			return parts[1]
+		}
+		return match
+	})
+
+	singleParenRegex := regexp.MustCompile(`\(\s*(\p{L}+)\s*\)`)
+	return singleParenRegex.ReplaceAllStringFunc(text, func(match string) string {
+		parts := singleParenRegex.FindStringSubmatch(match)
+		if len(parts) == 2 && names[strings.ToLower(parts[1])] {
+			return parts[1]
+		}
+		return match
+	})
+}
+
+// htConvertDegrees turns a numeric degree mark into the local word for
+// "degrees" (and handles Celsius/Fahrenheit suffixes). It intentionally only
+// targets the degree sign (U+00B0), not the masculine ordinal (U+00BA), so
+// Portuguese ordinals such as "1º" are left alone.
+func htConvertDegrees(text string, lang string) string {
+	lang = htArabicNumberLang(lang)
+	degreeWord := "degrees"
+	temperatureWords := map[string]string{
+		"C": "degrees celsius",
+		"F": "degrees fahrenheit",
+	}
+	if lang == "es-ES" {
+		degreeWord = "grados"
+		temperatureWords["C"] = "grados celsius"
+		temperatureWords["F"] = "grados fahrenheit"
+	} else if lang == "pt-BR" {
+		degreeWord = "graus"
+		temperatureWords["C"] = "graus celsius"
+		temperatureWords["F"] = "graus fahrenheit"
+	}
+
+	temperatureRegex := regexp.MustCompile(`(\d+(?:[.,]\d+)?)\s*[°º]\s*([CcFf])\b`)
+	text = temperatureRegex.ReplaceAllStringFunc(text, func(match string) string {
+		parts := temperatureRegex.FindStringSubmatch(match)
+		if len(parts) != 3 {
+			return match
+		}
+		return parts[1] + " " + temperatureWords[strings.ToUpper(parts[2])]
+	})
+
+	degreeLetterRegex := regexp.MustCompile(`(\d+(?:[.,]\d+)?)\s*°\s*(\p{L})`)
+	text = degreeLetterRegex.ReplaceAllString(text, "$1 "+degreeWord+" $2")
+
+	degreeRegex := regexp.MustCompile(`(\d+(?:[.,]\d+)?)\s*°`)
+	return degreeRegex.ReplaceAllString(text, "$1 "+degreeWord)
+}
+
 func htRemoveAsiaticCharacters(text string) string {
 	text = strings.ReplaceAll(text, "Schyoty (счёты)", "Schyoty")
 	text = strings.ReplaceAll(text, "(матрёшка)", "")

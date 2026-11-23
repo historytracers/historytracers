@@ -286,6 +286,65 @@ func TestHTAdjustAudioStringBeforeWriteKeepsNumericLines(t *testing.T) {
 	}
 }
 
+func TestHTRemoveParentheticalGreekSymbols(t *testing.T) {
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "phi (phi)", want: "phi"},
+		{lang: "en-US", in: "theta (theta) and phi (phi)", want: "theta and phi"},
+		{lang: "en-US", in: "the angle (phi) is measured", want: "the angle phi is measured"},
+		{lang: "es-ES", in: "fi (fi)", want: "fi"},
+		{lang: "pt-BR", in: "teta (teta)", want: "teta"},
+	}
+	for _, tc := range cases {
+		if got := htRemoveParentheticalGreekSymbols(tc.in, tc.lang); got != tc.want {
+			t.Errorf("htRemoveParentheticalGreekSymbols(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+		}
+	}
+}
+
+func TestHTConvertDegrees(t *testing.T) {
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "30°", want: "30 degrees"},
+		{lang: "en-US", in: "180° O", want: "180 degrees O"},
+		{lang: "es-ES", in: "40°C", want: "40 grados celsius"},
+		{lang: "pt-BR", in: "180° O", want: "180 graus O"},
+		{lang: "pt-BR", in: "100 °F", want: "100 graus fahrenheit"},
+		{lang: "pt-BR", in: "1º ano", want: "1º ano"},
+	}
+	for _, tc := range cases {
+		if got := htConvertDegrees(tc.in, tc.lang); got != tc.want {
+			t.Errorf("htConvertDegrees(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+		}
+	}
+}
+
+func TestHTAdjustAudioStringBeforeWriteSymbolsAndDegrees(t *testing.T) {
+	useRepoSource(t)
+
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "phi (<b>ϕ</b>)", want: "phi."},
+		{lang: "en-US", in: "theta (<b>θ</b>) and phi (<b>ϕ</b>)", want: "theta and phi."},
+		{lang: "en-US", in: "the angle (<b>ϕ</b>) is measured", want: "the angle phi is measured."},
+		{lang: "pt-BR", in: "180° O", want: "cento e oitenta graus O."},
+	}
+	for _, tc := range cases {
+		if got := strings.TrimSpace(htAdjustAudioStringBeforeWrite(tc.in, tc.lang)); got != tc.want {
+			t.Errorf("htAdjustAudioStringBeforeWrite(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+		}
+	}
+}
+
 func TestHTMarkdownToHTML(t *testing.T) {
 	got := htMarkdownToHTML("# Title\n\nSome **bold** text.")
 	if !strings.Contains(got, "<h1") || !strings.Contains(got, "Title") {

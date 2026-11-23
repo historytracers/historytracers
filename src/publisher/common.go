@@ -545,6 +545,8 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = htConvertTemperatures(ret, lang)
 	ret = htRemoveHTMLTags(ret)
 	ret = htReplaceSocialMediaUrls(ret)
+	ret = htRemoveParentheticalGreekSymbols(ret, lang)
+	ret = htConvertDegrees(ret, lang)
 	// Convert numerals to words before dropping lines without letters so an
 	// ASCII-only numeric line is spoken instead of being discarded. This
 	// function also handles Arabic-Indic digits.
@@ -1115,7 +1117,7 @@ func htLoadKeywordsDirect(lang string, name string) ([]string, error) {
 func htReplaceAllExceptions(text string, lang string) string {
 	ret := strings.ReplaceAll(text, "(#)", "")
 
-	for _, letter := range []string{"α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "π", "ρ", "σ", "τ", "υ", "φ", "χ", "ψ", "ω"} {
+	for _, letter := range htGreekLetters {
 		ret = strings.ReplaceAll(ret, letter, htConvertGreekLetter(letter, lang))
 	}
 
