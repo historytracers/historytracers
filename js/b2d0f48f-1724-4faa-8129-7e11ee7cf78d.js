@@ -13,7 +13,7 @@ function htPlusDivs(n) {
 
 function htLoadContent() {
     htWriteNavigation();
-    htSetImageSrc("imgBoneRG", "images/GonzalesRedondo/Figura-9-Hueso-de-Lebombo.png");
+    htSetImageSrc("imgBoneRG", "images/GonzalezRedondo/Figura-9-Hueso-de-Lebombo.png");
     htPlusDivs(0);
 
     return false;
