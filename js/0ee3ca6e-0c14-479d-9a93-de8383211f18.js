@@ -147,7 +147,7 @@ function htBoardPrintParts() {
 }
 
 function htLoadContent() {
-    htSetImageSrc("imgBoardBoneFigure", "images/GonzalesRedondo/Figura-9-Hueso-de-Lebombo.png");
+    htSetImageSrc("imgBoardBoneFigure", "images/GonzalezRedondo/Figura-9-Hueso-de-Lebombo.png");
 
     // The markdown/HTML renderer wraps block content in <p> elements, which
     // leaves empty paragraphs around each printable sheet and adds unwanted

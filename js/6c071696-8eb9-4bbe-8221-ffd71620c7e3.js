@@ -1237,7 +1237,7 @@ function atwSetImages() {
             htSetImageSrc(id, images[id]);
         }
     }
-    htSetImageSrc("imgBone", "images/GonzalesRedondo/Figura-9-Hueso-de-Lebombo.png");
+    htSetImageSrc("imgBone", "images/GonzalezRedondo/Figura-9-Hueso-de-Lebombo.png");
 }
 
 function htLoadContent() {
