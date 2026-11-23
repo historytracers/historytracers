@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/53089395-6d49-4ea6-a138-e12b8e95a672_es-ES.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5BEsT46teoYgPdD1Ww0BrQ?si=9X48nRo0QUOFda1lr5YzcA",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -22,12 +27,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1795391046"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -45,13 +52,25 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
+               "text": "### Prerrequisitos\n\nPara aprovechar mejor esta lección, recomendamos leer primero estos textos:\n\n- **¿Dónde estamos en una esfera?**: cómo localizar un punto en una esfera con coordenadas esféricas — un radio y dos ángulos (<htcite0>)\n- **Coordenadas de Superficie**: cómo esas coordenadas se convierten en latitud y longitud, medidas desde el Ecuador y el Meridiano de Greenwich (<htcite1>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "bec4ad04-6868-4dc8-8c97-b8c5c9be7bb5",
+                     "uuid": "0dd6b53f-ea68-475d-9b18-99d38a428c0a",
                      "text": "History Tracers Atlas",
-                     "page": "El tamaño de la tierra",
+                     "page": "¿Dónde estamos en una esfera?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6442cb1b-ac36-4e00-ab2c-34de780e9bdd",
+                     "text": "History Tracers Atlas",
+                     "page": "Coordenadas de Superficie",
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
@@ -72,7 +91,7 @@
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgGeo21\" onclick=\"htImageZoom('imgGeo21', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: En este mapa, el continente está destacado © Mapswire (<htcite0>)</p>",
+               "text": "<p class=\"desc\"><img id=\"imgGeo21\" onclick=\"htImageZoom('imgGeo21', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: África está destacada en este mapa © Mapswire (<htcite0>)</p>",
                "source": [
                   {
                      "type": 1,
@@ -94,7 +113,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Nuestras Coordenadas</h3>Antes de ubicarnos en la Tierra, reflexionemos sobre una cuestión:</p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>¿Estamos usando la cantidad adecuada de variables?</b><br /><br />¿Es posible que estemos cometiendo un error al usar solo longitud (<b>θ</b>) y latitud (<b>δ</b>) para localizarnos en la superficie terrestre?</div></div></center></p>",
+               "text": "<p><h3>Introducción</h3>Antes de situarnos en la Tierra, reflexionemos sobre una cuestión:</p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿estamos usando la cantidad correcta de variables?</b><br /><br />¿Será que estamos simplificando demasiado al usar solo longitud (<b>θ</b>) y latitud (<b>δ</b>) para localizarnos en la superficie terrestre? Guarda tu respuesta: la comprobaremos al final.</div></div></center><h3>Nuestras Coordenadas</h3><p>Ahora convertiremos ángulos en metros, para que nuestra posición también pueda expresarse como distancias.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -103,7 +122,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>Simplificación</h4>Cuando utilizamos únicamente latitud y longitud para posicionarnos en la Tierra, estamos simplificando. Esta simplificación asume que el radio medio de la Tierra es constante, estimado en 6.371 kilómetros (Km) (o 6.371.000 metros (m))",
+               "text": "<h4>Simplificación</h4>Cuando usamos solo latitud y longitud para situarnos en la Tierra, estamos simplificando de verdad. La simplificación supone que el radio medio de la Tierra es constante: unos 6.371 kilómetros (km), es decir, 6.371.000 metros (m) — la distancia media desde el centro de la Tierra hasta su superficie",
                "source": [
                   {
                      "type": 1,
@@ -137,7 +156,7 @@
                "PostMention": "."
             },
             {
-               "text": "Para entender mejor esta simplificación, veamos dos ejemplos. Al considerar el radio de la Tierra constante, no lo eliminamos, solo lo omitimos en la representación final de las coordenadas. Así, las posiciones de las ciudades de Tokio y Montevideo pueden expresarse únicamente con latitud y longitud",
+               "text": "Para entender mejor esta simplificación, veamos un ejemplo. Al suponer un radio terrestre constante, no lo eliminamos de los cálculos: solo lo dejamos fuera de las coordenadas finales. Por eso podemos expresar las posiciones de ciudades como Tokio (<htcite0>) y Montevideo (<htcite1>) solo con latitud y longitud",
                "source": [
                   {
                      "type": 1,
@@ -171,7 +190,16 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (35,6764° Norte, 139,6500° Este)</li><li><b>Montevideo</b>: (34,9055° Sur, 56,1851° Oeste)</li></ul></p><p><h4>Todas las variables</h4>Para expresar coordenadas con mayor precisión, es fundamental que todas estén en la misma unidad de medida.</p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (35,6764° Norte, 139,6500° Este)</li><li><b>Montevideo</b>: (34,9055° Sur, 56,1851° Oeste)</li></ul></p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "<h4>Transformación de variables</h4><p>Hasta ahora hemos descrito la posición de un punto con ángulos y un radio. Aquí cambiamos esas variables por distancias sobre los ejes: las coordenadas cartesianas. Lo haremos en dos pasos, siempre a partir de un triángulo rectángulo: primero para un punto en un plano, y después para un punto en una esfera.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -180,8 +208,91 @@
                "PostMention": ""
             },
             {
-               "text": "Para una ubicación tridimensional más exacta, debemos convertir los ángulos de grados a radianes antes de continuar con los cálculos",
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 700 620\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:760px; display:block; margin:0 auto;\" aria-label=\"Un círculo de radio r con un punto en el ángulo theta. El cateto horizontal del triángulo rectángulo, x, es r por el coseno de theta, y el cateto vertical, y, es r por el seno de theta\"><text x=\"24\" y=\"34\" font-size=\"19\" font-weight=\"bold\" fill=\"#333333\">x = r cos(θ)</text><text x=\"24\" y=\"62\" font-size=\"19\" font-weight=\"bold\" fill=\"#333333\">y = r sen(θ)</text><line x1=\"40\" y1=\"420\" x2=\"660\" y2=\"420\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"660,427 676,420 660,413\" fill=\"#555555\"/><line x1=\"240\" y1=\"600\" x2=\"240\" y2=\"60\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"247,60 240,44 233,60\" fill=\"#555555\"/><circle cx=\"240\" cy=\"420\" r=\"180\" fill=\"#eaf2fa\" fill-opacity=\"0.45\" stroke=\"#4f8bc4\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><polygon points=\"240,420 377.9,420 377.9,304.3\" fill=\"#fff4e0\" fill-opacity=\"0.85\" stroke=\"none\"/><line x1=\"240\" y1=\"420\" x2=\"377.9\" y2=\"420\" stroke=\"#2f6fb3\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"377.9\" y1=\"420\" x2=\"377.9\" y2=\"304.3\" stroke=\"#27ae60\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"240\" y1=\"420\" x2=\"377.9\" y2=\"304.3\" stroke=\"#c0392b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M 310,420 Q 313.3,393.3 293.6,375\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"322\" y=\"398\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">θ</text><circle cx=\"240\" cy=\"420\" r=\"5\" fill=\"#333333\"/><circle cx=\"377.9\" cy=\"304.3\" r=\"5\" fill=\"#333333\"/><text x=\"222\" y=\"442\" font-size=\"18\" text-anchor=\"end\" fill=\"#333333\">O</text><text x=\"392\" y=\"298\" font-size=\"18\" fill=\"#333333\">P</text><text x=\"668\" y=\"448\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">X</text><text x=\"240\" y=\"40\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Y</text><text x=\"280\" y=\"346\" font-size=\"22\" fill=\"#c0392b\">r</text><text x=\"300\" y=\"452\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2f6fb3\">x = r cos(θ)</text><text x=\"430\" y=\"380\" font-size=\"18\" fill=\"#27ae60\">y = r sen(θ)</text></svg></p><p class=\"desc\"><b>Figura 2</b>: Un punto en un plano escrito con el radio <b>r</b> y el ángulo <b>θ</b>: el cateto contiguo es <b>x</b> = r × cos(θ) y el cateto opuesto es <b>y</b> = r × sen(θ).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>En un plano, un punto <b>P</b> queda descrito por el radio <b>r</b> y por el ángulo <b>θ</b>. Weisstein, Eric W. presenta esta transformación (<htcite0>) como un triángulo rectángulo cuya hipotenusa es el radio. Sigamos los pasos:</p><ol><li>El radio <b>r</b> va del origen <b>O</b> al punto <b>P</b>, y el ángulo <b>θ</b> se mide entre el eje x y el radio.</li><li>Proyectamos el punto sobre el eje x: el cateto contiguo del triángulo mide <b>r</b> × cos(<b>θ</b>); por lo tanto, <b>x</b> = r × cos(θ).</li><li>Proyectamos el punto sobre el eje y: el cateto opuesto mide <b>r</b> × sen(<b>θ</b>); por lo tanto, <b>y</b> = r × sen(θ).</li></ol><p>Así, el mismo punto puede escribirse como (r, θ) o como (x, y), y el radio se recupera con r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>.</p>",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d94b147e-c84b-40cc-8a86-5d18cefc9c59",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Polar Coordinates",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>La transformación anterior resuelve el problema sobre una superficie plana. Sin embargo, un punto en el espacio no siempre está sobre esa superficie: puede estar por encima o por debajo del plano. En el siguiente paso añadimos la tercera coordenada y repetimos la misma idea en una esfera, donde el radio <b>r</b> y un nuevo ángulo <b>ϕ</b>, medido desde el eje vertical, nos dicen qué tan alto o bajo está el punto.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 720 620\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:760px; display:block; margin:0 auto;\" aria-label=\"Una esfera transparente con un punto P en su superficie y su proyección Q sobre el plano. El ángulo phi se mide desde el eje vertical y el ángulo theta sobre el plano, lo que da las coordenadas x, y y z del punto\"><text x=\"20\" y=\"32\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">x = r sen(ϕ) cos(θ)</text><text x=\"20\" y=\"58\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">y = r sen(ϕ) sen(θ)</text><text x=\"20\" y=\"84\" font-size=\"18\" font-weight=\"bold\" fill=\"#333333\">z = r cos(ϕ)</text><defs><radialGradient id=\"ht53089395SphereGrad\" cx=\"0.32\" cy=\"0.22\" r=\"1.05\"><stop offset=\"0%\" stop-color=\"#ffffff\" stop-opacity=\"0.55\"/><stop offset=\"45%\" stop-color=\"#a9c9e8\" stop-opacity=\"0.28\"/><stop offset=\"100%\" stop-color=\"#2f6fb3\" stop-opacity=\"0.10\"/></radialGradient></defs><circle cx=\"330\" cy=\"390\" r=\"185\" fill=\"url(#ht53089395SphereGrad)\" stroke=\"#4f8bc4\" stroke-width=\"2\"/><ellipse cx=\"330\" cy=\"390\" rx=\"185\" ry=\"55\" fill=\"#eaf2fa\" fill-opacity=\"0.55\" stroke=\"#4f8bc4\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><ellipse cx=\"330\" cy=\"390\" rx=\"60\" ry=\"185\" fill=\"none\" stroke=\"#4f8bc4\" stroke-width=\"1\" stroke-opacity=\"0.35\"/><line x1=\"330\" y1=\"390\" x2=\"330\" y2=\"142.7\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"330,142.7 337,158.7 323,158.7\" fill=\"#555555\"/><line x1=\"330\" y1=\"390\" x2=\"632.5\" y2=\"443.2\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"632.5,443.2 615.5,447.3 617.9,433.5\" fill=\"#555555\"/><line x1=\"330\" y1=\"390\" x2=\"508.9\" y2=\"300.1\" stroke=\"#555555\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon points=\"508.9,300.1 497.7,313.6 491.5,301.0\" fill=\"#555555\"/><line x1=\"428.1\" y1=\"234.7\" x2=\"428.1\" y2=\"370.0\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"330\" y1=\"390\" x2=\"428.1\" y2=\"370.0\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"7 5\"/><line x1=\"428.1\" y1=\"370.0\" x2=\"373.3\" y2=\"397.6\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"428.1\" y1=\"370.0\" x2=\"384.9\" y2=\"362.4\" stroke=\"#2f6fb3\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><line x1=\"330\" y1=\"390\" x2=\"428.1\" y2=\"234.7\" stroke=\"#c0392b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M 330,310 Q 355,303.6 372.7,322.4\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"373\" y=\"296\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">ϕ</text><path d=\"M 384.2,399.5 Q 392.0,389.2 383.9,379.0\" fill=\"none\" stroke=\"#333333\" stroke-width=\"3\"/><text x=\"404\" y=\"396\" font-size=\"22\" font-style=\"italic\" fill=\"#333333\">θ</text><circle cx=\"330\" cy=\"390\" r=\"5\" fill=\"#333333\"/><circle cx=\"428.1\" cy=\"234.7\" r=\"5\" fill=\"#333333\"/><circle cx=\"428.1\" cy=\"370.0\" r=\"5\" fill=\"#333333\"/><text x=\"312\" y=\"412\" font-size=\"18\" text-anchor=\"end\" fill=\"#333333\">O</text><text x=\"441\" y=\"230\" font-size=\"18\" fill=\"#333333\">P</text><text x=\"432\" y=\"362\" font-size=\"18\" fill=\"#333333\">Q</text><text x=\"330\" y=\"130\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">Z</text><text x=\"648\" y=\"462\" font-size=\"18\" text-anchor=\"middle\" fill=\"#333333\">X</text><text x=\"523\" y=\"290\" font-size=\"18\" fill=\"#333333\">Y</text><text x=\"345\" y=\"340\" font-size=\"22\" fill=\"#c0392b\">r</text></svg></p><p class=\"desc\"><b>Figura 3</b>: Una esfera transparente con la proyección del punto <b>P</b> sobre el plano (punto <b>Q</b>). El ángulo <b>ϕ</b> se mide desde el eje vertical y el ángulo <b>θ</b> desde el eje x, lo que da x = r × sen(ϕ) × cos(θ), y = r × sen(ϕ) × sen(θ) y z = r × cos(ϕ).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Para un punto en el espacio necesitamos una tercera coordenada. El radio <b>r</b> es la distancia al origen, <b>θ</b> es el ángulo sobre el plano y <b>ϕ</b> es el ángulo medido desde el eje vertical. Weisstein, Eric W. describe esta transformación paso a paso (<htcite0>):</p><ol><li>Proyectamos el punto <b>P</b> de la esfera hacia el plano y obtenemos el punto <b>Q</b>. El radio proyectado <b>OQ</b> mide <b>r</b> × sen(<b>ϕ</b>), y la altura del punto es <b>z</b> = r × cos(ϕ).</li><li>En el plano aplicamos la transformación anterior al radio proyectado: <b>x</b> = OQ × cos(<b>θ</b>) = r × sen(ϕ) × cos(θ).</li><li>De la misma forma, sobre el otro eje: <b>y</b> = OQ × sen(<b>θ</b>) = r × sen(ϕ) × sen(θ).</li><li>Reuniendo los tres resultados se obtiene (x, y, z) = (r × sen(ϕ) × cos(θ), r × sen(ϕ) × sen(θ), r × cos(ϕ)).</li></ol><p>Las dos transformaciones usan la misma idea dos veces: primero el radio se proyecta sobre el plano y después la proyección se reparte entre los dos ejes.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Spherical Coordinates",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Todas las variables</h4>Para expresar coordenadas con mayor precisión, es fundamental que todas estén en la misma unidad de medida. En la superficie de la Tierra, cuando trabajamos con ángulos, podemos simplificar los cálculos omitiendo el radio de la Tierra. Sin embargo, para una posición tridimensional exacta, debemos incluir el radio, transformar la latitud (<b>δ</b>) en colatitud (<b>ϕ</b>) mediante ϕ = 90° − δ (<htcite0>) y convertir los ángulos de grados a radianes (<htcite1>) antes de continuar con los cálculos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7",
+                     "text": "History Tracers Team",
+                     "page": "Coordenadas de Superficie",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
@@ -202,16 +313,16 @@
                "PostMention": ":"
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mn>θ'</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>θ</mn><mfrac><mi>π</mi><mi>180</mi></mfrac></math><br /><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mn>ϕ</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo>(</mo><mn>90</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>δ</mi><mo>)</mo><mfrac><mi>π</mi><mi>180</mi></mfrac></math></p><p>Luego, aplicamos estas coordenadas en las fórmulas de conversión de coordenadas esféricas a cartesianas, considerando el radio <b>r</b>:</p></div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><msub><mi>θ</mi><mtext>rad</mtext></msub><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>θ</mi><mfrac><mi>π</mi><mi>180</mi></mfrac></math><br /><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><msub><mi>ϕ</mi><mtext>rad</mtext></msub><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mo>(</mo><mn>90</mn><mo lspace=\"0.1667em\" rspace=\"0.1667em\">-</mo><mi>δ</mi><mo>)</mo><mfrac><mi>π</mi><mi>180</mi></mfrac></math></p><p>Luego, aplicamos estos ángulos convertidos en las fórmulas de conversión de esféricas a cartesianas, teniendo en cuenta el radio <b>r</b>:</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
-               "text": "<center>(x, y, z) = (r cos(θ') sen(ϕ), r sen(θ') sen(ϕ) , r cos (ϕ))",
+               "text": "<center>(x, y, z) = (r cos(θ) sen(ϕ), r sen(θ) sen(ϕ), r cos(ϕ))",
                "source": [
                   {
                      "type": 1,
@@ -233,7 +344,39 @@
                "PostMention": ".</center>"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (-3944126.27, 3350784.05, 3715609.67) </li><li><b>Montevideo</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>Con esta representación tridimensional, logramos una localización más completa y precisa.</p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (-3944126.27, 3350784.05, 3715609.67)</li><li><b>Montevideo</b>: (2907683.28, -4341002.95, -3645642.93)</li></ul></p><p>Con esta representación tridimensional, logramos una localización más completa y precisa.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<h3>Conclusión</h3><p>En este texto fijamos la superficie de la Tierra. Fijar una superficie elimina la variable independiente de la altura, así que cualquier lugar de esa superficie puede describirse con solo dos ángulos: la <b>longitud</b> (θ) y la <b>latitud</b> (δ). Esta descripción con dos ángulos funciona tanto en una esfera como en un elipsoide. Después elegimos una <b>esfera</b> — una simplificación, porque la Tierra está ligeramente achatada en los polos — lo que hace más sencillas las fórmulas de conversión.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Después aprendimos qué hacer cuando necesitamos la posición en metros y no en grados. Hicimos dos transformaciones más. Primero cambiamos la latitud por la <b>colatitud</b> (ϕ = 90° − δ), porque las fórmulas esféricas miden el ángulo desde el eje vertical. Luego usamos la transformación de <b>coordenadas esféricas</b> a <b>coordenadas cartesianas</b> (x, y, z), aplicando dos veces el mismo triángulo rectángulo.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>¿Estos resultados son incorrectos? No. Son aproximaciones muy buenas y nos ayudan a hacer los cálculos sin perdernos en los detalles. Aun así, son aproximaciones: para encontrar la posición real sobre la superficie de la Tierra se hacen pequeños ajustes, porque nuestro planeta no es una esfera perfecta. La idea principal es sencilla: cada simplificación nos lleva a un problema que podemos resolver, y cada ajuste nos acerca al mundo real.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,

@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_pt-BR.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/2sC2QwcvuogQyiyuM2zsgB?si=ktZAcyZwSqOfECDM3vYxcw",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -23,12 +28,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791384303"
+      "1795391072"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -37,7 +44,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Pré-requisitos\n\nRecomendamos ler o texto anterior primeiro para melhorar a compreensão (<htcite0>).",
+               "text": "### Pré-requisitos\n\nPara entender melhor este texto, leia antes o texto anterior (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -61,10 +68,105 @@
          ]
       },
       {
+         "id": "SECTION_force",
+         "text": [
+            {
+               "text": "### O que é uma força?\n\nUma força é um empurrão ou um puxão. Você usa uma força todos os dias: quando chuta uma bola, abre uma porta ou levanta a mochila. Uma força pode fazer um objeto começar a se mover, parar, ir mais rápido, ir mais devagar ou mudar de direção.\n\nOs cientistas dizem que uma força é um **vetor**. Todo vetor tem duas partes: a sua **magnitude** (o quanto ela é forte) e a sua **direção** (para onde ela empurra ou puxa). A magnitude é medida em **newtons** (N). Assim, \"10 newtons para a direita\" descreve a força completa, mas \"10 newtons\" sozinho não basta: ainda não sabemos para onde ela aponta (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2adb1156-14f1-4b78-a854-c6889dc69397",
+                     "text": "Britannica Editors",
+                     "page": "force",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "11",
+                        "day": "07"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_force_vector",
+         "text": [
+            {
+               "text": "### Por que a força é um vetor?\n\nImagine uma caixa em repouso sobre um piso liso, sem outras forças horizontais agindo sobre ela. Empurre com 5 newtons para a direita e a caixa começa a se mover para a direita. Empurre com os mesmos 5 newtons para a esquerda e a caixa começa a se mover para a esquerda. A magnitude é a mesma, mas o resultado muda, porque a direção muda.\n\nPor isso a força é um vetor: um único número não basta. Um **vetor** é uma quantidade com uma **magnitude** e uma **direção**. Nos livros de ciência, os vetores são desenhados como flechas. O comprimento da flecha mostra a magnitude e a ponta mostra a direção.\n\nOs vetores também ajudam a somar forças. Se duas pessoas empurram uma caixa na mesma direção, as forças se somam. Se empurrarem em direções opostas, parte de uma força anula a outra. Fica muito mais fácil ver isso quando desenhamos as forças como flechas (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "70fde2da-6b60-4d69-9cb7-525291ee09ff",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Vector",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_force_magnitude",
+         "text": [
+            {
+               "text": "### Quão forte é uma força?\n\nMedimos a força em newtons. Nos desenhos abaixo, cada flecha mostra uma força empurrando a mesma bola para a direita. Quanto mais longa a flecha, mais forte é a força.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 180\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"Uma bola empurrada para a direita por uma força de 2 newtons, representada por uma flecha vermelha curta\"><line x1=\"30\" y1=\"140\" x2=\"570\" y2=\"140\" stroke=\"#95a5a6\" stroke-width=\"3\"/><circle cx=\"120\" cy=\"110\" r=\"30\" fill=\"#2f6fb3\"/><line x1=\"152\" y1=\"110\" x2=\"184\" y2=\"110\" stroke=\"#c0392b\" stroke-width=\"8\"/><polygon points=\"172,99 186,110 172,121\" fill=\"#c0392b\"/><text x=\"168\" y=\"86\" font-size=\"22\" text-anchor=\"middle\" fill=\"#c0392b\" font-weight=\"bold\">2 N</text></svg></p><p class=\"desc\"><b>Gráfico 1</b>: Uma força de 2 newtons empurra a bola para a direita. A flecha é curta porque a força é pequena.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 180\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"Uma bola empurrada para a direita por uma força de 5 newtons, representada por uma flecha vermelha média\"><line x1=\"30\" y1=\"140\" x2=\"570\" y2=\"140\" stroke=\"#95a5a6\" stroke-width=\"3\"/><circle cx=\"120\" cy=\"110\" r=\"30\" fill=\"#2f6fb3\"/><line x1=\"152\" y1=\"110\" x2=\"238\" y2=\"110\" stroke=\"#c0392b\" stroke-width=\"8\"/><polygon points=\"226,99 240,110 226,121\" fill=\"#c0392b\"/><text x=\"195\" y=\"86\" font-size=\"22\" text-anchor=\"middle\" fill=\"#c0392b\" font-weight=\"bold\">5 N</text></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Uma força de 5 newtons empurra a bola para a direita. A flecha é mais longa, então a força é maior.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 180\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"Uma bola empurrada para a direita por uma força de 10 newtons, representada por uma flecha vermelha longa\"><line x1=\"30\" y1=\"140\" x2=\"570\" y2=\"140\" stroke=\"#95a5a6\" stroke-width=\"3\"/><circle cx=\"120\" cy=\"110\" r=\"30\" fill=\"#2f6fb3\"/><line x1=\"152\" y1=\"110\" x2=\"328\" y2=\"110\" stroke=\"#c0392b\" stroke-width=\"8\"/><polygon points=\"316,99 330,110 316,121\" fill=\"#c0392b\"/><text x=\"240\" y=\"86\" font-size=\"22\" text-anchor=\"middle\" fill=\"#c0392b\" font-weight=\"bold\">10 N</text></svg></p><p class=\"desc\"><b>Gráfico 3</b>: Uma força de 10 newtons empurra a bola para a direita. A flecha é a mais longa, então esta é a maior força das três.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<h3>Gravidade: Uma Força Central</h3><h4>Ajustando a Linguagem</h4>Quando falamos da gravidade como uma força, seguindo o modelo de Newton, é comum fazermos simplificações que podem gerar confusões. É comum ouvirmos que a \"força da gravidade\" puxa os corpos \"para baixo\", uma expressão imprecisa, pois pode levar algumas pessoas a imaginar que estão sobre uma superfície plana. A \"força da gravidade\" é, na verdade, uma força central, que nos atrai em direção ao <b>centro</b> do planeta",
+               "text": "<h3>Gravidade: Uma Força Central</h3><h4>Ajustando a Linguagem</h4>Quando falamos da gravidade como uma força no modelo de Newton, às vezes simplificamos demais. Essas simplificações podem nos confundir. Por exemplo, é comum ouvir que a \"força da gravidade\" puxa os corpos \"para baixo\". É uma imprecisão que pode levar algumas pessoas a imaginar que a Terra é plana. Na verdade, a \"força da gravidade\" é uma força central: ela atrai os corpos em direção ao <b>centro</b> do planeta",
                "source": [
                   {
                      "type": 1,
@@ -110,7 +212,25 @@
                "PostMention": "."
             },
             {
-               "text": "Por fim, gostaria de usar um resultado desse modelo gravitacional para responder a uma pergunta que recebo com frequência: \"Se a Terra não é plana, por que não caímos dela em certos lugares?\" Usando a gravitação de Newton, concluímos que para escapar da Terra seria necessário nos movermos a uma velocidade muito alta. Sem essa velocidade, conhecida como velocidade de escape, a gravidade nos manterá na superfície",
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 400\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"Uma pessoa em pé sobre uma bola que representa a Terra, com uma flecha vermelha apontando da pessoa para o centro da bola\"><circle cx=\"300\" cy=\"250\" r=\"130\" fill=\"#2f6fb3\"/><ellipse cx=\"250\" cy=\"200\" rx=\"38\" ry=\"28\" fill=\"#4caf50\"/><ellipse cx=\"340\" cy=\"300\" rx=\"45\" ry=\"26\" fill=\"#4caf50\"/><text x=\"300\" y=\"322\" font-size=\"20\" text-anchor=\"middle\" fill=\"#ffffff\">Terra</text><line x1=\"300\" y1=\"124\" x2=\"300\" y2=\"232\" stroke=\"#c0392b\" stroke-width=\"6\"/><polygon points=\"292,230 300,242 308,230\" fill=\"#c0392b\"/><circle cx=\"300\" cy=\"250\" r=\"5\" fill=\"#111111\"/><text x=\"318\" y=\"246\" font-size=\"18\" fill=\"#111111\">centro</text><g transform=\"translate(300,120)\"><g stroke=\"#333333\" stroke-width=\"6\" stroke-linecap=\"round\" fill=\"none\"><line x1=\"0\" y1=\"-42\" x2=\"-12\" y2=\"0\"/><line x1=\"0\" y1=\"-42\" x2=\"12\" y2=\"0\"/><line x1=\"0\" y1=\"-42\" x2=\"0\" y2=\"-76\"/><line x1=\"-20\" y1=\"-64\" x2=\"20\" y2=\"-64\"/></g><circle cx=\"0\" cy=\"-89\" r=\"13\" fill=\"#333333\"/></g></svg></p><p class=\"desc\"><b>Gráfico 4</b>: A pessoa está em pé sobre a bola. A gravidade puxa a pessoa para o centro da bola, e não simplesmente \"para baixo\".</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 400\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"Uma pessoa em pé na lateral direita de uma bola que representa a Terra, com uma flecha vermelha apontando da pessoa para o centro da bola\"><circle cx=\"250\" cy=\"200\" r=\"120\" fill=\"#2f6fb3\"/><ellipse cx=\"205\" cy=\"155\" rx=\"34\" ry=\"24\" fill=\"#4caf50\"/><ellipse cx=\"300\" cy=\"245\" rx=\"38\" ry=\"24\" fill=\"#4caf50\"/><text x=\"250\" y=\"287\" font-size=\"20\" text-anchor=\"middle\" fill=\"#ffffff\">Terra</text><line x1=\"364\" y1=\"200\" x2=\"268\" y2=\"200\" stroke=\"#c0392b\" stroke-width=\"6\"/><polygon points=\"270,192 256,200 270,208\" fill=\"#c0392b\"/><circle cx=\"250\" cy=\"200\" r=\"5\" fill=\"#111111\"/><text x=\"250\" y=\"228\" font-size=\"18\" text-anchor=\"middle\" fill=\"#111111\">centro</text><g transform=\"translate(370,200) rotate(90)\"><g stroke=\"#333333\" stroke-width=\"6\" stroke-linecap=\"round\" fill=\"none\"><line x1=\"0\" y1=\"-42\" x2=\"-12\" y2=\"0\"/><line x1=\"0\" y1=\"-42\" x2=\"12\" y2=\"0\"/><line x1=\"0\" y1=\"-42\" x2=\"0\" y2=\"-76\"/><line x1=\"-20\" y1=\"-64\" x2=\"20\" y2=\"-64\"/></g><circle cx=\"0\" cy=\"-89\" r=\"13\" fill=\"#333333\"/></g></svg></p><p class=\"desc\"><b>Gráfico 5</b>: Agora a pessoa está em pé na lateral da bola. A gravidade continua puxando para o centro. Para a pessoa, \"para baixo\" sempre significa para o centro da bola.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h3>Uma pergunta comum</h3>Para terminar, usamos este modelo para responder a uma pergunta que ouvimos com frequência: \"Se a Terra não é plana, por que não caímos dela em certos lugares?\" Para sair da Terra, teríamos que nos mover a uma velocidade muito alta. A velocidade mínima necessária se chama <b>velocidade de escape</b>: cerca de 40.000 quilômetros por hora na superfície da Terra, sem propulsão adicional e desprezando a resistência do ar. Um lançamento ascendente mais lento não nos mantém no chão para sempre: o objeto pode subir e depois voltar a cair.",
                "source": [
                   {
                      "type": 1,
@@ -132,7 +252,16 @@
                "PostMention": "."
             },
             {
-               "text": "<p>Sobre a ideia de uma Terra plana, discutiremos mais adiante.</p>",
+               "text": "<p>Discutiremos a ideia de uma Terra plana mais adiante.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h3>Conclusão</h3><p>Vamos recordar a ideia mais importante deste texto: a gravidade não empurra as coisas \"para baixo\". A gravidade é uma força central: ela sempre puxa os objetos para o centro da Terra. É por isso que as pessoas em todos os lados do planeta ficam no chão, e por isso \"para baixo\" significa uma direção diferente para cada uma delas. Se a gravidade realmente empurrasse tudo na mesma direção para baixo, uma Terra plana poderia fazer sentido. Mas não é isso que observamos no universo. Em todos os lugares vemos a gravidade atrair a matéria para o centro de um planeta, de uma estrela ou de uma lua. Por isso, uma Terra plana não faz sentido no universo observável.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,

@@ -818,6 +818,77 @@ func htConvertGreekLetter(letter string, lang string) string {
 	return letter
 }
 
+var htGreekLetters = []string{
+	"α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ",
+	"ν", "ξ", "π", "ρ", "σ", "τ", "υ", "φ", "ϕ", "χ", "ψ", "ω",
+}
+
+// htRemoveParentheticalGreekSymbols drops the visual parentheses around a
+// single Greek-letter name, and removes the name entirely when the same word
+// already appears immediately before the parentheses. For example,
+// "phi (ϕ)" becomes "phi" and "the angle (ϕ)" becomes "the angle phi".
+func htRemoveParentheticalGreekSymbols(text string, lang string) string {
+	names := make(map[string]bool)
+	for _, letter := range htGreekLetters {
+		names[strings.ToLower(htConvertGreekLetter(letter, lang))] = true
+	}
+
+	duplicateParenRegex := regexp.MustCompile(`(\p{L}+)\s*\(\s*(\p{L}+)\s*\)`)
+	text = duplicateParenRegex.ReplaceAllStringFunc(text, func(match string) string {
+		parts := duplicateParenRegex.FindStringSubmatch(match)
+		if len(parts) == 3 && names[strings.ToLower(parts[2])] && strings.EqualFold(parts[1], parts[2]) {
+			return parts[1]
+		}
+		return match
+	})
+
+	singleParenRegex := regexp.MustCompile(`\(\s*(\p{L}+)\s*\)`)
+	return singleParenRegex.ReplaceAllStringFunc(text, func(match string) string {
+		parts := singleParenRegex.FindStringSubmatch(match)
+		if len(parts) == 2 && names[strings.ToLower(parts[1])] {
+			return parts[1]
+		}
+		return match
+	})
+}
+
+// htConvertDegrees turns a numeric degree mark into the local word for
+// "degrees" (and handles Celsius/Fahrenheit suffixes). It intentionally only
+// targets the degree sign (U+00B0), not the masculine ordinal (U+00BA), so
+// Portuguese ordinals such as "1º" are left alone.
+func htConvertDegrees(text string, lang string) string {
+	lang = htArabicNumberLang(lang)
+	degreeWord := "degrees"
+	temperatureWords := map[string]string{
+		"C": "degrees celsius",
+		"F": "degrees fahrenheit",
+	}
+	if lang == "es-ES" {
+		degreeWord = "grados"
+		temperatureWords["C"] = "grados celsius"
+		temperatureWords["F"] = "grados fahrenheit"
+	} else if lang == "pt-BR" {
+		degreeWord = "graus"
+		temperatureWords["C"] = "graus celsius"
+		temperatureWords["F"] = "graus fahrenheit"
+	}
+
+	temperatureRegex := regexp.MustCompile(`(\d+(?:[.,]\d+)?)\s*[°º]\s*([CcFf])\b`)
+	text = temperatureRegex.ReplaceAllStringFunc(text, func(match string) string {
+		parts := temperatureRegex.FindStringSubmatch(match)
+		if len(parts) != 3 {
+			return match
+		}
+		return parts[1] + " " + temperatureWords[strings.ToUpper(parts[2])]
+	})
+
+	degreeLetterRegex := regexp.MustCompile(`(\d+(?:[.,]\d+)?)\s*°\s*(\p{L})`)
+	text = degreeLetterRegex.ReplaceAllString(text, "$1 "+degreeWord+" $2")
+
+	degreeRegex := regexp.MustCompile(`(\d+(?:[.,]\d+)?)\s*°`)
+	return degreeRegex.ReplaceAllString(text, "$1 "+degreeWord)
+}
+
 func htRemoveAsiaticCharacters(text string) string {
 	text = strings.ReplaceAll(text, "Schyoty (счёты)", "Schyoty")
 	text = strings.ReplaceAll(text, "(матрёшка)", "")
@@ -909,6 +980,418 @@ func htConvertTemperatures(text string, lang string) string {
 	})
 
 	return replacement
+}
+
+// htArabicNumberOnes holds the names of the digits and of the numbers below
+// thirty. Each language composes larger numbers with its own rules.
+var htArabicNumberOnes = map[string][]string{
+	"en-US": {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+		"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"},
+	"es-ES": {"cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve",
+		"diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve",
+		"veinte", "veintiuno", "veintidós", "veintitrés", "veinticuatro", "veinticinco", "veintiséis", "veintisiete", "veintiocho", "veintinueve"},
+	"pt-BR": {"zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove",
+		"dez", "onze", "doze", "treze", "catorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove",
+		"vinte", "vinte e um", "vinte e dois", "vinte e três", "vinte e quatro", "vinte e cinco", "vinte e seis", "vinte e sete", "vinte e oito", "vinte e nove"},
+}
+
+var htArabicNumberTens = map[string][]string{
+	"en-US": {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"},
+	"es-ES": {"", "", "", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"},
+	"pt-BR": {"", "", "", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"},
+}
+
+var htArabicNumberHundreds = map[string][]string{
+	"es-ES": {"", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"},
+	"pt-BR": {"", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"},
+}
+
+// htArabicScale describes how each group of three digits is named. omitOne is
+// set for scales that already carry the singular sense of "one" ("mil",
+// "mil millones"), so the leading "um"/"uno" is not repeated.
+type htArabicScale struct {
+	singular string
+	plural   string
+	omitOne  bool
+}
+
+var htArabicScales = map[string][]htArabicScale{
+	"en-US": {
+		{},
+		{singular: "thousand", plural: "thousand"},
+		{singular: "million", plural: "million"},
+		{singular: "billion", plural: "billion"},
+		{singular: "trillion", plural: "trillion"},
+		{singular: "quadrillion", plural: "quadrillion"},
+		{singular: "quintillion", plural: "quintillion"},
+	},
+	"es-ES": {
+		{},
+		{singular: "mil", plural: "mil", omitOne: true},
+		{singular: "millón", plural: "millones"},
+		{singular: "mil millones", plural: "mil millones", omitOne: true},
+		{singular: "billón", plural: "billones"},
+		{singular: "mil billones", plural: "mil billones", omitOne: true},
+		{singular: "trillón", plural: "trillones"},
+	},
+	"pt-BR": {
+		{},
+		{singular: "mil", plural: "mil", omitOne: true},
+		{singular: "milhão", plural: "milhões"},
+		{singular: "bilhão", plural: "bilhões"},
+		{singular: "trilhão", plural: "trilhões"},
+		{singular: "quatrilhão", plural: "quatrilhões"},
+		{singular: "quintilhão", plural: "quintilhões"},
+	},
+}
+
+func htArabicNumberLang(lang string) string {
+	if lang == "es-ES" || lang == "pt-BR" {
+		return lang
+	}
+	return "en-US"
+}
+
+// htArabicNumberDecimalWord returns the word used to read the decimal
+// separator aloud.
+func htArabicNumberDecimalWord(lang string) string {
+	switch htArabicNumberLang(lang) {
+	case "es-ES":
+		return "coma"
+	case "pt-BR":
+		return "vírgula"
+	default:
+		return "point"
+	}
+}
+
+// htArabicSpanishApocopate shortens the final "uno" when it is followed by a
+// scale name ("veintiuno" + " mil" -> "veintiún mil").
+func htArabicSpanishApocopate(words string) string {
+	if words == "uno" {
+		return "un"
+	}
+	if strings.HasSuffix(words, "veintiuno") {
+		return strings.TrimSuffix(words, "veintiuno") + "veintiún"
+	}
+	if strings.HasSuffix(words, " uno") {
+		return strings.TrimSuffix(words, " uno") + " un"
+	}
+	return words
+}
+
+func htArabicTripleToWords(value int, lang string) string {
+	ones := htArabicNumberOnes[lang]
+	tens := htArabicNumberTens[lang]
+
+	if lang == "en-US" {
+		var parts []string
+		if value >= 100 {
+			parts = append(parts, ones[value/100], "hundred")
+			value %= 100
+		}
+		if value >= 20 {
+			word := tens[value/10]
+			if value%10 != 0 {
+				word += " " + ones[value%10]
+			}
+			parts = append(parts, word)
+		} else if value > 0 {
+			parts = append(parts, ones[value])
+		}
+		return strings.Join(parts, " ")
+	}
+
+	if value == 100 {
+		if lang == "es-ES" {
+			return "cien"
+		}
+		return "cem"
+	}
+
+	var parts []string
+	if value > 100 {
+		parts = append(parts, htArabicNumberHundreds[lang][value/100])
+		value %= 100
+	}
+
+	var remainder string
+	if value >= 30 {
+		remainder = tens[value/10]
+		if value%10 != 0 {
+			conjunction := " y "
+			if lang == "pt-BR" {
+				conjunction = " e "
+			}
+			remainder += conjunction + ones[value%10]
+		}
+	} else if value > 0 {
+		remainder = ones[value]
+	}
+
+	if remainder != "" {
+		if len(parts) > 0 && lang == "pt-BR" {
+			parts = append(parts, "e")
+		}
+		parts = append(parts, remainder)
+	}
+
+	return strings.Join(parts, " ")
+}
+
+func htArabicDigitsToWords(digits string, lang string) string {
+	ones := htArabicNumberOnes[htArabicNumberLang(lang)]
+	var words []string
+	for _, digit := range digits {
+		if digit < '0' || digit > '9' {
+			continue
+		}
+		words = append(words, ones[int(digit-'0')])
+	}
+	return strings.Join(words, " ")
+}
+
+func htArabicIntToWords(value uint64, lang string) string {
+	lang = htArabicNumberLang(lang)
+	scales := htArabicScales[lang]
+
+	if value == 0 {
+		return htArabicNumberOnes[lang][0]
+	}
+
+	var groups []int
+	for value > 0 {
+		groups = append(groups, int(value%1000))
+		value /= 1000
+	}
+
+	if len(groups) > len(scales) {
+		return ""
+	}
+
+	var parts []string
+	for index := len(groups) - 1; index >= 0; index-- {
+		group := groups[index]
+		if group == 0 {
+			continue
+		}
+
+		words := htArabicTripleToWords(group, lang)
+		if index > 0 {
+			scale := scales[index]
+			if group == 1 && scale.omitOne {
+				words = scale.singular
+			} else {
+				if lang == "es-ES" {
+					words = htArabicSpanishApocopate(words)
+				}
+				name := scale.plural
+				if group == 1 {
+					name = scale.singular
+				}
+				words += " " + name
+			}
+		}
+		parts = append(parts, words)
+	}
+
+	return strings.Join(parts, " ")
+}
+
+// htSplitArabicNumber separates the integer and decimal digits of a number.
+// The decimal separator is localized: dot in English, comma in Spanish and
+// Portuguese. Repeated decimal separators are read as thousands separators.
+func htSplitArabicNumber(raw string, lang string) (string, string) {
+	decimalSeparator := "."
+	if htArabicNumberLang(lang) != "en-US" {
+		decimalSeparator = ","
+	}
+
+	separators := strings.NewReplacer(".", "", ",", "")
+	if strings.Count(raw, decimalSeparator) > 1 {
+		return separators.Replace(raw), ""
+	}
+
+	index := strings.LastIndex(raw, decimalSeparator)
+	if index < 0 {
+		return separators.Replace(raw), ""
+	}
+
+	return separators.Replace(raw[:index]), raw[index+1:]
+}
+
+func htArabicNumberToWords(raw string, lang string) string {
+	lang = htArabicNumberLang(lang)
+
+	intPart, fractionPart := htSplitArabicNumber(raw, lang)
+	trimmedIntPart := strings.TrimLeft(intPart, "0")
+
+	var words string
+	switch {
+	case trimmedIntPart == "" && len(intPart) > 1:
+		// Multi-digit all-zero identifiers (for example "000") keep every
+		// digit instead of collapsing to a single "zero".
+		words = htArabicDigitsToWords(intPart, lang)
+	case trimmedIntPart == "":
+		words = htArabicNumberOnes[lang][0]
+	case len(trimmedIntPart) != len(intPart):
+		// Numbers with leading zeros are identifiers, not quantities: read
+		// every digit separately.
+		words = htArabicDigitsToWords(intPart, lang)
+	default:
+		value, err := strconv.ParseUint(intPart, 10, 64)
+		if err != nil {
+			words = htArabicDigitsToWords(intPart, lang)
+		} else {
+			words = htArabicIntToWords(value, lang)
+			if words == "" {
+				words = htArabicDigitsToWords(intPart, lang)
+			}
+		}
+	}
+
+	if fractionPart != "" {
+		words += " " + htArabicNumberDecimalWord(lang) + " " + htArabicDigitsToWords(fractionPart, lang)
+	}
+
+	return words
+}
+
+// htArabicIndicDigitWords holds the spoken names, transliterated into Latin
+// characters, of the Arabic-Indic and Extended Arabic-Indic digits. Those
+// glyphs are not readable by text-to-speech engines, so they are replaced by
+// their own names instead of being kept or dropped.
+var htArabicIndicDigitWords = []string{
+	"sifr", "wahid", "ithnan", "thalatha", "arba'a",
+	"khamsa", "sitta", "sab'a", "thamaniya", "tis'a",
+}
+
+// htConvertArabicIndicDigits replaces every Arabic numeral glyph with the
+// Latin transliteration of its Arabic name.
+func htConvertArabicIndicDigits(text string) string {
+	var builder strings.Builder
+	builder.Grow(len(text))
+
+	previousWasDigit := false
+	for _, current := range text {
+		var index rune
+		switch {
+		case current >= '\u0660' && current <= '\u0669':
+			index = current - '\u0660'
+		case current >= '\u06F0' && current <= '\u06F9':
+			index = current - '\u06F0'
+		default:
+			previousWasDigit = false
+			builder.WriteRune(current)
+			continue
+		}
+
+		if previousWasDigit {
+			builder.WriteString(" ")
+		}
+		builder.WriteString(htArabicIndicDigitWords[index])
+		previousWasDigit = true
+	}
+
+	return builder.String()
+}
+
+var htEnglishOrdinalWords = map[string]string{
+	"one": "first", "two": "second", "three": "third", "four": "fourth", "five": "fifth",
+	"six": "sixth", "seven": "seventh", "eight": "eighth", "nine": "ninth", "ten": "tenth",
+	"eleven": "eleventh", "twelve": "twelfth", "thirteen": "thirteenth", "fourteen": "fourteenth",
+	"fifteen": "fifteenth", "sixteen": "sixteenth", "seventeen": "seventeenth", "eighteen": "eighteenth",
+	"nineteen": "nineteenth", "twenty": "twentieth", "thirty": "thirtieth", "forty": "fortieth",
+	"fifty": "fiftieth", "sixty": "sixtieth", "seventy": "seventieth", "eighty": "eightieth",
+	"ninety": "ninetieth", "hundred": "hundredth", "thousand": "thousandth", "million": "millionth",
+	"billion": "billionth", "trillion": "trillionth", "quadrillion": "quadrillionth", "quintillion": "quintillionth",
+}
+
+// htEnglishOrdinalToWords converts the ordinal suffix of an English numeral
+// ("21st", "19th") into its spoken form ("twenty first", "nineteenth").
+func htEnglishOrdinalToWords(number string) string {
+	words := strings.Split(htArabicNumberToWords(number, "en-US"), " ")
+	last := words[len(words)-1]
+	if ordinal, ok := htEnglishOrdinalWords[last]; ok {
+		words[len(words)-1] = ordinal
+	}
+	return strings.Join(words, " ")
+}
+
+// htConvertArabicNumbersToWords rewrites Arabic numerals as their spoken names
+// in Latin characters. Text-to-speech engines do not read bare digits reliably,
+// so the audio pipeline converts them before writing the text file instead of
+// dropping them.
+func htConvertArabicNumbersToWords(text string, lang string) string {
+	text = htConvertArabicIndicDigits(text)
+
+	if htArabicNumberLang(lang) == "en-US" {
+		ordinalRegex := regexp.MustCompile(`(?i)\b(\d+)(st|nd|rd|th)\b`)
+		text = ordinalRegex.ReplaceAllStringFunc(text, func(match string) string {
+			parts := ordinalRegex.FindStringSubmatch(match)
+			return htEnglishOrdinalToWords(parts[1])
+		})
+	}
+
+	// Match a maximal number token, then validate its separators in
+	// htArabicNumberTokenToWords: a separator is a thousands separator only
+	// when it forms complete groups of three digits.
+	numberRegex := regexp.MustCompile(`\d+(?:[.,]\d+)*`)
+	return numberRegex.ReplaceAllStringFunc(text, func(match string) string {
+		return htArabicNumberTokenToWords(match, lang)
+	})
+}
+
+// htArabicNumberTokenToWords converts one numeric token, treating a separator
+// as a thousands separator only when it follows valid 3-digit grouping.
+// Invalid tokens such as "1,2,3" are read as separate values.
+func htArabicNumberTokenToWords(token string, lang string) string {
+	lang = htArabicNumberLang(lang)
+	decimalSeparator := "."
+	thousandsSeparator := ","
+	if lang != "en-US" {
+		decimalSeparator = ","
+		thousandsSeparator = "."
+	}
+
+	// More than one decimal separator cannot be one decimal number.
+	if strings.Count(token, decimalSeparator) > 1 {
+		return htArabicNumberGroupsToWords(token, lang)
+	}
+
+	if strings.Contains(token, thousandsSeparator) {
+		intPart := token
+		if index := strings.LastIndex(token, decimalSeparator); index >= 0 {
+			intPart = token[:index]
+		}
+		groups := strings.Split(intPart, thousandsSeparator)
+		validGrouping := len(groups) > 1
+		for i, group := range groups {
+			if i == 0 {
+				if len(group) < 1 || len(group) > 3 {
+					validGrouping = false
+					break
+				}
+			} else if len(group) != 3 {
+				validGrouping = false
+				break
+			}
+		}
+		if !validGrouping {
+			return htArabicNumberGroupsToWords(token, lang)
+		}
+	}
+
+	return htArabicNumberToWords(token, lang)
+}
+
+// htArabicNumberGroupsToWords reads each run of digits in an invalid numeric
+// token as a separate value, keeping the original separators as punctuation.
+func htArabicNumberGroupsToWords(token string, lang string) string {
+	groupRegex := regexp.MustCompile(`\d+`)
+	return groupRegex.ReplaceAllStringFunc(token, func(group string) string {
+		return htArabicNumberToWords(group, lang)
+	})
 }
 
 func htRemoveSVGBlocks(text string) string {

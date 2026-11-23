@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/09b6fade-c61b-4f3b-b6b0-1c413b8a2dc1_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5I61iIFUtQexNShvzpPULX?si=aAKUS7dFRGeWNBBOSKsh-Q",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -23,12 +28,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1791384272"
+      "1795391017"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -37,7 +44,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nTo understand this text better, read the previous text first (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -61,10 +68,105 @@
          ]
       },
       {
+         "id": "SECTION_force",
+         "text": [
+            {
+               "text": "### What Is a Force?\n\nA force is a push or a pull. You use a force every day: when you kick a ball, open a door or lift your school bag. A force can make an object start moving, stop moving, go faster, go slower or change direction.\n\nScientists say that a force is a **vector**. Every vector has two parts: its **magnitude** (how strong it is) and its **direction** (the way it pushes or pulls). We measure magnitude in **newtons** (N). So \"10 newtons to the right\" describes the whole force, but \"10 newtons\" alone is not enough: we still do not know which way it points (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2adb1156-14f1-4b78-a854-c6889dc69397",
+                     "text": "Britannica Editors",
+                     "page": "force",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "11",
+                        "day": "07"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_force_vector",
+         "text": [
+            {
+               "text": "### Why Is a Force a Vector?\n\nImagine a box at rest on a smooth floor, with no other horizontal forces acting on it. Push it with 5 newtons to the right, and the box starts moving to the right. Push it with the same 5 newtons to the left, and the box starts moving to the left. The strength is the same, but the result changes, because the direction changed.\n\nThat is why a force is a vector: one number is not enough. A **vector** is a quantity with a **magnitude** and a **direction**. In science books, vectors are drawn as arrows. The length of the arrow shows the magnitude, and the tip shows the direction.\n\nVectors also help us add forces. If two people push a box in the same direction, their forces add up. If they push in opposite directions, part of one force cancels the other. This is much easier to see when we draw the forces as arrows (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "70fde2da-6b60-4d69-9cb7-525291ee09ff",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Vector",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_force_magnitude",
+         "text": [
+            {
+               "text": "### How Strong Is a Force?\n\nWe measure the strength of a force in newtons. In the drawings below, each arrow shows a force pushing the same ball to the right. The longer the arrow, the stronger the force.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 180\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"A ball pushed to the right by a force of 2 newtons, shown as a short red arrow\"><line x1=\"30\" y1=\"140\" x2=\"570\" y2=\"140\" stroke=\"#95a5a6\" stroke-width=\"3\"/><circle cx=\"120\" cy=\"110\" r=\"30\" fill=\"#2f6fb3\"/><line x1=\"152\" y1=\"110\" x2=\"184\" y2=\"110\" stroke=\"#c0392b\" stroke-width=\"8\"/><polygon points=\"172,99 186,110 172,121\" fill=\"#c0392b\"/><text x=\"168\" y=\"86\" font-size=\"22\" text-anchor=\"middle\" fill=\"#c0392b\" font-weight=\"bold\">2 N</text></svg></p><p class=\"desc\"><b>Chart 1</b>: A force of 2 newtons pushes the ball to the right. The arrow is short because the force is small.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 180\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"A ball pushed to the right by a force of 5 newtons, shown as a medium red arrow\"><line x1=\"30\" y1=\"140\" x2=\"570\" y2=\"140\" stroke=\"#95a5a6\" stroke-width=\"3\"/><circle cx=\"120\" cy=\"110\" r=\"30\" fill=\"#2f6fb3\"/><line x1=\"152\" y1=\"110\" x2=\"238\" y2=\"110\" stroke=\"#c0392b\" stroke-width=\"8\"/><polygon points=\"226,99 240,110 226,121\" fill=\"#c0392b\"/><text x=\"195\" y=\"86\" font-size=\"22\" text-anchor=\"middle\" fill=\"#c0392b\" font-weight=\"bold\">5 N</text></svg></p><p class=\"desc\"><b>Chart 2</b>: A force of 5 newtons pushes the ball to the right. The arrow is longer, so the force is bigger.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 180\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"A ball pushed to the right by a force of 10 newtons, shown as a long red arrow\"><line x1=\"30\" y1=\"140\" x2=\"570\" y2=\"140\" stroke=\"#95a5a6\" stroke-width=\"3\"/><circle cx=\"120\" cy=\"110\" r=\"30\" fill=\"#2f6fb3\"/><line x1=\"152\" y1=\"110\" x2=\"328\" y2=\"110\" stroke=\"#c0392b\" stroke-width=\"8\"/><polygon points=\"316,99 330,110 316,121\" fill=\"#c0392b\"/><text x=\"240\" y=\"86\" font-size=\"22\" text-anchor=\"middle\" fill=\"#c0392b\" font-weight=\"bold\">10 N</text></svg></p><p class=\"desc\"><b>Chart 3</b>: A force of 10 newtons pushes the ball to the right. The arrow is the longest, so this is the biggest force of the three.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<h3>Gravity as a Central Force</h3>When we talk about gravity as a force in Newton’s model, we often simplify things, and these simplifications can sometimes lead to misunderstandings. For example, it’s common to hear that the \"gravitational force\" pulls objects \"downward\", which is imprecise and might cause some people to think of Earth as flat. The \"gravitational force\" is a central force that attracts objects toward Earth’s center",
+               "text": "<h3>Gravity as a Central Force</h3><h4>Adjusting the Wording</h4>When we talk about gravity as a force in Newton’s model, we often simplify things. These simplifications can sometimes confuse us. For example, people often say that the \"gravitational force\" pulls objects \"downward\". That is not precise, and it can make some people think that Earth is flat. In fact, the \"gravitational force\" is a central force: it pulls objects toward Earth’s <b>center</b>",
                "source": [
                   {
                      "type": 1,
@@ -110,7 +212,25 @@
                "PostMention": "."
             },
             {
-               "text": "Finally, we’d like to use this gravitational model to address a question I’ve often received: \"If the Earth isn’t flat, why don’t we fall off it in certain places?\" According to Newton’s gravitational model, escaping Earth’s surface requires moving at a very high speed. Without reaching this speed, known as escape velocity, gravity keeps us grounded on Earth",
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 400\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"A person standing on top of a ball that represents Earth, with a red arrow pointing from the person to the center of the ball\"><circle cx=\"300\" cy=\"250\" r=\"130\" fill=\"#2f6fb3\"/><ellipse cx=\"250\" cy=\"200\" rx=\"38\" ry=\"28\" fill=\"#4caf50\"/><ellipse cx=\"340\" cy=\"300\" rx=\"45\" ry=\"26\" fill=\"#4caf50\"/><text x=\"300\" y=\"322\" font-size=\"20\" text-anchor=\"middle\" fill=\"#ffffff\">Earth</text><line x1=\"300\" y1=\"124\" x2=\"300\" y2=\"232\" stroke=\"#c0392b\" stroke-width=\"6\"/><polygon points=\"292,230 300,242 308,230\" fill=\"#c0392b\"/><circle cx=\"300\" cy=\"250\" r=\"5\" fill=\"#111111\"/><text x=\"318\" y=\"246\" font-size=\"18\" fill=\"#111111\">center</text><g transform=\"translate(300,120)\"><g stroke=\"#333333\" stroke-width=\"6\" stroke-linecap=\"round\" fill=\"none\"><line x1=\"0\" y1=\"-42\" x2=\"-12\" y2=\"0\"/><line x1=\"0\" y1=\"-42\" x2=\"12\" y2=\"0\"/><line x1=\"0\" y1=\"-42\" x2=\"0\" y2=\"-76\"/><line x1=\"-20\" y1=\"-64\" x2=\"20\" y2=\"-64\"/></g><circle cx=\"0\" cy=\"-89\" r=\"13\" fill=\"#333333\"/></g></svg></p><p class=\"desc\"><b>Chart 4</b>: The person stands on top of the ball. Gravity pulls the person toward the center of the ball, not simply \"down\".</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 600 400\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:600px; display:block; margin:0 auto;\" aria-label=\"A person standing on the right side of a ball that represents Earth, with a red arrow pointing from the person to the center of the ball\"><circle cx=\"250\" cy=\"200\" r=\"120\" fill=\"#2f6fb3\"/><ellipse cx=\"205\" cy=\"155\" rx=\"34\" ry=\"24\" fill=\"#4caf50\"/><ellipse cx=\"300\" cy=\"245\" rx=\"38\" ry=\"24\" fill=\"#4caf50\"/><text x=\"250\" y=\"287\" font-size=\"20\" text-anchor=\"middle\" fill=\"#ffffff\">Earth</text><line x1=\"364\" y1=\"200\" x2=\"268\" y2=\"200\" stroke=\"#c0392b\" stroke-width=\"6\"/><polygon points=\"270,192 256,200 270,208\" fill=\"#c0392b\"/><circle cx=\"250\" cy=\"200\" r=\"5\" fill=\"#111111\"/><text x=\"250\" y=\"228\" font-size=\"18\" text-anchor=\"middle\" fill=\"#111111\">center</text><g transform=\"translate(370,200) rotate(90)\"><g stroke=\"#333333\" stroke-width=\"6\" stroke-linecap=\"round\" fill=\"none\"><line x1=\"0\" y1=\"-42\" x2=\"-12\" y2=\"0\"/><line x1=\"0\" y1=\"-42\" x2=\"12\" y2=\"0\"/><line x1=\"0\" y1=\"-42\" x2=\"0\" y2=\"-76\"/><line x1=\"-20\" y1=\"-64\" x2=\"20\" y2=\"-64\"/></g><circle cx=\"0\" cy=\"-89\" r=\"13\" fill=\"#333333\"/></g></svg></p><p class=\"desc\"><b>Chart 5</b>: Now the person stands on the side of the ball. Gravity still pulls toward the center. For the person, \"down\" always means toward the center of the ball.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h3>A Common Question</h3>Finally, let’s use this model to answer a question we often hear: \"If the Earth isn’t flat, why don’t we fall off it in certain places?\" To leave Earth, you would have to move very fast. The minimum speed needed to escape is called the <b>escape velocity</b>: about 40,000 kilometers per hour at Earth’s surface, without further propulsion and ignoring air resistance. A slower upward launch does not keep you on the ground forever: the object can rise and then fall back.",
                "source": [
                   {
                      "type": 1,
@@ -132,7 +252,16 @@
                "PostMention": "."
             },
             {
-               "text": "<p>We will discuss the concept of a flat Earth in more detail later.</p>",
+               "text": "<p>We will discuss the idea of a flat Earth in more detail later.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h3>Conclusion</h3><p>Let’s remember the most important idea of this text: gravity does not push things \"down\". Gravity is a central force: it always pulls objects toward the center of the Earth. This is why people on every side of the planet stay on the ground, and why \"down\" means a different direction for each of them. If gravity really pushed everything in the same downward direction, a flat Earth could make sense. But that is not what we observe in the universe. Everywhere we look, gravity pulls matter toward the center of a planet, a star or a moon. That is why a flat Earth does not make sense in the observable universe.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,

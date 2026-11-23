@@ -149,9 +149,9 @@ func TestHTAdjustAudioStringBeforeWriteDivision(t *testing.T) {
 		in   string
 		want string
 	}{
-		{lang: "en-US", in: "20 ÷ 4 = 5", want: "20 divided by 4 equals 5."},
-		{lang: "es-ES", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5."},
-		{lang: "pt-BR", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5."},
+		{lang: "en-US", in: "20 ÷ 4 = 5", want: "twenty divided by four equals five."},
+		{lang: "es-ES", in: "20 ÷ 4 = 5", want: "veinte dividido por cuatro igual cinco."},
+		{lang: "pt-BR", in: "20 ÷ 4 = 5", want: "vinte dividido por quatro igual cinco."},
 	}
 
 	for _, tc := range cases {
@@ -174,12 +174,12 @@ func TestHTAudioTextConvertsDivisionSymbol(t *testing.T) {
 		in     string
 		want   string
 	}{
-		{name: "markdown/en-US", lang: "en-US", format: "markdown", in: "20 ÷ 4 = 5", want: "20 divided by 4 equals 5."},
-		{name: "markdown/es-ES", lang: "es-ES", format: "markdown", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5."},
-		{name: "markdown/pt-BR", lang: "pt-BR", format: "markdown", in: "20 ÷ 4 = 5", want: "20 dividido por 4 igual 5."},
-		{name: "mathml/en-US", lang: "en-US", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "20 divided by 4 equals 5."},
-		{name: "mathml/es-ES", lang: "es-ES", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "20 dividido por 4 igual 5."},
-		{name: "mathml/pt-BR", lang: "pt-BR", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "20 dividido por 4 igual 5."},
+		{name: "markdown/en-US", lang: "en-US", format: "markdown", in: "20 ÷ 4 = 5", want: "twenty divided by four equals five."},
+		{name: "markdown/es-ES", lang: "es-ES", format: "markdown", in: "20 ÷ 4 = 5", want: "veinte dividido por cuatro igual cinco."},
+		{name: "markdown/pt-BR", lang: "pt-BR", format: "markdown", in: "20 ÷ 4 = 5", want: "vinte dividido por quatro igual cinco."},
+		{name: "mathml/en-US", lang: "en-US", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "twenty divided by four equals five."},
+		{name: "mathml/es-ES", lang: "es-ES", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "veinte dividido por cuatro igual cinco."},
+		{name: "mathml/pt-BR", lang: "pt-BR", format: "html", in: "<math><mn>20</mn><mo>÷</mo><mn>4</mn><mo>=</mo><mn>5</mn></math>", want: "vinte dividido por quatro igual cinco."},
 	}
 
 	for _, tc := range cases {
@@ -201,8 +201,147 @@ func TestHTAdjustAudioStringBeforeWrite(t *testing.T) {
 	if strings.Contains(got, "times adrez") || strings.Contains(got, "vezes adrez") {
 		t.Errorf("word was corrupted: %q", got)
 	}
-	if !strings.Contains(got, "O xadrez e 2 vezes 3.") {
+	if !strings.Contains(got, "O xadrez e dois vezes três.") {
 		t.Errorf("unexpected audio text: %q", got)
+	}
+}
+
+func TestHTConvertArabicNumbersToWords(t *testing.T) {
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "0", want: "zero"},
+		{lang: "en-US", in: "7", want: "seven"},
+		{lang: "en-US", in: "21", want: "twenty one"},
+		{lang: "en-US", in: "100", want: "one hundred"},
+		{lang: "en-US", in: "105", want: "one hundred five"},
+		{lang: "en-US", in: "1000", want: "one thousand"},
+		{lang: "en-US", in: "1234", want: "one thousand two hundred thirty four"},
+		{lang: "en-US", in: "1000000", want: "one million"},
+		{lang: "en-US", in: "1,234", want: "one thousand two hundred thirty four"},
+		{lang: "en-US", in: "1,234.56", want: "one thousand two hundred thirty four point five six"},
+		{lang: "en-US", in: "000", want: "zero zero zero"},
+		{lang: "en-US", in: "1,2,3", want: "one,two,three"},
+		{lang: "en-US", in: "12,34", want: "twelve,thirty four"},
+		{lang: "es-ES", in: "1,2,3", want: "uno,dos,tres"},
+		{lang: "pt-BR", in: "1,2,3", want: "um,dois,três"},
+		{lang: "en-US", in: "3.14", want: "three point one four"},
+		{lang: "en-US", in: "007", want: "zero zero seven"},
+		{lang: "en-US", in: "Chapter 2 has 15 pages.", want: "Chapter two has fifteen pages."},
+		{lang: "en-US", in: "In the 19th century", want: "In the nineteenth century"},
+		{lang: "en-US", in: "21st level", want: "twenty first level"},
+		{lang: "en-US", in: "the 100th time", want: "the one hundredth time"},
+		{lang: "en-US", in: "٠, ١, ٢, ٣, ٤, ٥, ٦, ٧, ٨, ٩", want: "sifr, wahid, ithnan, thalatha, arba'a, khamsa, sitta, sab'a, thamaniya, tis'a"},
+		{lang: "es-ES", in: "٠, ١, ٢, ٣, ٤, ٥, ٦, ٧, ٨, ٩", want: "sifr, wahid, ithnan, thalatha, arba'a, khamsa, sitta, sab'a, thamaniya, tis'a"},
+		{lang: "pt-BR", in: "٠, ١, ٢, ٣, ٤, ٥, ٦, ٧, ٨, ٩", want: "sifr, wahid, ithnan, thalatha, arba'a, khamsa, sitta, sab'a, thamaniya, tis'a"},
+		{lang: "en-US", in: "۰۱۲", want: "sifr wahid ithnan"},
+		{lang: "en-US", in: "The way the Arabs write: ٠, ١, ٢", want: "The way the Arabs write: sifr, wahid, ithnan"},
+		{lang: "es-ES", in: "21", want: "veintiuno"},
+		{lang: "es-ES", in: "31", want: "treinta y uno"},
+		{lang: "es-ES", in: "100", want: "cien"},
+		{lang: "es-ES", in: "101", want: "ciento uno"},
+		{lang: "es-ES", in: "1000", want: "mil"},
+		{lang: "es-ES", in: "21000", want: "veintiún mil"},
+		{lang: "es-ES", in: "2000000", want: "dos millones"},
+		{lang: "es-ES", in: "1,5", want: "uno coma cinco"},
+		{lang: "es-ES", in: "1.234", want: "mil doscientos treinta y cuatro"},
+		{lang: "pt-BR", in: "100", want: "cem"},
+		{lang: "pt-BR", in: "101", want: "cento e um"},
+		{lang: "pt-BR", in: "1234", want: "mil duzentos e trinta e quatro"},
+		{lang: "pt-BR", in: "2000000", want: "dois milhões"},
+		{lang: "pt-BR", in: "1,5", want: "um vírgula cinco"},
+		{lang: "pt-BR", in: "1.234,56", want: "mil duzentos e trinta e quatro vírgula cinco seis"},
+		{lang: "pt-BR", in: "Capítulo 3 com 27 páginas.", want: "Capítulo três com vinte e sete páginas."},
+		{lang: "xx-XX", in: "42", want: "forty two"},
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.lang+"/"+tc.in, func(t *testing.T) {
+			if got := htConvertArabicNumbersToWords(tc.in, tc.lang); got != tc.want {
+				t.Errorf("htConvertArabicNumbersToWords(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+			}
+		})
+	}
+}
+
+func TestHTAdjustAudioStringBeforeWriteSpellsArabicDigits(t *testing.T) {
+	useRepoSource(t)
+
+	in := "The way the Arabs write: ٠, ١, ٢\n٠\n"
+	want := "The way the Arabs write: sifr, wahid, ithnan.\nsifr.\n\n"
+	if got := htAdjustAudioStringBeforeWrite(in, "en-US"); got != want {
+		t.Errorf("htAdjustAudioStringBeforeWrite(%q, %q) = %q, want %q", in, "en-US", got, want)
+	}
+}
+
+func TestHTAdjustAudioStringBeforeWriteKeepsNumericLines(t *testing.T) {
+	useRepoSource(t)
+
+	in := "007\n____________."
+	want := "zero zero seven.\n"
+	if got := htAdjustAudioStringBeforeWrite(in, "en-US"); got != want {
+		t.Errorf("htAdjustAudioStringBeforeWrite(%q, %q) = %q, want %q", in, "en-US", got, want)
+	}
+}
+
+func TestHTRemoveParentheticalGreekSymbols(t *testing.T) {
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "phi (phi)", want: "phi"},
+		{lang: "en-US", in: "theta (theta) and phi (phi)", want: "theta and phi"},
+		{lang: "en-US", in: "the angle (phi) is measured", want: "the angle phi is measured"},
+		{lang: "es-ES", in: "fi (fi)", want: "fi"},
+		{lang: "pt-BR", in: "teta (teta)", want: "teta"},
+	}
+	for _, tc := range cases {
+		if got := htRemoveParentheticalGreekSymbols(tc.in, tc.lang); got != tc.want {
+			t.Errorf("htRemoveParentheticalGreekSymbols(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+		}
+	}
+}
+
+func TestHTConvertDegrees(t *testing.T) {
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "30°", want: "30 degrees"},
+		{lang: "en-US", in: "180° O", want: "180 degrees O"},
+		{lang: "es-ES", in: "40°C", want: "40 grados celsius"},
+		{lang: "pt-BR", in: "180° O", want: "180 graus O"},
+		{lang: "pt-BR", in: "100 °F", want: "100 graus fahrenheit"},
+		{lang: "pt-BR", in: "1º ano", want: "1º ano"},
+	}
+	for _, tc := range cases {
+		if got := htConvertDegrees(tc.in, tc.lang); got != tc.want {
+			t.Errorf("htConvertDegrees(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+		}
+	}
+}
+
+func TestHTAdjustAudioStringBeforeWriteSymbolsAndDegrees(t *testing.T) {
+	useRepoSource(t)
+
+	cases := []struct {
+		lang string
+		in   string
+		want string
+	}{
+		{lang: "en-US", in: "phi (<b>ϕ</b>)", want: "phi."},
+		{lang: "en-US", in: "theta (<b>θ</b>) and phi (<b>ϕ</b>)", want: "theta and phi."},
+		{lang: "en-US", in: "the angle (<b>ϕ</b>) is measured", want: "the angle phi is measured."},
+		{lang: "pt-BR", in: "180° O", want: "cento e oitenta graus O."},
+	}
+	for _, tc := range cases {
+		if got := strings.TrimSpace(htAdjustAudioStringBeforeWrite(tc.in, tc.lang)); got != tc.want {
+			t.Errorf("htAdjustAudioStringBeforeWrite(%q, %q) = %q, want %q", tc.in, tc.lang, got, tc.want)
+		}
 	}
 }
 

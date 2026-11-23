@@ -3637,6 +3637,27 @@ function htFillStringOnPage(data, idx, page)
 
 function htFillWebPage(page, data)
 {
+    // Content scripts define these entry points globally. Drop the previous
+    // page's entry points before filling a new content page so a stale
+    // htLoadContent() cannot run on, or rebind hooks of, a board that is no
+    // longer on screen. Background loads (source files, language lists) must
+    // not clear the hooks of the page that is still displayed.
+    const isContentPage = data && (
+        data.type === "class" ||
+        data.type === "index" ||
+        data.type === "atlas" ||
+        data.type === "family_tree" ||
+        data.type === "genealogy" ||
+        (data.scripts && data.scripts.length > 0)
+    );
+    if (isContentPage) {
+        window.htLoadContent = undefined;
+        window.htLoadExercise = undefined;
+        window.htCheckAnswers = undefined;
+        window.htTriangleLoadContent = undefined;
+        window.htSorobanLoadContent = undefined;
+    }
+
     // Remove Family Book title when not on genealogy pages (it will be recreated in htFillFamilies)
     if (!data?.families) {
         $("#family-book-title").remove();
@@ -5078,6 +5099,53 @@ if (typeof document !== 'undefined' && document.addEventListener) {
     } catch (e) {
     }
 }
+
+// Move the abacus decimal point to the column under a click/touch on the
+// horizontal decimal track. This works for both the shared board and the
+// legacy abacuses that keep their own drawing code.
+function htHandleAbacusTrackClick(e) {
+    if (typeof localSorobanController === 'undefined' || !localSorobanController) return;
+    const canvas = e && e.target;
+    if (!canvas || canvas.id !== 'sorobanCanvas') return;
+    if (localSorobanController.abacusMode === 'schyoty') return;
+    if (localSorobanController.trackClickAllowed === false) return;
+    if (!e.touches && e.button !== 0) return;
+
+    const rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    let clientX, clientY;
+    if (e.touches) {
+        if (!e.touches.length) return;
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+    } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+    }
+    const x = (clientX - rect.left) * (canvas.width / rect.width);
+    const y = (clientY - rect.top) * (canvas.height / rect.height);
+
+    if (y < localSorobanController.decimalTrackTop || y > localSorobanController.decimalTrackBottom) return;
+
+    const markerX = localSorobanController.startX + localSorobanController.decimalMarkerCol * localSorobanController.colWidth;
+    if (Math.hypot(x - markerX, y - localSorobanController.decimalTrackY) < localSorobanController.ballRadius + 10) return;
+
+    const col = Math.round((x - localSorobanController.startX) / localSorobanController.colWidth);
+    if (col < 0 || col >= localSorobanController.COLUMNS) return;
+    const columnX = localSorobanController.startX + col * localSorobanController.colWidth;
+    if (Math.abs(x - columnX) > localSorobanController.colWidth / 2) return;
+
+    if (typeof htSorobanMoveDecimalMarkerToColumn === 'function') {
+        htSorobanMoveDecimalMarkerToColumn(col);
+    } else {
+        localSorobanController.decimalMarkerCol = col;
+        if (typeof htSorobanRender === 'function') htSorobanRender();
+        if (typeof htSorobanUpdateDisplay === 'function') htSorobanUpdateDisplay();
+    }
+}
+
+document.addEventListener('mousedown', htHandleAbacusTrackClick);
+document.addEventListener('touchstart', htHandleAbacusTrackClick, { passive: true });
 
 document.addEventListener('click', function(e) {
     var sidebar = document.querySelector('.side-bar');

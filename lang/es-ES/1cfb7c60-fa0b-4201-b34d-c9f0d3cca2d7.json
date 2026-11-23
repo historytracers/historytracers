@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7_es-ES.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5nLVChoC41khVFF4fzcOLW?si=W21853CwTX-mlGfRVOfUYA",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -22,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1795391045"
    ],
    "authors": [
       ""
@@ -45,7 +50,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
+               "text": "### Prerrequisitos\n\nAntes de empezar, recomendamos leer primero el texto anterior: hará que este sea mucho más fácil de seguir (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -69,10 +74,37 @@
          ]
       },
       {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introducción</h3>En el texto anterior aprendimos a situar cualquier punto de una esfera usando tres números: un radio <b>r</b> y dos ángulos, theta (<b>θ</b>) y fi (<b>ϕ</b>). Piensa en esto: el radio <b>r</b> nos dice a qué distancia está el punto del centro, theta (<b>θ</b>) nos dice hacia dónde girar alrededor de la esfera y fi (<b>ϕ</b>) nos dice cuánto subir o bajar desde la parte superior (<htcite0>).</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿son estas las coordenadas que usamos en el móvil?</b><br /><br />Cuando abrimos una aplicación de mapas en el móvil, esta muestra nuestra posición en el planeta. ¿Las coordenadas esféricas — el radio y los dos ángulos theta y fi — son las mismas que usa el móvil para decirnos dónde estamos, o usa algo distinto? Guarda tu respuesta: la comprobaremos en la conclusión.</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0dd6b53f-ea68-475d-9b18-99d38a428c0a",
+                     "text": "History Tracers Atlas",
+                     "page": "¿Dónde estamos en una esfera?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgMath13\" onclick=\"htImageZoom('imgMath13', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: En esta figura, el paralelo del Ecuador y el Meridiano de Greenwich están destacados, con la intersección en el punto O © Mapswire (<htcite0>)</p>",
+               "text": "<p class=\"desc\"><img id=\"imgMath13\" onclick=\"htImageZoom('imgMath13', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: El paralelo del Ecuador y el meridiano de Greenwich se cruzan en el punto O — el punto de referencia que usaremos en todo el texto © Mapswire (<htcite0>)</p>",
                "source": [
                   {
                      "type": 1,
@@ -94,7 +126,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Coordenadas de Superficie</h3>La figura de esta sección muestra el punto de encuentro entre el <b>paralelo de Ecuador</b> (<i>Equator parallel</i>) y el <b>meridiano de Greenwich</b> (<i>Greenwich meridian line</i>), marcado como el punto <b>O</b>. Este es el punto de referencia para todas las mediciones de latitud y longitud.</p>",
+               "text": "<p><h3>Coordenadas de Superficie</h3>La figura de esta sección muestra dónde se cruzan el <b>paralelo de Ecuador</b> (<i>Equator parallel</i>), el círculo imaginario a medio camino entre los polos Norte y Sur, y el <b>meridiano de Greenwich</b> (<i>Greenwich meridian line</i>), la línea imaginaria que pasa por Greenwich, Inglaterra. El punto de cruce está marcado como el punto <b>O</b>. A partir de ahora, el punto O es el punto de referencia para todas las mediciones de latitud y longitud.</p>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -103,7 +135,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h4>El origen</h4>Para determinar nuestra posición en la superficie terrestre, utilizamos las coordenadas angulares theta (<b>θ</b>) y fi (<b>ϕ</b>). Sin embargo, en el uso cotidiano, estas coordenadas reciben otros nombres: theta (<b>θ</b>) corresponde a la <b>longitud</b> longitud, mientras que fi (<b>ϕ</b>) es conocida como <b>colatitud</b>. En geografía, también empleamos una medida llamada latitud (<b>δ</b>), que indica la posición respecto al ecuador. La relación entre colatitud y latitud se expresa mediante la fórmula: ϕ = 90° - δ. Esta es solo una de las simplificaciones que veremos a continuación",
+               "text": "<h4>El origen</h4><p>Para situar un punto en la superficie terrestre, usamos las dos coordenadas angulares que ya conocemos, theta (<b>θ</b>) y fi (<b>ϕ</b>). Sin embargo, en el lenguaje cotidiano estos ángulos tienen otros nombres: theta (<b>θ</b>) se llama <b>longitud</b> y fi (<b>ϕ</b>) se llama <b>colatitud</b> — el ángulo medido desde el Polo Norte.</p><p>La geografía añade una medida más, la <b>latitud</b> (<b>δ</b>), que indica cuánto está un punto al norte o al sur del ecuador. Latitud y colatitud van juntas: ϕ = 90° - δ. Así, un punto en latitud 30° N tiene una colatitud de 90° - 30° = 60°.</p><p>Esta es solo la primera de las pequeñas simplificaciones que encontraremos por el camino (<htcite0>; <htcite1>; <htcite2>; <htcite3>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -158,10 +190,10 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
-               "text": "<h4>Longitud</h4>En matemáticas, la longitud (<b>θ</b>) se expresa con valores de 0 hasta 2π radianes o de 0 a 360 grados. No obstante, cuando trabajamos con coordenadas geográficas, dividimos el globo en dos regiones de 180 grados cada una. La línea que separa estas dos regiones es el <b>Meridiano de Greenwich</b>, definido arbitrariamente en <htdate0> como punto zero en el Observatório Real de Greenwich, en la Inglaterra. Las posiciones a leste de Greenwich son mensuradas como X grados a <b>este</b>, y las posiciones a oeste como X grados a <b>oeste</b>",
+               "text": "<h4>Longitud</h4>En matemáticas, la longitud (<b>θ</b>) se expresa con valores de 0 a 2π radianes, o de 0 a 360 grados. En coordenadas geográficas, sin embargo, dividimos la Tierra en dos regiones de 180 grados cada una. La línea que separa estas regiones es el <b>meridiano de Greenwich</b>, designado en <htdate0> como meridiano cero en el Observatorio Real de Greenwich, Inglaterra. Todo lo que está al este de Greenwich se mide como X grados al <b>este</b>, y todo lo que está al oeste, como X grados al <b>oeste</b>",
                "source": [
                   {
                      "type": 1,
@@ -190,7 +222,16 @@
                "PostMention": "."
             },
             {
-               "text": "<h4>Latitud</h4>La latitud (<b>ϕ</b>) se representa en matemáticas con valores que varian de 0 y π/2 radianes, o de 0 a 90 grados. En coordenadas geográficas, dividimos la Tierra en dos regiones de 90 grados, una para el hemisferio norte y otra para el sur. Sin embargo, en matemáticas, las posiciones al sur del ecuador se representan con valores negativos. A diferencia de la longitud, que tiene su origen en un meridiano, la latitud toma como punto de referencia el ecuador, una línea imaginaria que divide el planeta en dos hemisferios. Las posiciones al norte del ecuador se expresan como \"X grados al <b>norte</b>\", y las del sur, como \"X grados al <b>sur</b>\"",
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 340 400\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:460px; display:block; margin:0 auto;\" aria-label=\"Esfera que muestra el Meridiano de Greenwich en cero grados, con las longitudes medidas hacia el este y hacia el oeste\"><defs><radialGradient id=\"htLonGlobe\" cx=\"35%\" cy=\"30%\" r=\"75%\"><stop offset=\"0%\" stop-color=\"#eaf3fb\"/><stop offset=\"60%\" stop-color=\"#b9d5ec\"/><stop offset=\"100%\" stop-color=\"#7fa8c9\"/></radialGradient></defs><circle cx=\"170\" cy=\"190\" r=\"145\" fill=\"url(#htLonGlobe)\" stroke=\"#2c5d8f\" stroke-width=\"2\"/><ellipse cx=\"170\" cy=\"190\" rx=\"145\" ry=\"34\" fill=\"none\" stroke=\"#7a7a7a\" stroke-width=\"1.6\" stroke-dasharray=\"6 5\"/><path d=\"M 170 45 A 55 145 0 0 1 170 335\" fill=\"none\" stroke=\"#8fb8da\" stroke-width=\"1.5\"/><path d=\"M 170 45 A 55 145 0 0 0 170 335\" fill=\"none\" stroke=\"#8fb8da\" stroke-width=\"1.5\"/><path d=\"M 170 45 A 110 145 0 0 1 170 335\" fill=\"none\" stroke=\"#4a86bb\" stroke-width=\"2\"/><path d=\"M 170 45 A 110 145 0 0 0 170 335\" fill=\"none\" stroke=\"#4a86bb\" stroke-width=\"2\"/><line x1=\"170\" y1=\"45\" x2=\"170\" y2=\"335\" stroke=\"#c0392b\" stroke-width=\"3\"/><path d=\"M 170 85 Q 208 68 246 85\" fill=\"none\" stroke=\"#333\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><text x=\"208\" y=\"66\" font-size=\"17\" font-style=\"italic\" text-anchor=\"middle\" fill=\"#333\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">θ</text><text x=\"170\" y=\"34\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#c0392b\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">0°</text><text x=\"255\" y=\"158\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#2f6fb3\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">Este</text><text x=\"255\" y=\"178\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2f6fb3\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">0° → 180° E</text><text x=\"85\" y=\"158\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#2f6fb3\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">Oeste</text><text x=\"85\" y=\"178\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2f6fb3\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">0° → 180° O</text></svg><b>Figura 2</b>: Una esfera que muestra las líneas imaginarias de la longitud. El <b>Meridiano de Greenwich</b> es la longitud de referencia (0°). Las longitudes se miden desde él hacia el <b>este</b> (0° a 180° E) y hacia el <b>oeste</b> (0° a 180° O).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Latitud</h4>La latitud (<b>δ</b>) se representa en matemáticas con valores de −π/2 a π/2 radianes, o de −90° a 90°. Los valores de 0° a 90° describen solo la magnitud sin signo al norte o al sur del ecuador. En coordenadas geográficas, dividimos la Tierra en dos regiones de 90 grados: el hemisferio norte y el hemisferio sur. En matemáticas, sin embargo, las posiciones al sur del ecuador se representan con valores negativos. A diferencia de la longitud, que se mide desde un meridiano, la latitud se mide desde el ecuador, la línea imaginaria que divide el planeta en dos mitades. Las posiciones al norte del ecuador se escriben como \"X grados al <b>norte</b>\" y las del sur como \"X grados al <b>sur</b>\"",
                "source": [
                   {
                      "type": 1,
@@ -222,6 +263,29 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 340 400\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:460px; display:block; margin:0 auto;\" aria-label=\"Esfera que muestra el Ecuador en cero grados, con las latitudes medidas hacia el norte y hacia el sur\"><defs><radialGradient id=\"htLatGlobe\" cx=\"35%\" cy=\"30%\" r=\"75%\"><stop offset=\"0%\" stop-color=\"#eaf3fb\"/><stop offset=\"60%\" stop-color=\"#b9d5ec\"/><stop offset=\"100%\" stop-color=\"#7fa8c9\"/></radialGradient></defs><circle cx=\"170\" cy=\"190\" r=\"145\" fill=\"url(#htLatGlobe)\" stroke=\"#2c5d8f\" stroke-width=\"2\"/><ellipse cx=\"170\" cy=\"64.4\" rx=\"72.5\" ry=\"17\" fill=\"none\" stroke=\"#8fb8da\" stroke-width=\"1.5\"/><ellipse cx=\"170\" cy=\"117.5\" rx=\"125.6\" ry=\"29.4\" fill=\"none\" stroke=\"#4a86bb\" stroke-width=\"2\"/><ellipse cx=\"170\" cy=\"262.5\" rx=\"125.6\" ry=\"29.4\" fill=\"none\" stroke=\"#4a86bb\" stroke-width=\"2\"/><ellipse cx=\"170\" cy=\"315.6\" rx=\"72.5\" ry=\"17\" fill=\"none\" stroke=\"#8fb8da\" stroke-width=\"1.5\"/><ellipse cx=\"170\" cy=\"190\" rx=\"145\" ry=\"34\" fill=\"none\" stroke=\"#c0392b\" stroke-width=\"3\"/><line x1=\"170\" y1=\"190\" x2=\"25\" y2=\"190\" stroke=\"#555\" stroke-width=\"1.2\" stroke-dasharray=\"4 4\"/><line x1=\"170\" y1=\"190\" x2=\"44.4\" y2=\"117.5\" stroke=\"#555\" stroke-width=\"1.2\" stroke-dasharray=\"4 4\"/><path d=\"M 65 190 A 105 105 0 0 1 79.1 137.5\" fill=\"none\" stroke=\"#333\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><circle cx=\"170\" cy=\"190\" r=\"2.5\" fill=\"#333\"/><text x=\"57\" y=\"162\" font-size=\"17\" font-style=\"italic\" text-anchor=\"middle\" fill=\"#333\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">δ</text><text x=\"313\" y=\"180\" font-size=\"18\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#c0392b\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">0°</text><text x=\"250\" y=\"138\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#2f6fb3\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">Norte</text><text x=\"250\" y=\"158\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2f6fb3\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">0° → 90° N</text><text x=\"250\" y=\"252\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#2f6fb3\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">Sur</text><text x=\"250\" y=\"272\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2f6fb3\" paint-order=\"stroke\" stroke=\"#f4f9fd\" stroke-width=\"5\" stroke-linejoin=\"round\">0° → 90° S</text></svg><b>Figura 3</b>: Una esfera que muestra las líneas imaginarias de la latitud. El <b>Ecuador</b> es el paralelo de referencia (0°). Las latitudes se miden desde él hacia el <b>norte</b> (de 0° a 90° N) y hacia el <b>sur</b> (de 0° a 90° S).</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nAhora podemos responder a la pregunta de la introducción: las coordenadas de nuestro móvil **no** son un sistema distinto. Son las mismas coordenadas esféricas que ya conocemos, con pequeños cambios. En la superficie de la Tierra el radio es fijo, así que lo descartamos; theta (θ) pasa a ser la **longitud**, medida desde el Meridiano de Greenwich, y fi (ϕ) es la **colatitud**, el ángulo medido desde el Polo Norte; por eso la **latitud** (δ) es δ = 90° − ϕ, medida desde el ecuador.\n\nAsí, latitud y longitud son solo nombres geográficos de las coordenadas esféricas. El móvil lee un par de ángulos — X grados al este u oeste y X grados al norte o sur — y los convierte en la posición que vemos en el mapa. Mira cualquier punto en una aplicación de mapas: detrás del punto azul siempre hay dos números, uno de cada tipo. La misma relación aparece en otros textos de History Tracers: siempre que se usa una esfera — un planeta, el cielo o un globo terráqueo — las coordenadas esféricas vuelven con pequeños ajustes de origen, nombre e intervalo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       }

@@ -429,6 +429,7 @@ function htLoadContent() {
     const htWriterOrigGetHitRegion = htSorobanGetHitRegion;
     htSorobanGetHitRegion = function(mouseX, mouseY) {
         const step = localNumberWriterController.steps[localNumberWriterController.currentStepIdx];
+        localSorobanController.trackClickAllowed = !!(step && step.type === 'marker');
         const hit = htWriterOrigGetHitRegion(mouseX, mouseY);
         if (hit && hit.type === 'decimal_marker' && !(step && step.type === 'marker')) return null;
         return hit;
