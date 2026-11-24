@@ -2,9 +2,9 @@
 
 // Print-and-play Soroban / Suanpan abacus
 // (content bb7f021f-73b8-43d2-b83e-c1be0154e6cf).
-// The abacus board follows js/ht_abacus.js (9 columns, Suanpan layout), but is
-// a static SVG with empty bead positions: the printed circles are placed on it
-// to write a number. The interactive tutor panel is deliberately not included.
+// The abacus boards follow js/ht_abacus.js (9 columns), but are static SVGs
+// with empty bead positions: one Suanpan board (two upper, five lower) and one
+// Soroban board (one upper, four lower). The interactive tutor panel is not included.
 
 function htAbacusPrintablePrintHTML(html) {
     var iframe = document.createElement("iframe");
@@ -49,6 +49,7 @@ function htAbacusPrintablePrintHTML(html) {
 function htAbacusPrintablePrintParts() {
     var selectors = [
         ".htBoardAbacusSheet",
+        ".htBoardSorobanSheet",
         ".htBoardCountersSheet",
         ".htBoardCardsUnitsSheet",
         ".htBoardCardsTensSheet",
@@ -65,11 +66,13 @@ function htAbacusPrintablePrintParts() {
         clones.push(sheet.cloneNode(true));
     }
 
-    // The printed abacus is only the board: no title, explanation or notes.
-    clones[0].querySelectorAll(
-        ".htBoardSheetTitle, .htBoardSheetIntro, .htBoardSheetNote, .htBoardPrintBar"
-    ).forEach(function (element) {
-        element.remove();
+    // The printed abacus boards are only the boards: no titles or explanations.
+    [0, 1].forEach(function (index) {
+        clones[index].querySelectorAll(
+            ".htBoardSheetTitle, .htBoardSheetIntro, .htBoardSheetNote, .htBoardPrintBar"
+        ).forEach(function (element) {
+            element.remove();
+        });
     });
 
     clones.forEach(function (sheet) {
@@ -88,7 +91,7 @@ function htAbacusPrintablePrintParts() {
         'break-after: page; break-inside: avoid; display: flex; ' +
         'flex-direction: column; }' +
         '.htBoardSheet:last-child { break-after: auto; }' +
-        '.htBoardAbacusSheet { align-items: center; justify-content: center; }' +
+        '.htBoardAbacusSheet, .htBoardSorobanSheet { align-items: center; justify-content: center; }' +
         '.htBoardAbacusSvg { display: block; width: 277mm; height: 185mm; max-width: none; }' +
         '.htBoardSheetTitle { font-family: Arial, sans-serif; font-weight: bold; ' +
         'font-size: 14pt; text-align: center; margin: 0 0 3mm; }' +
