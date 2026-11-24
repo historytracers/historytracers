@@ -89,7 +89,7 @@ function htAbacusPrintablePrintParts() {
         'flex-direction: column; }' +
         '.htBoardSheet:last-child { break-after: auto; }' +
         '.htBoardAbacusSheet { align-items: center; justify-content: center; }' +
-        '.htBoardAbacusSvg { display: block; width: 265mm; height: auto; max-width: 100%; }' +
+        '.htBoardAbacusSvg { display: block; width: 277mm; height: 185mm; max-width: none; }' +
         '.htBoardSheetTitle { font-family: Arial, sans-serif; font-weight: bold; ' +
         'font-size: 14pt; text-align: center; margin: 0 0 3mm; }' +
         '.htBoardSheetIntro { font-family: Arial, sans-serif; font-size: 11pt; ' +

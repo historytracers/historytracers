@@ -6176,8 +6176,9 @@ p.desc svg {
 
 @media print {
   .htBoardAbacusSvg {
-    max-width: 265mm;
-    width: 265mm;
+    height: 185mm;
+    max-width: none;
+    width: 277mm;
   }
 
   .htBoardCounterSection {
