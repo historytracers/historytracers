@@ -6092,3 +6092,124 @@ p.desc svg {
     height: 35mm;
   }
 }
+
+/*
+ * Print-and-play Soroban / Suanpan abacus
+ * (content bb7f021f-73b8-43d2-b83e-c1be0154e6cf).
+ */
+
+.htBoardAbacusSvg {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.htBoardCounterSection {
+  margin: 0 0 0.8em;
+}
+
+.htBoardCounterTitle {
+  color: #3b2a1d;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin: 0 0 0.35em;
+  text-align: center;
+}
+
+.htBoardCounterGrid {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 150mm;
+}
+
+.htBoardCounter {
+  aspect-ratio: 1;
+  border: 2px dashed #444444;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 8mm;
+  justify-self: center;
+  max-width: 100%;
+  width: 8mm;
+}
+
+.htBoardCounterRed {
+  background: #d94a38;
+  border-color: #8a271c;
+}
+
+.htBoardCounterBlue {
+  background: #4c7f90;
+  border-color: #1a3a3a;
+}
+
+.htBoardCounterBlack {
+  background: #0a0a12;
+  border-color: #2a2a3a;
+}
+
+.htBoardCardGridLong .htBoardCardNumber {
+  font-size: clamp(0.85rem, 2.8vw, 1.5rem);
+  line-height: 1.05;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
+  word-break: break-all;
+}
+
+@media (max-width: 600px) {
+  .htBoardCounterGrid {
+    gap: 0.4em;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .htBoardCounter {
+    height: auto;
+    width: min(8mm, 100%);
+  }
+}
+
+@media print {
+  .htBoardAbacusSvg {
+    max-width: 265mm;
+    width: 265mm;
+  }
+
+  .htBoardCounterSection {
+    break-inside: avoid;
+    margin: 0 0 4mm;
+  }
+
+  .htBoardCounterTitle {
+    font-size: 10pt;
+    margin: 0 0 2mm;
+  }
+
+  .htBoardCounterGrid {
+    gap: 4mm;
+    grid-template-columns: repeat(9, 8mm);
+    max-width: none;
+  }
+
+  .htBoardCounter {
+    height: 8mm;
+    width: 8mm;
+  }
+
+  .htBoardDeck + .htBoardDeck {
+    margin-top: 5mm;
+  }
+
+  .htBoardCard {
+    height: 30mm;
+  }
+
+  .htBoardCardGridLong .htBoardCardNumber {
+    font-size: 11pt;
+  }
+}
