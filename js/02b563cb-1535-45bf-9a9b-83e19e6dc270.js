@@ -11,11 +11,17 @@
 // to its left are the other integer families. There are no fractional columns and
 // the decimal point is never moved.
 //
-// Levels (4):
-//   1) UNITS      -> "x"
-//   2) TENS       -> "xx"
-//   3) HUNDREDS   -> "xxx"
-//   4) THOUSANDS  -> "xxxx"
+// Levels: one per available column, from the units (where the decimal point sits)
+// up to the leftmost column of the board:
+//   1) UNITS             -> "x"
+//   2) TENS              -> "xx"
+//   3) HUNDREDS          -> "xxx"
+//   4) THOUSANDS         -> "xxxx"
+//   5) TEN THOUSANDS     -> "xxxxx"
+//   6) HUNDRED THOUSANDS -> "xxxxxx"
+//   7) MILLIONS          -> "xxxxxxx"
+//   8) TEN MILLIONS      -> "xxxxxxxx"
+//   9) HUNDRED MILLIONS  -> "xxxxxxxxx"
 
 var localIntegerWriterController = {
     "levelIdx": 0,
@@ -28,17 +34,30 @@ var localIntegerWriterController = {
     "TextManager": null
 };
 
-var HT_INTEGER_WRITER_LEVELS = [
-    { "intDigits": 1 },
-    { "intDigits": 2 },
-    { "intDigits": 3 },
-    { "intDigits": 4 }
+var HT_INTEGER_WRITER_LEVELS = [];
+
+var HT_INTEGER_WRITER_BADGE_COLORS = [
+    "#ffb347", "#4caf50", "#ff7043", "#9c27b0", "#e91e63",
+    "#00bcd4", "#ff9800", "#f44336", "#3f51b5"
 ];
 
-var HT_INTEGER_WRITER_BADGE_COLORS = ["#ffb347", "#4caf50", "#ff7043", "#9c27b0"];
-
 // Place-name keys by power of ten (10^p).
-var HT_INTEGER_WRITER_PLACE_KEYS = ["units", "tens", "hundreds", "thousands"];
+var HT_INTEGER_WRITER_PLACE_KEYS = [
+    "units", "tens", "hundreds", "thousands", "tenthousands",
+    "hundredthousands", "million", "tenmillions", "hundredmillions"
+];
+
+// One level per column, from the units up to the leftmost column of the board.
+// The board has a fixed number of columns, so the game goes all the way to the
+// last available column instead of stopping at the thousands.
+function htIntegerWriterBuildLevels() {
+    const columns = (localSorobanController && localSorobanController.COLUMNS) || HT_INTEGER_WRITER_PLACE_KEYS.length;
+    const maxDigits = Math.min(columns, HT_INTEGER_WRITER_PLACE_KEYS.length);
+    HT_INTEGER_WRITER_LEVELS = [];
+    for (let digits = 1; digits <= maxDigits; digits++) {
+        HT_INTEGER_WRITER_LEVELS.push({ "intDigits": digits });
+    }
+}
 
 function htIntegerWriterLevel() {
     return HT_INTEGER_WRITER_LEVELS[localIntegerWriterController.levelIdx];
@@ -185,6 +204,8 @@ function htIntegerWriterSetStepVisibility(show) {
 function htIntegerWriterStartNewExercise() {
     if (!localSorobanController.canvas || !localIntegerWriterController.TextManager) return;
     const ctl = localIntegerWriterController;
+    htIntegerWriterBuildLevels();
+    if (ctl.levelIdx >= HT_INTEGER_WRITER_LEVELS.length) ctl.levelIdx = 0;
     ctl.finalCongratsShown = false;
     ctl.exerciseStarted = false;
     ctl.number = htIntegerWriterGenerateNumber();
