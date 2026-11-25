@@ -5,6 +5,8 @@
 // The abacus boards follow js/ht_abacus.js (9 columns), but are static SVGs
 // with empty bead positions: one Suanpan board (two upper, five lower) and one
 // Soroban board (one upper, four lower). The interactive tutor panel is not included.
+// The printed parts also include an instruction sheet built from the rendered
+// "How to write a number" and "How to add two numbers" sections.
 
 function htAbacusPrintablePrintHTML(html) {
     var iframe = document.createElement("iframe");
@@ -46,6 +48,46 @@ function htAbacusPrintablePrintHTML(html) {
     return false;
 }
 
+function htAbacusPrintableRulesPage() {
+    // Build the instructions sheet from the rendered sections so the printed
+    // page always follows the language and the wording of the content.
+    var sectionIds = ["SECTION_rules_0", "SECTION_addition_0"];
+    var parts = [];
+
+    sectionIds.forEach(function (id) {
+        var section = document.getElementById("paper-" + id);
+        if (!section) {
+            return;
+        }
+        Array.prototype.forEach.call(section.children, function (child) {
+            var tag = child.tagName;
+            if (tag !== "H3" && tag !== "P" && tag !== "OL" && tag !== "UL") {
+                return;
+            }
+            if (!child.textContent.trim()) {
+                return;
+            }
+            parts.push(child.cloneNode(true));
+        });
+    });
+
+    if (parts.length === 0) {
+        return null;
+    }
+
+    var page = document.createElement("div");
+    page.className = "htBoardSheet htBoardRulesSheet";
+
+    var rules = document.createElement("div");
+    rules.className = "htBoardRules";
+    parts.forEach(function (part) {
+        rules.appendChild(part);
+    });
+    page.appendChild(rules);
+
+    return page;
+}
+
 function htAbacusPrintablePrintParts() {
     var selectors = [
         ".htBoardAbacusSheet",
@@ -80,6 +122,12 @@ function htAbacusPrintablePrintParts() {
             element.remove();
         });
     });
+
+    // The instruction sheet is page 7; the large-number cards stay as the last page.
+    var rulesPage = htAbacusPrintableRulesPage();
+    if (rulesPage) {
+        clones.splice(clones.length - 1, 0, rulesPage);
+    }
 
     var css =
         '<style>' +
@@ -126,6 +174,15 @@ function htAbacusPrintablePrintParts() {
         'font-weight: bold; color: #3b2a1d; line-height: 1; }' +
         '.htBoardCardGridLong .htBoardCardNumber { font-size: 11pt; line-height: 1.05; ' +
         'max-width: 100%; overflow-wrap: anywhere; text-align: center; word-break: break-all; }' +
+        '.htBoardRulesSheet { display: block; padding: 0 4mm; }' +
+        '.htBoardRules { box-sizing: border-box; width: 100%; column-count: 2; ' +
+        'column-gap: 10mm; font-family: Arial, sans-serif; font-size: 9pt; ' +
+        'line-height: 1.3; color: #3b2a1d; text-align: left; }' +
+        '.htBoardRules h3 { font-size: 11pt; margin: 0 0 1.5mm; break-after: avoid; }' +
+        '.htBoardRules h3:not(:first-child) { margin-top: 3mm; }' +
+        '.htBoardRules p { margin: 0 0 1.5mm; break-inside: avoid; }' +
+        '.htBoardRules ul, .htBoardRules ol { margin: 0 0 2mm; padding-left: 5mm; }' +
+        '.htBoardRules li { margin: 0 0 0.8mm; break-inside: avoid; }' +
         '</style>';
 
     var html = '<!DOCTYPE html><html><head><meta charset="utf-8">' + css +

@@ -16,7 +16,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795538901"
+      "1795567546"
    ],
    "authors": null,
    "reviewers": null,
@@ -193,7 +193,21 @@
          "id": "SECTION_rules",
          "text": [
             {
-               "text": "<h3>How to write a number</h3><ol><li>Place the black circle on the bar of the rightmost rod. That rod is the units column; the rods to its left are tens, hundreds, thousands and so on.</li><li>Put red circles in the upper positions of a rod: each one is worth five.</li><li>Put blue circles in the lower positions of the same rod: each one is worth one.</li><li>The value of a rod is the sum of the circles touching the bar. Read the rods from left to right to obtain the number.</li></ol><p><b>Example:</b> one red circle and two blue circles in the units rod give 7; one blue circle in the rod immediately to its left adds 10, so the board shows 17.</p><p>The sheet follows the Suanpan arrangement, with two red and five blue circles per rod. For a Soroban, use one red and four blue circles per rod and leave the extra circles aside.</p>",
+               "text": "<h3>How to write a number</h3><p>The cut-out circles are the <b>discs</b> of the abacus. Move them with your fingers exactly as you tap and slide the beads in the online game Writing numbers with Soroban and Suanpan (算盤).</p><ul><li>Each of the nine rods has discs worth five above the bar (red) and discs worth one below the bar (blue).</li><li>A disc counts only while it touches the central bar: push a red disc down to the bar or a blue disc up to the bar; slide it back to its starting position to remove it.</li><li>The value of a rod is the sum of the discs touching the bar and must stay between zero and nine, so one red and four blue discs is the largest valid digit. The Suanpan uses two red and five blue discs per rod; the Soroban uses only one red and four blue discs per rod, so leave the extra discs aside.</li><li>A rod with no disc touching the bar is worth zero and stays empty.</li></ul><p><b>Units and the decimal marker</b></p><ul><li>Place the black disc on the bar and slide it along the bar to choose the <b>units</b> column, just as the decimal point (⚫) is dragged in the game.</li><li>The rod under the black disc is the units; the rods to its left are tens, hundreds, thousands, ten thousands, hundred thousands, millions, ten millions and hundred millions — nine rods in all.</li><li>With the black disc on the rightmost rod you write whole numbers of up to nine digits; each place you move it to the left opens a decimal column on its right.</li></ul><p><b>Examples</b></p><ol><li>Card 100000000 (deck A): leave the black disc on the rightmost rod and push one blue disc to the bar in the hundred millions rod. All the other rods stay empty, so the board shows 100000000.</li><li>Card 5005005 (deck B): write 5 in the millions rod, 5 in the thousands rod and 5 in the units rod — one red disc each — and leave the rods between them empty.</li><li>Card 123456789 (deck B): with the black disc on the rightmost rod, write one digit after another from left to right — 1 blue disc in the hundred millions rod; 2 blue in the ten millions rod; 3 blue in the millions rod; 4 blue in the hundred thousands rod; 1 red in the ten thousands rod; 1 blue in the thousands rod; 1 red and 1 blue in the hundreds rod; 1 red and 3 blue in the tens rod; 1 red and 4 blue in the units rod.</li></ol><p>Read the rods from left to right to obtain the number. Start with the small cards, then use the large-number cards (powers of ten and mixed values) to write numbers with up to nine digits on the same board, changing between Soroban and Suanpan whenever you like.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_addition",
+         "text": [
+            {
+               "text": "<h3>How to add two numbers</h3><p>Adding means moving more discs to the bar. Write the first number as in the previous section, then add the second number one digit at a time, starting with the units rod and moving to the left.</p><ol><li>Write the first number on the board.</li><li>In the units rod, add the units digit of the second number: push discs to the bar until the rod shows the sum of the two digits.</li><li>If the rod has free positions for the digit, stop there. For 2 + 3, add three blue discs.</li><li>If the sum reaches ten or more, use the complement of ten: add one disc to the rod on the left and take away from the current rod the discs that complete ten. For 9 + 4, add one blue disc to the tens rod and slide six discs away from the units rod (10 − 4 = 6); the units rod keeps 3, so the board shows 13.</li><li>If the sum is below ten but the lower positions are full and the red disc is free, use the complement of five: push one red disc to the bar and slide away the blue discs that complete five. For 4 + 3, push one red disc and slide two blue discs away (5 − 3 = 2), so the rod shows 7.</li><li>Continue with the tens, hundreds and the following rods. When a rod reaches ten, always carry one disc to the rod on its left before writing the next digit.</li><li>Read the rods from left to right to obtain the result, and check it against the sum written on paper.</li></ol><p><b>Examples:</b></p><ul><li>47 + 25 = 72: write 47 (four blue discs in the tens rod and one red plus two blue in the units rod). Add 5 in the units: the rod would pass nine, so add one blue disc to the tens rod and slide the red disc away from the units (10 − 5 = 5); the units rod now shows 2. Add 2 in the tens rod: five blue discs become one red, and two more blue discs give 7 tens. The board shows 72.</li><li>123456789 + 100000000 = 223456789: the black disc stays on the rightmost rod; push one more blue disc to the bar in the hundred millions rod. All the other rods keep the same digits.</li></ul><p>The same rules work on the Suanpan and on the Soroban. The Suanpan has two red and five blue discs per rod and the Soroban has one red and four blue discs; only the discs touching the bar count, and a rod must always stay between zero and nine. On the Suanpan, the extra discs can stay in their starting positions; when a rod reaches ten, carry one disc to the rod on the left exactly as described. Practise by drawing two cards from any deck — small values first, then the large-number cards — and adding them with the discs.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -246,7 +260,7 @@
          "id": "SECTION_print_parts",
          "text": [
             {
-               "text": "<div class=\"htBoardPartsActions\"><p class=\"htBoardPrintBar\"><button type=\"button\" class=\"htBoardPrintButton\" onclick=\"htAbacusPrintablePrintParts(); return false;\">Print the game parts (6 pages)</button></p><p class=\"htBoardPartsNote\">The first page is the abacus board, the second page is the circles, and pages three to six are the number cards.</p></div>",
+               "text": "<div class=\"htBoardPartsActions\"><p class=\"htBoardPrintBar\"><button type=\"button\" class=\"htBoardPrintButton\" onclick=\"htAbacusPrintablePrintParts(); return false;\">Print the game parts and instructions (8 pages)</button></p><p class=\"htBoardPartsNote\">The first page is the Suanpan board, the second page is the Soroban board, the third page is the circles, pages four to six are the basic number cards, page seven has the instructions, and page eight has the large-number cards.</p></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
