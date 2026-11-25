@@ -1,11 +1,24 @@
 {
    "title": "Jogos de Tabuleiro",
    "header": "Jogos de Tabuleiro",
-   "audio": null,
-   "last_update": [
-      "1794943794"
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/board_game_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1q6YwSSEr8rfbVcsBQDipM?si=_VteSy0hRYODj0Tk6gsVwg",
+         "external": true,
+         "spotify": true
+      }
    ],
-   "sources": [],
+   "last_update": [
+      "1795578130"
+   ],
+   "sources": [
+      "board_game"
+   ],
    "scripts": null,
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
@@ -21,7 +34,7 @@
          "value_type": "",
          "html_value": [
             {
-               "text": "<p><hr /></p><p>Ensinar vai além de simplesmente apresentar informações para memorização, como mostra uma pesquisa com professores e alunos, que valida a necessidade dos exercícios de casa como forma de reforçar o conhecimento (<htcite0>).</p><p>Nesta seção, os mesmos jogos e aplicativos disponíveis em Jogos Matemáticos são oferecidos em uma versão imprimível, para que possam ser jogados em um tabuleiro.</p><p><b>Os jogos podem ser atualizado a qualquer momento. <span id=\"family_common_sn\"></span></b></p>",
+               "text": "<p><hr /></p><p>Ensinar vai além de simplesmente apresentar informações para memorização, como mostra uma pesquisa com professores e alunos, que valida a necessidade dos exercícios de casa como forma de reforçar o conhecimento (<htcite0>).</p><p>Segundo uma investigação realizada pela Agência Nacional de Educação da Suécia (Skolverket), não existe nenhuma publicação científica que recomende proibir o uso dos smartphones nas escolas; portanto, não é possível negar que, quando usados de forma inadequada, esses dispositivos podem colocar crianças e adolescentes em risco real (<htcite1>).</p><p>Considerando ambos os cenários — a necessidade de reforçar os conhecimentos adquiridos em sala de aula e os riscos que o uso inadequado dos smartphones pode representar para crianças e adolescentes —, esta seção foi criada para que os mesmos jogos e aplicativos disponíveis em Jogos Matemáticos também possam ser oferecidos em uma versão imprimível, para serem jogados em um tabuleiro.</p><p><b>Os jogos podem ser atualizado a qualquer momento. <span id=\"family_common_sn\"></span></b></p>",
                "source": [
                   {
                      "type": 1,
@@ -31,6 +44,18 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8e30f22b-3562-47f5-a21c-676b8a1b75a5",
+                     "text": "Skolverket",
+                     "page": "Use of digital devices in school and leisure centre",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }
@@ -81,6 +106,45 @@
                "id": "0ee3ca6e-0c14-479d-9a93-de8383211f18",
                "name": "Contando com o osso (Imprimir e jogar)",
                "desc": "Um osso A4 imprimível, vinte marcas para recortar e dois baralhos de cartas para contar e somar.",
+               "date_time": null
+            }
+         ],
+         "date_time": null
+      },
+      {
+         "id": "printable_abacus_head",
+         "target": "board-printable-abacus",
+         "page": "",
+         "value_type": "",
+         "html_value": [
+            {
+               "text": "Ábaco imprimível (Sorobã e Suanpan)",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ],
+         "source": null,
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "printable_abacus",
+         "target": "board-printable-abacus",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": null,
+         "source": null,
+         "value": [
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "bb7f021f-73b8-43d2-b83e-c1be0154e6cf",
+               "name": "Ábaco imprimível (Sorobã e Suanpan)",
+               "desc": "Um tabuleiro de ábaco A4 de seis páginas, 18 contas vermelhas, 45 contas azuis, um marcador decimal preto e quatro folhas de cartões com números para recortar e usar.",
                "date_time": null
             }
          ],

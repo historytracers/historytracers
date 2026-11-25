@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/7c7a3259-88e0-47b8-920c-9a5baacdb212_en-US.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4cdiXvtEy0ZFiZjrCCn2m7?si=19fHsdX8RxaXAkYE7IOs-g",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -22,12 +27,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765768"
+      "1795578088"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -49,12 +56,12 @@
                "source": [
                   {
                      "type": 1,
-                     "uuid": "a93313f9-3403-475b-8089-010c42e4f33c",
-                     "text": "History Tracers Atlas",
-                     "page": "Continent: Oceania",
+                     "uuid": "22080ce2-a428-493e-84f9-aebdbed90b0c",
+                     "text": "History Tracers Team",
+                     "page": "I live on the planet...",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }
@@ -69,10 +76,166 @@
          ]
       },
       {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nIn the previous text we learned that different peoples saw the world as their own local region: for them, the land they inhabited was practically the whole world (<htcite0>). Now we are going to learn which people we have a record of were the first to measure the size of the world, and the method they used to achieve it. But before that, let us reflect.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "22080ce2-a428-493e-84f9-aebdbed90b0c",
+                     "text": "History Tracers Team",
+                     "page": "I live on the planet...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Did everybody know it?</b><br /><br />As soon as these people made their measurement, did everybody around the world begin to know the size of the Earth? Did the news reach every people, or did the knowledge stay with the community that made the measurement?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_diameter",
+         "text": [
+            {
+               "text": "### Diameter\n\nA **diameter** is the longest straight line that goes from one point on a round object to another. It always passes through the center, so it divides the object into two equal halves.\n\nEvery diameter of the same round object has the same length, and it is twice the radius: **diameter = 2 × radius** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73e1429c-a7ff-476a-883a-bde15bf0b8af",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Diameter",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Diameter of a Circle</h4>In a circle, every point of the outline is at the same distance from the center. The diameter is the straight segment that goes from one point of the circle to the opposite point, crossing the center. It is the longest segment that fits inside the circle, and it measures twice the radius.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 320 300\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:340px; display:block; margin:0 auto;\" aria-label=\"A circle with a diameter (d), a radius (r) and the center (O)\"><circle cx=\"160\" cy=\"150\" r=\"110\" fill=\"#eaf2fb\" stroke=\"#2f6fb3\" stroke-width=\"3\"/><line x1=\"50\" y1=\"150\" x2=\"270\" y2=\"150\" stroke=\"#c0392b\" stroke-width=\"3\"/><circle cx=\"50\" cy=\"150\" r=\"4\" fill=\"#c0392b\"/><circle cx=\"270\" cy=\"150\" r=\"4\" fill=\"#c0392b\"/><line x1=\"160\" y1=\"150\" x2=\"238\" y2=\"72\" stroke=\"#1e8449\" stroke-width=\"3\"/><circle cx=\"160\" cy=\"150\" r=\"5\" fill=\"#333333\"/><text x=\"160\" y=\"138\" font-size=\"22\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#c0392b\">d</text><text x=\"222\" y=\"108\" font-size=\"22\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#1e8449\">r</text><text x=\"146\" y=\"172\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#333333\">O</text></svg><b>Figure 1</b>: A circle. The red segment is a diameter (d), the green segment is a radius (r), and O is the center. The diameter is twice the radius.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Because the diameter is twice the radius, we can move from one measure to the other: a circle with a radius of 5 cm has a diameter of 10 cm. The diameter is also the measure we compare with the distance around the circle, because the circumference divided by the diameter is always the same number, π (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73e1429c-a7ff-476a-883a-bde15bf0b8af",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Diameter",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Diameter of a Sphere</h4>A sphere is a round object in three dimensions, like a ball. In a sphere, the diameter is the longest straight line that goes from one point on the surface to another, passing through the center. The two points at the ends of a diameter are called <b>antipodal points</b> (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73e1429c-a7ff-476a-883a-bde15bf0b8af",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Diameter",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 320 300\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:340px; display:block; margin:0 auto;\" aria-label=\"A sphere with a diameter (d) joining two antipodal points and passing through the center (O)\"><defs><radialGradient id=\"htDiameterSphereGradient\" cx=\"35%\" cy=\"30%\" r=\"75%\"><stop offset=\"0%\" stop-color=\"#ffffff\"/><stop offset=\"55%\" stop-color=\"#cfe1f4\"/><stop offset=\"100%\" stop-color=\"#9dbedf\"/></radialGradient></defs><circle cx=\"160\" cy=\"150\" r=\"110\" fill=\"url(#htDiameterSphereGradient)\" stroke=\"#2f6fb3\" stroke-width=\"3\"/><ellipse cx=\"160\" cy=\"150\" rx=\"110\" ry=\"40\" fill=\"none\" stroke=\"#5f7fa3\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/><ellipse cx=\"160\" cy=\"150\" rx=\"40\" ry=\"110\" fill=\"none\" stroke=\"#5f7fa3\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/><line x1=\"50\" y1=\"150\" x2=\"270\" y2=\"150\" stroke=\"#c0392b\" stroke-width=\"3\"/><circle cx=\"50\" cy=\"150\" r=\"5\" fill=\"#c0392b\"/><circle cx=\"270\" cy=\"150\" r=\"5\" fill=\"#c0392b\"/><circle cx=\"160\" cy=\"150\" r=\"5\" fill=\"#333333\"/><text x=\"160\" y=\"138\" font-size=\"22\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#c0392b\">d</text><text x=\"146\" y=\"174\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#333333\">O</text></svg><b>Figure 2</b>: A sphere. The red segment is a diameter (d): it joins two antipodal points and passes through the center O. The dashed curves show the surface of the sphere in three dimensions.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The diameter of a sphere also measures twice its radius. Since the Earth is almost a sphere, its diameter is the starting point for measuring its size: with it we can calculate the distance around the Earth, which is what we will do next (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73e1429c-a7ff-476a-883a-bde15bf0b8af",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Diameter",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgGeo20\" onclick=\"htImageZoom('imgGeo20', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: In this map, the continent is highlighted © Mapswire (<htcite0>)</p>",
+               "text": "<h3>The Size of the Earth</h3><p class=\"desc\"><img id=\"imgGeo20\" onclick=\"htImageZoom('imgGeo20', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 3</b>: In this map, the continent is highlighted © Mapswire (<htcite0>)</p>",
                "source": [
                   {
                      "type": 1,
@@ -94,7 +257,16 @@
                "PostMention": ""
             },
             {
-               "text": "<h3>The Size of the Earth</h3>The understanding that the Earth is spherical dates back thousands of years. The ancient Greeks reached this conclusion by observing how ship masts disappeared over the horizon and by noting the Earth’s shadow cast on the Moon during lunar eclipses. However, these observations did not provide a precise measurement of the Earth’s roundness. The first confirmed measurement was made around <htdate0> by Eratosthenes. On the summer solstice, he observed that in the city of Syene, the Sun’s rays reached straight to the bottom of a well, while in Alexandria, a pole cast a shadow pointing south. By knowing the properties of circles and the distance between Alexandria and Syene, Eratosthenes calculated the Earth’s circumference to be around 40,000 kilometers",
+               "text": "Long before anyone measured the Earth, many people already believed it was round. They had good clues. When a ship sailed away, its hull disappeared over the horizon first, and its mast was the last thing to be seen. During a lunar eclipse, the shadow of the Earth on the Moon always looked curved.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>A Hellenistic discovery</h4>About <htdate0>, the Greek mathematician Eratosthenes found a way to measure that round Earth. In the city of Syene, at noon on the summer solstice, the Sun shone straight down a well and a pole cast no shadow. In Alexandria, farther north, a pole did cast a shadow at the same moment (<htcite0>). Both cities are in present-day Egypt and are marked on the map in Figure 3.",
                "source": [
                   {
                      "type": 1,
@@ -120,10 +292,37 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
-               "text": "<h3>The Earth's Diameter</h3>More than 1,000 years later, Eratosthenes' calculations were confirmed under the authority of an Abbasid Caliph. A more precise measurement of the Earth’s meridians, and consequently of its radius, was carried out later by Al-Biruni. For his measurements, Al-Biruni was in Kath during a lunar eclipse, recording the event’s timing, while his colleague Abu’l-Wafa made observations in Baghdad. Additionally, Al-Biruni used the distances of caravan routes to determine the difference in longitude between Baghdad and Ghazni. With this data, he estimated the Earth’s radius to be approximately 6,371 kilometers, corresponding to an angle of 24 degrees at a latitude of 33 degrees north—a value that matches the Earth's average radius",
+               "text": "Eratosthenes realized why this happened: the Earth is curved. The angle of the shadow could be compared with the distance between the two cities. Using the properties of a circle, he calculated the length of the whole circumference.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "His result was close to 40,000 kilometers. The measurement was made more than 2,000 years ago, and it is still surprisingly accurate.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>The Earth's Diameter</h4>More than 1,000 years later, under the authority of an Abbasid Caliph, other scholars confirmed Eratosthenes' result. The most precise measurement of that time was made by the Persian scientist Al-Biruni.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al-Biruni used a clever method. While he was in Kath, his colleague Abu’l-Wafa observed the same lunar eclipse from Baghdad. By comparing the times recorded in both cities, they could find the difference in longitude between them. Al-Biruni also used the distances traveled by caravans between Baghdad and Ghazni (<htcite0>). Baghdad is in present-day Iraq and Kath is in present-day Uzbekistan. The cities mentioned are marked on the map in Figure 3.",
                "source": [
                   {
                      "type": 1,
@@ -136,7 +335,17 @@
                         "month": "",
                         "day": ""
                      }
-                  },
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "With this information, he estimated the Earth’s radius to be about 6,371 kilometers. He obtained that number from an angle of 24 degrees measured at a latitude of 33 degrees north, and it is very close to the average radius we use today (<htcite0>).",
+               "source": [
                   {
                      "type": 1,
                      "uuid": "924f3991-5eec-4639-b307-5ce39447f6f6",
@@ -154,7 +363,118 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>The Indian Discover</h4>Away from Greece and Baghdad, Aryabhata I, one of the earliest Indian mathematicians and astronomers, also studied the size of the Earth. He was born in <htdate0> and worked in Kusumapura, near present-day Patna, in India. He gave the circumference of the Earth as 39,968 kilometers (about 24,835 miles), an excellent approximation to the modern value of 40,075 kilometers (about 24,902 miles) (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "268be397-9531-4f36-8154-d198e5f05c57",
+                     "text": "Basar, A. et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "82f32b31-4fbc-49b1-b8ed-64e71657c074",
+                     "text": "Hayashi, T.",
+                     "page": "Aryabhata",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "07",
+                        "day": "31"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "476",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aryabhata also taught that the Earth is spherical and that it rotates on its axis. He calculated the length of the year as 365 days, 6 hours, 12 minutes and 30 seconds, a value very close to the exact one. For these ideas, he is considered a pioneer in the study of the Earth's rotation, about 1,000 years before Copernicus and Galileo (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "268be397-9531-4f36-8154-d198e5f05c57",
+                     "text": "Basar, A. et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "82f32b31-4fbc-49b1-b8ed-64e71657c074",
+                     "text": "Hayashi, T.",
+                     "page": "Aryabhata",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "07",
+                        "day": "31"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aryabhata's work shows that the size of the Earth was studied in different places and with different methods. Each measurement brought people a little closer to the number we use today (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "82f32b31-4fbc-49b1-b8ed-64e71657c074",
+                     "text": "Hayashi, T.",
+                     "page": "Aryabhata",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "07",
+                        "day": "31"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text we saw that different peoples, in different periods, reached values very close to the true size of the Earth. Eratosthenes measured the circumference with shadows and geometry; Al-Biruni refined the radius with eclipses and caravans; Aryabhata obtained an excellent approximation in India. Each one made his own measurement, independently, with the observations and the mathematics of his time.\n\nRemember the reflection at the beginning: as soon as the measurement was made, did everybody around the world begin to know the size of the Earth? The answer is no. These results are separated by more than a thousand years, and they did not reach everyone at the same time.\n\nThat is why we cannot affirm that, during thousands of years, the whole of humanity knew the size of the Earth. What we have seen are separate moments of discovery, and each one brought us a little closer to the number we use today.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       }

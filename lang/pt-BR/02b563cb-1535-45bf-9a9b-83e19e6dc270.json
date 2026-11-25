@@ -1,0 +1,115 @@
+{
+   "title": "Escrevendo números inteiros com Soroban e Suanpan (算盤)",
+   "header": "Escrevendo números inteiros com Soroban e Suanpan (算盤)",
+   "sources": [
+      "02b563cb-1535-45bf-9a9b-83e19e6dc270"
+   ],
+   "scripts": [
+      "02b563cb-1535-45bf-9a9b-83e19e6dc270",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/02b563cb-1535-45bf-9a9b-83e19e6dc270_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4YP1EIlhC7tvMtPVtJK2qz?si=Eh9DcUhQT9GB5CcmrFZcLQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1795578119"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste jogo é uma prática do conteúdo ensinado no texto anterior (<htcite0>), no qual aprendemos a representar ordens numéricas maiores que as unidades no Soroban (算盤) e no Suanpan (算盤). Recomendamos estudar esse texto antes de continuar.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4dc32200-392c-4d20-ae2d-0089b3c288bb",
+                     "text": "History Tracers Team",
+                     "page": "Ordens maiores com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Escrevendo números inteiros no ábaco\n\nReconhecendo a importância dos exercícios de prática como uma forma de reforçar o conhecimento (<htcite0>), apresentamos abaixo um jogo que usa a mesma mesa de ábaco das práticas anteriores. O jogo sorteia um número inteiro ao acaso, e a tarefa é representá-lo no ábaco conta por conta — enquanto o jogo ensina, passo a passo, como o número é escrito.\n\n#### Como o jogo funciona\n\nQuando a página carrega, o ábaco é inicializado com o primeiro nível e um número inteiro ao acaso é sorteado. O ponto decimal (⚫) permanece na coluna mais à direita: a coluna onde ele fica é a das unidades, e as colunas à sua esquerda são as demais famílias inteiras (dezenas, centenas, unidades de milhar e as demais, até a última coluna do ábaco). Neste jogo não há colunas fracionárias.\n\nSiga as instruções entre a insígnia do nível e o botão \"➡️ Próximo passo\": cada uma pede para escrever um único dígito em uma coluna. Quando você completa o passo corretamente, a mensagem \"✅ Correto! Clique em 'Próximo passo' para continuar.\" aparece na parte de baixo do ábaco. Depois do último dígito, um passo final pede para conferir o número completo.\n\nAo completar o cálculo, você recebe: \"🎉🎉🎉 PERFEITO! 🎉🎉🎉\". Você pode repetir quantos números quiser no mesmo nível com \"🎲 Novo número\", e avançar para o próximo nível com \"⭐ Próximo nível\".\n\n#### Os nove níveis\n\nO jogo começa com números como **x**: um dígito na coluna das unidades. Depois, um nível é acrescentado para cada família inteira: **xx** (dezenas), **xxx** (centenas), **xxxx** (unidades de milhar), **xxxxx** (dezenas de milhar), **xxxxxx** (centenas de milhar), **xxxxxxx** (milhão), **xxxxxxxx** (dezena de milhão) e **xxxxxxxxx** (centena de milhão), a última coluna disponível. Todos os níveis usam apenas números inteiros: o ponto decimal (⚫) sempre repousa na coluna mais à direita, então o jogo nunca pede para movê-lo nem para escrever um dígito decimal.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_correctMessage\">✅ Correto! Clique em 'Próximo passo' para continuar.</span> <span id=\"txt_perfectMessage\">🎉🎉🎉 PERFEITO! 🎉🎉🎉<br>Você escreveu {number} no ábaco!<br>Ótimo trabalho escrevendo números!</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 PARABÉNS! 🎉🎉🎉<br>Você escreveu {number} no ábaco!<br>Clique em 'Novo número' para praticar mais!</span> <span id=\"txt_finalLevelMessage\">🎉🏆 TODOS OS NÍVEIS COMPLETOS! 🏆🎉<br>Você dominou a escrita de números inteiros no ábaco — das unidades às centenas de milhão! Clique em \"Novo número\" para começar de novo no nível 1.</span> <span id=\"txt_writeDigit\">✍️ Escreva o dígito <strong>{digit}</strong> na coluna das <strong>{placeName}</strong>.</span> <span id=\"txt_writeZero\">✍️ O dígito das <strong>{placeName}</strong> é <strong>0</strong>: deixe a coluna vazia (sem contas ativadas).</span> <span id=\"txt_hintLeft\">(à esquerda do ponto decimal ⚫)</span> <span id=\"txt_hintMarker\">(a coluna do ponto decimal ⚫)</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> o ábaco deve mostrar <strong>{number}</strong>. Confira cada coluna e depois clique em 'Próximo passo'.</span><span id=\"txt_stepStatus\">📖 Passo {current}/{total}</span><span id=\"txt_welcomeMessage\">Clique em 'Novo número' para começar. Escreva o número mostrado acima no ábaco, coluna por coluna.</span> <span id=\"txt_problemPrefix\">🎯 Represente no ábaco:</span> <span id=\"txt_units\">UNIDADES</span> <span id=\"txt_tens\">DEZENAS</span> <span id=\"txt_hundreds\">CENTENAS</span> <span id=\"txt_thousands\">UNIDADES DE MILHAR</span> <span id=\"txt_tenthousands\">DEZENAS DE MILHAR</span> <span id=\"txt_hundredthousands\">CENTENAS DE MILHAR</span> <span id=\"txt_million\">MILHÃO</span> <span id=\"txt_tenmillions\">DEZENA DE MILHÃO</span> <span id=\"txt_hundredmillions\">CENTENA DE MILHÃO</span> <span id=\"txt_lvl0\">🔢 UNIDADES · x</span> <span id=\"txt_lvl1\">🔟 DEZENAS · xx</span> <span id=\"txt_lvl2\">🏆 CENTENAS · xxx</span> <span id=\"txt_lvl3\">🔥 UNIDADES DE MILHAR · xxxx</span> <span id=\"txt_lvl4\">💎 DEZENAS DE MILHAR · xxxxx</span> <span id=\"txt_lvl5\">🌟 CENTENAS DE MILHAR · xxxxxx</span> <span id=\"txt_lvl6\">💰 MILHÃO · xxxxxxx</span> <span id=\"txt_lvl7\">👑 DEZENA DE MILHÃO · xxxxxxxx</span> <span id=\"txt_lvl8\">🚀 CENTENA DE MILHÃO · xxxxxxxxx</span></div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; aspect-ratio:860/400; max-width:688px; margin:0 auto; display:block;\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div> <div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠</span><span id=\"warningText\">Número maior que 9</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar ábaco</button></div><div class=\"tutor-panel\" id=\"tutorPanel\"> <div class=\"tutor-header\"> <div class=\"problem-box\" id=\"problemDisplay\">🎯 --</div><div style=\"display: flex; align-items: center; gap: 8px;\"> <span class=\"status-badge\" id=\"stepStatus\">🎲</span> <span id=\"levelBadge\" class=\"level-badge\">🔢 UNIDADES · x</span></div> <div style=\"display: flex; gap: 8px;\"> <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🎲 Novo número</button> <button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Próximo nível</button> </div></div> <div class=\"step-message\" id=\"stepMessage\">🧮 Clique em 'Novo número' para começar. Escreva o número mostrado acima no ábaco, coluna por coluna.</div><div class=\"step-buttons\"> <button id=\"nextStepBtn\" class=\"step-btn primary\">➡ Próximo passo</button>  </div> <div id=\"feedbackArea\" style=\"min-height: 70px;\"></div> </div><div class=\"footer\"> <div class=\"mode-selector\"> <span class=\"mode-label\">🧮 Ábaco:</span> <button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban</button> <button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan</button> </div>  <div class=\"info-area\"> </div> <div class=\"decimal-control\">⚫ Ponto decimal · marca a coluna das unidades</div> </div> </div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

@@ -12,6 +12,11 @@
          "url": "https://www.historytracers.org/audios/7c7a3259-88e0-47b8-920c-9a5baacdb212_es-ES.ogg",
          "external": true,
          "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4YZGlWeujfhOAdheiUvvaa?si=g4OBXiSAQrSs3wp417KEMg",
+         "external": true,
+         "spotify": true
       }
    ],
    "index": [
@@ -22,12 +27,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765773"
+      "1795578117"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -49,12 +56,12 @@
                "source": [
                   {
                      "type": 1,
-                     "uuid": "a93313f9-3403-475b-8089-010c42e4f33c",
-                     "text": "History Tracers Atlas",
-                     "page": "Continent: Oceanía",
+                     "uuid": "22080ce2-a428-493e-84f9-aebdbed90b0c",
+                     "text": "History Tracers Team",
+                     "page": "Vivo en el planeta...",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }
@@ -69,10 +76,166 @@
          ]
       },
       {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nEn el texto anterior aprendimos que los distintos pueblos veían el mundo como su propia región local: para ellos, la tierra que habitaban era prácticamente todo el mundo (<htcite0>). Ahora vamos a aprender quiénes fueron las primeras personas de las que tenemos noticia que midieron el tamaño del mundo y el método que usaron para lograrlo. Pero antes, reflexionemos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "22080ce2-a428-493e-84f9-aebdbed90b0c",
+                     "text": "History Tracers Team",
+                     "page": "Vivo en el planeta...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Todo el mundo lo supo?</b><br /><br />Apenas estas personas hicieron su medición, ¿todas las personas del mundo comenzaron a conocer el tamaño de la Tierra? ¿La noticia llegó a todos los pueblos o el conocimiento se quedó con la comunidad que hizo la medición?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_diameter",
+         "text": [
+            {
+               "text": "### Diámetro\n\nUn **diámetro** es la línea recta más larga que va de un punto a otro de un objeto redondo. Siempre pasa por el centro, así que divide el objeto en dos mitades iguales.\n\nTodos los diámetros de un mismo objeto redondo miden lo mismo, y el diámetro es el doble del radio: **diámetro = 2 × radio** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73e1429c-a7ff-476a-883a-bde15bf0b8af",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Diameter",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Diámetro de un círculo</h4>En un círculo, todos los puntos del borde están a la misma distancia del centro. El diámetro es el segmento recto que va de un punto del círculo al punto opuesto y pasa por el centro. Es el segmento más largo que cabe dentro del círculo y mide el doble del radio.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 320 300\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:340px; display:block; margin:0 auto;\" aria-label=\"Un círculo con un diámetro (d), un radio (r) y el centro (O)\"><circle cx=\"160\" cy=\"150\" r=\"110\" fill=\"#eaf2fb\" stroke=\"#2f6fb3\" stroke-width=\"3\"/><line x1=\"50\" y1=\"150\" x2=\"270\" y2=\"150\" stroke=\"#c0392b\" stroke-width=\"3\"/><circle cx=\"50\" cy=\"150\" r=\"4\" fill=\"#c0392b\"/><circle cx=\"270\" cy=\"150\" r=\"4\" fill=\"#c0392b\"/><line x1=\"160\" y1=\"150\" x2=\"238\" y2=\"72\" stroke=\"#1e8449\" stroke-width=\"3\"/><circle cx=\"160\" cy=\"150\" r=\"5\" fill=\"#333333\"/><text x=\"160\" y=\"138\" font-size=\"22\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#c0392b\">d</text><text x=\"222\" y=\"108\" font-size=\"22\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#1e8449\">r</text><text x=\"146\" y=\"172\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#333333\">O</text></svg><b>Figura 1</b>: Un círculo. El segmento rojo es un diámetro (d), el segmento verde es un radio (r) y O es el centro. El diámetro mide el doble del radio.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como el diámetro mide el doble del radio, podemos pasar de una medida a la otra: un círculo con un radio de 5 cm tiene un diámetro de 10 cm. El diámetro también es la medida que comparamos con la distancia alrededor del círculo, porque la circunferencia dividida por el diámetro siempre da el mismo número, π (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73e1429c-a7ff-476a-883a-bde15bf0b8af",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Diameter",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Diámetro de una esfera</h4>Una esfera es un objeto redondo en tres dimensiones, como una pelota. En una esfera, el diámetro es la línea recta más larga que va de un punto de la superficie a otro y pasa por el centro. Los dos puntos de los extremos de un diámetro se llaman <b>puntos antípodas</b> (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73e1429c-a7ff-476a-883a-bde15bf0b8af",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Diameter",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg viewBox=\"0 0 320 300\" role=\"img\" preserveAspectRatio=\"xMidYMid meet\" style=\"width:100%; height:auto; max-width:340px; display:block; margin:0 auto;\" aria-label=\"Una esfera con un diámetro (d) que une dos puntos antípodas y pasa por el centro (O)\"><defs><radialGradient id=\"htDiameterSphereGradient\" cx=\"35%\" cy=\"30%\" r=\"75%\"><stop offset=\"0%\" stop-color=\"#ffffff\"/><stop offset=\"55%\" stop-color=\"#cfe1f4\"/><stop offset=\"100%\" stop-color=\"#9dbedf\"/></radialGradient></defs><circle cx=\"160\" cy=\"150\" r=\"110\" fill=\"url(#htDiameterSphereGradient)\" stroke=\"#2f6fb3\" stroke-width=\"3\"/><ellipse cx=\"160\" cy=\"150\" rx=\"110\" ry=\"40\" fill=\"none\" stroke=\"#5f7fa3\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/><ellipse cx=\"160\" cy=\"150\" rx=\"40\" ry=\"110\" fill=\"none\" stroke=\"#5f7fa3\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/><line x1=\"50\" y1=\"150\" x2=\"270\" y2=\"150\" stroke=\"#c0392b\" stroke-width=\"3\"/><circle cx=\"50\" cy=\"150\" r=\"5\" fill=\"#c0392b\"/><circle cx=\"270\" cy=\"150\" r=\"5\" fill=\"#c0392b\"/><circle cx=\"160\" cy=\"150\" r=\"5\" fill=\"#333333\"/><text x=\"160\" y=\"138\" font-size=\"22\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#c0392b\">d</text><text x=\"146\" y=\"174\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"middle\" fill=\"#333333\">O</text></svg><b>Figura 2</b>: Una esfera. El segmento rojo es un diámetro (d): une dos puntos antípodas y pasa por el centro O. Las curvas discontinuas muestran la superficie de la esfera en tres dimensiones.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El diámetro de una esfera también mide el doble de su radio. Como la Tierra es casi una esfera, su diámetro es el punto de partida para medir su tamaño: con él podemos calcular la distancia alrededor de la Tierra, y eso es lo que haremos a continuación (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73e1429c-a7ff-476a-883a-bde15bf0b8af",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Diameter",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<p class=\"desc\"><img id=\"imgGeo20\" onclick=\"htImageZoom('imgGeo20', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: En este mapa, el continente está destacado © Mapswire (<htcite0>)</p>",
+               "text": "<h3>El tamaño de la tierra</h3><p class=\"desc\"><img id=\"imgGeo20\" onclick=\"htImageZoom('imgGeo20', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 3</b>: En este mapa, el continente está destacado © Mapswire (<htcite0>)</p>",
                "source": [
                   {
                      "type": 1,
@@ -94,7 +257,16 @@
                "PostMention": ""
             },
             {
-               "text": "<h3>El tamaño de la tierra</h3>El conocimiento de que la superficie de la Tierra es esférica es milenario. Los antiguos griegos llegaron a esta conclusión al observar cómo el mástil de los barcos desaparecía en el horizonte y cómo la sombra de la Tierra se proyectaba sobre la Luna durante los eclipses lunares. Sin embargo, estas observaciones no permitieron realizar mediciones precisas de la esfericidad de la Tierra. La primera confirmación y medición conocida fue realizada alrededor del año <htdate0> por Eratóstenes. En el solsticio de verano, observó que, en la ciudad de Syene, los rayos solares descendían en línea recta hasta el fondo de un pozo, mientras que en Alejandría, un poste proyectaba una sombra que apuntaba hacia el sur. Conociendo las propiedades de los círculos y la distancia entre Alejandría y Syene, Eratóstenes calculó la circunferencia de la Tierra en aproximadamente 40.000 kilómetros",
+               "text": "Mucho antes de que alguien midiera la Tierra, muchas personas ya creían que era redonda. Tenían buenas pistas. Cuando un barco se alejaba, primero desaparecía el casco en el horizonte y el mástil era lo último que se veía. Durante un eclipse lunar, la sombra de la Tierra sobre la Luna siempre parecía curva.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Un descubrimiento helenístico</h4>Alrededor del año <htdate0>, el matemático griego Eratóstenes encontró una forma de medir esa Tierra redonda. En la ciudad de Siene, al mediodía del solsticio de verano, el Sol iluminaba directamente el fondo de un pozo y un poste no proyectaba sombra. En Alejandría, más al norte, un poste sí proyectaba sombra en ese mismo momento (<htcite0>). Ambas ciudades están en el Egipto actual y están señaladas en el mapa de la Figura 3.",
                "source": [
                   {
                      "type": 1,
@@ -120,10 +292,37 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
-               "text": "<h3>El Diámetro de la Tierra</h3>Más de mil años después, los cálculos de Eratóstenes fueron confirmados bajo el mandato de un califa abásida. Una medición precisa de los meridianos y, por lo tanto, del radio de la Tierra fue realizada posteriormente por Al-Biruni. Para sus mediciones, Al-Biruni se encontraba en Kath durante un eclipse lunar, registrando la hora del evento, mientras su colega Abu'l-Wafa realizaba mediciones en Bagdad. Además, Al-Biruni utilizó la longitud de las rutas de caravanas para medir la diferencia de longitud entre Bagdad y Ghazni. Con estos datos, estimó el radio de la Tierra en aproximadamente 6.371 kilómetros, para un ángulo de 24 grados en una latitud de 33 grados norte, valor que corresponde al radio medio de la Tierra",
+               "text": "Eratóstenes se dio cuenta de por qué ocurría esto: la Tierra es curva. El ángulo de la sombra podía compararse con la distancia entre las dos ciudades. Usando las propiedades de un círculo, calculó la longitud de toda la circunferencia.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Su resultado estuvo cerca de los 40.000 kilómetros. La medición se hizo hace más de 2.000 años y sigue siendo sorprendentemente precisa.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>El Diámetro de la Tierra</h4>Más de 1.000 años después, bajo la autoridad de un califa abásida, otros estudiosos confirmaron el resultado de Eratóstenes. La medición más precisa de esa época la realizó el científico persa Al-Biruni.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al-Biruni usó un método ingenioso. Mientras estaba en Kath, su colega Abu'l-Wafa observó el mismo eclipse lunar desde Bagdad. Al comparar las horas registradas en ambas ciudades, pudieron encontrar la diferencia de longitud entre ellas. Al-Biruni también usó las distancias que recorrían las caravanas entre Bagdad y Ghazni (<htcite0>). Bagdad está en el Irak actual y Kath está en el Uzbekistán actual. Las ciudades mencionadas están señaladas en el mapa de la Figura 3.",
                "source": [
                   {
                      "type": 1,
@@ -136,7 +335,17 @@
                         "month": "",
                         "day": ""
                      }
-                  },
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Con esta información, estimó que el radio de la Tierra era de unos 6.371 kilómetros. Obtuvo ese número a partir de un ángulo de 24 grados medido en una latitud de 33 grados norte, y es muy parecido al radio promedio que usamos hoy (<htcite0>).",
+               "source": [
                   {
                      "type": 1,
                      "uuid": "924f3991-5eec-4639-b307-5ce39447f6f6",
@@ -154,7 +363,118 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>El Descubrimiento Indio</h4>Lejos de Grecia y Bagdad, Aryabhata I, uno de los primeros matemáticos y astrónomos indios, también estudió el tamaño de la Tierra. Nació en <htdate0> y trabajó en Kusumapura, cerca de la actual Patna, en la India. Dio la circunferencia de la Tierra en 39.968 kilómetros (unas 24.835 millas), una excelente aproximación al valor moderno de 40.075 kilómetros (unas 24.902 millas) (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "268be397-9531-4f36-8154-d198e5f05c57",
+                     "text": "Basar, A. et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "82f32b31-4fbc-49b1-b8ed-64e71657c074",
+                     "text": "Hayashi, T.",
+                     "page": "Aryabhata",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "07",
+                        "day": "31"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "476",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aryabhata también enseñó que la Tierra es esférica y que gira sobre su eje. Calculó la duración del año en 365 días, 6 horas, 12 minutos y 30 segundos, un valor muy cercano al exacto. Por estas ideas, se le considera un pionero en el estudio de la rotación de la Tierra, unos 1.000 años antes de Copérnico y Galileo (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "268be397-9531-4f36-8154-d198e5f05c57",
+                     "text": "Basar, A. et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "82f32b31-4fbc-49b1-b8ed-64e71657c074",
+                     "text": "Hayashi, T.",
+                     "page": "Aryabhata",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "07",
+                        "day": "31"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La obra de Aryabhata muestra que el tamaño de la Tierra se estudió en distintos lugares y con métodos distintos. Cada medición acercó un poco más a las personas al número que usamos hoy (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "82f32b31-4fbc-49b1-b8ed-64e71657c074",
+                     "text": "Hayashi, T.",
+                     "page": "Aryabhata",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "07",
+                        "day": "31"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto vimos que distintos pueblos, en épocas distintas, llegaron a valores muy cercanos al tamaño real de la Tierra. Eratóstenes midió la circunferencia con sombras y geometría; Al-Biruni afinó el radio con eclipses y caravanas; Aryabhata obtuvo una excelente aproximación en la India. Cada uno hizo su propia medición, de forma independiente, con las observaciones y la matemática de su época.\n\nRecuerda la reflexión del comienzo: apenas se hizo la medición, ¿todas las personas del mundo comenzaron a conocer el tamaño de la Tierra? La respuesta es no. Estos resultados están separados por más de mil años y no llegaron a todos al mismo tiempo.\n\nPor eso no podemos afirmar que, durante miles de años, toda la humanidad conociera el tamaño de la Tierra. Lo que vimos son momentos de descubrimiento separados entre sí, y cada uno nos acercó un poco más al número que usamos hoy.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       }
