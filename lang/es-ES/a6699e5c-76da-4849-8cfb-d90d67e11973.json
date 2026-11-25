@@ -1,0 +1,110 @@
+{
+   "title": "Colocando números enteros con Soroban y Suanpan (算盤)",
+   "header": "Colocando números enteros con Soroban y Suanpan (算盤)",
+   "sources": [
+      "a6699e5c-76da-4849-8cfb-d90d67e11973"
+   ],
+   "scripts": [
+      "a6699e5c-76da-4849-8cfb-d90d67e11973",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/a6699e5c-76da-4849-8cfb-d90d67e11973_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1795613499"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste juego practica lo que aprendimos en la actividad anterior (<htcite0>), donde el ábaco enseñaba, paso a paso, cómo escribir un número entero cuenta por cuenta, desde las unidades hasta las centenas de millón. Recomendamos completar esa práctica antes de intentar colocar un número sin ayuda.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "02b563cb-1535-45bf-9a9b-83e19e6dc270",
+                     "text": "History Tracers Team",
+                     "page": "Escribiendo números enteros con Soroban y Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Colocando números enteros en el ábaco\n\nReconociendo la importancia de los ejercicios de práctica como una forma de reforzar el conocimiento (<htcite0>), presentamos abajo un desafío que usa la misma mesa de ábaco de las prácticas anteriores. El juego sortea un número entero al azar y pide representarlo en el ábaco. Cuando el número completo es correcto, recibes las felicitaciones inmediatamente.\n\n#### Cómo funciona el juego\n\nCuando la página carga, el ábaco se inicializa con el primer nivel y se sortea un número entero al azar. El punto decimal (⚫) permanece en la columna más a la derecha: la columna donde queda es la de las unidades, y las columnas a su izquierda son las demás familias enteras (decenas, centenas, unidades de millar y las demás, hasta la última columna del ábaco). En este juego no hay columnas fraccionarias, así que el punto nunca se mueve.\n\nColoca el número mostrado entre la insignia del nivel y los botones. Activa las cuentas de cada columna; la lectura \"Valor\" muestra lo que representa el ábaco en cada momento. En cuanto todas las columnas coinciden con el número pedido, el juego muestra \"🎉🎉🎉 ¡FELICIDADES! 🎉🎉🎉\".\n\nSi no puedes hacerlo solo, haz clic en \"¡Ayúdame!\": el juego limpia la mesa y enseña de nuevo el mismo número, paso a paso, exactamente como la actividad anterior — cada dígito se escribe en su columna. Después del último paso puedes hacer clic en \"🎲 Nuevo número\" para intentar otro número o en \"⭐ Siguiente nivel\" para avanzar.\n\n#### Los nueve niveles\n\nLos niveles son los mismos del juego anterior. Comienza con números como **x**: un dígito en la columna de las unidades. Luego se añade un nivel por cada familia entera: **xx** (decenas), **xxx** (centenas), **xxxx** (unidades de millar), **xxxxx** (decenas de millar), **xxxxxx** (centenas de millar), **xxxxxxx** (millón), **xxxxxxxx** (decena de millón) y **xxxxxxxxx** (centena de millón), la última columna disponible. Todos los niveles usan solo números enteros: el punto decimal (⚫) siempre descansa en la columna más a la derecha, por lo que el juego nunca pide moverlo ni escribir un dígito decimal.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_challengeMessage\">🧮 Coloca en el ábaco el número mostrado arriba. Activa las cuentas de cada columna; el punto (⚫) permanece en la columna de las unidades. Si no puedes, haz clic en '¡Ayúdame!'.</span> <span id=\"txt_challengeStatus\">🎲 Tu turno</span> <span id=\"txt_helpIntro\">🧮 Vamos paso a paso:</span> <span id=\"txt_correctMessage\">✅ ¡Correcto! Haz clic en 'Siguiente paso' para continuar.</span> <span id=\"txt_perfectMessage\">🎉🎉🎉 ¡PERFECTO! 🎉🎉🎉<br>¡Colocaste {number} en el ábaco!<br>¡Gran trabajo colocando números!</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 ¡FELICIDADES! 🎉🎉🎉<br>¡Colocaste {number} en el ábaco!<br>¡Haz clic en 'Nuevo número' para practicar más!</span> <span id=\"txt_helpDoneMessage\">🎉🎉🎉 ¡LO LOGRASTE CON AYUDA! 🎉🎉🎉<br>¡Colocaste {number} en el ábaco!<br>Ahora haz clic en 'Nuevo número' e intenta el siguiente por ti mismo.</span> <span id=\"txt_finalLevelMessage\">🎉🏆 ¡TODOS LOS NIVELES COMPLETADOS! 🏆🎉<br>¡Dominaste la colocación de números enteros en el ábaco — de las unidades a las centenas de millón! Ya estás de nuevo en el nivel 1, así que sigue practicando con 'Nuevo número' o 'Siguiente nivel'.</span> <span id=\"txt_writeDigit\">✍️ Escribe el dígito <strong>{digit}</strong> en la columna de las <strong>{placeName}</strong>.</span> <span id=\"txt_writeZero\">✍️ El dígito de las <strong>{placeName}</strong> es <strong>0</strong>: deja la columna vacía (sin cuentas activadas).</span> <span id=\"txt_hintLeft\">(a la izquierda del punto decimal ⚫)</span> <span id=\"txt_hintMarker\">(la columna del punto decimal ⚫)</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> el ábaco debe mostrar <strong>{number}</strong>. Verifica cada columna y luego haz clic en 'Siguiente paso'.</span> <span id=\"txt_stepStatus\">📖 Paso {current}/{total}</span> <span id=\"txt_problemPrefix\">🎯 Coloca en el ábaco:</span> <span id=\"txt_units\">UNIDADES</span> <span id=\"txt_tens\">DECENAS</span> <span id=\"txt_hundreds\">CENTENAS</span> <span id=\"txt_thousands\">UNIDADES DE MILLAR</span> <span id=\"txt_tenthousands\">DECENAS DE MILLAR</span> <span id=\"txt_hundredthousands\">CENTENAS DE MILLAR</span> <span id=\"txt_million\">MILLÓN</span> <span id=\"txt_tenmillions\">DECENA DE MILLÓN</span> <span id=\"txt_hundredmillions\">CENTENA DE MILLÓN</span> <span id=\"txt_lvl0\">🔢 UNIDADES · x</span> <span id=\"txt_lvl1\">🔟 DECENAS · xx</span> <span id=\"txt_lvl2\">🏆 CENTENAS · xxx</span> <span id=\"txt_lvl3\">🔥 UNIDADES DE MILLAR · xxxx</span> <span id=\"txt_lvl4\">💎 DECENAS DE MILLAR · xxxxx</span> <span id=\"txt_lvl5\">🌟 CENTENAS DE MILLAR · xxxxxx</span> <span id=\"txt_lvl6\">💰 MILLÓN · xxxxxxx</span> <span id=\"txt_lvl7\">👑 DECENA DE MILLÓN · xxxxxxxx</span> <span id=\"txt_lvl8\">🚀 CENTENA DE MILLÓN · xxxxxxxxx</span></div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" tabindex=\"0\" role=\"application\" aria-label=\"Ábaco interactivo Soroban y Suanpan. Usa las flechas izquierda y derecha para elegir una columna, arriba o 5 para activar una cuenta superior, abajo o 1 para activar una cuenta inferior, y 0 para vaciar la columna.\" style=\"width:100%; height:auto; aspect-ratio:860/400; max-width:688px; margin:0 auto; display:block;\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div> <div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠</span><span id=\"warningText\">Número mayor que 9</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar ábaco</button></div><div class=\"tutor-panel\" id=\"tutorPanel\"> <div class=\"tutor-header\"> <div class=\"problem-box\" id=\"problemDisplay\">🎯 --</div><div style=\"display: flex; align-items: center; gap: 8px;\"> <span class=\"status-badge\" id=\"stepStatus\">🎲 Tu turno</span> <span id=\"levelBadge\" class=\"level-badge\">🔢 UNIDADES · x</span></div> <div style=\"display: flex; gap: 8px;\"> <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🎲 Nuevo número</button> <button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Siguiente nivel</button></div></div> <div class=\"step-message\" id=\"stepMessage\">🧮 Coloca en el ábaco el número mostrado arriba. Activa las cuentas de cada columna; el punto (⚫) permanece en la columna de las unidades. Si no puedes, haz clic en '¡Ayúdame!'.</div><div class=\"step-buttons\"> <button id=\"helpMeBtn\" class=\"step-btn\">¡Ayúdame!</button> <button id=\"nextStepBtn\" class=\"step-btn primary hidden\">➡ Siguiente paso</button></div> <div id=\"feedbackArea\" style=\"min-height: 70px;\"></div> </div><div class=\"footer\"> <div class=\"mode-selector\"> <span class=\"mode-label\">🧮 Ábaco:</span> <button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban</button> <button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan</button></div>  <div class=\"info-area\"> </div> <div class=\"decimal-control\">⚫ Punto decimal · marca la columna de las unidades</div> </div> </div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
