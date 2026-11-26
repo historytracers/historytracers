@@ -250,6 +250,20 @@ function htChooserSetStepVisibility(show) {
     else nextStepBtn.classList.add('hidden');
 }
 
+// "Help me?" is offered while the chosen number is waiting on the board. It is
+// hidden as soon as the user starts setting beads or enters the guided steps.
+function htChooserSetHelpVisibility(show) {
+    const helpBtn = document.getElementById('gameHelpBtn');
+    if (!helpBtn) return;
+    if (show) helpBtn.classList.remove('hidden');
+    else helpBtn.classList.add('hidden');
+}
+
+function htChooserHideHelpAfterInteraction() {
+    const ctl = localChosenNumberController;
+    if (!ctl.helpMode && ctl.number && !ctl.solved) htChooserSetHelpVisibility(false);
+}
+
 // The number is chosen on its own screen: the abacus is only revealed once a
 // valid number has been submitted, the same pattern used by the other
 // "chosen numbers" games.
@@ -271,13 +285,12 @@ function htChooserShowGame() {
     if (typeof htSorobanRender === 'function') htSorobanRender();
 }
 
-// Congratulations are shown in both the feedback area and the message line so
-// they cannot be missed once the target number has been reached.
+// Congratulations are shown once, in the feedback area below the tutor panel.
 function htChooserShowCongrats(html) {
     const feedback = document.getElementById('feedbackArea');
     if (feedback) feedback.innerHTML = '<div class="congrats">' + html + '</div>';
     const message = document.getElementById('stepMessage');
-    if (message) message.innerHTML = '<div class="congrats">' + html + '</div>';
+    if (message) message.innerHTML = '';
 }
 
 function htChooserClearCongrats() {
@@ -326,6 +339,7 @@ function htChooserStartChallenge() {
     htChooserUpdateLevelBadge();
     htChooserSetControlButtonsVisibility(true);
     htChooserSetStepVisibility(false);
+    htChooserSetHelpVisibility(true);
 }
 
 function htChooserMatchesTarget() {
@@ -354,18 +368,21 @@ function htChooserCheckChallenge() {
     htChooserMarkLevelCompleted();
     htChooserShowCongrats(ctl.TextManager.getCongratsMessage(htChooserNumberString(ctl.number)));
     htChooserSetStepVisibility(false);
+    htChooserSetHelpVisibility(false);
 }
 
 function htChooserStartHelp() {
     const ctl = localChosenNumberController;
     if (!localSorobanController.canvas || !ctl.TextManager) return;
-    const number = htChooserReadNumber();
+    // The setup screen reads the input; the game panel reuses the chosen number.
+    const number = ctl.number || htChooserReadNumber();
     if (!number) return;
     htChooserShowGame();
     ctl.number = number;
     ctl.helpMode = true;
     ctl.solved = false;
     ctl.stepCompleted = false;
+    htChooserSetHelpVisibility(false);
     const target = htChooserBuildTarget(number);
     ctl.targetDigits = target.digits;
     ctl.targetMarkerCol = target.markerCol;
@@ -491,6 +508,7 @@ function htChooserNewNumber() {
     htChooserUpdateLevelBadge();
     htChooserSetControlButtonsVisibility(true);
     htChooserSetStepVisibility(false);
+    htChooserSetHelpVisibility(false);
     htChooserShowSetup();
     if (input) input.focus();
 }
@@ -611,21 +629,25 @@ function htLoadContent() {
     const htChooserOrigToggleUpper = htSorobanToggleUpper;
     htSorobanToggleUpper = function(col, beadIdx) {
         htChooserOrigToggleUpper(col, beadIdx);
+        htChooserHideHelpAfterInteraction();
         htChooserOnBoardChange();
     };
     const htChooserOrigHandleLowerClick = htSorobanHandleLowerClick;
     htSorobanHandleLowerClick = function(col, beadIdx) {
         htChooserOrigHandleLowerClick(col, beadIdx);
+        htChooserHideHelpAfterInteraction();
         htChooserOnBoardChange();
     };
     const htChooserOrigMoveDecimalMarker = htSorobanMoveDecimalMarkerToColumn;
     htSorobanMoveDecimalMarkerToColumn = function(targetCol) {
         htChooserOrigMoveDecimalMarker(targetCol);
+        htChooserHideHelpAfterInteraction();
         htChooserOnBoardChange();
     };
     const htChooserOrigSwitchMode = htSorobanSwitchMode;
     htSorobanSwitchMode = function(mode) {
         htChooserOrigSwitchMode(mode);
+        htChooserHideHelpAfterInteraction();
         htChooserOnBoardChange();
     };
 
@@ -664,6 +686,7 @@ function htLoadContent() {
     const _ = id => document.getElementById(id);
     _('representBtn') && (_('representBtn').onclick = function() { htChooserStartChallenge(); });
     _('helpMeBtn') && (_('helpMeBtn').onclick = function() { htChooserStartHelp(); });
+    _('gameHelpBtn') && (_('gameHelpBtn').onclick = function() { htChooserStartHelp(); });
     _('resetTutorBtn') && (_('resetTutorBtn').onclick = function() { htChooserNewNumber(); });
     _('nextLevelBtn') && (_('nextLevelBtn').onclick = function() { htChooserNextLevel(); });
     _('nextStepBtn') && (_('nextStepBtn').onclick = function() { htChooserNextStep(); });
