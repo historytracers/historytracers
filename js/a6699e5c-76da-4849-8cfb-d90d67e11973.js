@@ -293,6 +293,7 @@ function htIntegerSetterCheckChallenge() {
             // The correct number was changed after the congratulations: take
             // the congratulations away and let the user solve it again.
             ctl.solved = false;
+            htIntegerSetterMarkLevelIncomplete();
             if (feedback) feedback.innerHTML = '';
             htIntegerSetterSetHelpVisibility(true);
         }
@@ -348,6 +349,13 @@ function htIntegerSetterMarkLevelCompleted() {
     const ctl = localIntegerSetterController;
     if (ctl.levelIdx >= 0 && ctl.levelIdx < ctl.completedLevels.length) {
         ctl.completedLevels[ctl.levelIdx] = true;
+    }
+}
+
+function htIntegerSetterMarkLevelIncomplete() {
+    const ctl = localIntegerSetterController;
+    if (ctl.levelIdx >= 0 && ctl.levelIdx < ctl.completedLevels.length) {
+        ctl.completedLevels[ctl.levelIdx] = false;
     }
 }
 
@@ -427,9 +435,7 @@ window.checkCurrentIntegerSetterStepPositive = function() {
     if (ctl.stepCompleted) return;
     ctl.stepCompleted = true;
     const TM = ctl.TextManager;
-    if (ctl.currentStepIdx === ctl.steps.length - 1) {
-        htIntegerSetterFinishHelp();
-    } else if (feedback) {
+    if (feedback) {
         feedback.innerHTML = '<div class="success-message">' + TM.getCorrectMessage() + '</div>';
     }
 };
@@ -533,7 +539,22 @@ function htLoadContent() {
     // the target has to be checked again.
     const htIntegerSetterOrigSwitchMode = htSorobanSwitchMode;
     htSorobanSwitchMode = function(mode) {
+        const modeChanged = localSorobanController.abacusMode !== mode;
         htIntegerSetterOrigSwitchMode(mode);
+        const ctl = localIntegerSetterController;
+        if (modeChanged && ctl.helpMode && ctl.steps.length) {
+            // The mode switch clears the beads, so the help sequence restarts
+            // from the first step with the same target number.
+            ctl.currentStepIdx = 0;
+            ctl.stepCompleted = false;
+            const TM = ctl.TextManager;
+            const message = document.getElementById('stepMessage');
+            const status = document.getElementById('stepStatus');
+            if (message) message.innerHTML = TM.get('txt_helpIntro') + ' ' + ctl.steps[0].instruction;
+            if (status) status.innerHTML = TM.getStepStatus(1, ctl.steps.length);
+            htIntegerSetterSetHelpVisibility(false);
+            htIntegerSetterSetStepVisibility(true);
+        }
         htIntegerSetterOnBoardChange();
     };
 

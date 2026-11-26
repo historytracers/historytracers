@@ -59,7 +59,11 @@ function htSorobanSetToNumber(value) {
 }
 
 function htSorobanCheckOverflow() {
-    if (localSorobanController.abacusMode !== "suanpan") return false;
+    const warningDiv = document.getElementById('suanpanWarning');
+    if (localSorobanController.abacusMode !== "suanpan") {
+        if (warningDiv) warningDiv.classList.add('hidden');
+        return false;
+    }
     let hasOverflow = false;
     for (let i = 0; i < localSorobanController.COLUMNS; i++) {
         let col = localSorobanController.state[i];
@@ -69,7 +73,6 @@ function htSorobanCheckOverflow() {
             break;
         }
     }
-    const warningDiv = document.getElementById('suanpanWarning');
     if (warningDiv) {
         if (hasOverflow) warningDiv.classList.remove('hidden');
         else warningDiv.classList.add('hidden');
@@ -821,6 +824,11 @@ function htSorobanSwitchMode(mode) {
     if (localSorobanController.abacusMode === mode) return;
     localSorobanController.abacusMode = mode;
 
+    if (mode !== 'suanpan') {
+        const warningDiv = document.getElementById('suanpanWarning');
+        if (warningDiv) warningDiv.classList.add('hidden');
+    }
+
     const sorobanBtn = document.getElementById('btnSorobanMode');
     const suanpanBtn = document.getElementById('btnSuanpanMode');
     const schyotyBtn = document.getElementById('btnSchyotyMode');
@@ -886,12 +894,59 @@ function htSorobanKeyboardClearColumn(col) {
     if (localSorobanController.state[col].lower > 0) htSorobanHandleLowerClick(col, 0);
 }
 
+// The place of a column depends on where the decimal point sits: the column
+// where the point rests is the units, the columns to its left are the integer
+// families, and the columns to its right are the decimal orders.
+function htSorobanColumnPlaceKey(col) {
+    const diff = localSorobanController.decimalMarkerCol - col;
+    const integerKeys = ["units", "tens", "hundreds", "thousands", "tenthousands",
+        "hundredthousands", "million", "tenmillions", "hundredmillions"];
+    const decimalKeys = ["tenths", "hundredths", "thousandths", "tenthousandths",
+        "hundredthousandths"];
+    if (diff === 0) return "units";
+    if (diff > 0) return integerKeys[diff] || null;
+    return decimalKeys[-diff - 1] || null;
+}
+
+function htSorobanEnsureLiveRegion() {
+    let live = document.getElementById('sorobanColumnAnnouncement');
+    if (!live) {
+        live = document.createElement('div');
+        live.id = 'sorobanColumnAnnouncement';
+        live.setAttribute('role', 'status');
+        live.setAttribute('aria-live', 'polite');
+        live.setAttribute('aria-atomic', 'true');
+        live.style.position = 'absolute';
+        live.style.width = '1px';
+        live.style.height = '1px';
+        live.style.margin = '-1px';
+        live.style.padding = '0';
+        live.style.overflow = 'hidden';
+        live.style.clip = 'rect(0 0 0 0)';
+        live.style.whiteSpace = 'nowrap';
+        live.style.border = '0';
+        document.body.appendChild(live);
+    }
+    return live;
+}
+
+function htSorobanAnnounceFocusedColumn() {
+    if (localSorobanController.abacusMode === 'schyoty') return;
+    const col = localSorobanController.focusedCol;
+    if (col === null || col === undefined) return;
+    const live = htSorobanEnsureLiveRegion();
+    const key = htSorobanColumnPlaceKey(col);
+    const place = key ? document.getElementById('txt_' + key) : null;
+    live.textContent = place ? (place.textContent || place.innerText || '').trim() : '';
+}
+
 function htSorobanHandleKeyboardFocus() {
     localSorobanController.keyboardFocused = true;
     if (localSorobanController.focusedCol === null || localSorobanController.focusedCol === undefined) {
         localSorobanController.focusedCol = localSorobanController.decimalMarkerCol;
     }
     htSorobanRender();
+    htSorobanAnnounceFocusedColumn();
 }
 
 function htSorobanHandleKeyboardBlur() {
@@ -908,12 +963,16 @@ function htSorobanHandleKeydown(e) {
     let col = localSorobanController.focusedCol;
 
     if (e.key === 'ArrowLeft') {
-        localSorobanController.focusedCol = Math.max(0, col - 1);
+        const nextCol = Math.max(0, col - 1);
+        localSorobanController.focusedCol = nextCol;
         htSorobanRender();
+        if (nextCol !== col) htSorobanAnnounceFocusedColumn();
         e.preventDefault();
     } else if (e.key === 'ArrowRight') {
-        localSorobanController.focusedCol = Math.min(columns - 1, col + 1);
+        const nextCol = Math.min(columns - 1, col + 1);
+        localSorobanController.focusedCol = nextCol;
         htSorobanRender();
+        if (nextCol !== col) htSorobanAnnounceFocusedColumn();
         e.preventDefault();
     } else if (e.key === 'ArrowUp' || e.key === '5') {
         htSorobanKeyboardToggleUpper(col);
