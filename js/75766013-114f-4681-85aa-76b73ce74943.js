@@ -2,7 +2,7 @@
 
 // Representing a number chosen by the user on the Soroban (算盤) and Suanpan (算盤).
 // The abacus board is the shared one (js/ht_abacus.js). Unlike the previous games,
-// the number is not drawn at random: the user types any value from 0.99999999
+// the number is not drawn at random: the user types any value from 0.00000001
 // to 999999999, provided it fits in the nine columns of the abacus.
 // "Represent" starts the free challenge; "Help me?" teaches the same chosen
 // number step by step, in the style of the earlier practice game.
@@ -44,8 +44,11 @@ var HT_CHOOSER_BADGE_COLORS = ["#ffb347", "#4caf50", "#ff7043", "#9c27b0", "#e91
 var HT_CHOOSER_INT_PLACE_KEYS = ["units", "tens", "hundreds", "thousands", "tenthousands", "hundredthousands", "millions", "tenmillions", "hundredmillions"];
 var HT_CHOOSER_DEC_PLACE_KEYS = ["tenths", "hundredths", "thousandths", "tenthousandths", "hundredthousandths", "millionths", "tenmillionths", "hundredmillionths"];
 
-var HT_CHOOSER_MIN = 0.99999999;
+var HT_CHOOSER_MIN = 0.00000001;
 var HT_CHOOSER_MAX = 999999999;
+// String(1e-8) renders as "1e-8", so keep plain decimal text for messages.
+var HT_CHOOSER_MIN_TEXT = "0.00000001";
+var HT_CHOOSER_MAX_TEXT = "999999999";
 
 function htChooserLevel() {
     return HT_CHOOSER_LEVELS[localChosenNumberController.levelIdx];
@@ -125,8 +128,8 @@ function htChooserShowError(errorId) {
     const TM = localChosenNumberController.TextManager;
     if (!TM) return;
     el.innerHTML = TM.format(TM.get(errorId), {
-        "min": String(HT_CHOOSER_MIN),
-        "max": String(HT_CHOOSER_MAX),
+        "min": HT_CHOOSER_MIN_TEXT,
+        "max": HT_CHOOSER_MAX_TEXT,
         "columns": localSorobanController.COLUMNS
     });
 }
