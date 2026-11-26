@@ -15,6 +15,7 @@ function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc("imgUSGS0", "images/USGS/USGS_WaterCycle_English_ONLINE_20230302.png");
     htSetImageSrc("imgUSG", "images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png");
+    htSetImageSrc("imgUSGSPlates", "images/USGS/eq-ed-plates.gif");
     htPlusDivs(0);
 
     return false;
