@@ -79,6 +79,11 @@ function htChooserUpdateDisplay() {
         numSpan.innerText = intStr + '.' + fracStr;
     }
     if (typeof htSorobanCheckOverflow === 'function') htSorobanCheckOverflow();
+    // Every board interaction funnels through the display update. Checking here
+    // as well as in the event wrappers guarantees that reaching the chosen
+    // number always shows the congratulations, whichever way the beads were
+    // moved (mouse, touch or keyboard).
+    htChooserOnBoardChange();
 }
 
 function htChooserClearAbacus() {
@@ -217,11 +222,15 @@ function htChooserBuildSteps() {
 }
 
 function htChooserUpdateLevelBadge() {
-    const badge = document.getElementById('levelBadge');
-    if (badge) {
-        badge.innerHTML = localChosenNumberController.TextManager.get('txt_lvl' + localChosenNumberController.levelIdx);
-        badge.style.background = HT_CHOOSER_BADGE_COLORS[localChosenNumberController.levelIdx];
-    }
+    const label = localChosenNumberController.TextManager.get('txt_lvl' + localChosenNumberController.levelIdx);
+    const color = HT_CHOOSER_BADGE_COLORS[localChosenNumberController.levelIdx];
+    ['levelBadge', 'setupLevelBadge'].forEach(function(id) {
+        const badge = document.getElementById(id);
+        if (badge) {
+            badge.innerHTML = label;
+            badge.style.background = color;
+        }
+    });
 }
 
 function htChooserSetControlButtonsVisibility(show) {
@@ -236,6 +245,42 @@ function htChooserSetStepVisibility(show) {
     if (!nextStepBtn) return;
     if (show) nextStepBtn.classList.remove('hidden');
     else nextStepBtn.classList.add('hidden');
+}
+
+// The number is chosen on its own screen: the abacus is only revealed once a
+// valid number has been submitted, the same pattern used by the other
+// "chosen numbers" games.
+function htChooserShowSetup() {
+    const setup = document.getElementById('chooserSetup');
+    const game = document.getElementById('chooserGame');
+    if (setup) setup.classList.remove('htChooserHidden');
+    if (game) game.classList.add('htChooserHidden');
+}
+
+function htChooserShowGame() {
+    const setup = document.getElementById('chooserSetup');
+    const game = document.getElementById('chooserGame');
+    if (setup) setup.classList.add('htChooserHidden');
+    if (game) game.classList.remove('htChooserHidden');
+    // The canvas uses its width attribute for layout, but recomputing keeps
+    // the mouse hit regions accurate after the container becomes visible.
+    if (typeof htSorobanComputeLayout === 'function') htSorobanComputeLayout();
+    if (typeof htSorobanRender === 'function') htSorobanRender();
+}
+
+// Congratulations are shown in both the feedback area and the message line so
+// they cannot be missed once the target number has been reached.
+function htChooserShowCongrats(html) {
+    const feedback = document.getElementById('feedbackArea');
+    if (feedback) feedback.innerHTML = '<div class="congrats">' + html + '</div>';
+    const message = document.getElementById('stepMessage');
+    if (message) message.innerHTML = '<div class="congrats">' + html + '</div>';
+}
+
+function htChooserClearCongrats() {
+    const feedback = document.getElementById('feedbackArea');
+    if (feedback) feedback.innerHTML = '';
+    htChooserShowChallengePrompt();
 }
 
 function htChooserShowProblem() {
@@ -257,6 +302,7 @@ function htChooserStartChallenge() {
     if (!localSorobanController.canvas || !ctl.TextManager) return;
     const number = htChooserReadNumber();
     if (!number) return;
+    htChooserShowGame();
     ctl.number = number;
     ctl.helpMode = false;
     ctl.solved = false;
@@ -264,10 +310,12 @@ function htChooserStartChallenge() {
     ctl.targetDigits = target.digits;
     ctl.targetMarkerCol = target.markerCol;
     localSorobanController.decimalMarkerCol = htChooserStartMarkerCol();
-    htChooserClearAbacus();
+    // Set up the step state before clearing the board: clearing triggers a
+    // board-change check, which must not see steps left over from a previous game.
     ctl.steps = htChooserBuildSteps();
     ctl.currentStepIdx = 0;
     ctl.stepCompleted = false;
+    htChooserClearAbacus();
     htChooserShowProblem();
     htChooserShowChallengePrompt();
     const feedback = document.getElementById('feedbackArea');
@@ -291,18 +339,17 @@ function htChooserMatchesTarget() {
 function htChooserCheckChallenge() {
     const ctl = localChosenNumberController;
     if (!ctl.number || ctl.helpMode) return;
-    const feedback = document.getElementById('feedbackArea');
     if (!htChooserMatchesTarget()) {
         if (ctl.solved) {
             ctl.solved = false;
-            if (feedback) feedback.innerHTML = '';
+            htChooserClearCongrats();
         }
         return;
     }
     if (ctl.solved) return;
     ctl.solved = true;
     htChooserMarkLevelCompleted();
-    if (feedback) feedback.innerHTML = '<div class="congrats">' + ctl.TextManager.getCongratsMessage(htChooserNumberString(ctl.number)) + '</div>';
+    htChooserShowCongrats(ctl.TextManager.getCongratsMessage(htChooserNumberString(ctl.number)));
     htChooserSetStepVisibility(false);
 }
 
@@ -311,6 +358,7 @@ function htChooserStartHelp() {
     if (!localSorobanController.canvas || !ctl.TextManager) return;
     const number = htChooserReadNumber();
     if (!number) return;
+    htChooserShowGame();
     ctl.number = number;
     ctl.helpMode = true;
     ctl.solved = false;
@@ -319,9 +367,12 @@ function htChooserStartHelp() {
     ctl.targetDigits = target.digits;
     ctl.targetMarkerCol = target.markerCol;
     localSorobanController.decimalMarkerCol = htChooserStartMarkerCol();
-    htChooserClearAbacus();
+    // Set up the step state before clearing the board: clearing triggers a
+    // board-change check, which must not see steps left over from a previous game.
     ctl.steps = htChooserBuildSteps();
     ctl.currentStepIdx = 0;
+    ctl.stepCompleted = false;
+    htChooserClearAbacus();
     htChooserShowProblem();
     const TM = ctl.TextManager;
     const message = document.getElementById('stepMessage');
@@ -377,8 +428,7 @@ function htChooserFinishHelp() {
     ctl.solved = true;
     ctl.stepCompleted = false;
     htChooserMarkLevelCompleted();
-    const feedback = document.getElementById('feedbackArea');
-    if (feedback) feedback.innerHTML = '<div class="congrats">' + ctl.TextManager.getHelpDoneMessage(htChooserNumberString(ctl.number)) + '</div>';
+    htChooserShowCongrats(ctl.TextManager.getHelpDoneMessage(htChooserNumberString(ctl.number)));
     htChooserSetStepVisibility(false);
 }
 
@@ -423,6 +473,8 @@ function htChooserNewNumber() {
     if (input) input.value = '';
     const error = document.getElementById('chooseError');
     if (error) error.innerHTML = '';
+    const setupMessage = document.getElementById('setupMessage');
+    if (setupMessage) setupMessage.innerHTML = '';
     const display = document.getElementById('problemDisplay');
     if (display) display.innerHTML = TM.get('txt_problemPrefix') + ' 🎯';
     const message = document.getElementById('stepMessage');
@@ -436,6 +488,8 @@ function htChooserNewNumber() {
     htChooserUpdateLevelBadge();
     htChooserSetControlButtonsVisibility(true);
     htChooserSetStepVisibility(false);
+    htChooserShowSetup();
+    if (input) input.focus();
 }
 
 function htChooserNextLevel() {
@@ -449,8 +503,8 @@ function htChooserNextLevel() {
     const allLevelsCompleted = ctl.completedLevels.every(Boolean);
     htChooserNewNumber();
     if (wrapped && allLevelsCompleted) {
-        const feedback = document.getElementById('feedbackArea');
-        if (feedback) feedback.innerHTML = '<div class="congrats">' + ctl.TextManager.get('txt_finalLevelMessage') + '</div>';
+        const setupMessage = document.getElementById('setupMessage');
+        if (setupMessage) setupMessage.innerHTML = '<div class="congrats">' + ctl.TextManager.get('txt_finalLevelMessage') + '</div>';
     }
 }
 

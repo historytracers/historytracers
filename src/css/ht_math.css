@@ -1451,6 +1451,29 @@ canvas {
   word-break: break-word;
 }
 
+/* The number is chosen before the abacus is revealed. */
+.htChooserHidden {
+  display: none;
+}
+
+.chooser-setup {
+  max-width: 688px;
+  margin: 0 auto;
+}
+
+.chooser-setup .tutor-panel {
+  margin: 0;
+}
+
+.chooser-setup .tutor-header {
+  justify-content: center;
+}
+
+.chooser-setup #setupMessage {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 720px) {
   .choose-number-panel {
     padding: 8px 10px;
