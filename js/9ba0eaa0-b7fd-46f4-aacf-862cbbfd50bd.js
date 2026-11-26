@@ -3,5 +3,6 @@
 function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc('imgTectonicPlates', 'images/USGS/eq-ed-plates.gif');
+    htSetImageSrc('imgUSGSPangea', 'images/USGS/Pangea_0.jpg');
     return false;
 }
