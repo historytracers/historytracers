@@ -2,5 +2,6 @@
 
 function htLoadContent() {
     htWriteNavigation();
+    htSetImageSrc('imgTectonicPlates', 'images/USGS/eq-ed-plates.gif');
     return false;
 }
