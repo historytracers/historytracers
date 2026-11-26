@@ -875,7 +875,7 @@ func htGenerateSitemap() {
 	sitemap.WriteString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
 	sitemap.WriteString("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n")
 	for _, page := range urls {
-		sitemap.WriteString("  <url><loc>" + strings.ReplaceAll(page, "&", "&amp;") + "</loc></url>\n")
+		sitemap.WriteString("  <url><loc>" + strings.ReplaceAll(page, "&", "&amp;") + "</loc><lastmod>" + time.Now().UTC().Format(time.RFC3339) + "</lastmod></url>\n")
 	}
 	sitemap.WriteString("</urlset>\n")
 
