@@ -1,0 +1,113 @@
+{
+   "title": "Representando números enteros elegidos con Soroban y Suanpan (算盤)",
+   "header": "Representando números enteros elegidos con Soroban y Suanpan (算盤)",
+   "sources": [
+      "b58877fe-400b-470d-b65e-36f46e8c3032"
+   ],
+   "scripts": [
+      "b58877fe-400b-470d-b65e-36f46e8c3032",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/b58877fe-400b-470d-b65e-36f46e8c3032_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1795704628"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Requisitos previos\n\nEste juego practica lo aprendido en la actividad anterior (<htcite0>), donde el ábaco enseñaba, paso a paso, a escribir un número entero cuenta por cuenta. Aquí eliges tú el número: cualquier valor entero entre **0** y **999999999** que quepa en las nueve columnas del ábaco. Recomendamos completar primero esa práctica.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "02b563cb-1535-45bf-9a9b-83e19e6dc270",
+                     "text": "History Tracers Team",
+                     "page": "Escribiendo números enteros con Soroban y Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Representando el número entero que eliges\n\nReconociendo la importancia de los ejercicios de práctica como forma de reforzar el conocimiento (<htcite0>), presentamos a continuación un juego que usa el mismo ábaco que las prácticas anteriores. Esta vez el ábaco **no** sortea un número al azar: escribes tú el número entero que quieres practicar.\n\n#### Cómo funciona el juego\n\nEscribe un número entero entre **0** y **999999999** en el cuadro, usando solo dígitos. Debe caber en las nueve columnas del ábaco, así que no puede tener más de nueve cifras (por ejemplo, `7`, `5027` y `999999999` son válidos). El punto decimal (⚫) permanece en la columna más a la derecha: la columna donde está es la de las unidades, y las columnas a su izquierda son las demás familias enteras.\n\nHaz clic en **Representar** para empezar el reto: activa las cuentas hasta que el ábaco muestre tu número. El indicador \"Valor\" muestra lo que hay en el ábaco en cada momento. En cuanto todo coincide, recibes las felicitaciones.\n\nSi no puedes hacerlo solo, haz clic en **¡Ayúdame!**: el juego limpia el ábaco y te enseña tu número paso a paso, escribiendo cada dígito en su columna. Tras el último paso puedes elegir otro número o hacer clic en **Siguiente nivel**.\n\n#### Los nueve niveles\n\nLa insignia muestra los nueve niveles enteros de los juegos anteriores, de **x** a **xxxxxxxxx**. El nivel es ahora solo un marcador de progreso: en cada nivel puedes elegir cualquier número entero del rango permitido, con tantas cifras como quieras siempre que quepan en las nueve columnas del ábaco.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_challengeMessage\">🧮 Elige un número arriba y haz clic en 'Representar' para colocarlo en el ábaco. El punto decimal (⚫) permanece en la columna de las unidades y tú activas las cuentas. Si no puedes, haz clic en '¡Ayúdame!'.</span> <span id=\"txt_challengeStatus\">🎲 Elige un número</span> <span id=\"txt_helpIntro\">🧮 Vamos paso a paso:</span> <span id=\"txt_correctMessage\">✅ ¡Correcto! Haz clic en 'Siguiente paso' para continuar.</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 ¡FELICIDADES! 🎉🎉🎉<br>Colocaste {number} en el ábaco.<br>¡Elige otro número para practicar más!</span> <span id=\"txt_helpDoneMessage\">🎉🎉🎉 ¡LO CONSEGUISTE CON AYUDA! 🎉🎉🎉<br>Colocaste {number} en el ábaco.<br>Ahora elige otro número e inténtalo tú solo.</span> <span id=\"txt_finalLevelMessage\">🎉🏆 ¡TODOS LOS NIVELES COMPLETADOS! 🏆🎉<br>¡Practicaste números enteros elegidos en todos los niveles, de x a xxxxxxxxx! Sigue eligiendo números para practicar.</span> <span id=\"txt_writeDigit\">✍️ Escribe el dígito <strong>{digit}</strong> en la columna de <strong>{placeName}</strong>.</span> <span id=\"txt_writeZero\">✍️ El dígito de <strong>{placeName}</strong> es <strong>0</strong>: deja la columna vacía (sin cuentas activadas).</span> <span id=\"txt_hintLeft\">(a la izquierda del punto decimal ⚫)</span> <span id=\"txt_hintMarker\">(la columna del punto decimal ⚫)</span> <span id=\"txt_restoreMarker\">El punto decimal (⚫) debe estar en la columna {column}, contando desde la izquierda. Muévelo de nuevo; las cuentas ya colocadas se conservan.</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> el ábaco debe mostrar <strong>{number}</strong>. Revisa cada columna y haz clic en 'Siguiente paso'.</span> <span id=\"txt_stepStatus\">📖 Paso {current}/{total}</span> <span id=\"txt_problemPrefix\">🎯 Coloca en el ábaco:</span> <span id=\"txt_invalidFormat\">⚠ Escribe un número entero usando solo dígitos (de {min} a {max}).</span> <span id=\"txt_invalidRange\">⚠ Elige un número entero entre {min} y {max}.</span> <span id=\"txt_invalidColumns\">⚠ Ese número necesita más de {columns} columnas. Usa menos cifras.</span> <span id=\"txt_units\">UNIDADES</span> <span id=\"txt_tens\">DECENAS</span> <span id=\"txt_hundreds\">CENTENAS</span> <span id=\"txt_thousands\">UNIDADES DE MILLAR</span> <span id=\"txt_tenthousands\">DECENAS DE MILLAR</span> <span id=\"txt_hundredthousands\">CENTENAS DE MILLAR</span> <span id=\"txt_millions\">MILLONES</span> <span id=\"txt_tenmillions\">DECENAS DE MILLÓN</span> <span id=\"txt_hundredmillions\">CENTENAS DE MILLÓN</span> <span id=\"txt_lvl0\">🔢 UNIDADES · x</span> <span id=\"txt_lvl1\">🔟 DECENAS · xx</span> <span id=\"txt_lvl2\">🏆 CENTENAS · xxx</span> <span id=\"txt_lvl3\">🔥 UNIDADES DE MILLAR · xxxx</span> <span id=\"txt_lvl4\">💎 DECENAS DE MILLAR · xxxxx</span> <span id=\"txt_lvl5\">🌟 CENTENAS DE MILLAR · xxxxxx</span> <span id=\"txt_lvl6\">💰 MILLONES · xxxxxxx</span> <span id=\"txt_lvl7\">👑 DECENAS DE MILLÓN · xxxxxxxx</span> <span id=\"txt_lvl8\">🚀 CENTENAS DE MILLÓN · xxxxxxxxx</span></div><div id=\"chooserSetup\" class=\"chooser-setup\"><div class=\"tutor-panel\" id=\"setupTutorPanel\"><div class=\"tutor-header\"><span id=\"setupLevelBadge\" class=\"level-badge\">🔢 UNIDADES · x</span></div><div class=\"choose-number-panel\"><label id=\"chooseNumberLabel\" for=\"chosenNumberInput\">🎯 Elige un número entero (0 – 999999999; como máximo 9 columnas):</label> <div class=\"choose-number-row\"><input id=\"chosenNumberInput\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"123456789\" aria-describedby=\"chooseNumberLabel\" /> <button id=\"representBtn\" class=\"step-btn primary\">🎯 Representar</button> <button id=\"helpMeBtn\" class=\"step-btn\">¡Ayúdame!</button></div> <div id=\"chooseError\" class=\"choose-error\"></div></div><div id=\"setupMessage\" class=\"step-message\"></div></div></div><div id=\"chooserGame\" class=\"htChooserHidden\"><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" tabindex=\"0\" role=\"application\" aria-label=\"Soroban and Suanpan interactive abacus. Use Left and Right arrows to choose a column, Up or 5 to toggle an upper bead, Down or 1 to toggle a lower bead, comma and period to move the decimal point, and 0 to clear the column.\" style=\"width:100%; height:auto; aspect-ratio:860/400; max-width:688px; margin:0 auto; display:block;\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div> <div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠</span><span id=\"warningText\">Number greater than 9</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar ábaco</button></div><div class=\"tutor-panel\" id=\"tutorPanel\"> <div class=\"tutor-header\"> <div class=\"problem-box\" id=\"problemDisplay\">🎯 --</div><div style=\"display: flex; align-items: center; gap: 8px;\"> <span class=\"status-badge\" id=\"stepStatus\">🎲 Elige un número</span> <span id=\"levelBadge\" class=\"level-badge\">🔢 UNIDADES · x</span></div> <div style=\"display: flex; gap: 8px;\"> <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🔢 Nuevo número</button> <button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Siguiente nivel</button></div></div> <div class=\"step-message\" id=\"stepMessage\">🧮 Elige un número arriba y haz clic en 'Representar' para colocarlo en el ábaco. Mueve el punto decimal (⚫) a la columna de las unidades y activa las cuentas. Si no puedes, haz clic en '¡Ayúdame!'.</div> <div class=\"step-buttons\"><button id=\"gameHelpBtn\" class=\"step-btn\">¡Ayúdame!</button><button id=\"nextStepBtn\" class=\"step-btn primary hidden\">➡ Siguiente paso</button></div> <div id=\"feedbackArea\" style=\"min-height: 70px;\"></div> </div><div class=\"footer\"> <div class=\"mode-selector\"> <span class=\"mode-label\">🧮 Ábaco:</span> <button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban</button> <button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan</button> </div> <div class=\"info-area\"> </div> <div class=\"decimal-control\">⚫ Punto decimal · marca la columna de las unidades</div> </div> </div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
