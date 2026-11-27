@@ -1,0 +1,109 @@
+{
+   "title": "Representando números enteros elegidos con Schyoty (счёты)",
+   "header": "Representando números enteros elegidos con Schyoty (счёты)",
+   "sources": [
+      "d22692e7-0bf6-4e36-a543-3aadc386497e"
+   ],
+   "scripts": [
+      "d22692e7-0bf6-4e36-a543-3aadc386497e"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1795782837"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Requisitos previos\n\nEste juego practica lo aprendido en el texto sobre el Schyoty (счёты) (<htcite0>), donde cada fila tiene diez cuentas de valor uno y las filas cuentan 10^0, 10^1, 10^2 y así sucesivamente de abajo hacia arriba. Recomendamos leer primero ese texto.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1aad8822-1ace-45fd-954e-833799836d1a",
+                     "text": "History Tracers Team",
+                     "page": "Schyoty (счёты), o ábaco en vertical",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Representando el número entero que eliges\n\nReconociendo la importancia de los ejercicios de práctica como forma de reforzar el conocimiento (<htcite0>), presentamos un juego que usa el mismo ábaco schyoty: todas las cuentas empiezan en el lado inactivo y tú llevas al lado activo tantas cuentas como el dígito de cada fila. La fila inferior representa las unidades, la fila de arriba las decenas, y así sucesivamente (<htcite1>).\n\n#### Cómo funciona el juego\n\nEscribe un número entero entre **0** y **99999999** en la casilla, usando solo dígitos. Debe caber en las ocho filas, por lo que no puede tener más de ocho dígitos (por ejemplo, `7`, `5027` y `99999999` son válidos).\n\nHaz clic en **Representar** para comenzar el reto: mueve cuentas en cada fila hasta que el indicador «Valor» muestre tu número. En cuanto todo coincida, recibirás la felicitación.\n\nSi no puedes hacerlo solo, haz clic en **¡Ayúdame!**: el juego limpia el ábaco y te enseña tu número fila por fila. Después del último paso puedes elegir otro número o hacer clic en **Siguiente nivel**.\n\n#### Los ocho niveles\n\nLa insignia muestra los ocho niveles enteros, de **x** (unidades) a **xxxxxxxx** (decenas de millón). En cada nivel puedes elegir cualquier número entero permitido, con tantos dígitos como quieras siempre que quepa en las ocho filas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
+                     "text": "Amarteifio, Jessica",
+                     "page": "pp. 4 - 9",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_challengeMessage\">🧮 Elige un número arriba y haz clic en 'Representar' para colocarlo en el schyoty. La fila inferior es la de las unidades; mueve cuentas al lado activo. Si no puedes, haz clic en '¡Ayúdame!'.</span> <span id=\"txt_challengeStatus\">🎲 Elige un número</span> <span id=\"txt_helpIntro\">🧮 Vamos paso a paso:</span> <span id=\"txt_correctMessage\">✅ ¡Correcto! Haz clic en 'Siguiente paso' para continuar.</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 ¡FELICIDADES! 🎉🎉🎉<br>Colocaste {number} en el schyoty.<br>¡Elige otro número para practicar más!</span> <span id=\"txt_helpDoneMessage\">🎉🎉🎉 ¡LO CONSEGUISTE CON AYUDA! 🎉🎉🎉<br>Colocaste {number} en el schyoty.<br>Ahora elige otro número e inténtalo tú solo.</span> <span id=\"txt_finalLevelMessage\">🎉🏆 ¡TODOS LOS NIVELES COMPLETADOS! 🏆🎉<br>¡Practicaste números enteros elegidos en todos los niveles, de x a xxxxxxxxxx! Sigue eligiendo números para practicar.</span> <span id=\"txt_moveDigit\">✍️ Mueve <strong>{digit}</strong> cuentas al lado activo en la fila de <strong>{placeName}</strong> (contando desde abajo).</span> <span id=\"txt_moveZero\">✍️ La fila de <strong>{placeName}</strong> es <strong>0</strong>: deja todas sus cuentas en el lado inactivo.</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> el schyoty debe mostrar <strong>{number}</strong>. Revisa cada fila y haz clic en 'Siguiente paso'.</span> <span id=\"txt_stepStatus\">📖 Paso {current}/{total}</span> <span id=\"txt_problemPrefix\">🎯 Coloca en el schyoty:</span> <span id=\"txt_invalidFormat\">⚠ Escribe un número entero usando solo dígitos (de {min} a {max}).</span> <span id=\"txt_invalidRange\">⚠ Elige un número entero entre {min} y {max}.</span> <span id=\"txt_invalidRows\">⚠ Ese número necesita más de {rows} filas. Usa menos dígitos.</span> <span id=\"txt_units\">UNIDADES</span> <span id=\"txt_tens\">DECENAS</span> <span id=\"txt_hundreds\">CENTENAS</span> <span id=\"txt_thousands\">UNIDADES DE MILLAR</span> <span id=\"txt_tenthousands\">DECENAS DE MILLAR</span> <span id=\"txt_hundredthousands\">CENTENAS DE MILLAR</span> <span id=\"txt_millions\">MILLONES</span> <span id=\"txt_tenmillions\">DECENAS DE MILLÓN</span> <span id=\"txt_lvl0\">🔢 UNIDADES · x</span> <span id=\"txt_lvl1\">🔟 DECENAS · xx</span> <span id=\"txt_lvl2\">🏆 CENTENAS · xxx</span> <span id=\"txt_lvl3\">🔥 UNIDADES DE MILLAR · xxxx</span> <span id=\"txt_lvl4\">💎 DECENAS DE MILLAR · xxxxx</span> <span id=\"txt_lvl5\">🌟 CENTENAS DE MILLAR · xxxxxx</span> <span id=\"txt_lvl6\">💰 MILLONES · xxxxxxx</span> <span id=\"txt_lvl7\">👑 DECENAS DE MILLÓN · xxxxxxxx</span> </div><div id=\"chooserSetup\" class=\"chooser-setup\"><div class=\"tutor-panel\" id=\"setupTutorPanel\"><div class=\"tutor-header\"><span id=\"setupLevelBadge\" class=\"level-badge\">🔢</span></div><div class=\"choose-number-panel\"><label id=\"chooseNumberLabel\" for=\"chosenNumberInput\">🎯 Elige un número entero (0 – 99999999; como máximo 8 filas):</label><div class=\"choose-number-row\"><input id=\"chosenNumberInput\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"12345678\" aria-describedby=\"chooseNumberLabel\" /><button id=\"representBtn\" class=\"step-btn primary\">🎯 Representar</button><button id=\"helpMeBtn\" class=\"step-btn\">¡Ayúdame!</button></div><div id=\"chooseError\" class=\"choose-error\"></div></div><div id=\"setupMessage\" class=\"step-message\"></div></div></div><div id=\"chooserGame\" class=\"htChooserHidden\"><div class=\"schyoty-container\"><div class=\"schyoty-frame\"><canvas id=\"schyotyCanvas\" width=\"480\" height=\"600\" role=\"application\" aria-label=\"Ábaco schyoty interactivo. Haz clic en una cuenta para moverla al lado activo.\" style=\"width:100%; height:auto; max-width:480px; aspect-ratio:480/600; display:block; margin:0 auto; border-radius:12px; cursor:pointer;\"></canvas></div><div class=\"schyoty-panel\"><div class=\"schyoty-panel-left\"><div class=\"schyoty-readout\">Valor: <span id=\"schyotyValue\">0</span></div><div id=\"schyotySuccess\" class=\"schyoty-success\">&#10003; &#161;Correcto!</div></div><button id=\"schyotyResetBtn\" class=\"schyoty-reset\">&#8634; Reiniciar</button></div><div class=\"schyoty-game-area\"><span class=\"schyoty-game-label\">Representa el número:</span><span id=\"schyotyCMP\" class=\"schyoty-game-target\">0</span></div><div class=\"tutor-panel\" id=\"tutorPanel\"><div class=\"tutor-header\"><div class=\"problem-box\" id=\"problemDisplay\">🎯 🎯</div><div style=\"display:flex;align-items:center;gap:8px;\"><span class=\"status-badge\" id=\"stepStatus\">🎲</span><span id=\"levelBadge\" class=\"level-badge\">🔢</span></div><div style=\"display:flex;gap:8px;flex-wrap:wrap;\"><button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🔢 Nuevo número</button><button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background:#7e5a41;\">⭐ Siguiente nivel</button></div></div><div class=\"step-message\" id=\"stepMessage\">🧮 Elige un número arriba y haz clic en 'Representar' para colocarlo en el schyoty. La fila inferior es la de las unidades; mueve cuentas al lado activo. Si no puedes, haz clic en '¡Ayúdame!'.</div><div class=\"step-buttons\"><button id=\"gameHelpBtn\" class=\"step-btn\">¡Ayúdame!</button><button id=\"nextStepBtn\" class=\"step-btn primary hidden\">➡ Siguiente paso</button></div><div id=\"feedbackArea\" style=\"min-height:70px;\"></div></div></div></div><span id=\"schyotyCols\" style=\"display:none\">8</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

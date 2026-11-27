@@ -1,0 +1,109 @@
+{
+   "title": "Representando números inteiros escolhidos com Schyoty (счёты)",
+   "header": "Representando números inteiros escolhidos com Schyoty (счёты)",
+   "sources": [
+      "d22692e7-0bf6-4e36-a543-3aadc386497e"
+   ],
+   "scripts": [
+      "d22692e7-0bf6-4e36-a543-3aadc386497e"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1795782837"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Pré-requisitos\n\nEste jogo pratica o que aprendemos no texto sobre o Schyoty (счёты), em que cada linha tem dez contas de valor um e as linhas contam 10^0, 10^1, 10^2 e assim por diante de baixo para cima (<htcite0>). Recomendamos ler esse texto primeiro.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1aad8822-1ace-45fd-954e-833799836d1a",
+                     "text": "History Tracers Team",
+                     "page": "Schyoty (счёты), o ábaco na vertical",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Representando o número inteiro que você escolhe\n\nReconhecendo a importância dos exercícios de prática como forma de reforçar o conhecimento (<htcite0>), apresentamos um jogo que usa o mesmo ábaco schyoty: todas as contas começam no lado inativo e você leva ao lado ativo tantas contas quanto o algarismo de cada linha. A linha inferior representa as unidades, a linha acima dela as dezenas, e assim por diante (<htcite1>).\n\n#### Como funciona o jogo\n\nEscreva um número inteiro entre **0** e **99999999** na caixa, usando apenas algarismos. Ele precisa caber nas oito linhas, portanto não pode ter mais de oito algarismos (por exemplo, `7`, `5027` e `99999999` são válidos).\n\nClique em **Representar** para iniciar o desafio: mova contas em cada linha até que o indicador «Valor» mostre o seu número. Assim que tudo coincidir, você recebe os parabéns.\n\nSe não conseguir sozinho, clique em **Ajude-me!**: o jogo limpa o ábaco e ensina o seu número linha por linha. Depois da última etapa, você pode escolher outro número ou clicar em **Próximo nível**.\n\n#### Os oito níveis\n\nO selo mostra os oito níveis inteiros, de **x** (unidades) a **xxxxxxxx** (dezenas de milhão). Em cada nível você pode escolher qualquer número inteiro permitido, com quantos algarismos quiser, desde que caiba nas oito linhas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
+                     "text": "Amarteifio, Jessica",
+                     "page": "pp. 4 - 9",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_challengeMessage\">🧮 Escolha um número acima e clique em 'Representar' para colocá-lo no schyoty. A linha inferior é a das unidades; mova contas para o lado ativo. Se não conseguir, clique em 'Ajude-me!'.</span> <span id=\"txt_challengeStatus\">🎲 Escolha um número</span> <span id=\"txt_helpIntro\">🧮 Vamos passo a passo:</span> <span id=\"txt_correctMessage\">✅ Correto! Clique em 'Próximo passo' para continuar.</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 PARABÉNS! 🎉🎉🎉<br>Você colocou {number} no schyoty!<br>Escolha outro número para praticar mais!</span> <span id=\"txt_helpDoneMessage\">🎉🎉🎉 VOCÊ CONSEGUIU COM AJUDA! 🎉🎉🎉<br>Você colocou {number} no schyoty!<br>Agora escolha outro número e tente sozinho.</span> <span id=\"txt_finalLevelMessage\">🎉🏆 TODOS OS NÍVEIS CONCLUÍDOS! 🏆🎉<br>Você praticou números inteiros escolhidos em todos os níveis — de x a xxxxxxxxxx! Continue escolhendo números para praticar.</span> <span id=\"txt_moveDigit\">✍️ Mova <strong>{digit}</strong> contas para o lado ativo na linha de <strong>{placeName}</strong> (contando de baixo para cima).</span> <span id=\"txt_moveZero\">✍️ A linha de <strong>{placeName}</strong> é <strong>0</strong>: deixe todas as suas contas no lado inativo.</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> o schyoty deve mostrar <strong>{number}</strong>. Confira cada linha e clique em 'Próximo passo'!</span> <span id=\"txt_stepStatus\">📖 Passo {current}/{total}</span> <span id=\"txt_problemPrefix\">🎯 Coloque no schyoty:</span> <span id=\"txt_invalidFormat\">⚠ Digite um número inteiro usando apenas algarismos (de {min} a {max}).</span> <span id=\"txt_invalidRange\">⚠ Escolha um número inteiro entre {min} e {max}.</span> <span id=\"txt_invalidRows\">⚠ Esse número precisa de mais de {rows} linhas. Use menos algarismos.</span> <span id=\"txt_units\">UNIDADES</span> <span id=\"txt_tens\">DEZENAS</span> <span id=\"txt_hundreds\">CENTENAS</span> <span id=\"txt_thousands\">UNIDADES DE MILHAR</span> <span id=\"txt_tenthousands\">DEZENAS DE MILHAR</span> <span id=\"txt_hundredthousands\">CENTENAS DE MILHAR</span> <span id=\"txt_millions\">MILHÕES</span> <span id=\"txt_tenmillions\">DEZENAS DE MILHÃO</span> <span id=\"txt_lvl0\">🔢 UNIDADES · x</span> <span id=\"txt_lvl1\">🔟 DEZENAS · xx</span> <span id=\"txt_lvl2\">🏆 CENTENAS · xxx</span> <span id=\"txt_lvl3\">🔥 UNIDADES DE MILHAR · xxxx</span> <span id=\"txt_lvl4\">💎 DEZENAS DE MILHAR · xxxxx</span> <span id=\"txt_lvl5\">🌟 CENTENAS DE MILHAR · xxxxxx</span> <span id=\"txt_lvl6\">💰 MILHÕES · xxxxxxx</span> <span id=\"txt_lvl7\">👑 DEZENAS DE MILHÃO · xxxxxxxx</span> </div><div id=\"chooserSetup\" class=\"chooser-setup\"><div class=\"tutor-panel\" id=\"setupTutorPanel\"><div class=\"tutor-header\"><span id=\"setupLevelBadge\" class=\"level-badge\">🔢</span></div><div class=\"choose-number-panel\"><label id=\"chooseNumberLabel\" for=\"chosenNumberInput\">🎯 Escolha um número inteiro (0 – 99999999; no máximo 8 linhas):</label><div class=\"choose-number-row\"><input id=\"chosenNumberInput\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"12345678\" aria-describedby=\"chooseNumberLabel\" /><button id=\"representBtn\" class=\"step-btn primary\">🎯 Representar</button><button id=\"helpMeBtn\" class=\"step-btn\">Ajude-me!</button></div><div id=\"chooseError\" class=\"choose-error\"></div></div><div id=\"setupMessage\" class=\"step-message\"></div></div></div><div id=\"chooserGame\" class=\"htChooserHidden\"><div class=\"schyoty-container\"><div class=\"schyoty-frame\"><canvas id=\"schyotyCanvas\" width=\"480\" height=\"600\" role=\"application\" aria-label=\"Ábaco schyoty interativo. Clique em uma conta para movê-la para o lado ativo.\" style=\"width:100%; height:auto; max-width:480px; aspect-ratio:480/600; display:block; margin:0 auto; border-radius:12px; cursor:pointer;\"></canvas></div><div class=\"schyoty-panel\"><div class=\"schyoty-panel-left\"><div class=\"schyoty-readout\">Valor: <span id=\"schyotyValue\">0</span></div><div id=\"schyotySuccess\" class=\"schyoty-success\">&#10003; Correto!</div></div><button id=\"schyotyResetBtn\" class=\"schyoty-reset\">&#8634; Reiniciar</button></div><div class=\"schyoty-game-area\"><span class=\"schyoty-game-label\">Represente o número:</span><span id=\"schyotyCMP\" class=\"schyoty-game-target\">0</span></div><div class=\"tutor-panel\" id=\"tutorPanel\"><div class=\"tutor-header\"><div class=\"problem-box\" id=\"problemDisplay\">🎯 🎯</div><div style=\"display:flex;align-items:center;gap:8px;\"><span class=\"status-badge\" id=\"stepStatus\">🎲</span><span id=\"levelBadge\" class=\"level-badge\">🔢</span></div><div style=\"display:flex;gap:8px;flex-wrap:wrap;\"><button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🔢 Novo número</button><button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background:#7e5a41;\">⭐ Próximo nível</button></div></div><div class=\"step-message\" id=\"stepMessage\">🧮 Escolha um número acima e clique em 'Representar' para colocá-lo no schyoty. A linha inferior é a das unidades; mova contas para o lado ativo. Se não conseguir, clique em 'Ajude-me!'.</div><div class=\"step-buttons\"><button id=\"gameHelpBtn\" class=\"step-btn\">Ajude-me!</button><button id=\"nextStepBtn\" class=\"step-btn primary hidden\">➡ Próximo passo</button></div><div id=\"feedbackArea\" style=\"min-height:70px;\"></div></div></div></div><span id=\"schyotyCols\" style=\"display:none\">8</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

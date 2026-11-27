@@ -1,0 +1,109 @@
+{
+   "title": "Representing chosen integers with Schyoty (счёты)",
+   "header": "Representing chosen integers with Schyoty (счёты)",
+   "sources": [
+      "d22692e7-0bf6-4e36-a543-3aadc386497e"
+   ],
+   "scripts": [
+      "d22692e7-0bf6-4e36-a543-3aadc386497e"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1795782837"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nThis game practices what we learned in the Schyoty (счёты) text (<htcite0>), where each row has ten beads of value one and the rows count 10^0, 10^1, 10^2 and so on from bottom to top. We recommend reading that text first.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1aad8822-1ace-45fd-954e-833799836d1a",
+                     "text": "History Tracers Team",
+                     "page": "Schyoty (счёты), or the vertical abacus",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Representing the integer you choose\n\nRecognizing the importance of practice exercises as a way to reinforce knowledge (<htcite0>), we present a game that uses the same schyoty board: all beads start on the inactive side and you move to the active side as many beads as the digit of each row. The bottom row represents the units, the row above it the tens, and so on (<htcite1>).\n\n#### How the game works\n\nWrite a whole number between **0** and **99999999** in the box, using only digits. It must fit in the eight rows, so it cannot have more than eight digits (for example, `7`, `5027` and `99999999` are valid).\n\nClick **Represent** to start the challenge: move beads on each row until the \"Value\" readout shows your number. As soon as everything matches, you receive the congratulations.\n\nIf you cannot do it alone, click **Help me?**: the game clears the board and teaches your number row by row. After the last step you can choose another number or click **Next level**.\n\n#### The eight levels\n\nThe badge shows the eight integer levels, from **x** (units) to **xxxxxxxx** (ten millions). At every level you may choose any whole number in the allowed range, with as many digits as you like as long as it fits in the eight rows.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "957755a4-793d-46d1-b3f8-bd3ea721415d",
+                     "text": "Amarteifio, Jessica",
+                     "page": "pp. 4 - 9",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_challengeMessage\">🧮 Choose a number above, then click 'Represent' to set it on the schyoty. The bottom row is the units row; move beads to the active side. If you can't, click 'Help me?'.</span> <span id=\"txt_challengeStatus\">🎲 Choose a number</span> <span id=\"txt_helpIntro\">🧮 Let's go step by step:</span> <span id=\"txt_correctMessage\">✅ Correct! Click 'Next step' to continue.</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You set {number} on the schyoty!<br>Choose another number to practice more!</span> <span id=\"txt_helpDoneMessage\">🎉🎉🎉 YOU DID IT WITH HELP! 🎉🎉🎉<br>You set {number} on the schyoty!<br>Now choose another number and try it by yourself.</span> <span id=\"txt_finalLevelMessage\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉<br>You practiced chosen whole numbers at every level — from x to xxxxxxxxxx! Keep choosing numbers to practice.</span> <span id=\"txt_moveDigit\">✍️ Move <strong>{digit}</strong> beads to the active side on the <strong>{placeName}</strong> row (counting from the bottom).</span> <span id=\"txt_moveZero\">✍️ The <strong>{placeName}</strong> row is <strong>0</strong>: leave all its beads on the inactive side.</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> the schyoty should show <strong>{number}</strong>. Check every row, then click 'Next step'!</span> <span id=\"txt_stepStatus\">📖 Step {current}/{total}</span> <span id=\"txt_problemPrefix\">🎯 Set on the schyoty:</span> <span id=\"txt_invalidFormat\">⚠ Enter a whole number using only digits (from {min} to {max}).</span> <span id=\"txt_invalidRange\">⚠ Choose a whole number between {min} and {max}.</span> <span id=\"txt_invalidRows\">⚠ That number needs more than {rows} rows. Use fewer digits.</span> <span id=\"txt_units\">UNITS</span> <span id=\"txt_tens\">TENS</span> <span id=\"txt_hundreds\">HUNDREDS</span> <span id=\"txt_thousands\">THOUSANDS</span> <span id=\"txt_tenthousands\">TEN-THOUSANDS</span> <span id=\"txt_hundredthousands\">HUNDRED-THOUSANDS</span> <span id=\"txt_millions\">MILLIONS</span> <span id=\"txt_tenmillions\">TEN-MILLIONS</span> <span id=\"txt_lvl0\">🔢 UNITS · x</span> <span id=\"txt_lvl1\">🔟 TENS · xx</span> <span id=\"txt_lvl2\">🏆 HUNDREDS · xxx</span> <span id=\"txt_lvl3\">🔥 THOUSANDS · xxxx</span> <span id=\"txt_lvl4\">💎 TEN THOUSANDS · xxxxx</span> <span id=\"txt_lvl5\">🌟 HUNDRED THOUSANDS · xxxxxx</span> <span id=\"txt_lvl6\">💰 MILLIONS · xxxxxxx</span> <span id=\"txt_lvl7\">👑 TEN MILLIONS · xxxxxxxx</span> </div><div id=\"chooserSetup\" class=\"chooser-setup\"><div class=\"tutor-panel\" id=\"setupTutorPanel\"><div class=\"tutor-header\"><span id=\"setupLevelBadge\" class=\"level-badge\">🔢</span></div><div class=\"choose-number-panel\"><label id=\"chooseNumberLabel\" for=\"chosenNumberInput\">🎯 Choose a whole number (0 – 99999999; at most 8 rows):</label><div class=\"choose-number-row\"><input id=\"chosenNumberInput\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"12345678\" aria-describedby=\"chooseNumberLabel\" /><button id=\"representBtn\" class=\"step-btn primary\">🎯 Represent</button><button id=\"helpMeBtn\" class=\"step-btn\">Help me?</button></div><div id=\"chooseError\" class=\"choose-error\"></div></div><div id=\"setupMessage\" class=\"step-message\"></div></div></div><div id=\"chooserGame\" class=\"htChooserHidden\"><div class=\"schyoty-container\"><div class=\"schyoty-frame\"><canvas id=\"schyotyCanvas\" width=\"480\" height=\"600\" role=\"application\" aria-label=\"Schyoty interactive abacus. Click a bead to move it to the active side.\" style=\"width:100%; height:auto; max-width:480px; aspect-ratio:480/600; display:block; margin:0 auto; border-radius:12px; cursor:pointer;\"></canvas></div><div class=\"schyoty-panel\"><div class=\"schyoty-panel-left\"><div class=\"schyoty-readout\">Value: <span id=\"schyotyValue\">0</span></div><div id=\"schyotySuccess\" class=\"schyoty-success\">&#10003; Correct!</div></div><button id=\"schyotyResetBtn\" class=\"schyoty-reset\">&#8634; Reset</button></div><div class=\"schyoty-game-area\"><span class=\"schyoty-game-label\">Represent the number:</span><span id=\"schyotyCMP\" class=\"schyoty-game-target\">0</span></div><div class=\"tutor-panel\" id=\"tutorPanel\"><div class=\"tutor-header\"><div class=\"problem-box\" id=\"problemDisplay\">🎯 🎯</div><div style=\"display:flex;align-items:center;gap:8px;\"><span class=\"status-badge\" id=\"stepStatus\">🎲</span><span id=\"levelBadge\" class=\"level-badge\">🔢</span></div><div style=\"display:flex;gap:8px;flex-wrap:wrap;\"><button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🔢 New number</button><button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background:#7e5a41;\">⭐ Next level</button></div></div><div class=\"step-message\" id=\"stepMessage\">🧮 Choose a number above, then click 'Represent' to set it on the schyoty. The bottom row is the units row; move beads to the active side. If you can't, click 'Help me?'.</div><div class=\"step-buttons\"><button id=\"gameHelpBtn\" class=\"step-btn\">Help me?</button><button id=\"nextStepBtn\" class=\"step-btn primary hidden\">➡ Next step</button></div><div id=\"feedbackArea\" style=\"min-height:70px;\"></div></div></div></div><span id=\"schyotyCols\" style=\"display:none\">8</span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
