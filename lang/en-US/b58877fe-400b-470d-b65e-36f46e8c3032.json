@@ -1,0 +1,118 @@
+{
+   "title": "Representing chosen integers with Soroban and Suanpan (算盤)",
+   "header": "Representing chosen integers with Soroban and Suanpan (算盤)",
+   "sources": [
+      "b58877fe-400b-470d-b65e-36f46e8c3032"
+   ],
+   "scripts": [
+      "b58877fe-400b-470d-b65e-36f46e8c3032",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/b58877fe-400b-470d-b65e-36f46e8c3032_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/1GaKdnL2rEd7BxjFmvRXCF?si=3EVqIeXdR86Dnydu5ksXyA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1795739609"
+   ],
+   "authors": null,
+   "reviewers": [
+      "CodeRabbit"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis game practices what we learned in the previous activity (<htcite0>), where the abacus taught, step by step, how to write an integer number bead by bead. Here you choose the number yourself: any whole value from **0** to **999999999** that fits in the nine columns of the abacus. We recommend completing that practice first.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "02b563cb-1535-45bf-9a9b-83e19e6dc270",
+                     "text": "History Tracers Team",
+                     "page": "Writing integers with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### Representing the integer you choose\n\nRecognizing the importance of practice exercises as a way to reinforce knowledge (<htcite0>), we present below a game that uses the same abacus board as the previous practices. This time the abacus does **not** draw a random number: you type the whole number you want to practice.\n\n#### How the game works\n\nWrite a whole number between **0** and **999999999** in the box, using only digits. It must fit in the nine columns of the abacus, so it cannot have more than nine digits (for example, `7`, `5027` and `999999999` are valid). The decimal point (⚫) stays at the rightmost column: the column where it sits is the units, and the columns to its left are the other integer families.\n\nClick **Represent** to start the challenge: activate the beads until the abacus shows your number. The \"Value\" readout shows what is on the board at each moment. As soon as everything matches, you receive the congratulations.\n\nIf you cannot do it alone, click **Help me?**: the game clears the board and teaches your number step by step, writing each digit in its column. After the last step you can choose another number or click **Next level**.\n\n#### The nine levels\n\nThe badge shows the nine integer levels of the previous games, from **x** to **xxxxxxxxx**. The level is now only a progress marker: at every level you may choose any whole number in the allowed range, with as many digits as you like as long as they fit in the nine abacus columns.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_challengeMessage\">🧮 Choose a number above, then click 'Represent' to set it on the abacus. The decimal point (⚫) stays on the units column and you activate the beads. If you can't, click 'Help me?'.</span> <span id=\"txt_challengeStatus\">🎲 Choose a number</span> <span id=\"txt_helpIntro\">🧮 Let's go step by step:</span> <span id=\"txt_correctMessage\">✅ Correct! Click 'Next step' to continue.</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You set {number} on the abacus!<br>Choose another number to practice more!</span> <span id=\"txt_helpDoneMessage\">🎉🎉🎉 YOU DID IT WITH HELP! 🎉🎉🎉<br>You set {number} on the abacus!<br>Now choose another number and try it by yourself.</span> <span id=\"txt_finalLevelMessage\">🎉🏆 ALL LEVELS COMPLETE! 🏆🎉<br>You practiced chosen whole numbers at every level — from x to xxxxxxxxx! Keep choosing numbers to practice.</span> <span id=\"txt_writeDigit\">✍️ Write the digit <strong>{digit}</strong> in the <strong>{placeName}</strong> column.</span> <span id=\"txt_writeZero\">✍️ The <strong>{placeName}</strong> digit is <strong>0</strong>: leave the column empty (no beads activated).</span> <span id=\"txt_hintLeft\">(to the left of the decimal point ⚫)</span> <span id=\"txt_hintMarker\">(the column of the decimal point ⚫)</span> <span id=\"txt_restoreMarker\">The decimal point (⚫) must be in column {column}, counting from the left. Move it back; the beads you already set are kept.</span> <span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> the abacus should show <strong>{number}</strong>. Check every column, then click 'Next step'!</span> <span id=\"txt_stepStatus\">📖 Step {current}/{total}</span> <span id=\"txt_problemPrefix\">🎯 Set on the abacus:</span> <span id=\"txt_invalidFormat\">⚠ Enter a whole number using only digits (from {min} to {max}).</span> <span id=\"txt_invalidRange\">⚠ Choose a whole number between {min} and {max}.</span> <span id=\"txt_invalidColumns\">⚠ That number needs more than {columns} columns. Use fewer digits.</span> <span id=\"txt_units\">UNITS</span> <span id=\"txt_tens\">TENS</span> <span id=\"txt_hundreds\">HUNDREDS</span> <span id=\"txt_thousands\">THOUSANDS</span> <span id=\"txt_tenthousands\">TEN-THOUSANDS</span> <span id=\"txt_hundredthousands\">HUNDRED-THOUSANDS</span> <span id=\"txt_million\">MILLIONS</span> <span id=\"txt_millions\">MILLIONS</span> <span id=\"txt_tenmillions\">TEN-MILLIONS</span> <span id=\"txt_hundredmillions\">HUNDRED-MILLIONS</span> <span id=\"txt_lvl0\">🔢 UNITS · x</span> <span id=\"txt_lvl1\">🔟 TENS · xx</span> <span id=\"txt_lvl2\">🏆 HUNDREDS · xxx</span> <span id=\"txt_lvl3\">🔥 THOUSANDS · xxxx</span> <span id=\"txt_lvl4\">💎 TEN THOUSANDS · xxxxx</span> <span id=\"txt_lvl5\">🌟 HUNDRED THOUSANDS · xxxxxx</span> <span id=\"txt_lvl6\">💰 MILLIONS · xxxxxxx</span> <span id=\"txt_lvl7\">👑 TEN MILLIONS · xxxxxxxx</span> <span id=\"txt_lvl8\">🚀 HUNDRED MILLIONS · xxxxxxxxx</span></div><div id=\"chooserSetup\" class=\"chooser-setup\"><div class=\"tutor-panel\" id=\"setupTutorPanel\"><div class=\"tutor-header\"><span id=\"setupLevelBadge\" class=\"level-badge\">🔢 UNITS · x</span></div><div class=\"choose-number-panel\"><label id=\"chooseNumberLabel\" for=\"chosenNumberInput\">🎯 Choose a whole number (0 – 999999999; at most 9 columns):</label> <div class=\"choose-number-row\"><input id=\"chosenNumberInput\" type=\"text\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"123456789\" aria-describedby=\"chooseNumberLabel\" /> <button id=\"representBtn\" class=\"step-btn primary\">🎯 Represent</button> <button id=\"helpMeBtn\" class=\"step-btn\">Help me?</button></div> <div id=\"chooseError\" class=\"choose-error\"></div></div><div id=\"setupMessage\" class=\"step-message\"></div></div></div><div id=\"chooserGame\" class=\"htChooserHidden\"><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" tabindex=\"0\" role=\"application\" aria-label=\"Soroban and Suanpan interactive abacus. Use Left and Right arrows to choose a column, Up or 5 to toggle an upper bead, Down or 1 to toggle a lower bead, comma and period to move the decimal point, and 0 to clear the column.\" style=\"width:100%; height:auto; aspect-ratio:860/400; max-width:688px; margin:0 auto; display:block;\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div> <div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠</span><span id=\"warningText\">Number greater than 9</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset abacus</button></div><div class=\"tutor-panel\" id=\"tutorPanel\"> <div class=\"tutor-header\"> <div class=\"problem-box\" id=\"problemDisplay\">🎯 --</div><div style=\"display: flex; align-items: center; gap: 8px;\"> <span class=\"status-badge\" id=\"stepStatus\">🎲 Choose a number</span> <span id=\"levelBadge\" class=\"level-badge\">🔢 UNITS · x</span></div> <div style=\"display: flex; gap: 8px;\"> <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🔢 New number</button> <button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button></div></div> <div class=\"step-message\" id=\"stepMessage\">🧮 Choose a number above, then click 'Represent' to set it on the abacus. Move the decimal point (⚫) to the units column and activate the beads. If you can't, click 'Help me?'.</div> <div class=\"step-buttons\"><button id=\"gameHelpBtn\" class=\"step-btn\">Help me?</button><button id=\"nextStepBtn\" class=\"step-btn primary hidden\">➡ Next step</button></div> <div id=\"feedbackArea\" style=\"min-height: 70px;\"></div> </div><div class=\"footer\"> <div class=\"mode-selector\"> <span class=\"mode-label\">🧮 Abacus:</span> <button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban</button> <button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan</button> </div> <div class=\"info-area\"> </div> <div class=\"decimal-control\">⚫ Decimal point · marks the units column</div> </div> </div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

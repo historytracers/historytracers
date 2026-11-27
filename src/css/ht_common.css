@@ -893,6 +893,19 @@ ul {
   width: 50%;
 }
 
+/* Button wrapper for zoomable figures: resets the native button styling so the
+   image keeps the same layout it had when the click handler was on the image. */
+.htImageZoomButton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  line-height: 0;
+  cursor: zoom-in;
+}
+
 .imgcenterresponsive {
   display: block;
   margin-left: auto;

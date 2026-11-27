@@ -22,12 +22,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765768"
+      "1795739631"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -36,16 +38,28 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "text": "### Prerequisites\n\nWe recommend reading the previous texts first to enhance comprehension:\n\n- **I live on the planet...**: It is not only time that has different counts. When we speak of the planet we live on, we also have different ideas about it (<htcite0>)\n- **The Size of the Earth**: Text describing the first measurements of the planet's size (<htcite1>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "553b8a23-e672-775e-bddc-be325a8a8716",
-                     "text": "History Tracers Atlas",
-                     "page": "The Planet Earth",
+                     "uuid": "22080ce2-a428-493e-84f9-aebdbed90b0c",
+                     "text": "History Tracers Team",
+                     "page": "I live on the planet...",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7c7a3259-88e0-47b8-920c-9a5baacdb212",
+                     "text": "History Tracers Team",
+                     "page": "The Size of the Earth",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
                         "month": "",
                         "day": ""
                      }
@@ -60,10 +74,58 @@
          ]
       },
       {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nIn the previous texts, we studied how humans measured the size of the Earth (<htcite0>) and how different peoples drew maps with a specific region at the center (<htcite1>). However, the center of the Earth is not on its surface: it is inside the planet.\n\nIn this text, we will continue studying inside our planet.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7c7a3259-88e0-47b8-920c-9a5baacdb212",
+                     "text": "History Tracers Team",
+                     "page": "The Size of the Earth",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "22080ce2-a428-493e-84f9-aebdbed90b0c",
+                     "text": "History Tracers Team",
+                     "page": "I live on the planet...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: What is inside the Earth?</b><br /><br />Beyond what we can see, what do you think Earth has inside it?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<h3>Earth: A \"Living\" Planet</h3>When discussing maps, it is essential to consider geological time, as continents have not always existed in their present form. Besides the continental landmasses, we must also account for tectonic plate movements, which play a major role in the formation and transformation of visible land structures",
+               "text": "<h3>Earth: A \"Living\" Planet</h3>When discussing maps, it is essential to consider geological time, as continents have not always existed in their present form. Besides the continental landmasses, we must also account for tectonic plate movements, which play a major role in the formation and transformation of visible land structures (Figure 1)",
                "source": [
                   {
                      "type": 1,
@@ -95,6 +157,28 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><button type=\"button\" class=\"htImageZoomButton\" onclick=\"htImageZoom('imgTectonicPlates', '0%')\"><img id=\"imgTectonicPlates\" src=\"\" class=\"imgcenter\" alt=\"World map showing the tectonic plates as colored regions, with labels such as Eurasian, North American, Pacific, Nazca, South American, African, and Australian plates, and the Equator marked.\"/></button><b>Figure 1</b>: The tectonic plates divide the Earth's crust into distinct \"plates\" that are always slowly moving. Earthquakes are concentrated along these plate boundaries. © Earthquake Science Center (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "196ca955-cd62-4548-a527-ada3858d16ec",
+                     "text": "Tectonic Plates of Earth",
+                     "page": "Earthquake Science Center",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             },
             {
                "text": "Before continents settled into their current configuration, Earth went through periods dominated by supercontinents. One example is Gondwana, a massive landmass that included what are now South America (<i>Abya Yala</i>), Africa, India, Australia, and Antarctica. This supercontinent encompassed the region from which our species would later emerge: Africa",
@@ -167,7 +251,7 @@
                "PostMention": "."
             },
             {
-               "text": "Over millions of years, Gondwana joined with other landmasses to form the supercontinent Pangea. Eventually, Pangea began to break apart due to tectonic plate movement, a process that, according to the most widely accepted geological models, led to the formation of the continents as we know them today",
+               "text": "Over millions of years, Gondwana joined with other landmasses to form the supercontinent Pangea. Eventually, Pangea began to break apart due to tectonic plate movement, a process that, according to the most widely accepted geological models, led to the formation of the continents as we know them today (Figure 2)",
                "source": [
                   {
                      "type": 1,
@@ -199,6 +283,28 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><button type=\"button\" class=\"htImageZoomButton\" onclick=\"htImageZoom('imgUSGSPangea', '0%')\"><img id=\"imgUSGSPangea\" src=\"\" class=\"imgcenter\" alt=\"Three globes showing the breakup of Pangea: Middle Triassic 237 million years ago, Late Jurassic 152 million years ago, and the K/T Boundary 66 million years ago.\"/></button><b>Figure 2</b>: Breakup of Pangea: Middle Triassic (237 Ma), Late Jurassic (152 Ma), and K/T Boundary (66 Ma). © U.S. Geological Survey (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0d5310dc-12ba-4911-b451-ea98277fcffc",
+                     "text": "Breakup of Pangea",
+                     "page": "U.S. Geological Survey",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       }

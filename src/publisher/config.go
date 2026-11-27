@@ -52,7 +52,7 @@ var (
 )
 
 func HTParseArg() {
-	flag.BoolVar(&updateDateFlag, "timestamp", false, "Update the timestamp fields in all files. (default: false)")
+	flag.BoolVar(&updateDateFlag, "timestamp", false, "Update the timestamp fields in all files, including the sitemap lastmod values. (default: false)")
 	flag.BoolVar(&MinifyFlag, "minify", false, "Do not start the server, instead, minify all files. (default: false)")
 	flag.BoolVar(&GedcomFlag, "gedcom", false, "Do not start the server, instead, generate all gedcom files. (default: false)")
 	flag.BoolVar(&ValidateFlag, "validate", false, "Do not start the server, instead, validate JSON files. (default: false)")

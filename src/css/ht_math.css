@@ -1398,6 +1398,98 @@ canvas {
   display: none;
 }
 
+/* Number chosen by the user: input and action buttons */
+.choose-number-panel {
+  background: #3a2c24;
+  border: 1px solid #c4a86a;
+  border-radius: 20px;
+  padding: 10px 14px;
+  margin: 8px 0;
+  box-shadow: inset 0 0 0 1px #6a4e38;
+}
+
+.choose-number-panel label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+.choose-number-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.choose-number-row input {
+  flex: 1 1 180px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #2e241f;
+  background: #fff8e6;
+  border: 1px solid #c4a86a;
+  border-radius: 20px;
+}
+
+.choose-number-row .step-btn {
+  flex: 0 0 auto;
+}
+
+.choose-error {
+  min-height: 1.2em;
+  margin-top: 6px;
+  color: #ffb0a8;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* The number is chosen before the abacus is revealed. */
+.htChooserHidden {
+  display: none;
+}
+
+.chooser-setup {
+  max-width: 688px;
+  margin: 0 auto;
+}
+
+.chooser-setup .tutor-panel {
+  margin: 0;
+}
+
+.chooser-setup .tutor-header {
+  justify-content: center;
+}
+
+.chooser-setup #setupMessage {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  .choose-number-panel {
+    padding: 8px 10px;
+  }
+
+  .choose-number-row input {
+    flex-basis: 100%;
+  }
+
+  .choose-number-row .step-btn {
+    flex: 1 1 45%;
+    padding: 7px 10px;
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 720px) {
   .soroban-container {
     max-width: 95%;

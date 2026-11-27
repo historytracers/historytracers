@@ -827,9 +827,13 @@ func htSitemapAbsolute(path string) string {
 	return "https://www.historytracers.org/" + path
 }
 
+var sitemapURLLastmod = regexp.MustCompile(`<url><loc>([^<]+)</loc><lastmod>([^<]+)</lastmod></url>`)
+
 // htGenerateSitemap lists every page that should be available to search
 // engines and agents. It is regenerated during every minify run so new
-// content is picked up automatically.
+// content is picked up automatically; <lastmod> is only refreshed when a new
+// entry is added, existing entries keep their last known date unless the
+// -timestamp flag is also set.
 func htGenerateSitemap() {
 	urlSet := map[string]bool{
 		"/":                       true,
@@ -871,11 +875,31 @@ func htGenerateSitemap() {
 	}
 	sort.Strings(urls)
 
+	now := time.Now().UTC()
+	existing := map[string]string{}
+	// Read the published copy first so that the source copy, read last, wins
+	// for URLs present in both; generated-only URLs still fall back to www.
+	// With -timestamp, ignore the previous dates and stamp every URL with now.
+	if !updateDateFlag {
+		for _, path := range []string{CFG.ContentPath + "sitemap.xml", CFG.SrcPath + "sitemap.xml"} {
+			if data, err := os.ReadFile(path); err == nil {
+				for _, m := range sitemapURLLastmod.FindAllStringSubmatch(string(data), -1) {
+					existing[m[1]] = m[2]
+				}
+			}
+		}
+	}
+
 	var sitemap strings.Builder
 	sitemap.WriteString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
 	sitemap.WriteString("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n")
 	for _, page := range urls {
-		sitemap.WriteString("  <url><loc>" + strings.ReplaceAll(page, "&", "&amp;") + "</loc></url>\n")
+		loc := strings.ReplaceAll(page, "&", "&amp;")
+		lastmod := now.Format(time.RFC3339)
+		if existingLastmod, ok := existing[loc]; ok {
+			lastmod = existingLastmod
+		}
+		sitemap.WriteString("  <url><loc>" + loc + "</loc><lastmod>" + lastmod + "</lastmod></url>\n")
 	}
 	sitemap.WriteString("</urlset>\n")
 

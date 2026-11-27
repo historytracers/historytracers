@@ -22,12 +22,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782765779"
+      "1795739692"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -36,16 +38,28 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "### Pré-requisitos\n\nRecomendamos ler o texto anterior primeiro para melhorar a compreensão (<htcite0>).",
+               "text": "### Pré-requisitos\n\nRecomendamos ler os textos anteriores primeiro para melhorar a compreensão:\n\n- **Vivo no planeta...**: Não é somente o tempo que possui contagens diferentes. Ao falarmos do planeta em que vivemos, também temos diferentes ideias a respeito (<htcite0>)\n- **O tamanho da terra**: Texto que descreve as primeiras medidas do tamanho do planeta (<htcite1>)",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "553b8a23-e672-775e-bddc-be325a8a8716",
-                     "text": "History Tracers Atlas",
-                     "page": "O planeta Terra",
+                     "uuid": "22080ce2-a428-493e-84f9-aebdbed90b0c",
+                     "text": "History Tracers Team",
+                     "page": "Vivo no planeta...",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7c7a3259-88e0-47b8-920c-9a5baacdb212",
+                     "text": "History Tracers Team",
+                     "page": "O tamanho da terra",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
                         "month": "",
                         "day": ""
                      }
@@ -60,10 +74,58 @@
          ]
       },
       {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nNos textos anteriores, estudamos como os seres humanos mediram o tamanho da Terra (<htcite0>) e como diferentes povos desenharam mapas colocando uma região específica no centro (<htcite1>). No entanto, o centro da Terra não está em sua superfície: ele está em seu interior.\n\nNeste texto, continuaremos estudando o interior do nosso planeta.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7c7a3259-88e0-47b8-920c-9a5baacdb212",
+                     "text": "History Tracers Team",
+                     "page": "O tamanho da terra",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "22080ce2-a428-493e-84f9-aebdbed90b0c",
+                     "text": "History Tracers Team",
+                     "page": "Vivo no planeta...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: O que há dentro da Terra?</b><br /><br />Além do que podemos ver, o que você acha que a Terra tem em seu interior?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
          "id": "SECTION_local_content",
          "text": [
             {
-               "text": "<h3>A Terra: Um Planeta \"Vivo\"</h3>Ao falarmos sobre mapas, é essencial considerar o tempo geológico, pois os continentes como os conhecemos hoje nem sempre existiram. Além das próprias massas continentais, devemos também levar em conta a influência das placas tectônicas na formação e na transformação das estruturas visíveis",
+               "text": "<h3>A Terra: Um Planeta \"Vivo\"</h3>Ao falarmos sobre mapas, é essencial considerar o tempo geológico, pois os continentes como os conhecemos hoje nem sempre existiram. Além das próprias massas continentais, devemos também levar em conta a influência das placas tectônicas na formação e na transformação das estruturas visíveis (Figura 1)",
                "source": [
                   {
                      "type": 1,
@@ -95,6 +157,28 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><button type=\"button\" class=\"htImageZoomButton\" onclick=\"htImageZoom('imgTectonicPlates', '0%')\"><img id=\"imgTectonicPlates\" src=\"\" class=\"imgcenter\" alt=\"Mapa-múndi que mostra as placas tectônicas como regiões coloridas, com rótulos como placas Eurasiática, Norte-Americana, Pacífica, de Nazca, Sul-Americana, Africana e Australiana, e o equador indicado.\"/></button><b>Figura 1</b>: As placas tectônicas dividem a crosta terrestre em distintas \"placas\" que estão sempre se movendo lentamente. Os terremotos se concentram ao longo desses limites de placas. © Earthquake Science Center (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "196ca955-cd62-4548-a527-ada3858d16ec",
+                     "text": "Tectonic Plates of Earth",
+                     "page": "Earthquake Science Center",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             },
             {
                "text": "Antes da configuração atual dos continentes, a Terra passou por períodos de supercontinentes. Um exemplo é Gondwana, uma imensa massa de terra que incluía as atuais regiões da América do Sul (<i>Abya Yala</i>), África, Índia, Austrália e Antártica. Esse supercontinente abrigava, inclusive, o continente onde nossa espécie surgiu: a África",
@@ -167,7 +251,7 @@
                "PostMention": "."
             },
             {
-               "text": "Após milhões de anos, Gondwana se uniu a outras massas de terra, formando o supercontinente Pangeia. Posteriormente, Pangeia se fragmentou devido ao movimento das placas tectônicas, segundo o modelo geológico mais aceito, dando origem aos continentes que conhecemos atualmente",
+               "text": "Após milhões de anos, Gondwana se uniu a outras massas de terra, formando o supercontinente Pangeia. Posteriormente, Pangeia se fragmentou devido ao movimento das placas tectônicas, segundo o modelo geológico mais aceito, dando origem aos continentes que conhecemos atualmente (Figura 2)",
                "source": [
                   {
                      "type": 1,
@@ -199,6 +283,28 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><button type=\"button\" class=\"htImageZoomButton\" onclick=\"htImageZoom('imgUSGSPangea', '0%')\"><img id=\"imgUSGSPangea\" src=\"\" class=\"imgcenter\" alt=\"Três globos que mostram a fragmentação da Pangeia: Triássico Médio há 237 milhões de anos, Jurássico Tardio há 152 milhões de anos e o limite K/T há 66 milhões de anos.\"/></button><b>Figura 2</b>: Fragmentação da Pangeia: Triássico Médio (237 Ma), Jurássico Tardio (152 Ma) e o limite K/T (66 Ma). © U.S. Geological Survey (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0d5310dc-12ba-4911-b451-ea98277fcffc",
+                     "text": "Breakup of Pangea",
+                     "page": "U.S. Geological Survey",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       }
