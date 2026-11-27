@@ -14,7 +14,7 @@
       }
    ],
    "last_update": [
-      "1795455546"
+      "1795812357"
    ],
    "sources": [
       "atlas"
@@ -484,14 +484,6 @@
             {
                "family_id": "",
                "person_id": "",
-               "id": "1e6500ab-f416-449a-a175-3e13b7c269a0",
-               "name": "Map Projections",
-               "desc": "Study of how to perform cartographic projections.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
                "id": "67a4d43b-5d13-409e-9937-d255a49da844",
                "name": "Continent: Antarctica",
                "desc": "Location of the Antarctic continent on the planet.",
@@ -549,13 +541,60 @@
          "date_time": null
       },
       {
+         "id": "proj_header",
+         "target": "class-proj",
+         "page": "",
+         "value_type": "",
+         "html_value": [
+            {
+               "text": "Chapter 6: Projection",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ],
+         "source": null,
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "groups_proj",
+         "target": "class-proj",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": null,
+         "source": null,
+         "value": [
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "1e6500ab-f416-449a-a175-3e13b7c269a0",
+               "name": "Map Projections",
+               "desc": "Study of how to perform cartographic projections.",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "23107400-ac34-4e64-855a-c1832fcc0b83",
+               "name": "The Myth of a Flat Earth",
+               "desc": "The recent invention that Earth was always considered flat.",
+               "date_time": null
+            }
+         ],
+         "date_time": null
+      },
+      {
          "id": "hist_header",
          "target": "class-hist",
          "page": "",
          "value_type": "",
          "html_value": [
             {
-               "text": "Chapter 6: Peoples and Civilizations",
+               "text": "Chapter 7: Peoples and Civilizations",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -694,14 +733,6 @@
                "id": "98e6cd73-92bc-4d64-be97-9fda8bc85103",
                "name": "Comparing Worlds",
                "desc": "Comparison between the world understood by the Babylonians and our current world.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "23107400-ac34-4e64-855a-c1832fcc0b83",
-               "name": "The Myth of a Flat Earth",
-               "desc": "The recent invention that Earth was always considered flat.",
                "date_time": null
             }
          ],
