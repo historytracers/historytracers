@@ -467,30 +467,30 @@ function htSchyotyComputeLayout() {
     localSchyotyController.W = cvs.width;
     localSchyotyController.H = cvs.height;
 
-    const M = { top: 16, bottom: 14, left: 14, right: 14 };
-    localSchyotyController.M = M;
+    // Landscape board with compact rows, matching the Schyoty layout in
+    // f91d9720-3085-4e71-ae5d-7e7cf6b7b7b2.
+    const topMargin = 20;
+    const bottomMargin = 30;
+    const wireL = 14;
+    const wireR = localSchyotyController.W - wireL;
+    localSchyotyController.wireL = wireL;
+    localSchyotyController.wireR = wireR;
 
-    localSchyotyController.wireL = M.left;
-    localSchyotyController.wireR = localSchyotyController.W - M.right;
-    const wireLen = localSchyotyController.wireR - localSchyotyController.wireL;
-
-    const areaH = localSchyotyController.H - M.top - M.bottom;
-    const rowSp = areaH / (localSchyotyController.ROWS + 1);
+    const rowSp = (localSchyotyController.H - topMargin - bottomMargin) / (localSchyotyController.ROWS - 1);
     localSchyotyController.rowSp = rowSp;
-
     localSchyotyController.rowY = [];
     for (let r = 0; r < localSchyotyController.ROWS; r++) {
-        localSchyotyController.rowY.push(M.top + rowSp * (localSchyotyController.ROWS - r));
+        localSchyotyController.rowY.push(localSchyotyController.H - bottomMargin - r * rowSp);
     }
 
-    let rMax = Math.min(wireLen / (localSchyotyController.BEADS_PER_ROW * 2.6), rowSp * 0.38, 15);
-    rMax = Math.max(rMax, 7);
+    const beadSpace = (wireR - wireL) / (localSchyotyController.BEADS_PER_ROW + 1);
+    let rMax = Math.min(beadSpace * 0.4, rowSp * 0.4, 18);
+    rMax = Math.max(rMax, 8);
     localSchyotyController.beadR = rMax;
-    localSchyotyController.beadGap = rMax * 0.3;
-    localSchyotyController.beadStep = rMax * 2 + localSchyotyController.beadGap;
+    localSchyotyController.beadStep = rMax * 2;
 
-    localSchyotyController.activeX0 = localSchyotyController.wireL + rMax;
-    localSchyotyController.inactiveX0 = localSchyotyController.wireR - rMax;
+    localSchyotyController.activeX0 = wireL + rMax + 2;
+    localSchyotyController.inactiveX0 = wireR - rMax - 2;
 }
 
 function htSchyotyTotalValue() {
