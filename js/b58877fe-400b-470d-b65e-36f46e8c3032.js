@@ -219,8 +219,9 @@ function htChosenIntegerSetStepVisibility(show) {
     else nextStepBtn.classList.add('hidden');
 }
 
-// "Help me?" is offered while the chosen number is waiting on the board. It is
-// hidden as soon as the user starts setting beads or enters the guided steps.
+// "Help me?" is offered while the chosen number is waiting on the board. It
+// stays available for the whole unsolved challenge and is only hidden when
+// guided help starts or the challenge succeeds.
 function htChosenIntegerSetHelpVisibility(show) {
     const helpBtn = document.getElementById('gameHelpBtn');
     if (!helpBtn) return;
@@ -230,7 +231,7 @@ function htChosenIntegerSetHelpVisibility(show) {
 
 function htChosenIntegerHideHelpAfterInteraction() {
     const ctl = localChosenIntegerController;
-    if (!ctl.helpMode && ctl.number && !ctl.solved) htChosenIntegerSetHelpVisibility(false);
+    if (ctl.helpMode || ctl.solved || !ctl.number) htChosenIntegerSetHelpVisibility(false);
 }
 
 // The number is chosen on its own screen: the abacus is only revealed once a
@@ -300,7 +301,6 @@ function htChosenIntegerStartChallenge() {
     ctl.steps = htChosenIntegerBuildSteps();
     ctl.currentStepIdx = 0;
     ctl.stepCompleted = false;
-    htChosenIntegerClearAbacus();
     htChosenIntegerShowProblem();
     htChosenIntegerShowChallengePrompt();
     const feedback = document.getElementById('feedbackArea');
@@ -309,6 +309,10 @@ function htChosenIntegerStartChallenge() {
     htChosenIntegerSetControlButtonsVisibility(true);
     htChosenIntegerSetStepVisibility(false);
     htChosenIntegerSetHelpVisibility(true);
+    // Clear the board last: clearing triggers the board-change check, so the
+    // challenge UI must already be in place. This keeps the prompt for nonzero
+    // targets and the success message when the chosen number is 0.
+    htChosenIntegerClearAbacus();
 }
 
 function htChosenIntegerMatchesTarget() {

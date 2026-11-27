@@ -902,7 +902,7 @@ function htSorobanColumnPlaceKey(col) {
     const integerKeys = ["units", "tens", "hundreds", "thousands", "tenthousands",
         "hundredthousands", "million", "tenmillions", "hundredmillions"];
     const decimalKeys = ["tenths", "hundredths", "thousandths", "tenthousandths",
-        "hundredthousandths"];
+        "hundredthousandths", "millionths", "tenmillionths", "hundredmillionths"];
     if (diff === 0) return "units";
     if (diff > 0) return integerKeys[diff] || null;
     return decimalKeys[-diff - 1] || null;

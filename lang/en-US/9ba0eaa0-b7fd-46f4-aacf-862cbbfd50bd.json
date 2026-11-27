@@ -22,12 +22,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795736296"
+      "1795739631"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -157,7 +159,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgTectonicPlates\" onclick=\"htImageZoom('imgTectonicPlates', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: The tectonic plates divide the Earth's crust into distinct \"plates\" that are always slowly moving. Earthquakes are concentrated along these plate boundaries. © Earthquake Science Center (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><button type=\"button\" class=\"htImageZoomButton\" onclick=\"htImageZoom('imgTectonicPlates', '0%')\"><img id=\"imgTectonicPlates\" src=\"\" class=\"imgcenter\" alt=\"World map showing the tectonic plates as colored regions, with labels such as Eurasian, North American, Pacific, Nazca, South American, African, and Australian plates, and the Equator marked.\"/></button><b>Figure 1</b>: The tectonic plates divide the Earth's crust into distinct \"plates\" that are always slowly moving. Earthquakes are concentrated along these plate boundaries. © Earthquake Science Center (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -283,7 +285,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgUSGSPangea\" onclick=\"htImageZoom('imgUSGSPangea', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 2</b>: Breakup of Pangea: Middle Triassic (237 Ma), Late Jurassic (152 Ma), and K/T Boundary (66 Ma). © U.S. Geological Survey (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><button type=\"button\" class=\"htImageZoomButton\" onclick=\"htImageZoom('imgUSGSPangea', '0%')\"><img id=\"imgUSGSPangea\" src=\"\" class=\"imgcenter\" alt=\"Three globes showing the breakup of Pangea: Middle Triassic 237 million years ago, Late Jurassic 152 million years ago, and the K/T Boundary 66 million years ago.\"/></button><b>Figure 2</b>: Breakup of Pangea: Middle Triassic (237 Ma), Late Jurassic (152 Ma), and K/T Boundary (66 Ma). © U.S. Geological Survey (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,

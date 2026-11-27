@@ -22,12 +22,14 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1795736349"
+      "1795739692"
    ],
    "authors": [
       ""
    ],
-   "reviewers": [],
+   "reviewers": [
+      "CodeRabbit"
+   ],
    "type": "class",
    "version": 2,
    "editing": false,
@@ -157,7 +159,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgTectonicPlates\" onclick=\"htImageZoom('imgTectonicPlates', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: As placas tectônicas dividem a crosta terrestre em distintas \"placas\" que estão sempre se movendo lentamente. Os terremotos se concentram ao longo desses limites de placas. © Earthquake Science Center (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><button type=\"button\" class=\"htImageZoomButton\" onclick=\"htImageZoom('imgTectonicPlates', '0%')\"><img id=\"imgTectonicPlates\" src=\"\" class=\"imgcenter\" alt=\"Mapa-múndi que mostra as placas tectônicas como regiões coloridas, com rótulos como placas Eurasiática, Norte-Americana, Pacífica, de Nazca, Sul-Americana, Africana e Australiana, e o equador indicado.\"/></button><b>Figura 1</b>: As placas tectônicas dividem a crosta terrestre em distintas \"placas\" que estão sempre se movendo lentamente. Os terremotos se concentram ao longo desses limites de placas. © Earthquake Science Center (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,
@@ -283,7 +285,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgUSGSPangea\" onclick=\"htImageZoom('imgUSGSPangea', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 2</b>: Fragmentação da Pangeia: Triássico Médio (237 Ma), Jurássico Tardio (152 Ma) e o limite K/T (66 Ma). © U.S. Geological Survey (<htcite0>).</p>",
+               "text": "<p class=\"desc\"><button type=\"button\" class=\"htImageZoomButton\" onclick=\"htImageZoom('imgUSGSPangea', '0%')\"><img id=\"imgUSGSPangea\" src=\"\" class=\"imgcenter\" alt=\"Três globos que mostram a fragmentação da Pangeia: Triássico Médio há 237 milhões de anos, Jurássico Tardio há 152 milhões de anos e o limite K/T há 66 milhões de anos.\"/></button><b>Figura 2</b>: Fragmentação da Pangeia: Triássico Médio (237 Ma), Jurássico Tardio (152 Ma) e o limite K/T (66 Ma). © U.S. Geological Survey (<htcite0>).</p>",
                "source": [
                   {
                      "type": 1,

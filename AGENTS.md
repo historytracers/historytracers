@@ -67,7 +67,7 @@ The repository root contains static files used by search engines, agents and AI 
 | File | Update when |
 | --- | --- |
 | `robots.txt` | Crawl policy, `Content-Signal`, domain, or sitemap URL changes. |
-| `sitemap.xml` | **Generated automatically** by `-minify` from `lang/en-US/*.json`; do not hand-edit. New UUID content is picked up automatically. If a new page type or index file is added, update `htSitemapInternalPages` / `htSitemapNonUUIDPages` in `src/publisher/minify.go` and regenerate. Whenever the sitemap is updated or regenerated, also update the `<lastmod>` date for each URL so agents know what changed. |
+| `sitemap.xml` | **Generated automatically** by `-minify` from `lang/en-US/*.json`; do not hand-edit. New UUID content is picked up automatically. If a new page type or index file is added, update `htSitemapInternalPages` / `htSitemapNonUUIDPages` in `src/publisher/minify.go` and regenerate. `htGenerateSitemap` preserves existing `<lastmod>` values and uses the current date only for new URLs; to refresh every timestamp run `build/historytracers-publisher -timestamp -minify`. |
 | `llms.txt` | Project description, primary navigation, license, contact details, email or social profiles change. |
 | `index.md` | Same facts as `llms.txt`, plus the Markdown representation of the homepage changes. |
 | `index.html` | Meta description, canonical URL, JSON-LD (`Organization`/`WebSite`/`CollectionPage`, `sameAs`, `contactPoint`), Markdown alternate link, the single `<h1>`, footer links or the WebMCP tool registration change. |
@@ -82,7 +82,7 @@ When updating these files:
 4. Validate JSON with `python3 -c "import json; json.load(open('<file>'))"` and XML with `python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml')"`.
 5. Run `build/historytracers-publisher -globalangtest` and `-checksources`.
 6. Run `build/historytracers-publisher -minify`, then confirm `robots.txt`, `llms.txt`, `index.md`, `.htaccess`, `.well-known/mcp/server-card.json` and `sitemap.xml` match their `www/` copies.
-7. Whenever the sitemap is updated or regenerated, also update the `<lastmod>` date for each URL so agents know what changed; verify each `<url>` entry includes a `<lastmod>` element.
+7. When the sitemap is regenerated, `htGenerateSitemap` keeps the existing `<lastmod>` values and dates only new URLs, so existing timestamps do not move. To advance every `<lastmod>` to the current time, run `build/historytracers-publisher -timestamp -minify`; never hand-edit `sitemap.xml`. After regeneration, verify each `<url>` entry includes a `<lastmod>` element.
 8. Render the homepage with headless Chromium at ~320px, ~768px and desktop widths and confirm `scrollWidth <= clientWidth`.
 9. Do not commit or push; leave the changes for human review.
 

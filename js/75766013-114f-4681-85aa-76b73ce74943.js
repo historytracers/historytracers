@@ -250,8 +250,9 @@ function htChooserSetStepVisibility(show) {
     else nextStepBtn.classList.add('hidden');
 }
 
-// "Help me?" is offered while the chosen number is waiting on the board. It is
-// hidden as soon as the user starts setting beads or enters the guided steps.
+// "Help me?" is offered while the chosen number is waiting on the board. It
+// stays available for the whole unsolved challenge and is only hidden when
+// guided help starts or the challenge succeeds.
 function htChooserSetHelpVisibility(show) {
     const helpBtn = document.getElementById('gameHelpBtn');
     if (!helpBtn) return;
@@ -261,7 +262,7 @@ function htChooserSetHelpVisibility(show) {
 
 function htChooserHideHelpAfterInteraction() {
     const ctl = localChosenNumberController;
-    if (!ctl.helpMode && ctl.number && !ctl.solved) htChooserSetHelpVisibility(false);
+    if (ctl.helpMode || ctl.solved || !ctl.number) htChooserSetHelpVisibility(false);
 }
 
 // The number is chosen on its own screen: the abacus is only revealed once a
