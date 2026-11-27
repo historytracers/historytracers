@@ -9,21 +9,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History Tracers</title>
   <meta name="description" content="History Tracers is a free, open-source educational project teaching mathematics, science, history and genealogy through culture, games and primary sources.">
+  <link rel="canonical" id="htCanonical" href="https://www.historytracers.org/">
   <script type="text/javascript">
     // The site is a single-page application, so every content page is served
-    // by index.html with query parameters. Create a self-referencing canonical
-    // for the requested content page; otherwise every page would inherit the
-    // homepage canonical and be reported as an alternate of the homepage.
+    // by index.html with query parameters. Keep the canonical link in sync
+    // with the requested page; the homepage keeps its self-referencing
+    // canonical so agents can identify and deduplicate the page.
     (function () {
       var head = document.head || document.getElementsByTagName("head")[0];
       if (!head) {
         return;
       }
-      var canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      canonical.setAttribute("id", "htCanonical");
+      var canonical = document.getElementById("htCanonical");
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.setAttribute("rel", "canonical");
+        canonical.setAttribute("id", "htCanonical");
+        head.appendChild(canonical);
+      }
       canonical.setAttribute("href", "https://www.historytracers.org/");
-      head.appendChild(canonical);
       var page = null;
       var arg = null;
       try {
@@ -59,6 +63,8 @@
         "logo": "https://www.historytracers.org/images/HistoryTracers/Icon.png",
         "description": "A free, open-source educational project teaching mathematics, science, history and genealogy through culture, games and primary sources.",
         "email": "contact@historytracers.org",
+        "telephone": null,
+        "address": null,
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "contact@historytracers.org",
@@ -327,9 +333,9 @@
     </div>
     <footer class="ht-footer" aria-label="Site information">
         <nav class="ht-footer-nav" aria-label="About, contact and legal">
-            <a href="index.html?page=class_content&arg=main" target="_blank" id="sbAbout"></a>
-            <a href="index.html?page=contact" target="_blank" id="sbContact2"></a>
-            <a href="index.html?page=license" target="_blank" id="sbLicense2"></a>
+            <a href="index.html?page=class_content&arg=main" target="_blank" id="sbAbout">About</a>
+            <a href="index.html?page=contact" target="_blank" id="sbContact2">Contact</a>
+            <a href="index.html?page=license" target="_blank" id="sbLicense2">Terms and license</a>
         </nav>
         <p class="ht-footer-contact">Email: <a href="mailto:contact@historytracers.org">contact@historytracers.org</a></p>
     </footer>
