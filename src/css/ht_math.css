@@ -6245,6 +6245,20 @@ p.desc svg {
   border-color: #2a2a3a;
 }
 
+.htBoardCounterLight {
+  background: #f0d9a8;
+  border-color: #8a6a4a;
+}
+
+.htBoardCounterDark {
+  background: #4c5a66;
+  border-color: #26323a;
+}
+
+.htBoardCounterGridSchyoty {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
 .htBoardCardGridLong .htBoardCardNumber {
   font-size: clamp(0.85rem, 2.8vw, 1.5rem);
   line-height: 1.05;
@@ -6263,6 +6277,16 @@ p.desc svg {
   .htBoardCounter {
     height: auto;
     width: min(8mm, 100%);
+  }
+
+  .htBoardCounterGridSchyoty {
+    gap: 0.25em;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .htBoardCounterGridSchyoty .htBoardCounter {
+    height: auto;
+    width: 100%;
   }
 }
 
@@ -6287,6 +6311,10 @@ p.desc svg {
     gap: 4mm;
     grid-template-columns: repeat(9, 8mm);
     max-width: none;
+  }
+
+  .htBoardCounterGridSchyoty {
+    grid-template-columns: repeat(10, 8mm);
   }
 
   .htBoardCounter {
