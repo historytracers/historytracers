@@ -65,21 +65,25 @@ function htSchyotyUpdateDisplay() {
     if (sp) sp.innerText = htSchyotyTotalValue().toString();
 
     const cmp = document.getElementById('schyotyCMP');
-    if (cmp) {
-        const val = htSchyotyTotalValue();
-        const sv = document.getElementById('schyotySuccess');
-        if (sv) {
-            if (val.toString() === cmp.innerText.trim()) {
-                sv.style.display = 'inline'; sv.style.visibility = 'visible';
-                if (localSchyotyController.currentTargetLevel === localSchyotyController.ROWS - 1) {
-                    const fb = document.getElementById('feedbackArea');
-                    const msg = document.getElementById('txt_finalLevelMessage');
-                    if (fb && msg) fb.innerHTML = '<div class="congrats">' + msg.innerHTML + '</div>';
-                }
-            } else {
-                sv.style.display = 'none'; sv.style.visibility = 'hidden';
+    if (!cmp) return;
+
+    const val = htSchyotyTotalValue();
+    const target = cmp.innerText.trim();
+    const sv = document.getElementById('schyotySuccess');
+    const fb = document.getElementById('feedbackArea');
+
+    if (val.toString() === target) {
+        if (sv) { sv.style.display = 'inline'; sv.style.visibility = 'visible'; }
+        if (fb) {
+            const isFinal = localSchyotyController.currentTargetLevel === localSchyotyController.ROWS - 1;
+            const msg = document.getElementById(isFinal ? 'txt_finalLevelMessage' : 'txt_congratsMessage');
+            if (msg) {
+                fb.innerHTML = '<div class="congrats">' + msg.innerHTML.replace('{number}', target) + '</div>';
             }
         }
+    } else {
+        if (sv) { sv.style.display = 'none'; sv.style.visibility = 'hidden'; }
+        if (fb) fb.innerHTML = '';
     }
 }
 
@@ -187,21 +191,29 @@ function htSchyotyDrawBead(ctx, x, y, active, idx) {
 
 function htSchyotyHitTest(mx, my) {
     const r = localSchyotyController.beadR;
-    for (let row = 0; row < localSchyotyController.ROWS; row++) {
-        const y = localSchyotyController.rowY[row];
-        if (Math.abs(my - y) > r + 10) continue;
 
-        const cnt = localSchyotyController.state[row];
-
-        for (let p = 0; p < cnt; p++) {
-            const x = localSchyotyController.activeX0 + p * localSchyotyController.beadStep;
-            if (Math.abs(mx - x) < r + 5) return { row, pos: p, side: 'active' };
+    // Find the row nearest the click first, so a click can only select one row.
+    let row = -1;
+    let nearest = Infinity;
+    for (let i = 0; i < localSchyotyController.ROWS; i++) {
+        const d = Math.abs(my - localSchyotyController.rowY[i]);
+        if (d < nearest) {
+            nearest = d;
+            row = i;
         }
+    }
+    if (row < 0 || nearest > r + 10) return null;
 
-        for (let p = 0; p < localSchyotyController.BEADS_PER_ROW - cnt; p++) {
-            const x = localSchyotyController.inactiveX0 - p * localSchyotyController.beadStep;
-            if (Math.abs(mx - x) < r + 5) return { row, pos: p, side: 'inactive' };
-        }
+    const cnt = localSchyotyController.state[row];
+
+    for (let p = 0; p < cnt; p++) {
+        const x = localSchyotyController.activeX0 + p * localSchyotyController.beadStep;
+        if (Math.abs(mx - x) < r + 5) return { row, pos: p, side: 'active' };
+    }
+
+    for (let p = 0; p < localSchyotyController.BEADS_PER_ROW - cnt; p++) {
+        const x = localSchyotyController.inactiveX0 - p * localSchyotyController.beadStep;
+        if (Math.abs(mx - x) < r + 5) return { row, pos: p, side: 'inactive' };
     }
     return null;
 }

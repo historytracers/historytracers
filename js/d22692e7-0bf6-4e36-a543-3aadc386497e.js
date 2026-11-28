@@ -164,12 +164,6 @@ function htChosenSchyotySetHelpVisibility(show) {
     else helpBtn.classList.add('hidden');
 }
 
-function htChosenSchyotyHideHelpAfterInteraction() {
-    const ctl = localChosenSchyotyController;
-    if (ctl.helpMode || ctl.solved || !ctl.active) return;
-    htChosenSchyotySetHelpVisibility(false);
-}
-
 function htChosenSchyotySetSuccessVisible(show) {
     const sv = document.getElementById('schyotySuccess');
     if (!sv) return;
@@ -545,6 +539,8 @@ function htSchyotyRender() {
     for (let r = 0; r < localSchyotyController.ROWS; r++) {
         htSchyotyDrawRow(r, ctx);
     }
+
+    htSchyotyDrawKeyboardFocus(ctx);
 }
 
 function htSchyotyDrawRow(r, ctx) {
@@ -617,21 +613,29 @@ function htSchyotyDrawBead(ctx, x, y, active, idx) {
 
 function htSchyotyHitTest(mx, my) {
     const r = localSchyotyController.beadR;
-    for (let row = 0; row < localSchyotyController.ROWS; row++) {
-        const y = localSchyotyController.rowY[row];
-        if (Math.abs(my - y) > r + 10) continue;
 
-        const cnt = localSchyotyController.state[row];
-
-        for (let p = 0; p < cnt; p++) {
-            const x = localSchyotyController.activeX0 + p * localSchyotyController.beadStep;
-            if (Math.abs(mx - x) < r + 5) return { row, pos: p, side: 'active' };
+    // Find the row nearest the click first, so a click can only select one row.
+    let row = -1;
+    let nearest = Infinity;
+    for (let i = 0; i < localSchyotyController.ROWS; i++) {
+        const d = Math.abs(my - localSchyotyController.rowY[i]);
+        if (d < nearest) {
+            nearest = d;
+            row = i;
         }
+    }
+    if (row < 0 || nearest > r + 10) return null;
 
-        for (let p = 0; p < localSchyotyController.BEADS_PER_ROW - cnt; p++) {
-            const x = localSchyotyController.inactiveX0 - p * localSchyotyController.beadStep;
-            if (Math.abs(mx - x) < r + 5) return { row, pos: p, side: 'inactive' };
-        }
+    const cnt = localSchyotyController.state[row];
+
+    for (let p = 0; p < cnt; p++) {
+        const x = localSchyotyController.activeX0 + p * localSchyotyController.beadStep;
+        if (Math.abs(mx - x) < r + 5) return { row, pos: p, side: 'active' };
+    }
+
+    for (let p = 0; p < localSchyotyController.BEADS_PER_ROW - cnt; p++) {
+        const x = localSchyotyController.inactiveX0 - p * localSchyotyController.beadStep;
+        if (Math.abs(mx - x) < r + 5) return { row, pos: p, side: 'inactive' };
     }
     return null;
 }
@@ -643,9 +647,90 @@ function htSchyotyToggle(hit) {
     } else {
         localSchyotyController.state[hit.row] = localSchyotyController.BEADS_PER_ROW - hit.pos;
     }
-    htChosenSchyotyHideHelpAfterInteraction();
     htSchyotyRender();
     htSchyotyUpdateDisplay();
+}
+
+// Keyboard focus: the canvas itself is focusable, and the arrow keys move a
+// row/bead cursor so the board can be operated without a pointer.
+function htSchyotyFocusedBeadX() {
+    const ctl = localSchyotyController;
+    const cnt = ctl.state[ctl.focusedRow];
+    if (ctl.focusedPos < cnt) {
+        return ctl.activeX0 + ctl.focusedPos * ctl.beadStep;
+    }
+    const p = ctl.BEADS_PER_ROW - 1 - ctl.focusedPos;
+    return ctl.inactiveX0 - p * ctl.beadStep;
+}
+
+function htSchyotyDrawKeyboardFocus(ctx) {
+    const ctl = localSchyotyController;
+    if (!ctl.keyboardFocused) return;
+    const row = ctl.focusedRow;
+    if (row < 0 || row >= ctl.ROWS) return;
+    const y = ctl.rowY[row];
+    const half = ctl.rowSp * 0.45;
+    ctx.save();
+    ctx.fillStyle = 'rgba(247, 179, 43, 0.16)';
+    ctx.strokeStyle = '#f7b32b';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    if (typeof ctx.roundRect === 'function') {
+        ctx.roundRect(ctl.wireL - 6, y - half, ctl.wireR - ctl.wireL + 12, half * 2, 8);
+    } else {
+        ctx.rect(ctl.wireL - 6, y - half, ctl.wireR - ctl.wireL + 12, half * 2);
+    }
+    ctx.fill();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(htSchyotyFocusedBeadX(), y, ctl.beadR + 4, 0, Math.PI * 2);
+    ctx.strokeStyle = '#1f2a0e';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([4, 3]);
+    ctx.stroke();
+    ctx.restore();
+}
+
+function htSchyotyToggleFocusedBead() {
+    const ctl = localSchyotyController;
+    const cnt = ctl.state[ctl.focusedRow];
+    if (ctl.focusedPos < cnt) {
+        htSchyotyToggle({ row: ctl.focusedRow, pos: ctl.focusedPos, side: 'active' });
+    } else {
+        const pos = ctl.BEADS_PER_ROW - 1 - ctl.focusedPos;
+        htSchyotyToggle({ row: ctl.focusedRow, pos: pos, side: 'inactive' });
+    }
+}
+
+function htSchyotyHandleKeydown(e) {
+    const ctl = localSchyotyController;
+    if (e.key === 'ArrowUp') {
+        ctl.focusedRow = Math.min(ctl.ROWS - 1, ctl.focusedRow + 1);
+    } else if (e.key === 'ArrowDown') {
+        ctl.focusedRow = Math.max(0, ctl.focusedRow - 1);
+    } else if (e.key === 'ArrowLeft') {
+        ctl.focusedPos = Math.max(0, ctl.focusedPos - 1);
+    } else if (e.key === 'ArrowRight') {
+        ctl.focusedPos = Math.min(ctl.BEADS_PER_ROW - 1, ctl.focusedPos + 1);
+    } else if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        htSchyotyToggleFocusedBead();
+        e.preventDefault();
+        return;
+    } else {
+        return;
+    }
+    e.preventDefault();
+    htSchyotyRender();
+}
+
+function htSchyotyHandleFocus() {
+    localSchyotyController.keyboardFocused = true;
+    htSchyotyRender();
+}
+
+function htSchyotyHandleBlur() {
+    localSchyotyController.keyboardFocused = false;
+    htSchyotyRender();
 }
 
 function htChosenSchyotyClearBoard() {
@@ -704,6 +789,10 @@ function htSchyotyBindEvents() {
     if (!cvs) return;
     cvs.addEventListener('click', htSchyotyHandleClick);
     cvs.addEventListener('touchstart', htSchyotyHandleClick, { passive: false });
+    cvs.setAttribute('tabindex', '0');
+    cvs.addEventListener('keydown', htSchyotyHandleKeydown);
+    cvs.addEventListener('focus', htSchyotyHandleFocus);
+    cvs.addEventListener('blur', htSchyotyHandleBlur);
 
     const rb = document.getElementById('schyotyResetBtn');
     if (rb) rb.addEventListener('click', htChosenSchyotyResetBoard);
@@ -719,6 +808,10 @@ function htChosenSchyotyInit() {
     if (!localSchyotyController.canvas) return;
     localSchyotyController.ctx = localSchyotyController.canvas.getContext('2d');
     if (!localSchyotyController.ctx) return;
+
+    localSchyotyController.focusedRow = 0;
+    localSchyotyController.focusedPos = 0;
+    localSchyotyController.keyboardFocused = false;
 
     const cols = document.getElementById('schyotyCols');
     if (cols) {
