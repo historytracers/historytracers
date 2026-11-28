@@ -6245,6 +6245,20 @@ p.desc svg {
   border-color: #2a2a3a;
 }
 
+.htBoardCounterLight {
+  background: #f0d9a8;
+  border-color: #8a6a4a;
+}
+
+.htBoardCounterDark {
+  background: #4c5a66;
+  border-color: #26323a;
+}
+
+.htBoardCounterGridSchyoty {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
 .htBoardCardGridLong .htBoardCardNumber {
   font-size: clamp(0.85rem, 2.8vw, 1.5rem);
   line-height: 1.05;
@@ -6263,6 +6277,16 @@ p.desc svg {
   .htBoardCounter {
     height: auto;
     width: min(8mm, 100%);
+  }
+
+  .htBoardCounterGridSchyoty {
+    gap: 0.25em;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .htBoardCounterGridSchyoty .htBoardCounter {
+    height: auto;
+    width: 100%;
   }
 }
 
@@ -6289,6 +6313,10 @@ p.desc svg {
     max-width: none;
   }
 
+  .htBoardCounterGridSchyoty {
+    grid-template-columns: repeat(10, 8mm);
+  }
+
   .htBoardCounter {
     height: 8mm;
     width: 8mm;
@@ -6304,5 +6332,169 @@ p.desc svg {
 
   .htBoardCardGridLong .htBoardCardNumber {
     font-size: 11pt;
+  }
+}
+
+/* Schyoty (счёты) board, shared with the chosen-number practice game. */
+.schyoty-container {
+  background: #c4b896;
+  border-radius: clamp(1.5rem, 5vw, 3.5rem);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6);
+  padding: clamp(0.8rem, 3vw, 1.8rem);
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  margin: 0 auto;
+}
+
+.schyoty-frame {
+  background: #e9ddb0;
+  border-radius: clamp(1rem, 3vw, 1.8rem);
+  padding: clamp(8px, 2vw, 16px);
+  box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2);
+  position: relative;
+  box-sizing: border-box;
+}
+
+#schyotyCanvas {
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  background-color: #fef7e0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 860 / 400;
+  max-width: 688px;
+  box-sizing: border-box;
+}
+
+.schyoty-panel {
+  margin-top: clamp(0.8rem, 4vw, 1.8rem);
+  background: #2e241f;
+  border-radius: 60px;
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-sizing: border-box;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3);
+}
+
+.schyoty-panel-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 18px);
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.schyoty-readout {
+  background: #f2ecd8;
+  padding: 0.4rem 1rem;
+  border-radius: 40px;
+  font-family: 'Courier New', 'SF Mono', monospace;
+  font-weight: bold;
+  font-size: clamp(1rem, 5vw, 1.9rem);
+  letter-spacing: 1px;
+  color: #1f2a0e;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.schyoty-readout span {
+  font-size: clamp(0.7rem, 3.5vw, 1.2rem);
+  font-weight: normal;
+  background: #4a3929;
+  color: #ffecb3;
+  padding: 0.2rem 0.7rem;
+  border-radius: 30px;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.schyoty-reset {
+  background: #846b4e;
+  border: none;
+  color: #ffefcf;
+  font-weight: bold;
+  font-size: clamp(0.85rem, 4vw, 1.2rem);
+  font-family: inherit;
+  padding: 0.5rem 1.2rem;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: 0.08s linear;
+  box-shadow: 0 3px 0 #4f3822, 0 4px 10px rgba(0,0,0,0.3);
+  border-bottom: 1px solid #b49466;
+}
+
+.schyoty-reset:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #4f3822;
+}
+
+.schyoty-success {
+  display: none;
+  visibility: hidden;
+  background: #3a7a3a;
+  color: #e0ffd0;
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  font-weight: bold;
+}
+
+.schyoty-game-area {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 2vw, 14px);
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.schyoty-game-label {
+  color: #ffecb3;
+  font-size: clamp(0.8rem, 3.5vw, 1.1rem);
+  font-weight: bold;
+  background: #4a3929;
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.schyoty-game-target {
+  background: #f2ecd8;
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 4vw, 1.3rem);
+  color: #1f2a0e;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  .schyoty-container {
+    padding: 0.6rem;
+  }
+
+  .schyoty-panel {
+    justify-content: center;
+  }
+
+  .schyoty-panel-left {
+    justify-content: center;
+  }
+
+  .schyoty-reset {
+    flex: 1 1 100%;
   }
 }

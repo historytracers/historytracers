@@ -9,21 +9,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History Tracers</title>
   <meta name="description" content="History Tracers is a free, open-source educational project teaching mathematics, science, history and genealogy through culture, games and primary sources.">
+  <link rel="canonical" id="htCanonical" href="https://www.historytracers.org/">
   <script type="text/javascript">
     // The site is a single-page application, so every content page is served
-    // by index.html with query parameters. Create a self-referencing canonical
-    // for the requested content page; otherwise every page would inherit the
-    // homepage canonical and be reported as an alternate of the homepage.
+    // by index.html with query parameters. Keep the canonical link in sync
+    // with the requested page; the homepage keeps its self-referencing
+    // canonical so agents can identify and deduplicate the page.
     (function () {
       var head = document.head || document.getElementsByTagName("head")[0];
       if (!head) {
         return;
       }
-      var canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      canonical.setAttribute("id", "htCanonical");
+      var canonical = document.getElementById("htCanonical");
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.setAttribute("rel", "canonical");
+        canonical.setAttribute("id", "htCanonical");
+        head.appendChild(canonical);
+      }
       canonical.setAttribute("href", "https://www.historytracers.org/");
-      head.appendChild(canonical);
       var page = null;
       var arg = null;
       try {
@@ -59,6 +63,8 @@
         "logo": "https://www.historytracers.org/images/HistoryTracers/Icon.png",
         "description": "A free, open-source educational project teaching mathematics, science, history and genealogy through culture, games and primary sources.",
         "email": "contact@historytracers.org",
+        "telephone": null,
+        "address": null,
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "contact@historytracers.org",
@@ -109,24 +115,24 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <link rel="stylesheet" href="css/ht_common.css?v=1795738168">
-  <link rel="stylesheet" href="css/ht_math.css?v=1795738168">
+  <link rel="stylesheet" href="css/ht_common.css?v=1795790749">
+  <link rel="stylesheet" href="css/ht_math.css?v=1795790749">
   <!-- https://docs.fontawesome.com/v5/web/setup/host-font-awesome-yourself -->
   <link rel="stylesheet" href="css/fa_6_5_2.min.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b">
 
-  <script type="text/javascript" src="js/calendar.js?v=1795738168"></script>
-  <script type="text/javascript" src="js/jquery-4.1.0.min.js?v=1795738168-78e1-45bb-a4d2-f1da72fdb76a"></script>
+  <script type="text/javascript" src="js/calendar.js?v=1795790749"></script>
+  <script type="text/javascript" src="js/jquery-4.1.0.min.js?v=1795790749-78e1-45bb-a4d2-f1da72fdb76a"></script>
   <script type="text/javascript" async src="js/showdown.210.min.js?v=da938423-af12-4b7a-ac3f-9d203eedd62d"></script>
   <script type="text/javascript" async src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
 
-  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=1795738168dd2-52a2-423d-884f-4cefa04090ec"></script -->
+  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=1795790749dd2-52a2-423d-884f-4cefa04090ec"></script -->
 
   <script type="text/javascript" src="js/chart_4_6_1.js?v=cbd7ed7c-6618-47b1-9f23-fc0dc15cc952"></script>
-  <script type="text/javascript" src="js/ht_common.js?v=1795738168"></script>
-  <script type="text/javascript" src="js/ht_math.js?v=1795738168"></script>
-  <script type="text/javascript" src="js/ht_chart.js?v=1795738168"></script>
-  <script type="text/javascript" src="js/ht_update.js?v=1795738168"></script>
-  <script type="text/javascript" src="js/index.js?v=1795738168fe5ae3-d2ce-459c-83a7-3fe372bb3a2e"></script>
+  <script type="text/javascript" src="js/ht_common.js?v=1795790749"></script>
+  <script type="text/javascript" src="js/ht_math.js?v=1795790749"></script>
+  <script type="text/javascript" src="js/ht_chart.js?v=1795790749"></script>
+  <script type="text/javascript" src="js/ht_update.js?v=1795790749"></script>
+  <script type="text/javascript" src="js/index.js?v=1795790749fe5ae3-d2ce-459c-83a7-3fe372bb3a2e"></script>
 </head>
 
 <body>
@@ -327,9 +333,9 @@
     </div>
     <footer class="ht-footer" aria-label="Site information">
         <nav class="ht-footer-nav" aria-label="About, contact and legal">
-            <a href="index.html?page=class_content&arg=main" target="_blank" id="sbAbout"></a>
-            <a href="index.html?page=contact" target="_blank" id="sbContact2"></a>
-            <a href="index.html?page=license" target="_blank" id="sbLicense2"></a>
+            <a href="index.html?page=class_content&arg=main" target="_blank" id="sbAbout">About</a>
+            <a href="index.html?page=contact" target="_blank" id="sbContact2">Contact</a>
+            <a href="index.html?page=license" target="_blank" id="sbLicense2">Terms and license</a>
         </nav>
         <p class="ht-footer-contact">Email: <a href="mailto:contact@historytracers.org">contact@historytracers.org</a></p>
     </footer>
